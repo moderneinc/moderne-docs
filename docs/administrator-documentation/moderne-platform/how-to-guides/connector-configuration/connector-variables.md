@@ -83,11 +83,13 @@ java -jar connector-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                                        | Required | Default | Description                                      |
-|------------------------------------------------------|----------|---------|--------------------------------------------------|
-| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTID`     | `true`   |         | The client ID of the registered OAuth app.       |
-| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTSECRET` | `true`   |         | The client secret of the registered OAuth app.   |
-| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_TENANTID`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
+| Variable Name                                        | Required | Default | Description                                                                                                                       |
+|------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTID`     | `true`   |         | The client ID of the registered OAuth app.                                                                                        |
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTSECRET` | `true`   |         | The client secret of the registered OAuth app.                                                                                    |
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_TENANTID`     | `true`   |         | The Azure tenant ID of the registered OAuth app.                                                                                  |
+| `MODERNE_SCM_AZUREDEVOPS_{index}_PROXY_HOST`         | `false`  |         | The hostname of a proxy server to use for connections to this Azure DevOps instance. If specified, `PROXY_PORT` must also be set. |
+| `MODERNE_SCM_AZUREDEVOPS_{index}_PROXY_PORT`         | `false`  |         | The port of the proxy server to use for connections to this Azure DevOps instance. If specified, `PROXY_HOST` must also be set.   |
 
 **Example:**
 
@@ -105,11 +107,13 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                           | Required | Default | Description                                      |
-|---------------------------------------------------------|----------|---------|--------------------------------------------------|
-| `--moderne.scm.azureDevops[{index}].oauth.clientId`     | `true`   |         | The client ID of the registered OAuth app.       |
-| `--moderne.scm.azureDevops[{index}].oauth.clientSecret` | `true`   |         | The client secret of the registered OAuth app.   |
-| `--moderne.scm.azureDevops[{index}].oauth.tenantId`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
+| Argument Name                                           | Required | Default | Description                                                                                                                       |
+|---------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.scm.azureDevops[{index}].oauth.clientId`     | `true`   |         | The client ID of the registered OAuth app.                                                                                        |
+| `--moderne.scm.azureDevops[{index}].oauth.clientSecret` | `true`   |         | The client secret of the registered OAuth app.                                                                                    |
+| `--moderne.scm.azureDevops[{index}].oauth.tenantId`     | `true`   |         | The Azure tenant ID of the registered OAuth app.                                                                                  |
+| `--moderne.scm.azureDevops[{index}].proxy.host`         | `false`  |         | The hostname of a proxy server to use for connections to this Azure DevOps instance. If specified, `proxy.port` must also be set. |
+| `--moderne.scm.azureDevops[{index}].proxy.port`         | `false`  |         | The port of the proxy server to use for connections to this Azure DevOps instance. If specified, `proxy.host` must also be set.   |
 
 **Example:**
 
@@ -131,10 +135,12 @@ java -jar connector-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                             | Required | Default | Description                                            |
-|-------------------------------------------|----------|---------|--------------------------------------------------------|
-| `MODERNE_SCM_BITBUCKETCLOUD_OAUTH_KEY`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
-| `MODERNE_SCM_BITBUCKETCLOUD_OAUTH_SECRET` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
+| Variable Name                             | Required | Default | Description                                                                                                                          |
+|-------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_SCM_BITBUCKETCLOUD_OAUTH_KEY`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.                                                                                  |
+| `MODERNE_SCM_BITBUCKETCLOUD_OAUTH_SECRET` | `true`   |         | The secret specified in your Bitbucket OAuth consumer.                                                                               |
+| `MODERNE_SCM_BITBUCKETCLOUD_PROXY_HOST`   | `false`  |         | The hostname of a proxy server to use for connections to this Bitbucket Cloud instance. If specified, `PROXY_PORT` must also be set. |
+| `MODERNE_SCM_BITBUCKETCLOUD_PROXY_PORT`   | `false`  |         | The port of the proxy server to use for connections to this Bitbucket Cloud instance. If specified, `PROXY_HOST` must also be set.   |
 
 **Example:**
 
@@ -151,10 +157,12 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                               | Required | Default | Description                                            |
-|---------------------------------------------|----------|---------|--------------------------------------------------------|
-| `--moderne.scm.bitbucketCloud.oauth.key`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
-| `--moderne.scm.bitbucketCloud.oauth.secret` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
+| Argument Name                               | Required | Default | Description                                                                                                                          |
+|---------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.scm.bitbucketCloud.oauth.key`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.                                                                                  |
+| `--moderne.scm.bitbucketCloud.oauth.secret` | `true`   |         | The secret specified in your Bitbucket OAuth consumer.                                                                               |
+| `--moderne.scm.bitbucketCloud.proxy.host`   | `false`  |         | The hostname of a proxy server to use for connections to this Bitbucket Cloud instance. If specified, `proxy.port` must also be set. |
+| `--moderne.scm.bitbucketCloud.proxy.port`   | `false`  |         | The port of the proxy server to use for connections to this Bitbucket Cloud instance. If specified, `proxy.host` must also be set.   |
 
 **Example:**
 
@@ -186,6 +194,8 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 | `MODERNE_SCM_BITBUCKETDATACENTER_{index}_OAUTH_KEY`    | `conditional` |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
 | `MODERNE_SCM_BITBUCKETDATACENTER_{index}_OAUTH_SECRET` | `conditional` |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
 | `MODERNE_SCM_BITBUCKETDATACENTER_{index}_SKIPSSL`      | `false`       | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_PROXY_HOST`   | `false`       |         | The hostname of a proxy server to use for connections to this Bitbucket Data Center instance. If specified, `PROXY_PORT` must also be set.                                |
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_PROXY_PORT`   | `false`       |         | The port of the proxy server to use for connections to this Bitbucket Data Center instance. If specified, `PROXY_HOST` must also be set.                                  |
 
 **Example:**
 
@@ -210,6 +220,8 @@ docker run \
 | `--moderne.scm.bitbucketDatacenter[{index}].oauth.key`    | `conditional` |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
 | `--moderne.scm.bitbucketDatacenter[{index}].oauth.secret` | `conditional` |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
 | `--moderne.scm.bitbucketDatacenter[{index}].skipSsl`      | `false`       | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.scm.bitbucketDatacenter[{index}].proxy.host`   | `false`       |         | The hostname of a proxy server to use for connections to this Bitbucket Data Center instance. If specified, `proxy.port` must also be set.                                |
+| `--moderne.scm.bitbucketDatacenter[{index}].proxy.port`   | `false`       |         | The port of the proxy server to use for connections to this Bitbucket Data Center instance. If specified, `proxy.host` must also be set.                                  |
 
 **Example:**
 
@@ -243,6 +255,8 @@ You can configure multiple GitHub OAuth apps by including multiple entries, each
 | `MODERNE_SCM_GITHUB_{index}_SKIPSSL`                         | `false`  | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
 | `MODERNE_SCM_GITHUB_{index}_ALLOWABLE_ORGANIZATIONS_{index}` | `false`  | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
 | `MODERNE_SCM_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS`       | `false`  | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
+| `MODERNE_SCM_GITHUB_{index}_PROXY_HOST`                      | `false`  |                 | The hostname of a proxy server to use for connections to this GitHub instance. If specified, `PROXY_PORT` must also be set.                                                                                                      |
+| `MODERNE_SCM_GITHUB_{index}_PROXY_PORT`                      | `false`  |                 | The port of the proxy server to use for connections to this GitHub instance. If specified, `PROXY_HOST` must also be set.                                                                                                        |
 
 **Example:**
 
@@ -271,6 +285,8 @@ docker run \
 | `--moderne.scm.github[{index}].skipSsl`                         | `false`  | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
 | `--moderne.scm.github[{index}].allowableOrganizations[{index}]` | `false`  | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
 | `--moderne.scm.github[{index}].oauth.includePrivateRepos`       | `false`  | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
+| `--moderne.scm.github[{index}].proxy.host`                      | `false`  |                 | The hostname of a proxy server to use for connections to this GitHub instance. If specified, `proxy.port` must also be set.                                                                                                      |
+| `--moderne.scm.github[{index}].proxy.port`                      | `false`  |                 | The port of the proxy server to use for connections to this GitHub instance. If specified, `proxy.host` must also be set.                                                                                                        |
 
 **Example:**
 
@@ -303,6 +319,8 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 | `MODERNE_SCM_GITLAB_{index}_OAUTH_CLIENTSECRET` | `true`   |         | The secret configured in GitLab.                                                                                                                                       |
 | `MODERNE_SCM_GITLAB_{index}_URI`                | `true`   |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
 | `MODERNE_SCM_GITLAB_{index}_SKIPSSL`            | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_SCM_GITLAB_{index}_PROXY_HOST`         | `false`  |         | The hostname of a proxy server to use for connections to this GitLab instance. If specified, `PROXY_PORT` must also be set.                                            |
+| `MODERNE_SCM_GITLAB_{index}_PROXY_PORT`         | `false`  |         | The port of the proxy server to use for connections to this GitLab instance. If specified, `PROXY_HOST` must also be set.                                              |
 
 **Example:**
 
@@ -326,6 +344,8 @@ docker run \
 | `--moderne.scm.gitlab[{index}].oauth.clientSecret` | `true`   |         | The secret configured in GitLab.                                                                                                                                       |
 | `--moderne.scm.gitlab[{index}].uri`                | `true`   |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
 | `--moderne.scm.gitlab[{index}].skipSsl`            | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.scm.gitlab[{index}].proxy.host`         | `false`  |         | The hostname of a proxy server to use for connections to this GitLab instance. If specified, `proxy.port` must also be set.                                            |
+| `--moderne.scm.gitlab[{index}].proxy.port`         | `false`  |         | The port of the proxy server to use for connections to this GitLab instance. If specified, `proxy.host` must also be set.                                              |
 
 **Example:**
 
