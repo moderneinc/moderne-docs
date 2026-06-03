@@ -7,6 +7,8 @@ description: Complete reference for the Moderne GraphQL API, including all queri
 
 *This page is auto-generated from the Moderne GraphQL schema. Do not edit manually.*
 
+[Download schema (SDL)](/graphql/schema.graphql)
+
 ## Queries
 
 #### `auditLogs`
