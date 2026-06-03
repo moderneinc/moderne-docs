@@ -223,8 +223,8 @@ describe('generateMarkdown', () => {
     const out = md();
     expect(out).toContain('### Enums');
     expect(out).toContain('##### `UserRole`');
-    expect(out).toContain('- `ADMIN`');
-    expect(out).toContain('- `MEMBER`');
+    expect(out).toContain('* `ADMIN`');
+    expect(out).toContain('* `MEMBER`');
   });
 
   it('renders union members', () => {
