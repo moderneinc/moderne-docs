@@ -244,4 +244,16 @@ describe('generateMarkdown', () => {
     const userSection = out.slice(out.indexOf('#### `user`'), out.indexOf('#### `users`'));
     expect(userSection).not.toContain('Deprecated');
   });
+
+  it('includes SDL download link when sdlPath is provided', () => {
+    const { ops, types } = parseSchema(SAMPLE_SDL);
+    const out = generateMarkdown(ops, types, '/graphql/schema.graphql');
+    expect(out).toContain('[Download schema (SDL)](/graphql/schema.graphql)');
+  });
+
+  it('omits SDL download link when sdlPath is not provided', () => {
+    const { ops, types } = parseSchema(SAMPLE_SDL);
+    const out = generateMarkdown(ops, types);
+    expect(out).not.toContain('Download schema');
+  });
 });
