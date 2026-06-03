@@ -10,6 +10,133 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## June 3, 2026
+
+#### rewrite-ai - 0.4.0
+
+* Regenerate recipes.csv
+
+#### rewrite-ai-search - 0.34.0
+
+* Regenerate recipes.csv
+
+#### rewrite-android - 0.18.0
+
+* Regenerate recipes.csv
+
+#### rewrite-angular - 1.3.1
+
+* Save all log files from CLI
+
+#### rewrite-angular - 1.3.0
+
+* Bump ts-jest from 29.4.9 to 29.4.11 in /recipes-angular[bot]
+* Bump tmp from 0.2.5 to 0.2.7 in /recipes-angular[bot]
+* Upgrading to OpenRewrite 8.84.0
+
+#### rewrite-circleci - 3.12.0
+
+* Regenerate recipes.csv
+
+#### rewrite-cobol - 2.18.0
+
+* Regenerate recipes.csv
+
+#### rewrite-codemods - 0.26.0
+
+* Regenerate recipes.csv
+
+#### rewrite-codemods-ng - 0.21.0
+
+* Regenerate recipes.csv
+
+#### rewrite-compiled-analysis - 0.14.0
+
+* Regenerate recipes.csv
+
+#### rewrite-concourse - 3.11.0
+
+* Regenerate recipes.csv
+
+#### rewrite-cryptography - 0.14.0
+
+* Update rewriteVersion handling in build.gradle.kts
+
+#### rewrite-dotnet - 0.16.0
+
+* Regenerate recipes.csv
+
+#### rewrite-elastic - 0.7.0
+
+* Regenerate recipes.csv
+
+#### rewrite-hibernate - 0.24.0
+
+* Drop redundant Hibernate 6.6.x dependency upgrade
+* Regenerate recipes.csv
+
+#### rewrite-jasperreports - 0.6.0
+
+* Regenerate recipes.csv
+
+#### rewrite-java-application-server - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.84.0
+
+#### rewrite-kafka - 0.7.0
+
+* Regenerate recipes.csv
+
+#### rewrite-kubernetes - 3.17.0
+
+* Regenerate recipes.csv
+
+#### rewrite-migrate-kotlin - 0.5.0
+
+* Regenerate recipes.csv
+* Fix scheduled CI: rewrite enumValues&lt;T&gt;() via dedicated KotlinVisitor
+
+#### rewrite-migrate-python - 0.8.0
+
+* Regenerate recipes.csv
+
+#### rewrite-nodejs - 0.46.0
+
+* Port dependency-vulnerability-check from TypeScript to Java
+* OpenRewrite recipe best practices
+
+#### rewrite-program-analysis - 0.12.7
+
+* Updated repository to use OpenRewrite version v8.84.0
+
+#### rewrite-react - 0.3.1
+
+* Updated repository to use OpenRewrite version v8.84.0
+
+#### rewrite-reactive-streams - 0.20.0
+
+* Regenerate recipes.csv
+
+#### rewrite-release-metromap - 0.3.0
+
+* Regenerate recipes.csv
+
+#### rewrite-sql - 2.12.0
+
+* Regenerate recipes.csv
+
+#### rewrite-struts - 0.26.0
+
+* Regenerate recipes.csv
+
+#### rewrite-tapestry - 0.4.0
+
+* Regenerate recipes.csv
+
+#### rewrite-terraform - 3.14.2
+
+* Updated repository to use OpenRewrite version v8.84.0
+
 ## June 1, 2026
 
 #### rewrite-program-analysis - 0.12.6
