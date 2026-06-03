@@ -35,15 +35,19 @@ For background on how the Connector uses CSV sources and how S3 fits into the ov
         {
             "Effect": "Allow",
             "Action": [
-                "s3:GetObject"
+                "s3:GetObject",
+                "s3:ListBucket"
             ],
             "Resource": [
+                "arn:aws:s3:::my-bucket",
                 "arn:aws:s3:::my-bucket/repos.csv"
             ]
         }
     ]
 }
 ```
+
+The `s3:GetObject` permission applies to the CSV object and lets the Connector read it. The `s3:ListBucket` permission applies to the bucket itself and is required because the Connector verifies that it can reach the bucket as a startup connectivity check before it reads the object. The Connector fails to start if this check does not pass.
 
 ## Authentication options
 
