@@ -7,14 +7,19 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.260.0         |
+| Agent (recommended to use **latest**) | 0.261.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.260.0/moderne-agent-0.260.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.261.0/moderne-agent-0.261.0.jar)
 
 ## Changelog
 
+### v0.261.0 - 2026-06-03
+
+* actions/setup-java v5
+* aws-actions/configure-aws-credentials@v6
+* Fix GHSA-72hv-8253-57qq and GHSA-2m67-wjpj-xhg9 in jackson-core 3.x pulled in by logstash-logback-encoder
 ### v0.260.0 - 2026-05-15
 
 * Suppress HIGH/CRITICAL false positives from dependency-vulnerability-report
