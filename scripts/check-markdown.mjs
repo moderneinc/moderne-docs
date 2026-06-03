@@ -24,7 +24,7 @@ import remarkLint from 'remark-lint';
 import { lintRule } from 'unified-lint-rule';
 import remarkLintUnorderedListMarkerStyle from 'remark-lint-unordered-list-marker-style';
 import remarkLintNoConsecutiveBlankLines from 'remark-lint-no-consecutive-blank-lines';
-import { visit } from 'unist-util-visit';
+import { visit, EXIT } from 'unist-util-visit';
 import { VFile } from 'vfile';
 import { readFileSync } from 'fs';
 import { resolve, relative } from 'path';
@@ -61,20 +61,36 @@ const noBareExpression = lintRule(
 // ---------------------------------------------------------------------------
 // Custom rule: no-h1-in-body
 //
-// Docusaurus renders the frontmatter `title` field as the page <h1>. A
-// # heading in the document body creates a double-h1, breaking page layout.
+// A Docusaurus page has exactly one h1. Its mdx-loader takes the first heading
+// in the document — the first heading/thematic-break node, even when JSX such
+// as <VersionBanner> precedes it — and, if it's an h1, wraps it in <header> as
+// the page title. When there's no leading h1, Docusaurus synthesizes the page
+// h1 from the frontmatter `title:` (falling back to the slug). Either way that
+// first h1 is fine; any *additional* # h1 renders as a raw, duplicate h1. So we
+// flag every h1 except the one Docusaurus turns into the page title.
 // ---------------------------------------------------------------------------
 
 const noH1InBody = lintRule(
   { origin: 'remark-lint:no-h1-in-body' },
   (tree, file) => {
-    const frontmatter = tree.children.find(n => n.type === 'yaml');
-    if (!frontmatter || !/^title:/m.test(frontmatter.value)) return;
+    // The page-title h1 is the first heading/thematic-break node in document
+    // order, but only when that node is itself an h1 (mirrors Docusaurus's
+    // contentTitle remark plugin, which stops at the first such node).
+    let firstBlock = null;
+    visit(tree, ['heading', 'thematicBreak'], (node) => {
+      firstBlock = node;
+      return EXIT;
+    });
+    const pageTitleH1 =
+      firstBlock && firstBlock.type === 'heading' && firstBlock.depth === 1
+        ? firstBlock
+        : null;
     visit(tree, 'heading', (node) => {
-      if (node.depth === 1) {
+      if (node.depth === 1 && node !== pageTitleH1) {
         file.message(
-          'Do not use # h1 headings when frontmatter has title:. ' +
-          'Docusaurus injects the frontmatter title as h1, creating a double-h1.',
+          'Extra # h1 heading. Docusaurus renders only one page h1 (the first ' +
+          'heading, or the frontmatter title:); additional # headings become ' +
+          'duplicate h1s. Use ## or lower for in-page sections.',
           node,
         );
       }
