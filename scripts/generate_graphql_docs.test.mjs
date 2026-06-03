@@ -223,8 +223,8 @@ describe('generateMarkdown', () => {
     const out = md();
     expect(out).toContain('### Enums');
     expect(out).toContain('##### `UserRole`');
-    expect(out).toContain('- `ADMIN`');
-    expect(out).toContain('- `MEMBER`');
+    expect(out).toContain('* `ADMIN`');
+    expect(out).toContain('* `MEMBER`');
   });
 
   it('renders union members', () => {
@@ -243,5 +243,17 @@ describe('generateMarkdown', () => {
     const out = md();
     const userSection = out.slice(out.indexOf('#### `user`'), out.indexOf('#### `users`'));
     expect(userSection).not.toContain('Deprecated');
+  });
+
+  it('includes SDL download link when sdlPath is provided', () => {
+    const { ops, types } = parseSchema(SAMPLE_SDL);
+    const out = generateMarkdown(ops, types, '/graphql/schema.graphql');
+    expect(out).toContain('[Download schema (SDL)](/graphql/schema.graphql)');
+  });
+
+  it('omits SDL download link when sdlPath is not provided', () => {
+    const { ops, types } = parseSchema(SAMPLE_SDL);
+    const out = generateMarkdown(ops, types);
+    expect(out).not.toContain('Download schema');
   });
 });

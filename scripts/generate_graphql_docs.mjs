@@ -176,7 +176,7 @@ function cell(text) {
   return mdxEscape(text.replace(/\n+/g, ' ')).replace(/\|/g, '\\|');
 }
 
-export function generateMarkdown(ops, types) {
+export function generateMarkdown(ops, types, sdlPath = null) {
   const known = new Set(types.map(t => t.name));
   const lines = [
     '---',
@@ -189,6 +189,9 @@ export function generateMarkdown(ops, types) {
     '*This page is auto-generated from the Moderne GraphQL schema. Do not edit manually.*',
     '',
   ];
+  if (sdlPath) {
+    lines.push(`[Download schema (SDL)](${sdlPath})`, '');
+  }
 
   for (const kind of ['query', 'mutation', 'subscription']) {
     const group = ops.filter(o => o.kind === kind).sort((a, b) => a.name.localeCompare(b.name));
@@ -242,11 +245,13 @@ export function generateMarkdown(ops, types) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   if (process.argv.length < 3) {
-    process.stderr.write(`Usage: node ${process.argv[1]} <rover-output.json>\n`);
+    process.stderr.write(`Usage: node ${process.argv[1]} <rover-output.json> [--sdl-path <url>]\n`);
     process.exit(1);
   }
+  const sdlPathIdx = process.argv.indexOf('--sdl-path');
+  const sdlPath = sdlPathIdx !== -1 ? process.argv[sdlPathIdx + 1] : null;
   const raw = readFileSync(process.argv[2], 'utf-8');
   const sdl = JSON.parse(raw).data.sdl.contents;
   const { ops, types } = parseSchema(sdl);
-  process.stdout.write(generateMarkdown(ops, types));
+  process.stdout.write(generateMarkdown(ops, types, sdlPath));
 }

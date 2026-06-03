@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 const path = require('path');
 
 const ALLOWED_EXTENSIONS = new Set([
-  '.md', '.mdx', '.tsx', '.ts', '.js', '.mjs', '.css', '.json',
+  '.md', '.mdx', '.tsx', '.ts', '.js', '.mjs', '.css', '.json', '.graphql',
   '.png', '.gif', '.jpg', '.jpeg', '.svg', '.ico',
   '.yaml', '.yml', '.toml', '.lock', '.txt', '.excalidraw',
 ]);
