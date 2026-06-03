@@ -3984,8 +3984,6 @@ Republishing to update dependencies
 
 #### rewrite-cryptography - v0.2.1
 
-# What's Changed
-
 - Fix recipe name
 
 ## June 15, 2025
