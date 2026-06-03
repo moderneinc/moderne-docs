@@ -34,9 +34,14 @@ jobs:
           APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
         run: rover graph fetch Moderne-SaaS-API@SaaS-v2 --format json > /tmp/schema.json
 
+      - name: Extract SDL
+        run: |
+          mkdir -p static/graphql
+          jq -r '.data.sdl.contents' /tmp/schema.json > static/graphql/schema.graphql
+
       - name: Generate GraphQL API reference
         run: |
-          node scripts/generate_graphql_docs.mjs /tmp/schema.json \
+          node scripts/generate_graphql_docs.mjs /tmp/schema.json --sdl-path /graphql/schema.graphql \
             > docs/user-documentation/moderne-platform/references/graphql-api-reference.md
 
       - name: Commit and push
@@ -44,6 +49,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git add docs/user-documentation/moderne-platform/references/graphql-api-reference.md
+          git add static/graphql/schema.graphql
           git diff --cached --quiet && echo "No changes — skipping commit." && exit 0
           git commit -m "[Auto] Update GraphQL API reference as of $(date +'%Y-%m-%dT%H%M')"
           for attempt in 1 2 3; do
