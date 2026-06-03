@@ -85,32 +85,52 @@ describe('no-bare-mdx-expression', () => {
 // ---------------------------------------------------------------------------
 // Rule: no-h1-in-body
 //
-// Docusaurus renders the frontmatter `title` as the page <h1>. A # heading
-// in the document body creates a double-h1, breaking page layout.
+// A Docusaurus page has exactly one h1: the first heading (wrapped in <header>)
+// or, when there's no leading h1, a synthetic h1 from the frontmatter title:
+// (falling back to the slug). That first h1 is fine; any *additional* # h1
+// renders as a duplicate. The rule flags every h1 except the page-title one.
 // ---------------------------------------------------------------------------
 
 describe('no-h1-in-body', () => {
-  it('flags a # h1 when frontmatter also has title: (double-h1 bug)', async () => {
+  it('does not flag a single leading # h1 — it becomes the page title', async () => {
     const md = ['---', 'title: My Page', '---', '', '# My Page'].join('\n');
     const issues = await checkMarkdown(md, 'test.md');
-    expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(1);
-    expect(issues.find(i => i.rule === 'no-h1-in-body')).toMatchObject({ severity: 'warning' });
+    expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(0);
   });
 
-  it('does not flag # h1 when frontmatter has no title (body h1 is the page title)', async () => {
-    const md = ['---', 'description: A description.', '---', '', '# My Page'].join('\n');
+  it('does not flag a single # h1 preceded by leading JSX (Docusaurus still extracts it)', async () => {
+    const md = [
+      '---', 'title: FAQ', '---', '',
+      "import VersionBanner from '@site/src/components/VersionBanner';", '',
+      '<VersionBanner version="v1" linkPath="/faq" />', '',
+      '# FAQ',
+    ].join('\n');
     const issues = await checkMarkdown(md, 'test.md');
     expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(0);
   });
 
-  it('does not flag # h1 with no frontmatter at all', async () => {
-    const md = '# My Page\n\nContent here.';
-    const issues = await checkMarkdown(md, 'test.md');
-    expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(0);
+  it('flags a second # h1 in the body as a duplicate page h1', async () => {
+    const md = ['# First', '', 'Body.', '', '# Second'].join('\n');
+    const issues = (await checkMarkdown(md, 'test.md')).filter(i => i.rule === 'no-h1-in-body');
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toMatchObject({ line: 5, severity: 'warning' });
   });
 
-  it('does not flag ## h2 headings even with title in frontmatter', async () => {
+  it('flags a body # h1 when the first heading is an h2 (page h1 comes from title:/slug)', async () => {
+    const md = ['---', 'title: My Page', '---', '', '## Intro', '', '# Late h1'].join('\n');
+    const issues = (await checkMarkdown(md, 'test.md')).filter(i => i.rule === 'no-h1-in-body');
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toMatchObject({ line: 7 });
+  });
+
+  it('does not flag ## h2 headings', async () => {
     const md = ['---', 'title: My Page', '---', '', '## Section heading'].join('\n');
+    const issues = await checkMarkdown(md, 'test.md');
+    expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(0);
+  });
+
+  it('does not flag a single # h1 with no frontmatter', async () => {
+    const md = '# My Page\n\nContent here.';
     const issues = await checkMarkdown(md, 'test.md');
     expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(0);
   });
