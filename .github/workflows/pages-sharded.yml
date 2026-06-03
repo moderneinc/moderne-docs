@@ -57,7 +57,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Cache bundler artifacts (per shard)
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: node_modules/.cache
           key: docusaurus-shard-${{ matrix.shard }}-${{ runner.os }}-${{ hashFiles('yarn.lock', 'docusaurus.config.ts', 'src/theme/**') }}
@@ -93,7 +93,7 @@ jobs:
           free -h
 
       - name: Upload shard artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: build-shard-${{ matrix.shard }}
           path: build-shards/shard-${{ matrix.shard }}
@@ -113,7 +113,7 @@ jobs:
           cache: yarn
 
       - name: Download all shard artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: build-shards
           pattern: build-shard-*
@@ -145,7 +145,7 @@ jobs:
         run: cat broken-links-summary.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload broken-links summary artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: broken-links-summary
           path: |
