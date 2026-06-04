@@ -7,13 +7,20 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.150.10 |
+| Connector | 0.150.17 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.10/connector-0.150.10.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.17/connector-0.150.17.jar)
 
 ## Changelog
 
 ## June 2026
+
+### v0.150.17 – 2026-06-04
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.17/connector-0.150.17.jar)
+
+* Add software.amazon.awssdk:sts so IRSA can assume the configured role (#1107)
+
 
 ### v0.150.10 – 2026-06-01
 
