@@ -137,6 +137,25 @@ To learn more about impact analysis and how to automate it, check out this video
 
 <ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
 
+### [Language composition report](https://app.moderne.io/recipes/org.openrewrite.LanguageComposition)
+
+> Counts the lines of source code and data formats parsed across your repositories, broken down per repository, per folder, and per file. It makes no changes to your code, making it the fastest way to judge up front what kinds of projects you're dealing with — which languages and frameworks are present, and at what scale — before planning any deeper work.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.LanguageComposition
+
+mod study . --last-recipe-run --data-table LanguageCompositionPerRepository
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![Language composition visualization showing the breakdown of programming languages and data file formats across repositories](./assets/language-composition-example.png)
+  <figcaption>_Understanding the language composition of your repositories_</figcaption>
+</figure>
+
 ### [Find types](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes#defaults=W3sibmFtZSI6ImZ1bGx5UXVhbGlmaWVkVHlwZU5hbWUiLCJ2YWx1ZSI6Im9yZy5hcGFjaGUuY29tbW9ucy5sYW5nMy5TdHJpbmdVdGlscyJ9LHsibmFtZSI6ImNoZWNrQXNzaWduYWJpbGl0eSIsInZhbHVlIjp0cnVlfV0=)
 
 > Identifies classes, interfaces, or enums matching a type pattern. Crucial for understanding class usage and inheritance hierarchies before performing refactoring or migrations.
@@ -394,6 +413,42 @@ mod run . --recipe org.openrewrite.java.logging.slf4j.Slf4jBestPractices
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
 
+## DevCenter
+
+A [DevCenter](../../recipes/recipe-catalog/devcenter/devcenterstarter.md) gives you a high-level, single-page overview of where every repository in your organization stands. It tracks upgrade and migration progress (such as Spring Boot, Java, and JUnit versions), surfaces outstanding security issues, suggests how to upgrade, and reports organization statistics like repository counts, contributing developers, and lines of code. This makes it an effective way to frame a proof of value for leadership before diving into individual recipes.
+
+There are two ways to view a DevCenter:
+
+* **In the Moderne Platform** – organizations configured with a DevCenter display it via the `DevCenter` link in the left navigation. See [Understanding the Moderne DevCenter](./dev-center.md) for a walkthrough of each component.
+* **Locally with the CLI** – you can generate an HTML dashboard for any set of repositories you have cloned and built. See [Generating DevCenters locally](../../moderne-cli/how-to-guides/cli-dev-center.md) for the full guide.
+
+### [DevCenter starter](https://app.moderne.io/recipes/io.moderne.devcenter.DevCenterStarter)
+
+> Generates the data tables needed to build a DevCenter dashboard that tracks Spring Boot, Java, and JUnit upgrade progress, security issues, and organization statistics.
+
+#### CLI commands
+
+```bash
+# Install the DevCenter starter recipes
+mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
+
+# Run the DevCenterStarter recipe to produce the required data tables
+mod run . --recipe io.moderne.devcenter.DevCenterStarter
+
+# Generate the HTML DevCenter dashboard
+mod devcenter . --last-recipe-run
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
+  ![DevCenter dashboard showing organizational ownership, change campaigns, and security sections](./assets/large-devcenter.png)
+  <figcaption>_Example DevCenter dashboard_</figcaption>
+</figure>
+
+:::tip
+`DevCenterStarter` targets the JVM ecosystem by default, but DevCenters are available for many other ecosystems too – including Python, Node.js, C#/.NET, Angular, Kotlin, Quarkus, and Apache Maven. Browse the full set in the [DevCenter recipe catalog](../../recipes/recipe-catalog/devcenter/README.md), or learn how to [create a custom DevCenter recipe](../../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
+:::
 ## Dependency management
 
 ### [Update Gradle wrapper](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper)
@@ -634,7 +689,7 @@ Major migrations are complex transformations that typically automate 80-90% of t
 
 ### [Migrate to Java 25](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava25)
 
-> Comprehensive migration from Java 8/11 to Java 25. Updates build files for Java 25 target/source, replaces deprecated APIs, adopts new language features, upgrades plugins to Java 25 compatible versions, and updates GitHub Actions configurations.
+> Comprehensive migration from Java 8/11 to Java 25. Updates build files for Java 25 target/source, replaces deprecated APIs, adopts new language features, upgrades plugins to Java 25 compatible versions, and updates GitHub Actions configurations. Swap in the recipe for another target version (such as `org.openrewrite.java.migrate.UpgradeToJava17`) when you need to land on an earlier release.
 
 #### CLI commands
 
@@ -656,6 +711,17 @@ mod study . --last-recipe-run --data-table SourcesFileResults
     <figcaption>_Fixing deprecated methods_</figcaption>
   </figure>
 </div>
+
+### [Java best practices](https://app.moderne.io/recipes/org.openrewrite.java.migrate.JavaBestPractices)
+
+> Applies opinionated best practices for Java projects targeting Java 25. Includes the full Java 25 upgrade chain plus additional improvements to code style, API usage, and third-party dependency reduction that go beyond what the version migration recipes apply.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.migrate.JavaBestPractices
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
 
 ### [Spring Boot 4 best practices](https://app.moderne.io/recipes/io.moderne.java.spring.boot4.SpringBoot4BestPractices)
 

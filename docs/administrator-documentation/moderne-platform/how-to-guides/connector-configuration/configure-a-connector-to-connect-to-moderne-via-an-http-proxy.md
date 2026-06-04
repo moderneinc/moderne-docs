@@ -83,11 +83,11 @@ The proxy described above only governs the Connector's own outbound connection t
 
 Each integration the Connector talks to can be given its own HTTP proxy independently, via `proxy.host` / `proxy.port` settings on that tool. This includes:
 
-- SCM instances (GitHub, GitLab, Azure DevOps, Bitbucket Data Center, Bitbucket Cloud)
-- Maven and Artifactory repositories
-- Recipe marketplace repositories (Maven, npm, NuGet, PyPI)
-- Generic HTTP tools
-- LLM providers for Moddy
+* SCM instances (GitHub, GitLab, Azure DevOps, Bitbucket Data Center, Bitbucket Cloud)
+* Maven and Artifactory repositories
+* Recipe marketplace repositories (Maven, npm, NuGet, PyPI)
+* Generic HTTP tools
+* LLM providers for Moddy
 
 See the [Connector configuration variables reference](./connector-variables.md) for the exact proxy variable on each tool. As with the API Gateway proxy, if you set a host you must also set the matching port.
 
