@@ -385,6 +385,17 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   <figcaption>_Adding useful exceptions to logs_</figcaption>
 </figure>
 
+### [SLF4J best practices](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.Slf4jBestPractices)
+
+> Applies a comprehensive set of SLF4J logging best practices in a single recipe. Bundles both recipes above and adds more, including naming loggers for their enclosing class, making logger fields `private`, parameterizing `String.format()` and `MessageFormat.format()` calls, unpacking object arrays into varargs, guarding expensive log statements, stripping unnecessary `toString()` calls, and removing redundant log level guards. Because it captures more improvements in a single run, it surfaces greater estimated time savings during a proof of value.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.logging.slf4j.Slf4jBestPractices
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
 ## Dependency management
 
 ### [Update Gradle wrapper](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper)
