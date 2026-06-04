@@ -404,6 +404,17 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   <figcaption>_Adding useful exceptions to logs_</figcaption>
 </figure>
 
+### [SLF4J best practices](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.Slf4jBestPractices)
+
+> Applies a comprehensive set of SLF4J logging best practices in a single recipe. Bundles both recipes above and adds more, including naming loggers for their enclosing class, making logger fields `private`, parameterizing `String.format()` and `MessageFormat.format()` calls, unpacking object arrays into varargs, guarding expensive log statements, stripping unnecessary `toString()` calls, and removing redundant log level guards. Because it captures more improvements in a single run, it surfaces greater estimated time savings during a proof of value.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.logging.slf4j.Slf4jBestPractices
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
 ## DevCenter
 
 A [DevCenter](../../recipes/recipe-catalog/devcenter/devcenterstarter.md) gives you a high-level, single-page overview of where every repository in your organization stands. It tracks upgrade and migration progress (such as Spring Boot, Java, and JUnit versions), surfaces outstanding security issues, suggests how to upgrade, and reports organization statistics like repository counts, contributing developers, and lines of code. This makes it an effective way to frame a proof of value for leadership before diving into individual recipes.
