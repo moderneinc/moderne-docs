@@ -58,13 +58,28 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Regenerate recipes.csv
 
+#### rewrite-cryptography - 0.14.1
+
+* Update rewriteVersion handling in build.gradle.kts
+
 #### rewrite-cryptography - 0.14.0
 
 * Update rewriteVersion handling in build.gradle.kts
 
+#### rewrite-devcenter - 1.25.0
+
+* Regenerate recipes.csv
+* OpenRewrite recipe best practices
+* Add example recipe IDs to upgradeRecipe options on version-upgrade cards
+
 #### rewrite-dotnet - 0.16.0
 
 * Regenerate recipes.csv
+
+#### rewrite-dropwizard - 0.4.0
+
+* Regenerate recipes.csv
+* Resolve latest Dropwizard 5.x BOM at test runtime
 
 #### rewrite-elastic - 0.7.0
 
@@ -79,9 +94,27 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Regenerate recipes.csv
 
+#### rewrite-java-application-server - 0.7.2
+
+* Updated repository to use OpenRewrite version v8.84.0
+
 #### rewrite-java-application-server - 0.7.1
 
 * Updated repository to use OpenRewrite version v8.84.0
+
+#### rewrite-java-security - 3.32.0
+
+* Add FixPermissiveTrustManager (CWE-295)
+* Clarify Java DependencyVulnerabilityCheck display name
+* Add FixPermissiveHostnameVerifier (CWE-295)
+* Add FindMissingAuthorization (CWE-862)
+* Add FixCommandInjectionLiteral (CWE-78)
+* Add FixSqlInjectionConcat recipe (CWE-89)
+* Close SSRF guard bypasses in FixCwe918 (IPv4-mapped, ULA, NAT64, multi-record DNS)
+* Add FixInsecureJmsDeserialization (CWE-502)
+* Regenerate recipes.csv
+* Exclude Jackson 2.22.0 in DependencyVulnerabilityCheckMavenTest
+* Fix FixCwe338 replacing every method invocation in the file
 
 #### rewrite-kafka - 0.7.0
 
@@ -105,6 +138,12 @@ This changelog is automatically generated from GitHub releases and only contains
 * Port dependency-vulnerability-check from TypeScript to Java
 * OpenRewrite recipe best practices
 
+#### rewrite-prethink - 0.7.0
+
+* Regenerate recipes.csv
+* Don't resolve jackson test deps to partial snapshots via 2.+
+* Correct JS/TS receiver type FQNs in Node architecture recipes
+
 #### rewrite-program-analysis - 0.12.7
 
 * Updated repository to use OpenRewrite version v8.84.0
@@ -121,6 +160,20 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Regenerate recipes.csv
 
+#### rewrite-spring - 0.34.0
+
+* Consolidate calls into Moderne Spring Framework 7 and Hibernate 7.2 wrappers
+* Regenerate recipes.csv
+* Rewrite Kotlin property assignments broken by Spring Boot 4 `@NullMarked`
+* Add `UseRfc6265CookieProcessor` recipe for Tomcat cookie processor migration
+* Migrate `setResource(Resource)` to `setResource(WritableResource)` for Spring Batch 5
+* Add MigrateChannelInterceptorAdapter for Spring Framework 5.0
+* Migrate Spring Cloud AWS (awspring) to 4.0 during Spring Boot 4 upgrade
+* Migrate AbstractClientHttpResponse to ClientHttpResponse (TIAA #2462 item 3)
+* Fill 3.x → 6.0 gap in Spring Framework migration chain
+* Correct kotlin methodMatcher
+* Fix JsonMapperBuilderCustomizer package in Spring Boot 4.0 relocations
+
 #### rewrite-sql - 2.12.0
 
 * Regenerate recipes.csv
@@ -136,6 +189,10 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-terraform - 3.14.2
 
 * Updated repository to use OpenRewrite version v8.84.0
+
+#### rewrite-vulncheck - 0.7.0
+
+* Regenerate recipes.csv
 
 ## June 1, 2026
 
