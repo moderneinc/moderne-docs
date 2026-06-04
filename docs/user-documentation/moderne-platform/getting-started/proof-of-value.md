@@ -383,6 +383,43 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   <figcaption>_Adding useful exceptions to logs_</figcaption>
 </figure>
 
+## DevCenter
+
+A [DevCenter](../../recipes/recipe-catalog/devcenter/devcenterstarter.md) gives you a high-level, single-page overview of where every repository in your organization stands. It tracks upgrade and migration progress (such as Spring Boot, Java, and JUnit versions), surfaces outstanding security issues, suggests how to upgrade, and reports organization statistics like repository counts, contributing developers, and lines of code. This makes it an effective way to frame a proof of value for leadership before diving into individual recipes.
+
+There are two ways to view a DevCenter:
+
+* **In the Moderne Platform** – organizations configured with a DevCenter display it via the `DevCenter` link in the left navigation. See [Understanding the Moderne DevCenter](./dev-center.md) for a walkthrough of each component.
+* **Locally with the CLI** – you can generate an HTML dashboard for any set of repositories you have cloned and built. See [Generating DevCenters locally](../../moderne-cli/how-to-guides/cli-dev-center.md) for the full guide.
+
+### [DevCenter starter](https://app.moderne.io/recipes/io.moderne.devcenter.DevCenterStarter)
+
+> Generates the data tables needed to build a DevCenter dashboard that tracks Spring Boot, Java, and JUnit upgrade progress, security issues, and organization statistics.
+
+#### CLI commands
+
+```bash
+# Install the DevCenter starter recipes
+mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
+
+# Run the DevCenterStarter recipe to produce the required data tables
+mod run . --recipe io.moderne.devcenter.DevCenterStarter
+
+# Generate the HTML DevCenter dashboard
+mod devcenter . --last-recipe-run
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
+  ![DevCenter dashboard showing organizational ownership, change campaigns, and security sections](./assets/large-devcenter.png)
+  <figcaption>_Example DevCenter dashboard_</figcaption>
+</figure>
+
+:::tip
+`DevCenterStarter` targets the JVM ecosystem by default, but DevCenters are available for many other ecosystems too – including Python, Node.js, C#/.NET, Angular, Kotlin, Quarkus, and Apache Maven. Browse the full set in the [DevCenter recipe catalog](../../recipes/recipe-catalog/devcenter/README.md), or learn how to [create a custom DevCenter recipe](../../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
+:::
+
 ## Dependency management
 
 ### [Update Gradle wrapper](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper)
