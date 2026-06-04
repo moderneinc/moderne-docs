@@ -137,6 +137,25 @@ To learn more about impact analysis and how to automate it, check out this video
 
 <ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
 
+### [Language composition report](https://app.moderne.io/recipes/org.openrewrite.LanguageComposition)
+
+> Counts the lines of source code and data formats parsed across your repositories, broken down per repository, per folder, and per file. It makes no changes to your code, making it the fastest way to judge up front what kinds of projects you're dealing with — which languages and frameworks are present, and at what scale — before planning any deeper work.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.LanguageComposition
+
+mod study . --last-recipe-run --data-table LanguageCompositionPerRepository
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![Language composition visualization showing the breakdown of programming languages and data file formats across repositories](./assets/language-composition-example.png)
+  <figcaption>_Understanding the language composition of your repositories_</figcaption>
+</figure>
+
 ### [Find types](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes#defaults=W3sibmFtZSI6ImZ1bGx5UXVhbGlmaWVkVHlwZU5hbWUiLCJ2YWx1ZSI6Im9yZy5hcGFjaGUuY29tbW9ucy5sYW5nMy5TdHJpbmdVdGlscyJ9LHsibmFtZSI6ImNoZWNrQXNzaWduYWJpbGl0eSIsInZhbHVlIjp0cnVlfV0=)
 
 > Identifies classes, interfaces, or enums matching a type pattern. Crucial for understanding class usage and inheritance hierarchies before performing refactoring or migrations.
