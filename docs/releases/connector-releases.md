@@ -31,7 +31,6 @@ description: The current version of the Moderne Connector and where to download 
 * Spool ciphertext to disk, decouple encrypt from upload (#831)
 * Route tmpdir to EBS, drop Maven encrypt-path spool (#830)
 
-
 ## May 2026
 
 ### v0.148.107 – 2026-05-14
