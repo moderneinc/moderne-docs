@@ -10,6 +10,12 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## June 5, 2026
+
+#### rewrite-nodejs - 0.46.1
+
+* OpenRewrite 8.84.1
+
 ## June 3, 2026
 
 #### rewrite-ai - 0.4.0
@@ -4057,12 +4063,4 @@ Republishing to update dependencies
 * netty 4.1.122 in doNotAddEmptyConstraintsBlockForTransitiveDependenci…
 * Marker for CVE fixes
 * Fix signature of class constructor
-
-## June 4, 2025
-
-#### rewrite-devcenter - 1.3.0
-
-* Update `SpringBootUpgradeStarter` to migrate to spring boot 3.5.0
-* Include parent recipes as `DevCenter:fix` and `DevCenter:security` recipes before search their child recipes
-* No more DevCenter recipe tags, align instance name on data table to card
 
