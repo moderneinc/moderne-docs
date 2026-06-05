@@ -1,40 +1,23 @@
 /**
  * Navbar Layout Component Styles
- * Migrated from custom.css for frosted glass effect
  *
  * This file contains:
  * - Navbar wrapper for fixed positioning (contains primary + secondary nav)
- * - Frosted glass background and blur effects (light/dark modes)
+ * - Solid header background (tracks the page background in light/dark modes)
  * - Hide-on-scroll animation classes
  * - Logo sizing and navbar link styling
  */
 
 /* Wrapper for both primary navbar and secondary nav.
-   The frosted-glass effect is applied via ::before so the navbar's
-   children (e.g. the SVG logo) stay on a separate compositing layer
-   and don't get rasterized by backdrop-filter. */
+   Solid background matching the page so scrolled content is fully
+   occluded; the secondary nav's bottom border defines the lower edge. */
 .navbarWrapper {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: var(--ifm-z-index-fixed);
-  isolation: isolate;
-}
-
-.navbarWrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: -1;
-  pointer-events: none;
-}
-
-:global(html[data-theme='dark']) .navbarWrapper::before {
-  background-color: rgba(12, 17, 43, 0.8);
+  background-color: var(--ifm-background-color);
 }
 
 .navbar {
