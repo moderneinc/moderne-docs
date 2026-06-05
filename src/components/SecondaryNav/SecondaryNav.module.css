@@ -151,11 +151,6 @@
 }
 
 /* Dark mode adjustments */
-:global(html[data-theme='dark']) .secondaryNav {
-  background-color: rgba(12, 17, 43, 0.8);
-  backdrop-filter: blur(10px);
-}
-
 :global(html[data-theme='dark']) .dropdown {
   background: var(--brand-midnight);
   border-color: rgba(255, 255, 255, 0.2);
