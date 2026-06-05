@@ -184,9 +184,9 @@ mod search . struct:'Optional.ofNullable(:[x:e]).orElse(:[y:e])'
 
 The hole syntax includes typed variants like `:[name:e]` (balanced expression), `:[name:id]` (identifier), `:[name:block]` (balanced braces), and `:[name:g]` (generics). See [Structural holes](../../user-documentation/agent-tools/trigrep.md#structural-holes) for the full reference.
 
-#### Step 4: Java-specific semantic filters
+#### Step 4: Semantic filters
 
-Trigrep extends Sourcegraph's filter syntax with Java-specific filters that read from LST metadata. These are the queries `grep` simply can't answer:
+Trigrep extends Sourcegraph's filter syntax with semantic filters that read from LST metadata. These are the queries `grep` simply can't answer:
 
 ```bash
 # All public methods that return a List

@@ -9,7 +9,7 @@ import ReactPlayer from '@site/src/components/VideoPlayer';
 
 Moderne Trigrep provides fast, indexed search across your entire codebase, delivering sub-second search times even across thousands of repositories. It operates within the context of a Moderne organization, so you can scope searches to specific business units, teams, or application portfolios.
 
-Moderne Trigrep supports [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) and [Comby structural patterns](https://comby.dev/docs/syntax-reference), so AI models already trained on those tools can use Moderne Trigrep without learning a new query language. Beyond standard Sourcegraph filters, Moderne Trigrep adds Java-specific semantic filters like `visibility:`, `extends:`, and `implements:` powered by Lossless Semantic Tree (LST) metadata.
+Moderne Trigrep supports [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) and [Comby structural patterns](https://comby.dev/docs/syntax-reference), so AI models already trained on those tools can use Moderne Trigrep without learning a new query language. Beyond standard Sourcegraph filters, Moderne Trigrep adds semantic filters like `visibility:`, `extends:`, and `implements:` powered by Lossless Semantic Tree (LST) metadata.
 
 Search results can feed directly into OpenRewrite recipe execution, allowing you to use cheap text searches as prefilters for expensive code transformations.
 
@@ -68,7 +68,7 @@ To refine your search, you can combine terms with boolean logic:
 * **NOT** — Prefix with `-` to exclude. Because the CLI intercepts leading `-` as an option marker, insert `--` between the path and the query: `mod search . -- @RestController -test` finds files containing `@RestController` but not `test`.
 * **Grouping** — Parentheses control precedence. For example, `(@Service or @Controller) getUserById` finds files with `getUserById` that also have either annotation.
 
-You can also combine literal searches with [filters](#filters) to narrow results by file path, repository, language, or Java-specific properties like visibility and inheritance.
+You can also combine literal searches with [filters](#filters) to narrow results by file path, repository, language, or semantic properties like visibility and inheritance.
 
 <details>
 <summary>Common literal queries</summary>
@@ -198,7 +198,7 @@ The default is `sourcegraph`, which is what most online documentation and AI tra
 
 ### Differences between the two syntaxes
 
-Both dialects share the same core query features: literal search, regex, boolean operators, filters like `file:`, `repo:`, `sym:`, and all of the Java-specific semantic filters (`visibility:`, `extends:`, `implements:`, etc.). The differences are mostly syntactic shortcuts that Sourcegraph adds on top of Zoekt:
+Both dialects share the same core query features: literal search, regex, boolean operators, filters like `file:`, `repo:`, `sym:`, and all of the semantic filters (`visibility:`, `extends:`, `implements:`, etc.). The differences are mostly syntactic shortcuts that Sourcegraph adds on top of Zoekt:
 
 | Feature                | Sourcegraph                  | Zoekt                         |
 |------------------------|------------------------------|-------------------------------|
@@ -304,6 +304,10 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `implements:`  | Match classes implementing an interface                                                                                                  | `implements:Repository`      |
 | `returns:`     | Match methods by return type                                                                                                             | `returns:List`               |
 | `throws:`      | Match methods by declared exceptions                                                                                                     | `throws:IOException`         |
+
+:::info[Semantic filters aren't Java-only]
+Because `visibility:`, `static:`, `final:`, `abstract:`, `extends:`, `implements:`, `returns:`, and `throws:` read from LST metadata rather than raw text, they work across languages whose LST builds on Moderne's Java (J) model — such as Kotlin, Groovy, and C# — not just Java. Exact coverage can vary by language as support evolves.
+:::
 
 :::info
 The Sourcegraph filters `context:`, `fork:`, `archived:`, and `timeout:` are parsed but have no effect on local indexes — they emit a warning and are dropped from the query.
