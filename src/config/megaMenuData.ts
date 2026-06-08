@@ -193,6 +193,11 @@ export const trainingItems: NavLink[] = [
     external: false,
   },
   {
+    name: 'Automated Software Refactoring with OpenRewrite and Generative AI',
+    href: 'https://www.linkedin.com/learning/automated-software-refactoring-with-openrewrite-and-generative-ai/modernizing-and-maintaining-large-codebases',
+    external: true,
+  },
+  {
     name: 'Upcoming live OpenRewrite training',
     href: 'https://www.moderne.ai/moderne-openrewrite-training-hub',
     external: true,

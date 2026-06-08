@@ -20,7 +20,7 @@ description: The current version of the Moderne Connector and where to download 
 [Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.21/connector-0.150.21.jar)
 
 * Pin guava to 32.0.1-jre to clear CVE-2023-2976 and CVE-2020-8908 (#1120)
-* Fail fast on unresolved ${...} placeholders in config (#1115)
+* Fail fast on unresolved `${...}` placeholders in config (#1115)
 
 ### v0.150.17 – 2026-06-04
 
