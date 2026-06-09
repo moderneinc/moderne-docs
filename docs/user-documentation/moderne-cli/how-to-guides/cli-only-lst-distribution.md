@@ -9,14 +9,9 @@ If you use only the Moderne CLI – with no Moderne Platform or Moderne DX (Deve
 
 This guide explains how that works and which commands to use.
 
-## Why `mod build` reports "No Moderne tenant configuration found"
+## If `mod build` mentions a missing Moderne tenant
 
-When you run `mod build`, the CLI tries to avoid rebuilding an LST that already exists by discovering a matching, pre-built one. It can discover that LST in **two** ways:
-
-1. **Through a Moderne tenant.** The CLI asks your connected tenant (configured with `mod config moderne`) for the latest published LST of each repository.
-2. **Through a `publishUri` already recorded for the repository** – the column that `mod publish` writes into a `repos-lock.csv` file. This route uses **no tenant at all**.
-
-If you have not configured a tenant, the first route is unavailable but the second still works, and `mod build` logs a message like:
+Depending on your CLI version, `mod build` may log an informational line like this when no tenant is configured:
 
 ```
 Build log for org/sub-org/my-repo@main
@@ -24,7 +19,9 @@ Not checking for matching LST in Moderne because:
   * No Moderne tenant configuration found for this repository
 ```
 
-This message is **informational, not an error** – `mod build` simply notes that it cannot consult a tenant and continues. To download already-published LSTs without a tenant, you use the second route: a published `repos-lock.csv`. The key point is that **`mod build` is not the command you use to download LSTs in a tenant-less setup** – `mod git sync csv` is.
+This is **informational, not an error** – the build is simply noting that it can't consult a Moderne tenant to look for a matching, pre-built LST, and it continues. Newer CLI versions obtain pre-built LSTs from the `publishUri` recorded in a published `repos-lock.csv` rather than from a tenant, and generally won't print this message at all.
+
+Either way, the takeaway is the same: in a tenant-less setup you **don't rely on `mod build` to fetch LSTs**. You download them with `mod git sync csv` against a published `repos-lock.csv`, whose `publishUri` column records where each LST lives. The rest of this guide walks through that workflow.
 
 :::info
 The `repos-lock.csv` file is what carries each repository's published LST location (its `publishUri`). The [Creating and sharing a repos-lock.csv file](./repos-lock-csv.md) guide describes this file in depth; this page focuses on the tenant-less publish-and-download workflow that relies on it.
@@ -86,7 +83,7 @@ The `csv` argument accepts a local path or a remote URI (HTTP(S), `s3://`, or Az
 
 * **Nothing downloads / LSTs are skipped.** The `repos-lock.csv` you sync against must have a populated `publishUri` column, which is only added by `mod publish`. If the column is missing, re-run `mod publish` on the producer side, and make sure it published to the same artifact repository you're downloading from.
 * **Authentication failures on download.** Make sure the consumer has run `mod config lsts artifacts artifactory add` (or the S3 / Azure Blob equivalent) for the **same host** as the `publishUri` values. The `recipes.artifacts` configuration does not apply to LST downloads.
-* **You keep seeing "No Moderne tenant configuration found."** That line comes from `mod build`. In a tenant-less setup, use `mod git sync csv` against the published `repos-lock.csv` to obtain LSTs rather than relying on `mod build` to discover them.
+* **You see "No Moderne tenant configuration found."** On CLI versions that print it, this line comes from `mod build` and is informational. In a tenant-less setup, obtain LSTs with `mod git sync csv` against the published `repos-lock.csv` rather than relying on `mod build` to discover them.
 
 ## Related guides
 
