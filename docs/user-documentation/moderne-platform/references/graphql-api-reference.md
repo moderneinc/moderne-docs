@@ -2636,7 +2636,7 @@ Resolved by the changeset reader using a batch check against the authorization s
 | Field | Type | Description |
 |-------|------|-------------|
 | `origin` | String! | The VCS origin (e.g., github.com). |
-| `isAuthorized` | Boolean! | Whether the user has read access to this specific repository (per-repo SCM check, not just a token for the origin). When false, surface "you don't have access" rather than empty results. |
+| `access` | [RepoAccess](#repoaccess)! | The current viewer's read access to this specific repository. Drives whether the UI renders content (ALLOWED), a "you don't have access" message (DENIED), or an authorize prompt (UNAUTHENTICATED). |
 
 ##### `RepositoryBatchChange`
 
@@ -3726,6 +3726,15 @@ LOW priority runs target large organizations (>100 repositories).
 
 * `HIGH`
 * `LOW`
+
+##### `RepoAccess`
+
+The current viewer's read access to a specific repository (per-repo SCM check, not just a
+token for the origin).
+
+* `ALLOWED`
+* `DENIED`
+* `UNAUTHENTICATED`
 
 ##### `RepositoryChangesetOrderByField`
 

@@ -5134,6 +5134,32 @@ type ReindexResult
   since: DateTime!
 }
 
+"""
+The current viewer's read access to a specific repository (per-repo SCM check, not just a
+token for the origin).
+"""
+enum RepoAccess
+  @join__type(graph: CHANGESETREADER)
+  @join__type(graph: CHANGESETVISUALIZER)
+  @join__type(graph: CODESEARCH)
+  @join__type(graph: RECIPEWORKER)
+{
+  """
+  The viewer has a token for the origin and read access to the repository.
+  """
+  ALLOWED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+
+  """
+  The viewer can't read this repository — either access is explicitly denied, or auth:z failed closed on a transient SCM/resolution error or invalid input (see RepoAccess in core). Surface a "you don't have access" message rather than empty results.
+  """
+  DENIED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+
+  """
+  The viewer has no SCM token for the origin, so access can't be evaluated. Surface an authorize prompt.
+  """
+  UNAUTHENTICATED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+}
+
 type Repository
   @join__type(graph: CHANGELOGREADER, key: "origin path branch", resolvable: false)
   @join__type(graph: CHANGESETCOMMITTER, key: "origin path branch", resolvable: false)
@@ -5164,10 +5190,11 @@ type RepositoryAuthorization
   origin: String!
 
   """
-  Whether the user has read access to this specific repository (per-repo SCM check, not just
-  a token for the origin). When false, surface "you don't have access" rather than empty results.
+  The current viewer's read access to this specific repository. Drives whether the UI
+  renders content (ALLOWED), a "you don't have access" message (DENIED), or an authorize
+  prompt (UNAUTHENTICATED).
   """
-  isAuthorized: Boolean!
+  access: RepoAccess!
 }
 
 type RepositoryBatchChange implements RepositoryChangeset
