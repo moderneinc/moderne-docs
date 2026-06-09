@@ -1,4 +1,5 @@
 ---
+title: "Find collection construction inside loops"
 sidebar_label: "Find collection construction inside loops"
 ---
 

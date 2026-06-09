@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.max` instead of `java.lang.Math.max`"
 sidebar_label: "Use `kotlin.math.max` instead of `java.lang.Math.max`"
 ---
 

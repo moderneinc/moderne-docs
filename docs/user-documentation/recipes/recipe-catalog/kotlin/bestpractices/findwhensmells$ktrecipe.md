@@ -1,4 +1,5 @@
 ---
+title: "Find `when`-statement smells"
 sidebar_label: "Find `when`-statement smells"
 ---
 

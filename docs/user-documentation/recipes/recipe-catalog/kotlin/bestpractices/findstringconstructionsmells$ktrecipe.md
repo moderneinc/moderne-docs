@@ -1,4 +1,5 @@
 ---
+title: "Find string-construction smells"
 sidebar_label: "Find string-construction smells"
 ---
 

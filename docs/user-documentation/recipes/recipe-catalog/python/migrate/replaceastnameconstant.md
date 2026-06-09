@@ -1,4 +1,5 @@
 ---
+title: "Replace `ast.NameConstant` with `ast.Constant`"
 sidebar_label: "Replace `ast.NameConstant` with `ast.Constant`"
 ---
 

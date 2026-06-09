@@ -1,4 +1,5 @@
 ---
+title: "Use `drop(n)` instead of `substring(n)` on a `String`"
 sidebar_label: "Use `drop(n)` instead of `substring(n)` on a `String`"
 ---
 

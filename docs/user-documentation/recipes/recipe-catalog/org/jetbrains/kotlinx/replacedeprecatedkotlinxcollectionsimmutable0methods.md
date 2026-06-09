@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `kotlinx-collections-immutable` methods"
 sidebar_label: "Replace deprecated `kotlinx-collections-immutable` methods"
 ---
 

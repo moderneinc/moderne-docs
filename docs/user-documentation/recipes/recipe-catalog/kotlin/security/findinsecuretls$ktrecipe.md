@@ -1,4 +1,5 @@
 ---
+title: "Find insecure TLS configuration"
 sidebar_label: "Find insecure TLS configuration"
 ---
 

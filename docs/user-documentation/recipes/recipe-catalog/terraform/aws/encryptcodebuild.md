@@ -1,4 +1,5 @@
 ---
+title: "Encrypt CodeBuild projects"
 sidebar_label: "Encrypt CodeBuild projects"
 ---
 

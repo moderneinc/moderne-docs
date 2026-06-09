@@ -1,4 +1,5 @@
 ---
+title: "Replace `re.template()` with `re.compile()` and flag `re.TEMPLATE`/`re.T`"
 sidebar_label: "Replace `re.template()` with `re.compile()` and flag `re.TEMPLATE`/`re.T`"
 ---
 

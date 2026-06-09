@@ -1,4 +1,5 @@
 ---
+title: "Narrow bare `except:` to `except Exception:`"
 sidebar_label: "Narrow bare `except:` to `except Exception:`"
 ---
 

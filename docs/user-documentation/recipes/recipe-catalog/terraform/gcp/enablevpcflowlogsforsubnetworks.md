@@ -1,4 +1,5 @@
 ---
+title: "Enable VPC Flow Logs for subnetworks"
 sidebar_label: "Enable VPC Flow Logs for subnetworks"
 ---
 

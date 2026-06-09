@@ -1,4 +1,5 @@
 ---
+title: "Use Frozen collections instead of Immutable"
 sidebar_label: "Use Frozen collections instead of Immutable"
 ---
 

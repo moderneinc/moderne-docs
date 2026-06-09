@@ -1,4 +1,5 @@
 ---
+title: "Use chained comparison syntax"
 sidebar_label: "Use chained comparison syntax"
 ---
 

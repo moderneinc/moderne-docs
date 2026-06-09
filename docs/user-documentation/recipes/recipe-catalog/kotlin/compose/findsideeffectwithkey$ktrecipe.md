@@ -1,4 +1,5 @@
 ---
+title: "Find `SideEffect(key) { … }` calls"
 sidebar_label: "Find `SideEffect(key) { … }` calls"
 ---
 

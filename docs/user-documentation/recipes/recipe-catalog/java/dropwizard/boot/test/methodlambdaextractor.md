@@ -1,4 +1,5 @@
 ---
+title: "Inline lambda body from matched method invocations"
 sidebar_label: "Inline lambda body from matched method invocations"
 ---
 

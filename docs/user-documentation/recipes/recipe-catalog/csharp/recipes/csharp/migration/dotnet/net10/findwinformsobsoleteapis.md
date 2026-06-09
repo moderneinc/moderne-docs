@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete Windows Forms APIs (WFDEV004/005/006)"
 sidebar_label: "Find obsolete Windows Forms APIs (WFDEV004/005/006)"
 ---
 

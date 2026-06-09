@@ -1,4 +1,5 @@
 ---
+title: "Change React component prop value"
 sidebar_label: "Change React component prop value"
 ---
 

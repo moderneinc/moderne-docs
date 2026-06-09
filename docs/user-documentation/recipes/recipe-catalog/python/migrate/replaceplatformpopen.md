@@ -1,4 +1,5 @@
 ---
+title: "Replace `platform.popen()` with `subprocess.check_output()`"
 sidebar_label: "Replace `platform.popen()` with `subprocess.check_output()`"
 ---
 

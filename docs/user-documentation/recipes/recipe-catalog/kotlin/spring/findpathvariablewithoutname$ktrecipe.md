@@ -1,4 +1,5 @@
 ---
+title: "Find `@PathVariable` parameters without an explicit name"
 sidebar_label: "Find `@PathVariable` parameters without an explicit name"
 ---
 

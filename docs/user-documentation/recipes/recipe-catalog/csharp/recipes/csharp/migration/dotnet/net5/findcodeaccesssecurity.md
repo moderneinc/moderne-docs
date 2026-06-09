@@ -1,4 +1,5 @@
 ---
+title: "Find Code Access Security usage (obsolete in .NET 5)"
 sidebar_label: "Find Code Access Security usage (obsolete in .NET 5)"
 ---
 

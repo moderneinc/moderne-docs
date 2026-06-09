@@ -1,4 +1,5 @@
 ---
+title: "Find ILoggerFactory.Add*() calls"
 sidebar_label: "Find ILoggerFactory.Add*() calls"
 ---
 

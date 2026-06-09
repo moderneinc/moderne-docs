@@ -1,4 +1,5 @@
 ---
+title: "Use Play JSON `JsValue` directly"
 sidebar_label: "Use Play JSON `JsValue` directly"
 ---
 

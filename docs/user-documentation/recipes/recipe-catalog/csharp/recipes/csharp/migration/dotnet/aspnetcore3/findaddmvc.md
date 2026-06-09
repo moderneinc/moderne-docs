@@ -1,4 +1,5 @@
 ---
+title: "Find AddMvc() calls"
 sidebar_label: "Find AddMvc() calls"
 ---
 

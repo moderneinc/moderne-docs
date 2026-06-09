@@ -1,4 +1,5 @@
 ---
+title: "Migrate `AbstractDiscoveredEndpoint` deprecated constructor"
 sidebar_label: "Migrate `AbstractDiscoveredEndpoint` deprecated constructor"
 ---
 

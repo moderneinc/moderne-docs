@@ -1,4 +1,5 @@
 ---
+title: "Use `sumOf { selector }` instead of `map { selector }.sum()`"
 sidebar_label: "Use `sumOf { selector }` instead of `map { selector }.sum()`"
 ---
 

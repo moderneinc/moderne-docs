@@ -1,4 +1,5 @@
 ---
+title: "Simplify identity comprehension to `list()`/`set()` call"
 sidebar_label: "Simplify identity comprehension to `list()`/`set()` call"
 ---
 

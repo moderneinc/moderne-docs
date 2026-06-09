@@ -1,4 +1,5 @@
 ---
+title: "Find functions declared with `: Nothing` return type"
 sidebar_label: "Find functions declared with `: Nothing` return type"
 ---
 

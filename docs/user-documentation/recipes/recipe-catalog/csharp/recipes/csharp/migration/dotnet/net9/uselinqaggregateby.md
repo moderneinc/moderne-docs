@@ -1,4 +1,5 @@
 ---
+title: "Use LINQ AggregateBy()"
 sidebar_label: "Use LINQ AggregateBy()"
 ---
 

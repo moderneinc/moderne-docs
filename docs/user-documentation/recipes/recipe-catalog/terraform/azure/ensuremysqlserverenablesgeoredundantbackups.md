@@ -1,4 +1,5 @@
 ---
+title: "Ensure MySQL server enables geo-redundant backups"
 sidebar_label: "Ensure MySQL server enables geo-redundant backups"
 ---
 

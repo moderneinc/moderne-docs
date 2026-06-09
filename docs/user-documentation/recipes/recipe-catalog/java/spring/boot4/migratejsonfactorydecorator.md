@@ -1,4 +1,5 @@
 ---
+title: "Migrate `JsonFactoryDecorator` to `TokenStreamFactoryBuilderDecorator`"
 sidebar_label: "Migrate `JsonFactoryDecorator` to `TokenStreamFactoryBuilderDecorator`"
 ---
 
@@ -25,6 +26,75 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
+
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import com.example.CustomCharacterEscapes;
+import com.fasterxml.jackson.core.JsonFactory;
+import net.logstash.logback.decorate.JsonFactoryDecorator;
+
+class MyDecorator implements JsonFactoryDecorator {
+    @Override
+    public JsonFactory decorate(JsonFactory factory) {
+        factory.setCharacterEscapes(new CustomCharacterEscapes());
+        return factory;
+    }
+}
+```
+
+###### After
+```java
+import com.example.CustomCharacterEscapes;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.json.JsonFactoryBuilder;
+import net.logstash.logback.decorate.TokenStreamFactoryBuilderDecorator;
+
+class MyDecorator implements TokenStreamFactoryBuilderDecorator<JsonFactory, JsonFactoryBuilder> {
+    @Override
+    public JsonFactoryBuilder decorate(JsonFactoryBuilder builder) {
+        return builder
+                .characterEscapes(new CustomCharacterEscapes());
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -3,1 +3,2 @@
+import com.example.CustomCharacterEscapes;
+import com.fasterxml.jackson.core.JsonFactory;
+-import net.logstash.logback.decorate.JsonFactoryDecorator;
++import com.fasterxml.jackson.core.json.JsonFactoryBuilder;
++import net.logstash.logback.decorate.TokenStreamFactoryBuilderDecorator;
+
+@@ -5,1 +6,1 @@
+import net.logstash.logback.decorate.JsonFactoryDecorator;
+
+-class MyDecorator implements JsonFactoryDecorator {
++class MyDecorator implements TokenStreamFactoryBuilderDecorator<JsonFactory, JsonFactoryBuilder> {
+    @Override
+@@ -7,3 +8,3 @@
+class MyDecorator implements JsonFactoryDecorator {
+    @Override
+-   public JsonFactory decorate(JsonFactory factory) {
+-       factory.setCharacterEscapes(new CustomCharacterEscapes());
+-       return factory;
++   public JsonFactoryBuilder decorate(JsonFactoryBuilder builder) {
++       return builder
++               .characterEscapes(new CustomCharacterEscapes());
+    }
+```
+</TabItem>
+</Tabs>
 
 
 ## Usage

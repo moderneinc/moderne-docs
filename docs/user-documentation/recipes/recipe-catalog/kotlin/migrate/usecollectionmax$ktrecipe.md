@@ -1,4 +1,5 @@
 ---
+title: "Use `Collection.max()` instead of `Collections.max(coll)`"
 sidebar_label: "Use `Collection.max()` instead of `Collections.max(coll)`"
 ---
 

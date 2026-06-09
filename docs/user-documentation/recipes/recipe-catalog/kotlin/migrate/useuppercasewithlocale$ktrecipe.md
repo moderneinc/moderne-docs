@@ -1,4 +1,5 @@
 ---
+title: "Use `uppercase(locale)` instead of `toUpperCase(locale)`"
 sidebar_label: "Use `uppercase(locale)` instead of `toUpperCase(locale)`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.isWhitespace()` instead of `Character.isWhitespace(c)`"
 sidebar_label: "Use `Char.isWhitespace()` instead of `Character.isWhitespace(c)`"
 ---
 

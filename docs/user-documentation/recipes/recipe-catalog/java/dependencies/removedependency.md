@@ -1,4 +1,5 @@
 ---
+title: "Remove a Gradle or Maven dependency"
 sidebar_label: "Remove a Gradle or Maven dependency"
 ---
 
@@ -75,16 +76,19 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 4.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 * [Migrate to Spring Boot 4.0 modular starters (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition)
+* [Migrate to Spring Framework 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_4_0)
 * [Migrate to Spring Framework 5.3 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-community-edition.md)
 * [Migrate to Spring Framework 5.3 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-moderne-edition)
 * [Migrate to Struts 2.x from Struts 1.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratestruts2)
 * [Migrates to Apache POI 5.x](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_5.md)
 * [Modernize a Jenkins plugin to the latest recommended versions](/user-documentation/recipes/recipe-catalog/jenkins/modernizeplugin.md)
+* [Remove JUnit Jupiter migrationsupport](/user-documentation/recipes/recipe-catalog/java/testing/junit/removejupitermigrationsupport.md)
 * [Remove JavaEE dependencies](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/removejavaeedependencies.md)
 * [Remove Spring Boot DevTools](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringbootdevtools.md)
 * [Remove Spring Pulsar Reactive support](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/removespringpulsarreactive)
 * [Remove `jakarta.annotation-api` dependency when managed by Spring Boot](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removejakartaannotationdependencywhenmanagedbyspringboot.md)
 * [Remove spring-jcl dependency](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/removespringjcl)
+* [Remove the unported axon-spring-aot extension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5springaotextension.md)
 * [Remove unnecessary dependencies](/user-documentation/recipes/recipe-catalog/java/micronaut/removeunnecessarydependencies.md)
 * [Replace Derby test driver with Quarkus JDBC Derby (test scope)](/user-documentation/recipes/recipe-catalog/quarkus/spring/derbytestdrivertoquarkus.md)
 * [Replace H2 test driver with Quarkus JDBC H2 (test scope)](/user-documentation/recipes/recipe-catalog/quarkus/spring/h2testdrivertoquarkus.md)

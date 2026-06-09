@@ -1,4 +1,5 @@
 ---
+title: "Find public `lateinit var` declarations"
 sidebar_label: "Find public `lateinit var` declarations"
 ---
 

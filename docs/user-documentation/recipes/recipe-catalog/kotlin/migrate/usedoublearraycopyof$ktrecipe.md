@@ -1,4 +1,5 @@
 ---
+title: "Use `DoubleArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"
 sidebar_label: "Use `DoubleArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"
 ---
 

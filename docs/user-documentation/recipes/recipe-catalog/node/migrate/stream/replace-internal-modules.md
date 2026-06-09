@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `node:_stream_*` with `node:stream`"
 sidebar_label: "Replace deprecated `node:_stream_*` with `node:stream`"
 ---
 

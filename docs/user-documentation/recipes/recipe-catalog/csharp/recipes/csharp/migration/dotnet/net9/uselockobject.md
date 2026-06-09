@@ -1,4 +1,5 @@
 ---
+title: "Use System.Threading.Lock for lock fields"
 sidebar_label: "Use System.Threading.Lock for lock fields"
 ---
 

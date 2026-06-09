@@ -1,4 +1,5 @@
 ---
+title: "Find `mutableMapOf&lt;K, V&gt;()` allocations inside loops"
 sidebar_label: "Find `mutableMapOf&lt;K, V&gt;()` allocations inside loops"
 ---
 

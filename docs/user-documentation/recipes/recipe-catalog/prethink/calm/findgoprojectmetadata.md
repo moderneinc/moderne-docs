@@ -1,4 +1,5 @@
 ---
+title: "Find Go project metadata"
 sidebar_label: "Find Go project metadata"
 ---
 

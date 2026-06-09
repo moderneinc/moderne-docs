@@ -1,4 +1,5 @@
 ---
+title: "Use `nonEmpty` instead of `size &gt; 0`"
 sidebar_label: "Use `nonEmpty` instead of `size &gt; 0`"
 ---
 

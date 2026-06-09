@@ -1,4 +1,5 @@
 ---
+title: "Replace `Thread.isAlive()` with `Thread.is_alive()`"
 sidebar_label: "Replace `Thread.isAlive()` with `Thread.is_alive()`"
 ---
 

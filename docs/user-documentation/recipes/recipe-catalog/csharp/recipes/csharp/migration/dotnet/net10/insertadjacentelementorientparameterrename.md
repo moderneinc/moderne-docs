@@ -1,4 +1,5 @@
 ---
+title: "Rename `orient` parameter to `orientation` in `HtmlElement.InsertAdjacentElement`"
 sidebar_label: "Rename `orient` parameter to `orientation` in `HtmlElement.InsertAdjacentElement`"
 ---
 

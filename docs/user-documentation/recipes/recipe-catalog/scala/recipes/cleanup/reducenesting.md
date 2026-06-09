@@ -1,4 +1,5 @@
 ---
+title: "Reduce deep nesting by extracting methods"
 sidebar_label: "Reduce deep nesting by extracting methods"
 ---
 

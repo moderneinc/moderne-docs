@@ -1,4 +1,5 @@
 ---
+title: "Ensure CPU limits are set"
 sidebar_label: "Ensure CPU limits are set"
 ---
 

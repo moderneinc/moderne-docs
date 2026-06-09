@@ -1,4 +1,5 @@
 ---
+title: "Find `String.toByteArray()` calls without an explicit charset"
 sidebar_label: "Find `String.toByteArray()` calls without an explicit charset"
 ---
 

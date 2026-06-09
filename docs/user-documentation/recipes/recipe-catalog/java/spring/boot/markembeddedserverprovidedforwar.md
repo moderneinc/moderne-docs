@@ -1,4 +1,5 @@
 ---
+title: "Mark embedded server as provided for WAR projects"
 sidebar_label: "Mark embedded server as provided for WAR projects"
 ---
 

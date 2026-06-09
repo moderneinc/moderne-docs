@@ -1,4 +1,5 @@
 ---
+title: "Find Swashbuckle usage (ASP.NET Core 9 built-in OpenAPI)"
 sidebar_label: "Find Swashbuckle usage (ASP.NET Core 9 built-in OpenAPI)"
 ---
 

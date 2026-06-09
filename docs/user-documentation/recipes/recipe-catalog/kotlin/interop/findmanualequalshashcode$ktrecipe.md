@@ -1,4 +1,5 @@
 ---
+title: "Find classes with manual `equals`/`hashCode` overrides — `data class` candidate"
 sidebar_label: "Find classes with manual `equals`/`hashCode` overrides — `data class` candidate"
 ---
 

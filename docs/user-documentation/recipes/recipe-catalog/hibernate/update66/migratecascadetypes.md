@@ -1,4 +1,5 @@
 ---
+title: "Migrate Hibernate CascadeType constants"
 sidebar_label: "Migrate Hibernate CascadeType constants"
 ---
 

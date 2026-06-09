@@ -1,4 +1,5 @@
 ---
+title: "Find `remember { mutableStateOf(expensiveCall()) }` patterns"
 sidebar_label: "Find `remember { mutableStateOf(expensiveCall()) }` patterns"
 ---
 

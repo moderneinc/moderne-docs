@@ -1,4 +1,5 @@
 ---
+title: "Find `throw Exception(&quot;…&quot;)` calls"
 sidebar_label: "Find `throw Exception(&quot;…&quot;)` calls"
 ---
 

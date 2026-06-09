@@ -1,4 +1,5 @@
 ---
+title: "Find logger declaration smells"
 sidebar_label: "Find logger declaration smells"
 ---
 

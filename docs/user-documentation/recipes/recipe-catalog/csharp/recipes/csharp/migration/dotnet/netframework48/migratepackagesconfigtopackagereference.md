@@ -1,4 +1,5 @@
 ---
+title: "Migrate `packages.config` to `&lt;PackageReference&gt;` (net48)"
 sidebar_label: "Migrate `packages.config` to `&lt;PackageReference&gt;` (net48)"
 ---
 

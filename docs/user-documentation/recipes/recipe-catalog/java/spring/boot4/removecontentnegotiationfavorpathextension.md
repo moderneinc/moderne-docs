@@ -1,4 +1,5 @@
 ---
+title: "Remove `ContentNegotiationConfigurer.favorPathExtension()` calls"
 sidebar_label: "Remove `ContentNegotiationConfigurer.favorPathExtension()` calls"
 ---
 

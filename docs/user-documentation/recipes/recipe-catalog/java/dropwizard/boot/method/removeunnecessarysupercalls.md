@@ -1,4 +1,5 @@
 ---
+title: "Remove `super` calls when the class does not extend another class"
 sidebar_label: "Remove `super` calls when the class does not extend another class"
 ---
 

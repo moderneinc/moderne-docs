@@ -1,4 +1,5 @@
 ---
+title: "Ensure Azure SQL server send alerts to field value is set"
 sidebar_label: "Ensure Azure SQL server send alerts to field value is set"
 ---
 

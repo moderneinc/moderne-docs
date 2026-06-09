@@ -1,4 +1,5 @@
 ---
+title: "Find filesystem read calls (`File.readText`, `Files.readString`, etc.)"
 sidebar_label: "Find filesystem read calls (`File.readText`, `Files.readString`, etc.)"
 ---
 

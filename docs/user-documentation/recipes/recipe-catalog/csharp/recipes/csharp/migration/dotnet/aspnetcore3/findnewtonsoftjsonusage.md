@@ -1,4 +1,5 @@
 ---
+title: "Find Newtonsoft.Json usage in ASP.NET Core"
 sidebar_label: "Find Newtonsoft.Json usage in ASP.NET Core"
 ---
 

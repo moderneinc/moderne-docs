@@ -1,4 +1,5 @@
 ---
+title: "Use `Char` extensions instead of `java.lang.Character`"
 sidebar_label: "Use `Char` extensions instead of `java.lang.Character`"
 ---
 

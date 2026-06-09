@@ -1,4 +1,5 @@
 ---
+title: "Standardize `@classmethod` first parameter to `cls`"
 sidebar_label: "Standardize `@classmethod` first parameter to `cls`"
 ---
 

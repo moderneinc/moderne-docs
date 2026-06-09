@@ -1,4 +1,5 @@
 ---
+title: "Prefer `Option` over `null`"
 sidebar_label: "Prefer `Option` over `null`"
 ---
 

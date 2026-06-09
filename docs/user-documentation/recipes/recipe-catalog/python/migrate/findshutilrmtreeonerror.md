@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `shutil.rmtree(onerror=...)` parameter"
 sidebar_label: "Find deprecated `shutil.rmtree(onerror=...)` parameter"
 ---
 

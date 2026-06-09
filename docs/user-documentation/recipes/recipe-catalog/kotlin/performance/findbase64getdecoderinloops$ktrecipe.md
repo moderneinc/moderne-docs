@@ -1,4 +1,5 @@
 ---
+title: "Find `Base64.getDecoder()` calls inside loops"
 sidebar_label: "Find `Base64.getDecoder()` calls inside loops"
 ---
 

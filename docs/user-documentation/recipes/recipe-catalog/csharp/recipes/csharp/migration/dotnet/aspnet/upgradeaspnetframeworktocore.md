@@ -1,4 +1,5 @@
 ---
+title: "Migrate ASP.NET Framework to ASP.NET Core"
 sidebar_label: "Migrate ASP.NET Framework to ASP.NET Core"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `toSet()` instead of `toList().toSet()`"
 sidebar_label: "Use `toSet()` instead of `toList().toSet()`"
 ---
 

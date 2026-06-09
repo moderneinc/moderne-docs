@@ -1,4 +1,5 @@
 ---
+title: "Migrate `GlobalSettings` to dependency injection (Play 2.6+)"
 sidebar_label: "Migrate `GlobalSettings` to dependency injection (Play 2.6+)"
 ---
 

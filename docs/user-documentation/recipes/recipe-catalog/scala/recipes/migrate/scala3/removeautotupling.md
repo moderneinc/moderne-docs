@@ -1,4 +1,5 @@
 ---
+title: "Remove auto-tupling (not available in Scala 3)"
 sidebar_label: "Remove auto-tupling (not available in Scala 3)"
 ---
 

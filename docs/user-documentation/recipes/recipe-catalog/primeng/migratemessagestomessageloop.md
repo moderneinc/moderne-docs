@@ -1,4 +1,5 @@
 ---
+title: "Migrate `&lt;p-messages&gt;` to `&lt;p-message&gt;` with `@for` loop"
 sidebar_label: "Migrate `&lt;p-messages&gt;` to `&lt;p-message&gt;` with `@for` loop"
 ---
 

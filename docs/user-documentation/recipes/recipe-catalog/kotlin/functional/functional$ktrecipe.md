@@ -1,4 +1,5 @@
 ---
+title: "Modernize Kotlin functional / `Result` ergonomics"
 sidebar_label: "Modernize Kotlin functional / `Result` ergonomics"
 ---
 

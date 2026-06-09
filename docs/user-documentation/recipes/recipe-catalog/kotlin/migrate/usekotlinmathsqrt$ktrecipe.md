@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.sqrt` instead of `java.lang.Math.sqrt`"
 sidebar_label: "Use `kotlin.math.sqrt` instead of `java.lang.Math.sqrt`"
 ---
 

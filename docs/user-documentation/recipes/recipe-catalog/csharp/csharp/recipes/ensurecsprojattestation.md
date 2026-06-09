@@ -1,4 +1,5 @@
 ---
+title: "Ensure csproj attestation"
 sidebar_label: "Ensure csproj attestation"
 ---
 
@@ -10,7 +11,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **OpenRewrite.CSharp.Recipes.EnsureCsprojAttestation**
 
-_Re-runs `dotnet restore` against each .csproj that has an `MSBuildProject` marker and refreshes the marker from the resulting `project.assets.json`. Use this at the end of a composite recipe whose csproj-mutating sub-recipes have `RegenerateMarker = false`, so reattestation happens once on the final consistent state instead of after every edit._
+_Re-runs `dotnet restore` against each .csproj whose `MSBuildProject` marker is stale (set by any csproj-mutating recipe in the run) and refreshes the marker from the resulting `project.assets.json`. Use this at the end of a composite recipe whose csproj-mutating sub-recipes have `RegenerateMarker = false`, so reattestation happens once on the final consistent state instead of after every edit. Unmodified .csproj files incur no `dotnet restore` cost._
 
 ## Recipe source
 
@@ -39,5 +40,5 @@ This recipe is used as part of the following composite recipes:
 <RunRecipe
   recipeName="OpenRewrite.CSharp.Recipes.EnsureCsprojAttestation"
   displayName="Ensure csproj attestation"
-  nugetPackage="OpenRewrite.Recipes.CSharp.Migration.Dotnet"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
 />

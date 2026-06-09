@@ -1,4 +1,5 @@
 ---
+title: "Collapse redundant collection / string conversions"
 sidebar_label: "Collapse redundant collection / string conversions"
 ---
 

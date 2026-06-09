@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded certificates"
 sidebar_label: "Find hardcoded certificates"
 ---
 

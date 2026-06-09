@@ -1,4 +1,5 @@
 ---
+title: "Encrypt Aurora clusters"
 sidebar_label: "Encrypt Aurora clusters"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete `X509Certificate2`/`X509Certificate` constructors (SYSLIB0057)"
 sidebar_label: "Find obsolete `X509Certificate2`/`X509Certificate` constructors (SYSLIB0057)"
 ---
 

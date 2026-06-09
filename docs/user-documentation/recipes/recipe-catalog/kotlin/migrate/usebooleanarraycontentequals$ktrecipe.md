@@ -1,4 +1,5 @@
 ---
+title: "Use `BooleanArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 sidebar_label: "Use `BooleanArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 ---
 

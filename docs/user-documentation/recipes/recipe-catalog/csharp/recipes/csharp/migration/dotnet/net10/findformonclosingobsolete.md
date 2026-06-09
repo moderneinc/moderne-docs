@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete `Form.OnClosing`/`OnClosed` usage (WFDEV004)"
 sidebar_label: "Find obsolete `Form.OnClosing`/`OnClosed` usage (WFDEV004)"
 ---
 

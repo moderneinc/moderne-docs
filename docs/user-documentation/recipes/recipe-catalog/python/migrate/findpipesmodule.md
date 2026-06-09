@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `pipes` module usage"
 sidebar_label: "Find deprecated `pipes` module usage"
 ---
 

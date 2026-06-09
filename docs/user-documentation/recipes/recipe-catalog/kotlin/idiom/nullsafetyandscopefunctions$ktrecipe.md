@@ -1,4 +1,5 @@
 ---
+title: "Apply Kotlin null-safety and scope-function idioms"
 sidebar_label: "Apply Kotlin null-safety and scope-function idioms"
 ---
 

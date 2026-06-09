@@ -1,4 +1,5 @@
 ---
+title: "Find `mutableMapOf&lt;K,V&gt;().also { it.put(...) }` patterns"
 sidebar_label: "Find `mutableMapOf&lt;K,V&gt;().also { it.put(...) }` patterns"
 ---
 

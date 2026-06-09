@@ -1,4 +1,5 @@
 ---
+title: "Keep classes small (max 30 members)"
 sidebar_label: "Keep classes small (max 30 members)"
 ---
 

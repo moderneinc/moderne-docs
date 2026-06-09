@@ -1,4 +1,5 @@
 ---
+title: "Remove unnecessary React imports"
 sidebar_label: "Remove unnecessary React imports"
 ---
 

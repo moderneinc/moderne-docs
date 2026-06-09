@@ -1,4 +1,5 @@
 ---
+title: "Find removed Spring servlet view classes"
 sidebar_label: "Find removed Spring servlet view classes"
 ---
 

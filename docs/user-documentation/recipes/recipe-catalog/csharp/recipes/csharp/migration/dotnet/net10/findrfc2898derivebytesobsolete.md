@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete `Rfc2898DeriveBytes` constructors (SYSLIB0060)"
 sidebar_label: "Find obsolete `Rfc2898DeriveBytes` constructors (SYSLIB0060)"
 ---
 

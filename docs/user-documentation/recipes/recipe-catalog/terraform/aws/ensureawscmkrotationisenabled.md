@@ -1,4 +1,5 @@
 ---
+title: "Ensure AWS CMK rotation is enabled"
 sidebar_label: "Ensure AWS CMK rotation is enabled"
 ---
 

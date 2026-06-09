@@ -1,4 +1,5 @@
 ---
+title: "Upgrade a .NET project using upgrade-assistant"
 sidebar_label: "Upgrade a .NET project using upgrade-assistant"
 ---
 

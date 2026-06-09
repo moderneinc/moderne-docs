@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `util.log()` with `console.log()`"
 sidebar_label: "Replace deprecated `util.log()` with `console.log()`"
 ---
 

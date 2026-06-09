@@ -1,4 +1,5 @@
 ---
+title: "Use `ByteArray.contentToString()` instead of `Arrays.toString(arr)`"
 sidebar_label: "Use `ByteArray.contentToString()` instead of `Arrays.toString(arr)`"
 ---
 

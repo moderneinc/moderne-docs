@@ -1,4 +1,5 @@
 ---
+title: "Ensure AWS RDS database instance is not publicly accessible"
 sidebar_label: "Ensure AWS RDS database instance is not publicly accessible"
 ---
 

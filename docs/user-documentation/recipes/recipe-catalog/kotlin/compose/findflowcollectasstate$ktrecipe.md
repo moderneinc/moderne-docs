@@ -1,4 +1,5 @@
 ---
+title: "Find `Flow.collectAsState()` calls — prefer `collectAsStateWithLifecycle()`"
 sidebar_label: "Find `Flow.collectAsState()` calls — prefer `collectAsStateWithLifecycle()`"
 ---
 

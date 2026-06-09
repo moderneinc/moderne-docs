@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.countOneBits()` instead of `java.lang.Integer.bitCount`"
 sidebar_label: "Use `Int.countOneBits()` instead of `java.lang.Integer.bitCount`"
 ---
 

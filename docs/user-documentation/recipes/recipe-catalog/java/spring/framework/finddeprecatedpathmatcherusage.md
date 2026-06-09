@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `PathMatcher` usage"
 sidebar_label: "Find deprecated `PathMatcher` usage"
 ---
 

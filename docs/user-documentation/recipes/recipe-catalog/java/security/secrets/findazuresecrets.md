@@ -1,4 +1,5 @@
 ---
+title: "Find Azure secrets"
 sidebar_label: "Find Azure secrets"
 ---
 

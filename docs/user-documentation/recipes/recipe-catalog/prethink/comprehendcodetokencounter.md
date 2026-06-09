@@ -1,4 +1,5 @@
 ---
+title: "Estimate comprehension token usage"
 sidebar_label: "Estimate comprehension token usage"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `runCatching { }` smells"
 sidebar_label: "Find `runCatching { }` smells"
 ---
 

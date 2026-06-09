@@ -1,4 +1,5 @@
 ---
+title: "Flatten redundant collection constructor wrapping a literal"
 sidebar_label: "Flatten redundant collection constructor wrapping a literal"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Drop redundant `.keys()` on dict iteration"
 sidebar_label: "Drop redundant `.keys()` on dict iteration"
 ---
 

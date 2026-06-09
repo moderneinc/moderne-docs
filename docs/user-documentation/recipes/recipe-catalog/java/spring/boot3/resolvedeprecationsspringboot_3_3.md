@@ -1,4 +1,5 @@
 ---
+title: "Resolve Deprecations in Spring Boot 3.3"
 sidebar_label: "Resolve Deprecations in Spring Boot 3.3"
 ---
 

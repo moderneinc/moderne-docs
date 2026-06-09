@@ -1,4 +1,5 @@
 ---
+title: "Generate architecture mermaid diagram"
 sidebar_label: "Generate architecture mermaid diagram"
 ---
 

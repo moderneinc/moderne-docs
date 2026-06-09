@@ -1,4 +1,5 @@
 ---
+title: "Update git resource `source.uri` references"
 sidebar_label: "Update git resource `source.uri` references"
 ---
 

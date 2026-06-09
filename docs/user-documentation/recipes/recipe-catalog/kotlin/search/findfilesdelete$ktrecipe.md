@@ -1,4 +1,5 @@
 ---
+title: "Find `Files.delete(...)` / `Files.deleteIfExists(...)` calls"
 sidebar_label: "Find `Files.delete(...)` / `Files.deleteIfExists(...)` calls"
 ---
 

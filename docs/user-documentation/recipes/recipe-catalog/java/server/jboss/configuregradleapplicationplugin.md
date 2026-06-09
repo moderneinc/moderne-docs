@@ -1,4 +1,5 @@
 ---
+title: "Configure Gradle `application` plugin main class"
 sidebar_label: "Configure Gradle `application` plugin main class"
 ---
 

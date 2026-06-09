@@ -1,4 +1,5 @@
 ---
+title: "Change method name"
 sidebar_label: "Change method name"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `class Foo : Any()` declarations"
 sidebar_label: "Find `class Foo : Any()` declarations"
 ---
 

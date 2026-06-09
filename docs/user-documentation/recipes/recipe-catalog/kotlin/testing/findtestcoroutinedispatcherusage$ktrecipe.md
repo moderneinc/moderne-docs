@@ -1,4 +1,5 @@
 ---
+title: "Find `TestCoroutineDispatcher` allocations"
 sidebar_label: "Find `TestCoroutineDispatcher` allocations"
 ---
 

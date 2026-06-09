@@ -1,4 +1,5 @@
 ---
+title: "List all methods used"
 sidebar_label: "List all methods used"
 ---
 

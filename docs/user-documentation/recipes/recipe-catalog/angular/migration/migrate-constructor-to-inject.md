@@ -1,4 +1,5 @@
 ---
+title: "Migrate constructor injection to `inject()`"
 sidebar_label: "Migrate constructor injection to `inject()`"
 ---
 
@@ -18,13 +19,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 21](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular21)
 
 
 ## Usage

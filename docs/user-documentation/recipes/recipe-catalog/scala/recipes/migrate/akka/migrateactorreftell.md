@@ -1,4 +1,5 @@
 ---
+title: "Migrate classic actor tell to typed ActorRef"
 sidebar_label: "Migrate classic actor tell to typed ActorRef"
 ---
 

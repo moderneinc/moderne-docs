@@ -1,4 +1,5 @@
 ---
+title: "Ensure data stored in an S3 bucket is securely encrypted at rest"
 sidebar_label: "Ensure data stored in an S3 bucket is securely encrypted at rest"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `SecureRandom.setSeed(...)` with a literal seed"
 sidebar_label: "Find `SecureRandom.setSeed(...)` with a literal seed"
 ---
 

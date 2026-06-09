@@ -1,4 +1,5 @@
 ---
+title: "Rename `unstable_handleError` to `componentDidCatch`"
 sidebar_label: "Rename `unstable_handleError` to `componentDidCatch`"
 ---
 

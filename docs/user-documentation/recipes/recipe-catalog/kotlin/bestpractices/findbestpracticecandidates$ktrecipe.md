@@ -1,4 +1,5 @@
 ---
+title: "Find best-practice candidates"
 sidebar_label: "Find best-practice candidates"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `animation-core` methods"
 sidebar_label: "Replace deprecated `animation-core` methods"
 ---
 

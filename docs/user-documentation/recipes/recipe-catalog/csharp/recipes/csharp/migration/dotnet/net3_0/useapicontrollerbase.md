@@ -1,4 +1,5 @@
 ---
+title: "Migrate ApiController to ControllerBase"
 sidebar_label: "Migrate ApiController to ControllerBase"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.sinh` instead of `java.lang.Math.sinh`"
 sidebar_label: "Use `kotlin.math.sinh` instead of `java.lang.Math.sinh`"
 ---
 

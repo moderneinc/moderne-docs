@@ -1,4 +1,5 @@
 ---
+title: "Convert SQL Server data types to PostgreSQL"
 sidebar_label: "Convert SQL Server data types to PostgreSQL"
 ---
 

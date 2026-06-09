@@ -1,4 +1,5 @@
 ---
+title: "Replace `try/except: pass` with `contextlib.suppress()`"
 sidebar_label: "Replace `try/except: pass` with `contextlib.suppress()`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Prefer pattern matching over `asInstanceOf` casts"
 sidebar_label: "Prefer pattern matching over `asInstanceOf` casts"
 ---
 

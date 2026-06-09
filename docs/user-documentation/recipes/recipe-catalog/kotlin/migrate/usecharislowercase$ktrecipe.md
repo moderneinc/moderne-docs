@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.isLowerCase()` instead of `Character.isLowerCase(c)`"
 sidebar_label: "Use `Char.isLowerCase()` instead of `Character.isLowerCase(c)`"
 ---
 

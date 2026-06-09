@@ -1,4 +1,5 @@
 ---
+title: "Find Spring dependency-injection smells"
 sidebar_label: "Find Spring dependency-injection smells"
 ---
 

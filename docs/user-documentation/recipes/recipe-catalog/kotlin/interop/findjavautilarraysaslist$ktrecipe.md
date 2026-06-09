@@ -1,4 +1,5 @@
 ---
+title: "Find `Arrays.asList(...)` calls"
 sidebar_label: "Find `Arrays.asList(...)` calls"
 ---
 

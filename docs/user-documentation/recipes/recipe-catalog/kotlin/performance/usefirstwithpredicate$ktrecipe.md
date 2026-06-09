@@ -1,4 +1,5 @@
 ---
+title: "Use `first { predicate }` instead of `filter { predicate }.first()`"
 sidebar_label: "Use `first { predicate }` instead of `filter { predicate }.first()`"
 ---
 

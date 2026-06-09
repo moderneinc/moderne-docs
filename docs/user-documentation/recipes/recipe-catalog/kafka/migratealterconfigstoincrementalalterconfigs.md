@@ -1,4 +1,5 @@
 ---
+title: "Migrate `AdminClient.alterConfigs()` to `incrementalAlterConfigs()`"
 sidebar_label: "Migrate `AdminClient.alterConfigs()` to `incrementalAlterConfigs()`"
 ---
 

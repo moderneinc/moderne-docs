@@ -1,4 +1,5 @@
 ---
+title: "Find non-empty catch blocks that neither log nor rethrow"
 sidebar_label: "Find non-empty catch blocks that neither log nor rethrow"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Change method name"
 sidebar_label: "Change method name"
 ---
 
@@ -43,6 +44,7 @@ This recipe is used as part of the following composite recipes:
 * [Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`](/user-documentation/recipes/recipe-catalog/java/migrate/removedsubjectmethods.md)
 * [Adopt `setLongThreadID` in `java.util.logging.LogRecord`](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus37/deprecatedlogrecordthreadid.md)
 * [Adopt `setLongThreadID` in `java.util.logging.LogRecord`](/user-documentation/recipes/recipe-catalog/java/migrate/deprecatedlogrecordthreadid.md)
+* [Apply Axon Framework 5 messaging module renames](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5messaging.md)
 * [ArchUnit 0.x upgrade](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
 * [Change S3 methods to v2.](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/s3methodstov2.md)
 * [Change S3EventNotification methods to v2.](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/s3eventnotificationmethodstov2.md)
@@ -107,6 +109,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrates to Apache Commons Lang 3.x](/user-documentation/recipes/recipe-catalog/apache/commons/lang/upgradeapachecommonslang_2_3.md)
 * [Mockito 3.x migration from 1.x](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
 * [OkHttp `MockWebServer` `MockResponse` to 5.x `MockWebServer3` `MockResponse`](/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebservermockresponse.md)
+* [PlanningVariable's `nullable` is newly called `unassignedValues`](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/nullablerecipe.md)
 * [Prefer `Integer#compareUnsigned`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegercompareunsigned.md)
 * [Prefer `Integer#divideUnsigned`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegerdivideunsigned.md)
 * [Prefer `Long#compareUnsigned`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferlongcompareunsigned.md)
@@ -122,6 +125,7 @@ This recipe is used as part of the following composite recipes:
 * [Prefer the Java standard library instead of Joda-Time](/user-documentation/recipes/recipe-catalog/java/joda/time/nojodatime.md)
 * [Quarkus 1.13 migration from Quarkus 1.11](/user-documentation/recipes/recipe-catalog/quarkus/quarkus1to1_13migration.md)
 * [Recipe testing best practices](/user-documentation/recipes/recipe-catalog/java/recipes/recipetestingbestpractices.md)
+* [Recommended Fit API becomes Assignment Recommendation API](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/solutionmanagerrecommendassignmentrecipe.md)
 * [Refactored dataFormats](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel415/dataformats.md)
 * [Rename Exposed deprecated methods for 1.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedchangemethodnames)
 * [Rename Jackson 2.x methods to 3.x equivalents for JsonGenerator](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsongeneratormethodrenames.md)
@@ -136,7 +140,6 @@ This recipe is used as part of the following composite recipes:
 * [Replace `Paths.get` with `Path.of`](/user-documentation/recipes/recipe-catalog/java/migrate/nio/file/pathsgettopathof.md)
 * [Replace `SSLSession.getPeerCertificateChain()` method](/user-documentation/recipes/recipe-catalog/java/migrate/removedsslsessiongetpeercertificatechainmethodimpl.md)
 * [Replace `doUpgrade(..)` with `ServerContainer.upgradeHttpToWebSocket(..)`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/wswsocservercontainerdeprecation.md)
-* [Replace `enumValues&lt;T&gt;()` with `enumEntries&lt;T&gt;()`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/replaceenumvaluesfunctionwithenumentries)
 * [Replace `finalize` method in `java.io.FileInputStream`  and `java.io.FileOutputStream`](/user-documentation/recipes/recipe-catalog/java/migrate/removedfileiofinalizemethods.md)
 * [Replace `finalize` method in `java.util.zip.ZipFile`, `java.util.zip.Inflater` and `java.util.zip.Deflater`](/user-documentation/recipes/recipe-catalog/java/migrate/removedzipfinalizemethods.md)
 * [Replace `hudson.Util.getPastTimeString` with `getTimeSpanString`](/user-documentation/recipes/recipe-catalog/jenkins/migrate/hudson/utilgetpasttimestringtogettimespanstring.md)
@@ -178,6 +181,7 @@ This recipe is used as part of the following composite recipes:
 * [Use `javax.xml.stream.XMLInputFactory#newFactory(String, ClassLoader)`](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratexmlinputfactorynewinstancetonewfactory.md)
 * [Use `javax.xml.stream.XMLOutputFactory#newFactory(String, ClassLoader)`](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratexmloutputfactorynewinstancetonewfactory.md)
 * [Use `setEagerFilterInit(boolean)`](/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateundertowservletwebserverfactoryseteagerinitfilters.md)
+* [Use non-deprecated related sorting fields and methods](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/sortingmigrationrecipe.md)
 * [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmSessionMethodsRemovedIn7](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromhibernateormsessionmethodsremovedin7.md)
 * [io.quarkus.updates.core.quarkus35.MutinyUniAndGroupCombinedWith](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus35/mutinyuniandgroupcombinedwith.md)
 * [io.quarkus.updates.core.quarkus35.MutinyUniMemoizeAtLeast](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus35/mutinyunimemoizeatleast.md)

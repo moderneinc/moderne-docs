@@ -1,4 +1,5 @@
 ---
+title: "Replace `ReverseComparator` with `Collections.reverseOrder()`"
 sidebar_label: "Replace `ReverseComparator` with `Collections.reverseOrder()`"
 ---
 

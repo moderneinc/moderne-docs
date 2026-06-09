@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `os.popen()` usage"
 sidebar_label: "Find deprecated `os.popen()` usage"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Remove MSBuild property"
 sidebar_label: "Remove MSBuild property"
 ---
 
@@ -39,5 +40,5 @@ This recipe is used as part of the following composite recipes:
 <RunRecipe
   recipeName="OpenRewrite.CSharp.Recipes.RemoveMSBuildProperty"
   displayName="Remove MSBuild property"
-  nugetPackage="OpenRewrite.Recipes.CSharp.Migration.Dotnet"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
 />

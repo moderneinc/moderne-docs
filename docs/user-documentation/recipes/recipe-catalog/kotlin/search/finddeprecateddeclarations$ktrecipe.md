@@ -1,4 +1,5 @@
 ---
+title: "Find declarations annotated `@Deprecated`"
 sidebar_label: "Find declarations annotated `@Deprecated`"
 ---
 

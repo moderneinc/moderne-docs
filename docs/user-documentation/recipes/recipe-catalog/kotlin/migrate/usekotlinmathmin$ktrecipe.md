@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.min` instead of `java.lang.Math.min`"
 sidebar_label: "Use `kotlin.math.min` instead of `java.lang.Math.min`"
 ---
 

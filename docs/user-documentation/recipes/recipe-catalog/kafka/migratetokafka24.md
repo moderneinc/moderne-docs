@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Kafka 2.4"
 sidebar_label: "Migrate to Kafka 2.4"
 ---
 

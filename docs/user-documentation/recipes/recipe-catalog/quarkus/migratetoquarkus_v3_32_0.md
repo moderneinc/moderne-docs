@@ -1,4 +1,5 @@
 ---
+title: "Quarkus Updates Aggregate 3.32.0"
 sidebar_label: "Quarkus Updates Aggregate 3.32.0"
 ---
 
@@ -69,6 +70,13 @@ recipeList:
 ```
 </TabItem>
 </Tabs>
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Quarkus Updates Aggregate 3.33.0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_33_0.md)
+
 
 ## Usage
 

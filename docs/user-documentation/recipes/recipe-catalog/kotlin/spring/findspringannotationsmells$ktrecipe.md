@@ -1,4 +1,5 @@
 ---
+title: "Find Spring annotation-shape smells"
 sidebar_label: "Find Spring annotation-shape smells"
 ---
 

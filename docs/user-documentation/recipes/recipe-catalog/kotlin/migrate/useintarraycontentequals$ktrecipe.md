@@ -1,4 +1,5 @@
 ---
+title: "Use `IntArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 sidebar_label: "Use `IntArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 ---
 

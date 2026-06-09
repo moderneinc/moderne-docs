@@ -1,4 +1,5 @@
 ---
+title: "Use `Long.rotateRight(n)` instead of `Long.rotateRight(l, n)`"
 sidebar_label: "Use `Long.rotateRight(n)` instead of `Long.rotateRight(l, n)`"
 ---
 

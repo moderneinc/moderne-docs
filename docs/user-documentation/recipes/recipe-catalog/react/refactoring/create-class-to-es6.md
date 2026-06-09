@@ -1,4 +1,5 @@
 ---
+title: "Convert `createClass` to ES6 class"
 sidebar_label: "Convert `createClass` to ES6 class"
 ---
 

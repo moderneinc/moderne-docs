@@ -1,4 +1,5 @@
 ---
+title: "Remove deprecated symbol literals"
 sidebar_label: "Remove deprecated symbol literals"
 ---
 

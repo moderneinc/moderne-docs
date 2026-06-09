@@ -1,4 +1,5 @@
 ---
+title: "Ensure key vault allows firewall rules settings"
 sidebar_label: "Ensure key vault allows firewall rules settings"
 ---
 

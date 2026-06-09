@@ -1,4 +1,5 @@
 ---
+title: "Find `SafeEvpPKeyHandle.DuplicateHandle` up-ref change"
 sidebar_label: "Find `SafeEvpPKeyHandle.DuplicateHandle` up-ref change"
 ---
 

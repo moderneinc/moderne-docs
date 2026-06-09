@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Angular versions"
 sidebar_label: "Upgrade Angular versions"
 ---
 

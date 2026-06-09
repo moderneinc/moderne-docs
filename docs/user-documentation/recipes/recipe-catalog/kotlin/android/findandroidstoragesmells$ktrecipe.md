@@ -1,4 +1,5 @@
 ---
+title: "Find Android storage / data-layer smells"
 sidebar_label: "Find Android storage / data-layer smells"
 ---
 

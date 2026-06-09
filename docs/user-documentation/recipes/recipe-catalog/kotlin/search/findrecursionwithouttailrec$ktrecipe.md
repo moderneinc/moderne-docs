@@ -1,4 +1,5 @@
 ---
+title: "Find recursive functions not marked `tailrec`"
 sidebar_label: "Find recursive functions not marked `tailrec`"
 ---
 

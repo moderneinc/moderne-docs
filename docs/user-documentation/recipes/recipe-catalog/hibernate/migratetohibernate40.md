@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Hibernate 4.0.x"
 sidebar_label: "Migrate to Hibernate 4.0.x"
 ---
 

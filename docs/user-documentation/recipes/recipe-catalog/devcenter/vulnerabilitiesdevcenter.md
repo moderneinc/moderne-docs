@@ -1,4 +1,5 @@
 ---
+title: "DevCenter for Vulnerability Management"
 sidebar_label: "DevCenter for Vulnerability Management"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Ensure app service enables detailed error messages"
 sidebar_label: "Ensure app service enables detailed error messages"
 ---
 

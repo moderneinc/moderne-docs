@@ -1,4 +1,5 @@
 ---
+title: "Use `String.toBoolean()` instead of `java.lang.Boolean.parseBoolean(s)`"
 sidebar_label: "Use `String.toBoolean()` instead of `java.lang.Boolean.parseBoolean(s)`"
 ---
 

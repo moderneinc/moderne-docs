@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Struts 6.0 dependencies"
 sidebar_label: "Upgrade Struts 6.0 dependencies"
 ---
 

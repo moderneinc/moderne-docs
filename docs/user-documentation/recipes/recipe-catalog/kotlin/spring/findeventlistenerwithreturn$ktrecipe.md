@@ -1,4 +1,5 @@
 ---
+title: "Find `@EventListener` methods with non-`Unit` return types"
 sidebar_label: "Find `@EventListener` methods with non-`Unit` return types"
 ---
 

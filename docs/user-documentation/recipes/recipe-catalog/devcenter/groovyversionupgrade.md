@@ -1,4 +1,5 @@
 ---
+title: "Move to a later Groovy version"
 sidebar_label: "Move to a later Groovy version"
 ---
 

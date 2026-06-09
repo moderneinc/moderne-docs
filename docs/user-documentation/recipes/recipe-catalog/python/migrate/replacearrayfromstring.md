@@ -1,4 +1,5 @@
 ---
+title: "Replace `array.fromstring()` with `array.frombytes()`"
 sidebar_label: "Replace `array.fromstring()` with `array.frombytes()`"
 ---
 

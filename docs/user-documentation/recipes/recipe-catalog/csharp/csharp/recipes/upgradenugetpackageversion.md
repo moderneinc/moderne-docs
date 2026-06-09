@@ -1,4 +1,5 @@
 ---
+title: "Upgrade NuGet package version"
 sidebar_label: "Upgrade NuGet package version"
 ---
 
@@ -48,5 +49,5 @@ This recipe is used as part of the following composite recipes:
 <RunRecipe
   recipeName="OpenRewrite.CSharp.Recipes.UpgradeNuGetPackageVersion"
   displayName="Upgrade NuGet package version"
-  nugetPackage="OpenRewrite.Recipes.CSharp.Migration.Dotnet"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
 />

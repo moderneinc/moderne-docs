@@ -1,4 +1,5 @@
 ---
+title: "Migrate `DefaultResponseErrorHandler.handleError` method signature"
 sidebar_label: "Migrate `DefaultResponseErrorHandler.handleError` method signature"
 ---
 

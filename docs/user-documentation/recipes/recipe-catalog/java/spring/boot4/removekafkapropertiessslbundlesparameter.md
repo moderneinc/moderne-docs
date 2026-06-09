@@ -1,4 +1,5 @@
 ---
+title: "Remove `SslBundles` parameter from `KafkaProperties` build methods"
 sidebar_label: "Remove `SslBundles` parameter from `KafkaProperties` build methods"
 ---
 

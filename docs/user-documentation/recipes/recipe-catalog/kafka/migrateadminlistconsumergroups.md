@@ -1,4 +1,5 @@
 ---
+title: "Migrate `Admin.listConsumerGroups()` to `listGroups()`"
 sidebar_label: "Migrate `Admin.listConsumerGroups()` to `listGroups()`"
 ---
 

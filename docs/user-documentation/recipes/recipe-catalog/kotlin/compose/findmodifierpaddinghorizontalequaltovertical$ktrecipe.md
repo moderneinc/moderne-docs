@@ -1,4 +1,5 @@
 ---
+title: "Find `padding(start = x, end = x, top = y, bottom = y)` shorthand opportunities"
 sidebar_label: "Find `padding(start = x, end = x, top = y, bottom = y)` shorthand opportunities"
 ---
 

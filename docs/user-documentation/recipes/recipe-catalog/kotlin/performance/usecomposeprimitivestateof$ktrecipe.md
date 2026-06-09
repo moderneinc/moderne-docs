@@ -1,4 +1,5 @@
 ---
+title: "Use primitive `mutable&lt;Int|Long|Float|Double&gt;StateOf` in Compose"
 sidebar_label: "Use primitive `mutable&lt;Int|Long|Float|Double&gt;StateOf` in Compose"
 ---
 

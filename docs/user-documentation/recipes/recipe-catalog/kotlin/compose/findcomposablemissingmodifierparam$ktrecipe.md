@@ -1,4 +1,5 @@
 ---
+title: "Find `@Composable` functions without a `Modifier` parameter"
 sidebar_label: "Find `@Composable` functions without a `Modifier` parameter"
 ---
 

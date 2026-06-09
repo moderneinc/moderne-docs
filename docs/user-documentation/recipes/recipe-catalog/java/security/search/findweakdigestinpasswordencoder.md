@@ -1,4 +1,5 @@
 ---
+title: "Find weak message digests used inside custom `PasswordEncoder` implementations"
 sidebar_label: "Find weak message digests used inside custom `PasswordEncoder` implementations"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate removed Hibernate UUID `@Type` to `@JdbcTypeCode`"
 sidebar_label: "Migrate removed Hibernate UUID `@Type` to `@JdbcTypeCode`"
 ---
 

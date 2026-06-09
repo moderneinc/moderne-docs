@@ -1,4 +1,5 @@
 ---
+title: "Find endpoint contracts"
 sidebar_label: "Find endpoint contracts"
 ---
 

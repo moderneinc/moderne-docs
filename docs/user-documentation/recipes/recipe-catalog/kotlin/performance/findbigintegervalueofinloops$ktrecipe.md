@@ -1,4 +1,5 @@
 ---
+title: "Find `BigInteger.valueOf(long)` calls inside loops"
 sidebar_label: "Find `BigInteger.valueOf(long)` calls inside loops"
 ---
 

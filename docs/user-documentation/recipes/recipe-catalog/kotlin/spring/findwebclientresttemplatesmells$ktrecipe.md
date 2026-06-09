@@ -1,4 +1,5 @@
 ---
+title: "Find WebClient / RestTemplate / ResponseEntity smells"
 sidebar_label: "Find WebClient / RestTemplate / ResponseEntity smells"
 ---
 

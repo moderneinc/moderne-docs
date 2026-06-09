@@ -1,4 +1,5 @@
 ---
+title: "Migrate to .NET 8"
 sidebar_label: "Migrate to .NET 8"
 ---
 

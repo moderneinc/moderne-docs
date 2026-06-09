@@ -1,4 +1,5 @@
 ---
+title: "Convert `apply('name')` to a direct method invocation"
 sidebar_label: "Convert `apply('name')` to a direct method invocation"
 ---
 

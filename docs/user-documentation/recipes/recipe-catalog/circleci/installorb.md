@@ -1,4 +1,5 @@
 ---
+title: "Install an orb"
 sidebar_label: "Install an orb"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `catch (OutOfMemoryException)` that may need `ExternalException`"
 sidebar_label: "Find `catch (OutOfMemoryException)` that may need `ExternalException`"
 ---
 

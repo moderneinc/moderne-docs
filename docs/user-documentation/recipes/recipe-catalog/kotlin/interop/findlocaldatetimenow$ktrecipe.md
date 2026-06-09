@@ -1,4 +1,5 @@
 ---
+title: "Find `LocalDateTime.now()` / `Instant.now()` calls"
 sidebar_label: "Find `LocalDateTime.now()` / `Instant.now()` calls"
 ---
 

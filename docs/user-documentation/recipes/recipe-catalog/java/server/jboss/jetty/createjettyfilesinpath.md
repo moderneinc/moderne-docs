@@ -1,4 +1,5 @@
 ---
+title: "Migrate JBoss to Jetty"
 sidebar_label: "Migrate JBoss to Jetty"
 ---
 

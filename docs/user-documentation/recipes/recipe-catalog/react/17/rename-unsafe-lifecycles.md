@@ -1,4 +1,5 @@
 ---
+title: "Add `UNSAFE_` prefix to deprecated lifecycle methods"
 sidebar_label: "Add `UNSAFE_` prefix to deprecated lifecycle methods"
 ---
 

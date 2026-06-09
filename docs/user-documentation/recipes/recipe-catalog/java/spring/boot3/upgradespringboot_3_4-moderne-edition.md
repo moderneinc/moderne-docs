@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Spring Boot 3.4 (Moderne Edition)"
 sidebar_label: "Migrate to Spring Boot 3.4 (Moderne Edition)"
 ---
 
@@ -30,6 +31,175 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 3.5 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition)
+
+## Examples
+##### Example 1
+`UpgradeSetResourceParameterTypeTest#retypesOverrideOnResourceAwareItemWriterItemStream`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
+import org.springframework.core.io.Resource;
+
+class MyWriter implements ResourceAwareItemWriterItemStream<String> {
+    @Override
+    public void setResource(Resource resource) {
+    }
+    @Override public void open(ExecutionContext executionContext) {}
+    @Override public void update(ExecutionContext executionContext) {}
+    @Override public void close() {}
+    @Override public void write(java.util.List<? extends String> items) {}
+}
+```
+
+###### After
+```java
+import org.springframework.batch.item.Chunk;
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
+import org.springframework.core.io.WritableResource;
+
+class MyWriter implements ResourceAwareItemWriterItemStream<String> {
+    @Override
+    public void setResource(WritableResource resource) {
+    }
+    @Override public void open(ExecutionContext executionContext) {}
+    @Override public void update(ExecutionContext executionContext) {}
+    @Override public void close() {}
+
+    @Override
+    public void write(Chunk<? extends String> items) throws Exception {
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,0 +1,1 @@
++import org.springframework.batch.item.Chunk;
+import org.springframework.batch.item.ExecutionContext;
+@@ -3,1 +4,1 @@
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
+-import org.springframework.core.io.Resource;
++import org.springframework.core.io.WritableResource;
+
+@@ -7,1 +8,1 @@
+class MyWriter implements ResourceAwareItemWriterItemStream<String> {
+    @Override
+-   public void setResource(Resource resource) {
++   public void setResource(WritableResource resource) {
+    }
+@@ -12,1 +13,4 @@
+    @Override public void update(ExecutionContext executionContext) {}
+    @Override public void close() {}
+-   @Override public void write(java.util.List<? extends String> items) {}
++
++   @Override
++   public void write(Chunk<? extends String> items) throws Exception {
++   }
+}
+```
+</TabItem>
+</Tabs>
+
+###### Unchanged
+```mavenProject
+demo
+```
+
+---
+
+##### Example 2
+`UpgradeSetResourceParameterTypeTest#retypesOverrideOnResourceAwareItemWriterItemStream`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
+import org.springframework.core.io.Resource;
+
+class MyWriter implements ResourceAwareItemWriterItemStream<String> {
+    @Override
+    public void setResource(Resource resource) {
+    }
+    @Override public void open(ExecutionContext executionContext) {}
+    @Override public void update(ExecutionContext executionContext) {}
+    @Override public void close() {}
+    @Override public void write(java.util.List<? extends String> items) {}
+}
+```
+
+###### After
+```java
+import org.springframework.batch.item.Chunk;
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
+import org.springframework.core.io.WritableResource;
+
+class MyWriter implements ResourceAwareItemWriterItemStream<String> {
+    @Override
+    public void setResource(WritableResource resource) {
+    }
+    @Override public void open(ExecutionContext executionContext) {}
+    @Override public void update(ExecutionContext executionContext) {}
+    @Override public void close() {}
+
+    @Override
+    public void write(Chunk<? extends String> items) throws Exception {
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,0 +1,1 @@
++import org.springframework.batch.item.Chunk;
+import org.springframework.batch.item.ExecutionContext;
+@@ -3,1 +4,1 @@
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
+-import org.springframework.core.io.Resource;
++import org.springframework.core.io.WritableResource;
+
+@@ -7,1 +8,1 @@
+class MyWriter implements ResourceAwareItemWriterItemStream<String> {
+    @Override
+-   public void setResource(Resource resource) {
++   public void setResource(WritableResource resource) {
+    }
+@@ -12,1 +13,4 @@
+    @Override public void update(ExecutionContext executionContext) {}
+    @Override public void close() {}
+-   @Override public void write(java.util.List<? extends String> items) {}
++
++   @Override
++   public void write(Chunk<? extends String> items) throws Exception {
++   }
+}
+```
+</TabItem>
+</Tabs>
+
+###### Unchanged
+```mavenProject
+demo
+```
 
 
 ## Usage

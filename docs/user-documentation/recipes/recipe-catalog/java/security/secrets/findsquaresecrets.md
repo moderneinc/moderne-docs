@@ -1,4 +1,5 @@
 ---
+title: "Find Square secrets"
 sidebar_label: "Find Square secrets"
 ---
 

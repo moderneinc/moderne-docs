@@ -1,4 +1,5 @@
 ---
+title: "Use LINQ DistinctBy()"
 sidebar_label: "Use LINQ DistinctBy()"
 ---
 

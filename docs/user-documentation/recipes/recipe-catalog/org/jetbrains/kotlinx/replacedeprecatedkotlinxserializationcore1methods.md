@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `kotlinx-serialization-core` methods"
 sidebar_label: "Replace deprecated `kotlinx-serialization-core` methods"
 ---
 

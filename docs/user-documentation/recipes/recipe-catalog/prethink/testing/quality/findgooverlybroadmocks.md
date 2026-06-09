@@ -1,4 +1,5 @@
 ---
+title: "Find Go overly broad mocks"
 sidebar_label: "Find Go overly broad mocks"
 ---
 

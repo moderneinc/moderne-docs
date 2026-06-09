@@ -1,4 +1,5 @@
 ---
+title: "Find sensitive data in log calls"
 sidebar_label: "Find sensitive data in log calls"
 ---
 

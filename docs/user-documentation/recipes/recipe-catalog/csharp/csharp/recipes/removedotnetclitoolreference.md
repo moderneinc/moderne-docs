@@ -1,4 +1,5 @@
 ---
+title: "Remove DotNetCliToolReference"
 sidebar_label: "Remove DotNetCliToolReference"
 ---
 
@@ -39,5 +40,5 @@ This recipe is used as part of the following composite recipes:
 <RunRecipe
   recipeName="OpenRewrite.CSharp.Recipes.RemoveDotNetCliToolReference"
   displayName="Remove DotNetCliToolReference"
-  nugetPackage="OpenRewrite.Recipes.CSharp.Migration.Dotnet"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
 />

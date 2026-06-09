@@ -1,4 +1,5 @@
 ---
+title: "Remediate OWASP A03:2021 Injection"
 sidebar_label: "Remediate OWASP A03:2021 Injection"
 ---
 

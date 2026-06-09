@@ -1,4 +1,5 @@
 ---
+title: "Wrap `GenericMessage` map argument in `MessageHeaders`"
 sidebar_label: "Wrap `GenericMessage` map argument in `MessageHeaders`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Add NuGet package reference"
 sidebar_label: "Add NuGet package reference"
 ---
 
@@ -28,10 +29,17 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | `Boolean` | RegenerateMarker | *Optional*. Whether to re-run `dotnet restore` after the edit to refresh the project's MSBuildProject marker. Defaults to `true`. Composite recipes that chain multiple csproj-mutating steps may set this to `false` on intermediate steps and finalize once with `EnsureCsprojAttestation`. |  |
 
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Migrate xUnit NuGet dependencies to TUnit](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/tunit/fromxunit/migratexunitdependencies)
+
+
 ## Usage
 
 <RunRecipe
   recipeName="OpenRewrite.CSharp.Recipes.AddNuGetPackageReference"
   displayName="Add NuGet package reference"
-  nugetPackage="OpenRewrite.Recipes.CSharp.Migration.Dotnet"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
 />

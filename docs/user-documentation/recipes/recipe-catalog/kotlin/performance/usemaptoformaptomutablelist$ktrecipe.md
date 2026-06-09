@@ -1,4 +1,5 @@
 ---
+title: "Use `mapTo(mutableListOf(), f)` instead of `map(f).toMutableList()`"
 sidebar_label: "Use `mapTo(mutableListOf(), f)` instead of `map(f).toMutableList()`"
 ---
 

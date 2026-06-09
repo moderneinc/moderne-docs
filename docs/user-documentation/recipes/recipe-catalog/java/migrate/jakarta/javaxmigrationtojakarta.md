@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Jakarta EE 9"
 sidebar_label: "Migrate to Jakarta EE 9"
 ---
 
@@ -162,7 +163,6 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Jakarta EE 10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10.md)
 * [Migrate to Jakarta EE 9.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakartaee9_1.md)
 * [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/org/apache/wicket/migratetowicket10.md)
-* [Upgrade to Axonframework 4.x Jakarta](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_jakarta.md)
 
 ## Examples
 ##### Example 1

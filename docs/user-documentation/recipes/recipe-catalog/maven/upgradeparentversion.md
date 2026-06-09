@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Maven parent project version"
 sidebar_label: "Upgrade Maven parent project version"
 ---
 
@@ -50,7 +51,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 2.4](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_4.md)
 * [Migrate to Spring Boot 2.6](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_6.md)
 * [Migrate to Spring Boot 2.7](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_7.md)
-* [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
+* [Migrate to Spring Boot 3.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
 * [Migrate to Spring Boot 3.1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_1.md)
 * [Migrate to Spring Boot 3.2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_2.md)
 * [Migrate to Spring Boot 3.3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_3.md)

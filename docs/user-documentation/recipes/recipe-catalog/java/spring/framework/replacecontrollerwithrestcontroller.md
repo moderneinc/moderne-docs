@@ -1,4 +1,5 @@
 ---
+title: "Replace `@Controller` with `@RestController`"
 sidebar_label: "Replace `@Controller` with `@RestController`"
 ---
 

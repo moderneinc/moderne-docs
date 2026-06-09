@@ -1,4 +1,5 @@
 ---
+title: "Use `.isna()` instead of `== np.nan` comparisons"
 sidebar_label: "Use `.isna()` instead of `== np.nan` comparisons"
 ---
 

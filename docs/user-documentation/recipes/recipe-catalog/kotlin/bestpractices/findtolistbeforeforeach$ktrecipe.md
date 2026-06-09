@@ -1,4 +1,5 @@
 ---
+title: "Find `xs.toList().forEach { … }` patterns"
 sidebar_label: "Find `xs.toList().forEach { … }` patterns"
 ---
 

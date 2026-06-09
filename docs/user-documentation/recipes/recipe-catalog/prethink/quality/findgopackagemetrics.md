@@ -1,4 +1,5 @@
 ---
+title: "Find Go package quality metrics"
 sidebar_label: "Find Go package quality metrics"
 ---
 

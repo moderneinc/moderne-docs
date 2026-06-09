@@ -1,4 +1,5 @@
 ---
+title: "Remove `IRequestCycle` parameters"
 sidebar_label: "Remove `IRequestCycle` parameters"
 ---
 

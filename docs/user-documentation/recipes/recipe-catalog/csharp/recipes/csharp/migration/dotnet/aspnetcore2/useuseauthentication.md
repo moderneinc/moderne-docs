@@ -1,4 +1,5 @@
 ---
+title: "Replace UseIdentity() with UseAuthentication()"
 sidebar_label: "Replace UseIdentity() with UseAuthentication()"
 ---
 

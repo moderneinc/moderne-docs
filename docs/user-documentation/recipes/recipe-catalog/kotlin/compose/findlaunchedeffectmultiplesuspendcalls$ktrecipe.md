@@ -1,4 +1,5 @@
 ---
+title: "Find `LaunchedEffect` bodies with several distinct suspend calls"
 sidebar_label: "Find `LaunchedEffect` bodies with several distinct suspend calls"
 ---
 

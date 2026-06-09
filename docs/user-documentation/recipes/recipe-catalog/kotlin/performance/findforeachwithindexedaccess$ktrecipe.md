@@ -1,4 +1,5 @@
 ---
+title: "Find `for (i in xs.indices) { val x = xs[i] }` patterns"
 sidebar_label: "Find `for (i in xs.indices) { val x = xs[i] }` patterns"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Remove deprecated Kafka property"
 sidebar_label: "Remove deprecated Kafka property"
 ---
 

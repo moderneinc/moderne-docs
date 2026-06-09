@@ -1,4 +1,5 @@
 ---
+title: "Remove debug mode from Spring Security"
 sidebar_label: "Remove debug mode from Spring Security"
 ---
 

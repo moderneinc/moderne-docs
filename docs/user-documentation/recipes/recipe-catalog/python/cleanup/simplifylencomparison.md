@@ -1,4 +1,5 @@
 ---
+title: "Replace `len()` emptiness check with truthiness"
 sidebar_label: "Replace `len()` emptiness check with truthiness"
 ---
 

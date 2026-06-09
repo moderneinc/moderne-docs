@@ -1,4 +1,5 @@
 ---
+title: "Ensure app service enables failed request tracing"
 sidebar_label: "Ensure app service enables failed request tracing"
 ---
 

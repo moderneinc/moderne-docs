@@ -1,4 +1,5 @@
 ---
+title: "Simplify `sum(1 for x in items if cond)` to `sum(bool(cond) for x in items)`"
 sidebar_label: "Simplify `sum(1 for x in items if cond)` to `sum(bool(cond) for x in items)`"
 ---
 

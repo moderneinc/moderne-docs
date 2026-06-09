@@ -1,4 +1,5 @@
 ---
+title: "Rename PrimeNG selectors in HTML templates to their v18 equivalents"
 sidebar_label: "Rename PrimeNG selectors in HTML templates to their v18 equivalents"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace self-referencing ternary with `or`"
 sidebar_label: "Replace self-referencing ternary with `or`"
 ---
 

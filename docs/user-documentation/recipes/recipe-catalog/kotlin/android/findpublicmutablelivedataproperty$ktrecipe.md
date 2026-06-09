@@ -1,4 +1,5 @@
 ---
+title: "Find public `MutableLiveData` properties"
 sidebar_label: "Find public `MutableLiveData` properties"
 ---
 

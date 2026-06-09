@@ -1,4 +1,5 @@
 ---
+title: "Review trait var initialization for Scala 3"
 sidebar_label: "Review trait var initialization for Scala 3"
 ---
 

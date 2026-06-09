@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.cos` instead of `java.lang.Math.cos`"
 sidebar_label: "Use `kotlin.math.cos` instead of `java.lang.Math.cos`"
 ---
 

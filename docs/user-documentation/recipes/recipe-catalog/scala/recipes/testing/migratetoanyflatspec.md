@@ -1,4 +1,5 @@
 ---
+title: "Migrate from `FlatSpec` to `AnyFlatSpec`"
 sidebar_label: "Migrate from `FlatSpec` to `AnyFlatSpec`"
 ---
 

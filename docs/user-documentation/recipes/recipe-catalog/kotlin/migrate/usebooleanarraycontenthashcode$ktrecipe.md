@@ -1,4 +1,5 @@
 ---
+title: "Use `BooleanArray.contentHashCode()` instead of `Arrays.hashCode(arr)`"
 sidebar_label: "Use `BooleanArray.contentHashCode()` instead of `Arrays.hashCode(arr)`"
 ---
 

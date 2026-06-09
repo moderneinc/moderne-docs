@@ -1,4 +1,5 @@
 ---
+title: "Find maven project IDs"
 sidebar_label: "Find maven project IDs"
 ---
 

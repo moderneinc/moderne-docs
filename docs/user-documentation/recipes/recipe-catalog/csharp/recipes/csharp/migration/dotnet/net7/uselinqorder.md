@@ -1,4 +1,5 @@
 ---
+title: "Use LINQ Order() and OrderDescending()"
 sidebar_label: "Use LINQ Order() and OrderDescending()"
 ---
 

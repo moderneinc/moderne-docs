@@ -1,4 +1,5 @@
 ---
+title: "Find `when` expressions with more than 10 branches"
 sidebar_label: "Find `when` expressions with more than 10 branches"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `sndhdr` module usage"
 sidebar_label: "Find deprecated `sndhdr` module usage"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `ByteArray.sort()` instead of `Arrays.sort(arr)`"
 sidebar_label: "Use `ByteArray.sort()` instead of `Arrays.sort(arr)`"
 ---
 

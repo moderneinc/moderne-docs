@@ -1,4 +1,5 @@
 ---
+title: "Find `stream.filter(...).map(...)` chains"
 sidebar_label: "Find `stream.filter(...).map(...)` chains"
 ---
 

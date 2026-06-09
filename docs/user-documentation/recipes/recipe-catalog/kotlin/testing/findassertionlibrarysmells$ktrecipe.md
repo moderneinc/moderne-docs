@@ -1,4 +1,5 @@
 ---
+title: "Find assertion-library smells"
 sidebar_label: "Find assertion-library smells"
 ---
 

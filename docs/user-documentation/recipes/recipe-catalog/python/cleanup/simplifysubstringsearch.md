@@ -1,4 +1,5 @@
 ---
+title: "Replace `.find()` check with `in` / `not in`"
 sidebar_label: "Replace `.find()` check with `in` / `not in`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "DevCenter for Angular"
 sidebar_label: "DevCenter for Angular"
 ---
 

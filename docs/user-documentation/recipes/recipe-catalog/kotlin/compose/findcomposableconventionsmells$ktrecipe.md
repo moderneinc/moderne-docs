@@ -1,4 +1,5 @@
 ---
+title: "Find Compose function-naming conventions"
 sidebar_label: "Find Compose function-naming conventions"
 ---
 

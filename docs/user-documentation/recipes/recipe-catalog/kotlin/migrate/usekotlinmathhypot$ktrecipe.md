@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.hypot` instead of `java.lang.Math.hypot`"
 sidebar_label: "Use `kotlin.math.hypot` instead of `java.lang.Math.hypot`"
 ---
 

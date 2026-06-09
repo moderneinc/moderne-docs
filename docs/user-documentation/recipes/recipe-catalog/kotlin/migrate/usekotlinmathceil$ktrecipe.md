@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.ceil` instead of `java.lang.Math.ceil`"
 sidebar_label: "Use `kotlin.math.ceil` instead of `java.lang.Math.ceil`"
 ---
 

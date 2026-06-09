@@ -1,4 +1,5 @@
 ---
+title: "Migrate `@Endpoint`s `defaultAccess` value"
 sidebar_label: "Migrate `@Endpoint`s `defaultAccess` value"
 ---
 

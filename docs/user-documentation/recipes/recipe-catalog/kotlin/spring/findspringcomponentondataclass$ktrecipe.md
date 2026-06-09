@@ -1,4 +1,5 @@
 ---
+title: "Find `@Component` / `@Service` / `@Repository` on `data class`"
 sidebar_label: "Find `@Component` / `@Service` / `@Repository` on `data class`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Merge collapsible if statements"
 sidebar_label: "Merge collapsible if statements"
 ---
 

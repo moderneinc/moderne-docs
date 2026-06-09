@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.toString(2)` instead of `Integer.toBinaryString`"
 sidebar_label: "Use `Int.toString(2)` instead of `Integer.toBinaryString`"
 ---
 

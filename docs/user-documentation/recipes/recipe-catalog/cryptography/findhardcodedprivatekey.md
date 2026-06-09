@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded private keys"
 sidebar_label: "Find hardcoded private keys"
 ---
 

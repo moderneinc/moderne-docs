@@ -1,4 +1,5 @@
 ---
+title: "Find `@JvmStatic` annotations"
 sidebar_label: "Find `@JvmStatic` annotations"
 ---
 

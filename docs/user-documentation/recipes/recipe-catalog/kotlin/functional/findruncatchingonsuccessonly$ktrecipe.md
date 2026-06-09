@@ -1,4 +1,5 @@
 ---
+title: "Find `runCatching { }.onSuccess { … }` chains with no failure handler"
 sidebar_label: "Find `runCatching { }.onSuccess { … }` chains with no failure handler"
 ---
 

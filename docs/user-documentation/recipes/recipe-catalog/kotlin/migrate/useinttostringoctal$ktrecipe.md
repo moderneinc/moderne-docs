@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.toString(8)` instead of `Integer.toOctalString`"
 sidebar_label: "Use `Int.toString(8)` instead of `Integer.toOctalString`"
 ---
 

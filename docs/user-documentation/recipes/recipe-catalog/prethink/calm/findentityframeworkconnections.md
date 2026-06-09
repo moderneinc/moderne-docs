@@ -1,4 +1,5 @@
 ---
+title: "Find Entity Framework / Dapper / ADO.NET database access"
 sidebar_label: "Find Entity Framework / Dapper / ADO.NET database access"
 ---
 

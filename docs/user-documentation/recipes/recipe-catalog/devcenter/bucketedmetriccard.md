@@ -1,4 +1,5 @@
 ---
+title: "DevCenter card from a data table column"
 sidebar_label: "DevCenter card from a data table column"
 ---
 

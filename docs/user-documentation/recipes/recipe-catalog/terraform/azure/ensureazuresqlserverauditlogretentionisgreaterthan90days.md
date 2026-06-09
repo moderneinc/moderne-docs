@@ -1,4 +1,5 @@
 ---
+title: "Ensure Azure SQL server audit log retention is greater than 90 days"
 sidebar_label: "Ensure Azure SQL server audit log retention is greater than 90 days"
 ---
 

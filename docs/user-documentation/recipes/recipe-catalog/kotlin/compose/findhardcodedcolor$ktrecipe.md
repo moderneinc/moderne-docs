@@ -1,4 +1,5 @@
 ---
+title: "Find `Color(0xFF…)` / `Color.X` literals inside `@Composable`"
 sidebar_label: "Find `Color(0xFF…)` / `Color.X` literals inside `@Composable`"
 ---
 

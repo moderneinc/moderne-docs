@@ -1,4 +1,5 @@
 ---
+title: "Ensure secure boot for shielded GKE nodes is enabled"
 sidebar_label: "Ensure secure boot for shielded GKE nodes is enabled"
 ---
 

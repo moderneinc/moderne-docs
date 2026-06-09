@@ -1,4 +1,5 @@
 ---
+title: "Find Spring legacy / deprecated API smells"
 sidebar_label: "Find Spring legacy / deprecated API smells"
 ---
 

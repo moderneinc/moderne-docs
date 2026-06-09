@@ -1,4 +1,5 @@
 ---
+title: "Use `CharArray.contentHashCode()` instead of `Arrays.hashCode(arr)`"
 sidebar_label: "Use `CharArray.contentHashCode()` instead of `Arrays.hashCode(arr)`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `AnimationDriver.matchesElement` usage"
 sidebar_label: "Find `AnimationDriver.matchesElement` usage"
 ---
 
@@ -18,13 +19,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular18)
 
 
 ## Usage

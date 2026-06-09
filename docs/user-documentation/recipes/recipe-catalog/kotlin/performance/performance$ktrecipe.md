@@ -1,4 +1,5 @@
 ---
+title: "Apply Kotlin performance idioms"
 sidebar_label: "Apply Kotlin performance idioms"
 ---
 

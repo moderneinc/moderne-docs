@@ -1,4 +1,5 @@
 ---
+title: "Find `Card { OneChild() }` patterns"
 sidebar_label: "Find `Card { OneChild() }` patterns"
 ---
 

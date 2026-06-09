@@ -1,4 +1,5 @@
 ---
+title: "Find Slack token literals (`xoxb-`/`xoxp-`/`xoxa-`/`xoxr-`/`xoxs-`)"
 sidebar_label: "Find Slack token literals (`xoxb-`/`xoxp-`/`xoxa-`/`xoxr-`/`xoxs-`)"
 ---
 

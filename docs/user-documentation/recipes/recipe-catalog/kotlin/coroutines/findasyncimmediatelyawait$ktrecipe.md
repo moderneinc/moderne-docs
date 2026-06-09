@@ -1,4 +1,5 @@
 ---
+title: "Find `async { ... }.await()` patterns"
 sidebar_label: "Find `async { ... }.await()` patterns"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use LINQ Index()"
 sidebar_label: "Use LINQ Index()"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace JUnit 4 Spring test base classes with JUnit Jupiter annotations"
 sidebar_label: "Replace JUnit 4 Spring test base classes with JUnit Jupiter annotations"
 ---
 

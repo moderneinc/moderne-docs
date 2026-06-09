@@ -1,4 +1,5 @@
 ---
+title: "Rename `KnownNetworks` to `KnownIPNetworks` (ASPDEPR005)"
 sidebar_label: "Rename `KnownNetworks` to `KnownIPNetworks` (ASPDEPR005)"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate `EntityManagerFactoryBuilder` deprecated constructor"
 sidebar_label: "Migrate `EntityManagerFactoryBuilder` deprecated constructor"
 ---
 

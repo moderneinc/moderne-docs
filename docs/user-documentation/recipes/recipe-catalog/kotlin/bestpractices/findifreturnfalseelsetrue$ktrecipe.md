@@ -1,4 +1,5 @@
 ---
+title: "Find `if (x) false else true` patterns"
 sidebar_label: "Find `if (x) false else true` patterns"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `Context.Consumer` usage"
 sidebar_label: "Find `Context.Consumer` usage"
 ---
 

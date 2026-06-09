@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.ln` instead of `java.lang.Math.log`"
 sidebar_label: "Use `kotlin.math.ln` instead of `java.lang.Math.log`"
 ---
 

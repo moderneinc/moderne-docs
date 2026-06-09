@@ -1,4 +1,5 @@
 ---
+title: "Narrow catch clauses that catch `Throwable`"
 sidebar_label: "Narrow catch clauses that catch `Throwable`"
 ---
 

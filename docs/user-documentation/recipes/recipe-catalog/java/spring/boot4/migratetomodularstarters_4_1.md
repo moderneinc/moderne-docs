@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Spring Boot 4.1 modular starters"
 sidebar_label: "Migrate to Spring Boot 4.1 modular starters"
 ---
 

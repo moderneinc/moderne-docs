@@ -1,4 +1,5 @@
 ---
+title: "Modernize Spring Boot Kotlin code"
 sidebar_label: "Modernize Spring Boot Kotlin code"
 ---
 

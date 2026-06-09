@@ -1,4 +1,5 @@
 ---
+title: "Migrate `@Endpoint` Security properties to 3.4 (Moderne Edition)"
 sidebar_label: "Migrate `@Endpoint` Security properties to 3.4 (Moderne Edition)"
 ---
 

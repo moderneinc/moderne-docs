@@ -1,4 +1,5 @@
 ---
+title: "Replace `typing.Dict` with `dict`"
 sidebar_label: "Replace `typing.Dict` with `dict`"
 ---
 

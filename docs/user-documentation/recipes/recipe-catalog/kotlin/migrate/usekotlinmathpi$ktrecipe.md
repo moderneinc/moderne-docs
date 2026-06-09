@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.PI` instead of `java.lang.Math.PI`"
 sidebar_label: "Use `kotlin.math.PI` instead of `java.lang.Math.PI`"
 ---
 

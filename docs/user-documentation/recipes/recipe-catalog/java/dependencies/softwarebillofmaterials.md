@@ -1,4 +1,5 @@
 ---
+title: "Software bill of materials"
 sidebar_label: "Software bill of materials"
 ---
 

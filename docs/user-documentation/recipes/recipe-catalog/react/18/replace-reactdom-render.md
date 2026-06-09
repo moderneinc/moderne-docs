@@ -1,4 +1,5 @@
 ---
+title: "Replace `ReactDOM.render` with `createRoot`"
 sidebar_label: "Replace `ReactDOM.render` with `createRoot`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Convert Tapestry 4 `@Bean` to `@Property`"
 sidebar_label: "Convert Tapestry 4 `@Bean` to `@Property`"
 ---
 

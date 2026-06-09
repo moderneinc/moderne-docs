@@ -1,4 +1,5 @@
 ---
+title: "Find generic secrets"
 sidebar_label: "Find generic secrets"
 ---
 

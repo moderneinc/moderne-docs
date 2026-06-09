@@ -1,4 +1,5 @@
 ---
+title: "Ensure AWS Elasticsearch domain encryption for data at rest is enabled"
 sidebar_label: "Ensure AWS Elasticsearch domain encryption for data at rest is enabled"
 ---
 

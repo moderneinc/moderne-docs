@@ -1,4 +1,5 @@
 ---
+title: "Find wildcard `import a.b.*` statements"
 sidebar_label: "Find wildcard `import a.b.*` statements"
 ---
 

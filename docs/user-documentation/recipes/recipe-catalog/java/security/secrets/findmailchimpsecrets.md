@@ -1,4 +1,5 @@
 ---
+title: "Find MailChimp secrets"
 sidebar_label: "Find MailChimp secrets"
 ---
 

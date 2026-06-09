@@ -1,4 +1,5 @@
 ---
+title: "Migrate Bean XML properties deprecated in Spring Framework 3.0"
 sidebar_label: "Migrate Bean XML properties deprecated in Spring Framework 3.0"
 ---
 

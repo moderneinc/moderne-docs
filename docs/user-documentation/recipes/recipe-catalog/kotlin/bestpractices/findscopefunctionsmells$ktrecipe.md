@@ -1,4 +1,5 @@
 ---
+title: "Find scope-function smells"
 sidebar_label: "Find scope-function smells"
 ---
 

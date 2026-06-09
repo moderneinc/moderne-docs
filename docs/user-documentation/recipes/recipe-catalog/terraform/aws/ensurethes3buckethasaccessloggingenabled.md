@@ -1,4 +1,5 @@
 ---
+title: "Ensure the S3 bucket has access logging enabled"
 sidebar_label: "Ensure the S3 bucket has access logging enabled"
 ---
 

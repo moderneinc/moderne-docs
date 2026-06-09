@@ -1,4 +1,5 @@
 ---
+title: "Remove leaking of SessionFactoryImplementor from `org.hibernate.usertype.CompositeUserType` invocations and implementations"
 sidebar_label: "Remove leaking of SessionFactoryImplementor from `org.hibernate.usertype.CompositeUserType` invocations and implementations"
 ---
 

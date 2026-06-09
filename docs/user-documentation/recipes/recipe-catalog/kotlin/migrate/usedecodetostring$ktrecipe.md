@@ -1,4 +1,5 @@
 ---
+title: "Use `ByteArray.decodeToString()` instead of `String(byteArray)`"
 sidebar_label: "Use `ByteArray.decodeToString()` instead of `String(byteArray)`"
 ---
 

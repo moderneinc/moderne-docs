@@ -1,4 +1,5 @@
 ---
+title: "Find Java-style `getX()` calls in Kotlin source"
 sidebar_label: "Find Java-style `getX()` calls in Kotlin source"
 ---
 

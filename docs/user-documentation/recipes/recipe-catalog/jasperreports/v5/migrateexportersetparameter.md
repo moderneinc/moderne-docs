@@ -1,4 +1,5 @@
 ---
+title: "Migrate JasperReports exporter setParameter to new API"
 sidebar_label: "Migrate JasperReports exporter setParameter to new API"
 ---
 

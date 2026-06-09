@@ -1,4 +1,5 @@
 ---
+title: "Find `Collections.emptyList/Set/Map()` calls"
 sidebar_label: "Find `Collections.emptyList/Set/Map()` calls"
 ---
 

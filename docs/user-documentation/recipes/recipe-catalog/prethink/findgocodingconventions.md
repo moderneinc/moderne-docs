@@ -1,4 +1,5 @@
 ---
+title: "Find Go coding conventions"
 sidebar_label: "Find Go coding conventions"
 ---
 

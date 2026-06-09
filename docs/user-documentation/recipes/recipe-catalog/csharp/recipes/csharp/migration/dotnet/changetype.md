@@ -1,4 +1,5 @@
 ---
+title: "Change type"
 sidebar_label: "Change type"
 ---
 

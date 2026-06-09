@@ -1,4 +1,5 @@
 ---
+title: "Find Gradle project IDs"
 sidebar_label: "Find Gradle project IDs"
 ---
 

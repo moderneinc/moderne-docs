@@ -1,4 +1,5 @@
 ---
+title: "Upgrade AWS RDS MySQL to 8.4"
 sidebar_label: "Upgrade AWS RDS MySQL to 8.4"
 ---
 

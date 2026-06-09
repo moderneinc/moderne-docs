@@ -1,4 +1,5 @@
 ---
+title: "Find serialization seeds"
 sidebar_label: "Find serialization seeds"
 ---
 

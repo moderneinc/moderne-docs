@@ -1,4 +1,5 @@
 ---
+title: "Find outbound-network sinks (`URL.openConnection`, `OkHttpClient.newCall`, etc.)"
 sidebar_label: "Find outbound-network sinks (`URL.openConnection`, `OkHttpClient.newCall`, etc.)"
 ---
 

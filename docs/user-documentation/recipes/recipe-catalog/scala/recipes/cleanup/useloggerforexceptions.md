@@ -1,4 +1,5 @@
 ---
+title: "Use logging framework instead of `printStackTrace`"
 sidebar_label: "Use logging framework instead of `printStackTrace`"
 ---
 

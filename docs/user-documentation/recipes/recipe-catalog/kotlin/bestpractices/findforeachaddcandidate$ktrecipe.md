@@ -1,4 +1,5 @@
 ---
+title: "Find `xs.forEach { ys.add(it) }` patterns"
 sidebar_label: "Find `xs.forEach { ys.add(it) }` patterns"
 ---
 

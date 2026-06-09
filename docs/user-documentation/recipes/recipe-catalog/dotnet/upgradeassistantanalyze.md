@@ -1,4 +1,5 @@
 ---
+title: "Analyze a .NET project using upgrade-assistant"
 sidebar_label: "Analyze a .NET project using upgrade-assistant"
 ---
 

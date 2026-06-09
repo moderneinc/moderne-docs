@@ -1,4 +1,5 @@
 ---
+title: "Rename `Dropdown` to `Select`"
 sidebar_label: "Rename `Dropdown` to `Select`"
 ---
 

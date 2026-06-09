@@ -1,4 +1,5 @@
 ---
+title: "Rename MLDsa/SlhDsa `SecretKey` members to `PrivateKey`"
 sidebar_label: "Rename MLDsa/SlhDsa `SecretKey` members to `PrivateKey`"
 ---
 

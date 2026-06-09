@@ -1,4 +1,5 @@
 ---
+title: "Find `synchronized(lock) { ... }` calls"
 sidebar_label: "Find `synchronized(lock) { ... }` calls"
 ---
 

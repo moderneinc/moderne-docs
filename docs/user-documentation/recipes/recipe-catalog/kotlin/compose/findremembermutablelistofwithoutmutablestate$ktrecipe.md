@@ -1,4 +1,5 @@
 ---
+title: "Find `remember { mutableListOf&lt;T&gt;() }` patterns"
 sidebar_label: "Find `remember { mutableListOf&lt;T&gt;() }` patterns"
 ---
 

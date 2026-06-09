@@ -1,4 +1,5 @@
 ---
+title: "Find expensive allocations inside collection lambdas"
 sidebar_label: "Find expensive allocations inside collection lambdas"
 ---
 

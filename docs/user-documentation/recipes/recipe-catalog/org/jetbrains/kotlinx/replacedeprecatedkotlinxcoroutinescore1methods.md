@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `kotlinx-coroutines-core` methods"
 sidebar_label: "Replace deprecated `kotlinx-coroutines-core` methods"
 ---
 

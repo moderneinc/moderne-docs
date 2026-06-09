@@ -1,4 +1,5 @@
 ---
+title: "Cookies missing HttpOnly flag"
 sidebar_label: "Cookies missing HttpOnly flag"
 ---
 

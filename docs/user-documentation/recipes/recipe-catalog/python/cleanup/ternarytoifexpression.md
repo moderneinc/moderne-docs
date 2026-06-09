@@ -1,4 +1,5 @@
 ---
+title: "Convert `and`/`or` ternary trick to conditional expression"
 sidebar_label: "Convert `and`/`or` ternary trick to conditional expression"
 ---
 

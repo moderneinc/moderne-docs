@@ -1,4 +1,5 @@
 ---
+title: "Find `X500DistinguishedName` string constructor stricter validation"
 sidebar_label: "Find `X500DistinguishedName` string constructor stricter validation"
 ---
 

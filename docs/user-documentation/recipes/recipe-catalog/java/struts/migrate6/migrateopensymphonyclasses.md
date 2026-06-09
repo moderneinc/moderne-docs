@@ -1,4 +1,5 @@
 ---
+title: "Migrate OpenSymphony classes to Struts 6.0"
 sidebar_label: "Migrate OpenSymphony classes to Struts 6.0"
 ---
 

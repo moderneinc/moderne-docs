@@ -1,4 +1,5 @@
 ---
+title: "Use `IntArray.fill()` instead of `Arrays.fill(arr, value)`"
 sidebar_label: "Use `IntArray.fill()` instead of `Arrays.fill(arr, value)`"
 ---
 

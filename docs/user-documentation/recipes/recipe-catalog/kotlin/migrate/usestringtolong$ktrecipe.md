@@ -1,4 +1,5 @@
 ---
+title: "Use `String.toLong()` instead of `java.lang.Long.parseLong(s)`"
 sidebar_label: "Use `String.toLong()` instead of `java.lang.Long.parseLong(s)`"
 ---
 

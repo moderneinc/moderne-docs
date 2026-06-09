@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete `IPNetwork`/`KnownNetworks` (ASPDEPR005)"
 sidebar_label: "Find obsolete `IPNetwork`/`KnownNetworks` (ASPDEPR005)"
 ---
 

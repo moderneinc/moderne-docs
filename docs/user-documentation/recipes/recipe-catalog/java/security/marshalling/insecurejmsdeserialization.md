@@ -1,4 +1,5 @@
 ---
+title: "Insecure JMS deserialization"
 sidebar_label: "Insecure JMS deserialization"
 ---
 

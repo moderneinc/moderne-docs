@@ -1,4 +1,5 @@
 ---
+title: "Inventory scala-logging usage"
 sidebar_label: "Inventory scala-logging usage"
 ---
 

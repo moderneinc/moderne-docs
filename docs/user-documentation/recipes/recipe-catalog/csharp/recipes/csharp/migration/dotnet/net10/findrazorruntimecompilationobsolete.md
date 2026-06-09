@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete `AddRazorRuntimeCompilation` calls (ASPDEPR003)"
 sidebar_label: "Find obsolete `AddRazorRuntimeCompilation` calls (ASPDEPR003)"
 ---
 

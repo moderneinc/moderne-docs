@@ -1,4 +1,5 @@
 ---
+title: "Find `ServiceLoader.load(...)` calls"
 sidebar_label: "Find `ServiceLoader.load(...)` calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Node.js dependencies"
 sidebar_label: "Upgrade Node.js dependencies"
 ---
 

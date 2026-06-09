@@ -1,4 +1,5 @@
 ---
+title: "Find `effect()` usage affected by Angular 19 timing changes"
 sidebar_label: "Find `effect()` usage affected by Angular 19 timing changes"
 ---
 
@@ -18,13 +19,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular19)
 
 
 ## Usage

@@ -1,4 +1,5 @@
 ---
+title: "Find `@Composable` functions with a content lambda parameter not defaulted to `{}`"
 sidebar_label: "Find `@Composable` functions with a content lambda parameter not defaulted to `{}`"
 ---
 

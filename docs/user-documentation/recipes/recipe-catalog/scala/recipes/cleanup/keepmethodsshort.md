@@ -1,4 +1,5 @@
 ---
+title: "Keep methods short (max 20 statements)"
 sidebar_label: "Keep methods short (max 20 statements)"
 ---
 

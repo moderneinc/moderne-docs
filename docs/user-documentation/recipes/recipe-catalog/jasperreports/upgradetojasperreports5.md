@@ -1,4 +1,5 @@
 ---
+title: "Migrate to JasperReports 5.6.x"
 sidebar_label: "Migrate to JasperReports 5.6.x"
 ---
 

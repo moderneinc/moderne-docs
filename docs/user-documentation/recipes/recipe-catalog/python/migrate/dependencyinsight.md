@@ -1,4 +1,5 @@
 ---
+title: "Python dependency insight"
 sidebar_label: "Python dependency insight"
 ---
 

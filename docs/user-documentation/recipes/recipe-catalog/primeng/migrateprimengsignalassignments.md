@@ -1,4 +1,5 @@
 ---
+title: "Migrate `PrimeNG` config field assignments to `.set()`"
 sidebar_label: "Migrate `PrimeNG` config field assignments to `.set()`"
 ---
 
@@ -18,13 +19,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to PrimeNG 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/primeng/upgradeto18)
 
 
 ## Usage

@@ -1,4 +1,5 @@
 ---
+title: "Find `fun f(): Boolean = true|false` literal-returning functions"
 sidebar_label: "Find `fun f(): Boolean = true|false` literal-returning functions"
 ---
 

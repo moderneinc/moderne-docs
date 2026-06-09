@@ -1,4 +1,5 @@
 ---
+title: "Find Compose `Modifier` ordering smells"
 sidebar_label: "Find Compose `Modifier` ordering smells"
 ---
 

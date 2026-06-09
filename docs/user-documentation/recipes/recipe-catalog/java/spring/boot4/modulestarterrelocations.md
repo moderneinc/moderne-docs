@@ -1,4 +1,5 @@
 ---
+title: "Spring Boot 4.0 Module Starter Relocations"
 sidebar_label: "Spring Boot 4.0 Module Starter Relocations"
 ---
 
@@ -88,7 +89,7 @@ class MyConfig implements Jackson2ObjectMapperBuilderCustomizer {
 
 ###### After
 ```java
-import org.springframework.boot.autoconfigure.jackson.JsonMapperBuilderCustomizer;
+import org.springframework.boot.jackson.autoconfigure.JsonMapperBuilderCustomizer;
 
 class MyConfig implements JsonMapperBuilderCustomizer {
 }
@@ -100,7 +101,7 @@ class MyConfig implements JsonMapperBuilderCustomizer {
 ```diff
 @@ -1,1 +1,1 @@
 -import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
-+import org.springframework.boot.autoconfigure.jackson.JsonMapperBuilderCustomizer;
++import org.springframework.boot.jackson.autoconfigure.JsonMapperBuilderCustomizer;
 
 @@ -3,1 +3,1 @@
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
@@ -254,7 +255,7 @@ class MyConfig implements Jackson2ObjectMapperBuilderCustomizer {
 
 ###### After
 ```java
-import org.springframework.boot.autoconfigure.jackson.JsonMapperBuilderCustomizer;
+import org.springframework.boot.jackson.autoconfigure.JsonMapperBuilderCustomizer;
 
 class MyConfig implements JsonMapperBuilderCustomizer {
 }
@@ -266,7 +267,7 @@ class MyConfig implements JsonMapperBuilderCustomizer {
 ```diff
 @@ -1,1 +1,1 @@
 -import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
-+import org.springframework.boot.autoconfigure.jackson.JsonMapperBuilderCustomizer;
++import org.springframework.boot.jackson.autoconfigure.JsonMapperBuilderCustomizer;
 
 @@ -3,1 +3,1 @@
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;

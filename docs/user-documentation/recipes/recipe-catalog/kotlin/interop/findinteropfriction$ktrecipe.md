@@ -1,4 +1,5 @@
 ---
+title: "Find Java↔Kotlin interop friction points"
 sidebar_label: "Find Java↔Kotlin interop friction points"
 ---
 

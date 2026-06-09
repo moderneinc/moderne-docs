@@ -1,4 +1,5 @@
 ---
+title: "Compare to `None` with identity operators (`is` / `is not`)"
 sidebar_label: "Compare to `None` with identity operators (`is` / `is not`)"
 ---
 

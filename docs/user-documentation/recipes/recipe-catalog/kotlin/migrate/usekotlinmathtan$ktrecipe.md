@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.tan` instead of `java.lang.Math.tan`"
 sidebar_label: "Use `kotlin.math.tan` instead of `java.lang.Math.tan`"
 ---
 

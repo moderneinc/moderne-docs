@@ -1,4 +1,5 @@
 ---
+title: "Replace `map` then `flatten` with `flatMap`"
 sidebar_label: "Replace `map` then `flatten` with `flatMap`"
 ---
 

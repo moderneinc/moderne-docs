@@ -1,4 +1,5 @@
 ---
+title: "Find Gradle root project to subproject relationships"
 sidebar_label: "Find Gradle root project to subproject relationships"
 ---
 

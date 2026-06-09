@@ -1,4 +1,5 @@
 ---
+title: "Find .NET endpoint security"
 sidebar_label: "Find .NET endpoint security"
 ---
 

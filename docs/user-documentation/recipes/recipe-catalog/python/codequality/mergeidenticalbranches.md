@@ -1,4 +1,5 @@
 ---
+title: "Merge consecutive branches with identical bodies"
 sidebar_label: "Merge consecutive branches with identical bodies"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find empty `companion object` declarations"
 sidebar_label: "Find empty `companion object` declarations"
 ---
 

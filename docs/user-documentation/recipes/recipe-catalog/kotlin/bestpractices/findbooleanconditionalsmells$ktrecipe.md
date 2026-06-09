@@ -1,4 +1,5 @@
 ---
+title: "Find Boolean-conditional smells"
 sidebar_label: "Find Boolean-conditional smells"
 ---
 

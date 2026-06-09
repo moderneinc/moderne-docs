@@ -1,4 +1,5 @@
 ---
+title: "Remove unnecessary `: Unit` return type"
 sidebar_label: "Remove unnecessary `: Unit` return type"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete localization APIs (ASP.NET Core 3.0)"
 sidebar_label: "Find obsolete localization APIs (ASP.NET Core 3.0)"
 ---
 

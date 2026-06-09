@@ -1,4 +1,5 @@
 ---
+title: "Comprehend code with AI"
 sidebar_label: "Comprehend code with AI"
 ---
 

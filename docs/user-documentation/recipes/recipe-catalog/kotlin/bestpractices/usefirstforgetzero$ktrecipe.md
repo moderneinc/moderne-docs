@@ -1,4 +1,5 @@
 ---
+title: "Use `first()` instead of `get(0)`"
 sidebar_label: "Use `first()` instead of `get(0)`"
 ---
 

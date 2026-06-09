@@ -1,4 +1,5 @@
 ---
+title: "Replace Dropwizard rules with Spring Boot test configuration"
 sidebar_label: "Replace Dropwizard rules with Spring Boot test configuration"
 ---
 

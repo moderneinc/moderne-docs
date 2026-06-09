@@ -1,4 +1,5 @@
 ---
+title: "Find graphics allocations inside `View.onDraw`"
 sidebar_label: "Find graphics allocations inside `View.onDraw`"
 ---
 

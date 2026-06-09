@@ -1,0 +1,42 @@
+---
+title: "Abstract type should not have public constructors"
+sidebar_label: "Abstract type should not have public constructors"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
+
+# Abstract type should not have public constructors
+
+**OpenRewrite.Recipes.CSharp.CodeQuality.Style.AbstractTypeShouldNotHavePublicConstructors**
+
+_Change public constructors of abstract types to protected._
+
+### Tags
+
+* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
+* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
+
+## Recipe source
+
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+
+
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
+
+
+## Usage
+
+<RunRecipe
+  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.AbstractTypeShouldNotHavePublicConstructors"
+  displayName="Abstract type should not have public constructors"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
+/>

@@ -1,4 +1,5 @@
 ---
+title: "Add Gradle or Maven dependency"
 sidebar_label: "Add Gradle or Maven dependency"
 ---
 
@@ -76,6 +77,8 @@ This recipe is used as part of the following composite recipes:
 * [Add missing Flyway module for SQL Server](/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymodulesqlserver.md)
 * [Add missing Jackson dataformat dependencies](/user-documentation/recipes/recipe-catalog/java/jackson/addmissingjacksondependencies.md)
 * [Adopt Jackson 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/adoptjackson3)
+* [Apply Axon Framework 5 event-sourcing module renames](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5eventsourcing.md)
+* [Apply Axon Framework 5 modelling module renames](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5modelling.md)
 * [Change v1 Maven/Gradle dependencies to v2](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/upgradesdkdependencies.md)
 * [Complete migration to OpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratetoopentelemetry.md)
 * [Cucumber to JUnit test `@Suite`](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumbertojunitplatformsuite.md)
@@ -136,6 +139,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate deprecated `javax.ws` packages to `jakarta.ws`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxwstojakartaws.md)
 * [Migrate deprecated `javax.xml.bind` packages to `jakarta.xml.bind`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlbindmigrationtojakartaxmlbind.md)
 * [Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlwsmigrationtojakartaxmlws.md)
+* [Migrate distributed messaging components to Axoniq Framework 5](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5distributedmessaging.md)
 * [Migrate from Acegi Security 1.0.x to Spring Security 5.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0)
 * [Migrate from EasyMock to Mockito](/user-documentation/recipes/recipe-catalog/java/testing/easymock/easymocktomockito.md)
 * [Migrate from Elasticsearch 8 to 9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratetoelasticsearch9)
@@ -152,6 +156,8 @@ This recipe is used as part of the following composite recipes:
 * [Migrate from httpcore-nio to ApacheHttpClient 5.x core dependency](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcoreniodependencies.md)
 * [Migrate from javax annotation API to JSpecify](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromjavaxannotationapi.md)
 * [Migrate from org.apache.httpcomponents to ApacheHttpClient 5.x dependencies](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclientdependencies.md)
+* [Migrate the Axon Server Testcontainer to Axoniq Framework 5](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5testcontainer.md)
+* [Migrate the Sequenced Dead-Letter Queue to Axoniq Framework 5](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5deadletter.md)
 * [Migrate to Hibernate 7.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition)
 * [Migrate to Kafka 3.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka30)
 * [Migrate to Spring Boot 2.4](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_4.md)
@@ -159,6 +165,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 4.0 modular starters (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-community-edition.md)
 * [Migrate to Spring Boot 4.1 modular starters](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters_4_1)
 * [Migrate to Spring Data 2.3](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_3.md)
+* [Migrate to Spring Framework 5.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_0-moderne-edition)
 * [Migrate to Struts 2.x from Struts 1.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratestruts2)
 * [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/org/apache/wicket/migratetowicket10.md)
 * [Prefer the Java standard library instead of Joda-Time](/user-documentation/recipes/recipe-catalog/java/joda/time/nojodatime.md)
@@ -202,6 +209,7 @@ This recipe is used as part of the following composite recipes:
 * [Update the Micronaut Websocket support](/user-documentation/recipes/recipe-catalog/java/micronaut/addmicronautwebsocketdependencyifneeded.md)
 * [Update to Micronaut Validation 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautvalidation.md)
 * [Use Mockito JUnit Jupiter extension](/user-documentation/recipes/recipe-catalog/java/testing/junit5/usemockitoextension.md)
+* [Use OkHttp 3 MockWebServer for JUnit 5](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradeokhttpmockwebserver.md)
 * [Use Vert.x JUnit 5 Extension](/user-documentation/recipes/recipe-catalog/java/testing/junit5/vertxunittovertxjunit5.md)
 * [Use `org.springframework.boot.web.server.LocalServerPort`](/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratelocalserverportannotation.md)
 

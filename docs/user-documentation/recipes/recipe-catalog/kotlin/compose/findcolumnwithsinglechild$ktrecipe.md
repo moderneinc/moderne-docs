@@ -1,4 +1,5 @@
 ---
+title: "Find `Column { … }` with a single child"
 sidebar_label: "Find `Column { … }` with a single child"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `BigDecimal(&quot;...&quot;)` allocations inside loops"
 sidebar_label: "Find `BigDecimal(&quot;...&quot;)` allocations inside loops"
 ---
 

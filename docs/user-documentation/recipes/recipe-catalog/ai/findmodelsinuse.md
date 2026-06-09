@@ -1,4 +1,5 @@
 ---
+title: "Find AI models in use"
 sidebar_label: "Find AI models in use"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find JWT misuse"
 sidebar_label: "Find JWT misuse"
 ---
 

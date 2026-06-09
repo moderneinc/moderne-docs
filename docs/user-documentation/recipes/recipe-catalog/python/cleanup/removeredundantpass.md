@@ -1,4 +1,5 @@
 ---
+title: "Delete unnecessary ``pass`` in non-empty blocks"
 sidebar_label: "Delete unnecessary ``pass`` in non-empty blocks"
 ---
 

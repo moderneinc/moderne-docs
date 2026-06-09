@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete SSL authentication enum types"
 sidebar_label: "Find obsolete SSL authentication enum types"
 ---
 

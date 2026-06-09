@@ -1,4 +1,5 @@
 ---
+title: "Find method invocations that resemble a pattern"
 sidebar_label: "Find method invocations that resemble a pattern"
 ---
 

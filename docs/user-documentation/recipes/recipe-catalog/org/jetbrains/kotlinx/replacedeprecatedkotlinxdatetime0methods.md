@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `kotlinx-datetime` methods"
 sidebar_label: "Replace deprecated `kotlinx-datetime` methods"
 ---
 

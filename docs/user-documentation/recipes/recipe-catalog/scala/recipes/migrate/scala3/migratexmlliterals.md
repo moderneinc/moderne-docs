@@ -1,4 +1,5 @@
 ---
+title: "Migrate XML literals to scala-xml interpolation"
 sidebar_label: "Migrate XML literals to scala-xml interpolation"
 ---
 

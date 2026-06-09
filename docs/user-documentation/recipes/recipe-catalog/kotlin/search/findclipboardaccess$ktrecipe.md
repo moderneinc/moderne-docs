@@ -1,4 +1,5 @@
 ---
+title: "Find Android `ClipboardManager` access"
 sidebar_label: "Find Android `ClipboardManager` access"
 ---
 

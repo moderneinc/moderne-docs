@@ -1,4 +1,5 @@
 ---
+title: "Remove `ReactDOM.render` callback argument"
 sidebar_label: "Remove `ReactDOM.render` callback argument"
 ---
 

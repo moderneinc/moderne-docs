@@ -1,4 +1,5 @@
 ---
+title: "Find `WebSettings.setJavaScriptEnabled(true)` calls"
 sidebar_label: "Find `WebSettings.setJavaScriptEnabled(true)` calls"
 ---
 

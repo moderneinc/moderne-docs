@@ -1,4 +1,5 @@
 ---
+title: "Migrate Spring Session Hazelcast to Hazelcast Spring Session"
 sidebar_label: "Migrate Spring Session Hazelcast to Hazelcast Spring Session"
 ---
 

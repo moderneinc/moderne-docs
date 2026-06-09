@@ -1,4 +1,5 @@
 ---
+title: "Find `requireNotNull(javaCall())` patterns"
 sidebar_label: "Find `requireNotNull(javaCall())` patterns"
 ---
 

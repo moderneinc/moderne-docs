@@ -1,4 +1,5 @@
 ---
+title: "Replace `useContext` with `use`"
 sidebar_label: "Replace `useContext` with `use`"
 ---
 

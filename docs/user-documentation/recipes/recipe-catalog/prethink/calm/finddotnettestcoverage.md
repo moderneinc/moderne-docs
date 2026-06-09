@@ -1,4 +1,5 @@
 ---
+title: "Find .NET test coverage"
 sidebar_label: "Find .NET test coverage"
 ---
 

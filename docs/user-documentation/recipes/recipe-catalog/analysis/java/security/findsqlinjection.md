@@ -1,4 +1,5 @@
 ---
+title: "Find SQL injection vulnerabilities"
 sidebar_label: "Find SQL injection vulnerabilities"
 ---
 

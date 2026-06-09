@@ -1,4 +1,5 @@
 ---
+title: "Review deprecated API declarations"
 sidebar_label: "Review deprecated API declarations"
 ---
 

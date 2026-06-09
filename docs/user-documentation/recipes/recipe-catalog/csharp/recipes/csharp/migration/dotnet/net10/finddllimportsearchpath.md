@@ -1,4 +1,5 @@
 ---
+title: "Find `DllImportSearchPath.AssemblyDirectory` behavior change"
 sidebar_label: "Find `DllImportSearchPath.AssemblyDirectory` behavior change"
 ---
 

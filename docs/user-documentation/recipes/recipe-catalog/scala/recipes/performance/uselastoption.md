@@ -1,4 +1,5 @@
 ---
+title: "Replace `.last` with `.lastOption`"
 sidebar_label: "Replace `.last` with `.lastOption`"
 ---
 

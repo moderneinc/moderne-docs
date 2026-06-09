@@ -1,4 +1,5 @@
 ---
+title: "Find `NavController.navigate(...)` calls in a `@Composable` body"
 sidebar_label: "Find `NavController.navigate(...)` calls in a `@Composable` body"
 ---
 

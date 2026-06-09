@@ -1,4 +1,5 @@
 ---
+title: "Use `sumOf` instead of `sumByDouble`"
 sidebar_label: "Use `sumOf` instead of `sumByDouble`"
 ---
 

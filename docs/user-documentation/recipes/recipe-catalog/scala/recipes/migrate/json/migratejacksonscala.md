@@ -1,4 +1,5 @@
 ---
+title: "Remove Jackson Scala module imports"
 sidebar_label: "Remove Jackson Scala module imports"
 ---
 

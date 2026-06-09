@@ -1,4 +1,5 @@
 ---
+title: "Get recommendations"
 sidebar_label: "Get recommendations"
 ---
 

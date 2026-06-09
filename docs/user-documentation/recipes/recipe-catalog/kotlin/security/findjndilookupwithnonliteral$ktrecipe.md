@@ -1,4 +1,5 @@
 ---
+title: "Find `InitialContext.lookup(input)` calls with non-literal arguments"
 sidebar_label: "Find `InitialContext.lookup(input)` calls with non-literal arguments"
 ---
 

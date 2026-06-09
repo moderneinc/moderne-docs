@@ -1,4 +1,5 @@
 ---
+title: "Find `x ?: throw SomeException()` without a message"
 sidebar_label: "Find `x ?: throw SomeException()` without a message"
 ---
 

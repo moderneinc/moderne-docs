@@ -1,4 +1,5 @@
 ---
+title: "Find `Cipher.getInstance(&quot;DES...&quot;)` calls"
 sidebar_label: "Find `Cipher.getInstance(&quot;DES...&quot;)` calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find Compose effect-handler misuse"
 sidebar_label: "Find Compose effect-handler misuse"
 ---
 

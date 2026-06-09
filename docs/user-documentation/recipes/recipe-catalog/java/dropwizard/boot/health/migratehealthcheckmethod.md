@@ -1,4 +1,5 @@
 ---
+title: "Migrate Dropwizard health check Result calls and wrap exceptions"
 sidebar_label: "Migrate Dropwizard health check Result calls and wrap exceptions"
 ---
 

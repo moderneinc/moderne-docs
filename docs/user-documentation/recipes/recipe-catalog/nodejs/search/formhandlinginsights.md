@@ -1,4 +1,5 @@
 ---
+title: "Javascript form handling library insights"
 sidebar_label: "Javascript form handling library insights"
 ---
 

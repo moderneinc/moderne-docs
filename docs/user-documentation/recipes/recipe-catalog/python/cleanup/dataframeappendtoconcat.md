@@ -1,4 +1,5 @@
 ---
+title: "Migrate deprecated `.append()` to `pd.concat()`"
 sidebar_label: "Migrate deprecated `.append()` to `pd.concat()`"
 ---
 

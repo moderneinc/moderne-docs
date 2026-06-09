@@ -1,4 +1,5 @@
 ---
+title: "Remove table from single table inherited entity"
 sidebar_label: "Remove table from single table inherited entity"
 ---
 

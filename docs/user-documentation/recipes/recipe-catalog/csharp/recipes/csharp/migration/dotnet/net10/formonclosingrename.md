@@ -1,4 +1,5 @@
 ---
+title: "Rename `Form.OnClosing/OnClosed` to `OnFormClosing/OnFormClosed` (WFDEV004)"
 sidebar_label: "Rename `Form.OnClosing/OnClosed` to `OnFormClosing/OnFormClosed` (WFDEV004)"
 ---
 

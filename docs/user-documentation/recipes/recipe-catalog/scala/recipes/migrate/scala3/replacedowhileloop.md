@@ -1,4 +1,5 @@
 ---
+title: "Replace do-while loops (removed in Scala 3)"
 sidebar_label: "Replace do-while loops (removed in Scala 3)"
 ---
 

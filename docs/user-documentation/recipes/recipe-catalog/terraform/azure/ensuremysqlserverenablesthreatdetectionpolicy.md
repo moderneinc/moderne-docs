@@ -1,4 +1,5 @@
 ---
+title: "Ensure MySQL server enables Threat Detection policy"
 sidebar_label: "Ensure MySQL server enables Threat Detection policy"
 ---
 

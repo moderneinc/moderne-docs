@@ -1,4 +1,5 @@
 ---
+title: "Prefer ``startswith``/``endswith`` over slice comparison"
 sidebar_label: "Prefer ``startswith``/``endswith`` over slice comparison"
 ---
 

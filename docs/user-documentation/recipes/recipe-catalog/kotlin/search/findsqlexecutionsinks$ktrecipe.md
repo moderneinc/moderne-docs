@@ -1,4 +1,5 @@
 ---
+title: "Find SQL execution sinks (`Statement.execute*`, `prepareStatement`, `createNativeQuery`)"
 sidebar_label: "Find SQL execution sinks (`Statement.execute*`, `prepareStatement`, `createNativeQuery`)"
 ---
 

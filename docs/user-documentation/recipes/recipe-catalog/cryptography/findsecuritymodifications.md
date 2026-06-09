@@ -1,4 +1,5 @@
 ---
+title: "Find Security class modifications"
 sidebar_label: "Find Security class modifications"
 ---
 

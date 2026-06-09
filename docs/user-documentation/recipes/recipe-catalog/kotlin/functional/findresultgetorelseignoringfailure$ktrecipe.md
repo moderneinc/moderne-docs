@@ -1,4 +1,5 @@
 ---
+title: "Find `Result.getOrElse { }` whose lambda ignores the failure parameter"
 sidebar_label: "Find `Result.getOrElse { }` whose lambda ignores the failure parameter"
 ---
 

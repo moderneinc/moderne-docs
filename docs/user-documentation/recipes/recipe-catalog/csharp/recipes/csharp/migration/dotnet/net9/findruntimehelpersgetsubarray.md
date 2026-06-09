@@ -1,4 +1,5 @@
 ---
+title: "Find `RuntimeHelpers.GetSubArray` return type change"
 sidebar_label: "Find `RuntimeHelpers.GetSubArray` return type change"
 ---
 

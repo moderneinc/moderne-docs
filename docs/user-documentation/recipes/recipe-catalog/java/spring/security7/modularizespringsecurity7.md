@@ -1,4 +1,5 @@
 ---
+title: "Spring Security 7 modularization"
 sidebar_label: "Spring Security 7 modularization"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use Task.CompletedTask"
 sidebar_label: "Use Task.CompletedTask"
 ---
 

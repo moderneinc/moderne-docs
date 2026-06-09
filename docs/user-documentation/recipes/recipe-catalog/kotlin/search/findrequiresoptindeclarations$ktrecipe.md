@@ -1,4 +1,5 @@
 ---
+title: "Find declarations annotated `@RequiresOptIn`"
 sidebar_label: "Find declarations annotated `@RequiresOptIn`"
 ---
 

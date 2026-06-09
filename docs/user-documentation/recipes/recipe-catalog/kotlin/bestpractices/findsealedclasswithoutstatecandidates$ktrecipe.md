@@ -1,4 +1,5 @@
 ---
+title: "Find `sealed class` declarations that could be `sealed interface`"
 sidebar_label: "Find `sealed class` declarations that could be `sealed interface`"
 ---
 

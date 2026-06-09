@@ -1,4 +1,5 @@
 ---
+title: "Make ECR tags immutable"
 sidebar_label: "Make ECR tags immutable"
 ---
 

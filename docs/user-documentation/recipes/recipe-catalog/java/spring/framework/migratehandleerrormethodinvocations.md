@@ -1,4 +1,5 @@
 ---
+title: "Migrate `handleError` method invocations to new signature"
 sidebar_label: "Migrate `handleError` method invocations to new signature"
 ---
 

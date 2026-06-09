@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated LangChain agent patterns"
 sidebar_label: "Find deprecated LangChain agent patterns"
 ---
 

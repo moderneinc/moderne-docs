@@ -1,4 +1,5 @@
 ---
+title: "Remove `buildToolsVersion`"
 sidebar_label: "Remove `buildToolsVersion`"
 ---
 

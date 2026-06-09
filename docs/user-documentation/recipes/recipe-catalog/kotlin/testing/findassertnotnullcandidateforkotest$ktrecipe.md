@@ -1,4 +1,5 @@
 ---
+title: "Find `assertNotNull(...)` calls — Kotest migration candidate"
 sidebar_label: "Find `assertNotNull(...)` calls — Kotest migration candidate"
 ---
 

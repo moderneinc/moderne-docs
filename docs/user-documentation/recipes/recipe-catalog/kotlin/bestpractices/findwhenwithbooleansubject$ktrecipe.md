@@ -1,4 +1,5 @@
 ---
+title: "Find `when (b: Boolean)` selectors"
 sidebar_label: "Find `when (b: Boolean)` selectors"
 ---
 

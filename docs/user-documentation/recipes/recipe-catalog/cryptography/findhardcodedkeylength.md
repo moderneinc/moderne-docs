@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded cryptographic key lengths"
 sidebar_label: "Find hardcoded cryptographic key lengths"
 ---
 

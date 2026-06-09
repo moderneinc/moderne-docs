@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Maven plugin version"
 sidebar_label: "Upgrade Maven plugin version"
 ---
 
@@ -59,7 +60,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 2.4](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_4.md)
 * [Migrate to Spring Boot 2.6](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_6.md)
 * [Migrate to Spring Boot 2.7](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_7.md)
-* [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
+* [Migrate to Spring Boot 3.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
 * [Migrate to Spring Boot 3.1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_1.md)
 * [Migrate to Spring Boot 3.2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_2.md)
 * [Migrate to Spring Boot 3.3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_3.md)
@@ -69,6 +70,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 4.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 * [Migrate to Spring Boot 4.1](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_1)
+* [Migrate to Spring Framework 6.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition.md)
 * [Migrate to WebLogic 14.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1411.md)
 * [Quarkus 2.x migration from Quarkus 1.x](/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/quarkus1to2migration.md)
 * [Update Plugins for Jakarta EE 10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta10.md)
@@ -76,6 +78,7 @@ This recipe is used as part of the following composite recipes:
 * [Update the WebLogic version to 15.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/updatebuildtoweblogic1511.md)
 * [Upgrade JaCoCo](/user-documentation/recipes/recipe-catalog/java/migrate/jacoco/upgradejacoco.md)
 * [Upgrade Java to 17+ for Kafka broker/tools](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/upgradejavaforkafkabroker)
+* [Upgrade Kotlin to 2.x for Axon Framework 5](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradekotlin.md)
 * [Upgrade plugins to Java 11 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava11.md)
 * [Upgrade plugins to Java 17 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava17.md)
 * [Upgrade plugins to Java 21 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava21.md)

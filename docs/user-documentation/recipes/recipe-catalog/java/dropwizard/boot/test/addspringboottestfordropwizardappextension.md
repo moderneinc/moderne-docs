@@ -1,4 +1,5 @@
 ---
+title: "Add `@SpringBootTest` to classes using `DropwizardAppExtension`"
 sidebar_label: "Add `@SpringBootTest` to classes using `DropwizardAppExtension`"
 ---
 

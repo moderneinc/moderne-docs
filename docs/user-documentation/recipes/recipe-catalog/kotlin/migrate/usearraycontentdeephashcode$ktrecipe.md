@@ -1,4 +1,5 @@
 ---
+title: "Use `Array.contentDeepHashCode()` instead of `Arrays.deepHashCode(arr)`"
 sidebar_label: "Use `Array.contentDeepHashCode()` instead of `Arrays.deepHashCode(arr)`"
 ---
 

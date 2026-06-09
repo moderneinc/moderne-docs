@@ -1,4 +1,5 @@
 ---
+title: "Find Bearer token secrets"
 sidebar_label: "Find Bearer token secrets"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use Kotlin collection extensions instead of `java.util.Collections`"
 sidebar_label: "Use Kotlin collection extensions instead of `java.util.Collections`"
 ---
 

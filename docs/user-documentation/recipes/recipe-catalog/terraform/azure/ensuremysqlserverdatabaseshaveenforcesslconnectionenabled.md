@@ -1,4 +1,5 @@
 ---
+title: "Ensure MySQL server databases have Enforce SSL connection enabled"
 sidebar_label: "Ensure MySQL server databases have Enforce SSL connection enabled"
 ---
 

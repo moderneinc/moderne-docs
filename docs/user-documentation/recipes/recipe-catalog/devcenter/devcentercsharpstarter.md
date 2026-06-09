@@ -1,4 +1,5 @@
 ---
+title: "DevCenter for C#"
 sidebar_label: "DevCenter for C#"
 ---
 

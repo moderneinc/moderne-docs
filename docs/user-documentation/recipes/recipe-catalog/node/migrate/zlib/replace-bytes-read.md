@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`"
 sidebar_label: "Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`"
 ---
 

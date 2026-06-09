@@ -1,4 +1,5 @@
 ---
+title: "Use `Regex.escape(s)` instead of `Pattern.quote(s)`"
 sidebar_label: "Use `Regex.escape(s)` instead of `Pattern.quote(s)`"
 ---
 

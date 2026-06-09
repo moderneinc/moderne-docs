@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.MIN_VALUE` instead of `java.lang.Integer.MIN_VALUE`"
 sidebar_label: "Use `Int.MIN_VALUE` instead of `java.lang.Integer.MIN_VALUE`"
 ---
 

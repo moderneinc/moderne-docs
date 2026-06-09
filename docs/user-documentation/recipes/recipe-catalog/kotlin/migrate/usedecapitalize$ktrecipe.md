@@ -1,4 +1,5 @@
 ---
+title: "Use `replaceFirstChar { it.lowercase() }` instead of `decapitalize()`"
 sidebar_label: "Use `replaceFirstChar { it.lowercase() }` instead of `decapitalize()`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `x.isNotEmpty()` on `String` where `isNotBlank()` might be wanted"
 sidebar_label: "Find `x.isNotEmpty()` on `String` where `isNotBlank()` might be wanted"
 ---
 

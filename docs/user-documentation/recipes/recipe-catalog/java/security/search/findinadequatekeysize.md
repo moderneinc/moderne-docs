@@ -1,4 +1,5 @@
 ---
+title: "Find inadequate cryptographic key sizes"
 sidebar_label: "Find inadequate cryptographic key sizes"
 ---
 

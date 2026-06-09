@@ -1,4 +1,5 @@
 ---
+title: "Unquote variable type constraints"
 sidebar_label: "Unquote variable type constraints"
 ---
 

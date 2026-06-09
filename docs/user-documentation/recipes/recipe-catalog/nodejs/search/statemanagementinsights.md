@@ -1,4 +1,5 @@
 ---
+title: "Javascript state management library insights"
 sidebar_label: "Javascript state management library insights"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find command injection vulnerabilities"
 sidebar_label: "Find command injection vulnerabilities"
 ---
 

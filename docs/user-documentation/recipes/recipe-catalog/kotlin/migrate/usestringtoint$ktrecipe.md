@@ -1,4 +1,5 @@
 ---
+title: "Use `String.toInt()` instead of `Integer.parseInt(s)`"
 sidebar_label: "Use `String.toInt()` instead of `Integer.parseInt(s)`"
 ---
 

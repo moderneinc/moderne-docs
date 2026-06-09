@@ -1,4 +1,5 @@
 ---
+title: "Remove `PureRenderMixin`"
 sidebar_label: "Remove `PureRenderMixin`"
 ---
 

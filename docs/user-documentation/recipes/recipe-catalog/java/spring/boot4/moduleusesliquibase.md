@@ -1,4 +1,5 @@
 ---
+title: "Module uses Liquibase"
 sidebar_label: "Module uses Liquibase"
 ---
 

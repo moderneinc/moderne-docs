@@ -1,4 +1,5 @@
 ---
+title: "Use `ShortArray.sort()` instead of `Arrays.sort(arr)`"
 sidebar_label: "Use `ShortArray.sort()` instead of `Arrays.sort(arr)`"
 ---
 

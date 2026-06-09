@@ -1,4 +1,5 @@
 ---
+title: "Find `apply { }` blocks that perform no mutation"
 sidebar_label: "Find `apply { }` blocks that perform no mutation"
 ---
 

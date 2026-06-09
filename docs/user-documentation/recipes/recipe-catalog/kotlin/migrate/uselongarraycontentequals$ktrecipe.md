@@ -1,4 +1,5 @@
 ---
+title: "Use `LongArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 sidebar_label: "Use `LongArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 ---
 

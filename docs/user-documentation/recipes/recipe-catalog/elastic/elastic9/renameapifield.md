@@ -1,4 +1,5 @@
 ---
+title: "Rename `Elasticsearch valueBody()` methods"
 sidebar_label: "Rename `Elasticsearch valueBody()` methods"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Avoid `Thread.sleep`"
 sidebar_label: "Avoid `Thread.sleep`"
 ---
 

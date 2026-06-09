@@ -1,4 +1,5 @@
 ---
+title: "Find `suspend fun` declarations returning `Job` / `Deferred`"
 sidebar_label: "Find `suspend fun` declarations returning `Job` / `Deferred`"
 ---
 

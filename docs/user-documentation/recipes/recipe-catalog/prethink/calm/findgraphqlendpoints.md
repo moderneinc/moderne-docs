@@ -1,4 +1,5 @@
 ---
+title: "Find GraphQL endpoints"
 sidebar_label: "Find GraphQL endpoints"
 ---
 

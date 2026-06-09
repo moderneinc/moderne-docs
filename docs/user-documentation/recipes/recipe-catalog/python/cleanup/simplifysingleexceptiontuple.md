@@ -1,4 +1,5 @@
 ---
+title: "Unwrap one-element exception tuple in `except`"
 sidebar_label: "Unwrap one-element exception tuple in `except`"
 ---
 

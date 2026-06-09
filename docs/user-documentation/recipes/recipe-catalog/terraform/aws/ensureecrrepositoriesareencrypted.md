@@ -1,4 +1,5 @@
 ---
+title: "Ensure ECR repositories are encrypted"
 sidebar_label: "Ensure ECR repositories are encrypted"
 ---
 

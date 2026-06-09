@@ -1,4 +1,5 @@
 ---
+title: "Find Discord secrets"
 sidebar_label: "Find Discord secrets"
 ---
 

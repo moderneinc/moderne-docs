@@ -1,4 +1,5 @@
 ---
+title: "Migrate Tapestry 4 to Tapestry 5"
 sidebar_label: "Migrate Tapestry 4 to Tapestry 5"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use inline conditional for simple ``if``/``else`` assignment"
 sidebar_label: "Use inline conditional for simple ``if``/``else`` assignment"
 ---
 

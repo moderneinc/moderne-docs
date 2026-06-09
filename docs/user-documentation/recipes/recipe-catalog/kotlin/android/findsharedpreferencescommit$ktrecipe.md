@@ -1,4 +1,5 @@
 ---
+title: "Find `SharedPreferences.Editor.commit()` calls"
 sidebar_label: "Find `SharedPreferences.Editor.commit()` calls"
 ---
 

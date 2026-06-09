@@ -1,4 +1,5 @@
 ---
+title: "Find `KeyGenerator.getInstance(&quot;DES&quot;)` calls"
 sidebar_label: "Find `KeyGenerator.getInstance(&quot;DES&quot;)` calls"
 ---
 

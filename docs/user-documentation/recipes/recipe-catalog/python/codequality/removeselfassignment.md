@@ -1,4 +1,5 @@
 ---
+title: "Remove self-assignments"
 sidebar_label: "Remove self-assignments"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Add `spring-boot-starter-validation` dependency"
 sidebar_label: "Add `spring-boot-starter-validation` dependency"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find csproj MSBuildProject marker presence"
 sidebar_label: "Find csproj MSBuildProject marker presence"
 ---
 

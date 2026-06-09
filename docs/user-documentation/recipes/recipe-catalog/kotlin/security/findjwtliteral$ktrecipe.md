@@ -1,4 +1,5 @@
 ---
+title: "Find JWT literals (`eyJ…`-prefixed three-segment tokens)"
 sidebar_label: "Find JWT literals (`eyJ…`-prefixed three-segment tokens)"
 ---
 

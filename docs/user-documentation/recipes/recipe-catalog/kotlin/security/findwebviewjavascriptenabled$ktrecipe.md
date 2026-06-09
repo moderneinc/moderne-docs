@@ -1,4 +1,5 @@
 ---
+title: "Find `WebView.settings.javaScriptEnabled = true` / `setJavaScriptEnabled(true)`"
 sidebar_label: "Find `WebView.settings.javaScriptEnabled = true` / `setJavaScriptEnabled(true)`"
 ---
 

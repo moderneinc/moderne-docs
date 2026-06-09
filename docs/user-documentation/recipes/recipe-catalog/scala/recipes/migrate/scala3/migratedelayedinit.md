@@ -1,4 +1,5 @@
 ---
+title: "Migrate from `DelayedInit`/`App` to `@main`"
 sidebar_label: "Migrate from `DelayedInit`/`App` to `@main`"
 ---
 

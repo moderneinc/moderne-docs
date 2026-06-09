@@ -1,4 +1,5 @@
 ---
+title: "Find Spring configuration smells"
 sidebar_label: "Find Spring configuration smells"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find variables named `password`/`secret`/`token`/`apiKey` with a non-empty literal default"
 sidebar_label: "Find variables named `password`/`secret`/`token`/`apiKey` with a non-empty literal default"
 ---
 

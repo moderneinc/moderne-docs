@@ -1,4 +1,5 @@
 ---
+title: "Find Go ghost tests"
 sidebar_label: "Find Go ghost tests"
 ---
 

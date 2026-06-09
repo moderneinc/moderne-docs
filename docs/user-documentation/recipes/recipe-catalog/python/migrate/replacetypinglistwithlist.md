@@ -1,4 +1,5 @@
 ---
+title: "Replace `typing.List` with `list`"
 sidebar_label: "Replace `typing.List` with `list`"
 ---
 

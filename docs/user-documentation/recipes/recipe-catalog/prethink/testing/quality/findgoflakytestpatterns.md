@@ -1,4 +1,5 @@
 ---
+title: "Find Go flaky test patterns"
 sidebar_label: "Find Go flaky test patterns"
 ---
 

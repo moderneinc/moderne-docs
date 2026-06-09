@@ -1,4 +1,5 @@
 ---
+title: "Migrate `JmxEndpointDiscoverer` deprecated constructor"
 sidebar_label: "Migrate `JmxEndpointDiscoverer` deprecated constructor"
 ---
 

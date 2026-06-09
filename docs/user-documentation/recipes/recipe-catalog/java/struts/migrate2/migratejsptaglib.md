@@ -1,4 +1,5 @@
 ---
+title: "Migrate JSP taglib directives for Struts 2"
 sidebar_label: "Migrate JSP taglib directives for Struts 2"
 ---
 

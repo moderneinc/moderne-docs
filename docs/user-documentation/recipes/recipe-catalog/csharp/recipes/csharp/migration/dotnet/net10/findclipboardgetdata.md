@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete `Clipboard.GetData` calls (WFDEV005)"
 sidebar_label: "Find obsolete `Clipboard.GetData` calls (WFDEV005)"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `ReentrantLock()` / `ReentrantReadWriteLock()` allocations"
 sidebar_label: "Find `ReentrantLock()` / `ReentrantReadWriteLock()` allocations"
 ---
 

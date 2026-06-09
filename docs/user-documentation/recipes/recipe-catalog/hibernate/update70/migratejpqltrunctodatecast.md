@@ -1,4 +1,5 @@
 ---
+title: "Migrate JPQL `trunc()` to `cast(... as date)`"
 sidebar_label: "Migrate JPQL `trunc()` to `cast(... as date)`"
 ---
 

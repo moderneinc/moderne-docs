@@ -1,4 +1,5 @@
 ---
+title: "Ensure log profile is configured to capture all activities"
 sidebar_label: "Ensure log profile is configured to capture all activities"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Guard mutable default arguments with `None` sentinel"
 sidebar_label: "Guard mutable default arguments with `None` sentinel"
 ---
 

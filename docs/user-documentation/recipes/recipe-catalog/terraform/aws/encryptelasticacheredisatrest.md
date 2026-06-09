@@ -1,4 +1,5 @@
 ---
+title: "Encrypt ElastiCache Redis at rest"
 sidebar_label: "Encrypt ElastiCache Redis at rest"
 ---
 

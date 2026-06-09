@@ -1,4 +1,5 @@
 ---
+title: "Find `Thread.sleep` calls inside `suspend` functions"
 sidebar_label: "Find `Thread.sleep` calls inside `suspend` functions"
 ---
 

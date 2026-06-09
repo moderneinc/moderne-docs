@@ -1,4 +1,5 @@
 ---
+title: "Replace `datetime.utcnow()` with `datetime.now(UTC)`"
 sidebar_label: "Replace `datetime.utcnow()` with `datetime.now(UTC)`"
 ---
 

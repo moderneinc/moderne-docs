@@ -1,4 +1,5 @@
 ---
+title: "Use secure temporary file creation"
 sidebar_label: "Use secure temporary file creation"
 ---
 

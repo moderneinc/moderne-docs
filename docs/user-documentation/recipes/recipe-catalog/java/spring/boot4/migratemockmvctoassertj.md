@@ -1,4 +1,5 @@
 ---
+title: "Migrate MockMvc to AssertJ assertions"
 sidebar_label: "Migrate MockMvc to AssertJ assertions"
 ---
 

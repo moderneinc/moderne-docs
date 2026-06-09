@@ -1,4 +1,5 @@
 ---
+title: "Unwrap ``str()`` from ``print()`` arguments"
 sidebar_label: "Unwrap ``str()`` from ``print()`` arguments"
 ---
 

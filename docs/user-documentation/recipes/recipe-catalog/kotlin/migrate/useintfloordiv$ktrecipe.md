@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.floorDiv` instead of `java.lang.Math.floorDiv`"
 sidebar_label: "Use `Int.floorDiv` instead of `java.lang.Math.floorDiv`"
 ---
 

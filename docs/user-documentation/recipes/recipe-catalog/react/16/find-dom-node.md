@@ -1,4 +1,5 @@
 ---
+title: "Replace `getDOMNode()` with `React.findDOMNode()`"
 sidebar_label: "Replace `getDOMNode()` with `React.findDOMNode()`"
 ---
 

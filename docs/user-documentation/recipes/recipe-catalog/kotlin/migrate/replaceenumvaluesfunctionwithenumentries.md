@@ -1,4 +1,5 @@
 ---
+title: "Replace `enumValues&lt;T&gt;()` with `enumEntries&lt;T&gt;()`"
 sidebar_label: "Replace `enumValues&lt;T&gt;()` with `enumEntries&lt;T&gt;()`"
 ---
 
@@ -11,10 +12,6 @@ import RunRecipe from '@site/src/components/RunRecipe';
 **org.openrewrite.kotlin.migrate.ReplaceEnumValuesFunctionWithEnumEntries**
 
 _Replace calls to `enumValues<T>()` with `enumEntries<T>()`. The `enumEntries` function returns an efficient immutable list instead of creating a new array. Deprecated since Kotlin 1.9, recommended replacement for Kotlin 2.x._
-
-### Tags
-
-* [kotlin](/user-documentation/recipes/lists/recipes-by-tag#kotlin)
 
 ## Recipe source
 
@@ -30,49 +27,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Kotlin 2](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradetokotlin2)
 
-## Examples
-##### Example 1
-`ReplaceEnumValuesFunctionWithEnumEntriesTest#replaceEnumValuesFunction`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="kotlin" label="kotlin">
-
-
-###### Before
-```kotlin
-enum class Color { RED, GREEN, BLUE }
-fun test() {
-    val v = enumValues<Color>()
-}
-```
-
-###### After
-```kotlin
-enum class Color { RED, GREEN, BLUE }
-fun test() {
-    val v = enumEntries<Color>()
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -3,1 +3,1 @@
-enum class Color { RED, GREEN, BLUE }
-fun test() {
--   val v = enumValues<Color>()
-+   val v = enumEntries<Color>()
-}
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`ReplaceEnumValuesFunctionWithEnumEntriesTest#replaceEnumValuesFunction`
+## Example
 
 
 <Tabs groupId="beforeAfter">

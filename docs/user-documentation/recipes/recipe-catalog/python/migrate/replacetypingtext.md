@@ -1,4 +1,5 @@
 ---
+title: "Replace `typing.Text` with `str`"
 sidebar_label: "Replace `typing.Text` with `str`"
 ---
 

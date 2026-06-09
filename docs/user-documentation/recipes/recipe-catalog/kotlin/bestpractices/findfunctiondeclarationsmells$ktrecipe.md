@@ -1,4 +1,5 @@
 ---
+title: "Find function-declaration smells"
 sidebar_label: "Find function-declaration smells"
 ---
 

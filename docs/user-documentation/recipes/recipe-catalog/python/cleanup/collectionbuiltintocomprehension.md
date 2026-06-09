@@ -1,4 +1,5 @@
 ---
+title: "Use comprehension syntax instead of `list()`/`set()` around generators"
 sidebar_label: "Use comprehension syntax instead of `list()`/`set()` around generators"
 ---
 

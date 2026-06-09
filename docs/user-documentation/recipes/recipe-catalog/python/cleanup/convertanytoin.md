@@ -1,4 +1,5 @@
 ---
+title: "Rewrite `any(v == literal ...)` as `literal in collection`"
 sidebar_label: "Rewrite `any(v == literal ...)` as `literal in collection`"
 ---
 

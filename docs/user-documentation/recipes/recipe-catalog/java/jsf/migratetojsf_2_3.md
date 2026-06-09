@@ -1,4 +1,5 @@
 ---
+title: "Migrate to JSF 2.3"
 sidebar_label: "Migrate to JSF 2.3"
 ---
 

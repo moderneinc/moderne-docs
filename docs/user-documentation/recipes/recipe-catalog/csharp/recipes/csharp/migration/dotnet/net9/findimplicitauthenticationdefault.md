@@ -1,4 +1,5 @@
 ---
+title: "Find implicit authentication default scheme (ASP.NET Core 9)"
 sidebar_label: "Find implicit authentication default scheme (ASP.NET Core 9)"
 ---
 

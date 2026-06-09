@@ -1,4 +1,5 @@
 ---
+title: "Remove `event.persist()` calls"
 sidebar_label: "Remove `event.persist()` calls"
 ---
 

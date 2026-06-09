@@ -1,4 +1,5 @@
 ---
+title: "Find .NET data assets"
 sidebar_label: "Find .NET data assets"
 ---
 

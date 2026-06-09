@@ -1,4 +1,5 @@
 ---
+title: "Javascript security library insights"
 sidebar_label: "Javascript security library insights"
 ---
 

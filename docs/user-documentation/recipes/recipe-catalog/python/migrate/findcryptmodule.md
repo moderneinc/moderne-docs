@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `crypt` module usage"
 sidebar_label: "Find deprecated `crypt` module usage"
 ---
 

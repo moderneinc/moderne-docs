@@ -1,4 +1,5 @@
 ---
+title: "Find weak password encoder strength"
 sidebar_label: "Find weak password encoder strength"
 ---
 

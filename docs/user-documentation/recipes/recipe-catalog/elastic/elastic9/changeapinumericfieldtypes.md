@@ -1,4 +1,5 @@
 ---
+title: "Change numeric field types for Elasticsearch 9"
 sidebar_label: "Change numeric field types for Elasticsearch 9"
 ---
 

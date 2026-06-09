@@ -1,4 +1,5 @@
 ---
+title: "Find `filter { it != null }.map { it!! }` chains"
 sidebar_label: "Find `filter { it != null }.map { it!! }` chains"
 ---
 

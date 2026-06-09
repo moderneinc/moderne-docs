@@ -1,4 +1,5 @@
 ---
+title: "Find Struts actions"
 sidebar_label: "Find Struts actions"
 ---
 

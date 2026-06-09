@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete `SystemEvents.EventsThreadShutdown` (SYSLIB0059)"
 sidebar_label: "Find obsolete `SystemEvents.EventsThreadShutdown` (SYSLIB0059)"
 ---
 

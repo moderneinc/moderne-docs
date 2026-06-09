@@ -1,4 +1,5 @@
 ---
+title: "Find numeric literals other than 0, 1, -1"
 sidebar_label: "Find numeric literals other than 0, 1, -1"
 ---
 

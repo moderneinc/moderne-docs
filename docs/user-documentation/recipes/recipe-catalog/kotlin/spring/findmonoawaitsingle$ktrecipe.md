@@ -1,4 +1,5 @@
 ---
+title: "Find `mono.awaitSingle()` calls inside Flux/Flow collectors"
 sidebar_label: "Find `mono.awaitSingle()` calls inside Flux/Flow collectors"
 ---
 

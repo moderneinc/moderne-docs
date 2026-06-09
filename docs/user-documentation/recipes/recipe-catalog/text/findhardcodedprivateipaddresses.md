@@ -1,4 +1,5 @@
 ---
+title: "Find hard-coded private IPv4 addresses"
 sidebar_label: "Find hard-coded private IPv4 addresses"
 ---
 

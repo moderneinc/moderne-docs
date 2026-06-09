@@ -1,4 +1,5 @@
 ---
+title: "Find throw/catch shape smells"
 sidebar_label: "Find throw/catch shape smells"
 ---
 

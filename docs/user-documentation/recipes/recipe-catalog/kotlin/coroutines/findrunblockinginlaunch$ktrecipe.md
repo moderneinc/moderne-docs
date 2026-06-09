@@ -1,4 +1,5 @@
 ---
+title: "Find `runBlocking` calls inside a `launch`/`async` lambda"
 sidebar_label: "Find `runBlocking` calls inside a `launch`/`async` lambda"
 ---
 

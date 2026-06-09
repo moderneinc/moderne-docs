@@ -1,4 +1,5 @@
 ---
+title: "Reorder method arguments"
 sidebar_label: "Reorder method arguments"
 ---
 
@@ -53,6 +54,7 @@ This recipe is used as part of the following composite recipes:
 * [Replace  deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removalsservletjakarta10.md)
 * [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
 * [Use `Assertions#assume*(..)` and Hamcrest's `MatcherAssume#assume*(..)`](/user-documentation/recipes/recipe-catalog/java/testing/junit5/migrateassumptions.md)
+* [Use non-deprecated SingleConstraintAssertion methods](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/singleconstraintassertionmethodsrecipe.md)
 
 
 ## Usage

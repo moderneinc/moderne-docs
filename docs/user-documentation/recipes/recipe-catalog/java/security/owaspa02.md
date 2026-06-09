@@ -1,4 +1,5 @@
 ---
+title: "Remediate OWASP A02:2021 Cryptographic failures"
 sidebar_label: "Remediate OWASP A02:2021 Cryptographic failures"
 ---
 

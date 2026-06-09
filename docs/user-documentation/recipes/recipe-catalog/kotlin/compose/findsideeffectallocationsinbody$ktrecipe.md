@@ -1,4 +1,5 @@
 ---
+title: "Find `java.io.File(...)` allocations inside a `@Composable` body"
 sidebar_label: "Find `java.io.File(...)` allocations inside a `@Composable` body"
 ---
 

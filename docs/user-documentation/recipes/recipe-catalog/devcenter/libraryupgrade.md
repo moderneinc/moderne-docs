@@ -1,4 +1,5 @@
 ---
+title: "Library upgrade"
 sidebar_label: "Library upgrade"
 ---
 

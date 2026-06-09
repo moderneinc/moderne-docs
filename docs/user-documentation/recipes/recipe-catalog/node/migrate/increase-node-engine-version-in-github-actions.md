@@ -1,4 +1,5 @@
 ---
+title: "Increase Node.js version in GitHub Actions"
 sidebar_label: "Increase Node.js version in GitHub Actions"
 ---
 

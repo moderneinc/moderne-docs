@@ -1,4 +1,5 @@
 ---
+title: "Remove annotation"
 sidebar_label: "Remove annotation"
 ---
 
@@ -36,6 +37,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Apply Axon Framework 5 modelling module renames](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5modelling.md)
 * [Migrate @ConfigurationProperties to Quarkus @ConfigMapping](/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateconfigurationproperties.md)
 * [Migrate Additional Spring Web Parameter Annotations](/user-documentation/recipes/recipe-catalog/quarkus/spring/migraterequestparameteredgecases.md)
 * [Migrate JavaEE Code to Quarkus 2](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2codemigration.md)

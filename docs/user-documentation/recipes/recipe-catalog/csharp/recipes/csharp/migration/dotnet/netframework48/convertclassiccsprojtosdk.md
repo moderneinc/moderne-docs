@@ -1,4 +1,5 @@
 ---
+title: "Convert classic csproj to SDK-style (net48)"
 sidebar_label: "Convert classic csproj to SDK-style (net48)"
 ---
 

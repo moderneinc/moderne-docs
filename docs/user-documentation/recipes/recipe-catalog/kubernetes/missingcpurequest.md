@@ -1,4 +1,5 @@
 ---
+title: "Ensure CPU request is set"
 sidebar_label: "Ensure CPU request is set"
 ---
 

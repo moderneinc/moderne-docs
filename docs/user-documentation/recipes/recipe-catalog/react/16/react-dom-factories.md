@@ -1,4 +1,5 @@
 ---
+title: "Replace `React.DOM` factories with `createElement`"
 sidebar_label: "Replace `React.DOM` factories with `createElement`"
 ---
 

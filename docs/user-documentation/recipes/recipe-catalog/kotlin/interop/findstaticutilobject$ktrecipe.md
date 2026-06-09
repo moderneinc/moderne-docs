@@ -1,4 +1,5 @@
 ---
+title: "Find `object Utils { fun foo() = ... }` static-utility holders"
 sidebar_label: "Find `object Utils { fun foo() = ... }` static-utility holders"
 ---
 

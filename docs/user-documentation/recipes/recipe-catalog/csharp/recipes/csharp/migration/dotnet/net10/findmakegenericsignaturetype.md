@@ -1,4 +1,5 @@
 ---
+title: "Find `Type.MakeGenericSignatureType` validation change"
 sidebar_label: "Find `Type.MakeGenericSignatureType` validation change"
 ---
 

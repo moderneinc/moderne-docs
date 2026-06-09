@@ -1,4 +1,5 @@
 ---
+title: "Change XML CharData text"
 sidebar_label: "Change XML CharData text"
 ---
 
@@ -32,5 +33,5 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 <RunRecipe
   recipeName="OpenRewrite.Xml.Recipes.ChangeXmlCharData"
   displayName="Change XML CharData text"
-  nugetPackage="OpenRewrite.Recipes.CSharp.Migration.Dotnet"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
 />

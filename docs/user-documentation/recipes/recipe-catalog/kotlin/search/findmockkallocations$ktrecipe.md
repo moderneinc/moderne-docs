@@ -1,4 +1,5 @@
 ---
+title: "Find `mockk&lt;X&gt;()` / `mockk(...)` calls"
 sidebar_label: "Find `mockk&lt;X&gt;()` / `mockk(...)` calls"
 ---
 

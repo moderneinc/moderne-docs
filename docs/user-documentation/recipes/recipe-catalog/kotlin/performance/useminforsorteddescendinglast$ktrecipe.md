@@ -1,4 +1,5 @@
 ---
+title: "Use `min()` instead of `sortedDescending().last()`"
 sidebar_label: "Use `min()` instead of `sortedDescending().last()`"
 ---
 

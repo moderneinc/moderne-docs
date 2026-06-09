@@ -1,4 +1,5 @@
 ---
+title: "Find `Context.registerReceiver(...)` calls"
 sidebar_label: "Find `Context.registerReceiver(...)` calls"
 ---
 

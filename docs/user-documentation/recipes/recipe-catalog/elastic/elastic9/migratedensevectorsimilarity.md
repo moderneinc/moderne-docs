@@ -1,4 +1,5 @@
 ---
+title: "Migrate DenseVectorProperty.similarity from String to DenseVectorSimilarity enum"
 sidebar_label: "Migrate DenseVectorProperty.similarity from String to DenseVectorSimilarity enum"
 ---
 

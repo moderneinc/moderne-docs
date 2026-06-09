@@ -1,4 +1,5 @@
 ---
+title: "Migrate WebEndpointDiscoverer 6-parameter constructor to 8-parameter"
 sidebar_label: "Migrate WebEndpointDiscoverer 6-parameter constructor to 8-parameter"
 ---
 

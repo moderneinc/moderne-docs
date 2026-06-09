@@ -1,4 +1,5 @@
 ---
+title: "Use `maxOf { selector }` instead of `map { selector }.max()`"
 sidebar_label: "Use `maxOf { selector }` instead of `map { selector }.max()`"
 ---
 

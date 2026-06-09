@@ -1,4 +1,5 @@
 ---
+title: "Find `AuthenticationManager` usage (SYSLIB0009)"
 sidebar_label: "Find `AuthenticationManager` usage (SYSLIB0009)"
 ---
 

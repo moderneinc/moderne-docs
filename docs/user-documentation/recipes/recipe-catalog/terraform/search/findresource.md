@@ -1,4 +1,5 @@
 ---
+title: "Find Terraform resource"
 sidebar_label: "Find Terraform resource"
 ---
 

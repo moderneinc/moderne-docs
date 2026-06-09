@@ -1,4 +1,5 @@
 ---
+title: "Find `Assembly.CodeBase`/`EscapedCodeBase` usage (SYSLIB0012)"
 sidebar_label: "Find `Assembly.CodeBase`/`EscapedCodeBase` usage (SYSLIB0012)"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `mutableSetOf&lt;T&gt;().also { it.add(x) }` patterns"
 sidebar_label: "Find `mutableSetOf&lt;T&gt;().also { it.add(x) }` patterns"
 ---
 

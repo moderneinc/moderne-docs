@@ -1,4 +1,5 @@
 ---
+title: "Find `Thread.Abort` usage (SYSLIB0006)"
 sidebar_label: "Find `Thread.Abort` usage (SYSLIB0006)"
 ---
 

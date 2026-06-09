@@ -1,4 +1,5 @@
 ---
+title: "Find `for (...) { LaunchedEffect(...) { … } }` patterns"
 sidebar_label: "Find `for (...) { LaunchedEffect(...) { … } }` patterns"
 ---
 

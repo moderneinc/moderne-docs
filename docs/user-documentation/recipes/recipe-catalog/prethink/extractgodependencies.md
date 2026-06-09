@@ -1,4 +1,5 @@
 ---
+title: "Extract Go dependencies and usage"
 sidebar_label: "Extract Go dependencies and usage"
 ---
 

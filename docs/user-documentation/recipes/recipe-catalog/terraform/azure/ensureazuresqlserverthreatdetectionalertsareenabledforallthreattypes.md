@@ -1,4 +1,5 @@
 ---
+title: "Ensure Azure SQL Server threat detection alerts are enabled for all threat types"
 sidebar_label: "Ensure Azure SQL Server threat detection alerts are enabled for all threat types"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find .NET endpoint contracts"
 sidebar_label: "Find .NET endpoint contracts"
 ---
 

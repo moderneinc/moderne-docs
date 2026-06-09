@@ -1,4 +1,5 @@
 ---
+title: "Find empty `init { }` blocks"
 sidebar_label: "Find empty `init { }` blocks"
 ---
 

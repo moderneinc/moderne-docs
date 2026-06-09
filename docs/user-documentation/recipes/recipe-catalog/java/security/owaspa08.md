@@ -1,4 +1,5 @@
 ---
+title: "Remediate OWASP A08:2021 Software and data integrity failures"
 sidebar_label: "Remediate OWASP A08:2021 Software and data integrity failures"
 ---
 

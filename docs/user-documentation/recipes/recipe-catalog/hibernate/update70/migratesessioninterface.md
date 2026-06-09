@@ -1,4 +1,5 @@
 ---
+title: "Migrate Session interface method calls"
 sidebar_label: "Migrate Session interface method calls"
 ---
 

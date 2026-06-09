@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Kubernetes API v1.29"
 sidebar_label: "Migrate to Kubernetes API v1.29"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `class Foo {}` declarations with an empty body"
 sidebar_label: "Find `class Foo {}` declarations with an empty body"
 ---
 

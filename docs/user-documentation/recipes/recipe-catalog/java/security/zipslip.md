@@ -1,4 +1,5 @@
 ---
+title: "Zip slip"
 sidebar_label: "Zip slip"
 ---
 

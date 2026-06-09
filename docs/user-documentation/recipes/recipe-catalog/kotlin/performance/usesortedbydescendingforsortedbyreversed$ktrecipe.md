@@ -1,4 +1,5 @@
 ---
+title: "Use `sortedByDescending { f }` instead of `sortedBy { f }.reversed()`"
 sidebar_label: "Use `sortedByDescending { f }` instead of `sortedBy { f }.reversed()`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Javascript server-side frameworks insights"
 sidebar_label: "Javascript server-side frameworks insights"
 ---
 

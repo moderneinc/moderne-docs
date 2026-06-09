@@ -1,4 +1,5 @@
 ---
+title: "Disable Instance Metadata Service version 1"
 sidebar_label: "Disable Instance Metadata Service version 1"
 ---
 

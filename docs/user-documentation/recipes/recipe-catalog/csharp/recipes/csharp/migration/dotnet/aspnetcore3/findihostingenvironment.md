@@ -1,4 +1,5 @@
 ---
+title: "Find IHostingEnvironment usage"
 sidebar_label: "Find IHostingEnvironment usage"
 ---
 

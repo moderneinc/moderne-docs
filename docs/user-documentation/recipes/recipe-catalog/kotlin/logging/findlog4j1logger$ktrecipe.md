@@ -1,4 +1,5 @@
 ---
+title: "Find `org.apache.log4j.Logger` references"
 sidebar_label: "Find `org.apache.log4j.Logger` references"
 ---
 

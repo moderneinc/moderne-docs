@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to .NET 6.0 using upgrade-assistant"
 sidebar_label: "Upgrade to .NET 6.0 using upgrade-assistant"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use factory method for abstract cryptographic types"
 sidebar_label: "Use factory method for abstract cryptographic types"
 ---
 

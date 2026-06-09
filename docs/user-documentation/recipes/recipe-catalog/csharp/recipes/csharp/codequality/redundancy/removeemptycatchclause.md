@@ -1,0 +1,42 @@
+---
+title: "Find empty catch clause"
+sidebar_label: "Find empty catch clause"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
+
+# Find empty catch clause
+
+**OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptyCatchClause**
+
+_Find empty catch clauses that silently swallow exceptions without any logging or handling._
+
+### Tags
+
+* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
+* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
+
+## Recipe source
+
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+
+
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Redundancy code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/redundancycodequality)
+
+
+## Usage
+
+<RunRecipe
+  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptyCatchClause"
+  displayName="Find empty catch clause"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
+/>

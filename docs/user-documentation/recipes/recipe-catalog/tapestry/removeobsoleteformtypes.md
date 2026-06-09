@@ -1,4 +1,5 @@
 ---
+title: "Remove obsolete Tapestry form types"
 sidebar_label: "Remove obsolete Tapestry form types"
 ---
 

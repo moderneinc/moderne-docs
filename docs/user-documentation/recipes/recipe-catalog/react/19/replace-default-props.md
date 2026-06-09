@@ -1,4 +1,5 @@
 ---
+title: "Replace `defaultProps` with default parameter values"
 sidebar_label: "Replace `defaultProps` with default parameter values"
 ---
 

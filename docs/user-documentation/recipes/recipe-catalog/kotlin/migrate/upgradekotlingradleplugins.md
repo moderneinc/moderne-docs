@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Kotlin Gradle plugins to 2.x"
 sidebar_label: "Upgrade Kotlin Gradle plugins to 2.x"
 ---
 

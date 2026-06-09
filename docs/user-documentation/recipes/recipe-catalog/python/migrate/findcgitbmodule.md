@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `cgitb` module usage"
 sidebar_label: "Find deprecated `cgitb` module usage"
 ---
 

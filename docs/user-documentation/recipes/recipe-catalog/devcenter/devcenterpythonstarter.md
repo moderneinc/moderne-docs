@@ -1,4 +1,5 @@
 ---
+title: "DevCenter for Python"
 sidebar_label: "DevCenter for Python"
 ---
 

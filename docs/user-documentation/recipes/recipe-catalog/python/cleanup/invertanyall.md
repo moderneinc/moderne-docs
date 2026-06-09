@@ -1,4 +1,5 @@
 ---
+title: "Swap `not all()`/`not any()` by negating the comparison"
 sidebar_label: "Swap `not all()`/`not any()` by negating the comparison"
 ---
 

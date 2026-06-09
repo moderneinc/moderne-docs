@@ -1,4 +1,5 @@
 ---
+title: "Find `@Stable` on classes with `var` properties"
 sidebar_label: "Find `@Stable` on classes with `var` properties"
 ---
 

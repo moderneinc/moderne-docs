@@ -1,4 +1,5 @@
 ---
+title: "Find bare `mutableStateOf(...)` inside `@Composable` without `remember { }`"
 sidebar_label: "Find bare `mutableStateOf(...)` inside `@Composable` without `remember { }`"
 ---
 

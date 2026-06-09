@@ -1,4 +1,5 @@
 ---
+title: "Find redundant `this.` inside `apply { }` blocks"
 sidebar_label: "Find redundant `this.` inside `apply { }` blocks"
 ---
 

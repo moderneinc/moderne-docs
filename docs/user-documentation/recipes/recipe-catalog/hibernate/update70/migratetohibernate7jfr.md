@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Hibernate 7 JFR APIs"
 sidebar_label: "Migrate to Hibernate 7 JFR APIs"
 ---
 

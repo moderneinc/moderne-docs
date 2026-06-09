@@ -1,4 +1,5 @@
 ---
+title: "Replace `ReactDOM.hydrate` with `hydrateRoot`"
 sidebar_label: "Replace `ReactDOM.hydrate` with `hydrateRoot`"
 ---
 

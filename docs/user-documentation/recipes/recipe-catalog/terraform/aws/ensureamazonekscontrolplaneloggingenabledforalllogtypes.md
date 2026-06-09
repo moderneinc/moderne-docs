@@ -1,4 +1,5 @@
 ---
+title: "Ensure Amazon EKS control plane logging enabled for all log types"
 sidebar_label: "Ensure Amazon EKS control plane logging enabled for all log types"
 ---
 

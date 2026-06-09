@@ -1,4 +1,5 @@
 ---
+title: "Prefer Scala-style property access over Java getters"
 sidebar_label: "Prefer Scala-style property access over Java getters"
 ---
 

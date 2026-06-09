@@ -1,4 +1,5 @@
 ---
+title: "Remove redundant pass statements"
 sidebar_label: "Remove redundant pass statements"
 ---
 

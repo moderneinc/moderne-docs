@@ -1,4 +1,5 @@
 ---
+title: "Drop ``pass``-only ``elif`` by negating its condition"
 sidebar_label: "Drop ``pass``-only ``elif`` by negating its condition"
 ---
 

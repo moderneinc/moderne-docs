@@ -1,4 +1,5 @@
 ---
+title: "Convert `JdbcTemplate.queryForLong(..)` to `queryForObject(..)`"
 sidebar_label: "Convert `JdbcTemplate.queryForLong(..)` to `queryForObject(..)`"
 ---
 
@@ -30,7 +31,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring Framework 6.0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0.md)
+* [Migrate to Spring Framework 6.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition.md)
 
 ## Example
 

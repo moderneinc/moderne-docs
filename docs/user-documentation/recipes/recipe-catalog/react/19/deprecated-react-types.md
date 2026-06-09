@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated React types"
 sidebar_label: "Replace deprecated React types"
 ---
 

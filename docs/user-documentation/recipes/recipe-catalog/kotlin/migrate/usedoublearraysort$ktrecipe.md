@@ -1,4 +1,5 @@
 ---
+title: "Use `DoubleArray.sort()` instead of `Arrays.sort(arr)`"
 sidebar_label: "Use `DoubleArray.sort()` instead of `Arrays.sort(arr)`"
 ---
 

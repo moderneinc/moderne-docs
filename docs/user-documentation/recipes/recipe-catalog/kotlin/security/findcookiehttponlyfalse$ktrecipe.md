@@ -1,4 +1,5 @@
 ---
+title: "Find `Cookie.setHttpOnly(false)` calls"
 sidebar_label: "Find `Cookie.setHttpOnly(false)` calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Best practices for GCP"
 sidebar_label: "Best practices for GCP"
 ---
 

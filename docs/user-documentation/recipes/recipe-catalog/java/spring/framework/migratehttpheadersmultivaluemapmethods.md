@@ -1,4 +1,5 @@
 ---
+title: "Migrate `HttpHeaders` methods removed when `MultiValueMap` contract was dropped"
 sidebar_label: "Migrate `HttpHeaders` methods removed when `MultiValueMap` contract was dropped"
 ---
 

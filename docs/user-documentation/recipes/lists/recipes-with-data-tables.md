@@ -210,6 +210,38 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 
+### rewrite-cve-2026-22732
+
+#### [io.moderne.recipe.cve202622732.FindHttpResponseContentLengthHeader](/user-documentation/recipes/recipe-catalog/recipe/cve202622732/findhttpresponsecontentlengthheader.md)
+  * **Find `Content-Length` header writes on `HttpServletResponse` (CVE-2026-22732)**
+  * Detects `HttpServletResponse.setHeader`, `setIntHeader`, or `addIntHeader` calls whose first argument resolves (directly or via local variable) to the literal `Content-Length` (case-insensitive). These three overloads are NOT overridden by Spring Security's `OnCommittedResponseWrapper`, so `onResponseCommitted()` never fires and the lazy-added security headers (X-Frame-Options, X-Content-Type-Options, Cache-Control, etc.) are silently dropped — CVE-2026-22732. `addHeader` is intentionally excluded: the wrapper special-cases it. Also covers WebFlux `HttpHeaders.set` / `add` for `Content-Length`. In addition to marking Java sinks, attaches a \{@code SearchResult\} marker to every source file in the affected project so this recipe can be used as a declarative precondition for build-level recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.recipe.cve202622732.FindHttpResponseContentLengthOrFlushBuffer](/user-documentation/recipes/recipe-catalog/recipe/cve202622732/findhttpresponsecontentlengthorflushbuffer.md)
+  * **Find unconditional WebFlux response commit calls (CVE-2026-22732)**
+  * Detects WebFlux calls that commit a `ServerHttpResponse` outside the lazy header-writing path: `writeWith(..)`, `writeAndFlushWith(..)`, `setComplete()`, and `HttpHeaders.setContentLength(long)`. Under CVE-2026-22732 these patterns cause Spring Security's lazy-added security headers to be dropped. The sibling recipe `FindHttpResponseContentLengthHeader` covers the servlet `setHeader` / `setIntHeader` / `addIntHeader` case. In addition to marking Java sinks, attaches a \{@code SearchResult\} marker to every source file in the affected project so this recipe can be used as a declarative precondition for build-level recipes.
+
+##### Data tables:
+
+  * **io.moderne.recipe.cve202622732.table.HttpResponseDirectCommitTable**: *Rows for `ServerHttpResponse` / `HttpHeaders` calls that commit a WebFlux response outside the lazy header-writing path (writeWith, writeAndFlushWith, setComplete, HttpHeaders.setContentLength).*
+
+
+#### [io.moderne.recipe.cve202622732.FindSpringSecurityHeaderSuppression](/user-documentation/recipes/recipe-catalog/recipe/cve202622732/findspringsecurityheadersuppression.md)
+  * **Find CVE-2026-22732 (Spring Security header suppression)**
+  * Detects code susceptible to CVE-2026-22732, where setting `Content-Length` via `HttpServletResponse.setHeader` / `setIntHeader` / `addIntHeader` (or the WebFlux equivalents) bypasses Spring Security's `OnCommittedResponseWrapper`, letting the container commit the response before the lazy header-writing filter runs and silently dropping security headers (X-Frame-Options, X-Content-Type-Options, Cache-Control, etc.). Also emits one data-table row per project recording the resolved Spring Security version.
+
+##### Data tables:
+
+  * **io.moderne.recipe.cve202622732.table.SpringSecurityVersionByProject**: *One row per project with a detected Spring Security dependency. Customers join this with the taint-flow / direct-commit findings to see the Spring Security version in effect for each hit.*
+  * **io.moderne.recipe.cve202622732.table.HttpResponseDirectCommitTable**: *Rows for `ServerHttpResponse` / `HttpHeaders` calls that commit a WebFlux response outside the lazy header-writing path (writeWith, writeAndFlushWith, setComplete, HttpHeaders.setContentLength).*
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+
 ### rewrite-devcenter
 
 #### [io.moderne.devcenter.AngularVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/angularversionupgrade.md)
@@ -229,6 +261,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
 
 
@@ -339,6 +372,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
   * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
   * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
@@ -377,6 +411,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
   * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
   * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
@@ -472,6 +507,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
 
 
@@ -500,6 +536,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
 
 
@@ -1924,6 +1961,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.moderne.java.spring.boot3.UpgradeSpringBoot_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-moderne-edition.md)
+  * **Migrate to Spring Boot 3.0 (Moderne Edition)**
+  * Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations that are required as part of the migration to Spring Boot 3.0, including the Tomcat 10.1 upgrade which removes `LegacyCookieProcessor`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.moderne.java.spring.boot3.UpgradeSpringBoot_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-moderne-edition.md)
   * **Migrate to Spring Boot 3.4 (Moderne Edition)**
   * Migrate applications to the latest Spring Boot 3.4 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.4.
@@ -1976,6 +2022,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
+
+
+#### [io.moderne.java.spring.framework.UpgradeSpringFramework_6_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-moderne-edition.md)
+  * **Migrate to Spring Framework 6.0 (Moderne Edition)**
+  * Migrate applications to the latest Spring Framework 6.0 release. Chains through `UpgradeSpringFramework_5_3` (and transitively `_5_0`/`_4_0`/`_3_0`) and layers Spring Integration XML attribute migrations on top of the OSS Spring Framework 6.0 upgrade. The OSS recipe handles the `org.springframework:*` version bump and Jakarta EE 10 package moves; this composite additionally bumps `org.springframework.security:*` to 6.0.x (Spring Security tracks Spring's major) and cleans up Spring Integration XML configurations.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.framework7.UpgradeSpringFramework_7_0](/user-documentation/recipes/recipe-catalog/java/spring/framework7/upgradespringframework_7_0.md)
+  * **Migrate to Spring Framework 7.0**
+  * Migrates applications to Spring Framework 7.0. This recipe applies all necessary changes including API migrations, removed feature detection, and configuration updates.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 
@@ -6387,7 +6451,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-05-11T1202.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-06-01T1251.
 
 ##### Data tables:
 
@@ -6413,8 +6477,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
-  * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-05-11T1202.
+  * **Find and fix vulnerable Maven/Gradle dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-06-01T1251.
 
 ##### Data tables:
 
@@ -6439,6 +6503,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
 
 
 #### [org.openrewrite.java.security.Owasp2025A03](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a03.md)
@@ -6488,6 +6553,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
 
 
 #### [org.openrewrite.java.security.OwaspA02](/user-documentation/recipes/recipe-catalog/java/security/owaspa02.md)
@@ -6526,6 +6592,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
   * **org.openrewrite.java.dependencies.table.DependencyOriginsReport**: *A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies.*
@@ -6565,6 +6632,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.java.security.search.FindMissingSpringAuthorization](/user-documentation/recipes/recipe-catalog/java/security/search/findmissingspringauthorization.md)
+  * **Find Spring MVC handlers missing authorization**
+  * Flags Spring MVC (and WebFlux) controller methods reachable to anonymous users — either matched by `permitAll()` in a `SecurityFilterChain` / `SecurityWebFilterChain` bean (or in a legacy `WebSecurityConfigurerAdapter.configure(HttpSecurity)` override) or with no matching rule at all — and which do not carry an explicit authorization annotation (`@PreAuthorize`, `@PostAuthorize`, `@Secured`, `@RolesAllowed`, `@PermitAll`, `@DenyAll`), including annotations inherited from a superclass or overridden parent method. Detector only; does not modify code.
+
+##### Data tables:
+
+  * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
 
 
 #### [org.openrewrite.java.security.search.FindProcessControl](/user-documentation/recipes/recipe-catalog/java/security/search/findprocesscontrol.md)
@@ -7279,6 +7355,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
 
 
+#### [org.openrewrite.nodejs.security.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/nodejs/security/dependencyvulnerabilitycheck.md)
+  * **Find and fix vulnerable npm dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest patch version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the GitHub Security Advisory Database, which aggregates vulnerability data from several public databases.  ## Customizing Vulnerability Data  Extend this recipe and override `baselineVulnerabilities(ctx)` to replace the bundled advisory database, or override `supplementalVulnerabilities(ctx)` to add organisation-specific advisories alongside the bundled data.
+
+##### Data tables:
+
+  * **org.openrewrite.nodejs.table.VulnerabilityReport**: *Lists all vulnerabilities found in project dependencies.*
+
+
 
 ### rewrite-prethink
 
@@ -7490,8 +7575,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
-  * **Migrate to Spring Boot 3.0**
+#### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
+  * **Migrate to Spring Boot 3.0 (Community Edition)**
   * Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.7.
 
 ##### Data tables:
@@ -7571,8 +7656,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [org.openrewrite.java.spring.framework.UpgradeSpringFramework_6_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0.md)
-  * **Migrate to Spring Framework 6.0**
+#### [org.openrewrite.java.spring.framework.UpgradeSpringFramework_6_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition.md)
+  * **Migrate to Spring Framework 6.0 (Community Edition)**
   * Migrate applications to the latest Spring Framework 6.0 release.
 
 ##### Data tables:
@@ -7876,6 +7961,33 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-third-party
 
+#### [ai.timefold.solver.migration.FromOptaPlannerToTimefoldSolver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fromoptaplannertotimefoldsolver.md)
+  * **Migrate from OptaPlanner to Timefold Solver**
+  * Replaces your method/field calls, GAVs, etc. To replace deprecated methods too, use the recipe ToLatest
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [ai.timefold.solver.migration.ToLatest](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
+  * **Upgrade to the latest Timefold Solver**
+  * Replace all your calls to deleted/deprecated types and methods of Timefold Solver with their proper alternatives.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [ai.timefold.solver.migration.fork.TimefoldChangeDependencies](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fork/timefoldchangedependencies.md)
+  * **Migrate all Maven and Gradle groupIds and artifactIds from OptaPlanner to Timefold**
+  * Migrate all Maven and Gradle groupIds and artifactIds from OptaPlanner to Timefold.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [com.oracle.weblogic.rewrite.CheckAndCommentOutDeprecations1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/checkandcommentoutdeprecations1412.md)
   * **Report types deprecated or removed in WebLogic version 14.1.2**
   * This recipe will report Java types that have been deprecated or removed in WebLogic version 14.1.2. This is an alias to prevent breaking existing recipes.
@@ -8010,6 +8122,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.axoniq.framework.migration.Axon4ToAxoniq5Bom](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5bom.md)
+  * **Swap the BOM to Axoniq Framework 5 commercial**
+  * Replaces the imported `org.axonframework:axon-bom` (AF4) or `org.axonframework:axon-framework-bom` (free AF5) in `&lt;dependencyManagement&gt;` with the Axoniq Framework 5 commercial BOM `io.axoniq.framework:axoniq-framework-bom`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.axoniq.framework.migration.UpgradeAxon4ToAxoniq5](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/upgradeaxon4toaxoniq5.md)
+  * **Upgrade to Axoniq Framework 5 (commercial)**
+  * Migrates an Axon Framework 4.x application to Axoniq Framework 5 (commercial). Composes `UpgradeAxon4ToAxon5` (the free leg) and then layers commercial-only migrations: BOM swap to `io.axoniq.framework:axoniq-framework-bom`, Spring Boot starter swap to `io.axoniq.framework:axoniq-spring-boot-starter`, source rewrites and Maven adds for Axon Server connector, sequenced dead-letter queue, and distributed messaging.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.quarkus.updates.camel.camel412.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel412/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.11` application to `camel 4.12`**
   * Migrates `camel 4.11` quarkus application to `camel 4.12`.
@@ -8022,6 +8152,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [io.quarkus.updates.camel.camel413.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel413/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.12` application to `camel 4.13`**
   * Migrates `camel 4.12` Quarkus application to `camel 4.13`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.camel.camel420.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel420/camelquarkusmigrationrecipe.md)
+  * **Migrates `camel 4.18` application to `camel 4.20`**
+  * Migrates `camel 4.18` Quarkus application to `camel 4.20`.
 
 ##### Data tables:
 
@@ -8586,18 +8725,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [org.axonframework.migration.UpgradeAxonFramework_4_Jakarta](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_jakarta.md)
-  * **Upgrade to Axonframework 4.x Jakarta**
-  * Migration file to upgrade from an Axon Framework Javax-specific project to Jakarta.
+#### [org.axonframework.migration.Axon4ToAxon5Bom](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5bom.md)
+  * **Migrate the Axon Framework BOM coordinates**
+  * Renames the imported `org.axonframework:axon-bom` BOM in `&lt;dependencyManagement&gt;` to `org.axonframework:axon-framework-bom` and pins the imported version to the current Axon Framework 5 release. The BOM artifactId changed between Axon Framework 4 and Axon Framework 5; the groupId is unchanged.
 
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [org.axonframework.migration.UpgradeAxonFramework_4_Javax](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_javax.md)
-  * **Upgrade to Axonframework 4.x Javax**
-  * Migration file to upgrade an Axon Framework Javax-specific project and remain on Javax.
+#### [org.axonframework.migration.UpgradeAxon4ToAxon5](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxon4toaxon5.md)
+  * **Upgrade to free Axon Framework 5**
+  * Migrates an Axon Framework 4.x application to free (Apache 2.0) Axon Framework 5. Bumps the Axon Framework dependency versions, applies per-module rename recipes (one per core framework module), and renames Maven coordinates within the `org.axonframework.*` namespace. Does NOT touch features dropped from free AF5 (Axon Server, DLQ, DistributedCommandBus) — see `UpgradeAxon4ToAxoniq5` for the commercial path.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.axonframework.migration.UpgradeKotlin](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradekotlin.md)
+  * **Upgrade Kotlin to 2.x for Axon Framework 5**
+  * Bumps the `org.jetbrains.kotlin:*` dependency versions and the `kotlin-maven-plugin` to the configured Kotlin line (defaults to &quot;2.x&quot;, the latest Kotlin 2.x). No-op for modules already at or above the target — the underlying upgrade recipes never downgrade. Rejects targets below Kotlin 2.0.
 
 ##### Data tables:
 
@@ -8796,6 +8944,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.quarkus.MigrateToQuarkus_v3_32_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_32_0.md)
   * **Quarkus Updates Aggregate 3.32.0**
   * Quarkus update recipes to upgrade your application to 3.32.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.MigrateToQuarkus_v3_33_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_33_0.md)
+  * **Quarkus Updates Aggregate 3.33.0**
+  * Quarkus update recipes to upgrade your application to 3.33.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.MigrateToQuarkus_v3_37_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_37_0.md)
+  * **Quarkus Updates Aggregate 3.37.0**
+  * Quarkus update recipes to upgrade your application to 3.37.0.
 
 ##### Data tables:
 

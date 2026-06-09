@@ -1,4 +1,5 @@
 ---
+title: "Find `ZipArchive.CreateEntry` with `CompressionLevel` (bit flag change)"
 sidebar_label: "Find `ZipArchive.CreateEntry` with `CompressionLevel` (bit flag change)"
 ---
 

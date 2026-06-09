@@ -1,4 +1,5 @@
 ---
+title: "Find WinRT interop usage (removed in .NET 5)"
 sidebar_label: "Find WinRT interop usage (removed in .NET 5)"
 ---
 

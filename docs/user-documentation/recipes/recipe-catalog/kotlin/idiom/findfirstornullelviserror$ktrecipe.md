@@ -1,4 +1,5 @@
 ---
+title: "Find `firstOrNull { } ?: error(...)` patterns"
 sidebar_label: "Find `firstOrNull { } ?: error(...)` patterns"
 ---
 

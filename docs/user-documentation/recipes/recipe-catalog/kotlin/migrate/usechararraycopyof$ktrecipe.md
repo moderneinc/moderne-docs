@@ -1,4 +1,5 @@
 ---
+title: "Use `CharArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"
 sidebar_label: "Use `CharArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"
 ---
 

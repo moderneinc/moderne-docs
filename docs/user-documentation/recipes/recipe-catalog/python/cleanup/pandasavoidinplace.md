@@ -1,4 +1,5 @@
 ---
+title: "Eliminate `inplace=True` in favor of reassignment"
 sidebar_label: "Eliminate `inplace=True` in favor of reassignment"
 ---
 

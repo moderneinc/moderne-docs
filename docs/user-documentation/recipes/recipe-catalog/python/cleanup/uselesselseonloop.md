@@ -1,4 +1,5 @@
 ---
+title: "Flatten `for/else` when the loop has no `break`"
 sidebar_label: "Flatten `for/else` when the loop has no `break`"
 ---
 

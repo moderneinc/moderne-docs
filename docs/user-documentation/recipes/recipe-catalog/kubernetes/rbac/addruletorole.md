@@ -1,4 +1,5 @@
 ---
+title: "Add RBAC rules"
 sidebar_label: "Add RBAC rules"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `suspendCoroutine` calls"
 sidebar_label: "Find `suspendCoroutine` calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Ensure key vault key is backed by HSM"
 sidebar_label: "Ensure key vault key is backed by HSM"
 ---
 

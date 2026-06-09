@@ -1,4 +1,5 @@
 ---
+title: "Find lambda / functional smells"
 sidebar_label: "Find lambda / functional smells"
 ---
 

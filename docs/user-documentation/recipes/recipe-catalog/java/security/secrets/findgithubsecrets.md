@@ -1,4 +1,5 @@
 ---
+title: "Find GitHub secrets"
 sidebar_label: "Find GitHub secrets"
 ---
 

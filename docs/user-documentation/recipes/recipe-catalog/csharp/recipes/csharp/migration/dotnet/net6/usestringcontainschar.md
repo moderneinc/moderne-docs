@@ -1,4 +1,5 @@
 ---
+title: "Use string.Contains(char) overload"
 sidebar_label: "Use string.Contains(char) overload"
 ---
 

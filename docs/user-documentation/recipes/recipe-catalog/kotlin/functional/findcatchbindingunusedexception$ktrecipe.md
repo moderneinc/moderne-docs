@@ -1,4 +1,5 @@
 ---
+title: "Find `catch (e: Exception)` clauses whose body never references `e`"
 sidebar_label: "Find `catch (e: Exception)` clauses whose body never references `e`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Rename `InputSwitch` to `ToggleSwitch`"
 sidebar_label: "Rename `InputSwitch` to `ToggleSwitch`"
 ---
 

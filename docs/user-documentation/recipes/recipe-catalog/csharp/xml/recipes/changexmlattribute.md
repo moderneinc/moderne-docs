@@ -1,4 +1,5 @@
 ---
+title: "Change XML attribute value"
 sidebar_label: "Change XML attribute value"
 ---
 
@@ -32,5 +33,5 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 <RunRecipe
   recipeName="OpenRewrite.Xml.Recipes.ChangeXmlAttribute"
   displayName="Change XML attribute value"
-  nugetPackage="OpenRewrite.Recipes.CSharp.Migration.Dotnet"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
 />

@@ -1,4 +1,5 @@
 ---
+title: "Migrate `matchedQueries` from List to Map"
 sidebar_label: "Migrate `matchedQueries` from List to Map"
 ---
 

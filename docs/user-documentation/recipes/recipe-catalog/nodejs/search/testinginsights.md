@@ -1,4 +1,5 @@
 ---
+title: "Javascript testing library insights"
 sidebar_label: "Javascript testing library insights"
 ---
 

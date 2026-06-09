@@ -1,4 +1,5 @@
 ---
+title: "Prefer `.view.mapValues` for Scala 2.13+"
 sidebar_label: "Prefer `.view.mapValues` for Scala 2.13+"
 ---
 

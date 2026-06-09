@@ -1,4 +1,5 @@
 ---
+title: "Update OpenTelemetry resource attributes"
 sidebar_label: "Update OpenTelemetry resource attributes"
 ---
 

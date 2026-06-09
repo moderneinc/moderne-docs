@@ -1,4 +1,5 @@
 ---
+title: "Migrate `KafkaConsumer.committed(TopicPartition)` to `committed(Set&lt;TopicPartition&gt;)`"
 sidebar_label: "Migrate `KafkaConsumer.committed(TopicPartition)` to `committed(Set&lt;TopicPartition&gt;)`"
 ---
 

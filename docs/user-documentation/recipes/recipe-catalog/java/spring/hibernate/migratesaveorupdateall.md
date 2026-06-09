@@ -1,4 +1,5 @@
 ---
+title: "Migrate `HibernateDaoSupport#getHibernateTemplate#saveOrUpdateAll`"
 sidebar_label: "Migrate `HibernateDaoSupport#getHibernateTemplate#saveOrUpdateAll`"
 ---
 

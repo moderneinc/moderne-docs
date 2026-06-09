@@ -1,4 +1,5 @@
 ---
+title: "Find `throw ...` statements inside Mono/Flux operator lambdas"
 sidebar_label: "Find `throw ...` statements inside Mono/Flux operator lambdas"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `run { }` calls with an empty body"
 sidebar_label: "Find `run { }` calls with an empty body"
 ---
 

@@ -23,6 +23,7 @@ description: Migrate OpenRewrite recipes.
 * [Remove existential types (removed in Scala 3)](./removeexistentialtypes.md)
 * [Review abstract override for Scala 3](./reviewabstractoverride.md)
 * [Review trait var initialization for Scala 3](./reviewtraitvarinit.md)
+* [Upgrade sbt version](./upgradesbtversion.md)
 * [Use `?` instead of `_` for wildcard types (Scala 3)](./usequestionmarkwildcard.md)
 
 

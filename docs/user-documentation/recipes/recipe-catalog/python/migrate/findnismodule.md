@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `nis` module usage"
 sidebar_label: "Find deprecated `nis` module usage"
 ---
 

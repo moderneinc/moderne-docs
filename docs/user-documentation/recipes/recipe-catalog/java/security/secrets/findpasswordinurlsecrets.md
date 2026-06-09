@@ -1,4 +1,5 @@
 ---
+title: "Find passwords used in URLs"
 sidebar_label: "Find passwords used in URLs"
 ---
 

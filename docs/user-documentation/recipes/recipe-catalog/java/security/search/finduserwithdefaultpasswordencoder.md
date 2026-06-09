@@ -1,4 +1,5 @@
 ---
+title: "Find `User.withDefaultPasswordEncoder()` usage"
 sidebar_label: "Find `User.withDefaultPasswordEncoder()` usage"
 ---
 

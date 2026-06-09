@@ -1,4 +1,5 @@
 ---
+title: "Use `Collection.min()` instead of `Collections.min(coll)`"
 sidebar_label: "Use `Collection.min()` instead of `Collections.min(coll)`"
 ---
 

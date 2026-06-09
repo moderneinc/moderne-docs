@@ -1,4 +1,5 @@
 ---
+title: "Find `ThreadLocal()` allocations"
 sidebar_label: "Find `ThreadLocal()` allocations"
 ---
 

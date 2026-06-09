@@ -1,4 +1,5 @@
 ---
+title: "Find `resources.getColor(...)` (one-arg) calls"
 sidebar_label: "Find `resources.getColor(...)` (one-arg) calls"
 ---
 

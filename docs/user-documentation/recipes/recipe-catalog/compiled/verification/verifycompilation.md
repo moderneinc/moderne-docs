@@ -1,4 +1,5 @@
 ---
+title: "Verify compilation"
 sidebar_label: "Verify compilation"
 ---
 

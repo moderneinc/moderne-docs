@@ -1,4 +1,5 @@
 ---
+title: "Find manual `getX()` / `setX(v)` pairs in Kotlin classes"
 sidebar_label: "Find manual `getX()` / `setX(v)` pairs in Kotlin classes"
 ---
 

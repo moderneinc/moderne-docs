@@ -1,4 +1,5 @@
 ---
+title: "Find `Files.newBufferedWriter(...)` calls"
 sidebar_label: "Find `Files.newBufferedWriter(...)` calls"
 ---
 

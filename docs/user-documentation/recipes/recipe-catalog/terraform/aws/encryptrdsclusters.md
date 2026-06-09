@@ -1,4 +1,5 @@
 ---
+title: "Encrypt RDS clusters"
 sidebar_label: "Encrypt RDS clusters"
 ---
 

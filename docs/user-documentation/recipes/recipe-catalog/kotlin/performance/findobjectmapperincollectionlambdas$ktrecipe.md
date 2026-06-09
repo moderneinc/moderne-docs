@@ -1,4 +1,5 @@
 ---
+title: "Find Jackson `ObjectMapper()` allocations inside collection lambdas"
 sidebar_label: "Find Jackson `ObjectMapper()` allocations inside collection lambdas"
 ---
 

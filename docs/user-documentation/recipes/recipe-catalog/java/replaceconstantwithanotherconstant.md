@@ -1,4 +1,5 @@
 ---
+title: "Replace constant with another constant"
 sidebar_label: "Replace constant with another constant"
 ---
 
@@ -65,6 +66,9 @@ This recipe is used as part of the following composite recipes:
 * [Replace deprecated `PropertyNamingStrategy` inner classes and constants](/user-documentation/recipes/recipe-catalog/java/jackson/replacepropertynamingstrategyconstants.md)
 * [The header name for the List metadata has changed](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel43/kafkametadata.md)
 * [Upgrade to JUnit 5.13](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit513.md)
+* [Use non-deprecated environment constants](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/environmentmigrationrecipe.md)
+* [Use non-deprecated related sorting fields and methods](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/sortingmigrationrecipe.md)
+* [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmQueryHints](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromhibernateormqueryhints.md)
 * [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmVariousRemovedIn7](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromhibernateormvariousremovedin7.md)
 
 ## Example

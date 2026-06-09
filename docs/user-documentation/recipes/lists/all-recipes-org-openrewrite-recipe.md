@@ -2615,14 +2615,14 @@ _18 recipes_
 
 _License: Moderne Proprietary License_
 
-_106 recipes_
+_112 recipes_
 
 * [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)
   * **Dependency insight for C#**
   * Finds dependencies in `*.csproj` and `packages.config`.
 * [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-05-11T1202.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-06-01T1251.
 * [org.openrewrite.csharp.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/csharp/dependencies/upgradedependencyversion.md)
   * **Upgrade C# dependency versions**
   * Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`.
@@ -2633,8 +2633,8 @@ _106 recipes_
   * **Find licenses in use in third-party dependencies**
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
-  * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-05-11T1202.
+  * **Find and fix vulnerable Maven/Gradle dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-06-01T1251.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -2644,12 +2644,24 @@ _106 recipes_
 * [org.openrewrite.java.security.FindTextDirectionChanges](/user-documentation/recipes/recipe-catalog/java/security/findtextdirectionchanges.md)
   * **Find text-direction changes**
   * Finds unicode control characters which can change the direction text is displayed in. These control characters can alter how source code is presented to a human reader without affecting its interpretation by tools like compilers. So a malicious patch could pass code review while introducing vulnerabilities. Note that text direction-changing unicode control characters aren't inherently malicious. These characters can appear for legitimate reasons in code written in or dealing with right-to-left languages. See: https://trojansource.codes/ for more information.
+* [org.openrewrite.java.security.FixCommandInjectionLiteral](/user-documentation/recipes/recipe-catalog/java/security/fixcommandinjectionliteral.md)
+  * **Replace `Runtime.exec(String)` with `Runtime.exec(String[])`**
+  * Rewrites `Runtime.exec(&quot;cmd args &quot; + arg)` calls into the safer `Runtime.exec(new String[]\{...\})` overload that bypasses shell interpretation. Fires only when the first argument is a string concatenation, the first operand is a string literal containing whitespace, and no literal contains shell metacharacters (`|`, `&lt;`, `&gt;`, `&amp;`, `;`, backtick, `$`, newline). Calls with no literal prefix, with single-token literals, or with shell metacharacters are left for human review.
 * [org.openrewrite.java.security.FixCwe338](/user-documentation/recipes/recipe-catalog/java/security/fixcwe338.md)
   * **Fix CWE-338 with `SecureRandom`**
   * Use a cryptographically strong pseudo-random number generator (PRNG).
 * [org.openrewrite.java.security.FixCwe918](/user-documentation/recipes/recipe-catalog/java/security/fixcwe918.md)
   * **Remediate server-side request forgery (SSRF)**
-  * Inserts a guard that validates URLs constructed from user-controlled input do not target internal network addresses, blocking server-side request forgery (SSRF) attacks.
+  * Inserts a guard that validates URLs constructed from user-controlled input do not resolve to internal, reserved, or otherwise unsafe network addresses, blocking server-side request forgery (SSRF) attacks. The block list covers IPv4 and IPv6, including IPv4-mapped IPv6 (`::ffff:0:0/96`), IPv6 ULA (`fc00::/7`), NAT64 (`64:ff9b::/96`), 6to4 (`2002::/16`), and Teredo (`2001::/32`) — all of which embed or translate to addresses that would otherwise bypass a naïve `isSiteLocalAddress` / `isLoopbackAddress` check.  The guard does not by itself prevent DNS rebinding. `URL.openConnection()` re-resolves the host at connect time, so a rapidly shifting authoritative DNS response can answer with a public IP during validation and an internal IP at connect time. Closing this time-of-check / time-of-use window requires binding the TCP connection to the validated IP literal — typically via a hardened HTTP client with a custom DNS resolver (`HttpClient.Builder`, Apache HttpClient's `DnsResolver`, OkHttp's `Dns`, etc.) — and is HTTP-client-specific, so it is out of scope for this recipe.  The block list reflects IANA special-use registries at the time of this recipe's release and is not, and cannot be, permanently complete. New special-use ranges are assigned periodically — `3fff::/20` was added as IPv6 documentation space in 2024 (RFC 9637), for example — so the list will need ongoing maintenance to keep pace with the IANA IPv4 and IPv6 Special-Purpose Address Registries.
+* [org.openrewrite.java.security.FixPermissiveHostnameVerifier](/user-documentation/recipes/recipe-catalog/java/security/fixpermissivehostnameverifier.md)
+  * **Fix permissive `HostnameVerifier` implementations**
+  * Replaces `javax.net.ssl.HostnameVerifier` implementations whose `verify(String, SSLSession)` method unconditionally returns `true` (matching `return true;`, `return Boolean.TRUE;`, or `return Boolean.valueOf(true);`) with a delegation to `HttpsURLConnection.getDefaultHostnameVerifier()`, restoring proper hostname verification.
+* [org.openrewrite.java.security.FixPermissiveTrustManager](/user-documentation/recipes/recipe-catalog/java/security/fixpermissivetrustmanager.md)
+  * **Fix permissive `X509TrustManager` implementations**
+  * Replaces empty `checkClientTrusted` and `checkServerTrusted` method bodies on `javax.net.ssl.X509TrustManager` implementations with a `throw new CertificateException(&quot;Not trusted&quot;)` so the trust manager fails closed instead of accepting any certificate.
+* [org.openrewrite.java.security.FixSqlInjectionConcat](/user-documentation/recipes/recipe-catalog/java/security/fixsqlinjectionconcat.md)
+  * **Replace SQL string concatenation with a `PreparedStatement`**
+  * Rewrites JDBC `Statement.executeQuery`/`executeUpdate`/`execute`/`addBatch` calls whose argument is a string concatenation built from a literal SQL prefix plus simple variable operands into a `PreparedStatement` with `?` placeholders and `setX(i, ...)` bindings. Only fixes the narrow safe subset where the `Statement` is a local variable from `Connection.createStatement()` used for a single SQL execution; other cases are left for the `FindSqlInjection` recipe to surface.
 * [org.openrewrite.java.security.ImproperPrivilegeManagement](/user-documentation/recipes/recipe-catalog/java/security/improperprivilegemanagement.md)
   * **Improper privilege management**
   * Marking code as privileged enables a piece of trusted code to temporarily enable access to more resources than are available directly to the code that called it.
@@ -2719,6 +2731,9 @@ _106 recipes_
 * [org.openrewrite.java.security.ZipSlip](/user-documentation/recipes/recipe-catalog/java/security/zipslip.md)
   * **Zip slip**
   * Zip slip is an arbitrary file overwrite critical vulnerability, which typically results in remote command execution. A fuller description of this vulnerability is available in the [Snyk documentation](https://snyk.io/research/zip-slip-vulnerability) on it.
+* [org.openrewrite.java.security.marshalling.FixInsecureJmsDeserialization](/user-documentation/recipes/recipe-catalog/java/security/marshalling/fixinsecurejmsdeserialization.md)
+  * **Restrict deserialized classes for JMS `ObjectMessage`**
+  * Patches `ActiveMQConnectionFactory` instantiations to install a deserialization allowlist when the same compilation run contains a `javax.jms.ObjectMessage#getObject` (or `jakarta.jms.ObjectMessage#getObject`) call inside a `MessageListener#onMessage` override. Targets ActiveMQ Classic (`org.apache.activemq.ActiveMQConnectionFactory.setTrustedPackages`) and ActiveMQ Artemis (`org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory.setDeserializationAllowList`). IBM MQ (`com.ibm.mq.jms.MQConnectionFactory`) is not yet supported. The recipe handles two factory instantiation shapes: a local variable declaration (`ActiveMQConnectionFactory f = new ActiveMQConnectionFactory(...)`) and a direct return (`return new ActiveMQConnectionFactory(...)`), the latter refactored into a declare-then-return. Skips factories that already configure a trusted-packages / allowlist call.
 * [org.openrewrite.java.security.marshalling.InsecureJmsDeserialization](/user-documentation/recipes/recipe-catalog/java/security/marshalling/insecurejmsdeserialization.md)
   * **Insecure JMS deserialization**
   * JMS `Object` messages depend on Java Serialization for marshalling/unmarshalling of the message payload when `ObjectMessage#getObject` is called. Deserialization of untrusted data can lead to security flaws.
@@ -2758,6 +2773,9 @@ _106 recipes_
 * [org.openrewrite.java.security.search.FindLongSessionTimeout](/user-documentation/recipes/recipe-catalog/java/security/search/findlongsessiontimeout.md)
   * **Find long or disabled HTTP session timeout**
   * Finds calls to `HttpSession.setMaxInactiveInterval(int)` whose integer-literal argument exceeds 30 minutes or is zero/negative (which disables session expiration). Long-lived or non-expiring sessions increase the window for session hijacking and replay (CWE-613).
+* [org.openrewrite.java.security.search.FindMissingSpringAuthorization](/user-documentation/recipes/recipe-catalog/java/security/search/findmissingspringauthorization.md)
+  * **Find Spring MVC handlers missing authorization**
+  * Flags Spring MVC (and WebFlux) controller methods reachable to anonymous users — either matched by `permitAll()` in a `SecurityFilterChain` / `SecurityWebFilterChain` bean (or in a legacy `WebSecurityConfigurerAdapter.configure(HttpSecurity)` override) or with no matching rule at all — and which do not carry an explicit authorization annotation (`@PreAuthorize`, `@PostAuthorize`, `@Secured`, `@RolesAllowed`, `@PermitAll`, `@DenyAll`), including annotations inherited from a superclass or overridden parent method. Detector only; does not modify code.
 * [org.openrewrite.java.security.search.FindPermissiveCorsConfiguration](/user-documentation/recipes/recipe-catalog/java/security/search/findpermissivecorsconfiguration.md)
   * **Find permissive CORS configuration**
   * Finds overly permissive CORS configurations that allow all origins, which can expose the application to cross-domain attacks.
@@ -2940,7 +2958,7 @@ _106 recipes_
 
 _License: Moderne Source Available License_
 
-_18 recipes_
+_19 recipes_
 
 * [org.openrewrite.java.testing.htmlunit.UpgradeHtmlUnit_3](/user-documentation/recipes/recipe-catalog/java/testing/htmlunit/upgradehtmlunit_3.md)
   * **Migrate to HtmlUnit 3.x**
@@ -2981,6 +2999,9 @@ _18 recipes_
 * [org.openrewrite.jenkins.ModernizePluginForJava8](/user-documentation/recipes/recipe-catalog/jenkins/modernizepluginforjava8.md)
   * **Modernize a Jenkins plugin to the latest versions supported by Java 8**
   * This recipe is intended to break down the modernization of very old plugins into distinct steps. It allows modernizing all tooling up to the last versions that supported Java 8. This can then be followed by another recipe that makes the jump to Java 11.
+* [org.openrewrite.jenkins.MoveJenkinsfileShebangAndReparse](/user-documentation/recipes/recipe-catalog/jenkins/movejenkinsfileshebangandreparse.md)
+  * **Recover `Jenkinsfile` parse errors caused by a misplaced shebang**
+  * Groovy's Antlr4 parser rejects a `#!` shebang that is not on the first line of the file, causing the `Jenkinsfile` to be ingested as a `ParseError`. This recipe detects that exact failure mode, relocates the shebang to line 1, and re-parses the result with the Groovy parser so downstream recipes have a usable Groovy LST to work with.
 * [org.openrewrite.jenkins.ReplaceLibrariesWithApiPlugin](/user-documentation/recipes/recipe-catalog/jenkins/replacelibrarieswithapiplugin.md)
   * **Use Jenkins API plugin instead of libraries**
   * Prefer Jenkins API plugins over bundling libraries for slimmer plugins.
@@ -3235,7 +3256,7 @@ _13 recipes_
 
 _License: Moderne Source Available License_
 
-_120 recipes_
+_126 recipes_
 
 * [org.apache.logging.log4j.InlineLog4jApiMethods](/user-documentation/recipes/recipe-catalog/org/apache/logging/log4j/inlinelog4japimethods.md)
   * **Inline `log4j-api-2` methods annotated with `@InlineMe`**
@@ -3561,6 +3582,24 @@ _120 recipes_
 * [org.openrewrite.java.logging.slf4j.Log4j1ToSlf4j1](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j1toslf4j1.md)
   * **Migrate Log4j 1.x to SLF4J 1.x**
   * Transforms usages of Log4j 1.x to leveraging SLF4J 1.x directly. Note, this currently does not modify `log4j.properties` files.
+* [org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes.md)
+  * **Replace Log4j 2.x active Level check with corresponding SLF4J method calls**
+  * Replace calls to `Logger.isEnabled(Level)` with the corresponding SLF4J method calls.
+* [org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes$LoggerIsEnabledLevelDebugRecipe](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledleveldebugrecipe.md)
+  * **Replace Log4j 2.x `Logger.isEnabled(Level.DEBUG)` with SLF4J's `Logger.isDebugEnabled()`**
+  * Replace calls to `org.apache.logging.log4j.Logger.isEnabled(Level.DEBUG)` with `org.slf4j.Logger.isDebugEnabled()`.
+* [org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes$LoggerIsEnabledLevelErrorRecipe](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledlevelerrorrecipe.md)
+  * **Replace Log4j 2.x `Logger.isEnabled(Level.ERROR)` with SLF4J's `Logger.isErrorEnabled()`**
+  * Replace calls to `org.apache.logging.log4j.Logger.isEnabled(Level.ERROR)` (or `Level.FATAL`) with `org.slf4j.Logger.isErrorEnabled()`, since SLF4J has no `FATAL` level.
+* [org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes$LoggerIsEnabledLevelInfoRecipe](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledlevelinforecipe.md)
+  * **Replace Log4j 2.x `Logger.isEnabled(Level.INFO)` with SLF4J's `Logger.isInfoEnabled()`**
+  * Replace calls to `org.apache.logging.log4j.Logger.isEnabled(Level.INFO)` with `org.slf4j.Logger.isInfoEnabled()`.
+* [org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes$LoggerIsEnabledLevelTraceRecipe](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledleveltracerecipe.md)
+  * **Replace Log4j 2.x `Logger.isEnabled(Level.TRACE)` with SLF4J's `Logger.isTraceEnabled()`**
+  * Replace calls to `org.apache.logging.log4j.Logger.isEnabled(Level.TRACE)` (or `Level.ALL`) with `org.slf4j.Logger.isTraceEnabled()`, since SLF4J has no `ALL` level.
+* [org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes$LoggerIsEnabledLevelWarnRecipe](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledlevelwarnrecipe.md)
+  * **Replace Log4j 2.x `Logger.isEnabled(Level.WARN)` with SLF4J's `Logger.isWarnEnabled()`**
+  * Replace calls to `org.apache.logging.log4j.Logger.isEnabled(Level.WARN)` with `org.slf4j.Logger.isWarnEnabled()`.
 * [org.openrewrite.java.logging.slf4j.Log4j2ToSlf4j1](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2toslf4j1.md)
   * **Migrate Log4j 2.x to SLF4J 1.x**
   * Transforms usages of Log4j 2.x to leveraging SLF4J 1.x directly. Note, this currently does not modify `log4j.properties` files.
@@ -5617,9 +5656,6 @@ _License: Moderne Proprietary License_
 
 _45 recipes_
 
-* [org.openrewrite.node.dependency-vulnerability-check](/user-documentation/recipes/recipe-catalog/node/dependency-vulnerability-check.md)
-  * **Find and fix vulnerable npm dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government.  ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheck` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `Vulnerability[]` arrays. Vulnerability data can be loaded from CSV files using `VulnerabilityDatabase.loadFromFile(path).getAllVulnerabilities()` or constructed programmatically. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source.
 * [org.openrewrite.node.migrate.buffer.replace-deprecated-slice](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-deprecated-slice.md)
   * **Replace deprecated `Buffer.slice()` with `Buffer.subarray()`**
   * Replace deprecated `buffer.slice()` calls with `buffer.subarray()` for compatibility with Uint8Array.prototype.slice().
@@ -5707,9 +5743,6 @@ _45 recipes_
 * [org.openrewrite.node.migrate.zlib.replace-bytes-read](/user-documentation/recipes/recipe-catalog/node/migrate/zlib/replace-bytes-read.md)
   * **Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`**
   * Replace deprecated `bytesRead` property on zlib streams with `bytesWritten`.
-* [org.openrewrite.node.security.remove-redundant-overrides](/user-documentation/recipes/recipe-catalog/node/security/remove-redundant-overrides.md)
-  * **Remove redundant dependency overrides**
-  * Removes overrides/resolutions from package.json that are redundant because the dependency tree already resolves to the overridden version or higher.
 * [org.openrewrite.nodejs.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/nodejs/upgradedependencyversion.md)
   * **Upgrade Node.js dependencies**
   * Upgrade matching Node.js direct dependencies.
@@ -5752,6 +5785,12 @@ _45 recipes_
 * [org.openrewrite.nodejs.search.UtilityInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/utilityinsights.md)
   * **Javascript utility library insights**
   * Discover which popular javascript utility libraries (Lodash, Moment.js, Date-fns, etc.) are being used in your projects.
+* [org.openrewrite.nodejs.security.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/nodejs/security/dependencyvulnerabilitycheck.md)
+  * **Find and fix vulnerable npm dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest patch version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the GitHub Security Advisory Database, which aggregates vulnerability data from several public databases.  ## Customizing Vulnerability Data  Extend this recipe and override `baselineVulnerabilities(ctx)` to replace the bundled advisory database, or override `supplementalVulnerabilities(ctx)` to add organisation-specific advisories alongside the bundled data.
+* [org.openrewrite.nodejs.security.RemoveRedundantOverrides](/user-documentation/recipes/recipe-catalog/nodejs/security/removeredundantoverrides.md)
+  * **Remove redundant dependency overrides**
+  * Removes overrides/resolutions from `package.json` that are redundant because the dependency tree already resolves to the overridden version (or higher) without the override. For each project, the recipe re-runs the package manager's lock-file generation with all overrides stripped and compares the resolved versions against the original override pins. Overrides matching or below the natural resolution are dropped along with any parallel `//overrides`, `//resolutions`, or `//pnpm.overrides` comment entries.
 
 ## rewrite-okhttp
 
@@ -5794,7 +5833,7 @@ _10 recipes_
 
 _License: Apache License Version 2.0_
 
-_16 recipes_
+_17 recipes_
 
 * [org.openrewrite.openapi.swagger.ConvertApiResponseCodesToStrings](/user-documentation/recipes/recipe-catalog/openapi/swagger/convertapiresponsecodestostrings.md)
   * **Convert API response codes to strings**
@@ -5805,6 +5844,9 @@ _16 recipes_
 * [org.openrewrite.openapi.swagger.ConvertApiResponseToContent](/user-documentation/recipes/recipe-catalog/openapi/swagger/convertapiresponsetocontent.md)
   * **Convert API response to content annotation**
   * Add `content = @Content(mediaType = ...)` and `schema` to `@ApiResponse`.
+* [org.openrewrite.openapi.swagger.MigrateApiIgnoreParameterToParameterHidden](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiignoreparametertoparameterhidden.md)
+  * **Replace springfox `@ApiIgnore` on method parameters with `@Parameter(hidden = true)`**
+  * Springfox's `@ApiIgnore` is commonly placed on framework-injected controller parameters (`Principal`, `HttpServletRequest`, `Pageable`, ...). A flat `ChangeType` to `io.swagger.v3.oas.annotations.Hidden` produces code that does not compile, because `@Hidden` cannot target parameters. Convert parameter usages directly to `@io.swagger.v3.oas.annotations.Parameter(hidden = true)` and leave method/class-level `@ApiIgnore` for the subsequent `ChangeType` step.
 * [org.openrewrite.openapi.swagger.MigrateApiImplicitParam](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiimplicitparam.md)
   * **Migrate `@ApiImplicitParam` to `@Parameter`**
   * Migrate `@ApiImplicitParam` to `@Parameter`.
@@ -6162,7 +6204,7 @@ _41 recipes_
 
 _License: Moderne Source Available License_
 
-_318 recipes_
+_319 recipes_
 
 * [org.openrewrite.gradle.spring.AddSpringDependencyManagementPlugin](/user-documentation/recipes/recipe-catalog/gradle/spring/addspringdependencymanagementplugin.md)
   * **Add `io.spring.dependency-management` plugin, if in use**
@@ -6638,8 +6680,8 @@ _318 recipes_
 * [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_2.md)
   * **Upgrade MyBatis to Spring Boot 3.2**
   * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 3.2.
-* [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
-  * **Migrate to Spring Boot 3.0**
+* [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
+  * **Migrate to Spring Boot 3.0 (Community Edition)**
   * Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.7.
 * [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_1.md)
   * **Migrate to Spring Boot 3.1**
@@ -6656,6 +6698,9 @@ _318 recipes_
 * [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-community-edition.md)
   * **Migrate to Spring Boot 3.5 (Community Edition)**
   * Migrate applications to the latest Spring Boot 3.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs.
+* [org.openrewrite.java.spring.boot3.UseRfc6265CookieProcessor](/user-documentation/recipes/recipe-catalog/java/spring/boot3/userfc6265cookieprocessor.md)
+  * **Use `Rfc6265CookieProcessor` instead of `LegacyCookieProcessor`**
+  * Replace the legacy Tomcat `LegacyCookieProcessor` with the RFC 6265 compliant `Rfc6265CookieProcessor`, both in Java references and in the `&lt;CookieProcessor className=&quot;…&quot;/&gt;` attribute of Tomcat configuration files such as `context.xml` and `server.xml`. `Rfc6265CookieProcessor` has been the default cookie processor since Tomcat 8.5; `LegacyCookieProcessor` exists only for backwards compatibility. RFC 6265 parsing is stricter than the legacy behavior, so review applications relying on legacy cookie handling before applying this recipe.
 * [org.openrewrite.java.spring.boot4.AddAutoConfigureTestRestTemplate](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addautoconfiguretestresttemplate.md)
   * **Add `@AutoConfigureTestRestTemplate` if necessary**
   * Adds `@AutoConfigureTestRestTemplate` to test classes annotated with `@SpringBootTest` that use `TestRestTemplate` since this bean is no longer auto-configured as described in the [Spring Boot 4 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide#using-webclient-or-testresttemplate-and-springboottest).
@@ -6869,8 +6914,8 @@ _318 recipes_
 * [org.openrewrite.java.spring.framework.MigrateWebMvcConfigurerAdapter](/user-documentation/recipes/recipe-catalog/java/spring/framework/migratewebmvcconfigureradapter.md)
   * **Replace `WebMvcConfigurerAdapter` with `WebMvcConfigurer`**
   * As of 5.0 `WebMvcConfigurer` has default methods (made possible by a Java 8 baseline) and can be implemented directly without the need for this adapter.
-* [org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_0.md)
-  * **Migrate to Spring Framework 5.0**
+* [org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_0-community-edition.md)
+  * **Migrate to Spring Framework 5.0 (Community Edition)**
   * Migrate applications to the latest Spring Framework 5.0 release.
 * [org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_1](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_1.md)
   * **Migrate to Spring Framework 5.1**
@@ -6881,8 +6926,8 @@ _318 recipes_
 * [org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_3](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-community-edition.md)
   * **Migrate to Spring Framework 5.3 (Community Edition)**
   * Migrate applications to the latest Spring Framework 5.3 release.
-* [org.openrewrite.java.spring.framework.UpgradeSpringFramework_6_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0.md)
-  * **Migrate to Spring Framework 6.0**
+* [org.openrewrite.java.spring.framework.UpgradeSpringFramework_6_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition.md)
+  * **Migrate to Spring Framework 6.0 (Community Edition)**
   * Migrate applications to the latest Spring Framework 6.0 release.
 * [org.openrewrite.java.spring.framework.UpgradeSpringFramework_6_1](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_1.md)
   * **Migrate to Spring Framework 6.1**
@@ -8674,7 +8719,7 @@ _135 recipes_
 
 _License: Moderne Source Available License_
 
-_251 recipes_
+_254 recipes_
 
 * [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
   * **ArchUnit 0.x upgrade**
@@ -8871,6 +8916,12 @@ _251 recipes_
 * [org.openrewrite.java.testing.assertj.JUnitTryFailToAssertThatThrownBy](/user-documentation/recipes/recipe-catalog/java/testing/assertj/junittryfailtoassertthatthrownby.md)
   * **Convert try-catch-fail blocks to AssertJ's assertThatThrownBy**
   * Replace try-catch blocks where the try block ends with a `fail()` statement and the catch block optionally contains assertions, with AssertJ's `assertThatThrownBy()`.
+* [org.openrewrite.java.testing.assertj.MigrateAssertionsForClassAndInterfaceTypes](/user-documentation/recipes/recipe-catalog/java/testing/assertj/migrateassertionsforclassandinterfacetypes.md)
+  * **Migrate `AssertionsForClassTypes` and `AssertionsForInterfaceTypes` to `Assertions`**
+  * AssertJ deprecated `AssertionsForClassTypes` and `AssertionsForInterfaceTypes` in favor of the unified `Assertions` entry point. This recipe retargets their static methods to `Assertions`, using `assertThatObject` where a plain `assertThat` would otherwise re-bind to a more specific overload and stop compiling (see https://github.com/openrewrite/rewrite-testing-frameworks/issues/664).
+* [org.openrewrite.java.testing.assertj.MigrateAssertionsForClassTypes](/user-documentation/recipes/recipe-catalog/java/testing/assertj/migrateassertionsforclasstypes.md)
+  * **Use `Assertions.assertThatObject` for ambiguous `AssertionsForClassTypes.assertThat` calls**
+  * The deprecated `AssertionsForClassTypes.assertThat(T)` always returns an `ObjectAssert`, while the unified `Assertions.assertThat` additionally offers more specific overloads (e.g. for `Iterable`, `Map`, `Predicate`). For arguments matching those overloads, rename `assertThat` to `assertThatObject` so that migrating to `Assertions` keeps returning an `ObjectAssert` and the code keeps compiling.
 * [org.openrewrite.java.testing.assertj.ReturnActual](/user-documentation/recipes/recipe-catalog/java/testing/assertj/returnactual.md)
   * **Collapse `assertThat` followed by `return` into single statement**
   * Collapse an `assertThat` statement followed by a `return` of the same object into a single `return assertThat(...).assertions().actual()` statement.
@@ -9057,6 +9108,9 @@ _251 recipes_
 * [org.openrewrite.java.testing.junit.JupiterBestPractices](/user-documentation/recipes/recipe-catalog/java/testing/junit/jupiterbestpractices.md)
   * **JUnit Jupiter best practices**
   * Applies best practices to tests.
+* [org.openrewrite.java.testing.junit.RemoveJupiterMigrationSupport](/user-documentation/recipes/recipe-catalog/java/testing/junit/removejupitermigrationsupport.md)
+  * **Remove JUnit Jupiter migrationsupport**
+  * Remove JUnit Jupiter migrationsupport.
 * [org.openrewrite.java.testing.junit5.AddHamcrestJUnitDependency](/user-documentation/recipes/recipe-catalog/java/testing/junit5/addhamcrestjunitdependency.md)
   * **Add Hamcrest JUnit dependency**
   * Add Hamcrest JUnit dependency only if JUnit 4's `assertThat` or `assumeThat` is used.
@@ -9434,7 +9488,7 @@ _251 recipes_
 
 _License: Apache License Version 2.0_
 
-_1566 recipes_
+_1638 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -9445,6 +9499,42 @@ _1566 recipes_
 * [ai.timefold.solver.migration.ToLatest](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
   * **Upgrade to the latest Timefold Solver**
   * Replace all your calls to deleted/deprecated types and methods of Timefold Solver with their proper alternatives.
+* [ai.timefold.solver.migration.fork.TimefoldChangeDependencies](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fork/timefoldchangedependencies.md)
+  * **Migrate all Maven and Gradle groupIds and artifactIds from OptaPlanner to Timefold**
+  * Migrate all Maven and Gradle groupIds and artifactIds from OptaPlanner to Timefold.
+* [ai.timefold.solver.migration.v8.AsConstraintRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/asconstraintrecipe.md)
+  * **ConstraintStreams: use asConstraint() methods to define constraints**
+  * Use `penalize().asConstraint()` and `reward().asConstraint()` instead of the deprecated `penalize()` and `reward()` methods.
+* [ai.timefold.solver.migration.v8.ConstraintRefRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/constraintrefrecipe.md)
+  * **Replace getConstraint*() with getConstraintRef()**
+  * Use `getConstraintRef()` instead of `getConstraintId()` et al.
+* [ai.timefold.solver.migration.v8.EnvironmentMigrationRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/environmentmigrationrecipe.md)
+  * **Use non-deprecated environment constants**
+  * Use non-deprecated environment constants.
+* [ai.timefold.solver.migration.v8.NullableRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/nullablerecipe.md)
+  * **PlanningVariable's `nullable` is newly called `unassignedValues`**
+  * Removes references to null vars and replace them with unassigned values.
+* [ai.timefold.solver.migration.v8.RemoveConstraintPackageRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/removeconstraintpackagerecipe.md)
+  * **Constraint Streams: don't use package name in the asConstraint() method**
+  * Remove the use of constraint package from `asConstraint(package, name)`.
+* [ai.timefold.solver.migration.v8.ScoreGettersRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/scoregettersrecipe.md)
+  * **Score: use shorter getters**
+  * Use `score()` instead of `getScore()` on `Score` implementations.
+* [ai.timefold.solver.migration.v8.ScoreManagerMethodsRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/scoremanagermethodsrecipe.md)
+  * **ScoreManager: explain(), update()**
+  * Use `explain()` and `update()` instead of `explainScore()`, `updateScore()` and `getSummary()`.
+* [ai.timefold.solver.migration.v8.SingleConstraintAssertionMethodsRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/singleconstraintassertionmethodsrecipe.md)
+  * **Use non-deprecated SingleConstraintAssertion methods**
+  * Use `penalizesBy/rewardsWith(String, int)` instead of `penalizesBy/rewardsWith(int, String)` on `SingleConstraintAssertion` tests.
+* [ai.timefold.solver.migration.v8.SolutionManagerRecommendAssignmentRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/solutionmanagerrecommendassignmentrecipe.md)
+  * **Recommended Fit API becomes Assignment Recommendation API**
+  * Use recommendAssignment() instead of recommendFit().
+* [ai.timefold.solver.migration.v8.SolverManagerBuilderRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/solvermanagerbuilderrecipe.md)
+  * **SolverManager: use builder API**
+  * Use `solveBuilder()` instead of deprecated solve methods on `SolveManager`.
+* [ai.timefold.solver.migration.v8.SortingMigrationRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/sortingmigrationrecipe.md)
+  * **Use non-deprecated related sorting fields and methods**
+  * Use non-deprecated related sorting fields and methods.
 * [com.oracle.weblogic.rewrite.ChangeJAXBBindAPIDependencyScope](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/changejaxbbindapidependencyscope.md)
   * **Change the jakarta.xml.bind-api dependency to scope provided when jakartaee-api 9.x is provided.**
   * This recipe will change the jakarta.xml.bind-api dependency scope to provided when jakarta.jakartaee-api version 9.x is provided in WebLogic 15.1.1. This prevents the jakarta.xml.bind-api jar from being deployed to WebLogic which can cause class conflicts.
@@ -9796,6 +9886,30 @@ _1566 recipes_
 * [com.oracle.weblogic.rewrite.spring.framework.UpgradeToSpringFramework_6_2](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
   * **Migrate to Spring Framework 6.2 for WebLogic 15.1.1**
   * Migrate applications to the Spring Framework 6.2 release and compatibility with WebLogic 15.1.1.
+* [io.axoniq.framework.migration.Axon4ToAxoniq5AxonServerConnector](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5axonserverconnector.md)
+  * **Migrate the Axon Server connector to Axoniq Framework 5**
+  * Relocates the Axon Server connector from `org.axonframework.axonserver.connector` to `io.axoniq.framework.axonserver.connector`. The connector now lives in the Axoniq commercial offering (`io.axoniq.framework:axon-server-connector`). Class names are mostly preserved.
+* [io.axoniq.framework.migration.Axon4ToAxoniq5Bom](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5bom.md)
+  * **Swap the BOM to Axoniq Framework 5 commercial**
+  * Replaces the imported `org.axonframework:axon-bom` (AF4) or `org.axonframework:axon-framework-bom` (free AF5) in `&lt;dependencyManagement&gt;` with the Axoniq Framework 5 commercial BOM `io.axoniq.framework:axoniq-framework-bom`.
+* [io.axoniq.framework.migration.Axon4ToAxoniq5DeadLetter](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5deadletter.md)
+  * **Migrate the Sequenced Dead-Letter Queue to Axoniq Framework 5**
+  * Relocates the Sequenced Dead-Letter Queue (DLQ) types from the open-source `axon-messaging` module to the Axoniq commercial `axoniq-dead-letter` module (`io.axoniq.framework:axoniq-dead-letter`). Class names — including `SequencedDeadLetterQueue`, `JpaSequencedDeadLetterQueue`, `JdbcSequencedDeadLetterQueue`, `DeadLetteredEventProcessingTask`, `EnqueuePolicy`, `Decisions`, `ThrowableCause` — are preserved.
+* [io.axoniq.framework.migration.Axon4ToAxoniq5DistributedMessaging](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5distributedmessaging.md)
+  * **Migrate distributed messaging components to Axoniq Framework 5**
+  * Relocates the distributed command-bus components (DistributedCommandBus, CommandBusConnector) from the AF4 open-source `axon-messaging` module into the Axoniq commercial `axoniq-distributed-messaging` module (`io.axoniq.framework.messaging.commandhandling.distributed`). Each AF4 fully-qualified name is mapped directly to its final Axoniq location, so this recipe is order-independent relative to the open-source messaging package rename.
+* [io.axoniq.framework.migration.Axon4ToAxoniq5EventStreaming](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5eventstreaming.md)
+  * **Migrate to Axoniq event streaming (placeholder)**
+  * Placeholder. The Axoniq event streaming module (`io.axoniq.framework:axoniq-event-streaming`) consolidates multi-stream event consumption that lived in `MultiStreamableMessageSource` (available since Axon Framework 4.2) into a dedicated module in Axoniq Framework 5. AF4 applications using `MultiStreamableMessageSource` should migrate to `axoniq-event-streaming` once they adopt Axoniq Framework 5; this recipe will gain class-level mappings as that migration becomes deterministic.
+* [io.axoniq.framework.migration.Axon4ToAxoniq5SpringBoot](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5springboot.md)
+  * **Swap the Spring Boot starter to Axoniq Framework 5 commercial**
+  * Swaps the Spring Boot starter dependency to the Axoniq commercial variant (`io.axoniq.framework:axoniq-spring-boot-starter`). Accepts both the AF4 raw coordinate (`org.axonframework:axon-spring-boot-starter`) and the post-`Axon4ToAxon5SpringBootExtension` coordinate (`org.axonframework.extensions.spring:axon-spring-boot-starter`). Class-level mappings for the Axoniq autoconfig package `io.axoniq.framework.springboot.*` are not yet implemented.
+* [io.axoniq.framework.migration.Axon4ToAxoniq5Testcontainer](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/axon4toaxoniq5testcontainer.md)
+  * **Migrate the Axon Server Testcontainer to Axoniq Framework 5**
+  * Relocates the Axon Server Testcontainer types from the AF4 `axon-test` package `org.axonframework.test.server` to the dedicated Axoniq commercial artifact `io.axoniq.framework:axoniq-testcontainer` under `io.axoniq.framework.testcontainer`. The Enterprise (`AxonServerEEContainer`) and Standard (`AxonServerSEContainer`) edition variants both collapse into the unified `AxonServerContainer` in Axoniq 5.
+* [io.axoniq.framework.migration.UpgradeAxon4ToAxoniq5](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/upgradeaxon4toaxoniq5.md)
+  * **Upgrade to Axoniq Framework 5 (commercial)**
+  * Migrates an Axon Framework 4.x application to Axoniq Framework 5 (commercial). Composes `UpgradeAxon4ToAxon5` (the free leg) and then layers commercial-only migrations: BOM swap to `io.axoniq.framework:axoniq-framework-bom`, Spring Boot starter swap to `io.axoniq.framework:axoniq-spring-boot-starter`, source rewrites and Maven adds for Axon Server connector, sequenced dead-letter queue, and distributed messaging.
 * [io.quarkus.updates.camel.camel40.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel40/camelquarkusmigrationrecipe.md)
   * **Migrate `camel3` application to `camel4.`**
   * Migrate `camel3` quarkus application to `camel4` quarkus.
@@ -9829,6 +9943,9 @@ _1566 recipes_
 * [io.quarkus.updates.camel.camel418.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel418/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.17` application to `camel 4.18`**
   * Migrates `camel 4.17` Quarkus application to `camel 4.18`.
+* [io.quarkus.updates.camel.camel420.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel420/camelquarkusmigrationrecipe.md)
+  * **Migrates `camel 4.18` application to `camel 4.20`**
+  * Migrates `camel 4.18` Quarkus application to `camel 4.20`.
 * [io.quarkus.updates.camel.camel44.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel44/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.0` application to `camel 4.4`**
   * Migrates `camel 4.0` quarkus application to `camel 4.4`.
@@ -10084,11 +10201,29 @@ _1566 recipes_
 * [io.quarkus.updates.core.quarkus324.LogConsoleAsyncEnable](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/logconsoleasyncenable.md)
   * **io.quarkus.updates.core.quarkus324.LogConsoleAsyncEnable**
   * 
+* [io.quarkus.updates.core.quarkus324.MigrateFromDefaultUniqueDelegate](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromdefaultuniquedelegate.md)
+  * **io.quarkus.updates.core.quarkus324.MigrateFromDefaultUniqueDelegate**
+  * 
+* [io.quarkus.updates.core.quarkus324.MigrateFromEmptyInterceptor](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromemptyinterceptor.md)
+  * **Replace `EmptyInterceptor` with `Interceptor`**
+  * Replace `extends EmptyInterceptor` with `implements Interceptor, Serializable` as `EmptyInterceptor` was removed in Hibernate ORM 7.
+* [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmEmptyInterceptor](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromhibernateormemptyinterceptor.md)
+  * **io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmEmptyInterceptor**
+  * 
+* [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmQueryHints](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromhibernateormqueryhints.md)
+  * **io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmQueryHints**
+  * 
 * [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmSessionMethodsRemovedIn7](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromhibernateormsessionmethodsremovedin7.md)
   * **io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmSessionMethodsRemovedIn7**
   * 
 * [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmVariousRemovedIn7](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromhibernateormvariousremovedin7.md)
   * **io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmVariousRemovedIn7**
+  * 
+* [io.quarkus.updates.core.quarkus324.MigrateFromHibernateValidatorNotBlank](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromhibernatevalidatornotblank.md)
+  * **io.quarkus.updates.core.quarkus324.MigrateFromHibernateValidatorNotBlank**
+  * 
+* [io.quarkus.updates.core.quarkus324.MigrateFromIndexColumn](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromindexcolumn.md)
+  * **io.quarkus.updates.core.quarkus324.MigrateFromIndexColumn**
   * 
 * [io.quarkus.updates.core.quarkus324.RemoveJpaModelgenDependencies](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/removejpamodelgendependencies.md)
   * **io.quarkus.updates.core.quarkus324.RemoveJpaModelgenDependencies**
@@ -10588,12 +10723,141 @@ _1566 recipes_
 * [org.apache.wicket.MigrateToWicket10](/user-documentation/recipes/recipe-catalog/org/apache/wicket/migratetowicket10.md)
   * **Migrate to Wicket 10.x**
   * Migrates Wicket 9.x to Wicket 10.x, as well as Java 17 and Jakarta.
-* [org.axonframework.migration.UpgradeAxonFramework_4_Jakarta](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_jakarta.md)
-  * **Upgrade to Axonframework 4.x Jakarta**
-  * Migration file to upgrade from an Axon Framework Javax-specific project to Jakarta.
-* [org.axonframework.migration.UpgradeAxonFramework_4_Javax](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_javax.md)
-  * **Upgrade to Axonframework 4.x Javax**
-  * Migration file to upgrade an Axon Framework Javax-specific project and remain on Javax.
+* [org.axonframework.migration.AddAxonTestFixtureTearDown](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/addaxontestfixtureteardown.md)
+  * **Add @AfterEach tearDown() that stops the AxonTestFixture**
+  * Adds an `@AfterEach tearDown()` method calling `stop()` on the `AxonTestFixture` field, when the test class has such a field but no existing `@AfterEach` method (and no method named `tearDown`). Pairs with `MigrateAggregateTestFixtureSetup` which produces the field; the tear-down step was previously left for manual migration. Java sources only.
+* [org.axonframework.migration.AddCommandAnnotation](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/addcommandannotation.md)
+  * **Add @Command to command payload classes**
+  * Scans @CommandHandler methods and annotates their command parameter types with @Command. Also migrates @RoutingKey on a field to @Command(routingKey = &quot;fieldName&quot;) on the class, removing the @RoutingKey field annotation.
+* [org.axonframework.migration.AddEntityCreatorAnnotation](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/addentitycreatorannotation.md)
+  * **Add @EntityCreator to no-arg constructors of event-sourced entities**
+  * Annotates existing no-arg constructors with `@EntityCreator` for any class annotated with `@EventSourcedEntity` or the Spring `@EventSourced` stereotype. Required by AF5 — the framework uses this annotation to instantiate the entity before applying events. Idempotent: skips constructors that are already annotated.
+* [org.axonframework.migration.AddEventAnnotation](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/addeventannotation.md)
+  * **Add @Event to event payload classes**
+  * Scans @EventSourcingHandler methods and annotates their event parameter types with @Event. Migrates @Revision(&quot;x&quot;) on the class to @Event(version = &quot;x&quot;), removing the now-obsolete @Revision annotation.
+* [org.axonframework.migration.AddEventTagAnnotation](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/addeventtagannotation.md)
+  * **Add @EventTag to the aggregate-identifier field of event payload classes**
+  * Scans event-sourced entity classes for their @AggregateIdentifier field and the event types used in @EventSourcingHandler methods, then annotates the corresponding field in each event class with @EventTag(key = &quot;&lt;EntitySimpleName&gt;&quot;).
+* [org.axonframework.migration.AnnotateObsoleteSequencingPolicyProperty](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/annotateobsoletesequencingpolicyproperty.md)
+  * **Annotate obsolete `axon.eventhandling.processors.&lt;group&gt;.sequencing-policy` properties**
+  * Inserts a one-line `# TODO(axon4to5): ...` comment above any `axon.eventhandling.processors.&lt;group&gt;.sequencing-policy` entry in `application.properties` / `application.yml`. AF5 moves the decision onto the handler class via `@SequencingPolicy`; deleting the property here would race the per-construct skill that drives the source-side annotation, so this recipe only annotates. Idempotent.
+* [org.axonframework.migration.Axon4ToAxon5AmqpExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5amqpextension.md)
+  * **Migrate the AMQP extension to Axon Framework 5 (placeholder)**
+  * Placeholder for the AMQP extension migration. The AMQP extension lives at `org.axonframework.extensions.amqp` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 AMQP integration ships.
+* [org.axonframework.migration.Axon4ToAxon5Bom](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5bom.md)
+  * **Migrate the Axon Framework BOM coordinates**
+  * Renames the imported `org.axonframework:axon-bom` BOM in `&lt;dependencyManagement&gt;` to `org.axonframework:axon-framework-bom` and pins the imported version to the current Axon Framework 5 release. The BOM artifactId changed between Axon Framework 4 and Axon Framework 5; the groupId is unchanged.
+* [org.axonframework.migration.Axon4ToAxon5CdiExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5cdiextension.md)
+  * **Migrate the CDI extension to Axon Framework 5 (placeholder)**
+  * Placeholder for the CDI extension migration. The extension lives at `org.axonframework.extensions.cdi` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 CDI integration ships.
+* [org.axonframework.migration.Axon4ToAxon5Common](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5common.md)
+  * **Apply Axon Framework 5 common module renames**
+  * Migrates `org.axonframework.config` to `org.axonframework.common.configuration`, renames `ConfigurerModule` to `ConfigurationEnhancer`, `ModuleConfiguration` to `Module`, `LifecycleOperations` to `LifecycleRegistry`, relocates `EventProcessingConfigurer` under the messaging.eventhandling namespace, and swaps `@ProcessingGroup` for the AF5 `@Namespace` annotation.
+* [org.axonframework.migration.Axon4ToAxon5Conversion](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5conversion.md)
+  * **Apply Axon Framework 5 serialization → conversion rename**
+  * Migrates the Serializer-based `org.axonframework.serialization` namespace to the new Converter-based `org.axonframework.conversion` namespace. Note: this is a package rename; concrete renames such as `JacksonSerializer` to `JacksonConverter` are NOT applied here and must be handled separately.
+* [org.axonframework.migration.Axon4ToAxon5EventSourcing](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5eventsourcing.md)
+  * **Apply Axon Framework 5 event-sourcing module renames**
+  * Relocates the `@EventSourcingHandler` annotation into `eventsourcing.annotation`, relocates `Snapshotter` into the new `eventsourcing.snapshot.api` API package, ensures the `org.axonframework:axon-eventsourcing` dependency is present when the app uses event-sourcing types (the AF5 Spring Boot starter no longer pulls it transitively, so apps not using the BOM need it added explicitly — it transitively brings `axon-modelling` and `axon-messaging`), and applies the source-level aggregate→entity rewrites — annotating no-arg constructors with the now-mandatory `@EntityCreator` and replacing `AggregateLifecycle.apply(...)` with an injected `EventAppender#append(...)`.
+* [org.axonframework.migration.Axon4ToAxon5JGroupsExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5jgroupsextension.md)
+  * **Migrate the JGroups extension to Axon Framework 5 (placeholder)**
+  * Placeholder for the JGroups extension migration. The JGroups extension at `org.axonframework.extensions.jgroups` provided distributed command bus routing in AF4. In Axon Framework 5 the distributed command bus has moved into the AxonIQ commercial offering (`io.axoniq.framework:axoniq-distributed-messaging`). Code using `JGroupsConnector` must be replaced with the AxonIQ commercial distributed messaging APIs.
+* [org.axonframework.migration.Axon4ToAxon5KafkaExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5kafkaextension.md)
+  * **Migrate the Kafka extension to Axon Framework 5 (placeholder)**
+  * Placeholder for the Kafka extension migration. The Kafka extension lives at `org.axonframework.extensions.kafka` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 Kafka integration ships.
+* [org.axonframework.migration.Axon4ToAxon5Messaging](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5messaging.md)
+  * **Apply Axon Framework 5 messaging module renames**
+  * Migrates the messaging core (command, event, query handling) from `org.axonframework.\{command,event,query\}handling` into the `org.axonframework.messaging.*` namespace, relocates handler &amp; interceptor annotations into their `.annotation.*` subpackages, renames `EventBus` to `EventSink`, fixes `MetaData` casing to `Metadata`, relocates the top-level messaging API (`Message`, `Metadata`, `UnitOfWork`, `MessageHandlerInterceptor`, `MessageHandlerInterceptorChain`, `correlation.*`) into `messaging.core.*`, moves the sequencing policy package out of `eventhandling.async` into `messaging.core.sequencing`, relocates `tokenstore` and the replay/reset annotations under their AF5 subpackages, and moves `QueryGateway` into its own gateway subpackage.
+* [org.axonframework.migration.Axon4ToAxon5MetricsDropwizardExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5metricsdropwizardextension.md)
+  * **Migrate the Dropwizard Metrics extension to Axon Framework 5**
+  * Relocates `org.axonframework.metrics` to `org.axonframework.extension.metrics.dropwizard`, reflecting the move from a flat `metrics` namespace to a per-provider layout under `extension.metrics.*`.
+* [org.axonframework.migration.Axon4ToAxon5MetricsMicrometerExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5metricsmicrometerextension.md)
+  * **Migrate the Micrometer Metrics extension to Axon Framework 5**
+  * Relocates `org.axonframework.micrometer` to `org.axonframework.extension.metrics.micrometer`, reflecting the move into the per-provider `extension.metrics.*` layout.
+* [org.axonframework.migration.Axon4ToAxon5Modelling](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5modelling.md)
+  * **Apply Axon Framework 5 modelling module renames**
+  * Migrates the modelling layer from the `aggregate` vocabulary to the `entity` vocabulary: relocates `org.axonframework.modelling.command` to `org.axonframework.modelling.entity`, renames `TargetAggregateIdentifier` to `TargetEntityId`, `AggregateMember` to `EntityMember`, `Repository` into `modelling.repository`, and `CommandTargetResolver` to `EntityIdResolver`. Strips AF4-only modelling annotations (`@AggregateIdentifier`, `@CreationPolicy`) that have no AF5 successor — id resolution moved onto commands via `@TargetEntityId`, and the AF4 creation-policy semantics map onto static command handlers in AF5 (a manual rewrite the recipe cannot infer beyond removing the annotation itself).
+* [org.axonframework.migration.Axon4ToAxon5MongoExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5mongoextension.md)
+  * **Migrate the Mongo extension to Axon Framework 5 (placeholder)**
+  * Placeholder for the Mongo extension migration. The Mongo extension lives at `org.axonframework.extensions.mongo` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 Mongo integration ships.
+* [org.axonframework.migration.Axon4ToAxon5MultitenancyExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5multitenancyextension.md)
+  * **Migrate the Multitenancy extension to Axon Framework 5 (placeholder)**
+  * Placeholder for the Multitenancy extension migration. The extension lives at `org.axonframework.extensions.multitenancy` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 multitenancy story ships.
+* [org.axonframework.migration.Axon4ToAxon5QueryResponseTypes](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5queryresponsetypes.md)
+  * **Unwrap ResponseTypes wrappers on AF5-shape QueryGateway.query(...) calls**
+  * On two-argument `queryGateway.query(payload, ResponseType)` calls, unwraps the AF4 `ResponseTypes.instanceOf(...)` / `optionalInstanceOf(...)` / `multipleInstancesOf(...)` wrapper to the plain `Class&lt;R&gt;` form AF5 expects, and renames `query(payload, multipleInstancesOf(R.class))` to `queryMany(payload, R.class)`. Three-argument `query(String, Object, ...)` forms, `subscriptionQuery(...)`, and `streamingQuery(...)` are left untouched so the per-construct migration skill keeps the AF4 fingerprints it needs for design decisions. Removes `ResponseType` / `ResponseTypes` imports only when no references remain.
+* [org.axonframework.migration.Axon4ToAxon5ReactorExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5reactorextension.md)
+  * **Migrate the Reactor extension to Axon Framework 5**
+  * Relocates `org.axonframework.extensions.reactor.*` to `org.axonframework.extension.reactor.*` (singular `extension`) and inserts the `messaging.` segment in front of the `commandhandling`, `eventhandling`, and `queryhandling` subpackages. The bare `extensions.reactor.messaging.*` package (which holds `ReactorMessageDispatchInterceptor` and the interceptor chain) is moved under `extension.reactor.messaging.core.*`.
+* [org.axonframework.migration.Axon4ToAxon5SpringAotExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5springaotextension.md)
+  * **Remove the unported axon-spring-aot extension**
+  * The `org.axonframework.extensions.spring-aot:axon-spring-aot` extension has no Axon Framework 5 port. Removes the dependency so the project compiles against AF5. Projects that need Spring AOT / native-image support against AF5 must reintroduce equivalent functionality manually — there is no drop-in replacement.
+* [org.axonframework.migration.Axon4ToAxon5SpringBootActuatorExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5springbootactuatorextension.md)
+  * **Migrate the Spring Boot Actuator extension to Axon Framework 5**
+  * Relocates `org.axonframework.actuator` to `org.axonframework.extension.springboot.actuator`. The Actuator support is now nested under the Spring Boot extension namespace.
+* [org.axonframework.migration.Axon4ToAxon5SpringBootExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5springbootextension.md)
+  * **Migrate the Spring Boot extension to Axon Framework 5**
+  * Relocates `org.axonframework.springboot` to `org.axonframework.extension.springboot`, matching the Maven groupId move to `org.axonframework.extensions.spring`. Covers both the autoconfigure and starter artifacts (apps depend on the starter, which transitively pulls autoconfigure). Also rewrites Spring Boot configuration property keys whose binding class moved or was renamed in AF5.
+* [org.axonframework.migration.Axon4ToAxon5SpringCloudExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5springcloudextension.md)
+  * **Migrate the Spring Cloud extension to Axon Framework 5 (placeholder)**
+  * Placeholder for the Spring Cloud extension migration. The Spring Cloud extension at `org.axonframework.extensions.springcloud` provided distributed command bus routing in AF4. In Axon Framework 5 the distributed command bus has moved into the AxonIQ commercial offering (`io.axoniq.framework:axoniq-distributed-messaging`). Code using `SpringCloudCommandRouter` must be replaced with the AxonIQ commercial distributed messaging APIs.
+* [org.axonframework.migration.Axon4ToAxon5SpringExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5springextension.md)
+  * **Migrate the Spring extension to Axon Framework 5**
+  * Relocates `org.axonframework.spring` to `org.axonframework.extension.spring` and renames the Spring stereotype `@Aggregate` to `@EventSourced`. The stereotype rename is mapped from both the AF4 location and the post-package- move location, so the recipe is order-independent.
+* [org.axonframework.migration.Axon4ToAxon5Test](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5test.md)
+  * **Apply Axon Framework 5 test module renames**
+  * Renames `AggregateTestFixture` and `SagaTestFixture` to the unified `AxonTestFixture` introduced in Axon Framework 5, and rewrites AF4-style flat fixture call chains (`fixture.given(...).when(...).expectEvents(...)`) to the AF5 fluent given/when/then API (`fixture.given().events(...).when().command(...).then().events(...)`). Also generates an `@AfterEach tearDown()` calling `fixture.stop()` on test classes that declare an `AxonTestFixture` field but have no existing `@AfterEach`. Targets the `axon-test` Maven artifact. Hamcrest matcher conversions and Kotlin `@AfterEach` insertion remain manual.
+* [org.axonframework.migration.Axon4ToAxon5TracingOpenTelemetryExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5tracingopentelemetryextension.md)
+  * **Migrate the OpenTelemetry tracing extension to Axon Framework 5 (placeholder)**
+  * Placeholder for the OpenTelemetry tracing extension migration. Revisioning of the distributed tracing extension for Axon Framework 5 is slated for a later release (see issue #3594). Update this recipe once the AF5 OpenTelemetry tracing integration ships.
+* [org.axonframework.migration.Axon4ToAxon5TracingOpenTracingExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5tracingopentracingextension.md)
+  * **Migrate the OpenTracing tracing extension to Axon Framework 5 (placeholder)**
+  * Placeholder. The OpenTracing tracing extension at `org.axonframework.extensions.tracing` is superseded by the OpenTelemetry tracing extension in Axon Framework 5 (see `Axon4ToAxon5TracingOpenTelemetryExtension`). Code using OpenTracing must be migrated to OpenTelemetry manually.
+* [org.axonframework.migration.ConfigureEventSourcedAnnotation](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/configureeventsourcedannotation.md)
+  * **Add explicit tagKey and idType to @EventSourced**
+  * Adds explicit tagKey = &quot;&lt;EntitySimpleName&gt;&quot; and idType = &lt;ResolvedType&gt;.class to @EventSourced annotations that have no tagKey set. The tagKey is derived from the class simple name (matching the AF5 default). The idType is deduced from the type of the field annotated with @AggregateIdentifier in AF4. When that field is absent (e.g. POJO aggregate without an explicit identifier field) the idType falls back to Object.class and is flagged with a TODO(axon4to5): comment.
+* [org.axonframework.migration.ConvertCommandHandlerConstructorToCompanionObject](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/convertcommandhandlerconstructortocompanionobject.md)
+  * **Convert Kotlin @CommandHandler constructors to a companion-object handle method**
+  * Rewrites Kotlin `@CommandHandler constructor(...)` declarations into `companion object \{ @JvmStatic @CommandHandler fun handle(...) \}` on the same class, matching the AF5 contract where `@CommandHandler` no longer targets constructors. Parameter list and method body are preserved.
+* [org.axonframework.migration.ConvertCommandHandlerConstructorToStaticMethod](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/convertcommandhandlerconstructortostaticmethod.md)
+  * **Convert @CommandHandler constructors to static handle methods**
+  * Rewrites Axon Framework 4 `@CommandHandler` constructors into `public static void handle(...)` methods, matching the AF5 contract where `@CommandHandler` no longer targets constructors. Parameter list and method body are preserved.
+* [org.axonframework.migration.MigrateAggregateTestFixtureSetup](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/migrateaggregatetestfixturesetup.md)
+  * **Migrate AggregateTestFixture setup to AxonTestFixture.with(EventSourcingConfigurer...)**
+  * Rewrites `new AggregateTestFixture&lt;X&gt;(X.class)` (the AF4 aggregate-fixture constructor) to AF5's `AxonTestFixture.with(EventSourcingConfigurer.create().registerEntity(EventSourcedEntityModule.autodetected(&lt;IdType&gt;.class, X.class)))`. The aggregate type X is read from the class-literal constructor argument; the id type is looked up via the cross-recipe map populated by AddEventTagAnnotation (while @AggregateIdentifier is still on the source). Only matches the AF4 AggregateTestFixture FQN — SagaTestFixture setups are left for manual migration.
+* [org.axonframework.migration.MigrateAxonTestFixtureFluentApi](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/migrateaxontestfixturefluentapi.md)
+  * **Migrate AggregateTestFixture calls to the AxonTestFixture fluent API**
+  * Rewrites the flat AF4 `fixture.given(...).when(...).expectEvents(...)` call shape to the AF5 fluent `fixture.given().events(...).when().command(...).then().events(...)` shape, including the leaf-method renames (`expectNoEvents` → `noEvents`, `expectSuccessfulHandlerExecution` → `success`, `expectException` + `expectExceptionMessage` → single `exception(cls, msg)`, etc.). The fixture setup migration (constructor → `AxonTestFixture.with(configurer)`, `@AfterEach stop()`) and Hamcrest matcher conversions stay manual.
+* [org.axonframework.migration.MigrateCommandGatewayInEventHandler](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/migratecommandgatewayineventhandler.md)
+  * **Replace class-level CommandGateway with method-parameter CommandDispatcher in @EventHandler methods**
+  * Inside every `@EventHandler` method in the class, rewrites calls of the form `commandGateway.send(...)` / `commandGateway.sendAndWait(...)` (where `commandGateway` is a class-level `CommandGateway` field) to `commandDispatcher.send(...)` on a method-level `CommandDispatcher` parameter — adding the parameter when missing. For `void` handlers whose body is a single dispatch expression or a single try/catch with one dispatch per branch, the return type is widened to `CompletableFuture&lt;?&gt;` and the dispatch is converted to `return ... .getResultMessage();`. Once no other references to the gateway field remain, the field, its constructor parameter, and the matching assignment are removed.
+* [org.axonframework.migration.MigrateKotlinDslBomImport](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/migratekotlindslbomimport.md)
+  * **Migrate Kotlin DSL `mavenBom(...)` import (with property indirection)**
+  * Swaps the `groupId:artifactId` prefix of a Spring Dependency Management `mavenBom(&quot;g:a:$\{property(&quot;...&quot;)\}&quot;)` call in a `build.gradle.kts` script, leaving the `$\{property(...)\}` indirection in place. Optionally updates the literal value of the matching `extra[&quot;...&quot;]` declaration so the version follows the new BOM. Targets a gap in `gradle.ChangeManagedDependency` where the Kotlin string-template variant of `property(...)` is not recognized.
+* [org.axonframework.migration.MigrateMessageInterceptorSignatures](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/migratemessageinterceptorsignatures.md)
+  * **Migrate MessageHandlerInterceptor / MessageDispatchInterceptor signatures to AF5**
+  * Rewrites the method signatures of `MessageHandlerInterceptor` and `MessageDispatchInterceptor` implementations to their AF5 shape: `handle(UnitOfWork, InterceptorChain) -&gt; Object` becomes `interceptOnHandle(M, ProcessingContext, MessageHandlerInterceptorChain&lt;M&gt;) -&gt; MessageStream&lt;?&gt;` (and similarly for the dispatch interceptor). The method **body is left untouched** — the dropped `unitOfWork` / `interceptorChain` references become compile errors, surfacing every call site that needs review. A class-level `// TODO(axon4to5):` comment points to the migration path doc. The message type `M` is read from the `implements` clause; raw implementations fall back to `Message`. Runs after the AF4 -&gt; AF5 FQN renames.
+* [org.axonframework.migration.MigrateSequencingPolicyLambda](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/migratesequencingpolicylambda.md)
+  * **Migrate SequencingPolicy lambdas to the AF5 two-arg, Optional-returning shape**
+  * Rewrites single-argument `SequencingPolicy` lambdas (`e -&gt; body`) to the AF5 shape `(e, ctx) -&gt; Optional.ofNullable(body)`. The AF5 `SequencingPolicy.sequenceIdentifierFor` method takes both a message and a `ProcessingContext`, and returns `Optional&lt;Object&gt;` instead of a nullable `Object`. Adds the `java.util.Optional` import. Leaves block-body lambdas, multi-parameter lambdas, and anonymous inner classes alone — those need manual rewriting since the AF4 method name (`getSequenceIdentifierFor`) and the AF5 method name (`sequenceIdentifierFor`) differ.
+* [org.axonframework.migration.MigrateSnapshotTriggerDefinitionToAnnotation](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/migratesnapshottriggerdefinitiontoannotation.md)
+  * **Migrate SnapshotTriggerDefinition @Bean to @Snapshotting**
+  * Replaces AF4 Spring Boot @Bean methods returning SnapshotTriggerDefinition with the AF5 @Snapshotting annotation on the corresponding aggregate class. EventCountSnapshotTriggerDefinition maps to afterEvents; AggregateLoadTimeSnapshotTriggerDefinition maps to afterSourcingTime. Custom implementations leave a TODO comment for manual review.
+* [org.axonframework.migration.RemoveTypeArguments](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/removetypearguments.md)
+  * **Remove type arguments from a specific type**
+  * Removes the generic type arguments (`&lt;...&gt;`) from any usage of the configured fully-qualified type. Preserves the underlying type reference and its surrounding context (variables, parameters, return types, generic bounds, etc.).
+* [org.axonframework.migration.ReplaceAggregateLifecycleApply](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/replaceaggregatelifecycleapply.md)
+  * **Replace AggregateLifecycle.apply(...) with EventAppender.append(...)**
+  * Replaces every `AggregateLifecycle.apply(X)` (statically imported or via the class) with `eventAppender.append(X)`, injecting an `EventAppender eventAppender` parameter into the enclosing method when one is not already declared. Drops the static `apply` import once no usages remain.
+* [org.axonframework.migration.UpgradeAxon4ToAxon5](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxon4toaxon5.md)
+  * **Upgrade to free Axon Framework 5**
+  * Migrates an Axon Framework 4.x application to free (Apache 2.0) Axon Framework 5. Bumps the Axon Framework dependency versions, applies per-module rename recipes (one per core framework module), and renames Maven coordinates within the `org.axonframework.*` namespace. Does NOT touch features dropped from free AF5 (Axon Server, DLQ, DistributedCommandBus) — see `UpgradeAxon4ToAxoniq5` for the commercial path.
+* [org.axonframework.migration.UpgradeJava](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradejava.md)
+  * **Upgrade Java compiler target for Axon Framework 5**
+  * Bumps the Java compiler target in pom.xml/build.gradle to the configured LTS (defaults to 21, the Axon Framework 5 minimum). No-op for modules already at or above the target — projects already on a higher Java release are left untouched.
+* [org.axonframework.migration.UpgradeKotlin](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradekotlin.md)
+  * **Upgrade Kotlin to 2.x for Axon Framework 5**
+  * Bumps the `org.jetbrains.kotlin:*` dependency versions and the `kotlin-maven-plugin` to the configured Kotlin line (defaults to &quot;2.x&quot;, the latest Kotlin 2.x). No-op for modules already at or above the target — the underlying upgrade recipes never downgrade. Rejects targets below Kotlin 2.0.
 * [org.openrewrite.java.camel.migrate.removedExtensions](/user-documentation/recipes/recipe-catalog/java/camel/migrate/removedextensions.md)
   * **Remove non existing camel-quarkus extensions**
   * Removal of maven dependencies for extension, which are no longer part of Camel 3.x.
@@ -10663,6 +10927,12 @@ _1566 recipes_
 * [org.openrewrite.quarkus.MigrateToQuarkus_v3_32_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_32_0.md)
   * **Quarkus Updates Aggregate 3.32.0**
   * Quarkus update recipes to upgrade your application to 3.32.0.
+* [org.openrewrite.quarkus.MigrateToQuarkus_v3_33_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_33_0.md)
+  * **Quarkus Updates Aggregate 3.33.0**
+  * Quarkus update recipes to upgrade your application to 3.33.0.
+* [org.openrewrite.quarkus.MigrateToQuarkus_v3_37_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_37_0.md)
+  * **Quarkus Updates Aggregate 3.37.0**
+  * Quarkus update recipes to upgrade your application to 3.37.0.
 * [org.openrewrite.quarkus.MigrateToQuarkus_v3_3_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_3_0.md)
   * **Quarkus Updates Aggregate 3.3.0**
   * Quarkus update recipes to upgrade your application to 3.3.0.

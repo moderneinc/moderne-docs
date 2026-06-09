@@ -1,4 +1,5 @@
 ---
+title: "Find `x.run { ... }` that doesn't use the receiver"
 sidebar_label: "Find `x.run { ... }` that doesn't use the receiver"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find messaging connections"
 sidebar_label: "Find messaging connections"
 ---
 

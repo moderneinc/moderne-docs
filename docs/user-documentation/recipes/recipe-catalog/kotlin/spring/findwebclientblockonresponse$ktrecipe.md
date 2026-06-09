@@ -1,4 +1,5 @@
 ---
+title: "Find `webClient...bodyToMono(X::class).block()` chains"
 sidebar_label: "Find `webClient...bodyToMono(X::class).block()` chains"
 ---
 

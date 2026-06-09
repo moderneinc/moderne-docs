@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `DockerApi`"
 sidebar_label: "Replace deprecated `DockerApi`"
 ---
 

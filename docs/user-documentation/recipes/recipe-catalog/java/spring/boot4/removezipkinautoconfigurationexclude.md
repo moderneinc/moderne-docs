@@ -1,4 +1,5 @@
 ---
+title: "Remove `ZipkinAutoConfiguration`"
 sidebar_label: "Remove `ZipkinAutoConfiguration`"
 ---
 

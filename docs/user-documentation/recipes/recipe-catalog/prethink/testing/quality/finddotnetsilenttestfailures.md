@@ -1,4 +1,5 @@
 ---
+title: "Find .NET silent test failures"
 sidebar_label: "Find .NET silent test failures"
 ---
 

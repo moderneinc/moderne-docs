@@ -1,4 +1,5 @@
 ---
+title: "Use `emptyList&lt;T&gt;()` instead of `listOf&lt;T&gt;()`"
 sidebar_label: "Use `emptyList&lt;T&gt;()` instead of `listOf&lt;T&gt;()`"
 ---
 

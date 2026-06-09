@@ -1,4 +1,5 @@
 ---
+title: "Replace `MonoProcessor.create()` with `Sinks.one()`"
 sidebar_label: "Replace `MonoProcessor.create()` with `Sinks.one()`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `-----BEGIN ... PRIVATE KEY-----` literals"
 sidebar_label: "Find `-----BEGIN ... PRIVATE KEY-----` literals"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `UseMvc`/`AddMvc` usage (replaced in ASP.NET Core 3.0)"
 sidebar_label: "Find `UseMvc`/`AddMvc` usage (replaced in ASP.NET Core 3.0)"
 ---
 

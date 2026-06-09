@@ -1,4 +1,5 @@
 ---
+title: "Find `@RequestMapping(method = [RequestMethod.GET])` candidates for `@GetMapping`"
 sidebar_label: "Find `@RequestMapping(method = [RequestMethod.GET])` candidates for `@GetMapping`"
 ---
 

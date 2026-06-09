@@ -1,4 +1,5 @@
 ---
+title: "Find Spring stereotype classes not declared `open`"
 sidebar_label: "Find Spring stereotype classes not declared `open`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find Compose stability issues"
 sidebar_label: "Find Compose stability issues"
 ---
 

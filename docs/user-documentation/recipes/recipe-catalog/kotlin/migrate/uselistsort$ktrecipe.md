@@ -1,4 +1,5 @@
 ---
+title: "Use `MutableList.sort()` instead of `Collections.sort(list)`"
 sidebar_label: "Use `MutableList.sort()` instead of `Collections.sort(list)`"
 ---
 

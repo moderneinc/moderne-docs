@@ -1,4 +1,5 @@
 ---
+title: "Ensure PostgreSQL server enables infrastructure encryption"
 sidebar_label: "Ensure PostgreSQL server enables infrastructure encryption"
 ---
 

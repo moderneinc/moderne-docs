@@ -1,4 +1,5 @@
 ---
+title: "Find package quality metrics"
 sidebar_label: "Find package quality metrics"
 ---
 

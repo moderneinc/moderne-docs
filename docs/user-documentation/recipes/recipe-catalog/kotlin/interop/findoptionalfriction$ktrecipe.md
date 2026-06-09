@@ -1,4 +1,5 @@
 ---
+title: "Find `java.util.Optional` friction inside Kotlin"
 sidebar_label: "Find `java.util.Optional` friction inside Kotlin"
 ---
 

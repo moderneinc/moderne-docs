@@ -1,4 +1,5 @@
 ---
+title: "Apply Compose autofix rewrites"
 sidebar_label: "Apply Compose autofix rewrites"
 ---
 

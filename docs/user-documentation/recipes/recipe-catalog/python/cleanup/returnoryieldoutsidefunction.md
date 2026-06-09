@@ -1,4 +1,5 @@
 ---
+title: "Remove `return`/`yield` outside function"
 sidebar_label: "Remove `return`/`yield` outside function"
 ---
 

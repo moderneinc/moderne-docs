@@ -1,4 +1,5 @@
 ---
+title: "Apply Kotlin best-practice idioms"
 sidebar_label: "Apply Kotlin best-practice idioms"
 ---
 

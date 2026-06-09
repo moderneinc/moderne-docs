@@ -1,4 +1,5 @@
 ---
+title: "Find `bufferedReader().lines()` calls"
 sidebar_label: "Find `bufferedReader().lines()` calls"
 ---
 

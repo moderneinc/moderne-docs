@@ -1,4 +1,5 @@
 ---
+title: "Use `none { predicate }` instead of `filter { predicate }.isEmpty()`"
 sidebar_label: "Use `none { predicate }` instead of `filter { predicate }.isEmpty()`"
 ---
 

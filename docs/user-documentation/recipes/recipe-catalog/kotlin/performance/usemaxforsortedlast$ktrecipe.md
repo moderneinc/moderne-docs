@@ -1,4 +1,5 @@
 ---
+title: "Use `max()` instead of `sorted().last()`"
 sidebar_label: "Use `max()` instead of `sorted().last()`"
 ---
 

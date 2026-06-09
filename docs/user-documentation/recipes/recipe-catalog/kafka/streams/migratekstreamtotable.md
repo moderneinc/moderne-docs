@@ -1,4 +1,5 @@
 ---
+title: "Migrate KStream to KTable conversion to use `toTable()` method"
 sidebar_label: "Migrate KStream to KTable conversion to use `toTable()` method"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Android Gradle Plugin 7.4"
 sidebar_label: "Migrate to Android Gradle Plugin 7.4"
 ---
 

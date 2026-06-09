@@ -1,4 +1,5 @@
 ---
+title: "Find `Object.notify` / `notifyAll` calls inside `suspend` functions"
 sidebar_label: "Find `Object.notify` / `notifyAll` calls inside `suspend` functions"
 ---
 

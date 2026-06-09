@@ -1,4 +1,5 @@
 ---
+title: "Find OS command injection vectors"
 sidebar_label: "Find OS command injection vectors"
 ---
 

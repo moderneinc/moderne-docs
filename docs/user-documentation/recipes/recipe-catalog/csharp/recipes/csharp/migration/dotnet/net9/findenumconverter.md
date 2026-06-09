@@ -1,4 +1,5 @@
 ---
+title: "Find `EnumConverter` constructor validation change"
 sidebar_label: "Find `EnumConverter` constructor validation change"
 ---
 

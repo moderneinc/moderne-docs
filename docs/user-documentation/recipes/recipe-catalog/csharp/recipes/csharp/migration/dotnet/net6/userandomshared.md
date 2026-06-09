@@ -1,4 +1,5 @@
 ---
+title: "Use Random.Shared"
 sidebar_label: "Use Random.Shared"
 ---
 

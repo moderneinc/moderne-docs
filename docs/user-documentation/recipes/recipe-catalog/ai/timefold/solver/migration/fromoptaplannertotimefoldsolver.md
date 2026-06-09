@@ -1,4 +1,5 @@
 ---
+title: "Migrate from OptaPlanner to Timefold Solver"
 sidebar_label: "Migrate from OptaPlanner to Timefold Solver"
 ---
 
@@ -108,6 +109,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
   * attributeName: `name`
   * newValue: `ai.timefold.solver`
   * oldValue: `org.optaplanner`
+* [Migrate all Maven and Gradle groupIds and artifactIds from OptaPlanner to Timefold](../../../../ai/timefold/solver/migration/fork/timefoldchangedependencies)
 * [Rename Maven property key](../../../../maven/renamepropertykey)
   * oldKey: `version.org.optaplanner`
   * newKey: `version.ai.timefold.solver`
@@ -219,6 +221,7 @@ recipeList:
       attributeName: name
       newValue: ai.timefold.solver
       oldValue: org.optaplanner
+  - ai.timefold.solver.migration.fork.TimefoldChangeDependencies
   - org.openrewrite.maven.RenamePropertyKey:
       oldKey: version.org.optaplanner
       newKey: version.ai.timefold.solver
@@ -280,6 +283,25 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
+
+### Maven metadata failures
+**org.openrewrite.maven.table.MavenMetadataFailures**
+
+_Attempts to resolve maven metadata that failed._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Group id | The groupId of the artifact for which the metadata download failed. |
+| Artifact id | The artifactId of the artifact for which the metadata download failed. |
+| Version | The version of the artifact for which the metadata download failed. |
+| Maven repository | The URL of the Maven repository that the metadata download failed on. |
+| Snapshots | Does the repository support snapshots. |
+| Releases | Does the repository support releases. |
+| Failure | The reason the metadata download failed. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

@@ -1,4 +1,5 @@
 ---
+title: "Extract coding conventions"
 sidebar_label: "Extract coding conventions"
 ---
 

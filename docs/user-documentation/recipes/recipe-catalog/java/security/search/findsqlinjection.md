@@ -1,4 +1,5 @@
 ---
+title: "Find potential SQL injection"
 sidebar_label: "Find potential SQL injection"
 ---
 

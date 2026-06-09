@@ -1,4 +1,5 @@
 ---
+title: "Migrate JBoss to Tomcat"
 sidebar_label: "Migrate JBoss to Tomcat"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`"
 sidebar_label: "Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`"
 ---
 

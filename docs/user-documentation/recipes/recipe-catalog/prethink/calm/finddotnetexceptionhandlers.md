@@ -1,4 +1,5 @@
 ---
+title: "Find .NET exception handlers"
 sidebar_label: "Find .NET exception handlers"
 ---
 

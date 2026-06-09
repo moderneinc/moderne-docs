@@ -1,4 +1,5 @@
 ---
+title: "Find ghost tests"
 sidebar_label: "Find ghost tests"
 ---
 

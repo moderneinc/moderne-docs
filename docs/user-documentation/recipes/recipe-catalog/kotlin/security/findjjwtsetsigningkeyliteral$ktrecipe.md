@@ -1,4 +1,5 @@
 ---
+title: "Find `JwtBuilder.setSigningKey(&quot;literal&quot;.toByteArray())` patterns"
 sidebar_label: "Find `JwtBuilder.setSigningKey(&quot;literal&quot;.toByteArray())` patterns"
 ---
 

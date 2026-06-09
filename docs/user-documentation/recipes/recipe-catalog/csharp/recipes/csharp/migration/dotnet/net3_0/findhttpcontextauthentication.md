@@ -1,4 +1,5 @@
 ---
+title: "Find `HttpContext.Authentication` usage (removed in ASP.NET Core 3.0)"
 sidebar_label: "Find `HttpContext.Authentication` usage (removed in ASP.NET Core 3.0)"
 ---
 

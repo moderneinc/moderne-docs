@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `material` methods"
 sidebar_label: "Replace deprecated `material` methods"
 ---
 

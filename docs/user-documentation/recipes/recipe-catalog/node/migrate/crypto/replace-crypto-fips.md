@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`"
 sidebar_label: "Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`"
 ---
 

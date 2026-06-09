@@ -1,4 +1,5 @@
 ---
+title: "Ensure Azure App Service Web app redirects HTTP to HTTPS"
 sidebar_label: "Ensure Azure App Service Web app redirects HTTP to HTTPS"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `@PostMapping` methods missing `@ResponseStatus(HttpStatus.CREATED)`"
 sidebar_label: "Find `@PostMapping` methods missing `@ResponseStatus(HttpStatus.CREATED)`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `Long.toString()` instead of `Long.toString(l)`"
 sidebar_label: "Use `Long.toString()` instead of `Long.toString(l)`"
 ---
 

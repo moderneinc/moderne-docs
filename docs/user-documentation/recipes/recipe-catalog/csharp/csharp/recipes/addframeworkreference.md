@@ -1,4 +1,5 @@
 ---
+title: "Add framework reference"
 sidebar_label: "Add framework reference"
 ---
 
@@ -40,5 +41,5 @@ This recipe is used as part of the following composite recipes:
 <RunRecipe
   recipeName="OpenRewrite.CSharp.Recipes.AddFrameworkReference"
   displayName="Add framework reference"
-  nugetPackage="OpenRewrite.Recipes.CSharp.Migration.Dotnet"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
 />

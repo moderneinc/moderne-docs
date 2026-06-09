@@ -1,4 +1,5 @@
 ---
+title: "Remove hard-coded IP addresses from comments"
 sidebar_label: "Remove hard-coded IP addresses from comments"
 ---
 

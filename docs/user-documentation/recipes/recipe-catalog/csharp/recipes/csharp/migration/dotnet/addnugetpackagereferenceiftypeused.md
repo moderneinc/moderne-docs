@@ -1,4 +1,5 @@
 ---
+title: "Add NuGet package reference when namespace is used"
 sidebar_label: "Add NuGet package reference when namespace is used"
 ---
 

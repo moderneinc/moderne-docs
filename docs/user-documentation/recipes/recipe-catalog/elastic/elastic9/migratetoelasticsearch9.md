@@ -1,4 +1,5 @@
 ---
+title: "Migrate from Elasticsearch 8 to 9"
 sidebar_label: "Migrate from Elasticsearch 8 to 9"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find hotspots and complexity points"
 sidebar_label: "Find hotspots and complexity points"
 ---
 

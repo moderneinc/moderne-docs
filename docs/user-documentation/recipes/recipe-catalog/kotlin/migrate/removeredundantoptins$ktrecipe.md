@@ -1,4 +1,5 @@
 ---
+title: "Remove redundant `@OptIn` annotations"
 sidebar_label: "Remove redundant `@OptIn` annotations"
 ---
 

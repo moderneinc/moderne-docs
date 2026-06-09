@@ -1,4 +1,5 @@
 ---
+title: "Drop unnecessary `0` start argument from `range()`"
 sidebar_label: "Drop unnecessary `0` start argument from `range()`"
 ---
 

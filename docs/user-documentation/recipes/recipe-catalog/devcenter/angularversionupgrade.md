@@ -1,4 +1,5 @@
 ---
+title: "Move to a later Angular version"
 sidebar_label: "Move to a later Angular version"
 ---
 
@@ -25,7 +26,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
 | `int` | majorVersion | The major version of Angular to upgrade to. | `21` |
-| `String` | upgradeRecipe | *Optional*. The recipe to use to upgrade. |  |
+| `String` | upgradeRecipe | *Optional*. The recipe to use to upgrade. | `org.openrewrite.codemods.migrate.angular.ApplyAngularCLI` |
 
 
 ## Used by
@@ -49,6 +50,7 @@ displayName: Move to a later Angular version example
 recipeList:
   - io.moderne.devcenter.AngularVersionUpgrade:
       majorVersion: 21
+      upgradeRecipe: org.openrewrite.codemods.migrate.angular.ApplyAngularCLI
 ```
 
 <RunRecipe
@@ -58,7 +60,7 @@ recipeList:
   artifactId="rewrite-devcenter"
   versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER"
   requiresConfiguration
-  cliOptions={' --recipe-option "majorVersion=21"'}
+  cliOptions={' --recipe-option "majorVersion=21" --recipe-option "upgradeRecipe=org.openrewrite.codemods.migrate.angular.ApplyAngularCLI"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

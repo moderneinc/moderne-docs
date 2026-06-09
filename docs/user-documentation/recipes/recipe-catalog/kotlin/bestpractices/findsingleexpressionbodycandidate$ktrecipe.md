@@ -1,4 +1,5 @@
 ---
+title: "Find `fun foo(): T { return x }` block bodies"
 sidebar_label: "Find `fun foo(): T { return x }` block bodies"
 ---
 

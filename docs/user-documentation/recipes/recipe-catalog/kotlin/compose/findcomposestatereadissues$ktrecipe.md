@@ -1,4 +1,5 @@
 ---
+title: "Find Compose state read/write issues"
 sidebar_label: "Find Compose state read/write issues"
 ---
 

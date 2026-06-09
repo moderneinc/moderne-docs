@@ -1,4 +1,5 @@
 ---
+title: "Replace `Thread.setName()` with `Thread.name = ...`"
 sidebar_label: "Replace `Thread.setName()` with `Thread.name = ...`"
 ---
 

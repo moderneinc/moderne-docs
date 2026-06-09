@@ -1,4 +1,5 @@
 ---
+title: "Find `data class` declarations with `List&lt;T&gt;` properties"
 sidebar_label: "Find `data class` declarations with `List&lt;T&gt;` properties"
 ---
 

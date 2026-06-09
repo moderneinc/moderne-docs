@@ -1,4 +1,5 @@
 ---
+title: "Find `SameSiteMode.None` usage (behavior changed in .NET Core 3.1)"
 sidebar_label: "Find `SameSiteMode.None` usage (behavior changed in .NET Core 3.1)"
 ---
 

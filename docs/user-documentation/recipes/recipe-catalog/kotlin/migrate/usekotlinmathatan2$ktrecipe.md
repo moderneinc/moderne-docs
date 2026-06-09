@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.atan2` instead of `java.lang.Math.atan2`"
 sidebar_label: "Use `kotlin.math.atan2` instead of `java.lang.Math.atan2`"
 ---
 

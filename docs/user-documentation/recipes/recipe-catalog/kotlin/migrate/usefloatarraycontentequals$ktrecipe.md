@@ -1,4 +1,5 @@
 ---
+title: "Use `FloatArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 sidebar_label: "Use `FloatArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 ---
 

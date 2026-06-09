@@ -1,4 +1,5 @@
 ---
+title: "Remove deprecated `WithOpenApi` calls (ASPDEPR002)"
 sidebar_label: "Remove deprecated `WithOpenApi` calls (ASPDEPR002)"
 ---
 

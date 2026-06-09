@@ -1,4 +1,5 @@
 ---
+title: "Ensure memory limits are set"
 sidebar_label: "Ensure memory limits are set"
 ---
 

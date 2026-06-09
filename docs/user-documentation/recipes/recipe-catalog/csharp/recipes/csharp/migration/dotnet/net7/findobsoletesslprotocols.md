@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete `SslProtocols.Tls`/`Tls11` usage (SYSLIB0039)"
 sidebar_label: "Find obsolete `SslProtocols.Tls`/`Tls11` usage (SYSLIB0039)"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find Kotlin logging smells"
 sidebar_label: "Find Kotlin logging smells"
 ---
 

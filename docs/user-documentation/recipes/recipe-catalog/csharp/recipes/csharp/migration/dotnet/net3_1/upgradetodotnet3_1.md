@@ -1,4 +1,5 @@
 ---
+title: "Migrate to .NET Core 3.1"
 sidebar_label: "Migrate to .NET Core 3.1"
 ---
 

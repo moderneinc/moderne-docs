@@ -1,4 +1,5 @@
 ---
+title: "Remove `loaderImplementation` from Gradle"
 sidebar_label: "Remove `loaderImplementation` from Gradle"
 ---
 

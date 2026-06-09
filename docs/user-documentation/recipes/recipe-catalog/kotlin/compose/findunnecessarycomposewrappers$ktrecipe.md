@@ -1,4 +1,5 @@
 ---
+title: "Find single-child wrapper composables (Material 3)"
 sidebar_label: "Find single-child wrapper composables (Material 3)"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `Mono.flatMap { x -&gt; Mono.just(f(x)) }` patterns"
 sidebar_label: "Find `Mono.flatMap { x -&gt; Mono.just(f(x)) }` patterns"
 ---
 

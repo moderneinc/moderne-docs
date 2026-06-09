@@ -1,4 +1,5 @@
 ---
+title: "Migrate Swashbuckle to built-in OpenAPI"
 sidebar_label: "Migrate Swashbuckle to built-in OpenAPI"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Is likely a Spring Framework project"
 sidebar_label: "Is likely a Spring Framework project"
 ---
 

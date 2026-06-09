@@ -1,4 +1,5 @@
 ---
+title: "Find `android.content.Context` parameters on `@Composable` functions"
 sidebar_label: "Find `android.content.Context` parameters on `@Composable` functions"
 ---
 

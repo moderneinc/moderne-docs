@@ -1,4 +1,5 @@
 ---
+title: "Fix mis-encoded comments in French"
 sidebar_label: "Fix mis-encoded comments in French"
 ---
 

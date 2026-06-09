@@ -1,4 +1,5 @@
 ---
+title: "Find class quality metrics"
 sidebar_label: "Find class quality metrics"
 ---
 

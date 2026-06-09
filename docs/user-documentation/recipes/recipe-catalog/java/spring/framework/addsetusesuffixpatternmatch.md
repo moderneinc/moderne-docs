@@ -1,4 +1,5 @@
 ---
+title: "Add `setUseSuffixPatternMatch(true)` in Spring MVC configuration"
 sidebar_label: "Add `setUseSuffixPatternMatch(true)` in Spring MVC configuration"
 ---
 

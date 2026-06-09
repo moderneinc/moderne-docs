@@ -1,4 +1,5 @@
 ---
+title: "Find `Semaphore` / `CountDownLatch` / `CyclicBarrier` allocations"
 sidebar_label: "Find `Semaphore` / `CountDownLatch` / `CyclicBarrier` allocations"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `BitmapFactory.decode*` calls"
 sidebar_label: "Find `BitmapFactory.decode*` calls"
 ---
 

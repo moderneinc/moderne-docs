@@ -1,4 +1,5 @@
 ---
+title: "Find `BufferedStream.WriteByte` implicit flush behavior change"
 sidebar_label: "Find `BufferedStream.WriteByte` implicit flush behavior change"
 ---
 

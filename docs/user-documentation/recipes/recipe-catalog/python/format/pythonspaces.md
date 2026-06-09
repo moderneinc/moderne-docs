@@ -1,4 +1,5 @@
 ---
+title: "Formats spaces in Python code"
 sidebar_label: "Formats spaces in Python code"
 ---
 

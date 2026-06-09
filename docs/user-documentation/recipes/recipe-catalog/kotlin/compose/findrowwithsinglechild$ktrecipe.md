@@ -1,4 +1,5 @@
 ---
+title: "Find `Row { … }` with a single child"
 sidebar_label: "Find `Row { … }` with a single child"
 ---
 

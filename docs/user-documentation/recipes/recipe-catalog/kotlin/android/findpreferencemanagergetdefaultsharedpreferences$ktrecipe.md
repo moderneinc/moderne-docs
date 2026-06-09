@@ -1,4 +1,5 @@
 ---
+title: "Find `PreferenceManager.getDefaultSharedPreferences(...)` calls"
 sidebar_label: "Find `PreferenceManager.getDefaultSharedPreferences(...)` calls"
 ---
 

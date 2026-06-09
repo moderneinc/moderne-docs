@@ -1,4 +1,5 @@
 ---
+title: "Find `LazyRow { … }` calls — verify items use stable keys"
 sidebar_label: "Find `LazyRow { … }` calls — verify items use stable keys"
 ---
 

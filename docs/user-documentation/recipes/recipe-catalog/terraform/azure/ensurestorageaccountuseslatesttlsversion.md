@@ -1,4 +1,5 @@
 ---
+title: "Ensure storage account uses latest TLS version"
 sidebar_label: "Ensure storage account uses latest TLS version"
 ---
 

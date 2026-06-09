@@ -1,4 +1,5 @@
 ---
+title: "Find AWS secrets"
 sidebar_label: "Find AWS secrets"
 ---
 

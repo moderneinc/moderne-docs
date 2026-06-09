@@ -1,4 +1,5 @@
 ---
+title: "Find coroutine sequencing smells"
 sidebar_label: "Find coroutine sequencing smells"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Maven Plugins Parent"
 sidebar_label: "Upgrade Maven Plugins Parent"
 ---
 

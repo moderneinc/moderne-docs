@@ -1,4 +1,5 @@
 ---
+title: "Remove methods referencing specified package"
 sidebar_label: "Remove methods referencing specified package"
 ---
 

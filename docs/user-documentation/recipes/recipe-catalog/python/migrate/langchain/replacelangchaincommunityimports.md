@@ -1,4 +1,5 @@
 ---
+title: "Replace `langchain` imports with `langchain_community`"
 sidebar_label: "Replace `langchain` imports with `langchain_community`"
 ---
 

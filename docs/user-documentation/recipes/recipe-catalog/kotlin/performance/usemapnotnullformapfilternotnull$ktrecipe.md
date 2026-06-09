@@ -1,4 +1,5 @@
 ---
+title: "Use `mapNotNull { f }` instead of `map { f }.filterNotNull()`"
 sidebar_label: "Use `mapNotNull { f }` instead of `map { f }.filterNotNull()`"
 ---
 

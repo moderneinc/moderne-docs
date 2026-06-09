@@ -1,4 +1,5 @@
 ---
+title: "Use `CharArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`"
 sidebar_label: "Use `CharArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Drop unnecessary step `1` argument from `range()`"
 sidebar_label: "Drop unnecessary step `1` argument from `range()`"
 ---
 

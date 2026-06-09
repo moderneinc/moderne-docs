@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Dropwizard 5.0.x from 4.x"
 sidebar_label: "Migrate to Dropwizard 5.0.x from 4.x"
 ---
 

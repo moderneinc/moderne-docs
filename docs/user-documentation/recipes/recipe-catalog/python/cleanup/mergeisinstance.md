@@ -1,4 +1,5 @@
 ---
+title: "Merge `isinstance()` calls"
 sidebar_label: "Merge `isinstance()` calls"
 ---
 

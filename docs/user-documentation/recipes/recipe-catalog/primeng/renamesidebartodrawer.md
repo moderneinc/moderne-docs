@@ -1,4 +1,5 @@
 ---
+title: "Rename `Sidebar` to `Drawer`"
 sidebar_label: "Rename `Sidebar` to `Drawer`"
 ---
 

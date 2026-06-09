@@ -1,4 +1,5 @@
 ---
+title: "Report as security issues"
 sidebar_label: "Report as security issues"
 ---
 

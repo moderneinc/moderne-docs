@@ -1,4 +1,5 @@
 ---
+title: "Use MapStaticAssets()"
 sidebar_label: "Use MapStaticAssets()"
 ---
 

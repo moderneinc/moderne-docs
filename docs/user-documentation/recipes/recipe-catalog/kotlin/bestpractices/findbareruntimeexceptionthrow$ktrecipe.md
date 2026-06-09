@@ -1,4 +1,5 @@
 ---
+title: "Find `throw RuntimeException(&quot;…&quot;)` calls"
 sidebar_label: "Find `throw RuntimeException(&quot;…&quot;)` calls"
 ---
 

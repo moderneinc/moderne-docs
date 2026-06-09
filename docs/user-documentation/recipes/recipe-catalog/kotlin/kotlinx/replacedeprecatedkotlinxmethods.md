@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `kotlinx` methods"
 sidebar_label: "Replace deprecated `kotlinx` methods"
 ---
 

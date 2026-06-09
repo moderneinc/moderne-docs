@@ -1,4 +1,5 @@
 ---
+title: "Use `single { predicate }` instead of `filter { predicate }.single()`"
 sidebar_label: "Use `single { predicate }` instead of `filter { predicate }.single()`"
 ---
 

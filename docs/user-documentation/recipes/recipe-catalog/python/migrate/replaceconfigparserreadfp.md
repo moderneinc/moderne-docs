@@ -1,4 +1,5 @@
 ---
+title: "Replace `ConfigParser.readfp()` with `read_file()`"
 sidebar_label: "Replace `ConfigParser.readfp()` with `read_file()`"
 ---
 

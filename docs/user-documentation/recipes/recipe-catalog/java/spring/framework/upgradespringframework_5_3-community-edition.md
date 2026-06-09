@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Spring Framework 5.3 (Community Edition)"
 sidebar_label: "Migrate to Spring Framework 5.3 (Community Edition)"
 ---
 
@@ -127,7 +128,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 2.4](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_4.md)
-* [Migrate to Spring Framework 6.0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0.md)
+* [Migrate to Spring Framework 6.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition.md)
 
 
 ## Usage

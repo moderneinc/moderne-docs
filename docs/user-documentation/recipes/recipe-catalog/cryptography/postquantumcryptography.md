@@ -1,4 +1,5 @@
 ---
+title: "Post quantum cryptography"
 sidebar_label: "Post quantum cryptography"
 ---
 

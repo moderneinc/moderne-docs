@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Maven Shared Parent"
 sidebar_label: "Upgrade Maven Shared Parent"
 ---
 

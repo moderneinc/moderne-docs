@@ -1,4 +1,5 @@
 ---
+title: "Migrate `spring-retry` to Spring Framework resilience"
 sidebar_label: "Migrate `spring-retry` to Spring Framework resilience"
 ---
 

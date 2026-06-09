@@ -1,4 +1,5 @@
 ---
+title: "Avoid blocking calls (`Await.result`/`Await.ready`)"
 sidebar_label: "Avoid blocking calls (`Await.result`/`Await.ready`)"
 ---
 

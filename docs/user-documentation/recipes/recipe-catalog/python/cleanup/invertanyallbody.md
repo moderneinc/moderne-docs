@@ -1,4 +1,5 @@
 ---
+title: "Apply De Morgan's law to `any(not ...)`/`all(not ...)`"
 sidebar_label: "Apply De Morgan's law to `any(not ...)`/`all(not ...)`"
 ---
 

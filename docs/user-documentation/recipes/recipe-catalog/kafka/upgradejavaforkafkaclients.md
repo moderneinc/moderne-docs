@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Java to 11+ for Kafka clients"
 sidebar_label: "Upgrade Java to 11+ for Kafka clients"
 ---
 

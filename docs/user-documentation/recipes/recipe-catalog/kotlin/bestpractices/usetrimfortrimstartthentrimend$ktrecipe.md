@@ -1,4 +1,5 @@
 ---
+title: "Use `trim()` instead of `trimStart().trimEnd()`"
 sidebar_label: "Use `trim()` instead of `trimStart().trimEnd()`"
 ---
 

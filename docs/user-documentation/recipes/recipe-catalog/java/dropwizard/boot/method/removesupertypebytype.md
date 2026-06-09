@@ -1,4 +1,5 @@
 ---
+title: "Remove supertype by fully qualified name"
 sidebar_label: "Remove supertype by fully qualified name"
 ---
 

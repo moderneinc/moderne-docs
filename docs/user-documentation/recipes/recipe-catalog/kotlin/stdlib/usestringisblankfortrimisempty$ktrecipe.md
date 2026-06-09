@@ -1,4 +1,5 @@
 ---
+title: "Use `isBlank()` instead of `trim().isEmpty()` on a `String`"
 sidebar_label: "Use `isBlank()` instead of `trim().isEmpty()` on a `String`"
 ---
 

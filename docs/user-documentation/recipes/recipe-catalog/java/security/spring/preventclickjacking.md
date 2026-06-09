@@ -1,4 +1,5 @@
 ---
+title: "Prevent clickjacking"
 sidebar_label: "Prevent clickjacking"
 ---
 

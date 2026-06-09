@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated String case conversions"
 sidebar_label: "Replace deprecated String case conversions"
 ---
 

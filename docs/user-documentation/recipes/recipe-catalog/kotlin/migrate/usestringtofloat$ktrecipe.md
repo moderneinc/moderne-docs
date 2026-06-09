@@ -1,4 +1,5 @@
 ---
+title: "Use `String.toFloat()` instead of `java.lang.Float.parseFloat(s)`"
 sidebar_label: "Use `String.toFloat()` instead of `java.lang.Float.parseFloat(s)`"
 ---
 

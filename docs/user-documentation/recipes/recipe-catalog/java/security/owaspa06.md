@@ -1,4 +1,5 @@
 ---
+title: "Remediate OWASP A06:2021 Vulnerable and outdated components"
 sidebar_label: "Remediate OWASP A06:2021 Vulnerable and outdated components"
 ---
 

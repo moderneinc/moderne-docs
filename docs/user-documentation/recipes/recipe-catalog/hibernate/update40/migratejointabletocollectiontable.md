@@ -1,4 +1,5 @@
 ---
+title: "Migrate `@JoinTable` to `@CollectionTable` for element collections"
 sidebar_label: "Migrate `@JoinTable` to `@CollectionTable` for element collections"
 ---
 

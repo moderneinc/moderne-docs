@@ -1,4 +1,5 @@
 ---
+title: "Find Angular component"
 sidebar_label: "Find Angular component"
 ---
 

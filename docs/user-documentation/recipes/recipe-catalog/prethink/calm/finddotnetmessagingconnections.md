@@ -1,4 +1,5 @@
 ---
+title: "Find .NET messaging connections"
 sidebar_label: "Find .NET messaging connections"
 ---
 

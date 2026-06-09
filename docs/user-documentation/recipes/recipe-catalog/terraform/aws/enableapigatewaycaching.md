@@ -1,4 +1,5 @@
 ---
+title: "Enable API gateway caching"
 sidebar_label: "Enable API gateway caching"
 ---
 

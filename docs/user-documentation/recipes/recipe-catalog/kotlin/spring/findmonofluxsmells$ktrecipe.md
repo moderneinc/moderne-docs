@@ -1,4 +1,5 @@
 ---
+title: "Find Mono/Flux ergonomic smells"
 sidebar_label: "Find Mono/Flux ergonomic smells"
 ---
 

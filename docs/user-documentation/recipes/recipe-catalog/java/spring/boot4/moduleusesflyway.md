@@ -1,4 +1,5 @@
 ---
+title: "Module uses Flyway"
 sidebar_label: "Module uses Flyway"
 ---
 

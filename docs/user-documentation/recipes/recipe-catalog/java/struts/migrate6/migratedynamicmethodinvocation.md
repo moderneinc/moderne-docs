@@ -1,4 +1,5 @@
 ---
+title: "Migrate Dynamic Method Invocation to explicit action mappings"
 sidebar_label: "Migrate Dynamic Method Invocation to explicit action mappings"
 ---
 

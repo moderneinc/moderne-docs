@@ -1,4 +1,5 @@
 ---
+title: "Fix mis-encoded French comments, javadocs and pom.xml comments"
 sidebar_label: "Fix mis-encoded French comments, javadocs and pom.xml comments"
 ---
 

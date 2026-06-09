@@ -1,4 +1,5 @@
 ---
+title: "Find `@Composable` functions with `List`/`Map`/`Set` parameters"
 sidebar_label: "Find `@Composable` functions with `List`/`Map`/`Set` parameters"
 ---
 

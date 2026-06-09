@@ -1,4 +1,5 @@
 ---
+title: "Replace `Thread.setDaemon()` with `Thread.daemon = ...`"
 sidebar_label: "Replace `Thread.setDaemon()` with `Thread.daemon = ...`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `Mono.block()` calls in non-test code"
 sidebar_label: "Find `Mono.block()` calls in non-test code"
 ---
 

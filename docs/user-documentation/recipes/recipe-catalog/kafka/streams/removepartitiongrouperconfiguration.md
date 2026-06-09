@@ -1,4 +1,5 @@
 ---
+title: "Remove `PartitionGrouper` configuration"
 sidebar_label: "Remove `PartitionGrouper` configuration"
 ---
 

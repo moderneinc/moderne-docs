@@ -1,4 +1,5 @@
 ---
+title: "Use `appendLine(value)` instead of `appendln(value)`"
 sidebar_label: "Use `appendLine(value)` instead of `appendln(value)`"
 ---
 

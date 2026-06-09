@@ -1,4 +1,5 @@
 ---
+title: "Get embeddings for code snippets in code"
 sidebar_label: "Get embeddings for code snippets in code"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find eager string interpolation in `log.info(...)`"
 sidebar_label: "Find eager string interpolation in `log.info(...)`"
 ---
 

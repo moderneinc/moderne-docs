@@ -1,4 +1,5 @@
 ---
+title: "Find React hook usage"
 sidebar_label: "Find React hook usage"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `Flux.subscribe { ... }` without an error consumer"
 sidebar_label: "Find `Flux.subscribe { ... }` without an error consumer"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `CompactOnMemoryPressure` usage (removed in ASP.NET Core 3.0)"
 sidebar_label: "Find `CompactOnMemoryPressure` usage (removed in ASP.NET Core 3.0)"
 ---
 

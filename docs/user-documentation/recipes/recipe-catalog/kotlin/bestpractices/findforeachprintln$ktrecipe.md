@@ -1,4 +1,5 @@
 ---
+title: "Find `forEach { println(it) }` patterns"
 sidebar_label: "Find `forEach { println(it) }` patterns"
 ---
 

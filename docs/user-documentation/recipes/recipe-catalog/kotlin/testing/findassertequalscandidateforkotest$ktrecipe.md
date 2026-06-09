@@ -1,4 +1,5 @@
 ---
+title: "Find `assertEquals(...)` calls — Kotest migration candidate"
 sidebar_label: "Find `assertEquals(...)` calls — Kotest migration candidate"
 ---
 

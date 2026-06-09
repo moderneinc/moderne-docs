@@ -1,4 +1,5 @@
 ---
+title: "Upgrade AWS Aurora MySQL to version 3 (MySQL 8.0)"
 sidebar_label: "Upgrade AWS Aurora MySQL to version 3 (MySQL 8.0)"
 ---
 

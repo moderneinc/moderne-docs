@@ -1,4 +1,5 @@
 ---
+title: "Find Go error handling patterns"
 sidebar_label: "Find Go error handling patterns"
 ---
 

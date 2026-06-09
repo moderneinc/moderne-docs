@@ -1,4 +1,5 @@
 ---
+title: "Replace `sys.last_type` / `sys.last_value` / `sys.last_traceback` with `sys.last_exc`"
 sidebar_label: "Replace `sys.last_type` / `sys.last_value` / `sys.last_traceback` with `sys.last_exc`"
 ---
 

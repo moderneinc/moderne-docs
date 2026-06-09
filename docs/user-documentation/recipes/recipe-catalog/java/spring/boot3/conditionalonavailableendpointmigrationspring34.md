@@ -1,4 +1,5 @@
 ---
+title: "Migrate `ConditionalOnAvailableEndpoint` for Spring Boot 3.4"
 sidebar_label: "Migrate `ConditionalOnAvailableEndpoint` for Spring Boot 3.4"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `mutableListOf&lt;T&gt;()` allocations inside loops"
 sidebar_label: "Find `mutableListOf&lt;T&gt;()` allocations inside loops"
 ---
 

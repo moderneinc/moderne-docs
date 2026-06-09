@@ -1,4 +1,5 @@
 ---
+title: "Find `Color(0xFF...)` color-literal constructions"
 sidebar_label: "Find `Color(0xFF...)` color-literal constructions"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `chunk` module usage"
 sidebar_label: "Find deprecated `chunk` module usage"
 ---
 

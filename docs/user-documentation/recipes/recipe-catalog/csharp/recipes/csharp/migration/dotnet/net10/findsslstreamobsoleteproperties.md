@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete `SslStream` cipher properties (SYSLIB0058)"
 sidebar_label: "Find obsolete `SslStream` cipher properties (SYSLIB0058)"
 ---
 

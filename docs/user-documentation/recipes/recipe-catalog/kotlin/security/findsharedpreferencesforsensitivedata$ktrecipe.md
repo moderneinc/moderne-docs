@@ -1,4 +1,5 @@
 ---
+title: "Find `getSharedPreferences(_, MODE_PRIVATE)` callers"
 sidebar_label: "Find `getSharedPreferences(_, MODE_PRIVATE)` callers"
 ---
 

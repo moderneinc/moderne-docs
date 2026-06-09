@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to SpringDoc 2.1"
 sidebar_label: "Upgrade to SpringDoc 2.1"
 ---
 
@@ -212,7 +213,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
+* [Migrate to Spring Boot 3.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
 * [Upgrade to SpringDoc 2.2](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_2.md)
 
 ## Examples

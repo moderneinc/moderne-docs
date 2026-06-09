@@ -1,4 +1,5 @@
 ---
+title: "Move to a later Node.js version"
 sidebar_label: "Move to a later Node.js version"
 ---
 
@@ -25,7 +26,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
 | `int` | majorVersion | The major version of Node.js to upgrade to. | `22` |
-| `String` | upgradeRecipe | *Optional*. The recipe to use to upgrade. |  |
+| `String` | upgradeRecipe | *Optional*. The recipe to use to upgrade. | `org.openrewrite.node.migrate.upgrade-node-22` |
 
 
 ## Used by
@@ -49,6 +50,7 @@ displayName: Move to a later Node.js version example
 recipeList:
   - io.moderne.devcenter.NodeVersionUpgrade:
       majorVersion: 22
+      upgradeRecipe: org.openrewrite.node.migrate.upgrade-node-22
 ```
 
 <RunRecipe
@@ -58,7 +60,7 @@ recipeList:
   artifactId="rewrite-devcenter"
   versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER"
   requiresConfiguration
-  cliOptions={' --recipe-option "majorVersion=22"'}
+  cliOptions={' --recipe-option "majorVersion=22" --recipe-option "upgradeRecipe=org.openrewrite.node.migrate.upgrade-node-22"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

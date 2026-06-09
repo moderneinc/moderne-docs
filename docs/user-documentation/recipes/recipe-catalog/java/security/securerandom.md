@@ -1,4 +1,5 @@
 ---
+title: "Secure random"
 sidebar_label: "Secure random"
 ---
 

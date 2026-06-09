@@ -1,4 +1,5 @@
 ---
+title: "Use generator expression instead of list comprehension in iterable-accepting calls"
 sidebar_label: "Use generator expression instead of list comprehension in iterable-accepting calls"
 ---
 

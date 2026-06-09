@@ -1,4 +1,5 @@
 ---
+title: "Find `runCatching { }` blocks that may swallow `CancellationException`"
 sidebar_label: "Find `runCatching { }` blocks that may swallow `CancellationException`"
 ---
 

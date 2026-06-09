@@ -1,4 +1,5 @@
 ---
+title: "Migrate `requiresChannel()` to `redirectToHttps()`"
 sidebar_label: "Migrate `requiresChannel()` to `redirectToHttps()`"
 ---
 

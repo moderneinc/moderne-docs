@@ -1,4 +1,5 @@
 ---
+title: "Find `BinaryReader.ReadString` behavior change"
 sidebar_label: "Find `BinaryReader.ReadString` behavior change"
 ---
 

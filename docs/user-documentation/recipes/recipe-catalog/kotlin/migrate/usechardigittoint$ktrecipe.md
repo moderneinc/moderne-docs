@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.digitToInt(radix)` instead of `Character.digit(c, radix)`"
 sidebar_label: "Use `Char.digitToInt(radix)` instead of `Character.digit(c, radix)`"
 ---
 

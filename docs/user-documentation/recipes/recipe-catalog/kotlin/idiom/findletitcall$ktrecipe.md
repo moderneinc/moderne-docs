@@ -1,4 +1,5 @@
 ---
+title: "Find `?.let { it.foo() }` that could use `?.foo()`"
 sidebar_label: "Find `?.let { it.foo() }` that could use `?.foo()`"
 ---
 

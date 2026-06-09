@@ -1,4 +1,5 @@
 ---
+title: "Ensure key vault secrets have `content_type` set"
 sidebar_label: "Ensure key vault secrets have `content_type` set"
 ---
 

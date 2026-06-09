@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Kotlin 2"
 sidebar_label: "Migrate to Kotlin 2"
 ---
 

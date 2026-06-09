@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.expm1` instead of `java.lang.Math.expm1`"
 sidebar_label: "Use `kotlin.math.expm1` instead of `java.lang.Math.expm1`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find project metadata"
 sidebar_label: "Find project metadata"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find ToImmutable*() that could use Frozen collections"
 sidebar_label: "Find ToImmutable*() that could use Frozen collections"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate to `pyproject.toml`"
 sidebar_label: "Migrate to `pyproject.toml`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Disable Kubernetes dashboard"
 sidebar_label: "Disable Kubernetes dashboard"
 ---
 

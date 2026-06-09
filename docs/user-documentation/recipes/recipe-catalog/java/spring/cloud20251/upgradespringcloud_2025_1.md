@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to Spring Cloud 2025.1"
 sidebar_label: "Upgrade to Spring Cloud 2025.1"
 ---
 

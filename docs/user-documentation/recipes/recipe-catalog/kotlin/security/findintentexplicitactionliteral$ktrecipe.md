@@ -1,4 +1,5 @@
 ---
+title: "Find `Intent(&quot;some.implicit.action&quot;)` constructions"
 sidebar_label: "Find `Intent(&quot;some.implicit.action&quot;)` constructions"
 ---
 

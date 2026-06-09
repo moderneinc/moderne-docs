@@ -1,4 +1,5 @@
 ---
+title: "Find resource"
 sidebar_label: "Find resource"
 ---
 

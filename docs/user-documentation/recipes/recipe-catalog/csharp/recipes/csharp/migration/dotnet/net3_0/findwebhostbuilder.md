@@ -1,4 +1,5 @@
 ---
+title: "Find `WebHostBuilder`/`WebHost.CreateDefaultBuilder` usage (replaced in ASP.NET Core 3.0)"
 sidebar_label: "Find `WebHostBuilder`/`WebHost.CreateDefaultBuilder` usage (replaced in ASP.NET Core 3.0)"
 ---
 

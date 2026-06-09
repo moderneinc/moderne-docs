@@ -1,4 +1,5 @@
 ---
+title: "Find organization statistics"
 sidebar_label: "Find organization statistics"
 ---
 

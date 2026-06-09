@@ -1,4 +1,5 @@
 ---
+title: "Find `@Inject lateinit var` field injection"
 sidebar_label: "Find `@Inject lateinit var` field injection"
 ---
 

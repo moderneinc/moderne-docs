@@ -1,4 +1,5 @@
 ---
+title: "Find LDAP injection vulnerabilities"
 sidebar_label: "Find LDAP injection vulnerabilities"
 ---
 

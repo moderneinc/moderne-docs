@@ -1,4 +1,5 @@
 ---
+title: "Migrate classic Actor to Akka Typed Behavior"
 sidebar_label: "Migrate classic Actor to Akka Typed Behavior"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Hibernate 7.0.x (Moderne Edition)"
 sidebar_label: "Migrate to Hibernate 7.0.x (Moderne Edition)"
 ---
 

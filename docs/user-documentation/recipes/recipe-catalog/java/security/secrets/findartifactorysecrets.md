@@ -1,4 +1,5 @@
 ---
+title: "Find Artifactory secrets"
 sidebar_label: "Find Artifactory secrets"
 ---
 

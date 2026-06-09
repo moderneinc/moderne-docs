@@ -1,4 +1,5 @@
 ---
+title: "Avoid `System.exit` in library code"
 sidebar_label: "Avoid `System.exit` in library code"
 ---
 

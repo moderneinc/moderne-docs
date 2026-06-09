@@ -1,4 +1,5 @@
 ---
+title: "Replace `array.tostring()` with `array.tobytes()`"
 sidebar_label: "Replace `array.tostring()` with `array.tobytes()`"
 ---
 

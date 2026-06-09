@@ -1,4 +1,5 @@
 ---
+title: "Find empty catch blocks"
 sidebar_label: "Find empty catch blocks"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find SQL function"
 sidebar_label: "Find SQL function"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find synchronous ExecuteUpdate/ExecuteDelete (EF Core 9)"
 sidebar_label: "Find synchronous ExecuteUpdate/ExecuteDelete (EF Core 9)"
 ---
 

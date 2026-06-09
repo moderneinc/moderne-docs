@@ -1,4 +1,5 @@
 ---
+title: "Migrate Scalaz to Cats"
 sidebar_label: "Migrate Scalaz to Cats"
 ---
 

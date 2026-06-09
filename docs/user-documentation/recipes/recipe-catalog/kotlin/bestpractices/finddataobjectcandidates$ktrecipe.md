@@ -1,4 +1,5 @@
 ---
+title: "Find marker `object` declarations that could be `data object`"
 sidebar_label: "Find marker `object` declarations that could be `data object`"
 ---
 

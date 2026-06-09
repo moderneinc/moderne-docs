@@ -1,4 +1,5 @@
 ---
+title: "Find NuGet package reference"
 sidebar_label: "Find NuGet package reference"
 ---
 
@@ -31,5 +32,5 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 <RunRecipe
   recipeName="OpenRewrite.CSharp.Recipes.FindNuGetPackageReference"
   displayName="Find NuGet package reference"
-  nugetPackage="OpenRewrite.Recipes.CSharp.Migration.Dotnet"
+  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
 />

@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `ossaudiodev` module usage"
 sidebar_label: "Find deprecated `ossaudiodev` module usage"
 ---
 

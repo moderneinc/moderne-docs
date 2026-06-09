@@ -1,4 +1,5 @@
 ---
+title: "Migrate `ConsumerGroupState` to `GroupState`"
 sidebar_label: "Migrate `ConsumerGroupState` to `GroupState`"
 ---
 

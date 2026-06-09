@@ -1,4 +1,5 @@
 ---
+title: "Use Kotlin array extensions instead of `java.util.Arrays`"
 sidebar_label: "Use Kotlin array extensions instead of `java.util.Arrays`"
 ---
 

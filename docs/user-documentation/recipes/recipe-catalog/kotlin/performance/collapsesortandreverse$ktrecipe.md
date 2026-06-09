@@ -1,4 +1,5 @@
 ---
+title: "Collapse `sorted().first/last()` and `reversed().first/last()` chains"
 sidebar_label: "Collapse `sorted().first/last()` and `reversed().first/last()` chains"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use modern Kotlin stdlib idioms"
 sidebar_label: "Use modern Kotlin stdlib idioms"
 ---
 

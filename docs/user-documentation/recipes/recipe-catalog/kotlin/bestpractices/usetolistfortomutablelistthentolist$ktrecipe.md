@@ -1,4 +1,5 @@
 ---
+title: "Use `toList()` instead of `toMutableList().toList()`"
 sidebar_label: "Use `toList()` instead of `toMutableList().toList()`"
 ---
 

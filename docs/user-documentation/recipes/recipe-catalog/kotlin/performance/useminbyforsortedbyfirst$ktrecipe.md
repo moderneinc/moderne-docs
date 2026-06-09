@@ -1,4 +1,5 @@
 ---
+title: "Use `minBy { selector }` instead of `sortedBy { selector }.first()`"
 sidebar_label: "Use `minBy { selector }` instead of `sortedBy { selector }.first()`"
 ---
 

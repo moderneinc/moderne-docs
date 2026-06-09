@@ -1,4 +1,5 @@
 ---
+title: "Use `enumEntries&lt;T&gt;()` instead of `enumValues&lt;T&gt;()`"
 sidebar_label: "Use `enumEntries&lt;T&gt;()` instead of `enumValues&lt;T&gt;()`"
 ---
 

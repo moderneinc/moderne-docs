@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.rotateRight(n)` instead of `Integer.rotateRight(i, n)`"
 sidebar_label: "Use `Int.rotateRight(n)` instead of `Integer.rotateRight(i, n)`"
 ---
 

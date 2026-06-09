@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded initialization vectors"
 sidebar_label: "Find hardcoded initialization vectors"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find service components"
 sidebar_label: "Find service components"
 ---
 

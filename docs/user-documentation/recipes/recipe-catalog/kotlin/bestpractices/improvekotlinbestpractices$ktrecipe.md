@@ -1,4 +1,5 @@
 ---
+title: "Apply Kotlin best-practice rewrites"
 sidebar_label: "Apply Kotlin best-practice rewrites"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find Heroku secrets"
 sidebar_label: "Find Heroku secrets"
 ---
 

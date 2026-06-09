@@ -1,4 +1,5 @@
 ---
+title: "Find `KafkaTemplate.send()` with custom key"
 sidebar_label: "Find `KafkaTemplate.send()` with custom key"
 ---
 

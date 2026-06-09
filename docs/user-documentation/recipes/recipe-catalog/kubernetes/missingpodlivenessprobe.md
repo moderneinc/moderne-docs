@@ -1,4 +1,5 @@
 ---
+title: "Ensure liveness probe is configured"
 sidebar_label: "Ensure liveness probe is configured"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Ensure parameterized SQL queries"
 sidebar_label: "Ensure parameterized SQL queries"
 ---
 

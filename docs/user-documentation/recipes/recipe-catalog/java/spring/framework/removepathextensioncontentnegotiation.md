@@ -1,4 +1,5 @@
 ---
+title: "Remove path extension content negotiation methods"
 sidebar_label: "Remove path extension content negotiation methods"
 ---
 

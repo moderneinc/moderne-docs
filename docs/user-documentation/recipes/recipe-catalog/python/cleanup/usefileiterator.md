@@ -1,4 +1,5 @@
 ---
+title: "Iterate over file objects directly, not via `readlines()`"
 sidebar_label: "Iterate over file objects directly, not via `readlines()`"
 ---
 

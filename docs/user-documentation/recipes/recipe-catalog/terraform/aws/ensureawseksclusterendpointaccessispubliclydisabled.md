@@ -1,4 +1,5 @@
 ---
+title: "Ensure AWS EKS cluster endpoint access is publicly disabled"
 sidebar_label: "Ensure AWS EKS cluster endpoint access is publicly disabled"
 ---
 

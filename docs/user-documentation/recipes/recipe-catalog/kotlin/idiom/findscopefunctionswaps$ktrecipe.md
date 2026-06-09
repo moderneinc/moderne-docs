@@ -1,4 +1,5 @@
 ---
+title: "Find scope-function correctness swaps"
 sidebar_label: "Find scope-function correctness swaps"
 ---
 

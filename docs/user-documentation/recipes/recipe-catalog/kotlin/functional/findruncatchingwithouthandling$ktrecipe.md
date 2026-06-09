@@ -1,4 +1,5 @@
 ---
+title: "Find `runCatching { }` calls whose result is discarded"
 sidebar_label: "Find `runCatching { }` calls whose result is discarded"
 ---
 

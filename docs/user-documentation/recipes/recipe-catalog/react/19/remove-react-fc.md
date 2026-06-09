@@ -1,4 +1,5 @@
 ---
+title: "Remove `React.FC` type annotation"
 sidebar_label: "Remove `React.FC` type annotation"
 ---
 

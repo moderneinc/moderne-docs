@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `uu` module usage"
 sidebar_label: "Find deprecated `uu` module usage"
 ---
 

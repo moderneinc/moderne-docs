@@ -1,4 +1,5 @@
 ---
+title: "Ensure app service enables HTTP logging"
 sidebar_label: "Ensure app service enables HTTP logging"
 ---
 

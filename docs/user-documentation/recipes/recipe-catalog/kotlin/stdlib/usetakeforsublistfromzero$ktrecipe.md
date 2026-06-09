@@ -1,4 +1,5 @@
 ---
+title: "Use `take(n)` instead of `subList(0, n)`"
 sidebar_label: "Use `take(n)` instead of `subList(0, n)`"
 ---
 

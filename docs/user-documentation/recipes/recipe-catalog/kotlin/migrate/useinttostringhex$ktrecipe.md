@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.toString(16)` instead of `Integer.toHexString`"
 sidebar_label: "Use `Int.toString(16)` instead of `Integer.toHexString`"
 ---
 

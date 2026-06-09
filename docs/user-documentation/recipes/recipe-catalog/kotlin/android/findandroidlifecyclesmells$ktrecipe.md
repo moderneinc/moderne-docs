@@ -1,4 +1,5 @@
 ---
+title: "Find Android lifecycle / LiveData smells"
 sidebar_label: "Find Android lifecycle / LiveData smells"
 ---
 

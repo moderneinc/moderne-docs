@@ -1,4 +1,5 @@
 ---
+title: "Replace `View.propTypes` with `ViewPropTypes`"
 sidebar_label: "Replace `View.propTypes` with `ViewPropTypes`"
 ---
 

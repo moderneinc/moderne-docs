@@ -1,4 +1,5 @@
 ---
+title: "Find UseMvc()/UseSignalR() calls"
 sidebar_label: "Find UseMvc()/UseSignalR() calls"
 ---
 

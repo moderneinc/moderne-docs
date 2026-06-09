@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.asin` instead of `java.lang.Math.asin`"
 sidebar_label: "Use `kotlin.math.asin` instead of `java.lang.Math.asin`"
 ---
 

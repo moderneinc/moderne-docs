@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.compareTo` instead of `java.lang.Integer.compare`"
 sidebar_label: "Use `Int.compareTo` instead of `java.lang.Integer.compare`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Ensure app services use Azure files"
 sidebar_label: "Ensure app services use Azure files"
 ---
 

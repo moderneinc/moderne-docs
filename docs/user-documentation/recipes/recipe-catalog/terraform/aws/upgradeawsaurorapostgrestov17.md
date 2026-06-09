@@ -1,4 +1,5 @@
 ---
+title: "Upgrade AWS Aurora PostgreSQL to 17"
 sidebar_label: "Upgrade AWS Aurora PostgreSQL to 17"
 ---
 

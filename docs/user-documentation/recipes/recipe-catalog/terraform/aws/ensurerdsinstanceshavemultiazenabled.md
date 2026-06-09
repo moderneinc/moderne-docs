@@ -1,4 +1,5 @@
 ---
+title: "Ensure RDS instances have Multi-AZ enabled"
 sidebar_label: "Ensure RDS instances have Multi-AZ enabled"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `replaceFirstChar { … }` instead of `capitalize()`"
 sidebar_label: "Use `replaceFirstChar { … }` instead of `capitalize()`"
 ---
 

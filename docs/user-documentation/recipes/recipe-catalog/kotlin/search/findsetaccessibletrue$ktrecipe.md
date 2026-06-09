@@ -1,4 +1,5 @@
 ---
+title: "Find `AccessibleObject.setAccessible(true)` calls"
 sidebar_label: "Find `AccessibleObject.setAccessible(true)` calls"
 ---
 

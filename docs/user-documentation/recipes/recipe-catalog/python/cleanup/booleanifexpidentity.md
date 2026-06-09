@@ -1,4 +1,5 @@
 ---
+title: "Collapse boolean ternary to bare condition"
 sidebar_label: "Collapse boolean ternary to bare condition"
 ---
 

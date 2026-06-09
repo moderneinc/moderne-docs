@@ -1,4 +1,5 @@
 ---
+title: "Find Slack secrets"
 sidebar_label: "Find Slack secrets"
 ---
 

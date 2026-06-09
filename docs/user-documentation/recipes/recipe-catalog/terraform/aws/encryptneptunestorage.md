@@ -1,4 +1,5 @@
 ---
+title: "Encrypt Neptune storage"
 sidebar_label: "Encrypt Neptune storage"
 ---
 

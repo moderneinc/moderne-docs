@@ -1,4 +1,5 @@
 ---
+title: "Simplify redundant logical expressions"
 sidebar_label: "Simplify redundant logical expressions"
 ---
 

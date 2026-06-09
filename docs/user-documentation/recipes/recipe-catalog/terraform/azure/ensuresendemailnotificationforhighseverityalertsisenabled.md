@@ -1,4 +1,5 @@
 ---
+title: "Ensure Send email notification for high severity alerts is enabled"
 sidebar_label: "Ensure Send email notification for high severity alerts is enabled"
 ---
 

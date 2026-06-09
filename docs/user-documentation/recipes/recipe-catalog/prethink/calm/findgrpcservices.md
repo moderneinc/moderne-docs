@@ -1,4 +1,5 @@
 ---
+title: "Find gRPC services"
 sidebar_label: "Find gRPC services"
 ---
 

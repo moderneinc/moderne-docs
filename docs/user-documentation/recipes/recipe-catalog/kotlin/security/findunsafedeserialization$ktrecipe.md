@@ -1,4 +1,5 @@
 ---
+title: "Find unsafe Java deserialization"
 sidebar_label: "Find unsafe Java deserialization"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find JPQL definitions"
 sidebar_label: "Find JPQL definitions"
 ---
 

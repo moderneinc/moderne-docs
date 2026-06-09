@@ -1,4 +1,5 @@
 ---
+title: "Use `first()` instead of `reversed().last()`"
 sidebar_label: "Use `first()` instead of `reversed().last()`"
 ---
 

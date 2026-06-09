@@ -1,4 +1,5 @@
 ---
+title: "Use `Try` safely without calling `.get`"
 sidebar_label: "Use `Try` safely without calling `.get`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Remove unused variable bindings"
 sidebar_label: "Remove unused variable bindings"
 ---
 

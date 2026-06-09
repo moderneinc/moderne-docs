@@ -1,4 +1,5 @@
 ---
+title: "Migrate `PropertyMapper` API for Spring Boot 4.0"
 sidebar_label: "Migrate `PropertyMapper` API for Spring Boot 4.0"
 ---
 

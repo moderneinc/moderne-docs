@@ -1,4 +1,5 @@
 ---
+title: "Find `LazyColumn { … }` calls — verify items use stable keys"
 sidebar_label: "Find `LazyColumn { … }` calls — verify items use stable keys"
 ---
 

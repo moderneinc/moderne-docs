@@ -1,4 +1,5 @@
 ---
+title: "Ensure Azure PostgreSQL database server with SSL connection is enabled"
 sidebar_label: "Ensure Azure PostgreSQL database server with SSL connection is enabled"
 ---
 

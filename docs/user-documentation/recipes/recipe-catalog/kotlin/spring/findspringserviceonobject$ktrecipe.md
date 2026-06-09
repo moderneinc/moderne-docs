@@ -1,4 +1,5 @@
 ---
+title: "Find `@Service object Foo` declarations"
 sidebar_label: "Find `@Service object Foo` declarations"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate ScalikeJDBC to Doobie or Quill"
 sidebar_label: "Migrate ScalikeJDBC to Doobie or Quill"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use bracket access for ``re.Match`` groups"
 sidebar_label: "Use bracket access for ``re.Match`` groups"
 ---
 

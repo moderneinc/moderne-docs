@@ -1,4 +1,5 @@
 ---
+title: "Ensure detailed monitoring for EC2 instances is enabled"
 sidebar_label: "Ensure detailed monitoring for EC2 instances is enabled"
 ---
 

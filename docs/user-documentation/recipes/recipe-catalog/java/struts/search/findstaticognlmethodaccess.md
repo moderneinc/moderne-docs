@@ -1,4 +1,5 @@
 ---
+title: "Find static OGNL method access"
 sidebar_label: "Find static OGNL method access"
 ---
 

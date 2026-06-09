@@ -1,4 +1,5 @@
 ---
+title: "Deduplicate repeated elements in set literals"
 sidebar_label: "Deduplicate repeated elements in set literals"
 ---
 

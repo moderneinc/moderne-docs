@@ -1,4 +1,5 @@
 ---
+title: "Find new LoggerFactory() calls"
 sidebar_label: "Find new LoggerFactory() calls"
 ---
 

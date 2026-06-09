@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `kotlinx-io-core` methods"
 sidebar_label: "Replace deprecated `kotlinx-io-core` methods"
 ---
 

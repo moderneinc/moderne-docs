@@ -1,4 +1,5 @@
 ---
+title: "Use `minOf { selector }` instead of `map { selector }.min()`"
 sidebar_label: "Use `minOf { selector }` instead of `map { selector }.min()`"
 ---
 

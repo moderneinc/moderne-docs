@@ -1,4 +1,5 @@
 ---
+title: "Find Web API compatibility shim usage (removed in ASP.NET Core 3.0)"
 sidebar_label: "Find Web API compatibility shim usage (removed in ASP.NET Core 3.0)"
 ---
 

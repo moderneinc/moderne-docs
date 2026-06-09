@@ -1,4 +1,5 @@
 ---
+title: "Remove Dropwizard lifecycle.manage() calls"
 sidebar_label: "Remove Dropwizard lifecycle.manage() calls"
 ---
 

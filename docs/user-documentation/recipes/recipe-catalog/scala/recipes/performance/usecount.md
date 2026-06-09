@@ -1,4 +1,5 @@
 ---
+title: "Replace `filter` then `size` with `count`"
 sidebar_label: "Replace `filter` then `size` with `count`"
 ---
 

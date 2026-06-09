@@ -1,4 +1,5 @@
 ---
+title: "Find AssertJ `.extracting(...).contains(...)` chains"
 sidebar_label: "Find AssertJ `.extracting(...).contains(...)` chains"
 ---
 

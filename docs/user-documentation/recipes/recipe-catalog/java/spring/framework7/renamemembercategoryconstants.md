@@ -1,4 +1,5 @@
 ---
+title: "Rename MemberCategory field constants for Spring Framework 7.0"
 sidebar_label: "Rename MemberCategory field constants for Spring Framework 7.0"
 ---
 

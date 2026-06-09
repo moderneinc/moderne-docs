@@ -1,4 +1,5 @@
 ---
+title: "Find weak password hashing"
 sidebar_label: "Find weak password hashing"
 ---
 

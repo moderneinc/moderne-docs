@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `Path.link_to()` usage"
 sidebar_label: "Find deprecated `Path.link_to()` usage"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Rename Exposed deprecated methods for 1.0"
 sidebar_label: "Rename Exposed deprecated methods for 1.0"
 ---
 

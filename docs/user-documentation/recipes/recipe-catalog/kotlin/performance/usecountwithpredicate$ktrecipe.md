@@ -1,4 +1,5 @@
 ---
+title: "Use `count { predicate }` instead of `filter { predicate }.count()`"
 sidebar_label: "Use `count { predicate }` instead of `filter { predicate }.count()`"
 ---
 

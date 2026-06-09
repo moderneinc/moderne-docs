@@ -1,4 +1,5 @@
 ---
+title: "Modernize .NET Framework 4.8 project (SDK + PackageReference)"
 sidebar_label: "Modernize .NET Framework 4.8 project (SDK + PackageReference)"
 ---
 

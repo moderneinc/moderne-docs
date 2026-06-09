@@ -1,4 +1,5 @@
 ---
+title: "Use `emptyMap&lt;K, V&gt;()` instead of `mapOf&lt;K, V&gt;()`"
 sidebar_label: "Use `emptyMap&lt;K, V&gt;()` instead of `mapOf&lt;K, V&gt;()`"
 ---
 

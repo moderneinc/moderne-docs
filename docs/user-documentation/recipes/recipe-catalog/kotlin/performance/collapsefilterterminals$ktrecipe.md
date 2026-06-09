@@ -1,4 +1,5 @@
 ---
+title: "Collapse `filter { p }.&lt;terminal&gt;()` chains"
 sidebar_label: "Collapse `filter { p }.&lt;terminal&gt;()` chains"
 ---
 

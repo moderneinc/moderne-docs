@@ -1,4 +1,5 @@
 ---
+title: "Upgrade `required_providers` to object syntax"
 sidebar_label: "Upgrade `required_providers` to object syntax"
 ---
 

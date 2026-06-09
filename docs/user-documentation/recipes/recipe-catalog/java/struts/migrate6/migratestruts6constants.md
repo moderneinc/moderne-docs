@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Struts 6.0 constants"
 sidebar_label: "Migrate to Struts 6.0 constants"
 ---
 

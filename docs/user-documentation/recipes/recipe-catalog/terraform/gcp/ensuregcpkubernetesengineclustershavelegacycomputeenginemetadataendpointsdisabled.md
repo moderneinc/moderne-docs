@@ -1,4 +1,5 @@
 ---
+title: "Ensure GCP Kubernetes engine clusters have legacy compute engine metadata endpoints disabled"
 sidebar_label: "Ensure GCP Kubernetes engine clusters have legacy compute engine metadata endpoints disabled"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace `HTMLParser.unescape()` with `html.unescape()`"
 sidebar_label: "Replace `HTMLParser.unescape()` with `html.unescape()`"
 ---
 

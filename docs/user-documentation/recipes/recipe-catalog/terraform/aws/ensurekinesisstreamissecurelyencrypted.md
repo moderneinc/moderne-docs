@@ -1,4 +1,5 @@
 ---
+title: "Ensure Kinesis Stream is securely encrypted"
 sidebar_label: "Ensure Kinesis Stream is securely encrypted"
 ---
 

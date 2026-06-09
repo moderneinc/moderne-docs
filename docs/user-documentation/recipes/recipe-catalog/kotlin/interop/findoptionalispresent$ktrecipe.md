@@ -1,4 +1,5 @@
 ---
+title: "Find `Optional.isPresent` / `isEmpty` checks"
 sidebar_label: "Find `Optional.isPresent` / `isEmpty` checks"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find image by name"
 sidebar_label: "Find image by name"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find weak cryptographic primitives"
 sidebar_label: "Find weak cryptographic primitives"
 ---
 

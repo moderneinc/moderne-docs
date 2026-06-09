@@ -1,4 +1,5 @@
 ---
+title: "Use `Long.mod(Int)` instead of `java.lang.Math.floorMod`"
 sidebar_label: "Use `Long.mod(Int)` instead of `java.lang.Math.floorMod`"
 ---
 

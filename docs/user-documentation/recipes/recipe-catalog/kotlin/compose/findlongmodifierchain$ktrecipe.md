@@ -1,4 +1,5 @@
 ---
+title: "Find `Modifier.xxx().yyy()...` chains longer than five operations"
 sidebar_label: "Find `Modifier.xxx().yyy()...` chains longer than five operations"
 ---
 

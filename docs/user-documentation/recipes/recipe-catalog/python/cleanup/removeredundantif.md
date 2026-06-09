@@ -1,4 +1,5 @@
 ---
+title: "Simplify negated ``elif`` to ``else``"
 sidebar_label: "Simplify negated ``elif`` to ``else``"
 ---
 

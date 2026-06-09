@@ -1,4 +1,5 @@
 ---
+title: "Add Spring Framework modular dependencies"
 sidebar_label: "Add Spring Framework modular dependencies"
 ---
 

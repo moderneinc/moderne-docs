@@ -1,4 +1,5 @@
 ---
+title: "Find `@OptIn(...)` annotations"
 sidebar_label: "Find `@OptIn(...)` annotations"
 ---
 

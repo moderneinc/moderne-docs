@@ -1,4 +1,5 @@
 ---
+title: "Remove `break`/`continue` outside loop"
 sidebar_label: "Remove `break`/`continue` outside loop"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Javascript real-time communication library insights"
 sidebar_label: "Javascript real-time communication library insights"
 ---
 

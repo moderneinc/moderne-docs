@@ -1,4 +1,5 @@
 ---
+title: "Migrate `ListenableFuture` to `CompletableFuture`"
 sidebar_label: "Migrate `ListenableFuture` to `CompletableFuture`"
 ---
 
@@ -25,6 +26,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [Migrate deprecated APIs removed in Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratedeprecatedapis)
+* [Migrate to Spring Framework 6.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-moderne-edition)
 
 ## Example
 

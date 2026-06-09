@@ -1,4 +1,5 @@
 ---
+title: "Remove `es5BrowserSupport` from `angular.json`"
 sidebar_label: "Remove `es5BrowserSupport` from `angular.json`"
 ---
 
@@ -18,13 +19,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 10](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular10)
 
 
 ## Usage

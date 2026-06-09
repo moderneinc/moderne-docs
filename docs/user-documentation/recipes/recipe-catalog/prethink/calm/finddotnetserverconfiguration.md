@@ -1,4 +1,5 @@
 ---
+title: "Find .NET server configuration"
 sidebar_label: "Find .NET server configuration"
 ---
 

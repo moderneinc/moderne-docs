@@ -1,4 +1,5 @@
 ---
+title: "Find `LaunchedEffect(Unit) { … }` blocks"
 sidebar_label: "Find `LaunchedEffect(Unit) { … }` blocks"
 ---
 

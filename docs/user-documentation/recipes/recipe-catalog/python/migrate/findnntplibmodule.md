@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `nntplib` module usage"
 sidebar_label: "Find deprecated `nntplib` module usage"
 ---
 

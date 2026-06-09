@@ -1,4 +1,5 @@
 ---
+title: "Remove obsolete `__future__` imports"
 sidebar_label: "Remove obsolete `__future__` imports"
 ---
 

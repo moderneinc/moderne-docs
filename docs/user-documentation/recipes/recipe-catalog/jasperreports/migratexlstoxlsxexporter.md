@@ -1,4 +1,5 @@
 ---
+title: "Migrate JRXlsExporter to JRXlsxExporter"
 sidebar_label: "Migrate JRXlsExporter to JRXlsxExporter"
 ---
 

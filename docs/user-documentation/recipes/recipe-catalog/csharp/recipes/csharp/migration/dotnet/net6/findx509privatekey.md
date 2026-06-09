@@ -1,4 +1,5 @@
 ---
+title: "Find `X509Certificate2.PrivateKey` usage (SYSLIB0028)"
 sidebar_label: "Find `X509Certificate2.PrivateKey` usage (SYSLIB0028)"
 ---
 

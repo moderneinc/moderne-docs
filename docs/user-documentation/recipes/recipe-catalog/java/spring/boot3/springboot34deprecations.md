@@ -1,4 +1,5 @@
 ---
+title: "Migrate Spring Boot 3.4 deprecated classes and methods"
 sidebar_label: "Migrate Spring Boot 3.4 deprecated classes and methods"
 ---
 

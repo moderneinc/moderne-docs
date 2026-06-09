@@ -1,4 +1,5 @@
 ---
+title: "Find Go database connections"
 sidebar_label: "Find Go database connections"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find unused variable definitions"
 sidebar_label: "Find unused variable definitions"
 ---
 

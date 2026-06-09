@@ -1,4 +1,5 @@
 ---
+title: "Find `Flow.flowOn` placed after a terminal operator"
 sidebar_label: "Find `Flow.flowOn` placed after a terminal operator"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use GetExternalAuthenticationSchemesAsync()"
 sidebar_label: "Use GetExternalAuthenticationSchemesAsync()"
 ---
 

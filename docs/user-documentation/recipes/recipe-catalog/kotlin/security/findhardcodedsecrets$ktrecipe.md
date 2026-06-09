@@ -1,4 +1,5 @@
 ---
+title: "Find hard-coded secret literals"
 sidebar_label: "Find hard-coded secret literals"
 ---
 

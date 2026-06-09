@@ -1,4 +1,5 @@
 ---
+title: "Find `object Constants { const val A = ... }` static-constants holders"
 sidebar_label: "Find `object Constants { const val A = ... }` static-constants holders"
 ---
 

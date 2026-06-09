@@ -1,4 +1,5 @@
 ---
+title: "Find `File.readText()` calls"
 sidebar_label: "Find `File.readText()` calls"
 ---
 

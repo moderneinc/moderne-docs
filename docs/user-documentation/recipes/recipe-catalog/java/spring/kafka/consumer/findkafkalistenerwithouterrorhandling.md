@@ -1,4 +1,5 @@
 ---
+title: "Find `@KafkaListener` methods without error handling"
 sidebar_label: "Find `@KafkaListener` methods without error handling"
 ---
 

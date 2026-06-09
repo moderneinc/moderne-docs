@@ -1,4 +1,5 @@
 ---
+title: "Extract error handling patterns"
 sidebar_label: "Extract error handling patterns"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate to ASP.NET Core 2.2"
 sidebar_label: "Migrate to ASP.NET Core 2.2"
 ---
 

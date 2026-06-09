@@ -1,4 +1,5 @@
 ---
+title: "Use string.StartsWith(char)/EndsWith(char) overload"
 sidebar_label: "Use string.StartsWith(char)/EndsWith(char) overload"
 ---
 

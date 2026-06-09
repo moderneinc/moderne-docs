@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to Node.js 22"
 sidebar_label: "Upgrade to Node.js 22"
 ---
 

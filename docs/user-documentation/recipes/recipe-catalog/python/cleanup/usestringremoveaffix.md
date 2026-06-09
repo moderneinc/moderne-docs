@@ -1,4 +1,5 @@
 ---
+title: "Replace string slicing with `removeprefix`/`removesuffix`"
 sidebar_label: "Replace string slicing with `removeprefix`/`removesuffix`"
 ---
 

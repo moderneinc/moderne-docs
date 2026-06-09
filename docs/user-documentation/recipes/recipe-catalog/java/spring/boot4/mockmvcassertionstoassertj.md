@@ -1,4 +1,5 @@
 ---
+title: "Migrate MockMvc `andExpect()` chains to AssertJ assertions"
 sidebar_label: "Migrate MockMvc `andExpect()` chains to AssertJ assertions"
 ---
 

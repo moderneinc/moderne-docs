@@ -1,4 +1,5 @@
 ---
+title: "Use Guid.CreateVersion7()"
 sidebar_label: "Use Guid.CreateVersion7()"
 ---
 

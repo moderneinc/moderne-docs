@@ -1,4 +1,5 @@
 ---
+title: "Find predictable cryptographic salts"
 sidebar_label: "Find predictable cryptographic salts"
 ---
 

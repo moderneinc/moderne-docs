@@ -1,4 +1,5 @@
 ---
+title: "Find .NET GraphQL endpoints"
 sidebar_label: "Find .NET GraphQL endpoints"
 ---
 

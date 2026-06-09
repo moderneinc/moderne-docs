@@ -1,4 +1,5 @@
 ---
+title: "Find Python test coverage"
 sidebar_label: "Find Python test coverage"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Simplify `React.xxx` to direct imports"
 sidebar_label: "Simplify `React.xxx` to direct imports"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "DevCenter for Node.js"
 sidebar_label: "DevCenter for Node.js"
 ---
 

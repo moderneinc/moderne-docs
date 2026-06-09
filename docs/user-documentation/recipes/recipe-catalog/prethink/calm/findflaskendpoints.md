@@ -1,4 +1,5 @@
 ---
+title: "Find Flask endpoints"
 sidebar_label: "Find Flask endpoints"
 ---
 

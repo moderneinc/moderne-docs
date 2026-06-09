@@ -1,4 +1,5 @@
 ---
+title: "Use `isEmpty` instead of `size == 0`"
 sidebar_label: "Use `isEmpty` instead of `size == 0`"
 ---
 

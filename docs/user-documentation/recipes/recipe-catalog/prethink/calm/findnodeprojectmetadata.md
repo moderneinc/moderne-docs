@@ -1,4 +1,5 @@
 ---
+title: "Find Node.js project metadata"
 sidebar_label: "Find Node.js project metadata"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math` instead of `java.lang.Math`"
 sidebar_label: "Use `kotlin.math` instead of `java.lang.Math`"
 ---
 

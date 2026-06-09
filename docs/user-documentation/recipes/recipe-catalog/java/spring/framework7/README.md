@@ -22,6 +22,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find Spring OkHttp3 integration usage](./findokhttp3integrationusage.md)
 * [Find Spring Theme support usage](./findthemesupportusage.md)
 * [Find removed Spring servlet view classes](./findservletviewsupportusage.md)
+* [Migrate `AbstractClientHttpResponse` to `ClientHttpResponse`](./migrateabstractclienthttpresponse.md)
 * [Migrate `Jackson2ObjectMapperBuilder` to mapper builder pattern](./migratejackson2objectmapperbuilder.md)
 * [Migrate `ListenableFuture` to `CompletableFuture`](./migratelistenablefuture.md)
 * [Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`](./migrateresponseentitygetstatuscodevaluemethod.md)

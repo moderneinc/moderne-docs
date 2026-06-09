@@ -1,4 +1,5 @@
 ---
+title: "Replace `typing.Optional[X]` with `X | None`"
 sidebar_label: "Replace `typing.Optional[X]` with `X | None`"
 ---
 

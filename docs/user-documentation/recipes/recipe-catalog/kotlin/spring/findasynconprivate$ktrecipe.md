@@ -1,4 +1,5 @@
 ---
+title: "Find `@Async` on `private` functions"
 sidebar_label: "Find `@Async` on `private` functions"
 ---
 

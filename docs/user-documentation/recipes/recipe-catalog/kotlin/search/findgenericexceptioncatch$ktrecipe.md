@@ -1,4 +1,5 @@
 ---
+title: "Find `catch (e: Exception)` and `catch (e: Throwable)` clauses"
 sidebar_label: "Find `catch (e: Exception)` and `catch (e: Throwable)` clauses"
 ---
 

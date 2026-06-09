@@ -1,4 +1,5 @@
 ---
+title: "Replace `JavaConverters` with `CollectionConverters`"
 sidebar_label: "Replace `JavaConverters` with `CollectionConverters`"
 ---
 

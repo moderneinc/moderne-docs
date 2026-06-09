@@ -1,4 +1,5 @@
 ---
+title: "Ensure key vault enables purge protection"
 sidebar_label: "Ensure key vault enables purge protection"
 ---
 

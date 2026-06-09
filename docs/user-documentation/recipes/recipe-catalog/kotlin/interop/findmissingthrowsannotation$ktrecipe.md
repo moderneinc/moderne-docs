@@ -1,4 +1,5 @@
 ---
+title: "Find functions with `throw` of a checked exception missing `@Throws`"
 sidebar_label: "Find functions with `throw` of a checked exception missing `@Throws`"
 ---
 

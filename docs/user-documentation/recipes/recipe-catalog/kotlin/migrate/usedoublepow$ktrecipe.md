@@ -1,4 +1,5 @@
 ---
+title: "Use `Double.pow` instead of `java.lang.Math.pow`"
 sidebar_label: "Use `Double.pow` instead of `java.lang.Math.pow`"
 ---
 

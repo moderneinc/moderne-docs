@@ -1,4 +1,5 @@
 ---
+title: "Find `BinaryFormatter` usage (removed in .NET 9)"
 sidebar_label: "Find `BinaryFormatter` usage (removed in .NET 9)"
 ---
 

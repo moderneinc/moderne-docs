@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage"
 sidebar_label: "Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage"
 ---
 

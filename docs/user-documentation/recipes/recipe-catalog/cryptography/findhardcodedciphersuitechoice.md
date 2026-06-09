@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded cipher suite choices"
 sidebar_label: "Find hardcoded cipher suite choices"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.code.toDouble()` instead of `Char.toDouble()`"
 sidebar_label: "Use `Char.code.toDouble()` instead of `Char.toDouble()`"
 ---
 

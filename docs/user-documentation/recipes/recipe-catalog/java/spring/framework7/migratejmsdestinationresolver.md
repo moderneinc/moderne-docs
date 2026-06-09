@@ -1,4 +1,5 @@
 ---
+title: "Preserve DynamicDestinationResolver behavior for JmsTemplate"
 sidebar_label: "Preserve DynamicDestinationResolver behavior for JmsTemplate"
 ---
 

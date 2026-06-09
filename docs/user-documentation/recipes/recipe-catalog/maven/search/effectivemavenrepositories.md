@@ -1,4 +1,5 @@
 ---
+title: "List effective Maven repositories"
 sidebar_label: "List effective Maven repositories"
 ---
 
@@ -39,11 +40,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 |useMarkers|`true`|
 
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
+###### Unchanged
 ```xml title="pom.xml"
 <project>
   <groupId>org.openrewrite.example</groupId>
@@ -51,29 +48,6 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
   <version>1</version>
 </project>
 ```
-
-###### After
-```xml title="pom.xml"
-<!--~~(https://repo.maven.apache.org/maven2)~~>--><project>
-  <groupId>org.openrewrite.example</groupId>
-  <artifactId>my-app</artifactId>
-  <version>1</version>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -1,1 +1,1 @@
--<project>
-+<!--~~(https://repo.maven.apache.org/maven2)~~>--><project>
-  <groupId>org.openrewrite.example</groupId>
-```
-</TabItem>
-</Tabs>
 
 
 ## Usage

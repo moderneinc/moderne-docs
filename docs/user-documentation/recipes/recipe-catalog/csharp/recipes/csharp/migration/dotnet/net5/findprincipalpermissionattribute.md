@@ -1,4 +1,5 @@
 ---
+title: "Find `PrincipalPermissionAttribute` usage (SYSLIB0003)"
 sidebar_label: "Find `PrincipalPermissionAttribute` usage (SYSLIB0003)"
 ---
 

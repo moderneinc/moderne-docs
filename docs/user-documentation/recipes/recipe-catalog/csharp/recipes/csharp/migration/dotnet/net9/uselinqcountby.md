@@ -1,4 +1,5 @@
 ---
+title: "Use LINQ CountBy()"
 sidebar_label: "Use LINQ CountBy()"
 ---
 

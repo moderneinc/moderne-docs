@@ -1,4 +1,5 @@
 ---
+title: "Externalize hardcoded credentials"
 sidebar_label: "Externalize hardcoded credentials"
 ---
 

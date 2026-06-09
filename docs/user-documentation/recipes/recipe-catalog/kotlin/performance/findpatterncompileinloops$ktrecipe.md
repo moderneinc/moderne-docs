@@ -1,4 +1,5 @@
 ---
+title: "Find `Pattern.compile` allocations inside loops"
 sidebar_label: "Find `Pattern.compile` allocations inside loops"
 ---
 

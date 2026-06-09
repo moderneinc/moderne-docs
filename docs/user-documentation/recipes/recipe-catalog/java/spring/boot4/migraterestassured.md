@@ -1,4 +1,5 @@
 ---
+title: "Add explicit version for REST Assured"
 sidebar_label: "Add explicit version for REST Assured"
 ---
 

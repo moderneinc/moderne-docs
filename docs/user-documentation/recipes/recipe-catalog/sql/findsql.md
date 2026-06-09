@@ -1,4 +1,5 @@
 ---
+title: "Find SQL in code and resource files"
 sidebar_label: "Find SQL in code and resource files"
 ---
 

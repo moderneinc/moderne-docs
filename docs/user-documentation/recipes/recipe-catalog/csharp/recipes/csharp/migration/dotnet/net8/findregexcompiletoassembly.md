@@ -1,4 +1,5 @@
 ---
+title: "Find `Regex.CompileToAssembly` usage (SYSLIB0052)"
 sidebar_label: "Find `Regex.CompileToAssembly` usage (SYSLIB0052)"
 ---
 

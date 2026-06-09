@@ -1,4 +1,5 @@
 ---
+title: "Swap ternary branches to drop negated condition"
 sidebar_label: "Swap ternary branches to drop negated condition"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use \e escape sequence"
 sidebar_label: "Use \e escape sequence"
 ---
 

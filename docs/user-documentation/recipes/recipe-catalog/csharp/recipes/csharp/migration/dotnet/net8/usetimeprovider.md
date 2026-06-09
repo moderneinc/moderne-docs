@@ -1,4 +1,5 @@
 ---
+title: "Use TimeProvider instead of DateTime/DateTimeOffset static properties"
 sidebar_label: "Use TimeProvider instead of DateTime/DateTimeOffset static properties"
 ---
 

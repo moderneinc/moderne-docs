@@ -1,4 +1,5 @@
 ---
+title: "Replace `PlatformServices` with `AppContext`"
 sidebar_label: "Replace `PlatformServices` with `AppContext`"
 ---
 

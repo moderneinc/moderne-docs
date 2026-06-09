@@ -1,4 +1,5 @@
 ---
+title: "Replace Session.buildLockRequest with LockOptions"
 sidebar_label: "Replace Session.buildLockRequest with LockOptions"
 ---
 

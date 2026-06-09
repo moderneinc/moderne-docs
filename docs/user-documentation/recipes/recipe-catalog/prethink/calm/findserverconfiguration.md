@@ -1,4 +1,5 @@
 ---
+title: "Find server configuration"
 sidebar_label: "Find server configuration"
 ---
 

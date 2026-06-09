@@ -1,4 +1,5 @@
 ---
+title: "Rename file"
 sidebar_label: "Rename file"
 ---
 
@@ -25,13 +26,6 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | --- | --- | --- | --- |
 | `null` | fileMatcher | Glob pattern to match files (e.g., `**/browserslist`). Supports `**` prefix to match in any directory. | `**/browserslist` |
 | `null` | fileName | The new file name (just the basename, e.g., `.browserslistrc`). | `.browserslistrc` |
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 10](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular10)
 
 
 ## Usage

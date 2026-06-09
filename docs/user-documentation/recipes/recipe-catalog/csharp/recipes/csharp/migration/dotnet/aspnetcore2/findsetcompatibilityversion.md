@@ -1,4 +1,5 @@
 ---
+title: "Find SetCompatibilityVersion() calls"
 sidebar_label: "Find SetCompatibilityVersion() calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `Char(int)` instead of `Int.toChar()`"
 sidebar_label: "Use `Char(int)` instead of `Int.toChar()`"
 ---
 

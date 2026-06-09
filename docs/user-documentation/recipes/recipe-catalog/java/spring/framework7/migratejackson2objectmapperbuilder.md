@@ -1,4 +1,5 @@
 ---
+title: "Migrate `Jackson2ObjectMapperBuilder` to mapper builder pattern"
 sidebar_label: "Migrate `Jackson2ObjectMapperBuilder` to mapper builder pattern"
 ---
 

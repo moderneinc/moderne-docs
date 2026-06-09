@@ -1,4 +1,5 @@
 ---
+title: "Remove class variables matching package filter"
 sidebar_label: "Remove class variables matching package filter"
 ---
 

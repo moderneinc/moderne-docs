@@ -1,4 +1,5 @@
 ---
+title: "Find `Modifier.fillMaxXxx().padding(...)` chains"
 sidebar_label: "Find `Modifier.fillMaxXxx().padding(...)` chains"
 ---
 

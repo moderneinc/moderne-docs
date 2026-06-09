@@ -1,4 +1,5 @@
 ---
+title: "Find build- and source-hygiene smells"
 sidebar_label: "Find build- and source-hygiene smells"
 ---
 

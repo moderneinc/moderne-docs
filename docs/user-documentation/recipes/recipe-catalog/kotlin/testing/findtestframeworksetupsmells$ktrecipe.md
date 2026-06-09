@@ -1,4 +1,5 @@
 ---
+title: "Find JUnit 5 setup smells (informational)"
 sidebar_label: "Find JUnit 5 setup smells (informational)"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace `Jackson.newObjectMapper()` with `new ObjectMapper().findAndRegisterModules()`"
 sidebar_label: "Replace `Jackson.newObjectMapper()` with `new ObjectMapper().findAndRegisterModules()`"
 ---
 

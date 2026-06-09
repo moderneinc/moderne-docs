@@ -1,4 +1,5 @@
 ---
+title: "Parent POM upgrade"
 sidebar_label: "Parent POM upgrade"
 ---
 

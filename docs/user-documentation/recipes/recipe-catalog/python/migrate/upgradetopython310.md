@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to Python 3.10"
 sidebar_label: "Upgrade to Python 3.10"
 ---
 

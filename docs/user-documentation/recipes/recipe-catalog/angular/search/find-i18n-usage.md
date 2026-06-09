@@ -1,4 +1,5 @@
 ---
+title: "Find i18n usage"
 sidebar_label: "Find i18n usage"
 ---
 

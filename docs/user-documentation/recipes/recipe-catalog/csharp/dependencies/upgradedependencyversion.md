@@ -1,4 +1,5 @@
 ---
+title: "Upgrade C# dependency versions"
 sidebar_label: "Upgrade C# dependency versions"
 ---
 

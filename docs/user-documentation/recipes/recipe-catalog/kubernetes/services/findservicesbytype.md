@@ -1,4 +1,5 @@
 ---
+title: "Service type"
 sidebar_label: "Service type"
 ---
 

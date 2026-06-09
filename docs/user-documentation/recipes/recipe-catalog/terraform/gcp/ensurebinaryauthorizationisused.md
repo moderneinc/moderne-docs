@@ -1,4 +1,5 @@
 ---
+title: "Ensure binary authorization is used"
 sidebar_label: "Ensure binary authorization is used"
 ---
 

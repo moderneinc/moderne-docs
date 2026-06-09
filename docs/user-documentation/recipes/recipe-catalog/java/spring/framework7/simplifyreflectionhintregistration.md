@@ -1,4 +1,5 @@
 ---
+title: "Simplify reflection hint registrations for Spring Framework 7.0"
 sidebar_label: "Simplify reflection hint registrations for Spring Framework 7.0"
 ---
 

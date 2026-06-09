@@ -1,4 +1,5 @@
 ---
+title: "Find Compose ViewModel wiring issues"
 sidebar_label: "Find Compose ViewModel wiring issues"
 ---
 

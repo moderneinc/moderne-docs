@@ -1,4 +1,5 @@
 ---
+title: "Remove `React.forwardRef` wrapper"
 sidebar_label: "Remove `React.forwardRef` wrapper"
 ---
 

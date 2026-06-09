@@ -1,4 +1,5 @@
 ---
+title: "Find `Flux.fromIterable(listOf(...))` patterns"
 sidebar_label: "Find `Flux.fromIterable(listOf(...))` patterns"
 ---
 

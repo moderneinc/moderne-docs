@@ -1,4 +1,5 @@
 ---
+title: "Find `&quot;Basic &lt;base64&gt;&quot;` literals in source"
 sidebar_label: "Find `&quot;Basic &lt;base64&gt;&quot;` literals in source"
 ---
 

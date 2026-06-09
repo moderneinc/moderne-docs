@@ -1,4 +1,5 @@
 ---
+title: "Migrate `@JdbcType` and legacy `@Type` to `@JdbcTypeCode`"
 sidebar_label: "Migrate `@JdbcType` and legacy `@Type` to `@JdbcTypeCode`"
 ---
 

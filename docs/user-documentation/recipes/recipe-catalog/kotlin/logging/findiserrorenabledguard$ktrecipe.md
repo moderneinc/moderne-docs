@@ -1,4 +1,5 @@
 ---
+title: "Find `if (log.isErrorEnabled) ...` guards"
 sidebar_label: "Find `if (log.isErrorEnabled) ...` guards"
 ---
 

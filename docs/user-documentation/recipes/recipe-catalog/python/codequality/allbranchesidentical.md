@@ -1,4 +1,5 @@
 ---
+title: "Remove conditional with identical branches"
 sidebar_label: "Remove conditional with identical branches"
 ---
 

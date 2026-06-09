@@ -1,4 +1,5 @@
 ---
+title: "Find React prop usage"
 sidebar_label: "Find React prop usage"
 ---
 

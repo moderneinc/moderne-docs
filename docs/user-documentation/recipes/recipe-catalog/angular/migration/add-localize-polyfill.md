@@ -1,4 +1,5 @@
 ---
+title: "Add `@angular/localize/init` polyfill import"
 sidebar_label: "Add `@angular/localize/init` polyfill import"
 ---
 

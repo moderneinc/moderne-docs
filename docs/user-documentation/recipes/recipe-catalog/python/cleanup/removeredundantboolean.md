@@ -1,4 +1,5 @@
 ---
+title: "Eliminate boolean literal from `and`/`or`"
 sidebar_label: "Eliminate boolean literal from `and`/`or`"
 ---
 

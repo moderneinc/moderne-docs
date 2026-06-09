@@ -1,4 +1,5 @@
 ---
+title: "Substitute constant collection condition with boolean"
 sidebar_label: "Substitute constant collection condition with boolean"
 ---
 

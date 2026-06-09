@@ -1,4 +1,5 @@
 ---
+title: "Find `Collections.unmodifiableList/Set/Map(...)` wrappers"
 sidebar_label: "Find `Collections.unmodifiableList/Set/Map(...)` wrappers"
 ---
 

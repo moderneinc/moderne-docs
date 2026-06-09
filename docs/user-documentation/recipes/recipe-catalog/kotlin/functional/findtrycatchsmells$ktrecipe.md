@@ -1,4 +1,5 @@
 ---
+title: "Find raw `try`/`catch` smells"
 sidebar_label: "Find raw `try`/`catch` smells"
 ---
 

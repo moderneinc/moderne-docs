@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to the latest Timefold Solver"
 sidebar_label: "Upgrade to the latest Timefold Solver"
 ---
 
@@ -50,10 +51,21 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 * [Change method name](../../../../java/changemethodname)
   * methodPattern: `ai.timefold.solver.core.api.score.stream.ConstraintFactory fromUniquePair(..)`
   * newMethodName: `forEachUniquePair`
+* [ScoreManager: explain(), update()](../../../../ai/timefold/solver/migration/v8/scoremanagermethodsrecipe)
 * [Change type](../../../../java/changetype)
   * oldFullyQualifiedTypeName: `ai.timefold.solver.core.api.score.ScoreManager`
   * newFullyQualifiedTypeName: `ai.timefold.solver.core.api.solver.SolutionManager`
   * ignoreDefinition: `true`
+* [Score: use shorter getters](../../../../ai/timefold/solver/migration/v8/scoregettersrecipe)
+* [Replace getConstraint*() with getConstraintRef()](../../../../ai/timefold/solver/migration/v8/constraintrefrecipe)
+* [SolverManager: use builder API](../../../../ai/timefold/solver/migration/v8/solvermanagerbuilderrecipe)
+* [PlanningVariable's `nullable` is newly called `unassignedValues`](../../../../ai/timefold/solver/migration/v8/nullablerecipe)
+* [Use non-deprecated SingleConstraintAssertion methods](../../../../ai/timefold/solver/migration/v8/singleconstraintassertionmethodsrecipe)
+* [ConstraintStreams: use asConstraint() methods to define constraints](../../../../ai/timefold/solver/migration/v8/asconstraintrecipe)
+* [Constraint Streams: don't use package name in the asConstraint() method](../../../../ai/timefold/solver/migration/v8/removeconstraintpackagerecipe)
+* [Recommended Fit API becomes Assignment Recommendation API](../../../../ai/timefold/solver/migration/v8/solutionmanagerrecommendassignmentrecipe)
+* [Use non-deprecated related sorting fields and methods](../../../../ai/timefold/solver/migration/v8/sortingmigrationrecipe)
+* [Use non-deprecated environment constants](../../../../ai/timefold/solver/migration/v8/environmentmigrationrecipe)
 * [Remove unused imports](../../../../java/removeunusedimports)
 * [Change the Timefold version](../../../../ai/timefold/solver/migration/changeversion)
 
@@ -85,10 +97,21 @@ recipeList:
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: ai.timefold.solver.core.api.score.stream.ConstraintFactory fromUniquePair(..)
       newMethodName: forEachUniquePair
+  - ai.timefold.solver.migration.v8.ScoreManagerMethodsRecipe
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: ai.timefold.solver.core.api.score.ScoreManager
       newFullyQualifiedTypeName: ai.timefold.solver.core.api.solver.SolutionManager
       ignoreDefinition: true
+  - ai.timefold.solver.migration.v8.ScoreGettersRecipe
+  - ai.timefold.solver.migration.v8.ConstraintRefRecipe
+  - ai.timefold.solver.migration.v8.SolverManagerBuilderRecipe
+  - ai.timefold.solver.migration.v8.NullableRecipe
+  - ai.timefold.solver.migration.v8.SingleConstraintAssertionMethodsRecipe
+  - ai.timefold.solver.migration.v8.AsConstraintRecipe
+  - ai.timefold.solver.migration.v8.RemoveConstraintPackageRecipe
+  - ai.timefold.solver.migration.v8.SolutionManagerRecommendAssignmentRecipe
+  - ai.timefold.solver.migration.v8.SortingMigrationRecipe
+  - ai.timefold.solver.migration.v8.EnvironmentMigrationRecipe
   - org.openrewrite.java.RemoveUnusedImports
   - ai.timefold.solver.migration.ChangeVersion
 
@@ -121,6 +144,25 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
+
+### Maven metadata failures
+**org.openrewrite.maven.table.MavenMetadataFailures**
+
+_Attempts to resolve maven metadata that failed._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Group id | The groupId of the artifact for which the metadata download failed. |
+| Artifact id | The artifactId of the artifact for which the metadata download failed. |
+| Version | The version of the artifact for which the metadata download failed. |
+| Maven repository | The URL of the Maven repository that the metadata download failed on. |
+| Snapshots | Does the repository support snapshots. |
+| Releases | Does the repository support releases. |
+| Failure | The reason the metadata download failed. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

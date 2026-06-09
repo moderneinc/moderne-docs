@@ -1,4 +1,5 @@
 ---
+title: "Find `Modifier.padding(...)` shorthand opportunities"
 sidebar_label: "Find `Modifier.padding(...)` shorthand opportunities"
 ---
 

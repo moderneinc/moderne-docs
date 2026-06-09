@@ -1,4 +1,5 @@
 ---
+title: "Replace `kotlinOptions` with `compilerOptions` in Gradle build files"
 sidebar_label: "Replace `kotlinOptions` with `compilerOptions` in Gradle build files"
 ---
 

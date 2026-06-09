@@ -1,4 +1,5 @@
 ---
+title: "Find `LoggerFactory.getLogger` calls inside loops"
 sidebar_label: "Find `LoggerFactory.getLogger` calls inside loops"
 ---
 

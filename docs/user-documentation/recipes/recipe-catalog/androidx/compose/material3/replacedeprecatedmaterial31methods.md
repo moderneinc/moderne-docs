@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `material3` methods"
 sidebar_label: "Replace deprecated `material3` methods"
 ---
 

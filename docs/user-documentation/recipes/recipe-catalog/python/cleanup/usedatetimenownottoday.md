@@ -1,4 +1,5 @@
 ---
+title: "Use `datetime.now()` instead of `datetime.today()`"
 sidebar_label: "Use `datetime.now()` instead of `datetime.today()`"
 ---
 

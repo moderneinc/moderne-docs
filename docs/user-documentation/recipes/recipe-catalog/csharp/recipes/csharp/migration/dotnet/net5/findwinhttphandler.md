@@ -1,4 +1,5 @@
 ---
+title: "Find `WinHttpHandler` usage (removed in .NET 5)"
 sidebar_label: "Find `WinHttpHandler` usage (removed in .NET 5)"
 ---
 

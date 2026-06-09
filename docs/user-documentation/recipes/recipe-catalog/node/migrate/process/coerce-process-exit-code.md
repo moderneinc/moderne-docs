@@ -1,4 +1,5 @@
 ---
+title: "Coerce `process.exit()` and `process.exitCode` to integer"
 sidebar_label: "Coerce `process.exit()` and `process.exitCode` to integer"
 ---
 

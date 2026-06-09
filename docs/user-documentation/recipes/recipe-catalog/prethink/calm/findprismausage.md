@@ -1,4 +1,5 @@
 ---
+title: "Find Prisma usage"
 sidebar_label: "Find Prisma usage"
 ---
 

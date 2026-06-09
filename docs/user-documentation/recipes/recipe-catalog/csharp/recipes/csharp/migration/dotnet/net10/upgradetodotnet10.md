@@ -1,4 +1,5 @@
 ---
+title: "Migrate to .NET 10"
 sidebar_label: "Migrate to .NET 10"
 ---
 

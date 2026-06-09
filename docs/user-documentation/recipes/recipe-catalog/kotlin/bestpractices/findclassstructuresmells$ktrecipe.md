@@ -1,4 +1,5 @@
 ---
+title: "Find class-declaration smells"
 sidebar_label: "Find class-declaration smells"
 ---
 

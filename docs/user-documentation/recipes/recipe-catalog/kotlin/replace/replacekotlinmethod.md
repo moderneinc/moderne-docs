@@ -1,4 +1,5 @@
 ---
+title: "Replace Kotlin method"
 sidebar_label: "Replace Kotlin method"
 ---
 

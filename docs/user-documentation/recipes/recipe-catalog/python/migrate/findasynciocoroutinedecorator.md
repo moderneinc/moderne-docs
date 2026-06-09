@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `@asyncio.coroutine` decorator"
 sidebar_label: "Find deprecated `@asyncio.coroutine` decorator"
 ---
 

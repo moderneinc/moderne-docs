@@ -1,4 +1,5 @@
 ---
+title: "Collapse self-cancelling `^` / `-` with duplicate operands to `0`"
 sidebar_label: "Collapse self-cancelling `^` / `-` with duplicate operands to `0`"
 ---
 

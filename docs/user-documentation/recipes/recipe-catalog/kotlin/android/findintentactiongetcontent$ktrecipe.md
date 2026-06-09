@@ -1,4 +1,5 @@
 ---
+title: "Find legacy `Intent.ACTION_PICK` / `ACTION_GET_CONTENT` references"
 sidebar_label: "Find legacy `Intent.ACTION_PICK` / `ACTION_GET_CONTENT` references"
 ---
 

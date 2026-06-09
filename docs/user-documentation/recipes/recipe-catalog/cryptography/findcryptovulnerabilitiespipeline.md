@@ -1,4 +1,5 @@
 ---
+title: "Find cryptographic vulnerability chains"
 sidebar_label: "Find cryptographic vulnerability chains"
 ---
 

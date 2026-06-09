@@ -1,4 +1,5 @@
 ---
+title: "Find `System.err.println(...)` calls"
 sidebar_label: "Find `System.err.println(...)` calls"
 ---
 

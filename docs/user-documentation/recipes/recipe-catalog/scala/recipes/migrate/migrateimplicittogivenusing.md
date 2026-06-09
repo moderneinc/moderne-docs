@@ -1,4 +1,5 @@
 ---
+title: "Migrate `implicit` to `given`/`using` (Scala 3)"
 sidebar_label: "Migrate `implicit` to `given`/`using` (Scala 3)"
 ---
 

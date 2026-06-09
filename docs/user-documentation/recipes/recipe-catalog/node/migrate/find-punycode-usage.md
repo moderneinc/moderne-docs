@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `punycode` module usage"
 sidebar_label: "Find deprecated `punycode` module usage"
 ---
 

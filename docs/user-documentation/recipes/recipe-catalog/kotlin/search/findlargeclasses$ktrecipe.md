@@ -1,4 +1,5 @@
 ---
+title: "Find classes with more than 200 statements"
 sidebar_label: "Find classes with more than 200 statements"
 ---
 

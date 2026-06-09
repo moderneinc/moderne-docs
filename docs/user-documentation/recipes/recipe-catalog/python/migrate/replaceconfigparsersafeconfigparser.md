@@ -1,4 +1,5 @@
 ---
+title: "Replace `configparser.SafeConfigParser` with `ConfigParser`"
 sidebar_label: "Replace `configparser.SafeConfigParser` with `ConfigParser`"
 ---
 

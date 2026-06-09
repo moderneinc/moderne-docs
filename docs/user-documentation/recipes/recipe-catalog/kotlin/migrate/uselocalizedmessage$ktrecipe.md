@@ -1,4 +1,5 @@
 ---
+title: "Use `Throwable.localizedMessage` instead of `Throwable.message`"
 sidebar_label: "Use `Throwable.localizedMessage` instead of `Throwable.message`"
 ---
 

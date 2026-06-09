@@ -1,4 +1,5 @@
 ---
+title: "Replace `str.format()` with f-string"
 sidebar_label: "Replace `str.format()` with f-string"
 ---
 

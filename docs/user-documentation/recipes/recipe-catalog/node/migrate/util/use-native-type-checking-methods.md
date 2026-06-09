@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `util.isX()` methods with native JavaScript"
 sidebar_label: "Replace deprecated `util.isX()` methods with native JavaScript"
 ---
 

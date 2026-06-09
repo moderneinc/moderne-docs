@@ -1,4 +1,5 @@
 ---
+title: "Adopt Jackson 3"
 sidebar_label: "Adopt Jackson 3"
 ---
 

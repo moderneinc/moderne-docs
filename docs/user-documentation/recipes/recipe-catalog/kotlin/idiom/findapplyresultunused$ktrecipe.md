@@ -1,4 +1,5 @@
 ---
+title: "Find `?.apply { }` whose result is discarded"
 sidebar_label: "Find `?.apply { }` whose result is discarded"
 ---
 

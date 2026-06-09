@@ -1,4 +1,5 @@
 ---
+title: "Move `web.xml` to resources"
 sidebar_label: "Move `web.xml` to resources"
 ---
 

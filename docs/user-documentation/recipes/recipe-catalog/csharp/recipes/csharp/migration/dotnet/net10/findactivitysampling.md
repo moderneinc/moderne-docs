@@ -1,4 +1,5 @@
 ---
+title: "Find `ActivitySamplingResult.PropagationData` behavior change"
 sidebar_label: "Find `ActivitySamplingResult.PropagationData` behavior change"
 ---
 

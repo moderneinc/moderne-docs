@@ -1,4 +1,5 @@
 ---
+title: "Find `obj.let { fn(it) }` where `obj` is non-null"
 sidebar_label: "Find `obj.let { fn(it) }` where `obj` is non-null"
 ---
 

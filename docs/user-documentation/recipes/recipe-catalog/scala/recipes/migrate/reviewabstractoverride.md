@@ -1,4 +1,5 @@
 ---
+title: "Review abstract override for Scala 3"
 sidebar_label: "Review abstract override for Scala 3"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `data class` declarations with `var` properties"
 sidebar_label: "Find `data class` declarations with `var` properties"
 ---
 

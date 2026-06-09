@@ -1,4 +1,5 @@
 ---
+title: "Use `mutableIntStateOf` instead of `mutableStateOf&lt;Int&gt;` in Compose"
 sidebar_label: "Use `mutableIntStateOf` instead of `mutableStateOf&lt;Int&gt;` in Compose"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Collapse for-yield loop into `yield from`"
 sidebar_label: "Collapse for-yield loop into `yield from`"
 ---
 

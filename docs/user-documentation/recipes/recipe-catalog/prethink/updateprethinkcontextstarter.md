@@ -1,4 +1,5 @@
 ---
+title: "Update Prethink context (with AI)"
 sidebar_label: "Update Prethink context (with AI)"
 ---
 

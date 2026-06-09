@@ -1,4 +1,5 @@
 ---
+title: "Migrate TaskMetadata and ThreadMetadata"
 sidebar_label: "Migrate TaskMetadata and ThreadMetadata"
 ---
 

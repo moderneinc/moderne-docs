@@ -1,4 +1,5 @@
 ---
+title: "Use NamedValue parameters instead of Map"
 sidebar_label: "Use NamedValue parameters instead of Map"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Mark `&lt;p-drawer&gt;` / `&lt;p-sidebar&gt;` `size` usages with TODO comments"
 sidebar_label: "Mark `&lt;p-drawer&gt;` / `&lt;p-sidebar&gt;` `size` usages with TODO comments"
 ---
 

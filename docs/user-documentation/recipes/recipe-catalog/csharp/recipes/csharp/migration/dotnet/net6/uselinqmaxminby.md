@@ -1,4 +1,5 @@
 ---
+title: "Use LINQ MaxBy() and MinBy()"
 sidebar_label: "Use LINQ MaxBy() and MinBy()"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `Result&lt;T&gt;` API ergonomics opportunities"
 sidebar_label: "Find `Result&lt;T&gt;` API ergonomics opportunities"
 ---
 

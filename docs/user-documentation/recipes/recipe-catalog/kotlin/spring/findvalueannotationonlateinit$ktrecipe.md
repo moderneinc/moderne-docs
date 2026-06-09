@@ -1,4 +1,5 @@
 ---
+title: "Find `@Value` on `lateinit var` properties"
 sidebar_label: "Find `@Value` on `lateinit var` properties"
 ---
 

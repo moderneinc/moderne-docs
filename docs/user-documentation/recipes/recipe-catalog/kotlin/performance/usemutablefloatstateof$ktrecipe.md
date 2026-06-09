@@ -1,4 +1,5 @@
 ---
+title: "Use `mutableFloatStateOf` instead of `mutableStateOf&lt;Float&gt;` in Compose"
 sidebar_label: "Use `mutableFloatStateOf` instead of `mutableStateOf&lt;Float&gt;` in Compose"
 ---
 

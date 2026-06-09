@@ -1,4 +1,5 @@
 ---
+title: "Find `java.lang.reflect.Method.invoke(...)` calls"
 sidebar_label: "Find `java.lang.reflect.Method.invoke(...)` calls"
 ---
 

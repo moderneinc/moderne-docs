@@ -1,4 +1,5 @@
 ---
+title: "Find `URI(&quot;...&quot;)` allocations inside loops"
 sidebar_label: "Find `URI(&quot;...&quot;)` allocations inside loops"
 ---
 

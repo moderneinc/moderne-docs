@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.lowercaseChar()` instead of `Character.toLowerCase(c)`"
 sidebar_label: "Use `Char.lowercaseChar()` instead of `Character.toLowerCase(c)`"
 ---
 

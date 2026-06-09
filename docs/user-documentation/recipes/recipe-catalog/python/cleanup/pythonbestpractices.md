@@ -1,4 +1,5 @@
 ---
+title: "Python cleanup suite"
 sidebar_label: "Python cleanup suite"
 ---
 

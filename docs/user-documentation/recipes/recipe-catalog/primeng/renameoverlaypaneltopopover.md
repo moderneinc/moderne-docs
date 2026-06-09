@@ -1,4 +1,5 @@
 ---
+title: "Rename `OverlayPanel` to `Popover`"
 sidebar_label: "Rename `OverlayPanel` to `Popover`"
 ---
 

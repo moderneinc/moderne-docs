@@ -1,4 +1,5 @@
 ---
+title: "Find classes with more than 25 methods"
 sidebar_label: "Find classes with more than 25 methods"
 ---
 

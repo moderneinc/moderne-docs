@@ -1,4 +1,5 @@
 ---
+title: "Find `LiveData.observeAsState()` calls — prefer `collectAsStateWithLifecycle()`"
 sidebar_label: "Find `LiveData.observeAsState()` calls — prefer `collectAsStateWithLifecycle()`"
 ---
 

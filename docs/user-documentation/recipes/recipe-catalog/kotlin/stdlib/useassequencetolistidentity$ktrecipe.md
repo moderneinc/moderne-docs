@@ -1,4 +1,5 @@
 ---
+title: "Use `toList()` instead of `asSequence().toList()`"
 sidebar_label: "Use `toList()` instead of `asSequence().toList()`"
 ---
 

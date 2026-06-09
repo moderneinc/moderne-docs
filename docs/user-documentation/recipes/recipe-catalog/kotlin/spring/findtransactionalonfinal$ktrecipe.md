@@ -1,4 +1,5 @@
 ---
+title: "Find `@Transactional` methods on classes that aren't `open`"
 sidebar_label: "Find `@Transactional` methods on classes that aren't `open`"
 ---
 

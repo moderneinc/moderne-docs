@@ -1,4 +1,5 @@
 ---
+title: "Replace `RouterLinkWithHref` with `RouterLink`"
 sidebar_label: "Replace `RouterLinkWithHref` with `RouterLink`"
 ---
 
@@ -18,13 +19,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 16](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular16)
 
 
 ## Usage

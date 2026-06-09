@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods"
 sidebar_label: "Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods"
 ---
 

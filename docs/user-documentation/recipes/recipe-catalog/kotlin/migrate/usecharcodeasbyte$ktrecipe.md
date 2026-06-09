@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.code.toByte()` instead of `Char.toByte()`"
 sidebar_label: "Use `Char.code.toByte()` instead of `Char.toByte()`"
 ---
 

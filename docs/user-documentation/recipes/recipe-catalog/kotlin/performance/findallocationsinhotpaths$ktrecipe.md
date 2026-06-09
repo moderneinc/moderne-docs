@@ -1,4 +1,5 @@
 ---
+title: "Find expensive allocations on hot paths"
 sidebar_label: "Find expensive allocations on hot paths"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `listOf(...)` / `mapOf(...)` / `setOf(...)` calls inside a `@Composable`"
 sidebar_label: "Find `listOf(...)` / `mapOf(...)` / `setOf(...)` calls inside a `@Composable`"
 ---
 

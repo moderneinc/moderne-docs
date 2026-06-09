@@ -1,4 +1,5 @@
 ---
+title: "Add lifecycle annotations to Dropwizard Managed methods"
 sidebar_label: "Add lifecycle annotations to Dropwizard Managed methods"
 ---
 

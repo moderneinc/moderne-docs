@@ -1,4 +1,5 @@
 ---
+title: "Sort React component methods"
 sidebar_label: "Sort React component methods"
 ---
 

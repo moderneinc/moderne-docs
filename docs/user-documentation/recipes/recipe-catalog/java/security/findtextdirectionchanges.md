@@ -1,4 +1,5 @@
 ---
+title: "Find text-direction changes"
 sidebar_label: "Find text-direction changes"
 ---
 

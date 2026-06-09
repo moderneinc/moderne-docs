@@ -1,4 +1,5 @@
 ---
+title: "Find WebHostBuilder usage"
 sidebar_label: "Find WebHostBuilder usage"
 ---
 

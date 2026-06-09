@@ -1,4 +1,5 @@
 ---
+title: "Change method target to static"
 sidebar_label: "Change method target to static"
 ---
 
@@ -47,6 +48,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate JUL to Log4j 2.x API](/user-documentation/recipes/recipe-catalog/java/logging/log4j/jultolog4j.md)
 * [Migrate Log4j 1.x to Log4j 2.x](/user-documentation/recipes/recipe-catalog/java/logging/log4j/log4j1tolog4j2.md)
 * [Migrate SLF4J to Log4j 2.x API](/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md)
+* [Migrate `AssertionsForClassTypes` and `AssertionsForInterfaceTypes` to `Assertions`](/user-documentation/recipes/recipe-catalog/java/testing/assertj/migrateassertionsforclassandinterfacetypes.md)
 * [Migrate from EasyMock to Mockito](/user-documentation/recipes/recipe-catalog/java/testing/easymock/easymocktomockito.md)
 * [Migrate to ApacheHttpClient 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5.md)
 * [Migrate to Spring ORM to 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5)

@@ -1,4 +1,5 @@
 ---
+title: "Remove `propTypes` assignments"
 sidebar_label: "Remove `propTypes` assignments"
 ---
 

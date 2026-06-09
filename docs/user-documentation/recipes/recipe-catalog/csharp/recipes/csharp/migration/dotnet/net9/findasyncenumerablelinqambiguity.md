@@ -1,4 +1,5 @@
 ---
+title: "Find LINQ ambiguities introduced by .NET 9 `IAsyncEnumerable` extensions"
 sidebar_label: "Find LINQ ambiguities introduced by .NET 9 `IAsyncEnumerable` extensions"
 ---
 

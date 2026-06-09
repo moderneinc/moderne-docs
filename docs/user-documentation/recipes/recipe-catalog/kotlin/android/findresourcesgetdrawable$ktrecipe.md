@@ -1,4 +1,5 @@
 ---
+title: "Find `resources.getDrawable(...)` (one-arg) calls"
 sidebar_label: "Find `resources.getDrawable(...)` (one-arg) calls"
 ---
 

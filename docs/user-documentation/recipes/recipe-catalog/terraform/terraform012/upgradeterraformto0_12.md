@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Terraform to 0.12"
 sidebar_label: "Upgrade Terraform to 0.12"
 ---
 

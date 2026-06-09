@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `telnetlib` module usage"
 sidebar_label: "Find deprecated `telnetlib` module usage"
 ---
 

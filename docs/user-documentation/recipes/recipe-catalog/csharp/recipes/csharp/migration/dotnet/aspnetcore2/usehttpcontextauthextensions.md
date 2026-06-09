@@ -1,4 +1,5 @@
 ---
+title: "Use HttpContext authentication extensions"
 sidebar_label: "Use HttpContext authentication extensions"
 ---
 

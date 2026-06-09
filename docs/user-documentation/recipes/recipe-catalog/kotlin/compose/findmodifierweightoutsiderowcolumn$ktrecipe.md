@@ -1,4 +1,5 @@
 ---
+title: "Find `Modifier.weight(...)` calls outside a `Row`/`Column` scope"
 sidebar_label: "Find `Modifier.weight(...)` calls outside a `Row`/`Column` scope"
 ---
 

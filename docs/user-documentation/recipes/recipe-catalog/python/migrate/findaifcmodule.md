@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `aifc` module usage"
 sidebar_label: "Find deprecated `aifc` module usage"
 ---
 

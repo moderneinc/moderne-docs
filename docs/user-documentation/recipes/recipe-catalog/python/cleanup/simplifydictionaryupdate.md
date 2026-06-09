@@ -1,4 +1,5 @@
 ---
+title: "Convert one-item `dict.update()` to bracket assignment"
 sidebar_label: "Convert one-item `dict.update()` to bracket assignment"
 ---
 

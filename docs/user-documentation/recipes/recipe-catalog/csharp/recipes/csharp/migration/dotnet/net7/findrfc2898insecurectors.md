@@ -1,4 +1,5 @@
 ---
+title: "Find insecure `Rfc2898DeriveBytes` constructors (SYSLIB0041)"
 sidebar_label: "Find insecure `Rfc2898DeriveBytes` constructors (SYSLIB0041)"
 ---
 

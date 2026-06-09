@@ -1,4 +1,5 @@
 ---
+title: "Convert class components to functional components"
 sidebar_label: "Convert class components to functional components"
 ---
 

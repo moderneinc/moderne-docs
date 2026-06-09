@@ -1,4 +1,5 @@
 ---
+title: "Use `BooleanArray.fill()` instead of `Arrays.fill(arr, value)`"
 sidebar_label: "Use `BooleanArray.fill()` instead of `Arrays.fill(arr, value)`"
 ---
 

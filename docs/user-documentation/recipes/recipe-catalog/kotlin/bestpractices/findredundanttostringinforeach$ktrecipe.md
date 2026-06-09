@@ -1,4 +1,5 @@
 ---
+title: "Find `forEach { it.toString() }` patterns"
 sidebar_label: "Find `forEach { it.toString() }` patterns"
 ---
 

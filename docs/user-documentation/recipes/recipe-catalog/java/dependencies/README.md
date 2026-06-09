@@ -17,7 +17,7 @@ description: Dependencies OpenRewrite recipes.
 * [Dependency report](./dependencylist.md)
 * [Dependency resolution diagnostic](./dependencyresolutiondiagnostic.md)
 * [Find Maven and Gradle dependencies](./finddependency.md)
-* [Find and fix vulnerable dependencies](./dependencyvulnerabilitycheck.md)
+* [Find and fix vulnerable Maven/Gradle dependencies](./dependencyvulnerabilitycheck.md)
 * [Find licenses in use in third-party dependencies](./dependencylicensecheck.md)
 * [Find relocated dependencies](./relocateddependencycheck.md)
 * [Maven repository order](./findrepositoryorder.md)

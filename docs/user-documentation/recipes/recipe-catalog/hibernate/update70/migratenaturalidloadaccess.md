@@ -1,4 +1,5 @@
 ---
+title: "Migrate NaturalIdLoadAccess method calls"
 sidebar_label: "Migrate NaturalIdLoadAccess method calls"
 ---
 

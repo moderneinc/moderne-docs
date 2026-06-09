@@ -1,4 +1,5 @@
 ---
+title: "Find `Mono.block` / `Flux.blockFirst` / `Flux.blockLast` calls"
 sidebar_label: "Find `Mono.block` / `Flux.blockFirst` / `Flux.blockLast` calls"
 ---
 

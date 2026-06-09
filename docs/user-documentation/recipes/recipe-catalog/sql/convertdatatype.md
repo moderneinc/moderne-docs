@@ -1,4 +1,5 @@
 ---
+title: "Convert SQL data type"
 sidebar_label: "Convert SQL data type"
 ---
 

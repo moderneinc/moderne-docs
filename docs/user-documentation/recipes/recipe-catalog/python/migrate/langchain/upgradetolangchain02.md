@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to LangChain 0.2"
 sidebar_label: "Upgrade to LangChain 0.2"
 ---
 

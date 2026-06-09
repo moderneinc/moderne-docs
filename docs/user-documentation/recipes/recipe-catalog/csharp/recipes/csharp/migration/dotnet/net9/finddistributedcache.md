@@ -1,4 +1,5 @@
 ---
+title: "Find IDistributedCache usage (HybridCache in .NET 9)"
 sidebar_label: "Find IDistributedCache usage (HybridCache in .NET 9)"
 ---
 

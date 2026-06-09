@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated Jetpack Compose methods"
 sidebar_label: "Replace deprecated Jetpack Compose methods"
 ---
 

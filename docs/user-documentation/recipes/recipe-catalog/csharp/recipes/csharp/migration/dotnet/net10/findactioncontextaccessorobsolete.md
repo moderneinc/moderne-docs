@@ -1,4 +1,5 @@
 ---
+title: "Find obsolete `IActionContextAccessor`/`ActionContextAccessor` (ASPDEPR006)"
 sidebar_label: "Find obsolete `IActionContextAccessor`/`ActionContextAccessor` (ASPDEPR006)"
 ---
 

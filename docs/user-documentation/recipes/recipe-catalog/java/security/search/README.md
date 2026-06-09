@@ -20,6 +20,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find Jackson default type mapping enablement](./findjacksondefaulttypemapping.md)
 * [Find OS command injection vectors](./findcommandinjection.md)
 * [Find RSA encryption without OAEP padding](./findrsawithoutoaep.md)
+* [Find Spring MVC handlers missing authorization](./findmissingspringauthorization.md)
 * [Find Spring Security configurations that disable session fixation protection](./findinsecuresessionfixationconfig.md)
 * [Find `User.withDefaultPasswordEncoder()` usage](./finduserwithdefaultpasswordencoder.md)
 * [Find hardcoded authentication credentials](./findhardcodedauthenticationcredentials.md)

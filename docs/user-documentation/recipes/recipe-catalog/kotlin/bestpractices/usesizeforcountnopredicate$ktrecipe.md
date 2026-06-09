@@ -1,4 +1,5 @@
 ---
+title: "Use `size` instead of `Collection.count()`"
 sidebar_label: "Use `size` instead of `Collection.count()`"
 ---
 

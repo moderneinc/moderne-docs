@@ -1,4 +1,5 @@
 ---
+title: "Use `mutableLongStateOf` instead of `mutableStateOf&lt;Long&gt;` in Compose"
 sidebar_label: "Use `mutableLongStateOf` instead of `mutableStateOf&lt;Long&gt;` in Compose"
 ---
 

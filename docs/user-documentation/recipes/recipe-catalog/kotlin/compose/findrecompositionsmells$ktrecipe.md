@@ -1,4 +1,5 @@
 ---
+title: "Find Compose recomposition smells"
 sidebar_label: "Find Compose recomposition smells"
 ---
 

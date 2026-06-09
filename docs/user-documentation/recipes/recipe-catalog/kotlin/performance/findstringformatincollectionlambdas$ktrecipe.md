@@ -1,4 +1,5 @@
 ---
+title: "Find `String.format` calls inside collection lambdas"
 sidebar_label: "Find `String.format` calls inside collection lambdas"
 ---
 

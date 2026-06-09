@@ -1,4 +1,5 @@
 ---
+title: "Use ArgumentOutOfRangeException.ThrowIfNegative()"
 sidebar_label: "Use ArgumentOutOfRangeException.ThrowIfNegative()"
 ---
 

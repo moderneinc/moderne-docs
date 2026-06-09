@@ -1,4 +1,5 @@
 ---
+title: "Find `Canvas { … }` blocks inside a `@Composable`"
 sidebar_label: "Find `Canvas { … }` blocks inside a `@Composable`"
 ---
 

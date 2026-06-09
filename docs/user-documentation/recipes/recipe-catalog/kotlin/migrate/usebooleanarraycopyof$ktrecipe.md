@@ -1,4 +1,5 @@
 ---
+title: "Use `BooleanArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"
 sidebar_label: "Use `BooleanArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"
 ---
 

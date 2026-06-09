@@ -1,4 +1,5 @@
 ---
+title: "Find `kotlin.random.Random.Default` references"
 sidebar_label: "Find `kotlin.random.Random.Default` references"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `kotlinx.android.parcel` imports"
 sidebar_label: "Find `kotlinx.android.parcel` imports"
 ---
 

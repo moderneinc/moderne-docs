@@ -1,4 +1,5 @@
 ---
+title: "Migrate to `kotlinx-datetime` 0.7"
 sidebar_label: "Migrate to `kotlinx-datetime` 0.7"
 ---
 

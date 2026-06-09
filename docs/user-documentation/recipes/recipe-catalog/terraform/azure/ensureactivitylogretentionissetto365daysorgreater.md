@@ -1,4 +1,5 @@
 ---
+title: "Ensure activity log retention is set to 365 days or greater"
 sidebar_label: "Ensure activity log retention is set to 365 days or greater"
 ---
 

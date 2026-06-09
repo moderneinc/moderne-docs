@@ -1,4 +1,5 @@
 ---
+title: "Find synchronous IO usage (disabled in ASP.NET Core 3.0)"
 sidebar_label: "Find synchronous IO usage (disabled in ASP.NET Core 3.0)"
 ---
 

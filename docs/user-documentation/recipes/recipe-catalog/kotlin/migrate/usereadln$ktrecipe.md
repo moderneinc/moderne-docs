@@ -1,4 +1,5 @@
 ---
+title: "Use `readln()` instead of `readLine()!!`"
 sidebar_label: "Use `readln()` instead of `readLine()!!`"
 ---
 

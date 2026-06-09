@@ -1,4 +1,5 @@
 ---
+title: "Ensure MSSQL servers have email service and co-administrators enabled"
 sidebar_label: "Ensure MSSQL servers have email service and co-administrators enabled"
 ---
 

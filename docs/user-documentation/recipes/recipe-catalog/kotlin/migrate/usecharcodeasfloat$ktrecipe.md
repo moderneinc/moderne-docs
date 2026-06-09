@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.code.toFloat()` instead of `Char.toFloat()`"
 sidebar_label: "Use `Char.code.toFloat()` instead of `Char.toFloat()`"
 ---
 

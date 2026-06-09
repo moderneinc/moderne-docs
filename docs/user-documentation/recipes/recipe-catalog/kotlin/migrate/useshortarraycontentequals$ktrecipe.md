@@ -1,4 +1,5 @@
 ---
+title: "Use `ShortArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 sidebar_label: "Use `ShortArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 ---
 

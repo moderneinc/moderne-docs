@@ -1,4 +1,5 @@
 ---
+title: "Find Go type quality metrics"
 sidebar_label: "Find Go type quality metrics"
 ---
 

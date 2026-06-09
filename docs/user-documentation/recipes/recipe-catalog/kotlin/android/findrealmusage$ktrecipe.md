@@ -1,4 +1,5 @@
 ---
+title: "Find `Realm.getDefaultInstance()` calls"
 sidebar_label: "Find `Realm.getDefaultInstance()` calls"
 ---
 
