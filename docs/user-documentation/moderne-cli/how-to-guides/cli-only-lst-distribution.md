@@ -16,7 +16,7 @@ When you run `mod build`, the CLI tries to avoid rebuilding an LST that already 
 1. **Through a Moderne tenant.** The CLI asks your connected tenant (configured with `mod config moderne`) for the latest published LST of each repository.
 2. **Through a `publishUri` already recorded for the repository** – the column that `mod publish` writes into a `repos-lock.csv` file. This route uses **no tenant at all**.
 
-If you have not configured a tenant, only the first route is unavailable, and `mod build` logs a message like:
+If you have not configured a tenant, the first route is unavailable but the second still works, and `mod build` logs a message like:
 
 ```
 Build log for org/sub-org/my-repo@main
