@@ -711,6 +711,7 @@ const recipes = {
         'user-documentation/recipes/popular-recipe-guides/migrate-to-java-17',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-java-21',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-java-25',
+        'user-documentation/recipes/popular-recipe-guides/migrate-to-jakarta-ee-10',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-spring-boot-3',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-spring-boot-4',
       ],
