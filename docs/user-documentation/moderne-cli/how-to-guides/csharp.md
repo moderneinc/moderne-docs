@@ -10,6 +10,10 @@ Moderne supports C# LSTs, enabling _semantically-aware_ refactoring of C# code. 
 
 In this guide, we'll walk you through how to configure the Moderne CLI to take advantage of C# support.
 
+:::tip
+C# support is evolving quickly. Keep your Moderne CLI updated to the latest version and rebuild your LSTs after upgrading to stay compatible with the latest recipe packages.
+:::
+
 ## Prerequisites
 
 This guide assumes that:
@@ -17,9 +21,17 @@ This guide assumes that:
 * You have [installed and configured the Moderne CLI](../getting-started/cli-intro.md) (version `4.1.9` or higher)
 * You are familiar with running Moderne CLI commands (if not, work through our [CLI workshop](../getting-started/moderne-cli-workshop.md))
 * You have [.NET SDK](https://dotnet.microsoft.com/download) 10.0 or higher installed on your machine
+* You have the [NuGet CLI](https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools#nugetexe-cli) (`nuget.exe`) installed
+* (macOS and Linux only) You have [Mono](https://www.mono-project.com/download/stable/) installed
 
 :::info
 The C# recipe runtime (`rewrite-csharp`) is packaged as a `net10.0` application, so the .NET 10 runtime is required. Earlier SDK versions (8.0, 9.0) will not work.
+:::
+
+:::warning[The .NET SDK, NuGet CLI, and Mono must be on your `PATH`]
+The Moderne CLI invokes the .NET SDK, the NuGet CLI, and (on non-Windows machines) Mono as separate executables, so all of them must be discoverable on your `PATH`.
+
+The NuGet CLI is required to restore packages for **.NET Framework** projects - `dotnet restore` alone cannot restore these. Because `nuget.exe` is a Windows-only utility, **Mono** is required to run it on macOS and Linux. Mono is not required on Windows.
 :::
 
 ## Step 1: Update your `moderne.yml` file
@@ -162,12 +174,18 @@ Presuming everything has been set up correctly, you should see output similar to
 
 ## Step 5: Install recipes
 
-In order to run recipes, you'll need to make sure the recipes are installed on your local machine.
+In order to run recipes, you'll need to make sure the recipe packages are installed on your local machine.
 
-You can install a specific C# recipe package from NuGet by running a command like:
+The OpenRewrite C# recipes are published to NuGet across several packages, including:
+
+* `OpenRewrite.Recipes.CSharp.Migration.Dotnet` — migrate C# projects to newer .NET versions
+* `OpenRewrite.Recipes.CSharp.CodeQuality` — C# code quality improvements
+* `OpenRewrite.Recipes.CSharp.Core` — core `.csproj` and XML transformations
+
+Install a package from NuGet with `mod config recipes nuget install`. For example, to install the .NET migration recipes:
 
 ```bash
-mod config recipes nuget install OpenRewrite.MigrateDotNet
+mod config recipes nuget install OpenRewrite.Recipes.CSharp.Migration.Dotnet
 ```
 
 :::tip
@@ -179,7 +197,7 @@ You can find the specific installation command for any recipe on its page in the
 With the LSTs built and recipes installed, you can now run recipes against your C# repositories. You can either specify the full recipe path for running such as in:
 
 ```bash
-mod run . --recipe=OpenRewrite.Recipes.Net10.UpgradeToDotNet10
+mod run . --recipe=OpenRewrite.Recipes.CSharp.Migration.Dotnet.Net10.UpgradeToDotNet10
 ```
 
 Or, you can search for a specific recipe and set it as the active recipe:
