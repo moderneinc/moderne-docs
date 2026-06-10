@@ -83,7 +83,7 @@ We recommend storing it somewhere that's easily accessible by people at your com
 
 ### For team members using the file
 
-So the CLI can authenticate when downloading, team members first configure the same artifact repository on their machine:
+So the CLI can authenticate when downloading, team members must first configure the same artifact repository on their machine:
 
 ```bash
 mod config lsts artifacts artifactory add https://artifactory.company.com/artifactory/moderne-ingest --user lstuser --password secret1
