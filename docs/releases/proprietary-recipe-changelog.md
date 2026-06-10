@@ -4055,12 +4055,3 @@ Republishing to update dependencies
 
 * Aggregate DevCenter by organization from data table output
 
-## June 9, 2025
-
-#### rewrite-java-security - v3.12.0
-
-* Expose method for overriding baseline vulnerabilities
-* netty 4.1.122 in doNotAddEmptyConstraintsBlockForTransitiveDependenci…
-* Marker for CVE fixes
-* Fix signature of class constructor
-
