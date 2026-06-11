@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.2.13           |
+| CLI version | 4.2.14           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,17 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.2.14 (2026-06-10)
+
+#### What's Changed
+* [4.2.x] Backport #4067 + #4070: modw wrapper path + mod study CSV merger
+* [4.2.x] Add config build python timeout and config build node timeout subcommands
+* [4.2.x] Regenerate DevCenter template to include backported Hide N/A toggle
+* [4.2.x] Fix progress bar wrap artifacts when a status line exceeds terminal width (#4137)
+* [4.2.x] Distinguish recipe-run timeouts from user cancellations (#4138) 
+* [4.2.x] Fix double-including some files
+* [4.2.x] Do not reuse the relaxed project-listing JDK for the Gradle LST build
 
 ### CLI / DX v4.2.13 (2026-06-04)
 

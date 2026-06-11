@@ -102,10 +102,20 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build maven timeout delete**](#mod-config-build-maven-timeout-delete)
 * [**mod config build maven timeout edit**](#mod-config-build-maven-timeout-edit)
 * [**mod config build maven timeout show**](#mod-config-build-maven-timeout-show)
+* [**mod config build node**](#mod-config-build-node)
+* [**mod config build node timeout**](#mod-config-build-node-timeout)
+* [**mod config build node timeout delete**](#mod-config-build-node-timeout-delete)
+* [**mod config build node timeout edit**](#mod-config-build-node-timeout-edit)
+* [**mod config build node timeout show**](#mod-config-build-node-timeout-show)
 * [**mod config build parsers**](#mod-config-build-parsers)
 * [**mod config build parsers add**](#mod-config-build-parsers-add)
 * [**mod config build parsers delete**](#mod-config-build-parsers-delete)
 * [**mod config build parsers show**](#mod-config-build-parsers-show)
+* [**mod config build python**](#mod-config-build-python)
+* [**mod config build python timeout**](#mod-config-build-python-timeout)
+* [**mod config build python timeout delete**](#mod-config-build-python-timeout-delete)
+* [**mod config build python timeout edit**](#mod-config-build-python-timeout-edit)
+* [**mod config build python timeout show**](#mod-config-build-python-timeout-show)
 * [**mod config build style**](#mod-config-build-style)
 * [**mod config build style checkstyle**](#mod-config-build-style-checkstyle)
 * [**mod config build style checkstyle delete**](#mod-config-build-style-checkstyle-delete)
@@ -1327,7 +1337,9 @@ mod config build [subcommands]
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `javascript`: Configures JavaScript/TypeScript as it is used to produce LSTs.
 * `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
+* `node`: Configures Node as it is used for LST production.
 * `parsers`: Configure custom file-extension-to-parser mappings.
+* `python`: Configures Python as it is used for LST production.
 * `style`: Configures style settings used for LST production.
 
 ## mod config build bazel
@@ -2532,6 +2544,109 @@ mod config build maven timeout show
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
+## mod config build node
+
+Configures Node as it is used for LST production.
+
+
+
+
+### Usage
+
+```
+mod config build node [subcommands]
+```
+
+
+### Subcommands
+
+* `timeout`: Configure the build timeout.
+
+## mod config build node timeout
+
+Configure the build timeout.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool.
+
+### Usage
+
+```
+mod config build node timeout [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured build timeout.
+* `edit`: Configure the timeout for build operations.
+* `show`: Displays the configured build timeout.
+
+## mod config build node timeout delete
+
+Removes the configured build timeout.
+
+
+### Usage
+
+```
+mod config build node timeout delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build node timeout edit
+
+Configure the timeout for build operations.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
+
+### Usage
+
+```
+mod config build node timeout edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `duration` |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build node timeout show
+
+Displays the configured build timeout.
+
+
+### Usage
+
+```
+mod config build node timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
 ## mod config build parsers
 
 Configure custom file-extension-to-parser mappings.
@@ -2622,6 +2737,109 @@ Displays configured parser mappings.
 
 ```
 mod config build parsers show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build python
+
+Configures Python as it is used for LST production.
+
+
+
+
+### Usage
+
+```
+mod config build python [subcommands]
+```
+
+
+### Subcommands
+
+* `timeout`: Configure the build timeout.
+
+## mod config build python timeout
+
+Configure the build timeout.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool.
+
+### Usage
+
+```
+mod config build python timeout [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured build timeout.
+* `edit`: Configure the timeout for build operations.
+* `show`: Displays the configured build timeout.
+
+## mod config build python timeout delete
+
+Removes the configured build timeout.
+
+
+### Usage
+
+```
+mod config build python timeout delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build python timeout edit
+
+Configure the timeout for build operations.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
+
+### Usage
+
+```
+mod config build python timeout edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `duration` |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build python timeout show
+
+Displays the configured build timeout.
+
+
+### Usage
+
+```
+mod config build python timeout show
 ```
 
 ### Options
