@@ -5,34 +5,6 @@ description: Recipes in the org.openrewrite.recipe module.
 # org.openrewrite.recipe
 
 
-## rewrite-ai-search
-
-_License: Moderne Proprietary License_
-
-_7 recipes_
-
-* [io.moderne.ai.FindCommentsLanguage](/user-documentation/recipes/recipe-catalog/ai/findcommentslanguage.md)
-  * **Find comments' language distribution**
-  * Finds all comments and uses AI to predict which language the comment is in.
-* [io.moderne.ai.FixMisencodedCommentsInFrench](/user-documentation/recipes/recipe-catalog/ai/fixmisencodedcommentsinfrench.md)
-  * **Fix mis-encoded French comments, javadocs and pom.xml comments**
-  * Fixes mis-encoded French comments in your code, javadocs and in your pom.xml files. Mis-encoded comments contain a ? or � character.
-* [io.moderne.ai.ListAllMethodsUsed](/user-documentation/recipes/recipe-catalog/ai/listallmethodsused.md)
-  * **List all methods used**
-  * List all methods used in any Java source file.
-* [io.moderne.ai.SpellCheckCommentsInFrench](/user-documentation/recipes/recipe-catalog/ai/spellcheckcommentsinfrench.md)
-  * **Fix mis-encoded comments in French**
-  * Use spellchecker to fix mis-encoded French comments in comments, JavaDocs, properties or XML files. Mis-encoded comments will contain either '?' or '�'.
-* [io.moderne.ai.research.FindCodeThatResembles](/user-documentation/recipes/recipe-catalog/ai/research/findcodethatresembles.md)
-  * **Find method invocations that resemble a pattern**
-  * This recipe uses two phase AI approach to find a method invocation that resembles a search string.
-* [io.moderne.ai.research.GetCodeEmbedding](/user-documentation/recipes/recipe-catalog/ai/research/getcodeembedding.md)
-  * **Get embeddings for code snippets in code**
-  * This recipe calls an AI model to get an embedding for either classes or methods which can then be used for downstream tasks.
-* [io.moderne.ai.research.GetRecommendations](/user-documentation/recipes/recipe-catalog/ai/research/getrecommendations.md)
-  * **Get recommendations**
-  * This recipe calls an AI model to get recommendations for modernizing the code base by looking at a sample of method declarations.
-
 ## rewrite-all
 
 _License: Apache License Version 2.0_

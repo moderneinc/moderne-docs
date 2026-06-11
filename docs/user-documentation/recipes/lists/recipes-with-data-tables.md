@@ -2858,58 +2858,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ## org.openrewrite.recipe
 
 
-### rewrite-ai-search
-
-#### [io.moderne.ai.FindCommentsLanguage](/user-documentation/recipes/recipe-catalog/ai/findcommentslanguage.md)
-  * **Find comments' language distribution**
-  * Finds all comments and uses AI to predict which language the comment is in.
-
-##### Data tables:
-
-  * **io.moderne.ai.table.LanguageDistribution**: *Shows the distribution of language in comments*
-
-
-#### [io.moderne.ai.ListAllMethodsUsed](/user-documentation/recipes/recipe-catalog/ai/listallmethodsused.md)
-  * **List all methods used**
-  * List all methods used in any Java source file.
-
-##### Data tables:
-
-  * **io.moderne.ai.table.MethodInUse**: *Methods used in any Java source file.*
-
-
-#### [io.moderne.ai.research.FindCodeThatResembles](/user-documentation/recipes/recipe-catalog/ai/research/findcodethatresembles.md)
-  * **Find method invocations that resemble a pattern**
-  * This recipe uses two phase AI approach to find a method invocation that resembles a search string.
-
-##### Data tables:
-
-  * **io.moderne.ai.table.CodeSearch**: *Searches for method invocations that resemble a natural language query.*
-  * **io.moderne.ai.table.TopKMethodMatcher**: *Result from the scanning recipe for top-k method patterns that match the query.*
-  * **io.moderne.ai.table.EmbeddingPerformance**: *Latency characteristics of uses of embedding models.*
-  * **io.moderne.ai.table.GenerativeModelPerformance**: *Latency characteristics of uses of generative models.*
-  * **io.moderne.ai.table.SuggestedMethodPatterns**: *As the next step after the AI-based searching for method invocations, you may want to do rule-based method searching using the recommended method patterns.*
-
-
-#### [io.moderne.ai.research.GetCodeEmbedding](/user-documentation/recipes/recipe-catalog/ai/research/getcodeembedding.md)
-  * **Get embeddings for code snippets in code**
-  * This recipe calls an AI model to get an embedding for either classes or methods which can then be used for downstream tasks.
-
-##### Data tables:
-
-  * **io.moderne.ai.table.Embeddings**: *Collects the embeddings for either each classes or methods.*
-
-
-#### [io.moderne.ai.research.GetRecommendations](/user-documentation/recipes/recipe-catalog/ai/research/getrecommendations.md)
-  * **Get recommendations**
-  * This recipe calls an AI model to get recommendations for modernizing the code base by looking at a sample of method declarations.
-
-##### Data tables:
-
-  * **io.moderne.ai.table.Recommendations**: *Collects the recommendations based on sampled methods.*
-
-
-
 ### rewrite-all
 
 #### [org.openrewrite.FindCallGraph](/user-documentation/recipes/recipe-catalog/core/findcallgraph.md)

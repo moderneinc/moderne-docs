@@ -496,15 +496,6 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 ## org.openrewrite.recipe
 
 
-### rewrite-ai-search
-
-* [io.moderne.ai.research.FindCodeThatResembles](/user-documentation/recipes/recipe-catalog/ai/research/findcodethatresembles.md)
-  * **Find method invocations that resemble a pattern**
-  * This recipe uses two phase AI approach to find a method invocation that resembles a search string.
-* [io.moderne.ai.research.GetRecommendations](/user-documentation/recipes/recipe-catalog/ai/research/getrecommendations.md)
-  * **Get recommendations**
-  * This recipe calls an AI model to get recommendations for modernizing the code base by looking at a sample of method declarations.
-
 ### rewrite-all
 
 * [org.openrewrite.FindDuplicateSourceFiles](/user-documentation/recipes/recipe-catalog/core/findduplicatesourcefiles.md)
