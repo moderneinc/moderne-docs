@@ -94,7 +94,25 @@ The recipes below progress from simple to complex. Links go to the [public Moder
     mod config license edit <insert provided key here>
     ```
 
-5. **Install the recipes** – Copy and run the [Moderne CLI command under CLI installation](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
+5. **Install the recipes** – Install the recipe modules used by the recommended recipes below. This single command covers every recipe in this guide:
+
+    ```bash
+    mod config recipes jar install \
+      org.openrewrite.recipe:rewrite-static-analysis:LATEST \
+      org.openrewrite.recipe:rewrite-java-security:LATEST \
+      org.openrewrite.recipe:rewrite-java-dependencies:LATEST \
+      org.openrewrite.recipe:rewrite-sql:LATEST \
+      org.openrewrite.recipe:rewrite-spring:LATEST \
+      org.openrewrite.recipe:rewrite-logging-frameworks:LATEST \
+      org.openrewrite.recipe:rewrite-testing-frameworks:LATEST \
+      org.openrewrite.recipe:rewrite-migrate-java:LATEST \
+      io.moderne.recipe:rewrite-cryptography:LATEST \
+      io.moderne.recipe:rewrite-spring:LATEST \
+      io.moderne.recipe:rewrite-prethink:LATEST \
+      io.moderne.recipe:rewrite-devcenter:LATEST
+    ```
+
+    * **Note**: This installs only the modules needed for the proof of value recipes. To install every available recipe module instead, copy and run the [Moderne CLI command under CLI installation](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
 
 6. **Try your first recipe** – Try a simple recipe to test that you can execute successfully against the LSTs you built in step 3. We recommend the "Find empty classes" recipe, which will search through your repos to find empty classes that do not implement an interface or extend a class. To run this recipe, run the following command:
 
