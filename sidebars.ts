@@ -219,6 +219,7 @@ const platform = {
           'administrator-documentation/moderne-platform/references/how-moderne-applies-changes',
           'administrator-documentation/moderne-platform/references/routing-requests-to-agents',
           'administrator-documentation/moderne-platform/references/how-lst-artifacts-are-produced',
+          'administrator-documentation/moderne-platform/references/mass-ingest-vs-ci',
           'administrator-documentation/moderne-platform/references/supported-scms',
           'administrator-documentation/moderne-platform/references/standard-vs-enterprise-edition',
           'administrator-documentation/moderne-platform/references/lossless-semantic-trees',

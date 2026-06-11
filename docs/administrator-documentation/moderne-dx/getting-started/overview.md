@@ -59,7 +59,7 @@ Mass ingest is deployed to servers such as EC2 or Azure VMs, and can be scaled o
 We recommend running mass ingest daily and ingesting every repository. The most important reason for this is that source code, CLI versions, and transitive dependencies can change from day to day - which could cause problems if a user attempts to run a recipe on an out-of-date LST.
 :::
 
-For more details on setting up and configuring mass ingest, please see our [mass ingest documentation](../how-to-guides/mass-ingest-dx.md).
+For more details on setting up and configuring mass ingest, please see our [mass ingest documentation](../how-to-guides/mass-ingest-dx.md). To understand why we recommend mass ingest over building LSTs in CI, see [mass ingest vs CI-integrated LST builds](../../moderne-platform/references/mass-ingest-vs-ci.md).
 
 ### Mass run
 
