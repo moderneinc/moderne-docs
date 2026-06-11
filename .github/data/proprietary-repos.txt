@@ -15,7 +15,6 @@ rewrite-crossplane
 rewrite-cryptography
 rewrite-cve-2025-50059
 rewrite-devcenter
-rewrite-diffblue
 rewrite-dotnet
 rewrite-dropwizard
 rewrite-elastic
