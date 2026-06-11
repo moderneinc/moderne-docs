@@ -3776,7 +3776,6 @@ enum OrganizationRecipeRunState
 {
   QUEUED @join__enumValue(graph: CHANGESETREADER)
   SYNCING @join__enumValue(graph: CHANGESETREADER)
-  SYNCED @join__enumValue(graph: CHANGESETREADER)
   RUNNING @join__enumValue(graph: CHANGESETREADER)
   FINISHED @join__enumValue(graph: CHANGESETREADER)
   CANCELED @join__enumValue(graph: CHANGESETREADER)
@@ -3790,52 +3789,6 @@ input OrganizationRecipeRunStateFilter
   _neq: OrganizationRecipeRunState
   _in: [OrganizationRecipeRunState!]
   _nin: [OrganizationRecipeRunState!]
-}
-
-type OrganizationRecipeRunSynced implements OrganizationChangeset & OrganizationRecipeRun
-  @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangeset")
-  @join__implements(graph: CHANGESETREADER, interface: "OrganizationRecipeRun")
-  @join__type(graph: CHANGESETREADER, key: "id")
-{
-  id: ID!
-  recipe: RecipeDescriptor
-  user: User!
-  options: [RecipeOptionValue!]!
-  createdAt: DateTime!
-
-  """
-  Monotonic high-water mark advanced by every state writer (sync monitor,
-  run monitor, processor). Treat as a content version: poll a tiny query
-  selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-  heavy `repositories`/`totals` selections when this value changes.
-  """
-  lastUpdatedAt: DateTime!
-  priority: RecipeRunPriority!
-  parent: OrganizationChangeset
-  startedAt: DateTime!
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
-
-  """
-  Data tables produced by this recipe run.
-  Each data table starts as Available and transitions to Processing/Finished/Error
-  when downloadDataTable mutation is called.
-  """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
-
-  """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
-
-  """
-  Bulk pull request actions (approve, merge, close) initiated against pull
-  requests that belong to this changeset.
-  
-  Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
-  last so polling clients still see in-flight actions.
-  """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
-
-  """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
 }
 
 type OrganizationRecipeRunSyncing implements OrganizationChangeset & OrganizationRecipeRun
