@@ -248,7 +248,7 @@ clearOrganizationPrompt(organizationId: ID!): Boolean!
 
 **Returns:** Boolean!
 
-Clear the organization-level prompt override, falling back to universal.
+Clear the organization-level prompt override, falling back to universal. Admin-only — an organization prompt steers Moddy for every member of that org.
 
 #### `clearUserPrompt`
 
@@ -447,6 +447,11 @@ Reset poll cursors so the next poll cycle re-fetches and re-enriches
 changelog entries from the given timestamp forward. Use this to backfill
 data after deploying enrichment improvements.
 
+Admin-only: that re-fetch and re-enrichment is expensive and its
+enrichment calls hit SCM REST APIs (pull-request and build-state
+lookups), so this must not be reachable by unauthenticated or non-admin
+callers.
+
 #### `revokeAccessToken`
 
 ```graphql
@@ -540,7 +545,7 @@ setOrganizationPrompt(organizationId: ID!, content: Markdown!): Prompt!
 
 **Returns:** [Prompt](#prompt)!
 
-Set the system prompt for a specific organization (overrides universal).
+Set the system prompt for a specific organization (overrides universal). Admin-only — an organization prompt steers Moddy for every member of that org.
 
 #### `setProfiling`
 
@@ -566,7 +571,7 @@ setUniversalPrompt(content: Markdown!): Prompt!
 
 **Returns:** [Prompt](#prompt)!
 
-Set the universal (default) system prompt.
+Set the universal (default) system prompt. Admin-only — the universal prompt steers Moddy tenant-wide.
 
 #### `setUserPrompt`
 
@@ -4037,8 +4042,8 @@ Input for creating a commit from a changeset.
 | `message` | String! | Commit message. |
 | `extendedMessage` | [Base64](#base64) | Extended commit message (Base64 encoded). |
 | `gpgKey` | [GpgInput](#gpginput) | GPG key for signing commits. |
-| `email` | String | Email to author commit with. Verified against your emails (public and private) that are verified in your SCM provider. If left blank, your first email will be used. |
-| `scmAccessTokens` | [[ScmAccessToken](#scmaccesstoken)!] | Optional SCM access tokens keyed by origin. When provided, these are used instead of stored OAuth tokens for the matching origin. |
+| `email` | String | Git-author email to attribute the commit to (display only). This value is never used to select SCM credentials — tokens are resolved from your authenticated identity (or a token you supply explicitly via scmAccessTokens), never from this field. If left blank, your first email will be used. |
+| `scmAccessTokens` | [[ScmAccessToken](#scmaccesstoken)!] | Optional SCM access tokens you already hold, keyed by origin. When provided, these are used instead of looking up your stored OAuth token for the matching origin. These are your own tokens; they do not select another user's credentials. |
 | `strategy` | [CommitStrategyInput](#commitstrategyinput)! | How to deliver the commit. Choose one strategy. |
 
 ##### `CommitStrategyInput`

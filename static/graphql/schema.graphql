@@ -1008,14 +1008,17 @@ input CommitInput
   gpgKey: GpgInput
 
   """
-  Email to author commit with. Verified against your emails (public and private)
-  that are verified in your SCM provider. If left blank, your first email will be used.
+  Git-author email to attribute the commit to (display only). This value is never
+  used to select SCM credentials — tokens are resolved from your authenticated
+  identity (or a token you supply explicitly via scmAccessTokens), never from this
+  field. If left blank, your first email will be used.
   """
   email: String
 
   """
-  Optional SCM access tokens keyed by origin. When provided, these are used
-  instead of stored OAuth tokens for the matching origin.
+  Optional SCM access tokens you already hold, keyed by origin. When provided,
+  these are used instead of looking up your stored OAuth token for the matching
+  origin. These are your own tokens; they do not select another user's credentials.
   """
   scmAccessTokens: [ScmAccessToken!]
 
@@ -2759,6 +2762,11 @@ type Mutation
   Reset poll cursors so the next poll cycle re-fetches and re-enriches
   changelog entries from the given timestamp forward. Use this to backfill
   data after deploying enrichment improvements.
+  
+  Admin-only: that re-fetch and re-enrichment is expensive and its
+  enrichment calls hit SCM REST APIs (pull-request and build-state
+  lookups), so this must not be reachable by unauthenticated or non-admin
+  callers.
   """
   reindexChangelog(
     """
@@ -2792,11 +2800,13 @@ type Mutation
   """
   runVisualization(organizationId: ID!, visualizationId: ID!, options: [VisualizationOptionInput!]): Visualization! @join__field(graph: CHANGESETVISUALIZER)
 
-  """Set the universal (default) system prompt."""
+  """
+  Set the universal (default) system prompt. Admin-only — the universal prompt steers Moddy tenant-wide.
+  """
   setUniversalPrompt(content: Markdown!): Prompt! @join__field(graph: MODDY)
 
   """
-  Set the system prompt for a specific organization (overrides universal).
+  Set the system prompt for a specific organization (overrides universal). Admin-only — an organization prompt steers Moddy for every member of that org.
   """
   setOrganizationPrompt(organizationId: ID!, content: Markdown!): Prompt! @join__field(graph: MODDY)
 
@@ -2806,7 +2816,7 @@ type Mutation
   setUserPrompt(content: Markdown!): Prompt! @join__field(graph: MODDY)
 
   """
-  Clear the organization-level prompt override, falling back to universal.
+  Clear the organization-level prompt override, falling back to universal. Admin-only — an organization prompt steers Moddy for every member of that org.
   """
   clearOrganizationPrompt(organizationId: ID!): Boolean! @join__field(graph: MODDY)
 
