@@ -7,13 +7,25 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.150.21 |
+| Connector | 0.150.48 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.21/connector-0.150.21.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.48/connector-0.150.48.jar)
 
 ## Changelog
 
 ## June 2026
+
+### v0.150.48 – 2026-06-12
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.48/connector-0.150.48.jar)
+
+* Build(connector): add spring-boot-starter-restclient dependency (#1263)
+* Redact secrets from connector GET /configuration (#1215)
+* Fix(connector): restore TLS on the connector->gateway link (#1167)
+* Enforce config validation on remaining tool-bearing trees (#1156)
+* Fix(connector): reuse one SslContext to stop connection-pool cardinality explosion (#1152)
+* Fix(connector): convey LST changeset to the gateway on enrich rows (#1145)
+* Move url validation into connector module (#1164)
 
 ### v0.150.21 – 2026-06-05
 
