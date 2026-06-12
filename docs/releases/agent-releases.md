@@ -7,14 +7,17 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.261.0         |
+| Agent (recommended to use **latest**) | 0.263.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.261.0/moderne-agent-0.261.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.263.0/moderne-agent-0.263.0.jar)
 
 ## Changelog
 
+### v0.263.0 - 2026-06-12
+
+* Remove obsolete suppression
 ### v0.261.0 - 2026-06-03
 
 * actions/setup-java v5
