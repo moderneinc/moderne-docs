@@ -7,14 +7,17 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.263.0         |
+| Agent (recommended to use **latest**) | 0.262.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.263.0/moderne-agent-0.263.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.262.0/moderne-agent-0.262.0.jar)
 
 ## Changelog
 
+### v0.262.0 - 2026-06-12
+
+* Remove net.i2p.crypto:eddsa, which has no fixed release for CVE-2020-36843
 ### v0.263.0 - 2026-06-12
 
 * Remove obsolete suppression
