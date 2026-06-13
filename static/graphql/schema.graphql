@@ -1,10 +1,13 @@
 schema
   @link(url: "https://specs.apollo.dev/link/v1.0")
   @link(url: "https://specs.apollo.dev/join/v0.5", for: EXECUTION)
+  @link(url: "https://specs.apollo.dev/inaccessible/v0.2", import: ["@inaccessible"], for: SECURITY)
 {
   query: Query
   mutation: Mutation
 }
+
+directive @inaccessible on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUMENT_DEFINITION | SCALAR | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
 
 directive @join__directive(graphs: [join__Graph!], name: String!, args: join__DirectiveArguments) repeatable on SCHEMA | OBJECT | INTERFACE | FIELD_DEFINITION
 
@@ -1917,6 +1920,13 @@ input ExchangeAuthorizationCodeInput
 
   """Authorization code from the OAuth callback."""
   code: String!
+
+  """
+  The state value returned in the OAuth callback (the `state` parameter for OAuth 2.0,
+  or `oauth_token` for Bitbucket OAuth 1.0a). Validated against the server-issued state
+  to prevent CSRF / authorization-code injection.
+  """
+  state: String!
 
   """
   The redirect URI used in the authorization request.
@@ -5973,23 +5983,27 @@ input UpdateUserOrganizationInput
 }
 
 type User
-  @join__type(graph: ARTIFACTSMAVEN, key: "email", resolvable: false)
-  @join__type(graph: AUDITREADER, key: "email", resolvable: false)
-  @join__type(graph: AUTHZ, key: "email", resolvable: false)
-  @join__type(graph: AUTHZ, key: "email", extension: true, resolvable: true)
-  @join__type(graph: CAPABILITIES, key: "email", resolvable: false)
-  @join__type(graph: CHANGELOGREADER, key: "email", resolvable: false)
-  @join__type(graph: CHANGELOGWRITER, key: "email", resolvable: false)
-  @join__type(graph: CHANGESETCOMMITTER, key: "email", resolvable: false)
-  @join__type(graph: CHANGESETREADER, key: "email", resolvable: false)
-  @join__type(graph: CHANGESETVISUALIZER, key: "email", resolvable: false)
-  @join__type(graph: CODESEARCH, key: "email", resolvable: false)
-  @join__type(graph: MODDY, key: "email", resolvable: false)
-  @join__type(graph: MODDY, key: "email", extension: true)
-  @join__type(graph: ORGANIZATION, key: "email", resolvable: false)
-  @join__type(graph: RECIPEMARKETPLACE, key: "email", resolvable: false)
-  @join__type(graph: RECIPEWORKER, key: "email", resolvable: false)
+  @join__type(graph: ARTIFACTSMAVEN, key: "id", resolvable: false)
+  @join__type(graph: AUDITREADER, key: "id", resolvable: false)
+  @join__type(graph: AUTHZ, key: "id", resolvable: false)
+  @join__type(graph: AUTHZ, key: "id", extension: true, resolvable: true)
+  @join__type(graph: CAPABILITIES, key: "id", resolvable: false)
+  @join__type(graph: CHANGELOGREADER, key: "id", resolvable: false)
+  @join__type(graph: CHANGELOGWRITER, key: "id", resolvable: false)
+  @join__type(graph: CHANGESETCOMMITTER, key: "id", resolvable: false)
+  @join__type(graph: CHANGESETREADER, key: "id", resolvable: false)
+  @join__type(graph: CHANGESETVISUALIZER, key: "id", resolvable: false)
+  @join__type(graph: CODESEARCH, key: "id", resolvable: false)
+  @join__type(graph: MODDY, key: "id", resolvable: false)
+  @join__type(graph: MODDY, key: "id", extension: true)
+  @join__type(graph: ORGANIZATION, key: "id", resolvable: false)
+  @join__type(graph: RECIPEMARKETPLACE, key: "id", resolvable: false)
+  @join__type(graph: RECIPEWORKER, key: "id", resolvable: false)
 {
+  """
+  Internal federation join key (the user's email). Not exposed in the public API.
+  """
+  id: ID! @inaccessible
   email: String!
   username: String @join__field(graph: AUTHZ)
   role: UserRole @join__field(graph: AUTHZ)

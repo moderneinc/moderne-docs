@@ -4198,6 +4198,7 @@ Direct commit to origin. No additional options required.
 |-------|------|-------------|
 | `authorizationId` | ID! | The authorization ID returned from initiateAuthorization or from NeedsAuthorization. |
 | `code` | String! | Authorization code from the OAuth callback. |
+| `state` | String! | The state value returned in the OAuth callback (the `state` parameter for OAuth 2.0, or `oauth_token` for Bitbucket OAuth 1.0a). Validated against the server-issued state to prevent CSRF / authorization-code injection. |
 | `redirectUri` | String! | The redirect URI used in the authorization request. Note: This field is deprecated - the server uses the stored redirect URI from the authorization to ensure an exact match. |
 
 ##### `FileChangeOrderByInput`
