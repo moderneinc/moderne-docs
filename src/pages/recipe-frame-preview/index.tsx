@@ -52,6 +52,11 @@ const RecipeFramePreview: FunctionComponent = () => {
             fixed navbar and confined to its section, so it pins while you read the section and releases at its end.
             Scoped to this preview; rolling it out to the live docs would be a small, global CSS change.
           </div>
+          <div className={styles.previewBannerCaveat}>
+            <strong>Caveat — Moderne-only info popover:</strong> the hover popover beside the “Moderne Only” badge
+            is a <em>custom</em> React + CSS component — Docusaurus ships no hover-popover, and a hover popover that
+            holds a button isn’t a standard pattern. Opens on hover and on keyboard focus.
+          </div>
           <div className={styles.previewBannerRefs}>
             <span className={styles.previewBannerRefsLabel}>Planning docs:</span>
             <a className={styles.previewBannerLink} href="/planning-docs/recipe-detail-redesign-analysis.md" target="_blank" rel="noopener noreferrer">

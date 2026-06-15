@@ -1,62 +1,35 @@
-import React, { useEffect, useRef, useState, type FunctionComponent } from 'react';
+import React, { type FunctionComponent } from 'react';
 import { Info } from 'lucide-react';
 import { NeoButton } from '@site/src/components/NeoButton';
 import styles from './styles.module.css';
 
 /**
- * Small info icon-button shown next to the "Moderne Only" badge. Click opens a
- * compact popover (same interaction as the Copy-page menu — click-outside / Escape
- * to close) with a short explanation and a Contact Sales CTA, so the page itself
- * stays clean (nothing rendered inline until asked for).
+ * ⚠ CUSTOM REACT + CSS — not a stock Docusaurus/Moderne component.
+ *
+ * Info icon-button beside the "Moderne Only" badge whose popover opens on HOVER
+ * (and on keyboard focus, via :focus-within, so tab/tap users can reach it too).
+ * A hover popover that contains an interactive button isn't a standard pattern —
+ * Docusaurus ships no hover-popover — so this is hand-built. Flagged accordingly.
  */
-export const AccessInfoButton: FunctionComponent = () => {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const onClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
-    };
-    document.addEventListener('mousedown', onClick);
-    document.addEventListener('keydown', onKey);
-    return () => {
-      document.removeEventListener('mousedown', onClick);
-      document.removeEventListener('keydown', onKey);
-    };
-  }, [open]);
-
-  return (
-    <span className={styles.accessInfo} ref={ref}>
-      <button
-        type="button"
-        className={styles.accessInfoIcon}
-        onClick={() => setOpen((v) => !v)}
-        aria-label="About Moderne-only recipes"
-        aria-expanded={open}
+export const AccessInfoButton: FunctionComponent = () => (
+  <span className={styles.accessInfo}>
+    <button type="button" className={styles.accessInfoIcon} aria-label="About Moderne-only recipes">
+      <Info size={15} />
+    </button>
+    <span className={styles.accessInfoPopover}>
+      <span className={styles.accessInfoText}>
+        This recipe is proprietary to Moderne and runs on the Moderne platform — it isn’t part of the
+        open-source catalog. Available with a Moderne subscription.
+      </span>
+      <NeoButton
+        variant="primary"
+        size="small"
+        href="https://www.moderne.io/contact-us"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <Info size={15} />
-      </button>
-      {open && (
-        <span className={styles.accessInfoPopover} role="dialog">
-          <span className={styles.accessInfoText}>
-            This recipe is proprietary to Moderne and runs on the Moderne platform — it isn’t part of the
-            open-source catalog. Available with a Moderne subscription.
-          </span>
-          <NeoButton
-            variant="primary"
-            size="small"
-            href="https://www.moderne.io/contact-us"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contact Sales
-          </NeoButton>
-        </span>
-      )}
+        Contact Sales
+      </NeoButton>
     </span>
-  );
-};
+  </span>
+);
