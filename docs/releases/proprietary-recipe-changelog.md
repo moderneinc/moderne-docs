@@ -10,6 +10,16 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## June 15, 2026
+
+#### rewrite-prethink - 0.7.1
+
+* Detect CORS when the Express app is typed as express.Application
+* Install matching openrewrite pip version for Python tests
+* FindExpressEndpoints: match both express.* and express-serve-static-core.* receiver types
+* Detect Python BDD step definitions (behave, pytest-bdd, lettuce)
+* Upgrade to langchain4j:1.16.3
+
 ## June 5, 2026
 
 #### rewrite-nodejs - 0.46.1
@@ -4048,10 +4058,4 @@ Republishing to update dependencies
 #### rewrite-cryptography - v0.2.1
 
 - Fix recipe name
-
-## June 15, 2025
-
-#### rewrite-devcenter - 1.4.0
-
-* Aggregate DevCenter by organization from data table output
 
