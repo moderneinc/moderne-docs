@@ -157,12 +157,6 @@
   text-decoration: underline;
 }
 
-/* Danger variant of the Neo tag (e.g. a "Required" option). */
-.chipDanger {
-  background-color: var(--neo-status-error-light);
-  color: var(--neo-status-error-dark);
-}
-
 /* Access-tier tags: success = open source / free; brand = Moderne (paid). */
 .chipSuccess {
   background-color: var(--neo-status-success-light);
@@ -541,6 +535,18 @@ tbody tr + tr .td {
 }
 
 .optionExampleNone {
+  color: var(--neo-typography-body-secondary);
+}
+
+/* Required / Optional shown as plain type beneath the example (not a pill). */
+.optionRequired {
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-status-error-dark);
+}
+
+.optionOptional {
+  font-size: var(--neo-font-size-xs);
   color: var(--neo-typography-body-secondary);
 }
 
@@ -1555,6 +1561,7 @@ html[data-theme='dark'] {
   .codeChipLabel,
   .optionsCount,
   .optionExampleNone,
+  .optionOptional,
   .headerTimeSaved,
   .headerTimeSavedLabel,
   .headerTimeSavedIcon,
@@ -1568,11 +1575,6 @@ html[data-theme='dark'] {
   }
 
   /* Status/access Neo tags — neutral dark pill with a coloured label. */
-  .chipDanger {
-    background-color: var(--neo-grey-800);
-    color: var(--neo-status-error-medium);
-  }
-
   .chipSuccess {
     background-color: var(--neo-grey-800);
     color: var(--neo-status-success-medium);
@@ -1581,6 +1583,10 @@ html[data-theme='dark'] {
   .chipBrand {
     background-color: var(--neo-grey-800);
     color: var(--neo-digital-blue-300);
+  }
+
+  .optionRequired {
+    color: var(--neo-status-error-medium);
   }
 
   /* Accent / links */

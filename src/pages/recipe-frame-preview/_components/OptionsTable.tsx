@@ -1,5 +1,4 @@
 import React, { type FunctionComponent } from 'react';
-import clsx from 'clsx';
 import type { RecipeOption } from './recipeData';
 import { renderWithCode } from './renderWithCode';
 import styles from './styles.module.css';
@@ -43,14 +42,14 @@ export const OptionsTable: FunctionComponent<{ options: RecipeOption[] }> = ({ o
             </td>
             <td className={styles.td}>
               <div className={styles.optionExampleCell}>
-                <span className={clsx(styles.chip, opt.required && styles.chipDanger)}>
-                  {opt.required ? 'Required' : 'Optional'}
-                </span>
                 {opt.example ? (
                   <code className={styles.optionExample}>{opt.example}</code>
                 ) : (
                   <span className={styles.optionExampleNone}>—</span>
                 )}
+                <span className={opt.required ? styles.optionRequired : styles.optionOptional}>
+                  {opt.required ? 'Required' : 'Optional'}
+                </span>
               </div>
             </td>
           </tr>
