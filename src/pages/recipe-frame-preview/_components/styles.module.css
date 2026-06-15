@@ -711,10 +711,15 @@ tbody tr + tr .td {
   transform: rotate(180deg);
 }
 
+/* Contained box even for short (inline) lists, so the rows don't float — matches
+   the bounded/searchable window, just without the scroll cap. */
 .recipeList {
   margin: 0;
   padding: 0;
   list-style: none;
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  overflow: hidden;
 }
 
 .recipeListItem {
@@ -1797,6 +1802,7 @@ html[data-theme='dark'] {
     color: var(--neo-grey-500);
   }
 
+  .recipeList,
   .recipeListWindow {
     border-color: var(--neo-grey-700);
   }
