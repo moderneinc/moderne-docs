@@ -230,26 +230,39 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           <span className={styles.chip}>{recipe.license}</span>
         </div>
 
-        {/* Pattern B (multi-language spike): distinct per-language recipes sharing this
-            name — cross-linked, not merged. */}
+        {/* Multi-language spike result. Two relationships:
+            • "Also available in" (shown) = Pattern B — DISTINCT recipes sharing a name → cross-link.
+            • "Applies to" = Pattern A — the SAME recipe across languages → collapse N pages into one. */}
         {recipe.alsoAvailableIn && recipe.alsoAvailableIn.length > 0 && (
-          <div
-            className={styles.alsoAvailable}
-            title="Distinct per-language recipes that share this name — cross-linked, not merged"
-          >
-            <span className={styles.alsoAvailableLabel}>Also available in</span>
-            {recipe.alsoAvailableIn.map((v) => (
-              <a
-                key={v.language}
-                className={clsx(styles.chip, styles.chipLink)}
-                href={v.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {v.language}
-              </a>
-            ))}
-          </div>
+          <>
+            <div className={styles.alsoAvailable}>
+              <span className={styles.alsoAvailableLabel}>Also available in</span>
+              {recipe.alsoAvailableIn.map((v) => (
+                <a
+                  key={v.language}
+                  className={clsx(styles.chip, styles.chipLink)}
+                  href={v.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {v.language}
+                </a>
+              ))}
+            </div>
+            <div className={styles.crossLangNote}>
+              <span>
+                <strong>Also available in</strong> cross-links <em>distinct</em> recipes that merely share this
+                name (Pattern B — linked, not merged). Contrast <strong>“Applies to”</strong>: when the{' '}
+                <em>same</em> recipe spans languages (Pattern A, e.g. <code className={styles.inlineCode}>FindTypes</code>),
+                its duplicate per-language pages collapse into <em>one</em> page carrying an
+                <strong> “Applies to: Java, C#, …”</strong> badge. Pattern A is machine-detectable (~95%); “Applies
+                to” isn’t built here.
+              </span>
+              <span className={styles.crossLangConfidence}>
+                ⚠ In-repo render plumbing for this is ~60% confident — needs technical validation.
+              </span>
+            </div>
+          </>
         )}
 
         {/* Footer: value-prop stat (left) + actions (right) */}
