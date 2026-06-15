@@ -157,18 +157,22 @@
   text-decoration: underline;
 }
 
-/* Prominent standalone access-tier badge at the top of the hero card (above the
-   title). Its own line via display:flex + fit-content; oss = open source / free,
-   moderne = requires the Moderne platform. */
+/* Access-tier badge at the top of the hero card (above the title), with an
+   optional info icon-button beside it (Moderne-only recipes). */
+.accessRow {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_4);
+  margin-bottom: var(--neo-spacing_2);
+}
+
 .accessBadge {
   display: flex;
-  width: fit-content;
   align-items: center;
   padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
   border-radius: var(--neo-border-radius-full);
   font-size: var(--neo-font-size-sm);
   font-weight: var(--neo-font-weight-semi-bold);
-  margin-bottom: var(--neo-spacing_2);
 }
 
 .accessBadge_oss {
@@ -181,19 +185,49 @@
   color: var(--neo-digital-blue-700);
 }
 
-/* Moderne-only access disclosure (real docs <Details>); compact, owns placement. */
-.accessCallout {
-  margin-top: var(--neo-spacing_5);
-  max-width: 34rem;
+/* Info icon-button + click popover (Contact Sales) next to the Moderne-only badge. */
+.accessInfo {
+  position: relative;
+  display: inline-flex;
 }
 
-.accessCalloutIcon {
-  vertical-align: text-bottom;
-  margin-right: var(--neo-spacing_1_4);
+.accessInfoIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--neo-spacing_1_4);
+  border: none;
+  border-radius: var(--neo-border-radius-full);
+  background-color: transparent;
+  color: var(--neo-typography-body-secondary);
+  cursor: pointer;
 }
 
-.accessCalloutText {
-  margin-bottom: var(--neo-spacing_2);
+.accessInfoIcon:hover {
+  color: var(--neo-typography-input-default);
+}
+
+.accessInfoPopover {
+  position: absolute;
+  top: calc(100% + var(--neo-spacing_1));
+  left: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--neo-spacing_1_1_2);
+  width: 260px;
+  padding: var(--neo-spacing_2);
+  background-color: var(--neo-surfaces-card);
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  box-shadow: var(--neo-shadow-dropdown);
+}
+
+.accessInfoText {
+  font-size: var(--neo-font-size-sm);
+  line-height: 1.5;
+  color: var(--neo-typography-body-secondary);
 }
 
 .title {
@@ -1490,7 +1524,8 @@ html[data-theme='dark'] {
 
   /* Elevated surfaces */
   .relatedCard,
-  .copyMenuPopover {
+  .copyMenuPopover,
+  .accessInfoPopover {
     background-color: var(--neo-icons-default);
   }
 
@@ -1534,6 +1569,7 @@ html[data-theme='dark'] {
   .accordionItem,
   .codeBlockFlush,
   .copyMenuPopover,
+  .accessInfoPopover,
   .relatedCard,
   .codeBlock {
     border-color: var(--neo-grey-700);
@@ -1607,6 +1643,8 @@ html[data-theme='dark'] {
   .optionExampleNone,
   .optionOptional,
   .alsoAvailableLabel,
+  .accessInfoText,
+  .accessInfoIcon,
   .headerTimeSaved,
   .headerTimeSavedLabel,
   .headerTimeSavedIcon,

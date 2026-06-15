@@ -5,10 +5,10 @@ import latestVersions from '@site/src/plugins/latest-versions';
 import Head from '@docusaurus/Head';
 import Admonition from '@theme/Admonition';
 import CodeBlock from '@theme/CodeBlock';
-import Details from '@theme/Details';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import { ArrowRight, Check, Clock, Copy, ExternalLink, Info, Wrench } from 'lucide-react';
+import { ArrowRight, Check, Clock, Copy, ExternalLink, Wrench } from 'lucide-react';
+import { AccessInfoButton } from './AccessInfoButton';
 import { CopyPageMenu } from './CopyPageMenu';
 import { DataTableList } from './DataTableList';
 import { ExampleList } from './ExampleList';
@@ -188,16 +188,19 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           ) : null}
         </SectionNote>
 
-        <span
-          className={clsx(styles.accessBadge, isOpenSource ? styles.accessBadge_oss : styles.accessBadge_moderne)}
-          title={
-            isOpenSource
-              ? 'Open source — Apache-2.0, free to run anywhere'
-              : 'Requires the Moderne platform (Moderne Source Available license)'
-          }
-        >
-          {isOpenSource ? 'Open source' : 'Moderne Only'}
-        </span>
+        <div className={styles.accessRow}>
+          <span
+            className={clsx(styles.accessBadge, isOpenSource ? styles.accessBadge_oss : styles.accessBadge_moderne)}
+            title={
+              isOpenSource
+                ? 'Open source — Apache-2.0, free to run anywhere'
+                : 'Requires the Moderne platform (Moderne Source Available license)'
+            }
+          >
+            {isOpenSource ? 'Open source' : 'Moderne Only'}
+          </span>
+          {!isOpenSource && <AccessInfoButton />}
+        </div>
 
         <h1 className={styles.title}>{renderWithCode(recipe.displayName, styles.titleCode)}</h1>
 
@@ -284,34 +287,6 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           </div>
         </div>
       </header>
-
-      {/* Access disclosure for Moderne-only (proprietary) recipes — collapsed by default
-          (real Docusaurus <Details>) so it stays compact; expands to a Contact Sales CTA. */}
-      {!isOpenSource && (
-        <div className={styles.accessCallout}>
-          <Details
-            summary={
-              <>
-                <Info size={14} className={styles.accessCalloutIcon} aria-hidden="true" /> Moderne-only recipe
-              </>
-            }
-          >
-            <p className={styles.accessCalloutText}>
-              This recipe is proprietary to Moderne and runs on the Moderne platform — it isn’t part of the
-              open-source (Apache-2.0) catalog. Available with a Moderne subscription.
-            </p>
-            <NeoButton
-              variant="primary"
-              size="small"
-              href="https://www.moderne.io/contact-us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Contact Sales
-            </NeoButton>
-          </Details>
-        </div>
-      )}
 
       {/* ---------- Source ---------- */}
       <section className={styles.section} id="recipe-source">
