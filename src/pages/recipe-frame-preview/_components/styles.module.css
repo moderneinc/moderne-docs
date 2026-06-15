@@ -163,6 +163,17 @@
   color: var(--neo-status-error-dark);
 }
 
+/* Access-tier tags: success = open source / free; brand = Moderne (paid). */
+.chipSuccess {
+  background-color: var(--neo-status-success-light);
+  color: var(--neo-status-success-dark);
+}
+
+.chipBrand {
+  background-color: var(--neo-digital-blue-50);
+  color: var(--neo-digital-blue-700);
+}
+
 .title {
   font-size: var(--neo-font-size-h1);
   font-weight: var(--neo-font-weight-semi-bold);
@@ -292,56 +303,38 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--neo-spacing_1);
+  justify-content: space-between;
+  gap: var(--neo-spacing_2);
   margin-top: var(--neo-spacing_5);
 }
 
-/* ---------- Placeholder: at a glance ---------- */
-/* At a glance — dashboard metric cards below the header */
-.glanceSection {
-  position: relative;
-  margin-top: var(--neo-spacing_4);
-}
-
-.glanceHeader {
+.actionButtons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--neo-spacing_1_1_2);
-  font-size: var(--neo-font-size-xs);
-  font-weight: var(--neo-font-weight-semi-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--neo-typography-input-default);
-  margin-bottom: var(--neo-spacing_2);
+  gap: var(--neo-spacing_1);
 }
 
-.glanceGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--neo-spacing_2);
-}
-
-.glanceCard {
-  display: flex;
-  flex-direction: column;
+/* Value-prop stat (placeholder) paired with the CTA in the header footer. */
+.headerTimeSaved {
+  display: inline-flex;
   align-items: center;
   gap: var(--neo-spacing_1_2);
-  text-align: center;
-  /* Each stat is its own subtle outlined box, sitting outside the header card. */
-  padding: var(--neo-spacing_2_1_2) var(--neo-spacing_2);
-  border: 1px solid var(--neo-border-card);
-  border-radius: var(--neo-border-radius-card);
-}
-
-.glanceCardTop {
-  font-size: var(--neo-font-size-xs);
+  font-size: var(--neo-font-size-sm);
   color: var(--neo-typography-body-secondary);
 }
 
-.glanceValue {
-  font-size: var(--neo-font-size-h5);
-  font-weight: var(--neo-font-weight-bold);
+.headerTimeSavedIcon {
+  color: var(--neo-icons-default);
+}
+
+.headerTimeSavedValue {
+  font-weight: var(--neo-font-weight-semi-bold);
   color: var(--neo-typography-input-default);
+}
+
+.headerTimeSavedLabel {
+  color: var(--neo-typography-body-secondary);
 }
 
 /* ---------- Sections ---------- */
@@ -517,14 +510,6 @@ tbody tr + tr .td {
 .optionsCard .td {
   padding-left: var(--neo-spacing_2);
   padding-right: var(--neo-spacing_2);
-}
-
-/* Parameter cell: Neo tag (type) stacked over the inline-code name. */
-.optionParam {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--neo-spacing_1);
 }
 
 /* Name + example reuse the page's inline-code chip (see .inlineCode) so the
@@ -1505,7 +1490,6 @@ html[data-theme='dark'] {
 
   /* Borders */
   .header,
-  .glanceCard,
   .details,
   .detailsSpaced,
   .accordionItem,
@@ -1558,14 +1542,13 @@ html[data-theme='dark'] {
   .optionDesc,
   .td,
   .recipeListItem,
-  .glanceValue,
-  .glanceHeader,
   .idCode,
   .descCode,
   .ctaTitle,
   .dataTableName,
   .copyMenuItemTitle,
   .metaLabel,
+  .headerTimeSavedValue,
   .exampleName {
     color: var(--neo-surfaces-snackbar-dark-mode);
   }
@@ -1575,7 +1558,6 @@ html[data-theme='dark'] {
   }
 
   /* Muted text */
-  .glanceCardTop,
   .dataTableDesc,
   .ctaText,
   .exampleLabel,
@@ -1584,6 +1566,9 @@ html[data-theme='dark'] {
   .codeChipLabel,
   .optionsCount,
   .optionExampleNone,
+  .headerTimeSaved,
+  .headerTimeSavedLabel,
+  .headerTimeSavedIcon,
   .copyId {
     color: var(--neo-grey-400);
   }
@@ -1593,10 +1578,20 @@ html[data-theme='dark'] {
     border-color: var(--neo-grey-700);
   }
 
-  /* Danger Neo tag (Required) — neutral dark pill with a red label. */
+  /* Status/access Neo tags — neutral dark pill with a coloured label. */
   .chipDanger {
     background-color: var(--neo-grey-800);
     color: var(--neo-status-error-medium);
+  }
+
+  .chipSuccess {
+    background-color: var(--neo-grey-800);
+    color: var(--neo-status-success-medium);
+  }
+
+  .chipBrand {
+    background-color: var(--neo-grey-800);
+    color: var(--neo-digital-blue-300);
   }
 
   /* Accent / links */

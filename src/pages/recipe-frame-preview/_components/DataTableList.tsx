@@ -1,6 +1,7 @@
 import React, { type FunctionComponent } from 'react';
 import { Accordion, type AccordionItem } from './Accordion';
 import type { RecipeDataTable } from './recipeData';
+import { renderWithCode } from './renderWithCode';
 import styles from './styles.module.css';
 
 /**
@@ -17,7 +18,7 @@ export const DataTableList: FunctionComponent<{ title: string; tables: RecipeDat
     content: (
       <div className={styles.dataTableBody}>
         <code className={styles.dataTableId}>{dt.name}</code>
-        <p className={styles.dataTableDesc}>{dt.description}</p>
+        <p className={styles.dataTableDesc}>{renderWithCode(dt.description, styles.inlineCode)}</p>
         <table className={styles.table}>
           <thead>
             <tr>
@@ -29,7 +30,7 @@ export const DataTableList: FunctionComponent<{ title: string; tables: RecipeDat
             {dt.columns.map((col) => (
               <tr key={col.name}>
                 <td className={styles.td}>{col.name}</td>
-                <td className={styles.td}>{col.description}</td>
+                <td className={styles.td}>{renderWithCode(col.description, styles.inlineCode)}</td>
               </tr>
             ))}
           </tbody>

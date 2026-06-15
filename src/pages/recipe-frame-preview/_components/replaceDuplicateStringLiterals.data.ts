@@ -17,7 +17,7 @@ export const replaceDuplicateStringLiteralsContent: ExtractedContent = {
       "type": "Boolean",
       "name": "includeTestSources",
       "required": false,
-      "description": "Changes only apply to main by default. includeTestSources will apply the recipe to test source files.",
+      "description": "Changes only apply to main by default. `includeTestSources` will apply the recipe to `test` source files.",
       "example": ""
     }
   ],

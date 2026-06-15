@@ -11,7 +11,7 @@ export const commonStaticAnalysisContent: ExtractedContent = {
   ],
   "subRecipes": [
     {
-      "name": "Constructors of an abstract class should not be declared public",
+      "name": "Constructors of an `abstract` class should not be declared `public`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/abstractclasspublicconstructor"
     },
     {
@@ -19,11 +19,11 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/atomicprimitiveequalsusesget"
     },
     {
-      "name": "new BigDecimal(double) should not be used",
+      "name": "`new BigDecimal(double)` should not be used",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/bigdecimaldoubleconstructorrecipe"
     },
     {
-      "name": "BigDecimal rounding constants to RoundingMode enums",
+      "name": "`BigDecimal` rounding constants to `RoundingMode` enums",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/bigdecimalroundingconstantstoenums"
     },
     {
@@ -39,7 +39,7 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/catchclauseonlyrethrows"
     },
     {
-      "name": "Chain StringBuilder.append() calls",
+      "name": "Chain `StringBuilder.append()` calls",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/chainstringbuilderappendcalls"
     },
     {
@@ -67,7 +67,7 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/explicitinitialization"
     },
     {
-      "name": "Externalizable classes have no-arguments constructor",
+      "name": "`Externalizable` classes have no-arguments constructor",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/externalizablehasnoargsconstructor"
     },
     {
@@ -83,23 +83,23 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/finalclass"
     },
     {
-      "name": "Fix String#format and String#formatted expressions",
+      "name": "Fix `String#format` and `String#formatted` expressions",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/fixstringformatexpressions"
     },
     {
-      "name": "for loop counters incremented in update",
+      "name": "`for` loop counters incremented in update",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/forloopincrementinupdate"
     },
     {
-      "name": "Use indexOf(String, int)",
+      "name": "Use `indexOf(String, int)`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/indexofchecksshoulduseastartposition"
     },
     {
-      "name": "indexOf() replaceable by contains()",
+      "name": "`indexOf()` replaceable by `contains()`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/indexofreplaceablebycontains"
     },
     {
-      "name": "indexOf should not compare greater than zero",
+      "name": "`indexOf` should not compare greater than zero",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/indexofshouldnotcomparegreaterthanzero"
     },
     {
@@ -107,7 +107,7 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/inlinevariable"
     },
     {
-      "name": "Use Collection#isEmpty() instead of comparing size()",
+      "name": "Use `Collection#isEmpty()` instead of comparing `size()`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/isemptycalloncollections"
     },
     {
@@ -119,7 +119,7 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/methodnamecasing"
     },
     {
-      "name": "switch statements should have at least 3 case clauses",
+      "name": "`switch` statements should have at least 3 `case` clauses",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/minimumswitchcases"
     },
     {
@@ -139,7 +139,7 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/nestedenumsarenotstatic"
     },
     {
-      "name": "Change StringBuilder and StringBuffer character constructor argument to String",
+      "name": "Change `StringBuilder` and `StringBuffer` character constructor argument to `String`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/newstringbuilderbufferwithcharargument"
     },
     {
@@ -147,7 +147,7 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/nodoublebraceinitialization"
     },
     {
-      "name": "Use Collections#emptyList(), emptyMap(), and emptySet()",
+      "name": "Use `Collections#emptyList()`, `emptyMap()`, and `emptySet()`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/noemptycollectionwithrawtype"
     },
     {
@@ -155,7 +155,7 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/noequalityinforcondition"
     },
     {
-      "name": "Remove finalize() method",
+      "name": "Remove `finalize()` method",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/nofinalizer"
     },
     {
@@ -167,23 +167,23 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/noredundantjumpstatements"
     },
     {
-      "name": "Unnecessary String#toString",
+      "name": "Unnecessary `String#toString`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/notostringonstringtype"
     },
     {
-      "name": "Unnecessary String#valueOf(..)",
+      "name": "Unnecessary `String#valueOf(..)`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/novalueofonstringtype"
     },
     {
-      "name": "finalize() calls super",
+      "name": "`finalize()` calls super",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/objectfinalizecallssuper"
     },
     {
-      "name": "Prefer System.getProperty(\"user.home\") over System.getenv(\"HOME\")",
+      "name": "Prefer `System.getProperty(\"user.home\")` over `System.getenv(\"HOME\")`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/prefersystemgetpropertyovergetenv"
     },
     {
-      "name": "Use primitive wrapper valueOf method",
+      "name": "Use primitive wrapper `valueOf` method",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/primitivewrapperclassconstructortovalueof"
     },
     {
@@ -203,11 +203,11 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundantnullcheckbeforeliteralequals"
     },
     {
-      "name": "Rename methods named hashcode, equal, or tostring",
+      "name": "Rename methods named `hashcode`, `equal`, or `tostring`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/renamemethodsnamedhashcodeequalortostring"
     },
     {
-      "name": "Replace A.class.isInstance(a) with a instanceof A",
+      "name": "Replace `A.class.isInstance(a)` with `a instanceof A`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/replaceclassisinstancewithinstanceof"
     },
     {
@@ -215,15 +215,15 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/replacelambdawithmethodreference"
     },
     {
-      "name": "Replace StringBuilder#append with String",
+      "name": "Replace `StringBuilder#append` with `String`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringbuilderwithstring"
     },
     {
-      "name": "Replace String concatenation with String.valueOf()",
+      "name": "Replace String concatenation with `String.valueOf()`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringconcatenationwithstringvalueof"
     },
     {
-      "name": "Simplify Arrays.asList(..) with varargs",
+      "name": "Simplify `Arrays.asList(..)` with varargs",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyarraysaslist"
     },
     {
@@ -239,7 +239,7 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/staticmethodnotfinal"
     },
     {
-      "name": "Use String.equals() on String literals",
+      "name": "Use `String.equals()` on `String` literals",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/stringliteralequality"
     },
     {
@@ -255,11 +255,11 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryparentheses"
     },
     {
-      "name": "Remove @Nullable and @CheckForNull annotations from primitives",
+      "name": "Remove `@Nullable` and `@CheckForNull` annotations from primitives",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryprimitiveannotations"
     },
     {
-      "name": "Unnecessary return as last statement in void method",
+      "name": "Unnecessary `return` as last statement in void method",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryreturnaslaststatement"
     },
     {
@@ -279,7 +279,7 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/useportablenewlines"
     },
     {
-      "name": "Prefer while over for loops",
+      "name": "Prefer `while` over `for` loops",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/whileinsteadoffor"
     },
     {
@@ -287,15 +287,15 @@ export const commonStaticAnalysisContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/staticanalysis/writeoctalvaluesasdecimal"
     },
     {
-      "name": "Structural equality tests should use == or !=",
+      "name": "Structural equality tests should use `==` or `!=`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/cleanup/equalsmethodusage"
     },
     {
-      "name": "it shouldn't be used as a lambda parameter name",
+      "name": "`it` shouldn't be used as a lambda parameter name",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/cleanup/implicitparameterinlambda"
     },
     {
-      "name": "Replace Char#toInt() with Char#code",
+      "name": "Replace `Char#toInt()` with `Char#code`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/cleanup/replacechartointwithcode"
     },
     {

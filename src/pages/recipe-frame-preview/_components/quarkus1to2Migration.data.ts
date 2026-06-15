@@ -13,27 +13,27 @@ export const quarkus1to2MigrationContent: ExtractedContent = {
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/quarkus/quarkus1to1_13migration"
     },
     {
-      "name": "Use @GrpcClient",
+      "name": "Use `@GrpcClient`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/grpcserviceannotationtogrpcclient"
     },
     {
-      "name": "Remove avro-maven-plugin",
+      "name": "Remove `avro-maven-plugin`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/removeavromavenplugin"
     },
     {
-      "name": "Use @Identifier(\"default-kafka-broker\")",
+      "name": "Use `@Identifier(\"default-kafka-broker\")`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/useidentifierondefaultkafkabroker"
     },
     {
-      "name": "Use PanacheEntityBase static methods",
+      "name": "Use `PanacheEntityBase` static methods",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/usepanacheentitybasestaticmethods"
     },
     {
-      "name": "Use Uni&lt;T extends PanacheEntityBase&gt;",
+      "name": "Use `Uni&lt;T extends PanacheEntityBase&gt;`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/usepanacheentitybaseunit"
     },
     {
-      "name": "Use Uni&lt;T extends ReactivePanacheMongoEntityBase&gt;",
+      "name": "Use `Uni&lt;T extends ReactivePanacheMongoEntityBase&gt;`",
       "href": "https://docs.moderne.io/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/usereactivepanachemongoentitybaseunit"
     },
     {

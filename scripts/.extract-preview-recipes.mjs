@@ -96,7 +96,7 @@ function parseSubRecipes(md, baseDir) {
   let body = tab[1];
   if (body.includes('**Recipes**')) body = body.slice(body.indexOf('**Recipes**'));
   return [...body.matchAll(/^\* \[(.+?)\]\((.+?)\)/gm)].map((x) => ({
-    name: x[1].replace(/&quot;/g, '"').replace(/`/g, ''),
+    name: x[1].replace(/&quot;/g, '"'),
     href: resolveHref(baseDir, x[2]),
   }));
 }
@@ -142,7 +142,7 @@ function parseUsedBy(md, baseDir) {
   const m = md.match(/\n## Used by\n([\s\S]*?)(?=\n## )/);
   if (!m) return [];
   return [...m[1].matchAll(/^\* \[(.+?)\]\((.+?)\)/gm)].map((x) => ({
-    name: x[1].replace(/&quot;/g, '"').replace(/`/g, ''),
+    name: x[1].replace(/&quot;/g, '"'),
     href: resolveHref(baseDir, x[2]),
   }));
 }
@@ -182,7 +182,7 @@ function parseOptions(md) {
       // The generator marks optional options with a leading "*Optional*." in the
       // description; capture it as a real field, then strip it from the prose.
       required: !/\*Optional\*/.test(r[3]),
-      description: r[3].replace(/\*Optional\*\.?\s*/, '').replace(/`/g, '').trim(),
+      description: r[3].replace(/\*Optional\*\.?\s*/, '').trim(),
       example: r[4].replace(/`/g, '').trim(),
     }));
 }

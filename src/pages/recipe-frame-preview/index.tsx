@@ -69,6 +69,9 @@ const RecipeFramePreview: FunctionComponent = () => {
             <a className={styles.previewBannerLink} href="/planning-docs/recipe-detail-phase2-implementation.md" target="_blank" rel="noopener noreferrer">
               Phase 2 implementation
             </a>
+            <a className={styles.previewBannerLink} href="/planning-docs/recipe-detail-multilang-spike.md" target="_blank" rel="noopener noreferrer">
+              Multi-language spike
+            </a>
           </div>
         </div>
 

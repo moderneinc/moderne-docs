@@ -7,13 +7,14 @@ import Admonition from '@theme/Admonition';
 import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import { ArrowRight, Check, Copy, ExternalLink, Wrench } from 'lucide-react';
+import { ArrowRight, Check, Clock, Copy, ExternalLink, Wrench } from 'lucide-react';
 import { CopyPageMenu } from './CopyPageMenu';
 import { DataTableList } from './DataTableList';
 import { ExampleList } from './ExampleList';
 import { OptionsTable } from './OptionsTable';
 import { UsageList } from './UsageList';
 import { RecipeList } from './RecipeList';
+import { renderWithCode } from './renderWithCode';
 import { RecipeToc, type TocItem } from './RecipeToc';
 import type { RecipePreviewData } from './recipeData';
 import styles from './styles.module.css';
@@ -99,18 +100,6 @@ const SectionNote: FunctionComponent<{
   </span>
 );
 
-/** Render text with `backtick` segments as code elements (badge for titles, inline elsewhere). */
-const renderWithCode = (text: string, codeClassName: string): React.ReactNode[] =>
-  text.split(/(`[^`]+`)/g).map((part, i) =>
-    part.startsWith('`') && part.endsWith('`') ? (
-      <code key={i} className={codeClassName}>
-        {part.slice(1, -1)}
-      </code>
-    ) : (
-      <React.Fragment key={i}>{part}</React.Fragment>
-    )
-  );
-
 /** Maven coordinates `group:artifact:version` from the real usage props (version via latest-versions). */
 const artifactCoords = (usage: RecipePreviewData['usage']): string | undefined => {
   if (!usage.groupId || !usage.artifactId) return undefined;
@@ -151,6 +140,12 @@ interface RecipeFrameProps {
 
 export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => {
   const isComposite = recipe.type === 'Composite recipe';
+  // Surface only the (placeholder) time-saved metric in the header; the rest of the
+  // old "at a glance" dashboard was removed per review.
+  const timeSaved = recipe.atAGlance.find((s) => /time saved/i.test(s.label))?.value;
+  // Access tier derived from the real license: Apache = open source / free;
+  // anything else (Moderne Source Available) = requires the Moderne platform.
+  const isOpenSource = /apache/i.test(recipe.license);
 
   const tocItems: TocItem[] = [
     { id: 'recipe-source', label: 'Recipe source' },
@@ -182,10 +177,10 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
       {/* ---------- Header zone (light band) ---------- */}
       <header className={styles.header}>
         <SectionNote status="reframed" goals={['Readability', 'Conversion']}>
-          Title, id, description, tags, license and a primary CTA presented together in a header card, with a
-          copyable id and Artifact. Title, id, description, tags and license are real (tags = the page’s “###
-          Tags”); languages are derived. New: the “Copy page / Open in Claude” menu — the AI-consumption entry (a
-          per-page .md / llms.txt export; phase 2; no AI).
+          Title, id, description, tags, license and a primary CTA in one header card, with copyable id + Artifact and
+          an estimated-time-saved stat. Title, id, description, tags and license are real (tags = the page’s “###
+          Tags”); languages are derived; time-saved is placeholder (phase-2, from platform run data — not AI). New:
+          the Copy-as-Markdown action — the AI-consumption entry (a per-page .md / llms.txt export; phase 2).
         </SectionNote>
 
         <h1 className={styles.title}>{renderWithCode(recipe.displayName, styles.titleCode)}</h1>
@@ -209,6 +204,16 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
 
         {/* Uniform, low-contrast metadata pills — quiet context in the reading flow */}
         <div className={styles.tagRow}>
+          <span
+            className={clsx(styles.chip, isOpenSource ? styles.chipSuccess : styles.chipBrand)}
+            title={
+              isOpenSource
+                ? 'Open source — Apache-2.0, free to run anywhere'
+                : 'Requires the Moderne platform (Moderne Source Available license)'
+            }
+          >
+            {isOpenSource ? 'Open source' : 'Moderne'}
+          </span>
           <span className={styles.chip}>{recipe.type}</span>
           {recipe.languages.map((lang) => (
             <span key={lang} className={styles.chip}>
@@ -229,43 +234,32 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           <span className={styles.chip}>{recipe.license}</span>
         </div>
 
-        {/* Actions — primary solid, secondary outlined; extra space above draws the eye */}
+        {/* Footer: value-prop stat (left) + actions (right) */}
         <div className={styles.actions}>
-          <NeoButton
-            variant="primary"
-            size="small"
-            href={recipe.appLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            icon={<ArrowRight size={14} />}
-            iconPosition="right"
-          >
-            Try in Platform
-          </NeoButton>
-          <CopyPageMenu markdown={recipe.markdown} />
+          {timeSaved && (
+            <span className={styles.headerTimeSaved}>
+              <Clock size={15} className={styles.headerTimeSavedIcon} aria-hidden="true" />
+              <span className={styles.headerTimeSavedValue}>{timeSaved}</span>
+              <span className={styles.headerTimeSavedLabel}>est. time saved</span>
+              <PlaceholderTag />
+            </span>
+          )}
+          <div className={styles.actionButtons}>
+            <NeoButton
+              variant="primary"
+              size="small"
+              href={recipe.appLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              icon={<ArrowRight size={14} />}
+              iconPosition="right"
+            >
+              Try in Platform
+            </NeoButton>
+            <CopyPageMenu markdown={recipe.markdown} />
+          </div>
         </div>
-
       </header>
-
-      {/* ---------- At a glance — dashboard metrics (below the header card) ---------- */}
-      <section className={styles.glanceSection}>
-        <SectionNote status="phase2" goals={['Readability', 'Conversion']}>
-          New dashboard-style metrics (no equivalent today). The sub-recipe / option count is real; time-saved and
-          repo stats are placeholder, sourced from Moderne platform run data later — not AI. Flexibility: the metric
-          cards auto-fit the available width and reflow to fewer columns on narrow screens.
-        </SectionNote>
-        <div className={styles.glanceHeader}>
-          At a glance <PlaceholderTag />
-        </div>
-        <div className={styles.glanceGrid}>
-          {recipe.atAGlance.map((stat) => (
-            <div key={stat.label} className={styles.glanceCard}>
-              <span className={styles.glanceCardTop}>{stat.label}</span>
-              <span className={styles.glanceValue}>{stat.value}</span>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* ---------- Source ---------- */}
       <section className={styles.section} id="recipe-source">
@@ -294,7 +288,7 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           <SectionNote status="reframed" goals={['Developer understanding', 'AI parsing']}>
             Real today (recipe descriptor): each option’s type, name, description, example, and required/optional
             state. Reframed: a structured card where type and required/optional read as labelled badges — but it
-            stays a semantic table (Parameter / Description / Example) so crawlers and screen readers parse it cleanly.
+            stays a semantic table (Parameter / Type / Description / Example) so crawlers and screen readers parse it cleanly.
             Flexibility: every option renders as a row (no cap); the header tallies required vs optional and scales
             with the count.
           </SectionNote>
@@ -373,10 +367,13 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           <SectionNote status="reframed" goals={['Readability', 'Developer understanding']}>
             Real today (generator): the composite recipes that include this one, linked to their detail pages.
             Flexibility: the same list widget as Definition — inline when short, searchable/bounded above 15 items.
-            Used-by counts run 1–347, so search beats an endless list.
+            Used-by counts run 1–347, so search beats an endless list. Reflects the open-source catalog only
+            (enterprise/private usage isn’t surfaced) — flagged inline so it isn’t mistaken for the full picture.
           </SectionNote>
           <h2 className={styles.sectionTitle}>Used by</h2>
-          <p className={styles.usedByIntro}>This recipe is used as part of the following composite recipes:</p>
+          <p className={styles.usedByIntro}>
+            This recipe is used as part of the following composite recipes (from the open-source catalog):
+          </p>
           <RecipeList recipes={recipe.usedBy} />
         </section>
       )}

@@ -1,13 +1,14 @@
 import React, { type FunctionComponent } from 'react';
 import clsx from 'clsx';
 import type { RecipeOption } from './recipeData';
+import { renderWithCode } from './renderWithCode';
 import styles from './styles.module.css';
 
 /**
  * Options as a structured card. Tags (type + required/optional) use the shared
  * Neo `.chip`; code (name + example) uses the shared inline-code styling — so it
- * matches the rest of the page. Stays a semantic <table> (Parameter / Description
- * / Example) with every value as real text for crawlers and screen readers.
+ * matches the rest of the page. Stays a semantic <table> (Parameter / Type /
+ * Description / Example) with every value as real text for crawlers and screen readers.
  */
 export const OptionsTable: FunctionComponent<{ options: RecipeOption[] }> = ({ options }) => (
   <div className={styles.optionsCard}>
@@ -16,6 +17,9 @@ export const OptionsTable: FunctionComponent<{ options: RecipeOption[] }> = ({ o
         <tr>
           <th className={styles.th} scope="col">
             Parameter
+          </th>
+          <th className={styles.th} scope="col">
+            Type
           </th>
           <th className={styles.th} scope="col">
             Description
@@ -29,13 +33,13 @@ export const OptionsTable: FunctionComponent<{ options: RecipeOption[] }> = ({ o
         {options.map((opt) => (
           <tr key={opt.name}>
             <td className={styles.td}>
-              <div className={styles.optionParam}>
-                <span className={styles.chip}>{opt.type}</span>
-                <code className={styles.optionName}>{opt.name}</code>
-              </div>
+              <code className={styles.optionName}>{opt.name}</code>
             </td>
             <td className={styles.td}>
-              <span className={styles.optionDesc}>{opt.description}</span>
+              <span className={styles.chip}>{opt.type}</span>
+            </td>
+            <td className={styles.td}>
+              <span className={styles.optionDesc}>{renderWithCode(opt.description, styles.inlineCode)}</span>
             </td>
             <td className={styles.td}>
               <div className={styles.optionExampleCell}>
