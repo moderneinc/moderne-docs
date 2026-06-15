@@ -157,13 +157,26 @@
   text-decoration: underline;
 }
 
-/* Access-tier tags: success = open source / free; brand = Moderne (paid). */
-.chipSuccess {
+/* Prominent standalone access-tier badge at the top of the hero card (above the
+   title). Its own line via display:flex + fit-content; oss = open source / free,
+   moderne = requires the Moderne platform. */
+.accessBadge {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
+  border-radius: var(--neo-border-radius-full);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-semi-bold);
+  margin-bottom: var(--neo-spacing_2);
+}
+
+.accessBadge_oss {
   background-color: var(--neo-status-success-light);
   color: var(--neo-status-success-dark);
 }
 
-.chipBrand {
+.accessBadge_moderne {
   background-color: var(--neo-digital-blue-50);
   color: var(--neo-digital-blue-700);
 }
@@ -1575,12 +1588,12 @@ html[data-theme='dark'] {
   }
 
   /* Status/access Neo tags — neutral dark pill with a coloured label. */
-  .chipSuccess {
+  .accessBadge_oss {
     background-color: var(--neo-grey-800);
     color: var(--neo-status-success-medium);
   }
 
-  .chipBrand {
+  .accessBadge_moderne {
     background-color: var(--neo-grey-800);
     color: var(--neo-digital-blue-300);
   }

@@ -178,6 +178,17 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           the Copy-as-Markdown action — the AI-consumption entry (a per-page .md / llms.txt export; phase 2).
         </SectionNote>
 
+        <span
+          className={clsx(styles.accessBadge, isOpenSource ? styles.accessBadge_oss : styles.accessBadge_moderne)}
+          title={
+            isOpenSource
+              ? 'Open source — Apache-2.0, free to run anywhere'
+              : 'Requires the Moderne platform (Moderne Source Available license)'
+          }
+        >
+          {isOpenSource ? 'Open source' : 'Moderne'}
+        </span>
+
         <h1 className={styles.title}>{renderWithCode(recipe.displayName, styles.titleCode)}</h1>
 
         <div className={styles.idArtifactRow}>
@@ -199,16 +210,6 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
 
         {/* Uniform, low-contrast metadata pills — quiet context in the reading flow */}
         <div className={styles.tagRow}>
-          <span
-            className={clsx(styles.chip, isOpenSource ? styles.chipSuccess : styles.chipBrand)}
-            title={
-              isOpenSource
-                ? 'Open source — Apache-2.0, free to run anywhere'
-                : 'Requires the Moderne platform (Moderne Source Available license)'
-            }
-          >
-            {isOpenSource ? 'Open source' : 'Moderne'}
-          </span>
           <span className={styles.chip}>{recipe.type}</span>
           {recipe.languages.map((lang) => (
             <span key={lang} className={styles.chip}>
