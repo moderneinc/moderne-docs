@@ -356,19 +356,26 @@
   margin-bottom: 0;
 }
 
-/* "Also available in" — cross-language sibling recipes (Pattern B). */
+/* "Also available in" — cross-language sibling recipes (Pattern B). Plain text
+   links (not pills) + extra separation, so it reads as cross-references rather
+   than competing with the metadata tags above it. */
 .alsoAvailable {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--neo-spacing_1);
-  margin-top: var(--neo-spacing_2);
+  margin: var(--neo-spacing_2_1_2) 0 0;
   font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-body-secondary);
 }
 
 .alsoAvailableLabel {
   color: var(--neo-typography-body-secondary);
-  font-weight: var(--neo-font-weight-medium);
+}
+
+.alsoAvailableLink {
+  color: var(--neo-typography-link-primary);
+  text-decoration: none;
+}
+
+.alsoAvailableLink:hover {
+  text-decoration: underline;
 }
 
 
@@ -1689,6 +1696,7 @@ html[data-theme='dark'] {
   .sourceLink,
   .relatedTitle,
   .copyMenuItemIcon,
+  .alsoAvailableLink,
   .exampleLabelAfter {
     color: var(--neo-digital-green-300);
   }
