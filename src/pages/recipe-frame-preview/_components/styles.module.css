@@ -181,6 +181,15 @@
   color: var(--neo-digital-blue-700);
 }
 
+/* Moderne-only access callout (real docs Admonition); just owns its placement. */
+.accessCallout {
+  margin-top: var(--neo-spacing_5);
+}
+
+.accessCalloutText {
+  margin-bottom: var(--neo-spacing_2);
+}
+
 .title {
   font-size: var(--neo-font-size-h1);
   font-weight: var(--neo-font-weight-semi-bold);

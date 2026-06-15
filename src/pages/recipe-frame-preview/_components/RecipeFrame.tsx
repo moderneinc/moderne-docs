@@ -195,7 +195,7 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
               : 'Requires the Moderne platform (Moderne Source Available license)'
           }
         >
-          {isOpenSource ? 'Open source' : 'Moderne'}
+          {isOpenSource ? 'Open source' : 'Moderne Only'}
         </span>
 
         <h1 className={styles.title}>{renderWithCode(recipe.displayName, styles.titleCode)}</h1>
@@ -283,6 +283,28 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           </div>
         </div>
       </header>
+
+      {/* Access callout for Moderne-only (proprietary) recipes — real docs Admonition
+          pattern (the ⓘ info callout) carrying the explanation + a Contact Sales CTA. */}
+      {!isOpenSource && (
+        <div className={styles.accessCallout}>
+          <Admonition type="info" title="Moderne-only recipe">
+            <p className={styles.accessCalloutText}>
+              This recipe is proprietary to Moderne and runs on the Moderne platform — it isn’t part of the
+              open-source (Apache-2.0) catalog. Available with a Moderne subscription.
+            </p>
+            <NeoButton
+              variant="primary"
+              size="small"
+              href="https://www.moderne.io/contact-us"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contact Sales
+            </NeoButton>
+          </Admonition>
+        </div>
+      )}
 
       {/* ---------- Source ---------- */}
       <section className={styles.section} id="recipe-source">
