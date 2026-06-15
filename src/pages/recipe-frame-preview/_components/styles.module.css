@@ -287,17 +287,6 @@
   margin-bottom: 0;
 }
 
-.placeholderTag {
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: var(--neo-font-size-xxs);
-  font-weight: var(--neo-font-weight-semi-bold);
-  padding: var(--neo-spacing_1_4) var(--neo-spacing_3_4);
-  border-radius: var(--neo-border-radius-x-s);
-  background-color: var(--neo-status-warning-light);
-  color: var(--neo-status-warning-dark);
-}
-
 /* ---------- Actions ---------- */
 .actions {
   display: flex;

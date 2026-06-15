@@ -59,11 +59,6 @@ const CopyButton: FunctionComponent<{
   );
 };
 
-/** A labelled "phase 2 / preview" wrapper so placeholder data is never mistaken for real. */
-const PlaceholderTag: FunctionComponent = () => (
-  <span className={styles.placeholderTag}>Phase 2 · preview data</span>
-);
-
 /**
  * Left-margin design note → scannable popover. A status badge (New / Reframed /
  * Real today / Phase 2) and the goal(s) it serves, plus a one-line rationale.
@@ -241,7 +236,6 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
               <Clock size={15} className={styles.headerTimeSavedIcon} aria-hidden="true" />
               <span className={styles.headerTimeSavedValue}>{timeSaved}</span>
               <span className={styles.headerTimeSavedLabel}>est. time saved</span>
-              <PlaceholderTag />
             </span>
           )}
           <div className={styles.actionButtons}>
@@ -444,9 +438,7 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           New (placeholder): deterministic taxonomy — shared package / tags, parent-child composites. Not AI
           similarity; needs phase-2 data.
         </SectionNote>
-        <h2 className={styles.sectionTitle}>
-          Related recipes <PlaceholderTag />
-        </h2>
+        <h2 className={styles.sectionTitle}>Related recipes</h2>
         <div className={styles.relatedGrid}>
           {recipe.relatedRecipes.map((rel) => (
             <div key={rel.title} className={styles.relatedCard}>
