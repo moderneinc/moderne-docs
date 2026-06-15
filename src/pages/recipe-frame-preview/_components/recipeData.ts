@@ -20,6 +20,7 @@ import { replaceDuplicateStringLiteralsContent } from './replaceDuplicateStringL
 import { quarkus1to2MigrationContent } from './quarkus1to2Migration.data';
 import { upgradeJavaVersionContent } from './upgradeJavaVersion.data';
 import { dependencyInsightContent } from './dependencyInsight.data';
+import { findTypesContent } from './findTypes.data';
 
 export interface DataTableColumn {
   name: string;
@@ -128,6 +129,12 @@ export interface RecipePreviewData {
   type: 'Composite recipe' | 'Single recipe';
   languages: string[];
   tags: string[];
+  /**
+   * "Pattern A" true duplicate: ONE recipe (same id) that applies across these
+   * languages — the duplicate per-language pages collapse into this one. Reliably
+   * derivable from the shared canonical link (see the spike doc).
+   */
+  appliesToLanguages?: string[];
   /**
    * "Pattern B" cross-language siblings: DISTINCT recipes (different IDs) that share
    * this recipe's name in other languages — linked, not merged. In production this
@@ -340,7 +347,7 @@ mod run . --recipe UpgradeJavaVersion --recipe-option "version=11"
 const DI_BASE = 'https://docs.moderne.io/user-documentation/recipes/recipe-catalog';
 const dependencyInsight: RecipePreviewData = {
   key: 'dependency-insight',
-  tabLabel: 'Cross-language recipe',
+  tabLabel: 'Look-alike recipe',
   displayName: 'Dependency insight for Gradle and Maven',
   fqName: 'org.openrewrite.java.dependencies.DependencyInsight',
   description:
@@ -397,6 +404,64 @@ Distinct per-language recipes: C#, JavaScript, Python.
 
 ## Usage
 mod run . --recipe DependencyInsight --recipe-option "groupIdPattern=com.fasterxml.jackson*"
+`,
+};
+
+// A "Pattern A" true-duplicate example from the spike: the SAME recipe id is
+// published once per language (java/csharp/javascript/python copies all share one
+// canonical). Modelled here as a single page with an `appliesToLanguages` badge —
+// the high-confidence, machine-detectable treatment.
+const findTypes: RecipePreviewData = {
+  key: 'find-types',
+  tabLabel: 'Multi-language recipe',
+  displayName: 'Find types',
+  fqName: 'org.openrewrite.java.search.FindTypes',
+  description: 'Find type references by name.',
+  license: 'Apache License 2.0',
+  type: 'Single recipe',
+  languages: ['Java'],
+  appliesToLanguages: ['Java', 'C#', 'JavaScript', 'Python'],
+  tags: findTypesContent.tags,
+  sourceLinks: [
+    { label: 'GitHub', href: 'https://github.com/openrewrite/rewrite' },
+    { label: 'Issue tracker', href: 'https://github.com/openrewrite/rewrite/issues' },
+    {
+      label: 'Maven Central',
+      href: 'https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/',
+    },
+  ],
+  atAGlance: [
+    { label: 'Sub-recipes', value: '0' },
+    { label: 'Est. time saved', value: '~5 min / search' },
+    { label: 'OSS repos run on', value: '20,000+' },
+    { label: 'Avg. changes / repo', value: '—' },
+  ],
+  infoAdmonition: findTypesContent.infoAdmonition,
+  preconditions: findTypesContent.preconditions,
+  options: findTypesContent.options,
+  subRecipes: findTypesContent.subRecipes,
+  yaml: findTypesContent.yaml,
+  usedBy: findTypesContent.usedBy,
+  examples: findTypesContent.examples,
+  usage: findTypesContent.usage,
+  dataTables: findTypesContent.dataTables,
+  appLink: 'https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes',
+  relatedRecipes: [
+    { title: 'Find methods', description: 'A sibling search recipe (also multi-language).' },
+    { title: 'Change type', description: 'Often the follow-up to a type search.' },
+    { title: 'Find fields', description: 'A narrower member search.' },
+  ],
+  markdown: `# Find types
+
+**org.openrewrite.java.search.FindTypes**
+
+Find type references by name.
+
+## Applies to
+One recipe, applied across Java, C#, JavaScript, Python (the duplicate per-language pages collapse into this one).
+
+## Usage
+mod run . --recipe FindTypes --recipe-option "fullyQualifiedTypeName=java.util.List"
 `,
 };
 
@@ -621,5 +686,6 @@ export const RECIPES: RecipePreviewData[] = [
   replaceDuplicateStringLiterals,
   quarkus1to2Migration,
   upgradeJavaVersion,
+  findTypes,
   dependencyInsight,
 ];

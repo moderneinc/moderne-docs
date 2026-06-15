@@ -243,6 +243,15 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           <span className={styles.chip}>{recipe.license}</span>
         </div>
 
+        {/* Pattern A (multi-language spike): ONE recipe applied across languages — the
+            duplicate per-language pages collapse into this page. Rationale in the wrench. */}
+        {recipe.appliesToLanguages && recipe.appliesToLanguages.length > 0 && (
+          <p className={styles.appliesTo}>
+            <span className={styles.appliesToLabel}>Applies to</span>{' '}
+            <span className={styles.appliesToLangs}>{recipe.appliesToLanguages.join(', ')}</span>
+          </p>
+        )}
+
         {/* Pattern B (multi-language spike): distinct per-language recipes sharing this name —
             cross-linked, not merged. Rationale + confidence live in the header wrench note. */}
         {recipe.alsoAvailableIn && recipe.alsoAvailableIn.length > 0 && (

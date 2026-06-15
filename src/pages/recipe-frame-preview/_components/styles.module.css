@@ -378,6 +378,23 @@
   text-decoration: underline;
 }
 
+/* "Applies to" — one recipe spanning languages (Pattern A). Plain emphasized text
+   (not links, not pills) since it's a single recipe, not separate pages. */
+.appliesTo {
+  margin: var(--neo-spacing_2_1_2) 0 0;
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-body-secondary);
+}
+
+.appliesToLabel {
+  color: var(--neo-typography-body-secondary);
+}
+
+.appliesToLangs {
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-input-default);
+}
+
 
 /* ---------- Actions ---------- */
 .actions {
@@ -1644,6 +1661,7 @@ html[data-theme='dark'] {
   .copyMenuItemTitle,
   .metaLabel,
   .headerTimeSavedValue,
+  .appliesToLangs,
   .exampleName {
     color: var(--neo-surfaces-snackbar-dark-mode);
   }
@@ -1663,6 +1681,8 @@ html[data-theme='dark'] {
   .optionExampleNone,
   .optionOptional,
   .alsoAvailableLabel,
+  .appliesTo,
+  .appliesToLabel,
   .accessInfoText,
   .accessInfoIcon,
   .headerTimeSaved,

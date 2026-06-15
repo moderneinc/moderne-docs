@@ -207,6 +207,7 @@ const targets = [
   { file: 'quarkus/quarkus2/quarkus1to2migration.md', varName: 'quarkus1to2MigrationContent', out: 'quarkus1to2Migration.data.ts' },
   { file: 'java/migrate/upgradejavaversion.md', varName: 'upgradeJavaVersionContent', out: 'upgradeJavaVersion.data.ts' },
   { file: 'java/dependencies/dependencyinsight.md', varName: 'dependencyInsightContent', out: 'dependencyInsight.data.ts' },
+  { file: 'java/search/findtypes.md', varName: 'findTypesContent', out: 'findTypes.data.ts' },
 ];
 
 for (const t of targets) {
