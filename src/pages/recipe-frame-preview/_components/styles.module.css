@@ -181,9 +181,15 @@
   color: var(--neo-digital-blue-700);
 }
 
-/* Moderne-only access callout (real docs Admonition); just owns its placement. */
+/* Moderne-only access disclosure (real docs <Details>); compact, owns placement. */
 .accessCallout {
   margin-top: var(--neo-spacing_5);
+  max-width: 34rem;
+}
+
+.accessCalloutIcon {
+  vertical-align: text-bottom;
+  margin-right: var(--neo-spacing_1_4);
 }
 
 .accessCalloutText {

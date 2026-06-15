@@ -5,9 +5,10 @@ import latestVersions from '@site/src/plugins/latest-versions';
 import Head from '@docusaurus/Head';
 import Admonition from '@theme/Admonition';
 import CodeBlock from '@theme/CodeBlock';
+import Details from '@theme/Details';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import { ArrowRight, Check, Clock, Copy, ExternalLink, Wrench } from 'lucide-react';
+import { ArrowRight, Check, Clock, Copy, ExternalLink, Info, Wrench } from 'lucide-react';
 import { CopyPageMenu } from './CopyPageMenu';
 import { DataTableList } from './DataTableList';
 import { ExampleList } from './ExampleList';
@@ -284,11 +285,17 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
         </div>
       </header>
 
-      {/* Access callout for Moderne-only (proprietary) recipes — real docs Admonition
-          pattern (the ⓘ info callout) carrying the explanation + a Contact Sales CTA. */}
+      {/* Access disclosure for Moderne-only (proprietary) recipes — collapsed by default
+          (real Docusaurus <Details>) so it stays compact; expands to a Contact Sales CTA. */}
       {!isOpenSource && (
         <div className={styles.accessCallout}>
-          <Admonition type="info" title="Moderne-only recipe">
+          <Details
+            summary={
+              <>
+                <Info size={14} className={styles.accessCalloutIcon} aria-hidden="true" /> Moderne-only recipe
+              </>
+            }
+          >
             <p className={styles.accessCalloutText}>
               This recipe is proprietary to Moderne and runs on the Moderne platform — it isn’t part of the
               open-source (Apache-2.0) catalog. Available with a Moderne subscription.
@@ -302,7 +309,7 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
             >
               Contact Sales
             </NeoButton>
-          </Admonition>
+          </Details>
         </div>
       )}
 
