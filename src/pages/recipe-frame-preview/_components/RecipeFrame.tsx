@@ -456,9 +456,14 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           description, repo, languages, license); no AI, no authoring. Injected into the page &lt;head&gt;
           (invisible in production); shown here so you can see the markup.
         </SectionNote>
-        <h2 className={styles.sectionTitle}>Structured data</h2>
+        <h2 className={styles.sectionTitle}>
+          Structured data
+          <span className={styles.chip}>in &lt;head&gt; — not rendered on the page</span>
+        </h2>
         <p className={styles.usedByIntro}>
-          <code className={styles.inlineCode}>SoftwareSourceCode</code> JSON-LD emitted into the page head:
+          This <code className={styles.inlineCode}>SoftwareSourceCode</code> JSON-LD is injected into the page’s
+          <code className={styles.inlineCode}>&lt;head&gt;</code> and is invisible to readers in production — it’s
+          shown here only so you can see the markup.
         </p>
         <CodeBlock language="json">{JSON.stringify(jsonLd, null, 2)}</CodeBlock>
       </section>
