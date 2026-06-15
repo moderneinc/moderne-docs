@@ -1,0 +1,1761 @@
+/* Recipe detail frame — PREVIEW page styles. UI-only mockup. */
+
+.page {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: var(--neo-spacing_5) var(--neo-spacing_3) var(--neo-spacing_8);
+}
+
+/* Content + sticky right TOC (the docs "on this page" rail) */
+.withToc {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--neo-spacing_5);
+}
+
+/* Right rail = info pane (metadata) + TOC. Sticky on wide screens, hidden below. */
+.rightRail {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .rightRail {
+    display: block;
+    position: sticky;
+    top: 80px;
+    flex-shrink: 0;
+    width: 260px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+}
+
+.tocNav {
+  margin-top: 0;
+}
+
+.tocTitle {
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--neo-typography-body-secondary);
+  margin-bottom: var(--neo-spacing_1);
+}
+
+.tocList,
+.tocSubList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tocSubList {
+  padding-left: var(--neo-spacing_1_1_2);
+}
+
+.tocLink {
+  display: block;
+  padding: var(--neo-spacing_1_2) 0;
+  font-size: var(--neo-font-size-sm);
+  line-height: 1.4;
+  color: var(--neo-typography-body-secondary);
+  text-decoration: none;
+}
+
+.tocLink:hover {
+  color: var(--neo-typography-link-primary);
+}
+
+.tocSubLink {
+  font-size: var(--neo-font-size-xs);
+}
+
+.tocLinkActive {
+  color: var(--neo-typography-link-primary);
+  font-weight: var(--neo-font-weight-medium);
+}
+
+.previewBanner {
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  margin-bottom: var(--neo-spacing_3);
+  background-color: var(--neo-status-warning-light);
+  border: 1px solid var(--neo-status-warning-medium);
+  border-radius: var(--neo-border-radius-input);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+}
+
+.toggle {
+  display: flex;
+  gap: var(--neo-spacing_1);
+  margin-bottom: var(--neo-spacing_3);
+}
+
+.recipe {
+  display: block;
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---------- Header zone ---------- */
+.header {
+  position: relative;
+  margin-bottom: 0;
+  /* Subtle containment: a faint outline (no fill, no shadow) so the title block
+     reads as a contained card instead of floating on the page. */
+  padding: var(--neo-spacing_4);
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-card);
+}
+
+.headerMetaTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  margin-bottom: var(--neo-spacing_2);
+}
+
+.typeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
+  border-radius: var(--neo-border-radius-full);
+  background-color: var(--neo-status-info-light);
+  color: var(--neo-status-info-dark);
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-semi-bold);
+}
+
+.chip {
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
+  border-radius: var(--neo-border-radius-full);
+  background-color: var(--neo-status-neutral-light);
+  color: var(--neo-status-neutral-dark);
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-medium);
+}
+
+.licenseChip {
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
+  border-radius: var(--neo-border-radius-full);
+  border: 1px solid var(--neo-border-secondary);
+  color: var(--neo-typography-body-secondary);
+  font-size: var(--neo-font-size-xs);
+}
+
+/* Tags are links (parity) — chip look, link affordance. */
+.chipLink {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.chipLink:hover {
+  text-decoration: underline;
+}
+
+/* Danger variant of the Neo tag (e.g. a "Required" option). */
+.chipDanger {
+  background-color: var(--neo-status-error-light);
+  color: var(--neo-status-error-dark);
+}
+
+.title {
+  font-size: var(--neo-font-size-h1);
+  font-weight: var(--neo-font-weight-semi-bold);
+  letter-spacing: -0.02em;
+  color: var(--neo-typography-input-default);
+  /* Header groups: [title + code snippets] — space — [description + tags] —
+     space — [buttons]. Tight gap (spacing_1_1_2) WITHIN a group, large gap
+     (spacing_5) BETWEEN groups. This is the within-group gap to the snippets. */
+  margin: 0 0 var(--neo-spacing_1_1_2);
+  line-height: 1.2;
+}
+
+/* Inline code in the title: colored monospace text, no box. */
+.titleCode {
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: 0.9em;
+  font-weight: var(--neo-font-weight-bold);
+  color: var(--neo-typography-code-primary);
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Inline code in prose: monospace, no highlight box — just a font/colour shift. */
+.descCode {
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: 0.9em;
+  color: var(--neo-typography-code-primary);
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Identifier as an interactive code container: mono, scrollable, with copy. */
+/* Recipe ID + Artifact: identical chips, side by side, wrap-to-stack when narrow */
+.idArtifactRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--neo-spacing_1);
+  /* Between-group space: code snippets → description. */
+  margin-bottom: var(--neo-spacing_5);
+}
+
+.codeChip {
+  flex: 1 1 260px;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_2) var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
+  background-color: var(--neo-surfaces-card-header);
+  border-radius: var(--neo-border-radius-input);
+}
+
+.codeChipLabel {
+  flex-shrink: 0;
+  font-size: var(--neo-font-size-xxs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--neo-typography-body-secondary);
+}
+
+.idCode {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  color: var(--neo-typography-code-primary);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.copyId {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: var(--neo-spacing_1_2);
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+  background-color: transparent;
+  color: var(--neo-typography-body-secondary);
+  cursor: pointer;
+}
+
+.copyId:hover {
+  background-color: var(--neo-surfaces-card);
+  color: var(--neo-typography-link-primary);
+}
+
+.description {
+  max-width: 64ch;
+  font-size: var(--neo-font-size-default);
+  color: var(--neo-grey-700);
+  line-height: 1.65;
+  /* Within-group gap: description → tags. One step tighter than the title's
+     bottom margin to offset this block's larger line-height (1.65 vs the title's
+     1.2), so the VISUAL gap matches the title → code-snippets gap. */
+  margin: 0 0 var(--neo-spacing_1);
+}
+
+/* Uniform metadata pills below the description */
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--neo-spacing_1);
+  margin-bottom: 0;
+}
+
+.placeholderTag {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: var(--neo-font-size-xxs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_3_4);
+  border-radius: var(--neo-border-radius-x-s);
+  background-color: var(--neo-status-warning-light);
+  color: var(--neo-status-warning-dark);
+}
+
+/* ---------- Actions ---------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  margin-top: var(--neo-spacing_5);
+}
+
+/* ---------- Placeholder: at a glance ---------- */
+/* At a glance — dashboard metric cards below the header */
+.glanceSection {
+  position: relative;
+  margin-top: var(--neo-spacing_4);
+}
+
+.glanceHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_1_2);
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--neo-typography-input-default);
+  margin-bottom: var(--neo-spacing_2);
+}
+
+.glanceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--neo-spacing_2);
+}
+
+.glanceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  text-align: center;
+  /* Each stat is its own subtle outlined box, sitting outside the header card. */
+  padding: var(--neo-spacing_2_1_2) var(--neo-spacing_2);
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-card);
+}
+
+.glanceCardTop {
+  font-size: var(--neo-font-size-xs);
+  color: var(--neo-typography-body-secondary);
+}
+
+.glanceValue {
+  font-size: var(--neo-font-size-h5);
+  font-weight: var(--neo-font-weight-bold);
+  color: var(--neo-typography-input-default);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  position: relative;
+  /* Spacing tiers (whitespace, not rules, divides the page):
+       between sections       → spacing_8 (64px)
+       between sub-items       → spacing_6 (48px)  [examples, usage variants]
+       heading → its content   → spacing_2 (16px)
+     Asymmetric rhythm: the large space sits ABOVE each heading, tight below, so
+     headings group with their own content. */
+  margin-top: var(--neo-spacing_8);
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_1_2);
+  font-size: var(--neo-font-size-h2);
+  font-weight: var(--neo-font-weight-semi-bold);
+  letter-spacing: -0.01em;
+  color: var(--neo-typography-input-default);
+  margin: 0 0 var(--neo-spacing_2);
+}
+
+.sourceLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--neo-spacing_2);
+}
+
+.sourceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-link-primary);
+}
+
+.sourceLink:hover {
+  color: var(--neo-digital-blue-700);
+}
+
+/* ---------- Tables ---------- */
+/* All tables span the full content-container width. `display: table` overrides
+   Infima's global `table { display: block }`, which otherwise shrink-wraps the
+   table to its content and adds a horizontal scrollbar. */
+.table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+}
+
+.paramTable {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  margin-bottom: var(--neo-spacing_2);
+}
+
+.th {
+  text-align: left;
+  /* Modern table header: sentence-case, full-size, bold — not a tiny uppercase
+     eyebrow — with one faint rule under the header row. */
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-input-default);
+  background-color: transparent;
+  /* Reset Infima's four-sided cell border, then keep only the header rule. */
+  border: none;
+  border-bottom: 1px solid var(--neo-border-card);
+}
+
+.td {
+  padding: var(--neo-spacing_2) var(--neo-spacing_1_1_2);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+  vertical-align: top;
+  /* Reset Infima's four-sided cell border; the row divider below adds just a top. */
+  border: none;
+}
+
+/* Faint divider BETWEEN body rows only — the header rule sits above the first
+   row and there's no trailing line after the last. The hashed .td anchors this
+   selector so it can't leak to other tables on the page. */
+tbody tr + tr .td {
+  border-top: 1px solid var(--neo-border-secondary);
+}
+
+/* Tame Infima's global <table> row/header chrome (stripe background, per-row
+   borders, zebra striping) so only our own header rule + row dividers show.
+   Scoped to .recipe and targeting thead/tr — never th/td — so it can't override
+   the cell borders above. */
+.recipe :global(table thead),
+.recipe :global(table tr),
+.recipe :global(table tr:nth-child(2n)) {
+  background-color: transparent;
+}
+
+.recipe :global(table thead tr),
+.recipe :global(table tr) {
+  border: none;
+}
+
+/* ---------- Options card (structured, AI-parseable <table>) ---------- */
+.optionsHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--neo-spacing_2);
+  margin-bottom: var(--neo-spacing_2);
+}
+
+/* Reuses .sectionTitle but drops its bottom margin (the header row owns spacing). */
+.optionsTitle {
+  margin-bottom: 0;
+}
+
+.optionsCount {
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-body-secondary);
+}
+
+.optionsSummary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+}
+
+.optionsSummaryItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  color: var(--neo-typography-body-secondary);
+}
+
+.optionsSummaryDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.optionsSummaryDot_req {
+  background-color: var(--neo-status-error-medium);
+}
+
+.optionsSummaryDot_opt {
+  background-color: var(--neo-grey-400);
+}
+
+/* Bordered wrapper; the table itself reuses the page's shared .table/.th/.td so
+   headers, row dividers and dark mode match every other table on the page. */
+.optionsCard {
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-card);
+  overflow: hidden;
+}
+
+/* Header rule should sit flush with the card edges (the shared .th adds side
+   padding; the card border already frames it). */
+.optionsCard .th {
+  padding-left: var(--neo-spacing_2);
+  padding-right: var(--neo-spacing_2);
+}
+
+.optionsCard .td {
+  padding-left: var(--neo-spacing_2);
+  padding-right: var(--neo-spacing_2);
+}
+
+/* Parameter cell: Neo tag (type) stacked over the inline-code name. */
+.optionParam {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--neo-spacing_1);
+}
+
+/* Name + example reuse the page's inline-code chip (see .inlineCode) so the
+   table matches the inline code everywhere else. */
+.optionName {
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-code-primary);
+  background-color: var(--neo-surfaces-card-header);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+}
+
+.optionDesc {
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+}
+
+/* Example cell: required/optional Neo tag ABOVE the inline-code example,
+   mirroring the Parameter cell (tag on top of code). */
+.optionExampleCell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--neo-spacing_1);
+}
+
+.optionExample {
+  display: inline-block;
+  background-color: var(--neo-surfaces-card-header);
+  color: var(--neo-typography-code-primary);
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+  overflow-wrap: break-word;
+}
+
+.optionExampleNone {
+  color: var(--neo-typography-body-secondary);
+}
+
+/* Inline code matches the real docs' inline code: light in light mode, dark in
+   dark mode (the dark-mode block flips it). Multi-line CodeBlocks stay dark
+   (Prism vsDark) just like the live site. */
+.inlineCode {
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  background-color: var(--neo-surfaces-card-header);
+  color: var(--neo-typography-code-primary);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+}
+
+/* ---------- Collapsible definition ---------- */
+.details {
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  overflow: hidden;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  background-color: var(--neo-surfaces-card-header);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-input-default);
+  cursor: pointer;
+  list-style: none;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summaryChevron {
+  transition: transform 0.15s ease;
+}
+
+.details[open] .summaryChevron,
+.detailsSpaced[open] .summaryChevron {
+  transform: rotate(180deg);
+}
+
+.recipeList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recipeListItem {
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+}
+
+/* Faint divider BETWEEN list rows only — same token and treatment as table rows
+   (see `tbody tr + tr .td`): none above the first, none below the last. */
+.recipeListItem + .recipeListItem {
+  border-top: 1px solid var(--neo-border-secondary);
+}
+
+/* ---------- Examples ---------- */
+.exampleGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--neo-spacing_2);
+  margin-bottom: var(--neo-spacing_2);
+}
+
+.exampleCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+  min-width: 0;
+}
+
+.exampleLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-body-secondary);
+}
+
+.exampleLabelAfter {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-status-success-dark);
+}
+
+.codeBlock {
+  margin: 0;
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  line-height: 1.5;
+  color: var(--neo-typography-code-primary);
+  background-color: var(--neo-surfaces-card-header);
+  border: 1px solid var(--neo-border-secondary);
+  border-radius: var(--neo-border-radius-input);
+  padding: var(--neo-spacing_1_1_2);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* ---------- Data tables list ---------- */
+.dataTableList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+}
+
+.dataTableItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_4);
+  padding: var(--neo-spacing_1_1_2) 0;
+  border-bottom: 1px solid var(--neo-border-secondary);
+}
+
+.dataTableName {
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-input-default);
+}
+
+.dataTableDesc {
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-body-secondary);
+}
+
+/* ---------- Accordion (shared by Examples, Usage, Data tables) ----------
+   A collapsible list of bordered containers: scales to any count, wraps
+   gracefully on narrow screens, and every <details> keeps its content in the
+   DOM when collapsed so crawlers and the .md export still read it. */
+/* Section heading + Expand/Collapse-all toggle on one row (toggle right-aligned),
+   so the control sits at header level instead of taking its own line. */
+.accordionSectionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--neo-spacing_2);
+}
+
+/* ---------- Sticky section headers (every section, every recipe tab) ----------
+   Each section's header row pins below the fixed navbar while you scroll the
+   section, then releases when the section's bottom scrolls past (sticky is
+   confined to its parent .section). Covers all three header shapes: the bare
+   <h2>, the Options header (title + counts), and the accordion header (title +
+   toggle). Opaque page-colour background so content tucks underneath;
+   --ifm-background-color is the exact page bg in both themes. */
+.section > .sectionTitle,
+.section > .optionsHeader,
+.accordionSectionHeader {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_1));
+  z-index: 1;
+  background-color: var(--ifm-background-color);
+  /* Padding (not margin) so the pinned header keeps breathing room top and
+     bottom and the bg covers it; margin-bottom 0 to avoid a transparent gap. */
+  padding-top: var(--neo-spacing_2);
+  padding-bottom: var(--neo-spacing_2);
+  margin-bottom: 0;
+}
+
+/* The heading keeps .sectionTitle; the row owns the bottom spacing. */
+.accordionSectionHeader .sectionTitle {
+  margin-bottom: 0;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_1_2);
+}
+
+.accordionItem {
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  overflow: hidden;
+}
+
+.accordionSummary {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-input-default);
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Hide the native disclosure triangle (we use our own chevron). */
+.accordionSummary::-webkit-details-marker {
+  display: none;
+}
+
+.accordionSummary:hover {
+  background-color: var(--neo-surfaces-card-header);
+}
+
+.accordionChevron {
+  flex: none;
+  color: var(--neo-icons-default);
+  transition: transform 0.15s ease;
+}
+
+.accordionItem[open] .accordionChevron {
+  transform: rotate(90deg);
+}
+
+.accordionLabel {
+  min-width: 0;
+}
+
+.accordionBody {
+  padding: 0 var(--neo-spacing_2) var(--neo-spacing_2);
+}
+
+/* Data-table-specific body content */
+.dataTableBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+}
+
+.dataTableId {
+  align-self: flex-start;
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  color: var(--neo-typography-body-secondary);
+}
+
+/* ---------- Conversion CTA ---------- */
+.cta {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--neo-spacing_2);
+  background-color: var(--neo-digital-blue-50);
+  border: 1px solid var(--neo-digital-blue-200);
+  border-radius: var(--neo-border-radius-card);
+  padding: var(--neo-spacing_3);
+  margin-top: var(--neo-spacing_8);
+  margin-bottom: 0;
+}
+
+.ctaBody {
+  flex: 1 1 320px;
+}
+
+.ctaTitle {
+  font-size: var(--neo-font-size-h4);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-input-default);
+  margin: 0 0 var(--neo-spacing_1_2);
+}
+
+.ctaText {
+  margin: 0;
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-body-secondary);
+}
+
+/* ---------- Related recipes (placeholder) ---------- */
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--neo-spacing_2);
+}
+
+.relatedCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_2);
+  padding: var(--neo-spacing_2);
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  background-color: var(--neo-surfaces-card);
+}
+
+.relatedTitle {
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-link-primary);
+}
+
+.relatedDesc {
+  font-size: var(--neo-font-size-xs);
+  color: var(--neo-typography-body-secondary);
+}
+
+/* ---------- Copy page menu ---------- */
+.copyMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.copyMenuPopover {
+  position: absolute;
+  top: calc(100% + var(--neo-spacing_1_2));
+  left: 0;
+  z-index: 20;
+  min-width: 260px;
+  background-color: var(--neo-surfaces-card);
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.16);
+  padding: var(--neo-spacing_1_2);
+}
+
+.copyMenuItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--neo-spacing_1);
+  width: 100%;
+  text-align: left;
+  padding: var(--neo-spacing_1) var(--neo-spacing_1_1_2);
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+  background-color: transparent;
+  color: var(--neo-typography-input-default);
+  cursor: pointer;
+}
+
+.copyMenuItem:hover {
+  background-color: var(--neo-surfaces-list-hover);
+  text-decoration: none;
+}
+
+.copyMenuItemIcon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--neo-typography-link-primary);
+  padding-top: var(--neo-spacing_1_4);
+}
+
+.copyMenuItemBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_4);
+}
+
+.copyMenuItemTitle {
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-input-default);
+}
+
+.copyMenuItemHint {
+  font-size: var(--neo-font-size-xs);
+  color: var(--neo-typography-body-secondary);
+}
+
+/* ---------- Preconditions ---------- */
+.preconditions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  margin-bottom: var(--neo-spacing_2);
+}
+
+.metaLabel {
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-input-label);
+}
+
+/* ---------- Example body (rendered inside an accordion item) ---------- */
+.exampleName {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-input-default);
+  margin-bottom: var(--neo-spacing_1);
+}
+
+.exampleTest {
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  background-color: var(--neo-surfaces-card-header);
+  color: var(--neo-typography-code-primary);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+}
+
+.detailsSpaced {
+  margin-top: var(--neo-spacing_1_1_2);
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  overflow: hidden;
+}
+
+.codeBlockFlush {
+  margin: 0;
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  line-height: 1.5;
+  color: var(--neo-typography-code-primary);
+  background-color: var(--neo-surfaces-card-header);
+  border-top: 1px solid var(--neo-border-secondary);
+  padding: var(--neo-spacing_2);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.dataTable {
+  margin-bottom: var(--neo-spacing_3);
+}
+
+/* ---------- Recipe list (length-adaptive) ---------- */
+.recipeListHeader {
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-body-secondary);
+  margin-bottom: var(--neo-spacing_1);
+}
+
+.recipeListBounded {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+}
+
+.recipeListSearch {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1);
+  border: 1px solid var(--neo-border-input);
+  border-radius: var(--neo-border-radius-input);
+  background-color: var(--neo-surfaces-card);
+}
+
+.recipeListSearchIcon {
+  color: var(--neo-typography-body-secondary);
+  flex-shrink: 0;
+}
+
+.recipeListInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: var(--neo-font-family-body);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+}
+
+.recipeListInput::placeholder {
+  color: var(--neo-typography-input-placeholder);
+}
+
+.recipeListCount {
+  flex-shrink: 0;
+  font-size: var(--neo-font-size-xs);
+  color: var(--neo-typography-body-secondary);
+  white-space: nowrap;
+}
+
+.recipeListWindow {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+}
+
+.recipeListEmpty {
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-body-secondary);
+}
+
+.recipeLink {
+  color: var(--neo-typography-link-primary);
+  text-decoration: none;
+}
+
+.recipeLink:hover {
+  color: var(--neo-digital-blue-700);
+  text-decoration: underline;
+}
+
+/* ---------- Definition tabs + Copy YAML on the tab line ---------- */
+.defTabs {
+  position: relative;
+}
+
+.defCopyYaml {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+/* ---------- Labelled copy button + yaml hint ---------- */
+.copyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-medium);
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1);
+  border: 1px solid var(--neo-border-secondary);
+  border-radius: var(--neo-border-radius-x-s);
+  background-color: var(--neo-surfaces-card);
+  color: var(--neo-typography-link-primary);
+  cursor: pointer;
+}
+
+.copyBtn:hover {
+  background-color: var(--neo-surfaces-list-hover);
+}
+
+.summarySpacer {
+  flex: 1;
+}
+
+.yamlHint {
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-xs);
+  color: var(--neo-typography-body-secondary);
+  border-top: 1px solid var(--neo-border-secondary);
+}
+
+/* ---------- Examples viewer ---------- */
+.examplesViewer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_1_2);
+}
+
+.exNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--neo-spacing_1_2);
+}
+
+.exNavChip {
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-medium);
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
+  border-radius: var(--neo-border-radius-full);
+  border: 1px solid var(--neo-border-secondary);
+  background-color: var(--neo-surfaces-card);
+  color: var(--neo-typography-body-secondary);
+  cursor: pointer;
+}
+
+.exNavChip:hover {
+  background-color: var(--neo-surfaces-list-hover);
+}
+
+.exNavChipActive {
+  background-color: var(--neo-status-info-light);
+  color: var(--neo-status-info-dark);
+  border-color: transparent;
+}
+
+.exWindow {
+  max-height: 460px;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_2_1_2);
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  padding: var(--neo-spacing_2);
+}
+
+.exPanel {
+  scroll-snap-align: start;
+}
+
+.exPanelHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  margin-bottom: var(--neo-spacing_1);
+}
+
+.exLangTag {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: var(--neo-font-size-xxs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_3_4);
+  border-radius: var(--neo-border-radius-x-s);
+  background-color: var(--neo-status-neutral-light);
+  color: var(--neo-status-neutral-dark);
+}
+
+.exPanel .exampleLabel,
+.exPanel .exampleLabelAfter {
+  margin: var(--neo-spacing_1) 0 var(--neo-spacing_1_2);
+}
+
+.exPanel .codeBlock {
+  margin-bottom: var(--neo-spacing_1_1_2);
+}
+
+/* ---------- Preview banner references ---------- */
+.previewBannerCaveat {
+  margin-top: var(--neo-spacing_1_1_2);
+  font-size: var(--neo-font-size-xs);
+  color: var(--neo-typography-body-secondary);
+}
+
+.previewBannerRefs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_1_1_2);
+  margin-top: var(--neo-spacing_1);
+  font-size: var(--neo-font-size-xs);
+}
+
+.bannerLegend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_2);
+  margin-top: var(--neo-spacing_1_1_2);
+  font-size: var(--neo-font-size-xs);
+}
+
+.bannerLegendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+}
+
+.previewBannerRefsLabel {
+  font-weight: var(--neo-font-weight-semi-bold);
+}
+
+.previewBannerLink {
+  color: var(--neo-typography-link-primary);
+  text-decoration: underline;
+}
+
+.previewBannerLink:hover {
+  color: var(--neo-digital-blue-700);
+}
+
+/* ---------- Section implementation notes (left gutter) ---------- */
+.sectionNote {
+  display: none; /* only shown on wide screens where the gutter exists */
+}
+
+.sectionNoteIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: var(--neo-border-radius-full);
+  border: 1px dashed var(--neo-border-primary);
+  background-color: var(--neo-surfaces-card);
+  color: var(--neo-typography-body-secondary);
+  cursor: help;
+}
+
+.sectionNoteIcon:hover,
+.sectionNoteIcon:focus-visible {
+  border-color: var(--neo-status-info-medium);
+  color: var(--neo-status-info-dark);
+  outline: none;
+}
+
+.sectionNoteTip {
+  position: absolute;
+  right: calc(100% + var(--neo-spacing_1));
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 280px;
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  background-color: var(--neo-surfaces-tooltip);
+  color: var(--neo-typography-tooltip);
+  border-radius: var(--neo-border-radius-input);
+  font-size: var(--neo-font-size-xs);
+  line-height: 1.5;
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.sectionNote:hover .sectionNoteTip,
+.sectionNote:focus-within .sectionNoteTip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Popover meta row: status badge + goal tags */
+.noteMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  margin-bottom: var(--neo-spacing_1);
+}
+
+.noteBadge {
+  font-size: var(--neo-font-size-xxs);
+  font-weight: var(--neo-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_3_4);
+  border-radius: var(--neo-border-radius-x-s);
+  color: var(--neo-grey-900);
+}
+
+.noteBadge_new {
+  background-color: var(--neo-digital-green-300);
+}
+
+.noteBadge_reframed {
+  background-color: var(--neo-digital-blue-300);
+}
+
+.noteBadge_real {
+  background-color: var(--neo-grey-300);
+}
+
+.noteBadge_phase2 {
+  background-color: var(--neo-status-warning-medium);
+}
+
+.noteGoal {
+  font-size: var(--neo-font-size-xxs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_3_4);
+  border-radius: var(--neo-border-radius-x-s);
+  color: var(--neo-grey-300);
+  border: 1px solid var(--neo-grey-500);
+}
+
+.noteBody {
+  display: block;
+}
+
+@media (min-width: 1100px) {
+  .recipe {
+    padding-left: var(--neo-spacing_6);
+  }
+
+  .sectionNote {
+    display: block;
+    position: absolute;
+    left: calc(-1 * var(--neo-spacing_5));
+    /* Align with the title inside its sticky header's top padding (spacing_2). */
+    top: calc(var(--neo-spacing_2) + var(--neo-spacing_1_4));
+  }
+
+  .header .sectionNote,
+  .cta .sectionNote {
+    top: var(--neo-spacing_3);
+  }
+}
+
+/* ---------- NEO "button tab group" styling for the Docusaurus <Tabs> ----------
+ * Reuses the same pattern + tokens as PlatformToggle. Scoped to .recipe so it
+ * only affects this preview's tabs, never the rest of the site. The <Tabs>
+ * component is unchanged (AI/in-DOM behavior preserved) — only the visuals. */
+.recipe :global(.tabs) {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: var(--neo-spacing_2);
+  border: 1px solid var(--neo-border-input);
+  border-radius: var(--neo-border-radius-button);
+  overflow: hidden;
+  background: var(--neo-surfaces-white);
+}
+
+.recipe :global(.tabs__item) {
+  margin: 0;
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_2);
+  border: none;
+  border-right: 1px solid var(--neo-border-input);
+  border-radius: 0;
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  line-height: 1.4;
+  color: var(--neo-typography-tab-inactive);
+  background: transparent;
+}
+
+.recipe :global(.tabs__item:last-child) {
+  border-right: none;
+}
+
+.recipe :global(.tabs__item:hover) {
+  background: var(--neo-surfaces-list-hover);
+  color: var(--neo-typography-input-default);
+}
+
+.recipe :global(.tabs__item--active),
+.recipe :global(.tabs__item--active:hover) {
+  color: var(--neo-typography-tab-active);
+  background: var(--neo-surfaces-card);
+}
+
+/* ---------- Examples: stacked, syntax-highlighted before/after (Docusaurus CodeBlock) ---------- */
+.beforeLabel,
+.afterLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  margin-bottom: var(--neo-spacing_1_2);
+}
+
+.beforeLabel {
+  color: var(--neo-status-error-dark);
+}
+
+.afterLabel {
+  color: var(--neo-status-success-dark);
+}
+
+.unchangedBlock {
+  margin-bottom: var(--neo-spacing_2);
+}
+
+
+/* ---------- Used by + admonition ---------- */
+.usedByIntro {
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-grey-700);
+  margin: 0 0 var(--neo-spacing_1);
+}
+
+.admonition {
+  margin-top: var(--neo-spacing_2);
+}
+
+/* ===== DARK MODE =====
+ * Neo tokens are fixed light values; the docs site flips themes via
+ * html[data-theme='dark'] blocks (see src/css/custom.css and NeoCard.module.css).
+ * This mirrors that pattern and reuses the same dark tokens:
+ *   surface  -> --neo-icons-default (#1f2937, as NeoCard does)
+ *   inset    -> --neo-grey-900
+ *   text     -> --neo-surfaces-snackbar-dark-mode (white)
+ *   muted    -> --neo-grey-400
+ *   border   -> --neo-grey-700
+ *   link/acct-> --neo-digital-green-300 (the docs' mint dark-mode link)
+ */
+html[data-theme='dark'] {
+  .previewBanner {
+    background-color: var(--neo-icons-default);
+    border-color: var(--neo-status-warning-medium);
+    color: var(--neo-surfaces-snackbar-dark-mode);
+  }
+
+  .previewBannerLink {
+    color: var(--neo-digital-green-300);
+  }
+
+  .previewBannerLink:hover {
+    color: var(--neo-digital-green-200);
+  }
+
+  /* Elevated surfaces */
+  .relatedCard,
+  .copyMenuPopover {
+    background-color: var(--neo-icons-default);
+  }
+
+  /* Inset / code surfaces */
+  .inlineCode,
+  .codeBlock,
+  .codeBlockFlush,
+  .exampleTest,
+  .optionName,
+  .optionExample,
+  .summary {
+    background-color: var(--neo-grey-900);
+    color: var(--neo-surfaces-snackbar-dark-mode);
+  }
+
+  .codeChip {
+    background-color: var(--neo-grey-900);
+  }
+
+  .titleCode {
+    color: var(--neo-surfaces-snackbar-dark-mode);
+  }
+
+  .beforeLabel {
+    color: var(--neo-status-error-medium);
+  }
+
+  .afterLabel {
+    color: var(--neo-status-success-medium);
+  }
+
+  .copyId:hover {
+    background-color: var(--neo-grey-800);
+    color: var(--neo-digital-green-300);
+  }
+
+  /* Borders */
+  .header,
+  .glanceCard,
+  .details,
+  .detailsSpaced,
+  .accordionItem,
+  .codeBlockFlush,
+  .copyMenuPopover,
+  .relatedCard,
+  .codeBlock {
+    border-color: var(--neo-grey-700);
+  }
+
+  .accordionSummary {
+    color: var(--neo-surfaces-snackbar-dark-mode);
+  }
+
+  .accordionSummary:hover {
+    background-color: var(--neo-grey-900);
+  }
+
+  .accordionChevron,
+  .dataTableId {
+    color: var(--neo-grey-400);
+  }
+
+  .licenseChip {
+    border-color: var(--neo-grey-700);
+  }
+
+  .sectionTitle,
+  .th,
+  .td,
+  .dataTableItem {
+    border-bottom-color: var(--neo-grey-700);
+  }
+
+  /* Row dividers a touch subtler than the header rule. */
+  tbody tr + tr .td {
+    border-top-color: var(--neo-grey-800);
+  }
+
+  /* Match the table row dividers (grey-800), a touch subtler than borders. */
+  .recipeListItem + .recipeListItem {
+    border-top-color: var(--neo-grey-800);
+  }
+
+  /* Primary text */
+  .title,
+  .description,
+  .sectionTitle,
+  .th,
+  .optionDesc,
+  .td,
+  .recipeListItem,
+  .glanceValue,
+  .glanceHeader,
+  .idCode,
+  .descCode,
+  .ctaTitle,
+  .dataTableName,
+  .copyMenuItemTitle,
+  .metaLabel,
+  .exampleName {
+    color: var(--neo-surfaces-snackbar-dark-mode);
+  }
+
+  .usedByIntro {
+    color: var(--neo-grey-400);
+  }
+
+  /* Muted text */
+  .glanceCardTop,
+  .dataTableDesc,
+  .ctaText,
+  .exampleLabel,
+  .copyMenuItemHint,
+  .licenseChip,
+  .codeChipLabel,
+  .optionsCount,
+  .optionExampleNone,
+  .copyId {
+    color: var(--neo-grey-400);
+  }
+
+  /* Options card (the inner table uses shared .th/.td, already themed above). */
+  .optionsCard {
+    border-color: var(--neo-grey-700);
+  }
+
+  /* Danger Neo tag (Required) — neutral dark pill with a red label. */
+  .chipDanger {
+    background-color: var(--neo-grey-800);
+    color: var(--neo-status-error-medium);
+  }
+
+  /* Accent / links */
+  .sourceLink,
+  .relatedTitle,
+  .copyMenuItemIcon,
+  .exampleLabelAfter {
+    color: var(--neo-digital-green-300);
+  }
+
+  .sourceLink:hover {
+    color: var(--neo-digital-green-200);
+  }
+
+  .copyId:hover {
+    background-color: var(--neo-grey-800);
+    color: var(--neo-digital-green-300);
+  }
+
+  .copyMenuItem:hover {
+    background-color: var(--neo-grey-800);
+  }
+
+  /* Chips & badges */
+  .chip {
+    background-color: var(--neo-grey-800);
+    color: var(--neo-grey-300);
+  }
+
+  .typeBadge {
+    background-color: var(--neo-digital-blue-900);
+    color: var(--neo-digital-blue-200);
+  }
+
+  /* Conversion band */
+  .cta {
+    background-color: var(--neo-digital-blue-900);
+    border-color: var(--neo-digital-blue-700);
+  }
+
+  /* Examples viewer */
+  .exWindow {
+    border-color: var(--neo-grey-700);
+  }
+
+  .exLangTag {
+    background-color: var(--neo-grey-800);
+    color: var(--neo-grey-300);
+  }
+
+  .exNavChip {
+    background-color: var(--neo-grey-800);
+    color: var(--neo-grey-400);
+    border-color: var(--neo-grey-700);
+  }
+
+  .exNavChip:hover {
+    background-color: var(--neo-grey-700);
+  }
+
+  .exNavChipActive {
+    background-color: var(--neo-digital-blue-900);
+    color: var(--neo-digital-blue-200);
+    border-color: transparent;
+  }
+
+  /* Recipe list (adaptive) + copy button + yaml hint */
+  .recipeListHeader,
+  .recipeListCount,
+  .recipeListEmpty {
+    color: var(--neo-grey-400);
+  }
+
+  .recipeListSearch {
+    background-color: var(--neo-icons-default);
+    border-color: var(--neo-grey-700);
+  }
+
+  .recipeListInput {
+    color: var(--neo-surfaces-snackbar-dark-mode);
+  }
+
+  .recipeListInput::placeholder {
+    color: var(--neo-grey-500);
+  }
+
+  .recipeListWindow {
+    border-color: var(--neo-grey-700);
+  }
+
+  .copyBtn {
+    background-color: var(--neo-icons-default);
+    border-color: var(--neo-grey-700);
+    color: var(--neo-digital-green-300);
+  }
+
+  .copyBtn:hover {
+    background-color: var(--neo-grey-800);
+  }
+
+  .yamlHint {
+    color: var(--neo-grey-400);
+    border-top-color: var(--neo-grey-700);
+  }
+
+  .recipeLink {
+    color: var(--neo-digital-green-300);
+  }
+
+  .recipeLink:hover {
+    color: var(--neo-digital-green-200);
+  }
+
+  .tocLink {
+    color: var(--neo-grey-400);
+  }
+
+  .tocLink:hover,
+  .tocLinkActive {
+    color: var(--neo-digital-green-300);
+  }
+
+  .sectionNoteIcon {
+    background-color: var(--neo-icons-default);
+    border-color: var(--neo-grey-600);
+    color: var(--neo-grey-400);
+  }
+
+  .sectionNoteIcon:hover,
+  .sectionNoteIcon:focus-visible {
+    border-color: var(--neo-digital-green-300);
+    color: var(--neo-digital-green-300);
+  }
+}
+
+/* Dark mode for the NEO button-tab group (matches PlatformToggle dark). */
+html[data-theme='dark'] .recipe :global(.tabs) {
+  background: var(--neo-grey-900);
+  border-color: var(--neo-grey-700);
+}
+
+html[data-theme='dark'] .recipe :global(.tabs__item) {
+  color: var(--neo-grey-400);
+  border-right-color: var(--neo-grey-700);
+}
+
+html[data-theme='dark'] .recipe :global(.tabs__item:hover) {
+  background: var(--neo-grey-800);
+  color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+html[data-theme='dark'] .recipe :global(.tabs__item--active),
+html[data-theme='dark'] .recipe :global(.tabs__item--active:hover) {
+  background: var(--neo-grey-800);
+  color: var(--neo-digital-green-300);
+}
+
+@media (max-width: 768px) {
+  .exampleGrid {
+    grid-template-columns: 1fr;
+  }
+}
