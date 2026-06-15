@@ -294,6 +294,21 @@
   margin-bottom: 0;
 }
 
+/* "Also available in" — cross-language sibling recipes (Pattern B). */
+.alsoAvailable {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  margin-top: var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+}
+
+.alsoAvailableLabel {
+  color: var(--neo-typography-body-secondary);
+  font-weight: var(--neo-font-weight-medium);
+}
+
 /* ---------- Actions ---------- */
 .actions {
   display: flex;
@@ -1575,6 +1590,7 @@ html[data-theme='dark'] {
   .optionsCount,
   .optionExampleNone,
   .optionOptional,
+  .alsoAvailableLabel,
   .headerTimeSaved,
   .headerTimeSavedLabel,
   .headerTimeSavedIcon,

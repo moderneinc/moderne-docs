@@ -230,6 +230,28 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           <span className={styles.chip}>{recipe.license}</span>
         </div>
 
+        {/* Pattern B (multi-language spike): distinct per-language recipes sharing this
+            name — cross-linked, not merged. */}
+        {recipe.alsoAvailableIn && recipe.alsoAvailableIn.length > 0 && (
+          <div
+            className={styles.alsoAvailable}
+            title="Distinct per-language recipes that share this name — cross-linked, not merged"
+          >
+            <span className={styles.alsoAvailableLabel}>Also available in</span>
+            {recipe.alsoAvailableIn.map((v) => (
+              <a
+                key={v.language}
+                className={clsx(styles.chip, styles.chipLink)}
+                href={v.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {v.language}
+              </a>
+            ))}
+          </div>
+        )}
+
         {/* Footer: value-prop stat (left) + actions (right) */}
         <div className={styles.actions}>
           {timeSaved && (

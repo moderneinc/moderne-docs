@@ -19,6 +19,7 @@ import { commonStaticAnalysisContent } from './commonStaticAnalysis.data';
 import { replaceDuplicateStringLiteralsContent } from './replaceDuplicateStringLiterals.data';
 import { quarkus1to2MigrationContent } from './quarkus1to2Migration.data';
 import { upgradeJavaVersionContent } from './upgradeJavaVersion.data';
+import { dependencyInsightContent } from './dependencyInsight.data';
 
 export interface DataTableColumn {
   name: string;
@@ -127,6 +128,12 @@ export interface RecipePreviewData {
   type: 'Composite recipe' | 'Single recipe';
   languages: string[];
   tags: string[];
+  /**
+   * "Pattern B" cross-language siblings: DISTINCT recipes (different IDs) that share
+   * this recipe's name in other languages — linked, not merged. In production this
+   * is a curated/generator-emitted index, NOT short-name matching (see the spike doc).
+   */
+  alsoAvailableIn?: { language: string; href: string }[];
   sourceLinks: SourceLink[];
   /** PLACEHOLDER — phase-2 data sourced from existing run metrics / platform (no AI). */
   atAGlance: GlanceStat[];
@@ -152,63 +159,6 @@ export interface RecipePreviewData {
   /** Markdown handed to the "Copy page" / "Open in LLM" actions. */
   markdown: string;
 }
-
-const commonStaticAnalysis: RecipePreviewData = {
-  key: 'common',
-  tabLabel: 'Composite recipe',
-  displayName: 'Common static analysis issues',
-  fqName: 'org.openrewrite.staticanalysis.CommonStaticAnalysis',
-  description:
-    'Resolve common static analysis issues (also known as SAST issues). This recipe bundles dozens of focused cleanups — from removing empty blocks to simplifying boolean expressions — so you can fix an entire class of code-quality problems in a single run.',
-  license: 'Moderne Source Available',
-  type: 'Composite recipe',
-  languages: ['Java', 'Kotlin'],
-  tags: commonStaticAnalysisContent.tags,
-  sourceLinks: [
-    {
-      label: 'GitHub',
-      href: 'https://github.com/openrewrite/rewrite-static-analysis/blob/main/src/main/resources/META-INF/rewrite/common-static-analysis.yml',
-    },
-    { label: 'Issue tracker', href: 'https://github.com/openrewrite/rewrite-static-analysis/issues' },
-    {
-      label: 'Maven Central',
-      href: 'https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-static-analysis/',
-    },
-  ],
-  atAGlance: [
-    { label: 'Sub-recipes', value: String(commonStaticAnalysisContent.subRecipes.length) },
-    { label: 'Est. time saved', value: '~5 min / file' },
-    { label: 'OSS repos run on', value: '12,400+' },
-    { label: 'Avg. changes / repo', value: '180' },
-  ],
-  infoAdmonition: commonStaticAnalysisContent.infoAdmonition,
-  preconditions: commonStaticAnalysisContent.preconditions,
-  options: commonStaticAnalysisContent.options,
-  subRecipes: commonStaticAnalysisContent.subRecipes,
-  yaml: commonStaticAnalysisContent.yaml,
-  usedBy: commonStaticAnalysisContent.usedBy,
-  examples: commonStaticAnalysisContent.examples,
-  usage: commonStaticAnalysisContent.usage,
-  dataTables: commonStaticAnalysisContent.dataTables,
-  appLink: 'https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis',
-  relatedRecipes: [
-    { title: 'Code cleanup', description: 'A broader umbrella of formatting and cleanup recipes.' },
-    { title: 'Simplify boolean expression', description: 'One of the cleanups bundled in this recipe.' },
-    { title: 'Remove unused imports', description: 'Frequently paired with static-analysis cleanups.' },
-  ],
-  markdown: `# Common static analysis issues
-
-**org.openrewrite.staticanalysis.CommonStaticAnalysis**
-
-Resolve common static analysis issues (also known as SAST issues).
-
-## Definition
-A composite recipe composed of ${commonStaticAnalysisContent.subRecipes.length} sub-recipes (Remove empty blocks, Simplify boolean expression, Use the diamond operator, ...).
-
-## Usage
-mod run . --recipe CommonStaticAnalysis
-`,
-};
 
 const replaceDuplicateStringLiterals: RecipePreviewData = {
   key: 'simple',
@@ -381,6 +331,72 @@ A composite recipe composed of ${upgradeJavaVersionContent.subRecipes.length} su
 
 ## Usage
 mod run . --recipe UpgradeJavaVersion --recipe-option "version=11"
+`,
+};
+
+// A "Pattern B" example from the multi-language spike: DependencyInsight exists as
+// DISTINCT recipes (different IDs) across languages that share this name. They are
+// cross-linked via `alsoAvailableIn`, not merged. Real recipe (Apache, has options).
+const DI_BASE = 'https://docs.moderne.io/user-documentation/recipes/recipe-catalog';
+const dependencyInsight: RecipePreviewData = {
+  key: 'dependency-insight',
+  tabLabel: 'Cross-language recipe',
+  displayName: 'Dependency insight for Gradle and Maven',
+  fqName: 'org.openrewrite.java.dependencies.DependencyInsight',
+  description:
+    'Finds dependencies, including transitive dependencies, in both Gradle and Maven projects. Matches within all Gradle dependency configurations and Maven scopes.',
+  license: 'Apache License 2.0',
+  type: 'Single recipe',
+  languages: ['Java', 'Gradle', 'Maven'],
+  tags: dependencyInsightContent.tags,
+  alsoAvailableIn: [
+    { language: 'C#', href: `${DI_BASE}/csharp/dependencies/dependencyinsight` },
+    { language: 'JavaScript', href: `${DI_BASE}/javascript/search/dependencyinsight` },
+    { language: 'Python', href: `${DI_BASE}/python/search/dependencyinsight` },
+  ],
+  sourceLinks: [
+    { label: 'GitHub', href: 'https://github.com/openrewrite/rewrite-java-dependencies' },
+    { label: 'Issue tracker', href: 'https://github.com/openrewrite/rewrite-java-dependencies/issues' },
+    {
+      label: 'Maven Central',
+      href: 'https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-java-dependencies/',
+    },
+  ],
+  atAGlance: [
+    { label: 'Sub-recipes', value: '0' },
+    { label: 'Est. time saved', value: '~15 min / audit' },
+    { label: 'OSS repos run on', value: '8,000+' },
+    { label: 'Avg. changes / repo', value: '—' },
+  ],
+  infoAdmonition: dependencyInsightContent.infoAdmonition,
+  preconditions: dependencyInsightContent.preconditions,
+  options: dependencyInsightContent.options,
+  subRecipes: dependencyInsightContent.subRecipes,
+  yaml: dependencyInsightContent.yaml,
+  usedBy: dependencyInsightContent.usedBy,
+  examples: dependencyInsightContent.examples,
+  usage: dependencyInsightContent.usage,
+  dataTables: dependencyInsightContent.dataTables,
+  appLink: 'https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight',
+  relatedRecipes: [
+    { title: 'Upgrade dependency version', description: 'A common follow-up after an insight audit.' },
+    { title: 'Dependency vulnerability check', description: 'Related dependency-analysis recipe.' },
+    { title: 'Find dependency', description: 'A narrower dependency search.' },
+  ],
+  markdown: `# Dependency insight for Gradle and Maven
+
+**org.openrewrite.java.dependencies.DependencyInsight**
+
+Finds dependencies, including transitive dependencies, in Gradle and Maven projects.
+
+## Options
+- groupIdPattern (String, required), artifactIdPattern (String, required), version (String, optional), scope (String, optional)
+
+## Also available in
+Distinct per-language recipes: C#, JavaScript, Python.
+
+## Usage
+mod run . --recipe DependencyInsight --recipe-option "groupIdPattern=com.fasterxml.jackson*"
 `,
 };
 
@@ -603,7 +619,7 @@ const masterTemplate: RecipePreviewData = {
 export const RECIPES: RecipePreviewData[] = [
   masterTemplate,
   replaceDuplicateStringLiterals,
-  commonStaticAnalysis,
   quarkus1to2Migration,
   upgradeJavaVersion,
+  dependencyInsight,
 ];
