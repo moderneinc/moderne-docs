@@ -40,7 +40,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate all Maven and Gradle groupIds and artifactIds from OptaPlanner to Timefold](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fork/timefoldchangedependencies.md)
+* [Migrate all Maven and Gradle groupIds and artifactIds from OptaPlanner to Timefold](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/fork/timefoldchangedependencies.md)
 * [Upgrade Exposed Gradle dependencies to 1.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedupgradegradledependencies)
 
 ## Example

@@ -100,7 +100,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [JSF 2.x to Jakarta Faces 3.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces2xmigrationtojakartafaces3x.md)
-* [JSF 2.x to Jakarta Server Faces 3.x](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/faces2xmigrationtojakartafaces3x.md)
+* [JSF 2.x to Jakarta Server Faces 3.x](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/faces2xmigrationtojakartafaces3x.md)
 
 
 ## Usage

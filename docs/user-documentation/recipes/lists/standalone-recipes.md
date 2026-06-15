@@ -4595,93 +4595,93 @@ Total standalone recipes: 1476
 
 ### rewrite-third-party
 
-* [ai.timefold.solver.migration.ToLatest](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
+* [ai.timefold.solver.migration.ToLatest](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/tolatest.md)
   * **Upgrade to the latest Timefold Solver**
   * Replace all your calls to deleted/deprecated types and methods of Timefold Solver with their proper alternatives.
-* [com.oracle.weblogic.rewrite.CheckAndCommentOutDeprecations1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/checkandcommentoutdeprecations1511.md)
+* [com.oracle.weblogic.rewrite.CheckAndCommentOutDeprecations1511](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/checkandcommentoutdeprecations1511.md)
   * **Report types deprecated or removed in WebLogic version 15.1.1**
   * This recipe will report Java types that have been deprecated or removed in WebLogic version 15.1.1. This is an alias to prevent breaking existing recipes.
-* [com.oracle.weblogic.rewrite.JakartaEE9_1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakartaee9_1.md)
+* [com.oracle.weblogic.rewrite.JakartaEE9_1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakartaee9_1.md)
   * **Migrate to Jakarta EE 9.1**
   * These recipes help with Migration to Jakarta EE 9.1, flagging and updating deprecated methods.
-* [com.oracle.weblogic.rewrite.UpgradeJPATo31HibernateTo66](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md)
+* [com.oracle.weblogic.rewrite.UpgradeJPATo31HibernateTo66](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md)
   * **Upgrade Jakarta JPA to 3.1 and Hibernate 6.6**
   * This recipe upgrades Jakarta JPA to 3.1 and Hibernate to 6.6 (compatible with Jakarta EE 10).
-* [com.oracle.weblogic.rewrite.UpgradeTo1411](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1411.md)
+* [com.oracle.weblogic.rewrite.UpgradeTo1411](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeto1411.md)
   * **Migrate to WebLogic 14.1.1**
   * This recipe will apply changes required for migrating to WebLogic 14.1.1
-* [com.oracle.weblogic.rewrite.UpgradeTo1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1412.md)
+* [com.oracle.weblogic.rewrite.UpgradeTo1412](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeto1412.md)
   * **Migrate to WebLogic 14.1.2**
   * This recipe will apply changes required for migrating to WebLogic 14.1.2
-* [com.oracle.weblogic.rewrite.UpgradeTo1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1511.md)
+* [com.oracle.weblogic.rewrite.UpgradeTo1511](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeto1511.md)
   * **Migrate to WebLogic 15.1.1**
   * This recipe will apply changes required for migrating to WebLogic 15.1.1 and Jakarta EE 9.1
-* [com.oracle.weblogic.rewrite.WebLogicXmlCreateIfNotExists1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlcreateifnotexists1511.md)
+* [com.oracle.weblogic.rewrite.WebLogicXmlCreateIfNotExists1511](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicxmlcreateifnotexists1511.md)
   * **Create `weblogic.xml` if it does not exist**
   * This recipe will create a `weblogic.xml` file with the WebLogic 15.1.1 namespace if it does not already exist.
-* [com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesJPA](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesjpa.md)
+* [com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesJPA](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesjpa.md)
   * **Add `prefer-application-packages` for JPA in `weblogic.xml`**
   * This recipe will add a `prefer-application-packages` entry for Jakarta Persistence in `weblogic.xml` if it does not already exist.
-* [com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesSlf4j](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesslf4j.md)
+* [com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesSlf4j](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesslf4j.md)
   * **Add `prefer-application-packages` for SLF4J in `weblogic.xml`**
   * This recipe will add a `prefer-application-packages` entry for SLF4J in `weblogic.xml` if it does not already exist.
-* [com.oracle.weblogic.rewrite.examples.spring.MigratedPetClinicExtrasFor1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/spring/migratedpetclinicextrasfor1511.md)
+* [com.oracle.weblogic.rewrite.examples.spring.MigratedPetClinicExtrasFor1511](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/spring/migratedpetclinicextrasfor1511.md)
   * **Add WebLogic 15.1.1 PetClinic extras**
   * Run migration extras for migrated Spring Framework PetClinic example run on WebLogic 15.1.1.
-* [com.oracle.weblogic.rewrite.examples.spring.SetupSpringFrameworkPetClinicFor1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/spring/setupspringframeworkpetclinicfor1412.md)
+* [com.oracle.weblogic.rewrite.examples.spring.SetupSpringFrameworkPetClinicFor1412](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/spring/setupspringframeworkpetclinicfor1412.md)
   * **Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2**
   * Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2.
-* [com.oracle.weblogic.rewrite.hibernate.MigrateHibernateToJakartaEE9](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/migratehibernatetojakartaee9.md)
+* [com.oracle.weblogic.rewrite.hibernate.MigrateHibernateToJakartaEE9](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/migratehibernatetojakartaee9.md)
   * **Migrate to Hibernate for Jakarta EE 9**
   * Upgrade hibernate libraries to Jakarta EE9 versions.
-* [com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPersistenceTo32](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto32.md)
+* [com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPersistenceTo32](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto32.md)
   * **Update Jakarta Persistence to 3.2**
   * Update Jakarta Persistence to 3.2.
-* [com.oracle.weblogic.rewrite.spring.framework.UpgradeToSpringFramework_6_2](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
+* [com.oracle.weblogic.rewrite.spring.framework.UpgradeToSpringFramework_6_2](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
   * **Migrate to Spring Framework 6.2 for WebLogic 15.1.1**
   * Migrate applications to the Spring Framework 6.2 release and compatibility with WebLogic 15.1.1.
-* [io.axoniq.framework.migration.UpgradeAxon4ToAxoniq5](/user-documentation/recipes/recipe-catalog/io/axoniq/framework/migration/upgradeaxon4toaxoniq5.md)
+* [io.axoniq.framework.migration.UpgradeAxon4ToAxoniq5](/user-documentation/recipes/recipe-catalog/axoniq/framework/migration/upgradeaxon4toaxoniq5.md)
   * **Upgrade to Axoniq Framework 5 (commercial)**
   * Migrates an Axon Framework 4.x application to Axoniq Framework 5 (commercial). Composes `UpgradeAxon4ToAxon5` (the free leg) and then layers commercial-only migrations: BOM swap to `io.axoniq.framework:axoniq-framework-bom`, Spring Boot starter swap to `io.axoniq.framework:axoniq-spring-boot-starter`, source rewrites and Maven adds for Axon Server connector, sequenced dead-letter queue, and distributed messaging.
-* [org.apache.camel.upgrade.Camel410LTSMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel410ltsmigrationrecipe.md)
+* [org.apache.camel.upgrade.Camel410LTSMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410ltsmigrationrecipe.md)
   * **Migrate to 4.10.6**
   * Migrates Apache Camel application to 4.10.6.
-* [org.apache.camel.upgrade.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
+* [org.apache.camel.upgrade.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camelmigrationrecipe.md)
   * **Migrate to 4.20.0**
   * Migrates Apache Camel application to 4.20.0.
-* [org.apache.wicket.BestPractices](/user-documentation/recipes/recipe-catalog/org/apache/wicket/bestpractices.md)
+* [org.apache.wicket.BestPractices](/user-documentation/recipes/recipe-catalog/apache/wicket/bestpractices.md)
   * **Wicket best practices**
   * Applies Wicket best practices such as minimizing anonymous inner classes and upgrading to the latest version.
-* [org.axonframework.migration.Axon4ToAxon5AmqpExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5amqpextension.md)
+* [org.axonframework.migration.Axon4ToAxon5AmqpExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5amqpextension.md)
   * **Migrate the AMQP extension to Axon Framework 5 (placeholder)**
   * Placeholder for the AMQP extension migration. The AMQP extension lives at `org.axonframework.extensions.amqp` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 AMQP integration ships.
-* [org.axonframework.migration.Axon4ToAxon5CdiExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5cdiextension.md)
+* [org.axonframework.migration.Axon4ToAxon5CdiExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5cdiextension.md)
   * **Migrate the CDI extension to Axon Framework 5 (placeholder)**
   * Placeholder for the CDI extension migration. The extension lives at `org.axonframework.extensions.cdi` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 CDI integration ships.
-* [org.axonframework.migration.Axon4ToAxon5JGroupsExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5jgroupsextension.md)
+* [org.axonframework.migration.Axon4ToAxon5JGroupsExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5jgroupsextension.md)
   * **Migrate the JGroups extension to Axon Framework 5 (placeholder)**
   * Placeholder for the JGroups extension migration. The JGroups extension at `org.axonframework.extensions.jgroups` provided distributed command bus routing in AF4. In Axon Framework 5 the distributed command bus has moved into the AxonIQ commercial offering (`io.axoniq.framework:axoniq-distributed-messaging`). Code using `JGroupsConnector` must be replaced with the AxonIQ commercial distributed messaging APIs.
-* [org.axonframework.migration.Axon4ToAxon5KafkaExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5kafkaextension.md)
+* [org.axonframework.migration.Axon4ToAxon5KafkaExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5kafkaextension.md)
   * **Migrate the Kafka extension to Axon Framework 5 (placeholder)**
   * Placeholder for the Kafka extension migration. The Kafka extension lives at `org.axonframework.extensions.kafka` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 Kafka integration ships.
-* [org.axonframework.migration.Axon4ToAxon5MongoExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5mongoextension.md)
+* [org.axonframework.migration.Axon4ToAxon5MongoExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5mongoextension.md)
   * **Migrate the Mongo extension to Axon Framework 5 (placeholder)**
   * Placeholder for the Mongo extension migration. The Mongo extension lives at `org.axonframework.extensions.mongo` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 Mongo integration ships.
-* [org.axonframework.migration.Axon4ToAxon5MultitenancyExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5multitenancyextension.md)
+* [org.axonframework.migration.Axon4ToAxon5MultitenancyExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5multitenancyextension.md)
   * **Migrate the Multitenancy extension to Axon Framework 5 (placeholder)**
   * Placeholder for the Multitenancy extension migration. The extension lives at `org.axonframework.extensions.multitenancy` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 multitenancy story ships.
-* [org.axonframework.migration.Axon4ToAxon5SpringCloudExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5springcloudextension.md)
+* [org.axonframework.migration.Axon4ToAxon5SpringCloudExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5springcloudextension.md)
   * **Migrate the Spring Cloud extension to Axon Framework 5 (placeholder)**
   * Placeholder for the Spring Cloud extension migration. The Spring Cloud extension at `org.axonframework.extensions.springcloud` provided distributed command bus routing in AF4. In Axon Framework 5 the distributed command bus has moved into the AxonIQ commercial offering (`io.axoniq.framework:axoniq-distributed-messaging`). Code using `SpringCloudCommandRouter` must be replaced with the AxonIQ commercial distributed messaging APIs.
-* [org.axonframework.migration.Axon4ToAxon5TracingOpenTracingExtension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5tracingopentracingextension.md)
+* [org.axonframework.migration.Axon4ToAxon5TracingOpenTracingExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5tracingopentracingextension.md)
   * **Migrate the OpenTracing tracing extension to Axon Framework 5 (placeholder)**
   * Placeholder. The OpenTracing tracing extension at `org.axonframework.extensions.tracing` is superseded by the OpenTelemetry tracing extension in Axon Framework 5 (see `Axon4ToAxon5TracingOpenTelemetryExtension`). Code using OpenTracing must be migrated to OpenTelemetry manually.
 * [org.openrewrite.quarkus.MigrateToQuarkus_v3_37_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_37_0.md)
   * **Quarkus Updates Aggregate 3.37.0**
   * Quarkus update recipes to upgrade your application to 3.37.0.
-* [software.amazon.awssdk.v2migration.AwsSdkJavaV1ToV2](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/awssdkjavav1tov2.md)
+* [software.amazon.awssdk.v2migration.AwsSdkJavaV1ToV2](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/awssdkjavav1tov2.md)
   * **Migrate from the AWS SDK for Java v1 to the AWS SDK for Java v2**
   * This recipe will apply changes required for migrating from the AWS SDK for Java v1 to the AWS SDK for Java v2.
-* [tech.picnic.errorprone.refasterrules.AllRefasterRules](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/allrefasterrules.md)
+* [tech.picnic.errorprone.refasterrules.AllRefasterRules](/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/allrefasterrules.md)
   * **All Picnic Refaster rules**
   * Collection of all Refaster rules from Picnic's error-prone-contrib project.

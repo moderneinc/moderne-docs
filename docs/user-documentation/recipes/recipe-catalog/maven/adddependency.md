@@ -49,10 +49,10 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Add `lombok-mapstruct-binding` dependency for Maven when both MapStruct and Lombok are used](/user-documentation/recipes/recipe-catalog/java/migrate/addlombokmapstructbindingmavendependencyonly.md)
-* [The package scan classes has moved from camel-base-engine to camel-support - maven](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel412/scanclassesmovedmaven.md)
-* [io.quarkus.updates.core.quarkus310.FlywayDb2](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/flywaydb2.md)
-* [io.quarkus.updates.core.quarkus310.FlywayDerby](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/flywayderby.md)
-* [io.quarkus.updates.core.quarkus310.FlywayPostgreSQL](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/flywaypostgresql.md)
+* [The package scan classes has moved from camel-base-engine to camel-support - maven](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel412/scanclassesmovedmaven.md)
+* [io.quarkus.updates.core.quarkus310.FlywayDb2](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/flywaydb2.md)
+* [io.quarkus.updates.core.quarkus310.FlywayDerby](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/flywayderby.md)
+* [io.quarkus.updates.core.quarkus310.FlywayPostgreSQL](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/flywaypostgresql.md)
 
 ## Examples
 ##### Example 1

@@ -163,7 +163,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Java 21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava21.md)
 * [Migrate to Spring Boot 3.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
 * [Migrate to Struts 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7)
-* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/org/apache/wicket/migratetowicket10.md)
+* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/apache/wicket/migratetowicket10.md)
 
 ## Examples
 ##### Example 1

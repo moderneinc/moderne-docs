@@ -78,7 +78,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Dropwizard 5.0.x from 4.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5)
 * [Migrate to Hibernate 6.6.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate66-moderne-edition)
 * [Migrate to Hibernate 7.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-community-edition.md)
-* [Upgrade Hibernate to 6.6](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/upgradehibernateto66.md)
+* [Upgrade Hibernate to 6.6](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/upgradehibernateto66.md)
 
 
 ## Usage

@@ -43,11 +43,11 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 * [Migrate to Kubernetes API v1.29](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_29)
-* [Renamed streamCaching to streamCache on the route](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel46/yamstreamcaching.md)
-* [Update Apache Camel configurations keys](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate.md)
-* [io.quarkus.updates.core.quarkus30.ApplicationYml](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus30/applicationyml.md)
-* [io.quarkus.updates.core.quarkus32.ApplicationYml](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus32/applicationyml.md)
-* [io.quarkus.updates.core.quarkus33.ApplicationYml](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus33/applicationyml.md)
+* [Renamed streamCaching to streamCache on the route](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/yamstreamcaching.md)
+* [Update Apache Camel configurations keys](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate.md)
+* [io.quarkus.updates.core.quarkus30.ApplicationYml](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/applicationyml.md)
+* [io.quarkus.updates.core.quarkus32.ApplicationYml](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus32/applicationyml.md)
+* [io.quarkus.updates.core.quarkus33.ApplicationYml](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus33/applicationyml.md)
 
 ## Examples
 ##### Example 1

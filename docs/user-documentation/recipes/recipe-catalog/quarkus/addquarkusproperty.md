@@ -41,12 +41,12 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeFastJar](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/updateconfigpackagetypefastjar.md)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeJar](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/updateconfigpackagetypejar.md)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeMutableJar](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/updateconfigpackagetypemutablejar.md)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeNativeSources](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/updateconfigpackagetypenativesources.md)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeNative](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/updateconfigpackagetypenative.md)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeUberJar](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/updateconfigpackagetypeuberjar.md)
+* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeFastJar](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/updateconfigpackagetypefastjar.md)
+* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeJar](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/updateconfigpackagetypejar.md)
+* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeMutableJar](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/updateconfigpackagetypemutablejar.md)
+* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeNativeSources](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/updateconfigpackagetypenativesources.md)
+* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeNative](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/updateconfigpackagetypenative.md)
+* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeUberJar](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/updateconfigpackagetypeuberjar.md)
 
 ## Example
 

@@ -42,14 +42,14 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/org/apache/wicket/migratetowicket10.md)
-* [Moved the camel-cloudevents api into camel-api and removed the camel-cloudevents](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel47/removeddependencies.md)
+* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/apache/wicket/migratetowicket10.md)
+* [Moved the camel-cloudevents api into camel-api and removed the camel-cloudevents](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel47/removeddependencies.md)
 * [Remove non existing camel-quarkus extensions](/user-documentation/recipes/recipe-catalog/java/camel/migrate/removedextensions.md)
-* [Removed deprecated components](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel411/removeddependencies.md)
-* [Removed deprecated components](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel49/removeddependencies.md)
-* [The camel-test module has been removed from camel-bom](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/removedcomponents.md)
-* [io.quarkus.updates.core.quarkus324.RemoveJpaModelgenDependencies](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/removejpamodelgendependencies.md)
-* [io.quarkus.updates.core.quarkus37.RemoveJpaModelgenDependencies](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus37/removejpamodelgendependencies.md)
+* [Removed deprecated components](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel411/removeddependencies.md)
+* [Removed deprecated components](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/removeddependencies.md)
+* [The camel-test module has been removed from camel-bom](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/removedcomponents.md)
+* [io.quarkus.updates.core.quarkus324.RemoveJpaModelgenDependencies](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus324/removejpamodelgendependencies.md)
+* [io.quarkus.updates.core.quarkus37.RemoveJpaModelgenDependencies](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/removejpamodelgendependencies.md)
 
 ## Example
 

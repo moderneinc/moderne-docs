@@ -161,8 +161,8 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate from Micronaut 2.x to 3.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut2to3migration.md)
 * [Migrate to Jakarta EE 10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10.md)
-* [Migrate to Jakarta EE 9.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakartaee9_1.md)
-* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/org/apache/wicket/migratetowicket10.md)
+* [Migrate to Jakarta EE 9.1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakartaee9_1.md)
+* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/apache/wicket/migratetowicket10.md)
 
 ## Examples
 ##### Example 1

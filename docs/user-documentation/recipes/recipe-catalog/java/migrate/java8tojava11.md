@@ -194,7 +194,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Java 17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17.md)
-* [Migrate to WebLogic 14.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1411.md)
+* [Migrate to WebLogic 14.1.1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeto1411.md)
 
 ## Examples
 ##### Example 1

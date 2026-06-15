@@ -40,7 +40,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate all Maven and Gradle groupIds and artifactIds from OptaPlanner to Timefold](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fork/timefoldchangedependencies.md)
+* [Migrate all Maven and Gradle groupIds and artifactIds from OptaPlanner to Timefold](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/fork/timefoldchangedependencies.md)
 * [Migrate to JasperReports 5.6.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports5)
 * [Update the Micronaut Session support](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautsession.md)
 

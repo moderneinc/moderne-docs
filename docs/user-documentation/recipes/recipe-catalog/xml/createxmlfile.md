@@ -39,9 +39,9 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Add implicit TLD with taglib 2.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/addimplicittldfilewithtaglib2_1.md)
-* [Add implicit TLD with taglib 3.0](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/addimplicittldfilewithtaglib3_0.md)
-* [Create `weblogic.xml` if it does not exist](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlcreateifnotexists1511.md)
+* [Add implicit TLD with taglib 2.1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/addimplicittldfilewithtaglib2_1.md)
+* [Add implicit TLD with taglib 3.0](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/addimplicittldfilewithtaglib3_0.md)
+* [Create `weblogic.xml` if it does not exist](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicxmlcreateifnotexists1511.md)
 
 
 ## Usage

@@ -4,10 +4,6 @@ description: Ai OpenRewrite recipes.
 
 # AI
 
-## Categories
-
-* [Timefold](/user-documentation/recipes/recipe-catalog/ai/timefold)
-
 ## Composite Recipes
 
 _Recipes that include further recipes, often including the individual recipes below._

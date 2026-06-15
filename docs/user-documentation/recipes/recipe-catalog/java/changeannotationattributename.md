@@ -46,10 +46,10 @@ This recipe is used as part of the following composite recipes:
 * [Migrate from `@ApiParam` to `@Parameter`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiparamtoparameter.md)
 * [Migrate from `@ApiResponses` to `@ApiResponses`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiresponsestoapiresponses.md)
 * [Migrate to Hibernate 4.0.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40)
-* [PlanningVariable's `nullable` is newly called `unassignedValues`](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/nullablerecipe.md)
+* [PlanningVariable's `nullable` is newly called `unassignedValues`](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/nullablerecipe.md)
 * [Replace `@MockBean` and `@SpyBean`](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacemockbeanandspybean.md)
-* [Substitute deprecated Faces Managed Beans](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/facesmanagedbeansremoved3.md)
-* [Use non-deprecated related sorting fields and methods](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/v8/sortingmigrationrecipe.md)
+* [Substitute deprecated Faces Managed Beans](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/facesmanagedbeansremoved3.md)
+* [Use non-deprecated related sorting fields and methods](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/sortingmigrationrecipe.md)
 
 ## Example
 

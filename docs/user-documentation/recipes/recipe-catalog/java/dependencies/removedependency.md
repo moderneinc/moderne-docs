@@ -88,7 +88,7 @@ This recipe is used as part of the following composite recipes:
 * [Remove Spring Pulsar Reactive support](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/removespringpulsarreactive)
 * [Remove `jakarta.annotation-api` dependency when managed by Spring Boot](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removejakartaannotationdependencywhenmanagedbyspringboot.md)
 * [Remove spring-jcl dependency](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/removespringjcl)
-* [Remove the unported axon-spring-aot extension](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/axon4toaxon5springaotextension.md)
+* [Remove the unported axon-spring-aot extension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5springaotextension.md)
 * [Remove unnecessary dependencies](/user-documentation/recipes/recipe-catalog/java/micronaut/removeunnecessarydependencies.md)
 * [Replace Derby test driver with Quarkus JDBC Derby (test scope)](/user-documentation/recipes/recipe-catalog/quarkus/spring/derbytestdrivertoquarkus.md)
 * [Replace H2 test driver with Quarkus JDBC H2 (test scope)](/user-documentation/recipes/recipe-catalog/quarkus/spring/h2testdrivertoquarkus.md)
@@ -129,7 +129,7 @@ This recipe is used as part of the following composite recipes:
 * [Update to Micronaut Validation 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautvalidation.md)
 * [Upgrade Struts 6.0 dependencies](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/upgradestruts6dependencies)
 * [Upgrade to SpringDoc 2.1](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2.md)
-* [io.quarkus.updates.core.quarkus31.RemoveMockitoInline](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus31/removemockitoinline.md)
+* [io.quarkus.updates.core.quarkus31.RemoveMockitoInline](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus31/removemockitoinline.md)
 
 ## Example
 
