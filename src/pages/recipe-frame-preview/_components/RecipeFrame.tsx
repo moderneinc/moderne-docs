@@ -150,7 +150,6 @@ interface RecipeFrameProps {
 }
 
 export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => {
-  const pageUrl = `https://docs.moderne.io/user-documentation/recipes/recipe-catalog/${recipe.fqName}`;
   const isComposite = recipe.type === 'Composite recipe';
 
   const tocItems: TocItem[] = [
@@ -243,7 +242,7 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
           >
             Try in Platform
           </NeoButton>
-          <CopyPageMenu markdown={recipe.markdown} pageUrl={pageUrl} displayName={recipe.displayName} />
+          <CopyPageMenu markdown={recipe.markdown} />
         </div>
 
       </header>
