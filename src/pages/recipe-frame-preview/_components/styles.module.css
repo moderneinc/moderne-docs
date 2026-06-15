@@ -309,23 +309,6 @@
   font-weight: var(--neo-font-weight-medium);
 }
 
-/* Design-note explaining Applies-to (Pattern A) vs Also-available-in (Pattern B),
-   plus the in-repo render-plumbing confidence marker for this tab. */
-.crossLangNote {
-  display: flex;
-  flex-direction: column;
-  gap: var(--neo-spacing_1);
-  max-width: 64ch;
-  margin-top: var(--neo-spacing_1_1_2);
-  font-size: var(--neo-font-size-xs);
-  line-height: 1.6;
-  color: var(--neo-typography-body-secondary);
-}
-
-.crossLangConfidence {
-  font-weight: var(--neo-font-weight-semi-bold);
-  color: var(--neo-status-warning-dark);
-}
 
 /* ---------- Actions ---------- */
 .actions {
@@ -1609,7 +1592,6 @@ html[data-theme='dark'] {
   .optionExampleNone,
   .optionOptional,
   .alsoAvailableLabel,
-  .crossLangNote,
   .headerTimeSaved,
   .headerTimeSavedLabel,
   .headerTimeSavedIcon,
@@ -1635,10 +1617,6 @@ html[data-theme='dark'] {
 
   .optionRequired {
     color: var(--neo-status-error-medium);
-  }
-
-  .crossLangConfidence {
-    color: var(--neo-status-warning-medium);
   }
 
   /* Accent / links */
