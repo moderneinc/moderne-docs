@@ -107,7 +107,7 @@ No data is saved – all interactions are stateless. Recipe results are ephemera
 
 Moderne has created recipes that can look through your code base and offer suggestions of recipes that you should consider running to help modernize or secure your code base. 
 
-Check out the [get recommendations recipe documentation](../../../user-documentation/recipes/recipe-catalog/ai/research/getrecommendations.md#recommendations) for more information into how to use this. You might also find it beneficial to read about [AI embeddings and how we use them](https://www.moderne.ai/blog/what-are-embeddings-and-why-are-they-great-for-code-impact-analysis).
+You might also find it beneficial to read about [AI embeddings and how we use them](https://www.moderne.ai/blog/what-are-embeddings-and-why-are-they-great-for-code-impact-analysis).
 
 #### Deployment
 
