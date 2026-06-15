@@ -59,15 +59,12 @@ Your custom recipes will appear in the Marketplace, and they will be discoverabl
 
 ## Importing recipes via a GraphQL API call
 
-You can also use the GraphQL API to automate importing external recipes:
+You can also use the GraphQL API to automate importing external recipes. The `installRecipesUniversal` mutation installs the recipes into the universal marketplace (visible to everyone in your tenant) and requires the `admin` role:
 
 ```graphql
-mutation loadRecipe($loadGroupId: String!, $loadArtifactId: String!, $loadVersion: String!, $loadDatedSnapshotVersion: String) {
-  loadRecipesAsync(
-    groupId: $loadGroupId
-    artifactId: $loadArtifactId
-    version: $loadVersion
-    datedSnapshotVersion: $loadDatedSnapshotVersion
+mutation installRecipe($groupId: String!, $artifactId: String!, $version: String!) {
+  installRecipesUniversal(
+    bundle: { maven: { groupId: $groupId, artifactId: $artifactId, version: $version } }
   ) {
     id
   }
@@ -78,9 +75,9 @@ Query variables:
 
 ```json
 {
-  "loadGroupId": "io.moderne.recipe",
-  "loadArtifactId": "rewrite-devcenter",
-  "loadVersion": "LATEST"
+  "groupId": "io.moderne.recipe",
+  "artifactId": "rewrite-devcenter",
+  "version": "LATEST"
 }
 ```
 
