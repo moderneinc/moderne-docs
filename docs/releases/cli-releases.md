@@ -318,9 +318,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 #### What's Changed
 * [4.2.x] cli: add 'mod config run polyglot-parallel' to cap rewrite-rpc concurrency
 
+## May 2026
+
 ### CLI / DX 4.2.10 (2026-05-29)
 
-## What's Changed
+#### What's Changed
 * `mod config recipes artifacts show`: now suggests `add` subcommand
 * Honor Maven `toolchains.xml` for JDK discovery
 * `mod generate-completion --shell powershell` now generates a tab-completion script for PowerShell. Dot-source the output from your `$PROFILE` to enable subcommand and option completion for mod and modw.
