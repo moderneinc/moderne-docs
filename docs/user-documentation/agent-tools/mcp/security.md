@@ -116,7 +116,7 @@ The MCP server exposes two read-only status resources:
 
 * All repository source code (read for indexing and analysis; never transmitted)
 * The LST (written to `.moderne/mcp/lst/` inside the repository)
-* The trigram search index (written to `.moderne/mcp/search/` inside the repository)
+* The trigram search index (per-file `.tri` files written alongside LST `.body` files under `.moderne/build/{buildId}/objects/` inside the repository, produced inline by `mod build`)
 * Recipe run output and DataTables (written to `.moderne/mcp/run/` inside the repository; auto-deleted after one hour)
 * The tool-observations CSV (written to `~/.moderne/mcp/tool-observations.csv`)
 * All MCP protocol messages (carried over stdin/stdout; never over a network)
@@ -173,8 +173,9 @@ In a future release, the Moderne CLI will provide an opt-in feature to connect t
 | Repository working tree                                   | Source files read to build the LST, trigram search index, and execute recipe transformations.                                                                  |
 | `{repo}/.git/`                                            | Git metadata for detecting the repository root and worktree configurations.                                                                                    |
 | `{repo}/.moderne/recipes-v5.csv`                          | Per-repository recipe marketplace override, if present.                                                                                                        |
-| `{repo}/.moderne/mcp/search/*.zoekt`                      | Trigram search index shard files (read back after being written by the indexer).                                                                               |
-| `{repo}/.moderne/mcp/lst/`                                | Cached LST files from prior builds.                                                                                                                            |
+| `{repo}/.moderne/build/{buildId}/objects/**/*.tri`        | Per-file trigram index files produced by `mod build`, read by `mod search` and the MCP search tools.                                                           |
+| `{repo}/.moderne/build/{buildId}/objects/**/*.body`       | V3 LST body files. The `.tri` files do not store file content; source bytes are resolved from the sibling `.body` at search time.                              |
+| `{repo}/.moderne/mcp/lst/`                                | Cached LST files from prior `mod mcp` builds.                                                                                                                  |
 | `~/.moderne/cli/recipes-v5.csv`                           | Global recipe marketplace catalog.                                                                                                                             |
 | `~/.moderne/tray/server.port`                             | Port number of the tray app's HTTP server (macOS/tray feature only).                                                                                           |
 | `~/.moderne/tray/server.lock`                             | Lock file for detecting whether the tray app is running (macOS/tray feature only).                                                                             |
@@ -185,8 +186,9 @@ In a future release, the Moderne CLI will provide an opt-in feature to connect t
 | Location                                              | Purpose                                                                           |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `{repo}/**` (arbitrary paths)                         | Source files modified, added, or deleted by refactoring recipes.                  |
-| `{repo}/.moderne/mcp/lst/`                            | Serialized LST files after each build.                                            |
-| `{repo}/.moderne/mcp/search/*.zoekt`                  | Trigram index shard files.                                                        |
+| `{repo}/.moderne/mcp/lst/`                            | Serialized LST files after each `mod mcp` build.                                  |
+| `{repo}/.moderne/build/{buildId}/objects/**/*.tri`    | Per-file trigram index files produced inline by `mod build`.                      |
+| `{repo}/.moderne/build/{buildId}/objects/**/*.body`   | V3 LST body files produced inline by `mod build`.                                 |
 | `{repo}/.moderne/mcp/run/{runId}/datatables/*.csv.gz` | DataTable files produced by recipe runs. Auto-deleted after one hour.             |
 | `{repo}/.moderne/mcp/lst/recipe.log`                  | Log of Maven artifact resolution activity during recipe preparation.              |
 | `{repo}/.moderne/mcp/lst/parsing-events.json`         | Cached parsing events, replayed to the tray app on restart.                       |

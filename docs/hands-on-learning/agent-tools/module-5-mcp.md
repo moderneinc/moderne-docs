@@ -245,7 +245,7 @@ You now have a working setup that combines:
 * Prethink-generated context (`.moderne/context/`) describing each repository's architecture and code quality
 * A trigram search index for sub-second whole-workspace search
 
-Point all of this at your own repositories and you'll get the same setup with your code. The same `mod git sync` / `mod build` / `mod run` / `mod postbuild search index` commands work whether you're targeting public Spring projects or your private monorepo.
+Point all of this at your own repositories and you'll get the same setup with your code. The same `mod git sync` / `mod build` / `mod run` commands work whether you're targeting public Spring projects or your private monorepo. The trigram search index is produced inline by `mod build` — there's no separate indexing step.
 
 ## Further reading
 
