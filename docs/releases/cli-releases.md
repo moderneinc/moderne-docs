@@ -117,7 +117,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Fix V3 prebuild OOM when expanding flat dependency table into trees
 * mod search: fix select:symbol.`<kind>` folding; drop requote heuristics
 * mod search: support the select:file projection
-* mod search: don't render filename matches as "L1: <path>"
+* mod search: don't render filename matches as "L1: `<path>`"
 * Pipeline the trigram search engine with a lazy stage-1/stage-2 split
 * Apply clone timeout to checkout step in `mod git sync csv`
 * Remove bench/ — moved to moderneinc/agent-tools-bench
@@ -134,7 +134,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * feat: honor Maven `toolchains.xml` for JDK discovery and pass to subprocess
 * Fix `mod config moderne login` retrying against the same description
 * mod search: give field and enum-constant symbols a real declaration section
-* extract generic RepositoriesProperty<T> base class
+* extract generic RepositoriesProperty`<T>` base class
 * MCP: surface zero-match diagnostics + wildcard hint in pattern_replace
 * Fix ExportContext empty CSVs: wire inputStreamFactory in RunTask CsvDataTableStore
 * MCP: gate pattern_replace diagnostics correctly + add partial-match follow-up
@@ -223,7 +223,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Fix double-including some files
 * Wire the root source set's edit-overlay extern resolver
 * Show exact matching-file totals instead of `N+` when search results are capped
-* fix: follow build/<id> symlink when enumerating LST fragments
+* fix: follow build/`<id>` symlink when enumerating LST fragments
 * fix: re-map stale marker-table mmap segment when markers.bin is rewritten
 * Skip collecting git committers on code paths where that information is irrelevant and potentially expensive to collect.
 * Fix stale-LST after applyRecipeResults; improve recipe discovery
@@ -284,7 +284,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Guard repository-path split when the path has no organization
 * Cap mod mcp heap at min(25% RAM, 4 GB) by default
 * Multipart upload and download across HTTP, S3, and Azure
-* Accept an installation directory for config <lang> installation edit
+* Accept an installation directory for config `<lang>` installation edit
 * V3 Bazel monorepo support: recursive per-target build + pure-copy union
 * Add `mod config dotnet version` command to match Java, Python, and Node
 * Store per-symbol relationship arrays sparsely in the zoekt shard
