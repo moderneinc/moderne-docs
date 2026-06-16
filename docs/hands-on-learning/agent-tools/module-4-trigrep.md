@@ -23,7 +23,7 @@ For the deep reference on syntax and semantics, see [Moderne Trigrep](../../user
 
 The trigram index is produced inline by `mod build`, alongside each repository's V3 LST. There is no separate indexing step. If you ran `mod build` in [Module 1](./module-1-cli-and-lsts.md), the index already exists.
 
-The index is split into one `.tri` file per source file, written under `.moderne/build/{buildId}/objects/{xx}/{rest}.tri` next to the matching V3 LST `.body` file. The `.tri` files do not store source content — at search time, Trigrep reads the matched line from the sibling `.body`, which keeps the disk overhead small (~12% over the LST itself on Spring PetClinic).
+Each source set writes its own `.zoekt` shard under `.moderne/build/{buildId}/sources/{sourceSet}/shard-*.zoekt`, and `mod build` then assembles them into a single repo-level index under `.moderne/build/{buildId}/index/merged-*.zoekt` (size-bounded chunks, plus `assembly.csv` and a `.complete` sentinel written last). The shards carry the document's printed-LST content, so a search reads matched lines straight from the shard.
 
 :::tip
 To regenerate after significant code changes, just re-run `mod build`. There is no `--force` flag specific to the index, and no separate `mod postbuild` step (the legacy `mod postbuild search index` command is now a deprecated no-op).
@@ -55,7 +55,7 @@ Notice how each search returns in well under a second, even though the workspace
   0% (1s)     ▶ apache/maven-doxia@master
   0% (1s)         ✓ No matches
   9% (1s)     ▶ awslabs/aws-saas-boost@main
-  9% (1s)         No trigram sidecars (rebuild with latest V3)
+  9% (1s)         No trigram shards (rebuild)
   ...
  27% (1s)     ▶ finos/spring-bot@spring-bot-master
  27% (1s)         ● File(libs/.../BotController.java)
@@ -66,10 +66,10 @@ Notice how each search returns in well under a second, even though the workspace
 Found 12 matches in 12 files across 10 repositories.
 
 ● What to do next
-    > 1 repository has no trigram sidecars (legacy or unindexed LST). Rebuild with mod build to generate a current V3 LST with .tri sidecars.
+    > 1 repository has no trigram shards (legacy or unindexed LST). Rebuild with mod build to generate a current V3 LST with .zoekt shards.
 ```
 
-The `No trigram sidecars` line for `awslabs/aws-saas-boost` is expected — that repo's LST didn't sync (see [Module 1 Step 2](./module-1-cli-and-lsts.md)), so there's nothing to search against. ("Sidecar" here is just how the CLI labels the per-file `.tri` index files.) The other 10 repos searched fine.
+The `No trigram shards` line for `awslabs/aws-saas-boost` is expected — that repo's LST didn't sync (see [Module 1 Step 2](./module-1-cli-and-lsts.md)), so there's nothing to search against. The other 10 repos searched fine.
 
 </details>
 
