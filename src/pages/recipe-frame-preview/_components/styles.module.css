@@ -308,9 +308,9 @@
 .idCode {
   flex: 1;
   min-width: 0;
-  overflow-x: hidden;
-  overflow-wrap: break-word;
-  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
   font-size: var(--neo-font-size-code);
   color: var(--neo-typography-code-primary);
