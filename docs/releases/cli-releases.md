@@ -29,7 +29,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 ### CLI / DX v4.3.0 (2026-06-15)
 
 #### What's Changed
-* Support ${os} and ${arch} placeholders in wrapper jdkUrl
+* Support `${os}` and `${arch}` placeholders in wrapper jdkUrl
 * Key the H2 POM cache by repository credentials
 * Add prebuild/build separation for V3 LST format
 * Inline moderne-ast-write into core/serialization
@@ -47,7 +47,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Log: suggest `mod trace ... analyze` as a next step after `mod log`
 * Log effective pom.xml to it's own file to avoid `build.log` bloat
 * Skip uploading `repos-lock.csv` if no LSTs were published via `mod publish` and improve upload failure error messaging
-* Rename mod{maven,gradle}-metadata → prebuild-{maven,gradle}
+* Rename `mod{maven,gradle}-metadata` → `prebuild-{maven,gradle}`
 * Fix `mod run` bug not finding LST artifact after prebuild feature was integrated
 * Fix terminal escape leak by disabling JLine grapheme cluster probe
 * Add ci-4-2-x.yml for 4.2.x maintenance branch CI
@@ -76,7 +76,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Drop dead `moderne-recipe-loading-commons` dep and unauth Artifactory access
 * Fix DevCenter spec loading for declarative parent recipes
 * mod run: write Canceled trace.csv rows for partitions that did not complete
-* Add ${extension} placeholder to wrapper distributionUrl template
+* Add `${extension}` placeholder to wrapper distributionUrl template
 * Detect uninitialized remote repos during bulk clone
 * mod build: don't NPE when GitProvenance is unavailable
 * Surface "Repository not found" specifically on clone failure
@@ -237,7 +237,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * mcp: seed from newest usable build dir + keep partially type-blind LSTs READY
 * mod build: isolate nested Gradle builds, skip frontend Node download, type JS/Python by default
 * Fix red main CI: make McpTraceRecorder non-git fallback test hermetic
-* mod build: resolve ${java.version} to the POM, tolerate strict-CEN jars, soften engines.node
+* mod build: resolve `${java.version}` to the POM, tolerate strict-CEN jars, soften engines.node
 * Replace H2 MVStore Maven POM cache with SQLite (WAL mode)
 * Add `mod config recipes artifacts {npm,pip,nuget,go}` commands
 * Fix double frontmatter and weak descriptions in installed agent skills
