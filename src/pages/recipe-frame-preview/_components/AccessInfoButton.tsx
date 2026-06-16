@@ -18,7 +18,7 @@ export const AccessInfoButton: FunctionComponent = () => (
     </button>
     <span className={styles.accessInfoPopover}>
       <span className={styles.accessInfoText}>
-        This recipe is proprietary to Moderne and runs on the Moderne platform — it isn’t part of the
+        This recipe is proprietary to Moderne and runs on the Moderne platform or CLI — it isn’t part of the
         open-source catalog. Available with a Moderne subscription.
       </span>
       <NeoButton

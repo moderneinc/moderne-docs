@@ -144,7 +144,7 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
   const isOpenSource = /apache/i.test(recipe.license);
 
   const tocItems: TocItem[] = [
-    { id: 'recipe-source', label: 'Recipe source' },
+    isOpenSource ? { id: 'recipe-source', label: 'Recipe source' } : null,
     recipe.options.length ? { id: 'options', label: 'Options' } : null,
     isComposite ? { id: 'definition', label: 'Definition' } : null,
     recipe.usedBy.length ? { id: 'used-by', label: 'Used by' } : null,
@@ -299,26 +299,28 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
         </div>
       </header>
 
-      {/* ---------- Source ---------- */}
-      <section className={styles.section} id="recipe-source">
-        <SectionNote status="real" goals={['Developer understanding']}>
-          Real today (generator): source, issue-tracker and Maven links + license, and the composite “customize”
-          note.
-        </SectionNote>
-        <h2 className={styles.sectionTitle}>Recipe source</h2>
-        <div className={styles.sourceLinks}>
-          {recipe.sourceLinks.map((link) => (
-            <a key={link.href} className={styles.sourceLink} href={link.href} target="_blank" rel="noopener noreferrer">
-              {link.label} <ExternalLink size={13} />
-            </a>
-          ))}
-        </div>
-        {recipe.infoAdmonition && (
-          <div className={styles.admonition}>
-            <Admonition type="info">{recipe.infoAdmonition}</Admonition>
+      {/* ---------- Source (hidden for Moderne-proprietary recipes) ---------- */}
+      {isOpenSource && (
+        <section className={styles.section} id="recipe-source">
+          <SectionNote status="real" goals={['Developer understanding']}>
+            Real today (generator): source, issue-tracker and Maven links + license, and the composite &quot;customize&quot;
+            note.
+          </SectionNote>
+          <h2 className={styles.sectionTitle}>Recipe source</h2>
+          <div className={styles.sourceLinks}>
+            {recipe.sourceLinks.map((link) => (
+              <a key={link.href} className={styles.sourceLink} href={link.href} target="_blank" rel="noopener noreferrer">
+                {link.label} <ExternalLink size={13} />
+              </a>
+            ))}
           </div>
-        )}
-      </section>
+          {recipe.infoAdmonition && (
+            <div className={styles.admonition}>
+              <Admonition type="info">{recipe.infoAdmonition}</Admonition>
+            </div>
+          )}
+        </section>
+      )}
 
       {/* ---------- Options ---------- */}
       {recipe.options.length > 0 && (

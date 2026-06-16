@@ -280,14 +280,13 @@
 /* Recipe ID + Artifact: identical chips, side by side, wrap-to-stack when narrow */
 .idArtifactRow {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--neo-spacing_1);
   /* Between-group space: code snippets → description. */
   margin-bottom: var(--neo-spacing_5);
 }
 
 .codeChip {
-  flex: 1 1 260px;
   min-width: 0;
   display: inline-flex;
   align-items: center;
@@ -309,8 +308,9 @@
 .idCode {
   flex: 1;
   min-width: 0;
-  overflow-x: auto;
-  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  white-space: normal;
   font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
   font-size: var(--neo-font-size-code);
   color: var(--neo-typography-code-primary);
@@ -583,7 +583,7 @@ tbody tr + tr .td {
 }
 
 .optionsSummaryDot_req {
-  background-color: var(--neo-status-error-medium);
+  background-color: var(--neo-typography-input-default);
 }
 
 .optionsSummaryDot_opt {
@@ -628,15 +628,6 @@ tbody tr + tr .td {
   color: var(--neo-typography-input-default);
 }
 
-/* Example cell: required/optional Neo tag ABOVE the inline-code example,
-   mirroring the Parameter cell (tag on top of code). */
-.optionExampleCell {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--neo-spacing_1);
-}
-
 .optionExample {
   display: inline-block;
   background-color: var(--neo-surfaces-card-header);
@@ -653,11 +644,11 @@ tbody tr + tr .td {
   color: var(--neo-typography-body-secondary);
 }
 
-/* Required / Optional shown as plain type beneath the example (not a pill). */
+/* Required / Optional shown as plain type in its own column (not a pill). */
 .optionRequired {
   font-size: var(--neo-font-size-xs);
   font-weight: var(--neo-font-weight-semi-bold);
-  color: var(--neo-status-error-dark);
+  color: var(--neo-typography-input-default);
 }
 
 .optionOptional {
@@ -841,6 +832,7 @@ tbody tr + tr .td {
   padding-top: var(--neo-spacing_2);
   padding-bottom: var(--neo-spacing_2);
   margin-bottom: 0;
+  border-bottom: 1px solid var(--neo-border-card);
 }
 
 /* The heading keeps .sectionTitle; the row owns the bottom spacing. */
@@ -904,6 +896,12 @@ tbody tr + tr .td {
   display: flex;
   flex-direction: column;
   gap: var(--neo-spacing_1);
+}
+
+.dataTableIdRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
 }
 
 .dataTableId {
@@ -1515,11 +1513,11 @@ tbody tr + tr .td {
 }
 
 .beforeLabel {
-  color: var(--neo-status-error-dark);
+  color: var(--neo-typography-body-secondary);
 }
 
 .afterLabel {
-  color: var(--neo-status-success-dark);
+  color: var(--neo-typography-body-secondary);
 }
 
 .unchangedBlock {
@@ -1591,12 +1589,9 @@ html[data-theme='dark'] {
     color: var(--neo-surfaces-snackbar-dark-mode);
   }
 
-  .beforeLabel {
-    color: var(--neo-status-error-medium);
-  }
-
+  .beforeLabel,
   .afterLabel {
-    color: var(--neo-status-success-medium);
+    color: var(--neo-grey-400);
   }
 
   .copyId:hover {
@@ -1641,6 +1636,10 @@ html[data-theme='dark'] {
     border-bottom-color: var(--neo-grey-700);
   }
 
+  .accordionSectionHeader {
+    border-bottom-color: var(--neo-grey-700);
+  }
+
   /* Row dividers a touch subtler than the header rule. */
   tbody tr + tr .td {
     border-top-color: var(--neo-grey-800);
@@ -1675,8 +1674,11 @@ html[data-theme='dark'] {
     color: var(--neo-grey-400);
   }
 
+  .dataTableDesc {
+    color: var(--neo-grey-300);
+  }
+
   /* Muted text */
-  .dataTableDesc,
   .ctaText,
   .exampleLabel,
   .copyMenuItemHint,
@@ -1714,7 +1716,7 @@ html[data-theme='dark'] {
   }
 
   .optionRequired {
-    color: var(--neo-status-error-medium);
+    color: var(--neo-surfaces-snackbar-dark-mode);
   }
 
   /* Accent / links */
@@ -1849,6 +1851,11 @@ html[data-theme='dark'] {
   .sectionNoteIcon:focus-visible {
     border-color: var(--neo-digital-green-300);
     color: var(--neo-digital-green-300);
+  }
+
+  .actionButtons :global(.neo-button--outline) {
+    color: var(--neo-surfaces-snackbar-dark-mode);
+    border-color: var(--neo-grey-600);
   }
 }
 

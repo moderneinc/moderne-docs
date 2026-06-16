@@ -89,10 +89,10 @@ export const ExampleList: FunctionComponent<{ title: string; examples: RecipeExa
   examples,
 }) => {
   const items: AccordionItem[] = examples.map((ex, i) => {
-    const scenario = ex.name?.includes('#') ? ex.name.split('#')[1] : ex.name;
+    const langs = ex.variants.map(v => v.language).join(', ');
     return {
       key: ex.name ?? `example-${i}`,
-      label: scenario || `Example ${i + 1}`,
+      label: langs || `Example ${i + 1}`,
       content: <ExampleBody example={ex} />,
     };
   });
