@@ -115,7 +115,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Fix V3 silently dropping J.Case caseLabels after-spaces
 * Use G1 unconditionally in modw to stop AOT cache thrash
 * Fix V3 prebuild OOM when expanding flat dependency table into trees
-* mod search: fix select:symbol.<kind> folding; drop requote heuristics
+* mod search: fix select:symbol.`<kind>` folding; drop requote heuristics
 * mod search: support the select:file projection
 * mod search: don't render filename matches as "L1: <path>"
 * Pipeline the trigram search engine with a lazy stage-1/stage-2 split
