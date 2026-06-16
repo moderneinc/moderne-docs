@@ -7,6 +7,8 @@
 
 - support v2 key vault naming via KEY_VAULT_NAME
 
+## May 2026
+
 ### UI v12.36.1 (2026/05/04)
 
 - Bug fixes and other improvements.

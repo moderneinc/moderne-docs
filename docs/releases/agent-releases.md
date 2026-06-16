@@ -26,6 +26,9 @@ description: The current version of the Moderne Agent and where to download it.
 * actions/setup-java v5
 * aws-actions/configure-aws-credentials@v6
 * Fix GHSA-72hv-8253-57qq and GHSA-2m67-wjpj-xhg9 in jackson-core 3.x pulled in by logstash-logback-encoder
+
+## May 2026
+
 ### v0.260.0 - 2026-05-15
 
 * Suppress HIGH/CRITICAL false positives from dependency-vulnerability-report
