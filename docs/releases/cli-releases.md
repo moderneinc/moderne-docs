@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.0           |
+| CLI version | 4.3.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,15 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.1 (2026-06-16)
+
+#### What's Changed
+* Add mainframe build step with configurable Cobol parse timeout
+* Fall back to GraphQL when /api/recipes returns HTTP 400 on SaaS v1
+* BuildOutput.upToDate: O(1) HashSet membership instead of List.contains
+* Reset PlainProgressBar on setMax so non-TTY progress no longer pins at 100% during the edit phase
+* Discover versioned, pyenv, and uv Python interpreters
 
 ### CLI / DX v4.3.0 (2026-06-15)
 

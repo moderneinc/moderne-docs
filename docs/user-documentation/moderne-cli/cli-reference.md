@@ -90,6 +90,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build javascript nodeoptions delete**](#mod-config-build-javascript-nodeoptions-delete)
 * [**mod config build javascript nodeoptions edit**](#mod-config-build-javascript-nodeoptions-edit)
 * [**mod config build javascript nodeoptions show**](#mod-config-build-javascript-nodeoptions-show)
+* [**mod config build mainframe**](#mod-config-build-mainframe)
+* [**mod config build mainframe timeout**](#mod-config-build-mainframe-timeout)
+* [**mod config build mainframe timeout delete**](#mod-config-build-mainframe-timeout-delete)
+* [**mod config build mainframe timeout edit**](#mod-config-build-mainframe-timeout-edit)
+* [**mod config build mainframe timeout show**](#mod-config-build-mainframe-timeout-show)
 * [**mod config build maven**](#mod-config-build-maven)
 * [**mod config build maven arguments**](#mod-config-build-maven-arguments)
 * [**mod config build maven arguments delete**](#mod-config-build-maven-arguments-delete)
@@ -1386,6 +1391,7 @@ mod config build [subcommands]
 * `environment`: Configure environment variables to apply to build tool when building LSTs.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `javascript`: Configures JavaScript/TypeScript as it is used to produce LSTs.
+* `mainframe`: Configures the mainframe parsers (Cobol, JCL, Control-M) as they are used for LST production.
 * `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
 * `node`: Configures Node as it is used for LST production.
 * `parsers`: Configure custom file-extension-to-parser mappings.
@@ -2293,6 +2299,109 @@ Displays the configured Node.js options.
 
 ```
 mod config build javascript nodeoptions show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build mainframe
+
+Configures the mainframe parsers (Cobol, JCL, Control-M) as they are used for LST production.
+
+
+
+
+### Usage
+
+```
+mod config build mainframe [subcommands]
+```
+
+
+### Subcommands
+
+* `timeout`: Configure the build timeout.
+
+## mod config build mainframe timeout
+
+Configure the build timeout.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool.
+
+### Usage
+
+```
+mod config build mainframe timeout [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured build timeout.
+* `edit`: Configure the timeout for build operations.
+* `show`: Displays the configured build timeout.
+
+## mod config build mainframe timeout delete
+
+Removes the configured build timeout.
+
+
+### Usage
+
+```
+mod config build mainframe timeout delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build mainframe timeout edit
+
+Configure the timeout for build operations.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
+
+### Usage
+
+```
+mod config build mainframe timeout edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `duration` |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build mainframe timeout show
+
+Displays the configured build timeout.
+
+
+### Usage
+
+```
+mod config build mainframe timeout show
 ```
 
 ### Options
