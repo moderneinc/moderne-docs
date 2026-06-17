@@ -38,14 +38,14 @@ For example, consider the situation where you want to search for all public meth
 
 ## Getting started
 
-To get started with Moderne Trigrep, you'll first need to sync an organization to your local machine and then build the indexes on it. After that, you can search across all of the repositories in the working set:
+To get started with Moderne Trigrep, you'll first need to sync an organization to your local machine and then build the repositories. The trigram search index is produced inline by `mod build` alongside the LST artifacts. After that, you can search across all of the repositories in the working set:
 
 ```bash
 # Sync the Spring organization to the working-set directory
 mod git sync moderne working-set --organization Spring
 
-# Build the indexes on every repository in the working-set directory
-mod postbuild search index working-set
+# Build LSTs and trigram indexes for every repository in the working-set directory
+mod build working-set
 
 # Search for the term "KafkaTemplate" across them all
 mod search working-set "KafkaTemplate"
@@ -291,7 +291,7 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `lang:`        | Filter by language. Aliases: `language:`, `l:` (Sourcegraph)                                                                             | `lang:java`                  |
 | `case:`        | Control case sensitivity (`yes`/`no`)                                                                                                    | `case:yes findById`          |
 | `type:`        | Restrict matching surface: `file` (content, default), `path` (file names only), or `symbol` (symbol declarations only — literal terms; see note below) | `type:symbol Person`         |
-| `sym:`         | Match symbols by substring on their fully qualified name. Zoekt-native; trigrep also accepts it in Sourcegraph mode. Alias: `symbol:`    | `sym:UserRepository`         |
+| `sym:`         | Match symbols by substring on their fully qualified name. Pass a FQN (`sym:java.util.Collection.add`) for a precise match; bare names (`sym:add`) match every symbol whose FQN contains the substring. At index time, each method call is also recorded under every ancestor FQN that declares its own overload of the method by name and arity (resolved through the source set's type-table chain — JDK, dependencies, and the source set's own types), so a query against an ancestor FQN matches the subtype call site. Zoekt-native; trigrep also accepts it in Sourcegraph mode. Alias: `symbol:` | `sym:UserRepository`         |
 | `select:`      | Filter symbol matches by kind: `symbol.class`, `symbol.interface`, `symbol.enum`, `symbol.method`, `symbol.constructor`, `symbol.field`  | `select:symbol.method`       |
 | `count:`       | Cap total results returned by the query                                                                                                  | `count:500`                  |
 | `content:`     | Search file content explicitly (Sourcegraph). Pairs with `patternType:` and disambiguates literals that look like a filter prefix        | `content:"text"`             |
@@ -300,8 +300,8 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `static:`      | Filter for static modifier (`yes`/`no`)                                                                                                  | `static:yes`                 |
 | `final:`       | Filter for final modifier (`yes`/`no`)                                                                                                   | `final:yes`                  |
 | `abstract:`    | Filter for abstract modifier (`yes`/`no`)                                                                                                | `abstract:yes`               |
-| `extends:`     | Match classes extending a type                                                                                                           | `extends:BaseService`        |
-| `implements:`  | Match classes implementing an interface                                                                                                  | `implements:Repository`      |
+| `extends:`     | Match classes whose transitive ancestor chain (any `extends` link, computed at index time) includes the given type                       | `extends:BaseService`        |
+| `implements:`  | Match classes whose transitive interface closure (any `implements`/`extends` link, computed at index time) includes the given interface  | `implements:Repository`      |
 | `returns:`     | Match methods by return type                                                                                                             | `returns:List`               |
 | `throws:`      | Match methods by declared exceptions                                                                                                     | `throws:IOException`         |
 
@@ -370,15 +370,11 @@ Moderne Trigrep is fast, but because it operates on text and indexed metadata ra
 
 ### Method reference searches
 
-Moderne Trigrep can't find all call locations of a method by its full signature. For example, a query like `sym:add` finds symbols named `add`, but can't distinguish between `java.util.List.add(Object)`, `java.util.Set.add(Object)`, and your own `ShoppingCart.add(Item)`.
-
-If you need to find method invocations by their fully qualified signature, use the `org.openrewrite.java.search.FindMethods` recipe instead. It resolves types at every call site.
+`sym:` matches by substring on the symbol's FQN, not by full method signature. Bare names (`sym:add`) match every symbol whose FQN contains the substring — there's no way to distinguish `java.util.List.add(Object)` from your own `ShoppingCart.add(Item)`. Even an FQN-precise query can't pin to a specific overload by parameter types; an AspectJ-style pattern like `java.util.List add(..)` isn't expressible.
 
 ### Type hierarchy awareness
 
-The `extends:` and `implements:` filters only match declared relationships. For example, a search for `implements:List` finds classes that directly declare it, but misses classes that inherit `List` through a parent class.
-
-If you need to search the full type hierarchy, use the `org.openrewrite.java.search.FindTypes` recipe instead. It finds all references to a type including its subtypes.
+`extends:` and `implements:` are class-definition filters: they identify whether a class has a given type in its ancestor closure, not where that type (or any subtype) is referenced elsewhere in the code. The closure itself is computed at index time over the source set's full type-table chain — JDK, every dependency, and the source set's own types — so ancestry reached through third-party library types is matched.
 
 ### Cross-reference and call graph analysis
 
@@ -427,9 +423,9 @@ During indexing, every position where each trigram appears is recorded. When you
 
 Even in a codebase with millions of files, the intersection of posting lists typically narrows the search to a handful of files that need actual verification. A typical trigram index runs about 10-20% of the original source code size.
 
-Moderne Trigrep generates its indexes from LSTs rather than raw source code, which gives the index access to symbol information, type data, and other semantic details that wouldn't be available from text alone. This is what powers semantic filters like `sym:`, `extends:`, and `visibility:`.
+Moderne Trigrep generates its indexes from LSTs rather than raw source code, which gives the index access to symbol information, type data, and other semantic details that wouldn't be available from text alone. This is what powers semantic filters like `sym:`, `extends:`, and `visibility:`. Each symbol's related types are stored as compact V3 type-table slots (resolved at search time through the source set's type tables) rather than duplicated inline strings — so a query like `sym:`, `extends:`, or `implements:` narrows the candidate file set before any byte reads.
 
-The index files use the `.zoekt` extension and live in the `.moderne/mcp/search/` directory within each repository. You can use the `--force` flag to regenerate indexes even if they already exist, which is useful after significant code changes.
+The index is produced inline by `mod build` as `.zoekt` shards. Each source set writes its own shard under `.moderne/build/{buildId}/sources/{sourceSet}/shard-*.zoekt`, and `mod build` then assembles them into a single repo-level index at `.moderne/build/{buildId}/index/merged-*.zoekt` (split into size-bounded chunks) with a sidecar `assembly.csv` recording per-part content digests. A `.complete` sentinel is written last, so a search racing a build sees a complete index or none — never a partial one. Each shard stores the document's content as the LST's printed form (`SourceFile.printAll()`), with a checksum to catch any drift between the printer and the index. Only Java sources get structured symbol extraction today; other languages get a content-only document where full-text trigram search works but the symbol-aware filters don't apply. To regenerate the index after significant code changes, simply re-run `mod build`.
 
 </details>
 

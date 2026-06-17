@@ -1,59 +1,32 @@
 ---
 sidebar_label: "Module 4: Trigrep"
-description: Build a trigram search index with mod postbuild search index, then explore literal, regex, and structural queries across your workspace.
+description: Explore the trigram search index produced inline by mod build using literal, regex, and structural queries across your workspace.
 draft: true
 ---
 
 # Module 4: Trigrep
 
-In this module, you'll build a trigram search index across the workspace from [Module 1](./module-1-cli-and-lsts.md) and explore what indexed search makes possible. You'll run literal queries, regex, and Comby-style structural patterns, and you'll see how Trigrep's Java-aware filters (`visibility:`, `extends:`, `returns:`, etc.) push beyond what `grep` can do.
+In this module, you'll explore the trigram search index that `mod build` already produced across the workspace from [Module 1](./module-1-cli-and-lsts.md). You'll run literal queries, regex, and Comby-style structural patterns, and you'll see how Trigrep's Java-aware filters (`visibility:`, `extends:`, `returns:`, etc.) push beyond what `grep` can do.
 
 For the deep reference on syntax and semantics, see [Moderne Trigrep](../../user-documentation/agent-tools/trigrep.md). This module is hands-on practice.
 
-## Exercise 4-1: Build the search index
+## Exercise 4-1: Confirm the search index exists
 
 ### Goals for this exercise
 
-* Generate a trigram index over every repository in your workspace
-* Understand what `mod postbuild search index` produces and where it's stored
+* Understand where Trigrep's index files live
+* Confirm your workspace has them so the rest of the module works
 
 ### Steps
 
-#### Step 1: Build the index
+#### Step 1: How the index gets built
 
-From your workspace root:
+The trigram index is produced inline by `mod build`, alongside each repository's V3 LST. There is no separate indexing step. If you ran `mod build` in [Module 1](./module-1-cli-and-lsts.md), the index already exists.
 
-```bash
-mod postbuild search index .
-```
-
-The CLI walks every repository with an LST and produces a trigram index per repo. Indexes live in `.moderne/mcp/search/` inside each repository and use the `.zoekt` extension. Index size is roughly 10-20% of the source size.
-
-<details>
-<summary>Sample output</summary>
-
-```text
-● Generating search indexes
-  ...
-  9% (3s)     ▶ awslabs/aws-saas-boost@main (no LST)
-  9% (3s)         Skipped: no LST artifact
- 18% (3s)     ▶ finos/messageml-utils@main
- 18% (3s)         ✓ Indexed
- ...
-100% (4s)     Done
-
-Generated search indexes: 10 indexed, 1 skipped, 0 failed
-
-● What to do next
-    > 1 repository have no LST artifact. Run mod build first.
-```
-
-The `1 skipped` count corresponds to the same `awslabs/aws-saas-boost` repo whose LST failed to download in [Module 1](./module-1-cli-and-lsts.md). Without an LST, there's nothing to index.
-
-</details>
+Each source set writes its own `.zoekt` shard under `.moderne/build/{buildId}/sources/{sourceSet}/shard-*.zoekt`, and `mod build` then assembles them into a single repo-level index under `.moderne/build/{buildId}/index/merged-*.zoekt` (size-bounded chunks, plus `assembly.csv` and a `.complete` sentinel written last). The shards carry the document's printed-LST content, so a search reads matched lines straight from the shard.
 
 :::tip
-Re-run the same command after significant code changes (or after a fresh `mod build`). Add `--force` if you want to regenerate even when the index already exists.
+To regenerate after significant code changes, just re-run `mod build`. There is no `--force` flag specific to the index, and no separate `mod postbuild` step (the legacy `mod postbuild search index` command is now a deprecated no-op).
 :::
 
 #### Step 2: Run a sanity-check search
@@ -82,7 +55,7 @@ Notice how each search returns in well under a second, even though the workspace
   0% (1s)     ▶ apache/maven-doxia@master
   0% (1s)         ✓ No matches
   9% (1s)     ▶ awslabs/aws-saas-boost@main
-  9% (1s)         No search index
+  9% (1s)         No trigram shards (rebuild)
   ...
  27% (1s)     ▶ finos/spring-bot@spring-bot-master
  27% (1s)         ● File(libs/.../BotController.java)
@@ -93,10 +66,10 @@ Notice how each search returns in well under a second, even though the workspace
 Found 12 matches in 12 files across 10 repositories.
 
 ● What to do next
-    > 1 repository has no search index. Run mod postbuild search index to generate indexes from existing LSTs.
+    > 1 repository has no trigram shards (legacy or unindexed LST). Rebuild with mod build to generate a current V3 LST with .zoekt shards.
 ```
 
-The `No search index` line for `awslabs/aws-saas-boost` is expected — that repo's LST didn't sync (see [Module 1 Step 2](./module-1-cli-and-lsts.md)), so the index couldn't be built. The other 10 repos searched fine.
+The `No trigram shards` line for `awslabs/aws-saas-boost` is expected — that repo's LST didn't sync (see [Module 1 Step 2](./module-1-cli-and-lsts.md)), so there's nothing to search against. The other 10 repos searched fine.
 
 </details>
 
@@ -106,8 +79,8 @@ Zero matches just means none of these repos use the keyword — for example, the
 
 ### Takeaways
 
-* `mod postbuild search index` is a one-time setup step per workspace (run again after big code changes).
-* Indexes are local — there's no server to manage.
+* The trigram index is produced inline by `mod build` — no separate indexing step. Re-run `mod build` to refresh after big code changes.
+* The index is local — there's no server to manage.
 
 ---
 
