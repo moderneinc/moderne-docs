@@ -86,8 +86,61 @@
   color: var(--neo-typography-input-default);
 }
 
+/* Design mode toggle — sits above the recipe tabs */
+.designToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  cursor: pointer;
+  margin-bottom: var(--neo-spacing_1_1_2);
+  user-select: none;
+}
+
+.designToggleInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.designToggleTrack {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  background-color: var(--neo-grey-300);
+  border-radius: 10px;
+  transition: background-color 0.15s ease;
+}
+
+.designToggleInput:checked + .designToggleTrack {
+  background-color: var(--neo-digital-blue-500);
+}
+
+.designToggleThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.15s ease;
+}
+
+.designToggleInput:checked + .designToggleTrack .designToggleThumb {
+  transform: translateX(16px);
+}
+
+.designToggleLabel {
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-body-secondary);
+}
+
 .toggle {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--neo-spacing_1);
   margin-bottom: var(--neo-spacing_3);
 }
@@ -610,6 +663,27 @@ tbody tr + tr .td {
   padding-right: var(--neo-spacing_2);
 }
 
+/* Column width hints: keep short-value columns tight so Description gets room. */
+.optionsCard .th:nth-child(1),
+.optionsCard .td:nth-child(1) {
+  white-space: nowrap;
+}
+
+.optionsCard .th:nth-child(3),
+.optionsCard .td:nth-child(3) {
+  min-width: 200px;
+}
+
+.optionsCard .th:nth-child(4),
+.optionsCard .td:nth-child(4) {
+  white-space: nowrap;
+}
+
+.optionsCard .th:nth-child(5),
+.optionsCard .td:nth-child(5) {
+  white-space: nowrap;
+}
+
 /* Name + example reuse the page's inline-code chip (see .inlineCode) so the
    table matches the inline code everywhere else. */
 .optionName {
@@ -1040,7 +1114,7 @@ tbody tr + tr .td {
   flex-wrap: wrap;
   align-items: center;
   gap: var(--neo-spacing_1);
-  margin-bottom: var(--neo-spacing_2);
+  margin-bottom: var(--neo-spacing_3);
 }
 
 .metaLabel {
@@ -1336,6 +1410,15 @@ tbody tr + tr .td {
   color: var(--neo-digital-blue-700);
 }
 
+/* When design mode is off, hide all design annotations and remove the gutter. */
+.designOff .sectionNote {
+  display: none !important;
+}
+
+.designOff {
+  padding-left: 0 !important;
+}
+
 /* ---------- Section implementation notes (left gutter) ---------- */
 .sectionNote {
   display: none; /* only shown on wide screens where the gutter exists */
@@ -1548,6 +1631,18 @@ tbody tr + tr .td {
  *   link/acct-> --neo-digital-green-300 (the docs' mint dark-mode link)
  */
 html[data-theme='dark'] {
+  .designToggleTrack {
+    background-color: var(--neo-grey-700);
+  }
+
+  .designToggleInput:checked + .designToggleTrack {
+    background-color: var(--neo-digital-blue-400);
+  }
+
+  .designToggleLabel {
+    color: var(--neo-grey-400);
+  }
+
   .previewBanner {
     background-color: var(--neo-icons-default);
     border-color: var(--neo-status-warning-medium);
@@ -1610,6 +1705,10 @@ html[data-theme='dark'] {
   .relatedCard,
   .codeBlock {
     border-color: var(--neo-grey-700);
+  }
+
+  .optionsSummaryDot_req {
+    background-color: var(--neo-surfaces-snackbar-dark-mode);
   }
 
   .accordionSummary {
