@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.1           |
+| CLI version | 4.3.2           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.2 (2026-06-17)
+
+#### What's Changed
+* Publish repos.csv and repos-lock.csv to a Maven coordinate on Maven artifact stores
+* Detect additional locations where copilot may be in use
+* Preserve J.Literal value's boxed type across v3 LST round-trip
+* Register cross-ecosystem resolvers for npm/pip recipe installs
 
 ### CLI / DX v4.3.1 (2026-06-16)
 
