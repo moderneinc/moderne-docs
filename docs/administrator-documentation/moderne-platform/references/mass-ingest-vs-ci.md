@@ -24,11 +24,11 @@ Together, these mean a periodic schedule is the sweet spot: frequent enough to k
 
 Some of the most valuable things you can do with Moderne are organization-wide: searching all of your code for a system-wide vulnerability like Log4Shell, or pushing a fix out to every affected repository at once. These depend on being able to build current LSTs for all of your repositories quickly, from one place.
 
-This is also where dependency drift causes the most problems. Remediating a vulnerability in a transitive dependency requires LSTs whose dependencies are up-to-date, which is exactly what CI-built LSTs can't guarantee. And even if you do produce LSTs in CI, you would still need a way to rebuild everything on demand.
+This is also where dependency drift causes the most problems. Remediating a vulnerability in a transitive dependency requires LSTs whose dependencies are up-to-date, which CI-built LSTs can't guarantee. Even if you do produce LSTs in CI, you would still need a way to rebuild everything on demand.
 
 ## Mass ingest keeps your LSTs up to date with the CLI
 
-The Moderne CLI is constantly being updated with new LST elements - especially for languages where our support is still evolving (e.g., JavaScript, Python, C#). Because mass ingest rebuilds every repository on a schedule, your LSTs pick up these updates quickly, so the recipes you run against them produce more complete, accurate results. With CI, a repository's LST is only ever as current as its last build, so one that rarely builds can quietly fall behind on an older version of the CLI.
+The Moderne CLI is constantly being updated with new LST elements - especially for languages where our support is still evolving (e.g., JavaScript, Python, C#). Because mass ingest rebuilds every repository on a schedule, your LSTs pick up these updates quickly, so the recipes you run against them produce more complete, accurate results. With CI, a repository's LST is only ever as current as its last build, so one that rarely builds can quietly fall behind on an older version of the CLI. Additionally, in cases where you need to get a new CLI version across the company (be it to get a new LST element or a fix to an issue you were running into), it is a herculean effort to get every team to update their CI to take in this new CLI version.
 
 None of this means you have to chase every release. Moderne maintains best-effort backward compatibility, so LSTs built by older CLI versions keep working, and it's rare that a new version requires a full rebuild. That being said, mass ingest keeps you close enough to current on its own - simply by rebuilding on a regular cadence.
 
@@ -40,7 +40,7 @@ A few objections come up regularly. None of them favor CI over mass ingest:
 
 * **"We already build our code in CI, so that's the natural place to build LSTs."** CI can't guarantee coverage or a consistent cadence across all of your repositories - and it leaves you without a way to rebuild everything quickly when you need to remediate a vulnerability. Mass ingest is purpose-built for both.
 
-* **"No single central team has access to all of our repositories."** This one is genuinely valid, but the answer is still mass ingest, not CI. Each line of business can run its own mass ingest pipeline, with guidance from a central team, so that coverage and cadence are preserved without requiring one team to access every repository.
+* **"No single central team has access to all of our repositories."** This one is valid, and we have several customers in this exact situation. But the answer is still mass ingest, not CI. Each line of business can run its own mass ingest pipeline, with guidance from (and even an image/pipeline built by) a central team, so that coverage and cadence are preserved without requiring one team to access every repository.
 
 ## Additional reading
 
