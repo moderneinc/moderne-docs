@@ -15,6 +15,7 @@ _Finds `IvParameterSpec` constructed with hardcoded byte arrays or string litera
 
 ### Tags
 
+* [RSPEC-S3329](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S3329&open=java%3AS3329)
 * [CWE-329](/user-documentation/recipes/lists/recipes-by-tag#cwe)
 
 ## Recipe source

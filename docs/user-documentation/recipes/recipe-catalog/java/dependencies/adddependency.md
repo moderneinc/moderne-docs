@@ -107,6 +107,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate Spring Cloud Config Client to Quarkus Config](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudconfig.md)
 * [Migrate Spring Cloud Service Discovery to Quarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudservicediscovery.md)
 * [Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing.md)
+* [Migrate Spring Retry to Spring Resilience](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretry)
 * [Migrate Spring Validation to Quarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringvalidation.md)
 * [Migrate TestNG assertions to AssertJ](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngtoassertj.md)
 * [Migrate `@EnableXyz` annotations to Quarkus extensions](/user-documentation/recipes/recipe-catalog/quarkus/spring/enableannotationstoquarkusdependencies.md)

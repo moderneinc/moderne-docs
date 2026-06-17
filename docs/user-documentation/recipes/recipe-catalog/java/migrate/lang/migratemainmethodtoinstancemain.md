@@ -31,7 +31,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Java 25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava25.md)
+* [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
 
 ## Example
 

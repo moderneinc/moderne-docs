@@ -11,11 +11,12 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.java.security.search.FindInadequateKeySize**
 
-_Finds cryptographic key generation with inadequate key sizes. RSA keys should be at least 2048 bits, DSA keys at least 2048 bits, EC keys at least 256 bits, and symmetric keys (AES) at least 128 bits. NIST recommends RSA-2048+ and AES-128+ as minimum for all new applications._
+_Finds cryptographic key generation with inadequate key sizes. RSA and DSA keys should be at least 2048 bits, EC keys at least 224 bits, and symmetric keys (AES) at least 128 bits. Weak named EC curves (e.g. `secp112r1`, `prime192v1`) are also flagged. NIST SP 800-131A Rev 2 requires RSA/DSA 2048+, EC 224+, AES 128+._
 
 ### Tags
 
 * [CWE-326](/user-documentation/recipes/lists/recipes-by-tag#cwe)
+* [RSPEC-S4426](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S4426&open=java%3AS4426)
 
 ## Recipe source
 
@@ -59,7 +60,7 @@ import java.security.NoSuchAlgorithmException;
 class A {
     void generateKey() throws NoSuchAlgorithmException {
         KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-        /*~~(Inadequate asymmetric key size: 1024 bits. Use at least 2048 bits for RSA/DSA.)~~>*/kpg.initialize(1024);
+        /*~~(Inadequate RSA key size: 1024 bits. Use at least 2048 bits.)~~>*/kpg.initialize(1024);
     }
 }
 ```
@@ -72,7 +73,7 @@ class A {
     void generateKey() throws NoSuchAlgorithmException {
         KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
 -       kpg.initialize(1024);
-+       /*~~(Inadequate asymmetric key size: 1024 bits. Use at least 2048 bits for RSA/DSA.)~~>*/kpg.initialize(1024);
++       /*~~(Inadequate RSA key size: 1024 bits. Use at least 2048 bits.)~~>*/kpg.initialize(1024);
     }
 ```
 </TabItem>

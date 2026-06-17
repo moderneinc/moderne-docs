@@ -11,6 +11,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Move `DOCUMENT` import to `@angular/core`](./move-document-import.md)
 * [Remove IE11 polyfills](./remove-ie-polyfills.md)
 * [Replace deep `zone.js` imports](./replace-deep-zone-js-imports.md)
+* [Replace `node-sass` with `sass`](./replace-node-sass-with-sass.md)
 
 ## Recipes
 

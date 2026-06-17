@@ -28,6 +28,13 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | `null` | fileName | The new file name (just the basename, e.g., `.browserslistrc`). | `.browserslistrc` |
 
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Upgrade to Angular 10](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular10)
+
+
 ## Usage
 
 <RunRecipe

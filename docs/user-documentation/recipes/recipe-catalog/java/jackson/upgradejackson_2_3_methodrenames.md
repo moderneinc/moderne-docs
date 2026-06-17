@@ -52,6 +52,9 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 * [Change method name](../../java/changemethodname)
   * methodPattern: `com.fasterxml.jackson.databind.ObjectMapper getDeserializationConfig()`
   * newMethodName: `deserializationConfig`
+* [Change method name](../../java/changemethodname)
+  * methodPattern: `com.fasterxml.jackson.databind.JsonMappingException.Reference getFieldName()`
+  * newMethodName: `getPropertyName`
 
 </TabItem>
 
@@ -80,6 +83,9 @@ recipeList:
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: com.fasterxml.jackson.databind.ObjectMapper getDeserializationConfig()
       newMethodName: deserializationConfig
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: com.fasterxml.jackson.databind.JsonMappingException.Reference getFieldName()
+      newMethodName: getPropertyName
 
 ```
 </TabItem>

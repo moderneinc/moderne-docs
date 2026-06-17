@@ -18,6 +18,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Replace deprecated Char case conversions](./replacedeprecatedcharcaseconversions.md)
 * [Replace deprecated String case conversions](./replacedeprecatedstringcaseconversions.md)
 * [Replace deprecated `capitalize` and `decapitalize`](./replacedeprecatedcapitalizeanddecapitalize.md)
+* [Replace `kotlinOptions` with `compilerOptions` in Gradle build files](./replacekotlinoptionswithcompileroptions.md)
 * [Upgrade to `kotlinx-coroutines` 1.10](./upgradekotlinxcoroutines_1_10.md)
 * [Upgrade to `kotlinx-serialization` 1.8](./upgradekotlinxserialization_1_8.md)
 * [Use `Char` extensions instead of `java.lang.Character`](./usekotlinchar$ktrecipe.md)
@@ -31,10 +32,10 @@ _Recipes that include further recipes, often including the individual recipes be
 ## Recipes
 
 * [Remove deprecated Kotlin Gradle properties](./removedeprecatedkotlingradleproperties.md)
+* [Rename the `kotlinOptions` block to `compilerOptions`](./renamekotlinoptionstocompileroptions.md)
 * [Replace `Enum.values()` with `Enum.entries`](./replaceenumvalueswithentries.md)
 * [Replace deprecated `appendln` with `appendLine`](./replacedeprecatedappendln.md)
 * [Replace `enumValues&lt;T&gt;()` with `enumEntries&lt;T&gt;()`](./replaceenumvaluesfunctionwithenumentries.md)
-* [Replace `kotlinOptions` with `compilerOptions` in Gradle build files](./replacekotlinoptionswithcompileroptions.md)
 * [Upgrade Kotlin Gradle plugins to 2.x](./upgradekotlingradleplugins.md)
 * [Use `..&lt;` instead of `until`](./userangeuntiloperator$ktrecipe.md)
 * [Use `@JvmInline value class` instead of `inline class`](./usevalueclass$ktrecipe.md)
@@ -178,6 +179,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Use `appendLine(value)` instead of `appendln(value)`](./useappendlinewithvalue$ktrecipe.md)
 * [Use `appendLine(value)` instead of `appendln(value)` (Any?)](./useappendlineany$ktrecipe.md)
 * [Use `enumEntries&lt;T&gt;()` instead of `enumValues&lt;T&gt;()`](./useenumentries$ktrecipe.md)
+* [Use `freeCompilerArgs.addAll(...)` in Kotlin `compilerOptions`](./usefreecompilerargsaddall.md)
 * [Use `kotlin.math.E` instead of `java.lang.Math.E`](./usekotlinmathe$ktrecipe.md)
 * [Use `kotlin.math.PI` instead of `java.lang.Math.PI`](./usekotlinmathpi$ktrecipe.md)
 * [Use `kotlin.math.abs` instead of `java.lang.Math.abs`](./usekotlinmathabs$ktrecipe.md)
@@ -216,6 +218,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Use `setOf(x)` instead of `Collections.singleton(x)`](./usesetof$ktrecipe.md)
 * [Use `sumOf` instead of `sumBy`](./usesumof$ktrecipe.md)
 * [Use `sumOf` instead of `sumByDouble`](./usesumofdouble$ktrecipe.md)
+* [Use the `jvmTarget` provider syntax in Kotlin `compilerOptions`](./usejvmtargetprovidersyntax.md)
 * [Use `uppercase()` instead of `toUpperCase()`](./useuppercase$ktrecipe.md)
 * [Use `uppercase(locale)` instead of `toUpperCase(locale)`](./useuppercasewithlocale$ktrecipe.md)
 

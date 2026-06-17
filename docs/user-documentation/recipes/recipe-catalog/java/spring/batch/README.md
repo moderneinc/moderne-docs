@@ -16,6 +16,7 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Add `PlatformTransactionManager` to `tasklet()` and `chunk()` calls](./addtransactionmanagertotaskletandchunk.md)
 * [Add class argument to `JobParameters`](./migratejobparameter.md)
+* [Add `setJobRegistry(..)` to manually configured `TaskExecutorJobOperator`](./addjobregistrytotaskexecutorjoboperator.md)
 * [Change the type of `skipCount` parameter in `SkipPolicy` from `int` to `long`](./upgradeskippolicyparametertype.md)
 * [Convert receive type in some invocation of StepExecution.xx()](./convertreceivetypewhencallstepexecutionmethod.md)
 * [Migrate `Date` to `LocalDateTime` for Spring Batch timestamp methods](./migratestepexecutiontimestamptypes.md)

@@ -11,7 +11,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **io.moderne.prethink.calm.FindPythonTestCoverage**
 
-_Identify test methods in Python test files. Detects pytest test functions/classes and unittest.TestCase subclasses, and populates the TestMapping table._
+_Identify test methods in Python test files. Detects pytest test functions/classes, unittest.TestCase subclasses, and behave/pytest-bdd/lettuce BDD step definitions, and populates the TestMapping table._
 
 ## Recipe source
 

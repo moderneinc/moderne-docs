@@ -6,16 +6,14 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc indexes per-module recipe lists. Click a groupId to see its recipes._
 
-Total recipes: 7521
+Total recipes: 7391
 
 
 ## io.moderne.recipe
 
 * [recipes-code-quality](all-recipes-io-moderne-recipe.md#recipes-code-quality)
 * [recipes-kotlin](all-recipes-io-moderne-recipe.md#recipes-kotlin)
-* [recipes-migrate-dotnet](all-recipes-io-moderne-recipe.md#recipes-migrate-dotnet)
 * [recipes-scala](all-recipes-io-moderne-recipe.md#recipes-scala)
-* [recipes-tunit](all-recipes-io-moderne-recipe.md#recipes-tunit)
 * [rewrite-ai](all-recipes-io-moderne-recipe.md#rewrite-ai)
 * [rewrite-angular](all-recipes-io-moderne-recipe.md#rewrite-angular)
 * [rewrite-cryptography](all-recipes-io-moderne-recipe.md#rewrite-cryptography)

@@ -2127,7 +2127,7 @@ _54 recipes_
   * Migrates `astral-sh/setup-uv` from v6 to v7. Updates the action version and removes the deprecated `server-url` input. See the [v7.0.0 release notes](https://github.com/astral-sh/setup-uv/releases/tag/v7.0.0) for breaking changes.
 * [org.openrewrite.github.MigrateTibdexGitHubAppTokenToActions](/user-documentation/recipes/recipe-catalog/github/migratetibdexgithubapptokentoactions.md)
   * **Migrate from tibdex/github-app-token to actions/create-github-app-token**
-  * Migrates from tibdex/github-app-token@v2 to actions/create-github-app-token@v2 and updates parameter names from snake_case to kebab-case.
+  * Migrates from the deprecated `tibdex/github-app-token@v2` to `actions/create-github-app-token@v3`, which runs on Node.js 24 instead of the deprecated Node.js 20. Renames the `app_id`, `private_key`, and `github_api_url` inputs to their kebab-case equivalents `app-id`, `private-key`, and `github-api-url`.
 * [org.openrewrite.github.PreferBlockStyleJobDependencies](/user-documentation/recipes/recipe-catalog/github/preferblockstylejobdependencies.md)
   * **Prefer block style for job dependencies**
   * Convert flow-style `needs` sequences (e.g. `needs: [dep1, dep2]`) to block-style in GitHub Actions workflow jobs when a job depends on more than one other job. Block style improves readability and produces cleaner diffs in source control.
@@ -2323,7 +2323,7 @@ _22 recipes_
 
 _License: Moderne Source Available License_
 
-_24 recipes_
+_26 recipes_
 
 * [org.openrewrite.hibernate.AddScalarPreferStandardBasicTypes](/user-documentation/recipes/recipe-catalog/hibernate/addscalarpreferstandardbasictypes.md)
   * **AddScalarPreferStandardBasicTypesForHibernate5**
@@ -2379,6 +2379,12 @@ _24 recipes_
 * [org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate63](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate63.md)
   * **Migrate Hibernate Types to Hypersistence Utils 6.3**
   * This recipe will migrate any existing dependencies on `io.hypersistence:hypersistence-utils-hibernate-62` to `io.hypersistence:hypersistence-utils-hibernate-63`.
+* [org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate70](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate70.md)
+  * **Migrate Hibernate Types to Hypersistence Utils for Hibernate 7.0**
+  * This recipe will migrate any existing dependencies on `io.hypersistence:hypersistence-utils-hibernate-63` to `io.hypersistence:hypersistence-utils-hibernate-70`.
+* [org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate71](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate71.md)
+  * **Migrate Hibernate Types to Hypersistence Utils for Hibernate 7.1**
+  * This recipe will migrate any existing dependencies on `io.hypersistence:hypersistence-utils-hibernate-70` to `io.hypersistence:hypersistence-utils-hibernate-71`.
 * [org.openrewrite.hibernate.MigrateUserType](/user-documentation/recipes/recipe-catalog/hibernate/migrateusertype.md)
   * **Migrate `UserType` to Hibernate 6**
   * With Hibernate 6 the `UserType` interface received a type parameter making it more strictly typed. This recipe applies the changes required to adhere to this change.
@@ -2402,7 +2408,7 @@ _24 recipes_
 
 _License: Apache License Version 2.0_
 
-_39 recipes_
+_42 recipes_
 
 * [org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors](/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md)
   * **Add `@JsonCreator` to non-public constructors**
@@ -2431,6 +2437,9 @@ _39 recipes_
 * [org.openrewrite.java.jackson.LombokJacksonizedConfig](/user-documentation/recipes/recipe-catalog/java/jackson/lombokjacksonizedconfig.md)
   * **Update `lombok.config` for Jackson 3 compatibility**
   * When `@Jacksonized` is used, Lombok generates Jackson annotations. By default it generates Jackson 2.x annotations. This recipe adds `lombok.jacksonized.jacksonVersion += 3` to `lombok.config` so Lombok generates Jackson 3 compatible annotations.
+* [org.openrewrite.java.jackson.MigrateFactorySettersToBuilder](/user-documentation/recipes/recipe-catalog/java/jackson/migratefactorysetterstobuilder.md)
+  * **Migrate factory setter calls to builder pattern**
+  * In Jackson 3, `JsonFactory` is immutable and `new JsonFactory()` is no longer the right entry point: the concrete factory lives at `tools.jackson.core.json.JsonFactory` and is constructed via `JsonFactory.builder()...build()`. Configuration methods like `enable`, `disable`, `configure`, `setCharacterEscapes`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible.
 * [org.openrewrite.java.jackson.MigrateMapperSettersToBuilder](/user-documentation/recipes/recipe-catalog/java/jackson/migratemappersetterstobuilder.md)
   * **Migrate mapper setter calls to builder pattern**
   * In Jackson 3, `JsonMapper` and other format-aligned mappers are immutable. Configuration methods like `setFilterProvider`, `addMixIn`, `disable`, `enable`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible.
@@ -2485,6 +2494,9 @@ _39 recipes_
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_MethodRenames](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_methodrenames.md)
   * **Rename Jackson 2.x methods to 3.x equivalents**
   * Rename Jackson methods that were renamed in 3.x (e.g., `writeObject()` to `writePOJO()`, `getCurrentValue()` to `currentValue()`).
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_ModernizeJacksonCoreFeatures](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_modernizejacksoncorefeatures.md)
+  * **Modernize legacy `jackson-core` feature constants**
+  * Jackson 2.10 moved most flag constants out of `JsonParser.Feature` and `JsonGenerator.Feature` into the new `JsonReadFeature` / `JsonWriteFeature` (for JSON-specific flags) and `StreamReadFeature` / `StreamWriteFeature` (for format-agnostic flags). Jackson 3 keeps only the modern locations. This recipe rewrites every legacy constant to its Jackson 2-modern equivalent so the rest of the Jackson 2 → 3 pipeline (in particular the builder migrations) sees flags the modern API will accept.
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_ObjectNodeMethodRenames](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_objectnodemethodrenames.md)
   * **Rename Jackson 2.x methods to 3.x equivalents for ObjectNode**
   * Rename ObjectNode methods deprecated in Jackson 2 and removed in 3.x (`put(String, JsonNode)` to `set`, `putAll` to `setAll`).
@@ -2503,6 +2515,9 @@ _39 recipes_
 * [org.openrewrite.java.jackson.UseFormatAlignedObjectMappers](/user-documentation/recipes/recipe-catalog/java/jackson/useformatalignedobjectmappers.md)
   * **Use format alignment `ObjectMappers`**
   * Replace wrapping `ObjectMapper` calls with their format aligned implementation.
+* [org.openrewrite.java.jackson.UseJsonFactoryStaticBuilder](/user-documentation/recipes/recipe-catalog/java/jackson/usejsonfactorystaticbuilder.md)
+  * **Use `JsonFactory.builder()` over `new JsonFactoryBuilder()`**
+  * After the Jackson 2 → 3 migration, prefer the concrete static `JsonFactory.builder()` entry over `new JsonFactoryBuilder()` so `JsonFactory` chains read the same way as the format-aligned factories (`YAMLFactory.builder()`, `CBORFactory.builder()`, etc.). The reason `MigrateFactorySettersToBuilder` emits `new JsonFactoryBuilder()` in the first place is a Jackson 2 quirk — `JsonFactory.builder()` returned the wildcard `TSFBuilder&lt;?, ?&gt;` there. In Jackson 3 the static returns a concretely-typed `JsonFactoryBuilder`, so the constructor form no longer earns its keep.
 * [org.openrewrite.java.jackson.UseModernDateTimeSerialization](/user-documentation/recipes/recipe-catalog/java/jackson/usemoderndatetimeserialization.md)
   * **Use modern date/time serialization defaults**
   * Remove redundant `@JsonFormat` annotations on `java.time` types that specify ISO-8601 patterns, as Jackson 3 uses ISO-8601 as the default format (with `WRITE_DATES_AS_TIMESTAMPS` now disabled by default).
@@ -2587,14 +2602,14 @@ _18 recipes_
 
 _License: Moderne Proprietary License_
 
-_112 recipes_
+_118 recipes_
 
 * [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)
   * **Dependency insight for C#**
   * Finds dependencies in `*.csproj` and `packages.config`.
 * [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-06-01T1251.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-06-15T1301.
 * [org.openrewrite.csharp.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/csharp/dependencies/upgradedependencyversion.md)
   * **Upgrade C# dependency versions**
   * Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`.
@@ -2606,7 +2621,7 @@ _112 recipes_
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-06-01T1251.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-06-15T1301.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -2694,6 +2709,9 @@ _112 recipes_
 * [org.openrewrite.java.security.SecureTempFileCreation](/user-documentation/recipes/recipe-catalog/java/security/securetempfilecreation.md)
   * **Use secure temporary file creation**
   * `java.io.File.createTempFile()` has exploitable default file permissions. This recipe migrates to the more secure `java.nio.file.Files.createTempFile()`.
+* [org.openrewrite.java.security.UpgradeInadequateKeySize](/user-documentation/recipes/recipe-catalog/java/security/upgradeinadequatekeysize.md)
+  * **Upgrade inadequate cryptographic key sizes**
+  * Rewrites cryptographic key-size literals that fall below current minimums. RSA/DSA/DH &lt; 2048 bits are upgraded to 2048; EC &lt; 224 bits are upgraded to 256 (when the algorithm is resolvable from `KeyPairGenerator.getInstance(...)`); symmetric (AES) &lt; 128 bits to 128; weak named EC curves (e.g. `secp112r1`, `prime192v1`) to `secp256r1`. Companion fix recipe to `FindInadequateKeySize`. Note: changing key sizes can break interop with existing artifacts; review before applying.
 * [org.openrewrite.java.security.UseFilesCreateTempDirectory](/user-documentation/recipes/recipe-catalog/java/security/usefilescreatetempdirectory.md)
   * **Use `Files#createTempDirectory`**
   * Use `Files#createTempDirectory` when the sequence `File#createTempFile(..)`-&gt;`File#delete()`-&gt;`File#mkdir()` is used for creating a temp directory.
@@ -2715,6 +2733,9 @@ _112 recipes_
 * [org.openrewrite.java.security.marshalling.SecureSnakeYamlConstructor](/user-documentation/recipes/recipe-catalog/java/security/marshalling/securesnakeyamlconstructor.md)
   * **Secure the use of SnakeYAML's constructor**
   * See the [paper](https://github.com/mbechler/marshalsec) on this subject.
+* [org.openrewrite.java.security.search.FindBeanPropertyAssignment](/user-documentation/recipes/recipe-catalog/java/security/search/findbeanpropertyassignment.md)
+  * **Find Apache Commons BeanUtils property assignments**
+  * Finds calls to Apache Commons BeanUtils and PropertyUtils setters and bulk-copy methods (`setProperty`, `populate`, `copyProperties`, `copyProperty`, `setNestedProperty`, `setSimpleProperty`, `setIndexedProperty`, `setMappedProperty`) — including the equivalent instance-method forms on `BeanUtilsBean` and `PropertyUtilsBean`, and on any subclass of those, regardless of how the bean instance is obtained (`getInstance()`, `new`, injected field, etc.). When the property name or value flows from an untrusted source (e.g. HTTP request parameters), these calls enable bean-injection / mass-assignment (CWE-915) — an attacker can set any settable field on the bean, including ones the application never intended to expose. Per Sonar S4512 each call site needs human review for whether the property name and value come from trusted input. Detector only; does not modify code.
 * [org.openrewrite.java.security.search.FindCommandInjection](/user-documentation/recipes/recipe-catalog/java/security/search/findcommandinjection.md)
   * **Find OS command injection vectors**
   * Finds calls to `Runtime.exec(String)` which passes the command through a shell interpreter, enabling command injection via metacharacters like `;`, `|`, and `&amp;&amp;`. Use the `String[]` overload instead to avoid shell interpretation.
@@ -2732,13 +2753,16 @@ _112 recipes_
   * Finds calls to `HttpServletResponse.addHeader()`, `setHeader()`, and `addCookie()` which, when header values are derived from user input without CRLF sanitization, can allow HTTP response splitting attacks. Full taint-based detection requires rewrite-program-analysis; this recipe identifies the sink call sites for manual review.
 * [org.openrewrite.java.security.search.FindInadequateKeySize](/user-documentation/recipes/recipe-catalog/java/security/search/findinadequatekeysize.md)
   * **Find inadequate cryptographic key sizes**
-  * Finds cryptographic key generation with inadequate key sizes. RSA keys should be at least 2048 bits, DSA keys at least 2048 bits, EC keys at least 256 bits, and symmetric keys (AES) at least 128 bits. NIST recommends RSA-2048+ and AES-128+ as minimum for all new applications.
+  * Finds cryptographic key generation with inadequate key sizes. RSA and DSA keys should be at least 2048 bits, EC keys at least 224 bits, and symmetric keys (AES) at least 128 bits. Weak named EC curves (e.g. `secp112r1`, `prime192v1`) are also flagged. NIST SP 800-131A Rev 2 requires RSA/DSA 2048+, EC 224+, AES 128+.
 * [org.openrewrite.java.security.search.FindInsecureRememberMeConfig](/user-documentation/recipes/recipe-catalog/java/security/search/findinsecureremembermeconfig.md)
   * **Find insecure Spring Security RememberMe configuration**
   * Finds Spring Security RememberMe configurations with insecure settings: `useSecureCookie(false)` (allows cookie transmission over HTTP), `alwaysRemember(true)` (bypasses user opt-in), or `tokenValiditySeconds(...)` set longer than 30 days (extends the window in which a stolen remember-me cookie can be replayed).
 * [org.openrewrite.java.security.search.FindInsecureSessionFixationConfig](/user-documentation/recipes/recipe-catalog/java/security/search/findinsecuresessionfixationconfig.md)
   * **Find Spring Security configurations that disable session fixation protection**
   * Finds Spring Security configurations that disable session fixation protection by calling `sessionFixation().none()`. Without session fixation protection, an attacker who obtains a victim's session identifier before authentication can reuse it to hijack the authenticated session. Spring Security defaults to `changeSessionId()`; applications should keep that default or use `migrateSession()`.
+* [org.openrewrite.java.security.search.FindInstanceMethodStaticFieldWrite](/user-documentation/recipes/recipe-catalog/java/security/search/findinstancemethodstaticfieldwrite.md)
+  * **Find writes to static fields from instance methods**
+  * Finds assignments, compound assignments (`+=`, `-=`, ...), and `++`/`--` operators that target a `static` field from inside a non-`static` instance method. Such writes race across instances and obscure ownership of the state; per Sonar S2696 the method should be made `static` or the state guarded by a thread-safe accessor.
 * [org.openrewrite.java.security.search.FindJacksonDefaultTypeMapping](/user-documentation/recipes/recipe-catalog/java/security/search/findjacksondefaulttypemapping.md)
   * **Find Jackson default type mapping enablement**
   * `ObjectMapper#enableTypeMapping(..)` can lead to vulnerable deserialization.
@@ -2747,13 +2771,13 @@ _112 recipes_
   * Finds calls to `HttpSession.setMaxInactiveInterval(int)` whose integer-literal argument exceeds 30 minutes or is zero/negative (which disables session expiration). Long-lived or non-expiring sessions increase the window for session hijacking and replay (CWE-613).
 * [org.openrewrite.java.security.search.FindMissingSpringAuthorization](/user-documentation/recipes/recipe-catalog/java/security/search/findmissingspringauthorization.md)
   * **Find Spring MVC handlers missing authorization**
-  * Flags Spring MVC (and WebFlux) controller methods reachable to anonymous users — either matched by `permitAll()` in a `SecurityFilterChain` / `SecurityWebFilterChain` bean (or in a legacy `WebSecurityConfigurerAdapter.configure(HttpSecurity)` override) or with no matching rule at all — and which do not carry an explicit authorization annotation (`@PreAuthorize`, `@PostAuthorize`, `@Secured`, `@RolesAllowed`, `@PermitAll`, `@DenyAll`), including annotations inherited from a superclass or overridden parent method. Detector only; does not modify code.
+  * Flags Spring MVC (and WebFlux) controller methods reachable to anonymous users — either matched by `permitAll()` in a `SecurityFilterChain` / `SecurityWebFilterChain` bean (or in a legacy `WebSecurityConfigurerAdapter.configure(HttpSecurity)` override) or with no matching rule at all — and which do not carry an explicit authorization annotation (`@PreAuthorize`, `@PostAuthorize`, `@Secured`, `@RolesAllowed`, `@PermitAll`, `@DenyAll`), including annotations inherited from a superclass or overridden parent method. Security rules are read from both the Java fluent API (`requestMatchers(...).permitAll()`) and the Kotlin DSL (`authorize(&quot;/path&quot;, permitAll)`). Detector only; does not modify code.
 * [org.openrewrite.java.security.search.FindPermissiveCorsConfiguration](/user-documentation/recipes/recipe-catalog/java/security/search/findpermissivecorsconfiguration.md)
   * **Find permissive CORS configuration**
   * Finds overly permissive CORS configurations that allow all origins, which can expose the application to cross-domain attacks.
 * [org.openrewrite.java.security.search.FindPredictableSalt](/user-documentation/recipes/recipe-catalog/java/security/search/findpredictablesalt.md)
   * **Find predictable cryptographic salts**
-  * Finds `PBEParameterSpec` and `PBEKeySpec` constructed with hardcoded salt byte arrays. A predictable salt undermines the purpose of salting, making rainbow table and precomputation attacks feasible. Salts should be generated randomly using `SecureRandom`.
+  * Finds `PBEParameterSpec` and `PBEKeySpec` constructed with hardcoded or too-short salt byte arrays. A predictable salt undermines the purpose of salting, making rainbow table and precomputation attacks feasible; a salt shorter than 16 bytes is below the minimum strength recommended by NIST SP 800-132. Salts should be generated randomly using `SecureRandom` and at least 16 bytes long.
 * [org.openrewrite.java.security.search.FindProcessControl](/user-documentation/recipes/recipe-catalog/java/security/search/findprocesscontrol.md)
   * **Find process control vectors**
   * Finds calls to `System.loadLibrary()`, `System.load()`, and `Runtime.load()` which, when the library path or name is derived from user input, can allow an attacker to load arbitrary native code. Ensure library names are not externally controlled.
@@ -2910,6 +2934,15 @@ _112 recipes_
 * [org.openrewrite.java.security.spring.RemoveEnableWebSecurityDebug](/user-documentation/recipes/recipe-catalog/java/security/spring/removeenablewebsecuritydebug.md)
   * **Remove debug mode from Spring Security**
   * Removes the debug attribute from @EnableWebSecurity annotations to prevent sensitive security information from being logged in production.
+* [org.openrewrite.java.security.xss.FixXssVulnerability](/user-documentation/recipes/recipe-catalog/java/security/xss/fixxssvulnerability.md)
+  * **Fix XSS vulnerabilities**
+  * Aggregates the cross-site scripting (CWE-79) fixes. Covers Java sources that flow user-controlled values into HTML output sinks (via `FixXssVulnerabilityJava`, which consumes the same taint spec as `FindXssVulnerability`), JSP scriptlets that read directly from request parameters or headers, and Thymeleaf templates that use the unescaped `th:utext` attribute.
+* [org.openrewrite.java.security.xss.FixXssVulnerabilityJsp](/user-documentation/recipes/recipe-catalog/java/security/xss/fixxssvulnerabilityjsp.md)
+  * **Replace XSS-prone JSP scriptlets with `&lt;c:out&gt;`**
+  * Replaces `&lt;%= request.getParameter(&quot;x&quot;) %&gt;` and `&lt;%= request.getHeader(&quot;x&quot;) %&gt;` scriptlets in JSP files with the equivalent escaped `&lt;c:out value=&quot;$\{param.x\}&quot;/&gt;` / `&lt;c:out value=&quot;$\{header['x']\}&quot;/&gt;` tags, and inserts the JSTL core taglib at the top of the file if not already declared. Only fires on string-literal argument forms — arbitrary expressions inside `&lt;%= ... %&gt;` are left untouched for human review. Note: `request.getParameter` returns `null` for missing parameters and prints `&quot;null&quot;`, whereas `$\{param.x\}` renders empty; review templates that rely on the literal string `&quot;null&quot;`.
+* [org.openrewrite.java.security.xss.ReplaceThymeleafUnescaped](/user-documentation/recipes/recipe-catalog/java/security/xss/replacethymeleafunescaped.md)
+  * **Replace `th:utext` with `th:text` in Thymeleaf templates**
+  * Replaces Thymeleaf's unescaped attribute `th:utext` (and `data-th-utext`) with its escaped equivalent `th:text` (`data-th-text`) in `.html` / `.htm` template files. `th:utext` interpolates raw HTML and is the canonical Thymeleaf XSS sink. The recipe only fires on files that look like Thymeleaf templates (declare the `xmlns:th` namespace or use a `th:` / `data-th-` attribute somewhere). If you have a legitimate raw-HTML interpolation, restore it manually and rely on Thymeleaf's `[# th:utext]` block syntax or a sanitized model attribute.
 * [org.openrewrite.python.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/python/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable PyPI dependencies**
   * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source.
@@ -3765,7 +3798,7 @@ _39 recipes_
 
 _License: Moderne Source Available License_
 
-_458 recipes_
+_459 recipes_
 
 * [com.google.guava.InlineGuavaMethods](/user-documentation/recipes/recipe-catalog/google/guava/inlineguavamethods.md)
   * **Inline `guava` methods annotated with `@InlineMe`**
@@ -3809,6 +3842,9 @@ _458 recipes_
 * [org.openrewrite.java.migrate.AddMissingMethodImplementation](/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation.md)
   * **Adds missing method implementations**
   * Check for missing methods required by interfaces and adds them.
+* [org.openrewrite.java.migrate.AddMockitoJavaAgentToMavenSurefirePlugin](/user-documentation/recipes/recipe-catalog/java/migrate/addmockitojavaagenttomavensurefireplugin.md)
+  * **Add Mockito Java Agent to Maven Surefire Plugin**
+  * Adds required configuration to specifically enable the Mockito/Bytebuddy Java agent in the Maven Surefire plugin for Java 21 compatibility.
 * [org.openrewrite.java.migrate.AddStaticVariableOnProducerSessionBean](/user-documentation/recipes/recipe-catalog/java/migrate/addstaticvariableonproducersessionbean.md)
   * **Adds `static` modifier to `@Produces` fields that are in session beans**
   * Ensures that the fields annotated with `@Produces` which is inside the session bean (`@Stateless`, `@Stateful`, or `@Singleton`) are declared `static`.
@@ -3818,9 +3854,6 @@ _458 recipes_
 * [org.openrewrite.java.migrate.AddSurefireFailsafeArgLine](/user-documentation/recipes/recipe-catalog/java/migrate/addsurefirefailsafeargline.md)
   * **Add `argLine` to surefire and failsafe plugins**
   * Adds the specified arguments to the `argLine` configuration of the Maven Surefire and Failsafe plugins, merging with any existing argLine value without duplicating arguments.
-* [org.openrewrite.java.migrate.AddSurefireFailsafeArgLineForMockito](/user-documentation/recipes/recipe-catalog/java/migrate/addsurefirefailsafearglineformockito.md)
-  * **Add surefire `--add-opens` for Mockito/ByteBuddy**
-  * Adds `--add-opens` JVM arguments required by Mockito and ByteBuddy to the Maven Surefire and Failsafe plugin `argLine` configuration. Only applied when the project depends on Mockito.
 * [org.openrewrite.java.migrate.ArrayStoreExceptionToTypeNotPresentException](/user-documentation/recipes/recipe-catalog/java/migrate/arraystoreexceptiontotypenotpresentexception.md)
   * **Catch `TypeNotPresentException` thrown by `Class.getAnnotation()`**
   * Replace catch blocks for `ArrayStoreException` around `Class.getAnnotation()` with `TypeNotPresentException` to ensure compatibility with Java 11+.
@@ -4025,6 +4058,9 @@ _458 recipes_
 * [org.openrewrite.java.migrate.UpgradeJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion.md)
   * **Upgrade Java version**
   * Upgrade build plugin configuration to use the specified Java version. This recipe changes `java.toolchain.languageVersion` in `build.gradle(.kts)` of gradle projects, or maven-compiler-plugin target version and related settings. Will not downgrade if the version is newer than the specified version.
+* [org.openrewrite.java.migrate.UpgradeKotlinJvmTargetVersion](/user-documentation/recipes/recipe-catalog/java/migrate/upgradekotlinjvmtargetversion.md)
+  * **Upgrade Kotlin `jvmTarget` to match the Java version**
+  * Align the Kotlin `jvmTarget` with the project's Java version so the Kotlin compiler emits bytecode at the same level as `javac`. Covers `kotlin-maven-plugin` `&lt;jvmTarget&gt;` configuration and the Gradle `kotlinOptions \{ jvmTarget = ... \}` / `compilerOptions \{ jvmTarget = ... \}` blocks (Groovy and Kotlin DSL). Will not downgrade if the existing Kotlin target is higher than the requested version.
 * [org.openrewrite.java.migrate.UpgradePluginsForJava11](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava11.md)
   * **Upgrade plugins to Java 11 compatible versions**
   * Updates plugins to version compatible with Java 11.
@@ -5146,7 +5182,7 @@ _458 recipes_
 
 _License: Moderne Proprietary License_
 
-_30 recipes_
+_33 recipes_
 
 * [androidx.compose.animation.ReplaceDeprecatedAnimationCore1Methods](/user-documentation/recipes/recipe-catalog/androidx/compose/animation/replacedeprecatedanimationcore1methods.md)
   * **Replace deprecated `animation-core` methods**
@@ -5199,6 +5235,9 @@ _30 recipes_
 * [org.openrewrite.kotlin.migrate.RemoveRedundantKotlinStdlib](/user-documentation/recipes/recipe-catalog/kotlin/migrate/removeredundantkotlinstdlib.md)
   * **Remove redundant kotlin-stdlib dependencies**
   * Remove explicit `kotlin-stdlib`, `kotlin-stdlib-jdk7`, `kotlin-stdlib-jdk8`, and `kotlin-stdlib-common` dependencies. The Kotlin Gradle plugin has automatically included the stdlib since Kotlin 1.4, making explicit declarations redundant.
+* [org.openrewrite.kotlin.migrate.RenameKotlinOptionsToCompilerOptions](/user-documentation/recipes/recipe-catalog/kotlin/migrate/renamekotlinoptionstocompileroptions.md)
+  * **Rename the `kotlinOptions` block to `compilerOptions`**
+  * Rename the deprecated `kotlinOptions` DSL block to `compilerOptions` in Gradle build files (Groovy and Kotlin DSL). The `kotlinOptions` DSL was deprecated in Kotlin 2.0 and removed in Kotlin 2.2. Note: in the Kotlin DSL the assignments inside the block must also be modernized for the result to compile; see `UseJvmTargetProviderSyntax` and `UseFreeCompilerArgsAddAll`.
 * [org.openrewrite.kotlin.migrate.ReplaceDeprecatedAppendln](/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedappendln.md)
   * **Replace deprecated `appendln` with `appendLine`**
   * Replace `appendln()` with `appendLine()`. This was deprecated in Kotlin 1.4 and becomes an error in Kotlin 2.1.
@@ -5219,7 +5258,7 @@ _30 recipes_
   * Replace calls to `Enum.values()` with the `Enum.entries` property. The `entries` property returns an efficient immutable list instead of creating a new array on each call. Deprecated since Kotlin 1.9, recommended replacement for Kotlin 2.x.
 * [org.openrewrite.kotlin.migrate.ReplaceKotlinOptionsWithCompilerOptions](/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacekotlinoptionswithcompileroptions.md)
   * **Replace `kotlinOptions` with `compilerOptions` in Gradle build files**
-  * Rename the deprecated `kotlinOptions` DSL block to `compilerOptions` in Gradle build files. The `kotlinOptions` DSL was deprecated in Kotlin 2.0 and removed in Kotlin 2.2.
+  * Migrate the deprecated `kotlinOptions` DSL block to `compilerOptions` in Gradle build files (Groovy and Kotlin DSL). Renames the block and, in the Kotlin DSL, modernizes the assignments inside it to the Provider-style setters (`jvmTarget.set(JvmTarget.JVM_X)`, `freeCompilerArgs.addAll(...)`) so the result compiles against the `compilerOptions` DSL. The `kotlinOptions` DSL was deprecated in Kotlin 2.0 and removed in Kotlin 2.2.
 * [org.openrewrite.kotlin.migrate.UpgradeKotlinGradlePlugins](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlingradleplugins.md)
   * **Upgrade Kotlin Gradle plugins to 2.x**
   * Upgrade all `org.jetbrains.kotlin.*` Gradle plugins to Kotlin 2.x. This includes the core kotlin-jvm plugin as well as all official Kotlin Gradle plugins such as serialization, Spring, allopen, noarg, JPA, and parcelize.
@@ -5235,6 +5274,12 @@ _30 recipes_
 * [org.openrewrite.kotlin.migrate.UpgradeToKotlin2](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradetokotlin2.md)
   * **Migrate to Kotlin 2**
   * Migrate deprecated Kotlin 1.x APIs to their Kotlin 2.x replacements and update Gradle build files for Kotlin 2.x compatibility. Deprecated APIs were deprecated in Kotlin 1.4-1.5 and become errors in Kotlin 2.1.
+* [org.openrewrite.kotlin.migrate.UseFreeCompilerArgsAddAll](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefreecompilerargsaddall.md)
+  * **Use `freeCompilerArgs.addAll(...)` in Kotlin `compilerOptions`**
+  * In Gradle Kotlin DSL build scripts, replace the legacy `freeCompilerArgs = listOf(...)` assignment inside a `compilerOptions` (or `kotlinOptions`) block with the modern `freeCompilerArgs.addAll(...)`, the idiomatic way to contribute arguments to the `ListProperty`.
+* [org.openrewrite.kotlin.migrate.UseJvmTargetProviderSyntax](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usejvmtargetprovidersyntax.md)
+  * **Use the `jvmTarget` provider syntax in Kotlin `compilerOptions`**
+  * In Gradle Kotlin DSL build scripts, replace the legacy `jvmTarget = &quot;X&quot;` string assignment inside a `compilerOptions` (or `kotlinOptions`) block with the modern Provider-style `jvmTarget.set(JvmTarget.JVM_X)`, adding the `JvmTarget` import. The string-assignment form does not compile against the `compilerOptions` DSL, where `jvmTarget` is a `Property&lt;JvmTarget&gt;`.
 * [org.openrewrite.kotlin.replace.ReplaceKotlinMethod](/user-documentation/recipes/recipe-catalog/kotlin/replace/replacekotlinmethod.md)
   * **Replace Kotlin method**
   * Replaces Kotlin method calls based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
@@ -5243,7 +5288,7 @@ _30 recipes_
 
 _License: Moderne Proprietary License_
 
-_113 recipes_
+_127 recipes_
 
 * [org.openrewrite.python.codequality.AllBranchesIdentical](/user-documentation/recipes/recipe-catalog/python/codequality/allbranchesidentical.md)
   * **Remove conditional with identical branches**
@@ -5584,6 +5629,48 @@ _113 recipes_
 * [org.openrewrite.python.migrate.langchain.UpgradeToLangChain1](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain1.md)
   * **Upgrade to LangChain 1.0**
   * Migrate to LangChain 1.0 by applying all v0.2 migrations and then moving legacy functionality to `langchain_classic`.
+* [org.openrewrite.python.migrate.pydantic.FindDeprecatedJsonEncoders](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/finddeprecatedjsonencoders.md)
+  * **Find deprecated `json_encoders` config option**
+  * Pydantic deprecated the `json_encoders` option in `ConfigDict`. Its replacements (`@field_serializer` / `@model_serializer` or `Annotated[..., PlainSerializer(...)]`) require restructuring, so this recipe flags its use for review.
+* [org.openrewrite.python.migrate.pydantic.FindDeprecatedSchemaGenerator](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/finddeprecatedschemagenerator.md)
+  * **Find deprecated `schema_generator` config option**
+  * Pydantic 2.10 deprecated the `schema_generator` option in `ConfigDict`. It has no public replacement yet, so this recipe flags its use for review.
+* [org.openrewrite.python.migrate.pydantic.FindEvalTypeBackportUsage](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/findevaltypebackportusage.md)
+  * **Find `eval_type_backport` usage removed in Pydantic 2.14**
+  * Pydantic 2.14 removed its support for the `eval_type_backport` package. With the Python 3.10 minimum it is no longer needed. This recipe flags `import eval_type_backport` and `from eval_type_backport import ...` for review.
+* [org.openrewrite.python.migrate.pydantic.FindModelValidatorAfterClassmethod](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/findmodelvalidatorafterclassmethod.md)
+  * **Find `@model_validator(mode='after')` on a classmethod**
+  * Pydantic 2.12 deprecated `@model_validator` with `mode='after'` on a classmethod; the implicit classmethod conversion for `after` model validators is removed in V3. Such validators should be instance methods (`self`, no `@classmethod`). This recipe flags the decorator for review, since the rewrite is not safe to mechanize. `field_validator` is unaffected.
+* [org.openrewrite.python.migrate.pydantic.FindSerializeAsAnyUsage](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/findserializeasanyusage.md)
+  * **Find `serialize_as_any` usage affected by the Pydantic 2.12 unification**
+  * Pydantic 2.12 unified the `serialize_as_any` flag with the `SerializeAsAny` annotation, which can change serialization output versus 2.11. This recipe flags `serialize_as_any=` on `model_dump` / `model_dump_json` (and `TypeAdapter.dump_python` / `dump_json`) for review, since there is no safe mechanical rewrite.
+* [org.openrewrite.python.migrate.pydantic.RemoveEllipsisFromField](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/removeellipsisfromfield.md)
+  * **Remove `...` (Ellipsis) from `Field()`**
+  * Pydantic 2.10 recommends against using `Ellipsis` (`...`) with `Field` to mark a field as required, as it does not play well with static type checkers. Rewrite `Field(...)` to `Field()` (and `Field(..., x=y)` to `Field(x=y)`), keeping the remaining arguments. Only calls resolving to `pydantic.fields.Field` are rewritten.
+* [org.openrewrite.python.migrate.pydantic.ReplaceFinalFieldWithClassVar](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/replacefinalfieldwithclassvar.md)
+  * **Replace `Final` model fields with a default with `ClassVar`**
+  * Pydantic 2.11 deprecates annotating a model field as `Final` with a default value (such fields were treated as class variables). Replace `Final[X] = default` with `ClassVar[X] = default`, which preserves the existing class-variable behavior and is the replacement Pydantic recommends.
+* [org.openrewrite.python.migrate.pydantic.ReplaceModelFieldsInstanceAccess](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/replacemodelfieldsinstanceaccess.md)
+  * **Replace instance access of `model_fields` / `model_computed_fields`**
+  * Pydantic 2.11 deprecated accessing `model_fields` and `model_computed_fields` on a model instance; these are removed in Pydantic 3.0. Replace `&lt;instance&gt;.model_fields` with `type(&lt;instance&gt;).model_fields` (and likewise for `model_computed_fields`) when the receiver resolves to a Pydantic model, so the attribute is accessed on the class. Class access and `cls` access are left untouched.
+* [org.openrewrite.python.migrate.pydantic.ReplacePopulateByNameWithValidateByName](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/replacepopulatebynamewithvalidatebyname.md)
+  * **Replace `populate_by_name` with `validate_by_name`**
+  * Pydantic 2.11 introduced `validate_by_name` as the equivalent of `populate_by_name`, which is pending deprecation in Pydantic V3. Rename `ConfigDict(populate_by_name=...)` to `ConfigDict(validate_by_name=...)`. This is behavior-preserving (`validate_by_alias` defaults to `True`) and future-proofs the configuration.
+* [org.openrewrite.python.migrate.pydantic.UpgradeToPydantic210](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/upgradetopydantic210.md)
+  * **Upgrade to Pydantic 2.10**
+  * Flag and migrate code affected by deprecations introduced in Pydantic 2.10, such as the deprecated `schema_generator` config option and the discouraged `Field(...)` Ellipsis form. Also flags the deprecated `json_encoders` config option.
+* [org.openrewrite.python.migrate.pydantic.UpgradeToPydantic211](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/upgradetopydantic211.md)
+  * **Upgrade to Pydantic 2.11**
+  * Migrate code affected by deprecations introduced in Pydantic 2.11 (and 2.10). Rewrites instance access of `model_fields` / `model_computed_fields` to class access, rewrites `Final` model fields with default values to `ClassVar`, and renames `populate_by_name` to `validate_by_name`.
+* [org.openrewrite.python.migrate.pydantic.UpgradeToPydantic212](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/upgradetopydantic212.md)
+  * **Upgrade to Pydantic 2.12**
+  * Migrate code affected by changes introduced in Pydantic 2.12 (and 2.10/2.11). Flags `serialize_as_any` usage affected by the 2.12 unification with the `SerializeAsAny` annotation.
+* [org.openrewrite.python.migrate.pydantic.UpgradeToPydantic213](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/upgradetopydantic213.md)
+  * **Upgrade to Pydantic 2.13**
+  * Migrate code for Pydantic 2.13. Pydantic 2.13 introduced no new deprecations (an additive release), so this applies all Pydantic 2.12 migrations (which chain back to 2.10).
+* [org.openrewrite.python.migrate.pydantic.UpgradeToPydantic214](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/upgradetopydantic214.md)
+  * **Upgrade to Pydantic 2.14**
+  * Migrate code affected by changes introduced in Pydantic 2.14 (and 2.10-2.13). Flags `eval_type_backport` usage, whose support 2.14 removed. Note: 2.14 is in prerelease; verify against the 2.14.0 GA release.
 
 ## rewrite-netty
 
@@ -5879,7 +5966,7 @@ _5 recipes_
   * Generate FINOS CALM architecture diagram and update agent configuration files. This recipe expects CALM-related data tables (ServiceEndpoints, DatabaseConnections, ExternalServiceCalls, MessagingConnections, etc.) to be populated by other recipes in a composite.
 * [org.openrewrite.prethink.calm.GenerateCalmArchitecture](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmarchitecture.md)
   * **Generate CALM architecture**
-  * Generate a FINOS CALM (Common Architecture Language Model) JSON file from discovered service endpoints, database connections, external service calls, and messaging connections.
+  * Generate a FINOS CALM (Common Architecture Language Model) JSON file from discovered service endpoints, database connections, external service calls, and messaging connections.  This recipe is not meant to be run on its own. It only reads data tables that other Prethink discovery recipes populate first, so it produces nothing useful in isolation. Run it as part of a composite such as `org.openrewrite.prethink.UpdatePrethinkContext`.
 
 ## rewrite-quarkus
 
@@ -8691,7 +8778,7 @@ _135 recipes_
 
 _License: Moderne Source Available License_
 
-_254 recipes_
+_258 recipes_
 
 * [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
   * **ArchUnit 0.x upgrade**
@@ -9337,7 +9424,16 @@ _254 recipes_
   * Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic as Mockito4 no longer allows this. For JUnit 4/5 &amp; TestNG: When `@Before*` is used, a `close` call is added to the corresponding `@After*` method. This change moves away from implicit bytecode manipulation for static method stubbing, making mocking behavior more explicit and scoped to avoid unintended side effects.
 * [org.openrewrite.java.testing.mockito.PowerMockRunnerDelegateToRunWith](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockrunnerdelegatetorunwith.md)
   * **Replace PowerMock runner with JUnit `@RunWith`**
-  * Replaces `@RunWith(PowerMockRunner.class)`. If `@PowerMockRunnerDelegate(X.class)` is present, promotes the delegate runner to `@RunWith(X.class)`. Otherwise, removes the `@RunWith(PowerMockRunner.class)` annotation entirely.
+  * Replaces `@RunWith(PowerMockRunner.class)`. If `@PowerMockRunnerDelegate(X.class)` is present, promotes the delegate runner to `@RunWith(X.class)`. Otherwise, replaces it with `@RunWith(MockitoJUnitRunner.class)` when the class uses Mockito annotations like `@Mock`, or removes the `@RunWith(PowerMockRunner.class)` annotation entirely.
+* [org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetInternalStateToJavaReflection](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxgetinternalstatetojavareflection.md)
+  * **Replace PowerMock `Whitebox.getInternalState()` with Java reflection**
+  * Replace `Whitebox.getInternalState(Object, String)` with `java.lang.reflect.Field` access, casting to the declared result type where needed. The field lookup uses `getDeclaredField` on the target object's class, which differs from PowerMock's class-hierarchy traversal for fields inherited from a superclass.
+* [org.openrewrite.java.testing.mockito.PowerMockWhiteboxInvokeMethodToJavaReflection](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxinvokemethodtojavareflection.md)
+  * **Replace PowerMock `Whitebox.invokeMethod()` with Java reflection**
+  * Replace `Whitebox.invokeMethod(Object, String, ..)` with `java.lang.reflect.Method` lookup and `invoke()`. Parameter types are taken from the unambiguously resolved target method, falling back to each argument's compile-time class.
+* [org.openrewrite.java.testing.mockito.PowerMockWhiteboxSetInternalStateToJavaReflection](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxsetinternalstatetojavareflection.md)
+  * **Replace PowerMock `Whitebox.setInternalState()` with Java reflection**
+  * Replace `Whitebox.setInternalState(Object, String, Object)` and `Whitebox.setInternalState(Object, String, Object, Class)` with `java.lang.reflect.Field` access. The 3-arg overload looks up the field on the target's class; the 4-arg where-overload uses the supplied Class to resolve fields declared on a superclass.
 * [org.openrewrite.java.testing.mockito.PowerMockWhiteboxToJavaReflection](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxtojavareflection.md)
   * **Replace PowerMock `Whitebox` with Java reflection**
   * Replace `org.powermock.reflect.Whitebox` calls (`setInternalState`, `getInternalState`, `invokeMethod`) with plain Java reflection using `java.lang.reflect.Field` and `java.lang.reflect.Method`.
@@ -9425,6 +9521,9 @@ _254 recipes_
 * [org.openrewrite.java.testing.testcontainers.Testcontainers2Dependencies](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2dependencies.md)
   * **Rename Testcontainers dependencies**
   * Change Testcontainers dependencies to adopt the new consistent `testcontainers-` prefix.
+* [org.openrewrite.java.testing.testcontainers.Testcontainers2LocalStack](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2localstack.md)
+  * **Migrate removed `LocalStackContainer` members to Testcontainers 2.x**
+  * Testcontainers 2.x removed the nested `LocalStackContainer.Service` enum and the `getEndpointOverride(...)` method. Replace `LocalStackContainer.Service` constants with the equivalent service name strings and `getEndpointOverride(service)` with `getEndpoint()`, so code continues to compile against Testcontainers 2.x. This runs while the type is still `org.testcontainers.containers.localstack.LocalStackContainer`, before it is renamed.
 * [org.openrewrite.java.testing.testcontainers.Testcontainers2Migration](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2migration.md)
   * **Migrate to testcontainers-java 2.x**
   * Change dependencies and types to migrate to testcontainers-java 2.x.
@@ -9460,7 +9559,7 @@ _254 recipes_
 
 _License: Apache License Version 2.0_
 
-_1638 recipes_
+_1639 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -10241,6 +10340,9 @@ _1638 recipes_
   * 
 * [io.quarkus.updates.core.quarkus331.Testcontainers2](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/testcontainers2.md)
   * **io.quarkus.updates.core.quarkus331.Testcontainers2**
+  * 
+* [io.quarkus.updates.core.quarkus337.PanacheNextRelocations](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus337/panachenextrelocations.md)
+  * **io.quarkus.updates.core.quarkus337.PanacheNextRelocations**
   * 
 * [io.quarkus.updates.core.quarkus35.MutinyUniAndGroupCombinedWith](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus35/mutinyuniandgroupcombinedwith.md)
   * **io.quarkus.updates.core.quarkus35.MutinyUniAndGroupCombinedWith**

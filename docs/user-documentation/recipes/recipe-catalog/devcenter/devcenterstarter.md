@@ -31,11 +31,11 @@ This recipe is available under the [Moderne Source Available License](https://do
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
 * [Library upgrade](../devcenter/libraryupgrade)
-  * cardName: `Move to Spring Boot 4.0`
+  * cardName: `Move to Spring Boot 4.1`
   * groupIdPattern: `org.springframework.boot`
   * artifactIdPattern: `*`
-  * version: `4.0.0`
-  * upgradeRecipe: `io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`
+  * version: `4.1.0`
+  * upgradeRecipe: `io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1`
 * [Move to a later Java version](../devcenter/javaversionupgrade)
   * majorVersion: `25`
   * upgradeRecipe: `org.openrewrite.java.migrate.UpgradeToJava25`
@@ -57,11 +57,11 @@ description: |
   This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/).
 recipeList:
   - io.moderne.devcenter.LibraryUpgrade:
-      cardName: Move to Spring Boot 4.0
+      cardName: Move to Spring Boot 4.1
       groupIdPattern: org.springframework.boot
       artifactIdPattern: "*"
-      version: 4.0.0
-      upgradeRecipe: io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0
+      version: 4.1.0
+      upgradeRecipe: io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1
   - io.moderne.devcenter.JavaVersionUpgrade:
       majorVersion: 25
       upgradeRecipe: org.openrewrite.java.migrate.UpgradeToJava25
@@ -188,7 +188,7 @@ _The distinct set of committers per repository._
 | ----------- | ----------- |
 | Name | The name of the committer. |
 | Email | The email of the committer. |
-| Last commit | The date of this committer's last commit. |
+| Last commit | The date of this committer's last commit. Null when only committer identities were collected, without per-day commit detail. |
 | Number of commits | The number of commits made by this committer. |
 
 </TabItem>

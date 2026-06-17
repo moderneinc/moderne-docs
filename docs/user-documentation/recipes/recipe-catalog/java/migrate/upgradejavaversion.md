@@ -49,6 +49,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Update SDKMan Java version](../../java/migrate/updatesdkman)
   * newVersion: `null`
 * [Upgrade Docker image Java version](../../java/migrate/upgradedockerimageversion)
+* [Upgrade Kotlin `jvmTarget` to match the Java version](../../java/migrate/upgradekotlinjvmtargetversion)
 
 </TabItem>
 
@@ -71,6 +72,7 @@ recipeList:
   - org.openrewrite.java.migrate.UpdateSdkMan:
       newVersion: null
   - org.openrewrite.java.migrate.UpgradeDockerImageVersion
+  - org.openrewrite.java.migrate.UpgradeKotlinJvmTargetVersion
 
 ```
 </TabItem>

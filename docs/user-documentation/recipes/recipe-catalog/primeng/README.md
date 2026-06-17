@@ -17,6 +17,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Rename `OverlayPanel` to `Popover`](./renameoverlaypaneltopopover.md)
 * [Rename `Sidebar` to `Drawer`](./renamesidebartodrawer.md)
 * [Upgrade PrimeNG components to 18](./upgradecomponentsto18.md)
+* [Upgrade to PrimeNG 18](./upgradeto18.md)
 
 ## Recipes
 

@@ -13,6 +13,7 @@ _Recipes that find and eliminate vulnerable patterns in Java code._
 * [Secrets](/user-documentation/recipes/recipe-catalog/java/security/secrets)
 * [Servlet](/user-documentation/recipes/recipe-catalog/java/security/servlet)
 * [Spring](/user-documentation/recipes/recipe-catalog/java/security/spring)
+* [Xss](/user-documentation/recipes/recipe-catalog/java/security/xss)
 
 ## Composite Recipes
 
@@ -47,6 +48,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Replace SQL string concatenation with a `PreparedStatement`](./fixsqlinjectionconcat.md)
 * [Secure random](./securerandom.md)
 * [SecureRandom seeds are not constant or predictable](./securerandomprefersdefaultseed.md)
+* [Upgrade inadequate cryptographic key sizes](./upgradeinadequatekeysize.md)
 * [Use `Files#createTempDirectory`](./usefilescreatetempdirectory.md)
 * [Use secure temporary file creation](./securetempfilecreation.md)
 * [XML parser XXE vulnerability](./xmlparserxxevulnerability.md)

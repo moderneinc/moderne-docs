@@ -47,6 +47,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate from SpringFox Swagger to SpringDoc and OpenAPI](/user-documentation/recipes/recipe-catalog/java/springdoc/springfoxtospringdoc.md)
 * [Migrates from Jackson 2.x to Jackson 3.x](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3.md)
 * [Replace deprecated RequestMatcherProvider with new API](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedrequestmatcherprovider)
+* [Spring Security 7 modularization](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security7/modularizespringsecurity7)
 
 ## Example
 

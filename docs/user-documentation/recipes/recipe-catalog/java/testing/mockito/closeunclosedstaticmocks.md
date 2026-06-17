@@ -26,6 +26,13 @@ _Ensures that all `mockStatic` calls are properly closed. If `mockStatic` is in 
 
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Mockito 4.x upgrade](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to4migration.md)
+
 ## Example
 
 
