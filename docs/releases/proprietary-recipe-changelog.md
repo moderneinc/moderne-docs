@@ -10,6 +10,187 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## June 17, 2026
+
+#### rewrite-ai - 0.4.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-ai-search - 0.35.0
+
+* Add missing static Mockito imports in SpellCheckCommentsInFrenchTest
+
+#### rewrite-android - 0.18.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-angular - 1.4.0
+
+* Print out logs in CI in case of failure
+* OpenRewrite 8.84.1
+* MSG_MINIMAL in Slack notifications
+* Bump @openrewrite/rewrite from 8.84.1 to 8.84.9 in /recipes-angular[bot]
+* Migrate npm publishing to Trusted Publishing (OIDC)
+
+#### rewrite-circleci - 3.12.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-cobol - 2.19.0
+
+* Recognize .dcl (DCLGEN) files as copybooks for EXEC SQL INCLUDE
+* Increase default Cobol parser timeout to 10 minutes
+
+#### rewrite-codemods - 0.26.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-codemods-ng - 0.21.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-compiled-analysis - 0.14.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-concourse - 3.11.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-cryptography - 0.14.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-devcenter - 1.26.0
+
+* Target Spring Boot 4.1 in starter DevCenter
+
+#### rewrite-dotnet - 0.16.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-dropwizard - 0.5.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-dropwizard - 0.5.0
+
+* Add MigrateMultiPartBundle recipe
+
+#### rewrite-elastic - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-hibernate - 0.25.0
+
+* Fix NPE in ReplaceSessionLockRequest on implicit lambda parameters
+
+#### rewrite-jasperreports - 0.6.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-java-security - 3.33.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-java-security - 3.33.0
+
+* Reduce overreporting of vulnerabilities.
+* Add FixXssVulnerability composite — Java + JSP + Thymeleaf (CWE-79)
+* Support kotlin in FindMissingSpringAuthorization
+* Drop stale workarounds fixed upstream; re-enable lambda tests
+* Align path-traversal recipes with renamed `path-injection` sink kind
+* Extend FindPredictableSalt: variable tracking, length check, RSPEC-S2053 tag
+* Add FindInstanceMethodStaticFieldWrite (Sonar S2696)
+* Extend FindHardcodedIv: variable tracking + RSPEC-S3329 tag
+* Extend FindInadequateKeySize, add UpgradeInadequateKeySize, tag RSPEC-S4426
+* Add FindBeanPropertyAssignment (Sonar S4512)
+* Unpin nimbus-jose-jwt dependency
+
+#### rewrite-kafka - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-kubernetes - 3.17.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-migrate-kotlin - 0.6.0
+
+* Modernize the kotlinOptions Gradle DSL block to compilerOptions
+
+#### rewrite-migrate-python - 0.9.0
+
+* Add Pydantic migration recipes; make type-aware recipes precise via type_utils
+* Remove unused typing import when migrating Optional/Union to PEP 604
+* Expand Pydantic migration recipes to cover 2.10–2.14
+
+#### rewrite-nodejs - 0.46.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-prethink - 0.7.3
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-prethink - 0.7.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-program-analysis - 0.12.9
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-react - 0.3.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-reactive-streams - 0.20.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-release-metromap - 0.4.0
+
+* Fix recipe catalog category metadata for Release Metro Map
+
+#### rewrite-spring - 0.35.0
+
+* Rename Jackson2ObjectMapperBuilder.mixIn to addMixIn in SB4 relocations
+* Tighten UpgradeSpringBoot_4_1 test assertion now that 4.1.0 GA shipped
+* Update tests for Spring Cloud 2025.1.2 release
+* Pin UpgradeAwspringCloud_4_0 dependency bump to 4.0.0
+* fix(boot4): preserve spring-retry when migrating to Spring Boot 4
+* Fix incorrect catch-all ChangePackage for actuate.autoconfigure.endpoint.web
+* Drop NullableSpringWebParameters from default Spring Boot 4 pipeline
+* Fix Spring Boot 4.0 TestEntityManager relocation and add spring-boot-webtestclient dependency
+* Point TaskExecutorJobLauncher at TaskExecutorJobOperator (Spring Batch 6)
+* Use constructor injection for `DaoAuthenticationProvider` in Spring Security 7
+* Rename Jackson2ExecutionContextStringSerializer for Spring Batch 6
+
+#### rewrite-sql - 2.12.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-struts - 0.26.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-tapestry - 0.4.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-terraform - 3.14.3
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-vulncheck - 0.7.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-vulncheck - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
 ## June 15, 2026
 
 #### rewrite-prethink - 0.7.1
