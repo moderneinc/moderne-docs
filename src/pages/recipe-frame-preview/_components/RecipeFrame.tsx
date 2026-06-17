@@ -7,9 +7,8 @@ import Admonition from '@theme/Admonition';
 import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import { ArrowRight, Check, Clock, Copy, ExternalLink, Wrench } from 'lucide-react';
+import { ArrowRight, Check, Clock, Copy, ExternalLink, FileText, Wrench } from 'lucide-react';
 import { AccessInfoButton } from './AccessInfoButton';
-import { CopyPageMenu } from './CopyPageMenu';
 import { DataTableList } from './DataTableList';
 import { ExampleList } from './ExampleList';
 import { OptionsTable } from './OptionsTable';
@@ -294,7 +293,17 @@ export const RecipeFrame: FunctionComponent<RecipeFrameProps> = ({ recipe }) => 
             >
               Try in Platform
             </NeoButton>
-            <CopyPageMenu markdown={recipe.markdown} />
+            <NeoButton
+              variant="outline"
+              size="small"
+              href={recipe.rawMarkdownUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              icon={<FileText size={14} />}
+              iconPosition="left"
+            >
+              View as Markdown
+            </NeoButton>
           </div>
         </div>
       </header>

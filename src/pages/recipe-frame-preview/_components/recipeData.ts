@@ -163,8 +163,8 @@ export interface RecipePreviewData {
   appLink: string;
   /** PLACEHOLDER — phase-2 related-recipe data. */
   relatedRecipes: RelatedRecipe[];
-  /** Markdown handed to the "Copy page" / "Open in LLM" actions. */
-  markdown: string;
+  /** Direct link to the raw .md source on GitHub (for AI agents and "View as Markdown"). */
+  rawMarkdownUrl: string;
 }
 
 const replaceDuplicateStringLiterals: RecipePreviewData = {
@@ -210,18 +210,7 @@ const replaceDuplicateStringLiterals: RecipePreviewData = {
     { title: 'Finalize local variables', description: 'Another safety-oriented cleanup recipe.' },
     { title: 'Use String.equals()', description: 'Related String-handling cleanup.' },
   ],
-  markdown: `# Replace duplicate String literals
-
-**org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals**
-
-Replaces String literals repeated 3+ times with a private static final constant.
-
-## Options
-- includeTestSources (Boolean): also apply to test sources.
-
-## Usage
-mod run . --recipe ReplaceDuplicateStringLiterals
-`,
+  rawMarkdownUrl: 'https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replaceduplicatestringliterals.md',
 };
 
 const quarkus1to2Migration: RecipePreviewData = {
@@ -267,18 +256,7 @@ const quarkus1to2Migration: RecipePreviewData = {
     { title: 'Migrate to Java 17', description: 'Often paired with a Quarkus 2 upgrade.' },
     { title: 'Spring Boot 2.x migration', description: 'Comparable framework migration recipe.' },
   ],
-  markdown: `# Quarkus 2.x migration from Quarkus 1.x
-
-**org.openrewrite.quarkus.quarkus2.Quarkus1to2Migration**
-
-Migrates Quarkus 1.x to 2.x.
-
-## Definition
-A composite recipe composed of ${quarkus1to2MigrationContent.subRecipes.length} sub-recipes, with examples in Java, properties, and YAML.
-
-## Usage
-mod run . --recipe Quarkus1to2Migration
-`,
+  rawMarkdownUrl: 'https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/quarkus1to2migration.md',
 };
 
 // A second complex composite — and the one real recipe in this set that carries
@@ -324,21 +302,7 @@ const upgradeJavaVersion: RecipePreviewData = {
     { title: 'Upgrade build to Java 21', description: 'A version-specific wrapper that runs this recipe.' },
     { title: 'Migrate to Java 17', description: 'A broader migration that bundles this upgrade.' },
   ],
-  markdown: `# Upgrade Java version
-
-**org.openrewrite.java.migrate.UpgradeJavaVersion**
-
-Upgrade build plugin configuration to use the specified Java version.
-
-## Options
-- version (Integer, required): the Java version to upgrade to.
-
-## Definition
-A composite recipe composed of ${upgradeJavaVersionContent.subRecipes.length} sub-recipes, configured via the \`version\` option.
-
-## Usage
-mod run . --recipe UpgradeJavaVersion --recipe-option "version=11"
-`,
+  rawMarkdownUrl: 'https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion.md',
 };
 
 // A "Pattern B" example from the multi-language spike: DependencyInsight exists as
@@ -390,21 +354,7 @@ const dependencyInsight: RecipePreviewData = {
     { title: 'Dependency vulnerability check', description: 'Related dependency-analysis recipe.' },
     { title: 'Find dependency', description: 'A narrower dependency search.' },
   ],
-  markdown: `# Dependency insight for Gradle and Maven
-
-**org.openrewrite.java.dependencies.DependencyInsight**
-
-Finds dependencies, including transitive dependencies, in Gradle and Maven projects.
-
-## Options
-- groupIdPattern (String, required), artifactIdPattern (String, required), version (String, optional), scope (String, optional)
-
-## Also available in
-Distinct per-language recipes: C#, JavaScript, Python.
-
-## Usage
-mod run . --recipe DependencyInsight --recipe-option "groupIdPattern=com.fasterxml.jackson*"
-`,
+  rawMarkdownUrl: 'https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight.md',
 };
 
 // A "Pattern A" true-duplicate example from the spike: the SAME recipe id is
@@ -451,18 +401,7 @@ const findTypes: RecipePreviewData = {
     { title: 'Change type', description: 'Often the follow-up to a type search.' },
     { title: 'Find fields', description: 'A narrower member search.' },
   ],
-  markdown: `# Find types
-
-**org.openrewrite.java.search.FindTypes**
-
-Find type references by name.
-
-## Applies to
-One recipe, applied across Java, C#, JavaScript, Python (the duplicate per-language pages collapse into this one).
-
-## Usage
-mod run . --recipe FindTypes --recipe-option "fullyQualifiedTypeName=java.util.List"
-`,
+  rawMarkdownUrl: 'https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findtypes.md',
 };
 
 // ---------------------------------------------------------------------------
@@ -678,7 +617,7 @@ const masterTemplate: RecipePreviewData = {
     { title: 'Replace duplicate String literals', description: 'A real single recipe.' },
     { title: 'Quarkus 1→2 migration', description: 'A real multi-language migration.' },
   ],
-  markdown: `# Master recipe template\n\n**${MASTER_NAME}**\n\nA styling reference exercising every recipe-detail UI element.`,
+  rawMarkdownUrl: 'https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md',
 };
 
 export const RECIPES: RecipePreviewData[] = [
