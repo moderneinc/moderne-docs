@@ -1115,11 +1115,12 @@ union ConnectorTool
   @join__unionMember(graph: CAPABILITIES, member: "PypiConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "NpmConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "NugetConfiguration")
+  @join__unionMember(graph: CAPABILITIES, member: "GoConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "GenericHttpToolConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "OrganizationConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "LlmConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "S3Configuration")
- = GithubConfiguration | GitLabConfiguration | BitbucketConfiguration | BitbucketCloudConfiguration | AzureDevOpsConfiguration | ArtifactoryConfiguration | MavenConfiguration | PypiConfiguration | NpmConfiguration | NugetConfiguration | GenericHttpToolConfiguration | OrganizationConfiguration | LlmConfiguration | S3Configuration
+ = GithubConfiguration | GitLabConfiguration | BitbucketConfiguration | BitbucketCloudConfiguration | AzureDevOpsConfiguration | ArtifactoryConfiguration | MavenConfiguration | PypiConfiguration | NpmConfiguration | NugetConfiguration | GoConfiguration | GenericHttpToolConfiguration | OrganizationConfiguration | LlmConfiguration | S3Configuration
 
 enum ConnectorToolType
   @join__type(graph: CAPABILITIES)
@@ -1134,6 +1135,7 @@ enum ConnectorToolType
   PYPI @join__enumValue(graph: CAPABILITIES)
   NPM @join__enumValue(graph: CAPABILITIES)
   NUGET @join__enumValue(graph: CAPABILITIES)
+  GO @join__enumValue(graph: CAPABILITIES)
   HTTP_TOOL @join__enumValue(graph: CAPABILITIES)
   ORGANIZATION @join__enumValue(graph: CAPABILITIES)
   LLM @join__enumValue(graph: CAPABILITIES)
@@ -2034,6 +2036,13 @@ input FileChangeWhereInput
   """Filter by file path using glob patterns."""
   path: PathFilter
 
+  """
+  Only return files that contain at least one ERROR-level marker.
+  Note: this field is evaluated at the top level only. Placing it inside
+  _and / _or / _not is silently ignored.
+  """
+  errorsOnly: Boolean
+
   """Logical AND - all conditions must match."""
   _and: [FileChangeWhereInput!]
 
@@ -2226,6 +2235,15 @@ type GitLabOauth
   @join__type(graph: CAPABILITIES)
 {
   clientId: String!
+}
+
+type GoConfiguration
+  @join__type(graph: CAPABILITIES)
+{
+  resourceId: String!
+  skipSsl: Boolean!
+  skipValidateConnectivity: Boolean!
+  connectivity: HttpToolConnectivity!
 }
 
 type GoRecipeBundle implements RecipeBundle
@@ -2742,12 +2760,12 @@ type Mutation
   Turn continuous profiling on or off for this tenant. When enabled,
   Pyroscope profiles for every service start landing in the Pyroscope UI
   within seconds. The primary event the agent samples on is selected by
-  `event` (defaults to CPU); calling the mutation again with a different
+  `event` (defaults to WALL); calling the mutation again with a different
   event while profiling is already on rotates the agent to the new event.
   Fails when the profiling capability is not enabled for the tenant.
   Admin role required.
   """
-  setProfiling(enabled: Boolean!, event: ProfilingEvent = CPU): Boolean! @join__field(graph: CAPABILITIES)
+  setProfiling(enabled: Boolean!, event: ProfilingEvent = WALL): Boolean! @join__field(graph: CAPABILITIES)
 
   """Approve pull requests in bulk. Returns the queued action for polling."""
   approvePullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): BulkPullRequestActionQueued! @join__field(graph: CHANGELOGREADER)
@@ -2905,10 +2923,11 @@ type Mutation
   installRecipesUniversal(bundle: RecipeBundleInput!): RecipeInstallation! @join__field(graph: RECIPEMARKETPLACE)
 
   """
-  Uninstall a recipe bundle from the current user's personal marketplace.
-  Returns the number of recipes that were removed.
+  Uninstall a bundle from the current user's personal marketplace, identified by
+  package name or by a recipe id it provides (see `RecipeUninstallSelector`).
+  Returns the number of recipes removed (0 if nothing matched).
   """
-  uninstallRecipesFromCurrentUser(packageName: String!): RecipeUninstallation! @join__field(graph: RECIPEMARKETPLACE)
+  uninstallRecipesFromCurrentUser(by: RecipeUninstallSelector!): RecipeUninstallation! @join__field(graph: RECIPEMARKETPLACE)
 
   """
   Uninstall a recipe bundle from a specific organization's marketplace.
@@ -5073,6 +5092,26 @@ type RecipeUninstallation
 {
   """The number of recipes that were removed."""
   removedCount: Int!
+}
+
+"""
+Identifies the installed bundle to uninstall — exactly one field must be set.
+"""
+input RecipeUninstallSelector
+  @join__type(graph: RECIPEMARKETPLACE)
+{
+  """The bundle's package name, as listed on a non-YAML `RecipeBundle`."""
+  packageName: String
+
+  """
+  A recipe id provided by the bundle to uninstall, resolved to the bundle's package
+  name server-side.
+  
+  Removes the ENTIRE bundle that provides this recipe — every recipe that bundle
+  installed, not just this one. For a single-recipe bundle (such as a Builder recipe)
+  that is exactly the one recipe; for a multi-recipe bundle it removes all of them.
+  """
+  recipeId: String
 }
 
 """

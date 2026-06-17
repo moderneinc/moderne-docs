@@ -550,7 +550,7 @@ Set the system prompt for a specific organization (overrides universal). Admin-o
 #### `setProfiling`
 
 ```graphql
-setProfiling(enabled: Boolean!, event: ProfilingEvent = CPU): Boolean!
+setProfiling(enabled: Boolean!, event: ProfilingEvent = WALL): Boolean!
 ```
 
 **Returns:** Boolean!
@@ -558,7 +558,7 @@ setProfiling(enabled: Boolean!, event: ProfilingEvent = CPU): Boolean!
 Turn continuous profiling on or off for this tenant. When enabled,
 Pyroscope profiles for every service start landing in the Pyroscope UI
 within seconds. The primary event the agent samples on is selected by
-`event` (defaults to CPU); calling the mutation again with a different
+`event` (defaults to WALL); calling the mutation again with a different
 event while profiling is already on rotates the agent to the new event.
 Fails when the profiling capability is not enabled for the tenant.
 Admin role required.
@@ -586,13 +586,14 @@ Set the system prompt for the current user (overrides organization and universal
 #### `uninstallRecipesFromCurrentUser`
 
 ```graphql
-uninstallRecipesFromCurrentUser(packageName: String!): RecipeUninstallation!
+uninstallRecipesFromCurrentUser(by: RecipeUninstallSelector!): RecipeUninstallation!
 ```
 
 **Returns:** [RecipeUninstallation](#recipeuninstallation)!
 
-Uninstall a recipe bundle from the current user's personal marketplace.
-Returns the number of recipes that were removed.
+Uninstall a bundle from the current user's personal marketplace, identified by
+package name or by a recipe id it provides (see `RecipeUninstallSelector`).
+Returns the number of recipes removed (0 if nothing matched).
 
 #### `uninstallRecipesFromOrganization`
 
@@ -1591,6 +1592,15 @@ Fork commit completed successfully.
 | Field | Type | Description |
 |-------|------|-------------|
 | `clientId` | String! |  |
+
+##### `GoConfiguration`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
 
 ##### `GoRecipeBundle`
 
@@ -3479,6 +3489,7 @@ Discriminator for filtering by entry type.
 * `PYPI`
 * `NPM`
 * `NUGET`
+* `GO`
 * `HTTP_TOOL`
 * `ORGANIZATION`
 * `LLM`
@@ -4215,6 +4226,7 @@ Filter for file changes.
 | Field | Type | Description |
 |-------|------|-------------|
 | `path` | [PathFilter](#pathfilter) | Filter by file path using glob patterns. |
+| `errorsOnly` | Boolean | Only return files that contain at least one ERROR-level marker. Note: this field is evaluated at the top level only. Placing it inside _and / _or / _not is silently ignored. |
 | `_and` | [[FileChangeWhereInput](#filechangewhereinput)!] | Logical AND - all conditions must match. |
 | `_or` | [[FileChangeWhereInput](#filechangewhereinput)!] | Logical OR - at least one condition must match. |
 | `_not` | [FileChangeWhereInput](#filechangewhereinput) | Logical NOT - negates the condition. |
@@ -4629,6 +4641,15 @@ Filter input for RecipeCategory queries.
 | `field` | [RecipeOrderByField](#recipeorderbyfield)! |  |
 | `direction` | [SortOrder](#sortorder)! |  |
 
+##### `RecipeUninstallSelector`
+
+Identifies the installed bundle to uninstall — exactly one field must be set.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String | The bundle's package name, as listed on a non-YAML `RecipeBundle`. |
+| `recipeId` | String | A recipe id provided by the bundle to uninstall, resolved to the bundle's package name server-side. Removes the ENTIRE bundle that provides this recipe — every recipe that bundle installed, not just this one. For a single-recipe bundle (such as a Builder recipe) that is exactly the one recipe; for a multi-recipe bundle it removes all of them. |
+
 ##### `RecipeWhereInput`
 
 Filter input for Recipe queries.
@@ -4853,7 +4874,7 @@ these tokens are preferred over stored OAuth tokens.
 
 ##### `ConnectorTool`
 
-= [GithubConfiguration](#githubconfiguration) | [GitLabConfiguration](#gitlabconfiguration) | [BitbucketConfiguration](#bitbucketconfiguration) | [BitbucketCloudConfiguration](#bitbucketcloudconfiguration) | [AzureDevOpsConfiguration](#azuredevopsconfiguration) | [ArtifactoryConfiguration](#artifactoryconfiguration) | [MavenConfiguration](#mavenconfiguration) | [PypiConfiguration](#pypiconfiguration) | [NpmConfiguration](#npmconfiguration) | [NugetConfiguration](#nugetconfiguration) | [GenericHttpToolConfiguration](#generichttptoolconfiguration) | [OrganizationConfiguration](#organizationconfiguration) | [LlmConfiguration](#llmconfiguration) | [S3Configuration](#s3configuration)
+= [GithubConfiguration](#githubconfiguration) | [GitLabConfiguration](#gitlabconfiguration) | [BitbucketConfiguration](#bitbucketconfiguration) | [BitbucketCloudConfiguration](#bitbucketcloudconfiguration) | [AzureDevOpsConfiguration](#azuredevopsconfiguration) | [ArtifactoryConfiguration](#artifactoryconfiguration) | [MavenConfiguration](#mavenconfiguration) | [PypiConfiguration](#pypiconfiguration) | [NpmConfiguration](#npmconfiguration) | [NugetConfiguration](#nugetconfiguration) | [GoConfiguration](#goconfiguration) | [GenericHttpToolConfiguration](#generichttptoolconfiguration) | [OrganizationConfiguration](#organizationconfiguration) | [LlmConfiguration](#llmconfiguration) | [S3Configuration](#s3configuration)
 
 ##### `RecipeInstallationScope`
 
