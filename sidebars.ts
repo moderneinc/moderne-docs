@@ -632,15 +632,25 @@ const agentTools = {
       link: {
         type: 'generated-index' as const,
         title: 'Moderne MCP',
-        description: 'Give AI coding agents tools for semantic code search, navigation, and refactoring with the Moderne MCP server.',
+        description: 'Give AI coding agents Moderne\'s tools through the Model Context Protocol. The local server runs on your workstation for semantic code search, navigation, and refactoring; the remote server, hosted on the Moderne Platform, runs recipes across an entire organization.',
         slug: '/user-documentation/agent-tools/mcp',
-        keywords: ['mcp', 'model context protocol', 'security', 'architecture'],
+        keywords: ['mcp', 'model context protocol', 'security', 'architecture', 'remote', 'local'],
       },
       items: [
-        'user-documentation/agent-tools/mcp/overview',
-        'user-documentation/agent-tools/mcp/getting-started',
-        'user-documentation/agent-tools/mcp/tool-browser',
-        'user-documentation/agent-tools/mcp/security',
+        {
+          type: 'category' as const,
+          label: 'Local server (CLI)',
+          link: {
+            type: 'doc' as const,
+            id: 'user-documentation/agent-tools/mcp/overview',
+          },
+          items: [
+            'user-documentation/agent-tools/mcp/getting-started',
+            'user-documentation/agent-tools/mcp/tool-browser',
+            'user-documentation/agent-tools/mcp/security',
+          ],
+        },
+        'user-documentation/agent-tools/mcp/remote-server',
       ],
     },
   ],

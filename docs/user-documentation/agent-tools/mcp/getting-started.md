@@ -5,6 +5,10 @@ description: Install the Moderne MCP server for Claude Code, Cursor, Windsurf, a
 
 # Getting started with the Moderne MCP server
 
+:::info
+This guide installs the **local** MCP server, which runs on your workstation through the Moderne CLI. To connect an agent to the hosted platform server instead, see [the remote MCP server doc](./remote-server.md).
+:::
+
 ## Installation
 
 The following command installs both skills and the MCP server configuration for all detected coding agents:

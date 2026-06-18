@@ -7,6 +7,10 @@ description: Understand the security architecture, network behavior, and data fl
 
 This page describes the security architecture of the Moderne MCP server (`mod mcp`) for IT, security, and compliance reviewers evaluating whether to permit it in their environment.
 
+:::info
+This page covers the **local** MCP server that runs on developer workstations. The [remote MCP server](./remote-server.md) is a separate, hosted service on the Moderne Platform with the same security posture as the [Moderne API](../../moderne-platform/how-to-guides/accessing-the-moderne-api.md).
+:::
+
 ## Summary for security reviewers
 
 | Question                                               | Answer                                                                                                                                                                                                    |
