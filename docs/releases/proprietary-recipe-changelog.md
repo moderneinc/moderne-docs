@@ -10,6 +10,14 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## June 18, 2026
+
+#### rewrite-nullability - 0.1.0
+
+* Extend rewrite-nullability for NullAway/JSpecify adoption (validated 606→7 on moderne-saas)
+* Recipe quality fixes: type-use @Nullable, program-analysis null-guard, attributed annotations, static-import requireNonNull
+* Add GitHub Actions
+
 ## June 17, 2026
 
 #### rewrite-ai - 0.4.1
@@ -57,6 +65,10 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.85.0
 
+#### rewrite-cryptography - 0.14.3
+
+* Updated repository to use OpenRewrite version v8.85.0
+
 #### rewrite-cryptography - 0.14.2
 
 * Updated repository to use OpenRewrite version v8.85.0
@@ -86,6 +98,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Fix NPE in ReplaceSessionLockRequest on implicit lambda parameters
 
 #### rewrite-jasperreports - 0.6.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-java-application-server - 0.7.3
 
 * Updated repository to use OpenRewrite version v8.85.0
 
@@ -4227,16 +4243,4 @@ Republishing to update dependencies
 
 * Use univocity-parsers for CSV parsing
 * Use FQN check instead of instanceof to avoid parent classloading of `UpgradeMigrationCard` and `ReportAsSecurityIssues`
-
-## June 18, 2025
-
-#### rewrite-cryptography - v0.2.2
-
-* pin dependency versions to align with 0.2.0
-
-## June 17, 2025
-
-#### rewrite-cryptography - v0.2.1
-
-- Fix recipe name
 
