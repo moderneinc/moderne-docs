@@ -9123,7 +9123,7 @@ mod run-history [parameters]
 Search repositories using trigram indexes.
 
 
-Searches the pre-built merged trigram shards (**.zoekt** files) emitted by **mod build** for each repository in the working set. Repositories without a current V3 LST (or whose LST predates trigram indexing) are skipped; rebuild them with **mod build**.%n%nQuery parts are joined with spaces (implicit AND) and passed straight to the query parser. To search for a literal phrase containing spaces, preserve the quotes through your shell, e.g. **'"phrase search"'**.
+Searches the pre-built merged trigram shards (**.zoekt** files) emitted by **mod build** for each repository in the working set. A repository with a V2 LST is auto-converted to V3 in place (which writes its shards) before searching; one with no LST, or whose LST predates trigram indexing, is skipped — rebuild it with **mod build**.%n%nQuery parts are joined with spaces (implicit AND) and passed straight to the query parser. To search for a literal phrase containing spaces, preserve the quotes through your shell, e.g. **'"phrase search"'**.
 
 ### Usage
 

@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.2           |
+| CLI version | 4.3.3           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,20 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.3 (2026-06-19)
+
+#### What's Changed
+* Match type-FQN search filters by simple name and AspectJ glob
+* Warn when YAML-installed recipes reference recipes missing from the marketplace
+* Don't persist negative POM cache results to disk
+* Delete .github/workflows/ci-4-2-x.yml
+* Auto-convert V2 LSTs to V3 in mod search
+* Move recipe pip install into the Python RPC server
+* Evaluate scanning and editing preconditions per phase
+* Vendor the npm/pip/nuget RPC recipe engines into the fat jar
+* Detect Git worktrees as repositories in `OrganizationWalkingCommand`
+* Bazel: scale LST builds + search to whole monorepos (partition analysis, fix finalize, fast aggregate search)
 
 ### CLI / DX v4.3.2 (2026-06-17)
 
