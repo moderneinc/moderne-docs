@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.3           |
+| CLI version | 4.3.4           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.4 (2026-06-19)
+
+#### What's Changed
+* Fix v3 roster root store
+* Upgrade Jackson from 2.21.1 to 2.21.4
+* Install the vendored Python engine offline instead of via a server-wide pip env
+* tolerate lost staging race when unpacking the bundled Python wheels
 
 ### CLI / DX v4.3.3 (2026-06-19)
 
