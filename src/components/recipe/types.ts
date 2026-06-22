@@ -13,6 +13,18 @@ export interface RecipeDataTable { name: string; displayName: string; descriptio
 export interface RelatedRecipe { title: string; description: string; }
 export interface GlanceStat { label: string; value: string; }
 export interface SourceLink { label: string; href: string; }
+export interface ExtractedContent {
+  tags: string[];
+  infoAdmonition: string | null;
+  preconditions: string[];
+  subRecipes: SubRecipe[];
+  yaml: string | null;
+  options: RecipeOption[];
+  usedBy: SubRecipe[];
+  examples: RecipeExample[];
+  usage: UsageProps;
+  dataTables: RecipeDataTable[];
+}
 export interface RecipePreviewData {
   key: string; tabLabel: string; displayName: string; fqName: string; description: string; license: string;
   type: 'Composite recipe' | 'Single recipe'; languages: string[]; tags: string[];
