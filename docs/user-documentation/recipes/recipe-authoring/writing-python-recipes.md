@@ -20,15 +20,18 @@ This guide assumes that:
 
 * You have Python 3.10 or higher installed
 * You are comfortable writing and running Python tests
-* (Optional) You have [installed and configured the Moderne CLI](../../moderne-cli/getting-started/cli-intro.md) if you want to run your recipe against real repositories
+* You have [installed and configured the Moderne CLI](../../moderne-cli/getting-started/cli-intro.md) so you can test your recipe against real repositories
+* You have [configured the Moderne CLI to work for Python projects](../../moderne-cli/how-to-guides/python.md)
 
 ## How Python recipes work
+
+Before we dive into how to write your own recipe, it's a good idea to take a few minutes to learn about Python recipes at a high level.
 
 OpenRewrite represents Python code as a [Lossless Semantic Tree (LST)](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md): a tree that preserves the code's exact formatting and is [type-attributed](https://docs.openrewrite.org/concepts-and-explanations/type-attribution), so every element carries its resolved type. Working against that tree instead of the raw text is what lets a recipe make precise, type-aware changes.
 
 Every [recipe](https://docs.openrewrite.org/concepts-and-explanations/recipes) is a class that describes itself with a name, a display name, and a description, and that returns a [visitor](https://docs.openrewrite.org/concepts-and-explanations/visitors) from its `editor()` method. The visitor traverses the LST and returns modified nodes wherever it wants to make a change. Anything it returns unchanged is left exactly as it was, formatting included.
 
-The Python LST builds on the Java LST. Shared constructs such as method invocations, identifiers, literals, and blocks come from the Java model (the `J` namespace), while Python-specific constructs such as `pass` statements, imports, and comprehensions live in the Python model (the `Py` namespace). Because of this, a Python visitor works with familiar `J` node types for most transformations.
+The [Python LST](https://github.com/openrewrite/rewrite/blob/main/rewrite-python/src/main/java/org/openrewrite/python/tree/Py.java) builds on the [Java LST](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/tree/J.java). Shared constructs such as method invocations, identifiers, literals, and blocks come from the Java model (the `J` namespace), while Python-specific constructs such as `pass` statements, imports, and comprehensions live in the Python model (the `Py` namespace). Because of this, a Python visitor works with familiar `J` node types for most transformations.
 
 :::tip
 The Python LST, parser, and node model live in the [`rewrite-python` module](https://github.com/openrewrite/rewrite/tree/main/rewrite-python). It is a useful reference when you need to know how a particular Python construct is represented.
@@ -36,7 +39,7 @@ The Python LST, parser, and node model live in the [`rewrite-python` module](htt
 
 ## Setting up your project
 
-Let's start by creating a virtual environment and installing the `openrewrite` package, which contains the recipe framework, the Python LST, and the testing helpers:
+Let's start by creating a virtual environment and installing the `openrewrite` package. This package contains the recipe framework, the Python LST, and the testing helpers:
 
 ```bash
 python3 -m venv .venv
@@ -44,7 +47,7 @@ source .venv/bin/activate
 pip install openrewrite
 ```
 
-We'll also want a test runner. This guide uses `pytest`:
+You'll also want to install a test runner. For this guide, we'll use `pytest` - but, in your actual recipe, you can choose whatever testing framework you want:
 
 ```bash
 pip install pytest
@@ -52,9 +55,9 @@ pip install pytest
 
 ## Outlining the recipe
 
-Before implementing any logic, let's sketch out the recipe's shape. For the sake of an example, let's write a recipe that renames calls to one function so that they use a different name. In order to support that, we'll need to define two configuration options: the old name and the new name.
+Before implementing any logic, it's a good idea to sketch out the recipe's general shape. For the sake of an example, let's write a recipe that renames calls to one function so that they use a different name. In order to support that, we'll need to define two configuration options: the old name and the new name.
 
-Here is what this class might look like at a high level:
+Here is what a rough outline of this class might look like:
 
 ```python title="rename_function_call.py"
 from dataclasses import dataclass, field
@@ -101,12 +104,14 @@ class RenameFunctionCall(Recipe):
 
 A few things to call out here:
 
-* The recipe is a `@dataclass` that subclasses `Recipe`. Each configuration option is a dataclass field whose `metadata` is built with `option()`.
-* The `name` follows a reverse-domain convention (`com.yourorg.RenameFunctionCall`) so that it is globally unique. This is the identifier you will use to run the recipe later.
+* The recipe is a `@dataclass` that subclasses `Recipe`. 
+* Each configuration option is a dataclass field whose `metadata` is built with `option()`.
+* The `name` follows a reverse-domain convention (`com.yourorg.RenameFunctionCall`) so that it is globally unique. 
+    * This is the identifier you will use to run the recipe later.
 * For now, `editor()` returns a visitor that does nothing, so the recipe is a no-op. We will add the code for this after we finish writing tests.
 
 :::warning
-Give every option a default value (here, `default=""`). The framework instantiates your recipe without arguments when it builds the recipe's descriptor, so a recipe whose options lack defaults cannot be discovered or run by the Moderne CLI.
+Give every option a default value (e.g., `default=""`). The framework instantiates your recipe without arguments when it builds the recipe's descriptor, so a recipe whose options lack defaults cannot be discovered or run by the Moderne CLI.
 :::
 
 ## Writing tests first
@@ -180,9 +185,9 @@ If we run the suite now, we'll see the expected starting state: the two renaming
 
 ## Implementing the visitor
 
-Now let's make those renaming tests pass. We'll replace the contents of `rename_function_call.py` with the full implementation. It overrides `visit_method_invocation` (the visit method the LST uses for function and method calls):
+With the tests written, let's work on making them pass. We'll update the `editor` function to look for and replace code that matches the inputs provided to the recipe. As part of this, we will override `visit_method_invocation` (the visit method the LST uses for function and method calls):
 
-```python
+```python title="rename_function_call.py"
 from dataclasses import dataclass, field
 
 from rewrite import ExecutionContext, Recipe, TreeVisitor, option
@@ -219,6 +224,7 @@ class RenameFunctionCall(Recipe):
     def description(self) -> str:
         return "Rename calls to a function from one name to another."
 
+#highlight-start
     def editor(self) -> TreeVisitor[J, ExecutionContext]:
         old_name = self.old_name
         new_name = self.new_name
@@ -232,18 +238,19 @@ class RenameFunctionCall(Recipe):
                 return method
 
         return Visitor()
+#highlight-end
 ```
 
 Here's what the visitor does, step by step:
 
 * It copies `self.old_name` and `self.new_name` into local variables that the nested visitor can read. Inside the visitor, `self` is the visitor instance rather than the recipe, so `self.old_name` would not be available there.
-* It calls `super().visit_method_invocation(...)` first, which visits the call's children before the call itself. Visiting from the bottom up is the safe default, because it lets nested calls transform before their parents.
+* It calls `super().visit_method_invocation(...)`, which visits the call's children before the call itself. Visiting from the bottom up is the safe default, because it lets nested calls transform before their parents.
 * It checks whether the call should be renamed by comparing `method.name.simple_name` (the name of the function being called) against `old_name`.
 * When the name matches, it builds a renamed identifier with `method.name.replace(_simple_name=new_name)` and returns a new method invocation via `method.replace(_name=renamed)`. LST nodes are immutable, so `.replace(...)` returns a new copy instead of mutating in place.
 * Otherwise, it returns the original `method` unchanged, so the call is left exactly as it was.
 
 :::tip
-Returning `None` from a visit method removes the node entirely. That is how a recipe deletes code, for example a recipe that strips redundant `pass` statements by overriding `visit_pass` and returning `None`.
+Returning `None` from a visit method removes the node entirely - which is how recipes delete code.
 :::
 
 ## Running the tests
@@ -266,25 +273,31 @@ test_rename_function_call.py::test_leaves_other_calls_unchanged PASSED   [100%]
 
 ## Packaging and running with the Moderne CLI
 
-With those tests passing, let's run it against some real repositories. For the Moderne CLI to discover the recipe, our project needs to expose an `activate()` function that registers it with the recipe marketplace.
-
-:::info
-Running your recipe against real repositories requires the Moderne CLI to be configured for Python first. The [Python configuration guide for the Moderne CLI](../../moderne-cli/how-to-guides/python.md) walks through enabling Python, building Python LSTs, and running recipes end to end.
-:::
+With our tests passing, let's now test our recipe against some real repositories. We'll use the Moderne CLI to run our recipe. However, in order for the Moderne CLI to discover our recipe, our project needs to expose an `activate()` function that registers it with the recipe marketplace.
 
 Let's add that `activate()` function to `rename_function_call.py`:
 
-```python
+```python title="rename_function_call.py"
+from dataclasses import dataclass, field
+
+from rewrite import ExecutionContext, Recipe, TreeVisitor, option
+from rewrite.java import J
+from rewrite.java.tree import MethodInvocation
+#highlight-next-line
 from rewrite.marketplace import RecipeMarketplace, Python
+from rewrite.python.visitor import PythonVisitor
 
+# ... the RenameFunctionCall class from the previous step ...
 
+#highlight-start
 def activate(marketplace: RecipeMarketplace) -> None:
     marketplace.install(RenameFunctionCall, Python)
+#highlight-end
 ```
 
 We also will need to describe the package in a `pyproject.toml` file:
 
-```toml
+```toml title="pyproject.toml"
 [build-system]
 requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
@@ -297,42 +310,45 @@ version = "0.1.0"
 py-modules = ["rename_function_call"]
 ```
 
-### Testing your recipe locally
+With the `activate()` function and `pyproject.toml` file in place, the package is ready to install into the Moderne CLI.
 
-While working on the recipe locally, you don't need to publish anything. You can install the recipe straight from your project directory by running the following command:
+### Running your recipe locally
+
+Install the recipe straight from your project directory:
 
 ```bash
 mod config recipes pip install /path/to/your/recipe-project
 ```
 
+You should see `Found 1 recipes` if everything worked correctly - which confirms that your recipe was registered.
+
 When you install from a local path, the CLI reads the `name` from your `pyproject.toml` file, imports the module of that name (with dashes converted to underscores), and calls its `activate()` function. That is why the distribution is named `rename-function-call`: it resolves to the `rename_function_call` module, where `activate()` lives. Make sure to keep those two names aligned.
 
-Confirm that the recipe registered, and remove it again when you are done:
+Now run it against a repository whose Python LSTs you've already built, passing each option as a `-P` parameter:
 
 ```bash
-mod config recipes search "Rename a function call"
+mod run . --recipe=com.yourorg.RenameFunctionCall -Pold_name=assertEquals -Pnew_name=assertEqual
+```
+
+When you are done, you can remove the recipe from your local marketplace:
+
+```bash
 mod config recipes pip delete rename-function-call
 ```
 
-### Publishing and running
+### Publishing your recipe
 
-To share your recipe so it can be installed by name, declare an `openrewrite.recipes` entry point in your `pyproject.toml` file. This is how the CLI discovers recipes inside a published package:
+To share your recipe so others can install it by name, declare an `openrewrite.recipes` entry point in your `pyproject.toml` file. This is how the CLI discovers recipes inside a published package:
 
 ```toml
 [project.entry-points."openrewrite.recipes"]
 rename-function-call = "rename_function_call:activate"
 ```
 
-Once your package is published to a package index, install it by name:
+Once your package is published to a package index, anyone can install it by name and run it exactly as you did locally:
 
 ```bash
 mod config recipes pip install rename-function-call
-```
-
-After installing your recipe, you can run it by its name against a repository whose Python LSTs you've already built, passing each option as a `-P` parameter:
-
-```bash
-mod run . --recipe=com.yourorg.RenameFunctionCall -Pold_name=assertEquals -Pnew_name=assertEqual
 ```
 
 ## Next steps
