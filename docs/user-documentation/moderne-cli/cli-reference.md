@@ -45,6 +45,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config agent-tools codex**](#mod-config-agent-tools-codex)
 * [**mod config agent-tools codex install**](#mod-config-agent-tools-codex-install)
 * [**mod config agent-tools codex uninstall**](#mod-config-agent-tools-codex-uninstall)
+* [**mod config agent-tools prethink**](#mod-config-agent-tools-prethink)
+* [**mod config agent-tools prethink edit**](#mod-config-agent-tools-prethink-edit)
+* [**mod config agent-tools prethink show**](#mod-config-agent-tools-prethink-show)
+* [**mod config agent-tools prethink disable**](#mod-config-agent-tools-prethink-disable)
 * [**mod config build**](#mod-config-build)
 * [**mod config build bazel**](#mod-config-build-bazel)
 * [**mod config build bazel arguments**](#mod-config-build-bazel-arguments)
@@ -858,13 +862,14 @@ mod config agent-tools install
 * `copilot`: Manage Moderne agent tools for GitHub Copilot.
 * `amp`: Manage Moderne agent tools for Sourcegraph Amp.
 * `codex`: Manage Moderne agent tools for OpenAI Codex.
+* `prethink`: Configures the Prethink context refreshed live by the Moderne MCP server.
 
 ## mod config agent-tools install
 
 Creates or updates Moderne agent tools for coding agents.
 
 
-Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex). Safe to run multiple times — existing installations are updated in place.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex). Safe to run multiple times — existing installations are updated in place.
 
 ### Usage
 
@@ -906,7 +911,7 @@ mod config agent-tools uninstall
 Manage Moderne skills for coding agents.
 
 
-Install or remove only the Moderne skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) for all detected coding agents, without modifying MCP server registrations. Use 'mod config agent-tools install' to install both skills and the MCP server together.
+Install or remove only the Moderne skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) for all detected coding agents, without modifying MCP server registrations. Use 'mod config agent-tools install' to install both skills and the MCP server together.
 
 ### Usage
 
@@ -931,7 +936,7 @@ mod config agent-tools skills install
 Install Moderne skills to all detected coding agents.
 
 
-Installs only the skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) to all detected coding agents without registering the MCP server. Use 'mod config agent-tools install' to install both skills and the MCP server together.
+Installs only the skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) to all detected coding agents without registering the MCP server. Use 'mod config agent-tools install' to install both skills and the MCP server together.
 
 ### Usage
 
@@ -998,7 +1003,7 @@ mod config agent-tools claude install
 Install Moderne agent tools for Claude Code.
 
 
-Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) as a Claude Code plugin and registers the Moderne MCP server via the 'claude' CLI. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) as a Claude Code plugin and registers the Moderne MCP server via the 'claude' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -1065,7 +1070,7 @@ mod config agent-tools windsurf install
 Install Moderne agent tools for Windsurf.
 
 
-Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) under ~/.codeium/windsurf/skills/ and registers the Moderne MCP server in ~/.codeium/windsurf/mcp_config.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under ~/.codeium/windsurf/skills/ and registers the Moderne MCP server in ~/.codeium/windsurf/mcp_config.json. Safe to run multiple times.
 
 ### Usage
 
@@ -1132,7 +1137,7 @@ mod config agent-tools cursor install
 Install Moderne agent tools for Cursor.
 
 
-Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) as .mdc rule files in .cursor/rules/ and registers the Moderne MCP server in ~/.cursor/mcp.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) as .mdc rule files in .cursor/rules/ and registers the Moderne MCP server in ~/.cursor/mcp.json. Safe to run multiple times.
 
 ### Usage
 
@@ -1199,7 +1204,7 @@ mod config agent-tools copilot install
 Install Moderne agent tools for GitHub Copilot.
 
 
-Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) as instruction files in .github/instructions/ and registers the Moderne MCP server in both .vscode/mcp.json and ~/.copilot/mcp-config.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) as instruction files in .github/instructions/ and registers the Moderne MCP server in both .vscode/mcp.json and ~/.copilot/mcp-config.json. Safe to run multiple times.
 
 ### Usage
 
@@ -1266,7 +1271,7 @@ mod config agent-tools amp install
 Install Moderne agent tools for Sourcegraph Amp.
 
 
-Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) under ~/.config/agents/skills/ and registers the Moderne MCP server via the 'amp' CLI. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under ~/.config/agents/skills/ and registers the Moderne MCP server via the 'amp' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -1333,7 +1338,7 @@ mod config agent-tools codex install
 Install Moderne agent tools for OpenAI Codex.
 
 
-Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) under ~/.agents/skills/ and registers the Moderne MCP server via the 'codex' CLI. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under ~/.agents/skills/ and registers the Moderne MCP server via the 'codex' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -1366,6 +1371,89 @@ mod config agent-tools codex uninstall
 
 ```
 mod config agent-tools codex uninstall
+```
+
+
+
+## mod config agent-tools prethink
+
+Configures the Prethink context refreshed live by the Moderne MCP server.
+
+
+While the LST (re)compiles in the background, **mod mcp** re-runs the configured Prethink recipe to keep **.moderne/context/** fresh for coding agents. The recipe is identified by name; its artifact and version are managed via **mod config recipes**.
+
+### Usage
+
+```
+mod config agent-tools prethink [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools prethink edit --recipe io.moderne.recipe.UpdatePrethinkContextNoAiStarter --enabled
+```
+
+### Subcommands
+
+* `edit`: Configures the Prethink recipe refreshed live by the Moderne MCP server.
+* `show`: Displays the configured Prethink context recipe.
+* `disable`: Disables the live Prethink context refresh.
+
+## mod config agent-tools prethink edit
+
+Configures the Prethink recipe refreshed live by the Moderne MCP server.
+
+
+The recipe must already be resolvable in the recipe marketplace; install it with **mod config recipes** first.
+
+### Usage
+
+```
+mod config agent-tools prethink edit
+```
+
+### Examples
+
+```
+mod config agent-tools prethink edit --recipe io.moderne.recipe.UpdatePrethinkContextNoAiStarter --enabled
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--enabled` |  Enables the live Prethink context refresh. Disabled by default. |  |
+| `--option` |  A recipe option as **key=value**. May be repeated to supply multiple options. |  |
+| `--recipe` |  The fully-qualified name of the Prethink recipe to run on refresh. | `io.moderne.recipe.UpdatePrethinkContextNoAiStarter` |
+
+
+## mod config agent-tools prethink show
+
+Displays the configured Prethink context recipe.
+
+
+Shows the recipe the Moderne MCP server runs to refresh **.moderne/context/** and whether the refresh is enabled.
+
+### Usage
+
+```
+mod config agent-tools prethink show
+```
+
+
+
+## mod config agent-tools prethink disable
+
+Disables the live Prethink context refresh.
+
+
+Removes the configured Prethink context recipe so the Moderne MCP server no longer refreshes **.moderne/context/**.
+
+### Usage
+
+```
+mod config agent-tools prethink disable
 ```
 
 

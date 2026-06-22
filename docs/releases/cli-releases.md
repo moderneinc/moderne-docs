@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.4           |
+| CLI version | 4.3.5           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,24 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.5 (2026-06-22)
+
+#### What's Changed
+* Live Prethink context refresh in mod mcp
+* Synthesize V3 build LST node ids on read instead of persisting them
+* Fall back to install-from-index when the bundled Python engine offline-install fails
+* Unify MCP tool descriptions on the compact form; replace workflow skills with per-tool flow skills
+* Make Bazel per-target mini-build JVMs cheap and quiet to start
+* Incrementally update the mcp LST for any covered language, not just Java
+* Suggest running the first installed recipe after yaml install
+* Emit AndroidProject LST marker during mod build
+* Favor configured gradleVersion over the Gradle wrapper
+* Auto-detect (and provision) the Android SDK for Gradle builds
+* Improve handling of concurrent ecosystem engine extraction
+* Fix modw wrapper exit 1 when Java is resolved from PATH
+* Reorder RunTrace stage columns to follow Sync, Build, Run
+* Handle empty plugin configuration in Maven prebuild serialization
 
 ### CLI / DX v4.3.4 (2026-06-19)
 
