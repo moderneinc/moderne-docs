@@ -1002,35 +1002,13 @@ tbody tr + tr .td {
  *   link/acct-> --neo-digital-green-300 (the docs' mint dark-mode link)
  */
 html[data-theme='dark'] {
-  .designToggleTrack {
-    background-color: var(--neo-grey-700);
-  }
 
-  .designToggleInput:checked + .designToggleTrack {
-    background-color: var(--neo-digital-blue-400);
-  }
 
-  .designToggleLabel {
-    color: var(--neo-grey-400);
-  }
 
-  .previewBanner {
-    background-color: var(--neo-icons-default);
-    border-color: var(--neo-status-warning-medium);
-    color: var(--neo-surfaces-snackbar-dark-mode);
-  }
 
-  .previewBannerLink {
-    color: var(--neo-digital-green-300);
-  }
 
-  .previewBannerLink:hover {
-    color: var(--neo-digital-green-200);
-  }
 
   /* Elevated surfaces */
-  .relatedCard,
-  .copyMenuPopover,
   .accessInfoPopover {
     background-color: var(--neo-icons-default);
   }
@@ -1071,9 +1049,7 @@ html[data-theme='dark'] {
   .detailsSpaced,
   .accordionItem,
   .codeBlockFlush,
-  .copyMenuPopover,
   .accessInfoPopover,
-  .relatedCard,
   .codeBlock {
     border-color: var(--neo-grey-700);
   }
@@ -1130,36 +1106,24 @@ html[data-theme='dark'] {
   .recipeListItem,
   .idCode,
   .descCode,
-  .ctaTitle,
   .dataTableName,
-  .copyMenuItemTitle,
-  .metaLabel,
   .headerTimeSavedValue,
-  .appliesToLangs,
   .exampleName {
     color: var(--neo-surfaces-snackbar-dark-mode);
   }
 
-  .usedByIntro {
-    color: var(--neo-grey-400);
-  }
 
   .dataTableDesc {
     color: var(--neo-grey-300);
   }
 
   /* Muted text */
-  .ctaText,
   .exampleLabel,
-  .copyMenuItemHint,
   .licenseChip,
   .codeChipLabel,
   .optionsCount,
   .optionExampleNone,
   .optionOptional,
-  .alsoAvailableLabel,
-  .appliesTo,
-  .appliesToLabel,
   .accessInfoText,
   .accessInfoIcon,
   .headerTimeSaved,
@@ -1191,9 +1155,6 @@ html[data-theme='dark'] {
 
   /* Accent / links */
   .sourceLink,
-  .relatedTitle,
-  .copyMenuItemIcon,
-  .alsoAvailableLink,
   .exampleLabelAfter {
     color: var(--neo-digital-green-300);
   }
@@ -1207,9 +1168,6 @@ html[data-theme='dark'] {
     color: var(--neo-digital-green-300);
   }
 
-  .copyMenuItem:hover {
-    background-color: var(--neo-grey-800);
-  }
 
   /* Chips & badges */
   .chip {
@@ -1223,36 +1181,12 @@ html[data-theme='dark'] {
   }
 
   /* Conversion band */
-  .cta {
-    background-color: var(--neo-digital-blue-900);
-    border-color: var(--neo-digital-blue-700);
-  }
 
   /* Examples viewer */
-  .exWindow {
-    border-color: var(--neo-grey-700);
-  }
 
-  .exLangTag {
-    background-color: var(--neo-grey-800);
-    color: var(--neo-grey-300);
-  }
 
-  .exNavChip {
-    background-color: var(--neo-grey-800);
-    color: var(--neo-grey-400);
-    border-color: var(--neo-grey-700);
-  }
 
-  .exNavChip:hover {
-    background-color: var(--neo-grey-700);
-  }
 
-  .exNavChipActive {
-    background-color: var(--neo-digital-blue-900);
-    color: var(--neo-digital-blue-200);
-    border-color: transparent;
-  }
 
   /* Recipe list (adaptive) + copy button + yaml hint */
   .recipeListHeader,
@@ -1279,20 +1213,8 @@ html[data-theme='dark'] {
     border-color: var(--neo-grey-700);
   }
 
-  .copyBtn {
-    background-color: var(--neo-icons-default);
-    border-color: var(--neo-grey-700);
-    color: var(--neo-digital-green-300);
-  }
 
-  .copyBtn:hover {
-    background-color: var(--neo-grey-800);
-  }
 
-  .yamlHint {
-    color: var(--neo-grey-400);
-    border-top-color: var(--neo-grey-700);
-  }
 
   .recipeLink {
     color: var(--neo-digital-green-300);
@@ -1302,26 +1224,9 @@ html[data-theme='dark'] {
     color: var(--neo-digital-green-200);
   }
 
-  .tocLink {
-    color: var(--neo-grey-400);
-  }
 
-  .tocLink:hover,
-  .tocLinkActive {
-    color: var(--neo-digital-green-300);
-  }
 
-  .sectionNoteIcon {
-    background-color: var(--neo-icons-default);
-    border-color: var(--neo-grey-600);
-    color: var(--neo-grey-400);
-  }
 
-  .sectionNoteIcon:hover,
-  .sectionNoteIcon:focus-visible {
-    border-color: var(--neo-digital-green-300);
-    color: var(--neo-digital-green-300);
-  }
 
   .actionButtons :global(.neo-button--outline) {
     color: var(--neo-surfaces-snackbar-dark-mode);

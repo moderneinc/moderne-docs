@@ -4,7 +4,8 @@
   gap: var(--neo-spacing_1);
   padding: var(--neo-spacing_2);
   margin-bottom: var(--neo-spacing_2);
-  background: var(--neo-surfaces-card);
+  /* Outline-only containment (no fill) so the band inherits the page background in
+     both light and dark mode — mirrors the shared `.header` treatment. */
   border: 1px solid var(--neo-border-card);
   border-radius: var(--neo-border-radius-card);
 }
