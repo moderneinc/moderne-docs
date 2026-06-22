@@ -33,7 +33,7 @@ export const Accordion: FunctionComponent<{ items: AccordionItem[] }> = ({ items
   return (
     <>
       {items.length > 1 && (
-        <div className={styles.accordionSectionHeader}>
+        <div className={styles.accordionToolbar}>
           <NeoButton variant="text" size="small" onClick={toggleAll}>
             {allOpen ? 'Collapse all' : 'Expand all'}
           </NeoButton>

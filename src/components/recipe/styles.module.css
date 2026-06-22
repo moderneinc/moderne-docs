@@ -706,32 +706,16 @@ tbody tr + tr .td {
   gap: var(--neo-spacing_2);
 }
 
-/* ---------- Sticky section headers (every section, every recipe tab) ----------
-   Each section's header row pins below the fixed navbar while you scroll the
-   section, then releases when the section's bottom scrolls past (sticky is
-   confined to its parent .section). Covers all three header shapes: the bare
-   <h2>, the Options header (title + counts), and the accordion header (title +
-   toggle). Opaque page-colour background so content tucks underneath;
-   --ifm-background-color is the exact page bg in both themes. */
-.section > .sectionTitle,
-.section > .optionsHeader,
-.accordionSectionHeader {
-  position: sticky;
-  top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_1));
-  z-index: 1;
-  background-color: var(--ifm-background-color);
-  /* Padding (not margin) so the pinned header keeps breathing room top and
-     bottom and the bg covers it; margin-bottom 0 to avoid a transparent gap. */
-  padding-top: var(--neo-spacing_2);
-  padding-bottom: var(--neo-spacing_2);
-  margin-bottom: 0;
-  border-bottom: 1px solid var(--neo-border-card);
+/* Production accordion toolbar: only the Expand/Collapse-all toggle (the section `##` heading is
+   separate markdown rendered just above). Pull the toggle up onto the heading's line, right-aligned,
+   then leave room before the accordion. */
+.accordionToolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: calc(-1 * var(--neo-spacing_5));
+  margin-bottom: var(--neo-spacing_1);
 }
 
-/* The heading keeps .sectionTitle; the row owns the bottom spacing. */
-.accordionSectionHeader .sectionTitle {
-  margin-bottom: 0;
-}
 
 .accordion {
   display: flex;
@@ -1084,10 +1068,6 @@ html[data-theme='dark'] {
   .th,
   .td,
   .dataTableItem {
-    border-bottom-color: var(--neo-grey-700);
-  }
-
-  .accordionSectionHeader {
     border-bottom-color: var(--neo-grey-700);
   }
 
