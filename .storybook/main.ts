@@ -35,6 +35,8 @@ const config: StorybookConfig = {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
+      // Recipe component stories: mock the Docusaurus-runtime modules they pull in (must precede '@site').
+      '@site/src/components/RunRecipe': path.resolve(__dirname, '../src/__mocks__/RunRecipe.tsx'),
       '@site': path.resolve(__dirname, '..'),
       '@docusaurus/Link': path.resolve(__dirname, '../src/__mocks__/docusaurus/Link.tsx'),
       '@docusaurus/Head': path.resolve(__dirname, '../src/__mocks__/docusaurus/Head.tsx'),
@@ -54,6 +56,9 @@ const config: StorybookConfig = {
       '@theme/Heading': path.resolve(__dirname, '../src/__mocks__/theme/Heading.tsx'),
       '@theme/Layout': path.resolve(__dirname, '../src/__mocks__/theme/Layout.tsx'),
       '@theme/Icon/Close': path.resolve(__dirname, '../src/__mocks__/theme/IconClose.tsx'),
+      '@theme/Tabs': path.resolve(__dirname, '../src/__mocks__/theme/Tabs.tsx'),
+      '@theme/TabItem': path.resolve(__dirname, '../src/__mocks__/theme/TabItem.tsx'),
+      '@theme/CodeBlock': path.resolve(__dirname, '../src/__mocks__/theme/CodeBlock.tsx'),
       '@docusaurus/BrowserOnly': path.resolve(__dirname, '../src/__mocks__/docusaurus/BrowserOnly.tsx'),
       '@theme': path.resolve(__dirname, '../src/theme'),
     };
