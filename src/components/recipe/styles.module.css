@@ -195,6 +195,11 @@
 
 .codeChip {
   min-width: 0;
+  /* Size to content rather than stretching to the full column width (the parent is a flex
+     column, whose default align-items: stretch made these full-width); cap at the container
+     so very long ids ellipsis via .idCode instead of overflowing. */
+  align-self: flex-start;
+  max-width: 100%;
   display: inline-flex;
   align-items: center;
   gap: var(--neo-spacing_1);

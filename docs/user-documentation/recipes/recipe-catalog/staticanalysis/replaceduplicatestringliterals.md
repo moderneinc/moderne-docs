@@ -1,6 +1,7 @@
 ---
 title: "Replace duplicate `String` literals"
 sidebar_label: "Replace duplicate `String` literals"
+hide_title: true
 ---
 
 
