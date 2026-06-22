@@ -5,7 +5,6 @@ export { RecipeList } from './RecipeList';
 export { ExampleList } from './ExampleList';
 export { DataTableList } from './DataTableList';
 export { UsageList } from './UsageList';
-export { CopyPageMenu } from './CopyPageMenu';
 export { AccessInfoButton } from './AccessInfoButton';
 export { CopyButton } from './CopyButton';
 export { Accordion } from './Accordion';

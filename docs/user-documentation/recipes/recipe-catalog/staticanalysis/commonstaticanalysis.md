@@ -29,7 +29,7 @@ import { commonStaticAnalysisContent as content } from '@site/src/components/rec
   license="Apache License 2.0"
   fqName="org.openrewrite.staticanalysis.CommonStaticAnalysis"
   appLink="https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis"
-  markdown="Common static analysis issues"
+  markdownUrl="https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md"
 >
 
 # Common static analysis issues

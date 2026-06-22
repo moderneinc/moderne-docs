@@ -29,7 +29,7 @@ import { replaceDuplicateStringLiteralsContent as content } from '@site/src/comp
   license="Moderne Source Available License"
   fqName="org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals"
   appLink="https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals"
-  markdown="Replace duplicate String literals"
+  markdownUrl="https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replaceduplicatestringliterals.md"
 >
 
 # Replace duplicate `String` literals

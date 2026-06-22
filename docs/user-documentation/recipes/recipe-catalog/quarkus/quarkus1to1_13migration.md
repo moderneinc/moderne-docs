@@ -25,7 +25,7 @@ import { quarkus1to2MigrationContent as content } from '@site/src/components/rec
   license="Moderne Source Available License"
   fqName="org.openrewrite.quarkus.quarkus2.Quarkus1to2Migration"
   appLink="https://app.moderne.io/recipes/org.openrewrite.quarkus.quarkus2.Quarkus1to2Migration"
-  markdown="Quarkus 2.x migration from Quarkus 1.x"
+  markdownUrl="https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/quarkus1to1_13migration.md"
 >
 
 # Quarkus 2.x migration from Quarkus 1.x
