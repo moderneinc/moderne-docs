@@ -6,11 +6,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const config: StorybookConfig = {
-  stories: [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "./**/*.stories.@(js|jsx|mjs|ts|tsx)"
-  ],
+  // STORYBOOK_RECIPE_ONLY narrows the build to just the recipe-component stories — a fast, clean
+  // surface for developing/comparing the redesigned recipe page without pulling in unrelated stories.
+  stories: process.env.STORYBOOK_RECIPE_ONLY
+    ? ["../src/components/recipe/**/*.stories.@(js|jsx|mjs|ts|tsx)"]
+    : [
+        "../src/**/*.mdx",
+        "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+        "./**/*.stories.@(js|jsx|mjs|ts|tsx)"
+      ],
   addons: [
     "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-a11y",

@@ -27,6 +27,7 @@
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
     "storybook": "storybook dev -p 6006",
+    "storybook:recipe": "STORYBOOK_RECIPE_ONLY=1 storybook dev -p 6006",
     "build-storybook": "storybook build",
     "validate:figma": "npx --yes dotenv-cli -e .env -- npx figma connect publish --dry-run",
     "publish:figma": "npx --yes dotenv-cli -e .env -- npx figma connect publish",
