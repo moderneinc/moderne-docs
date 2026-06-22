@@ -176,13 +176,30 @@ JSON is valid JS, so MDX/acorn parses `{[...]}` correctly. Required safeguards (
   modeled in the component props.
 * **Empty sections** generally → omit heading + component rather than rendering an empty block.
 
-## 6. Cross-repo sequencing
+## 6. Implementation sequencing (validation-first)
 
-1. **moderne-docs first:** build and merge `src/components/recipe/` components + CSS; verify against
-   hand-written sample MDX pages. (Components must exist before the generator references them.)
-2. **Generator second:** add the `forModerneDocs` emission referencing the now-existing components.
-3. **End-to-end verification before merging the generator change:** run the generator locally → copy
-   `build/moderne-docs/` output into moderne-docs → `yarn build` green.
+**Phase 1 — Components (moderne-docs).** Build all components + CSS under `src/components/recipe/`.
+Components must exist before anything references them.
+
+**Phase 2 — Manual validation on real pages (moderne-docs).** Hand-edit a small set of *existing
+generated* recipe pages under `docs/user-documentation/recipes/recipe-catalog/` to reference the new
+components — covering a simple single recipe, a large composite (e.g. CommonStaticAnalysis), and a
+multi-language migration (e.g. Quarkus 1→2). **Explicitly build those pages** (`yarn build`) to prove the
+component layer works end-to-end against real recipe content **before** any generator work.
+
+> These hand-edits are a **temporary proof-of-concept**: the next full catalog regeneration overwrites
+> `recipe-catalog/`. Keep them on the feature branch as a build-validation step; they are superseded by the
+> generator output, not a durable change.
+
+**Phase 3 — Generator (`rewrite-recipe-markdown-generator`).** Add the `forModerneDocs` emission
+referencing the now-proven components. Run locally → copy `build/moderne-docs/recipe-catalog` into
+moderne-docs → full `yarn build` green.
+
+**Where the generator change must land (from `.github/workflows/update-docs.yml`):** the workflow checks
+out **`openrewrite/rewrite-recipe-markdown-generator`** (upstream), runs `./gradlew run`, and on a manual
+`workflow_dispatch` with `latest-versions-only: false` replaces `docs/user-documentation/recipes/recipe-catalog/`
+with `build/moderne-docs/recipe-catalog`. The nightly scheduled run refreshes only latest-versions. So the
+generator change must be merged **upstream**, and full regeneration is a **deliberate manual dispatch**.
 
 ## 7. Testing and verification
 
@@ -201,10 +218,15 @@ JSON is valid JS, so MDX/acorn parses `{[...]}` correctly. Required safeguards (
 * Spot-check representative real recipes: a simple single recipe, a large composite
   (e.g. CommonStaticAnalysis, 73 sub-recipes), and a multi-language migration (e.g. Quarkus 1→2).
 
-## 8. Open items to confirm during implementation
+## 8. Resolved items
 
-* Exact `recipe-catalog/` route/path scoping so the new layout/styling applies only to recipe pages.
-* JSON-LD schema choice (`SoftwareSourceCode` vs `HowTo`) and which structured fields populate it.
-* Whether YAML in the Definition section stays a `<Tabs>` panel (current) or moves to a collapsible block
-  with a prominent Copy button (preview behavior). Default: match the preview unless it complicates parity.
-* Confirm the Moderne-docs CI consumes `build/moderne-docs/` exactly as assumed (nightly copy step).
+* **Route/path scoping:** recipe pages live under `docs/user-documentation/recipes` (specifically
+  `docs/user-documentation/recipes/recipe-catalog/`). The new layout/styling scopes to that path.
+* **JSON-LD schema:** `SoftwareSourceCode`.
+* **YAML in the Definition section:** match the preview — collapsible block with a prominent **Copy** button
+  (not the current `<Tabs>` panel).
+* **Moderne-docs CI consumption:** confirmed via `.github/workflows/update-docs.yml`. It checks out upstream
+  `openrewrite/rewrite-recipe-markdown-generator`, runs `./gradlew run`, and on a manual `workflow_dispatch`
+  with `latest-versions-only: false` replaces `docs/user-documentation/recipes/recipe-catalog/` with
+  `build/moderne-docs/recipe-catalog`. Nightly runs refresh only latest-versions. Generator change must be
+  merged upstream; full regeneration is a manual dispatch.
