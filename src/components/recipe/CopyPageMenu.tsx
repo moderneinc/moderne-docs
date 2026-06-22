@@ -1,4 +1,4 @@
-import React, { useState, type FunctionComponent } from 'react';
+import React, { useState, useRef, useEffect, type FunctionComponent } from 'react';
 import { NeoButton } from '@site/src/components/NeoButton';
 import { Check, Copy } from 'lucide-react';
 
@@ -14,12 +14,15 @@ interface CopyPageMenuProps {
  */
 export const CopyPageMenu: FunctionComponent<CopyPageMenuProps> = ({ markdown }) => {
   const [copied, setCopied] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  useEffect(() => () => clearTimeout(timerRef.current), []);
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(markdown);
       setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
+      clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => setCopied(false), 2000);
     } catch {
       /* clipboard unavailable (insecure context) — fail quietly */
     }

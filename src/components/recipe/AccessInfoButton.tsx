@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 /** Info icon-button beside the "Moderne Only" badge; popover opens on hover and focus. */
 export const AccessInfoButton: FunctionComponent = () => (
   <span className={styles.accessInfo}>
-    <button type="button" className={styles.accessInfoIcon} aria-label="About Moderne-only recipes">
+    <button type="button" className={styles.accessInfoIcon} aria-label="About Moderne-only recipes" aria-haspopup="dialog">
       <Info size={15} />
     </button>
     <span className={styles.accessInfoPopover}>

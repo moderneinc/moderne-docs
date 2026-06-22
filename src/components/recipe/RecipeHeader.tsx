@@ -12,7 +12,6 @@ export interface RecipeHeaderProps {
   license: string;
   fqName: string;
   appLink: string;
-  pageUrl: string;
   /** Raw markdown for the Copy-as-Markdown action. */
   markdown: string;
   moderneOnly?: boolean;

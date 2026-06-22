@@ -73,7 +73,7 @@ const ExampleBody: FunctionComponent<{ example: RecipeExample }> = ({ example: e
 export const ExampleList: FunctionComponent<{ examples: RecipeExample[] }> = ({ examples }) => {
   const items: AccordionItem[] = examples.map((ex, i) => {
     const langs = ex.variants.map((v) => v.language).join(', ');
-    return { key: ex.name ?? `example-${i}`, label: langs || `Example ${i + 1}`, content: <ExampleBody example={ex} /> };
+    return { key: ex.name ? `${ex.name}-${i}` : `example-${i}`, label: langs || `Example ${i + 1}`, content: <ExampleBody example={ex} /> };
   });
   return <Accordion items={items} />;
 };

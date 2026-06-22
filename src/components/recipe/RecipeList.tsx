@@ -57,7 +57,7 @@ export const RecipeList: FunctionComponent<{ recipes: SubRecipe[] }> = ({ recipe
           {query.trim() ? `${filtered.length} of ${recipes.length}` : `${recipes.length} recipes`}
         </span>
       </div>
-      <ul className={styles.recipeListWindow} role="region" aria-label="Recipe list" tabIndex={0}>
+      <ul className={styles.recipeListWindow} aria-label="Recipe list" tabIndex={0}>
         {filtered.length ? (
           filtered.map((r) => <RecipeLink key={r.href} recipe={r} />)
         ) : (

@@ -1,10 +1,12 @@
-import React, { useState, type FunctionComponent } from 'react';
+import React, { useState, useRef, useEffect, type FunctionComponent } from 'react';
 import { Copy, Check } from 'lucide-react';
 import styles from './styles.module.css';
 
 /** Shared clipboard button used for recipe IDs and data-table IDs. */
 export const CopyButton: FunctionComponent<{ value: string; label: string }> = ({ value, label }) => {
   const [copied, setCopied] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  useEffect(() => () => clearTimeout(timerRef.current), []);
   return (
     <button
       type="button"
@@ -15,7 +17,8 @@ export const CopyButton: FunctionComponent<{ value: string; label: string }> = (
           ?.writeText(value)
           .then(() => {
             setCopied(true);
-            window.setTimeout(() => setCopied(false), 2000);
+            clearTimeout(timerRef.current);
+            timerRef.current = setTimeout(() => setCopied(false), 2000);
           })
           .catch(() => {
             /* clipboard can be unavailable in insecure contexts — fail quietly */
