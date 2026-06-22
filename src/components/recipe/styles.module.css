@@ -163,7 +163,7 @@
 }
 
 /* Inline code in the title: colored monospace text, no box. */
-.titleCode {
+.title .titleCode {
   font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
   font-size: 0.9em;
   font-weight: var(--neo-font-weight-bold);
@@ -217,7 +217,9 @@
   color: var(--neo-typography-body-secondary);
 }
 
-.idCode {
+/* Scoped one level deep so the transparent/no-box treatment beats the docs' inline-code rule
+   (`.markdown :not(pre) > code`, specificity 0,1,2) — recipe pages render inside `.theme-doc-markdown`. */
+.codeChip .idCode {
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -713,7 +715,9 @@ tbody tr + tr .td {
   display: flex;
   justify-content: flex-end;
   margin-top: calc(-1 * var(--neo-spacing_5));
-  margin-bottom: var(--neo-spacing_1);
+  /* The negative top pulls the toggle onto the heading row; this restores a normal
+     heading → accordion gap (matching single-item sections that have no toolbar). */
+  margin-bottom: var(--neo-spacing_2);
 }
 
 
