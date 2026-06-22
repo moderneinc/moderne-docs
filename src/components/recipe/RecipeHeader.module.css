@@ -1,0 +1,83 @@
+.recipeHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+  padding: var(--neo-spacing_2);
+  margin-bottom: var(--neo-spacing_2);
+  background: var(--neo-surfaces-card);
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-card);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--neo-spacing_1_2);
+  align-items: center;
+}
+
+.badge {
+  font-size: var(--neo-font-size-sm);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+  border-radius: var(--neo-border-radius-button);
+  background: var(--neo-surfaces-page);
+  border: 1px solid var(--neo-border-secondary);
+}
+
+.moderneOnly {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_4);
+}
+
+.badgeModerne {
+  font-size: var(--neo-font-size-sm);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+  border-radius: var(--neo-border-radius-button);
+  background: var(--neo-status-info-light);
+  color: var(--neo-status-info-dark);
+}
+
+.title {
+  margin: 0;
+}
+
+.idRow {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+}
+
+.fqName {
+  font-family: var(--neo-font-family-code);
+  font-size: var(--neo-font-size-sm);
+}
+
+.tagChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--neo-spacing_1_2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tagChip {
+  font-size: var(--neo-font-size-sm);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+  border-radius: var(--neo-border-radius-button);
+  background: var(--neo-surfaces-page);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  margin-top: var(--neo-spacing_1_2);
+}
+
+.licenseChip {
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-body-secondary);
+}
