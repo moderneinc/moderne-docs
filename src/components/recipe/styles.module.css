@@ -414,6 +414,18 @@ tbody tr + tr .td {
 }
 
 /* ---------- Options card (structured, AI-parseable <table>) ---------- */
+/* Metrics row (count + required/optional). The `## Options` heading is separate markdown rendered
+   just above; pull this up onto the heading row, right-aligned, matching the accordion toolbar. */
+.optionsMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--neo-spacing_2);
+  margin-top: calc(-1 * var(--neo-spacing_5));
+  margin-bottom: var(--neo-spacing_2);
+}
+
 .optionsHeader {
   display: flex;
   flex-wrap: wrap;

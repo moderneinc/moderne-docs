@@ -75,5 +75,12 @@ export const ExampleList: FunctionComponent<{ examples: RecipeExample[] }> = ({ 
     const langs = ex.variants.map((v) => v.language).join(', ');
     return { key: ex.name ? `${ex.name}-${i}` : `example-${i}`, label: langs || `Example ${i + 1}`, content: <ExampleBody example={ex} /> };
   });
-  return <Accordion items={items} />;
+  // `.recipe` scopes the prototype's Neo "button tab group" styling onto the Docusaurus <Tabs>
+  // (the segmented before/after/diff picker) and the table-chrome resets — production pages aren't
+  // wrapped in `.recipe` the way the standalone prototype page was.
+  return (
+    <div className={styles.recipe}>
+      <Accordion items={items} />
+    </div>
+  );
 };
