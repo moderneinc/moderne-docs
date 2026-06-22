@@ -1,8 +1,26 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
+import { readdirSync } from 'node:fs';
 import latestVersions from "./src/plugins/latest-versions";
 import remarkTokenReplacer from "./src/plugins/replace-tokens";
+
+// Fast iteration on the redesigned recipe pages: when EXAMPLE_RECIPES_ONLY is set, exclude the entire
+// recipe-catalog EXCEPT the handful of example pages we're actively developing, so a build/start only
+// compiles those (plus the rest of the non-catalog docs) instead of all ~5,700 catalog pages.
+const RECIPE_CATALOG = 'user-documentation/recipes/recipe-catalog';
+const EXAMPLE_RECIPE_PAGES = [
+  `${RECIPE_CATALOG}/staticanalysis/replaceduplicatestringliterals.md`,
+  `${RECIPE_CATALOG}/staticanalysis/commonstaticanalysis.md`,
+  `${RECIPE_CATALOG}/quarkus/quarkus1to1_13migration.md`,
+];
+
+function exampleRecipesExclude(): string[] {
+  const keep = new Set(EXAMPLE_RECIPE_PAGES);
+  return readdirSync(`docs/${RECIPE_CATALOG}`, { recursive: true })
+    .map((f) => `${RECIPE_CATALOG}/${String(f).replace(/\\/g, '/')}`)
+    .filter((f) => /\.mdx?$/.test(f) && !keep.has(f));
+}
 
 const config: Config = {
   title: 'Moderne Docs',
@@ -15,7 +33,7 @@ const config: Config = {
   projectName: 'moderne-docs',
 
   // Only throw on broken links when the full site (including recipe catalog) is built.
-  onBrokenLinks: (process.env.CI_STRICT_LINKS && !process.env.SKIP_RECIPE_CATALOG) ? 'throw' : 'warn',
+  onBrokenLinks: (process.env.CI_STRICT_LINKS && !process.env.SKIP_RECIPE_CATALOG && !process.env.EXAMPLE_RECIPES_ONLY) ? 'throw' : 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -103,6 +121,7 @@ const config: Config = {
             // Skip 5,700+ recipe-catalog pages for faster local rebuilds.
             // Use `yarn start:fast` to enable this; `yarn start` includes everything.
             ...(process.env.SKIP_RECIPE_CATALOG ? ['user-documentation/recipes/recipe-catalog/**'] : []),
+            ...(process.env.EXAMPLE_RECIPES_ONLY ? exampleRecipesExclude() : []),
           ],
           remarkPlugins: [
             [
