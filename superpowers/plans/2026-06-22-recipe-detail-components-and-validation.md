@@ -1724,3 +1724,17 @@ Confirm the three converted pages remain only on this branch and add a short not
 * **Deferred-by-design (not gaps):** `atAGlance`/`relatedRecipes` (spec non-goals); robust clean-markdown source for Copy-as-Markdown (D4 deferred — `CopyPageMenu` currently copies the passed `markdown` prop).
 * **Type consistency:** `RecipeOption`, `SubRecipe`, `RecipeExample`, `RecipeDataTable`, `UsageProps`, `RecipePreviewData` defined once in Task 1 `types.ts`; every component imports from `./types`. `Accordion` takes `{ items }` (no `title`) consistently in Tasks 4, 8, 9, 10. `CopyButton({ value, label })` defined in Task 5, reused in Tasks 9 and 14. `buildRecipeJsonLd` input shape matches `RecipeMeta` props in Task 13.
 * **Placeholders:** none — every code/test step has concrete content. The only deliberately runtime-resolved values are the Quarkus page path (Task 19 Step 1) and the sample-data const names (Task 16 Step 2), each with an explicit discovery command.
+
+---
+
+## Execution notes / deviations (2026-06-22)
+
+What actually happened vs. the plan (see the spec §9 for the authoritative decision log):
+
+* **Environment:** `node_modules` had to be installed first (`yarn install`) + `@testing-library/dom` added. Task 1's "41 undefined CSS vars" was purely the missing install.
+* **Test harness (Task 2 changed):** vitest 4 / vite 8 (rolldown) can't transform JSX in tests; component RTL tests were dropped. Kept only the pure-`.ts` `buildRecipeJsonLd` test. Components verified via `tsc` (`NODE_OPTIONS=--max-old-space-size=8192`) + `yarn validate:css` + real-page build + Storybook.
+* **Tasks 3–15:** components built as specified, with the `Accordion` no-`<h2>` adaptation. `CopyPageMenu` was later removed in favor of a "View as Markdown" link.
+* **`RecipeHeader` evolved** beyond Task 14: full prototype header (access badge + RECIPE ID/ARTIFACT code-chips + View-as-Markdown), title/description via props (not the slot) using dark-safe shared classes; `RecipeHeader.module.css` deleted. Pages set `hide_title: true`.
+* **Phase 2 (Tasks 16–20):** the 3 example pages were converted and verified via `yarn build:examples` (new `EXAMPLE_RECIPES_ONLY` fast build, ~30s).
+* **Reconciliation pass (added):** trimmed `styles.module.css` 1,987 → ~1,230; fixed Storybook root cause; fixed dark mode (outline-only header card + dead-rule trim); added prototype-vs-production comparison stories.
+* **Generator (Phase 3) carry-overs:** emit `hide_title: true`, no `# title` heading, `markdownUrl` (raw GitHub), `artifact` coords, and `moderneOnly`.

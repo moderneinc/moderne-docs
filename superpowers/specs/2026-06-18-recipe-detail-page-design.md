@@ -230,3 +230,35 @@ generator change must be merged **upstream**, and full regeneration is a **delib
   with `latest-versions-only: false` replaces `docs/user-documentation/recipes/recipe-catalog/` with
   `build/moderne-docs/recipe-catalog`. Nightly runs refresh only latest-versions. Generator change must be
   merged upstream; full regeneration is a manual dispatch.
+
+## 9. Implementation updates (2026-06-22, post-approval)
+
+Decisions made during implementation that supersede or extend the above:
+
+* **Markdown action = "View as Markdown" (link to raw GitHub source).** Supersedes D4. The prototype dropped
+  "Open in Claude/ChatGPT" → then dropped Copy-as-Markdown → settled on a **"View as Markdown"** link to the raw
+  `.md` on GitHub. Production matches: `RecipeHeader` takes a `markdownUrl` prop. `CopyPageMenu` was removed.
+* **Header renders title/description from props, not the markdown slot.** Supersedes the §4.2 slot decision for
+  the title/description specifically. Reason: the slotted `<h1>` relied on ambient page CSS and was invisible in
+  isolation/dark; rendering via the shared dark-safe `.title`/`.description` classes is robust and matches the
+  prototype. Section bodies still come from props; JSON-LD still carries name+description.
+* **`hide_title: true` in frontmatter + no markdown `# title`.** Because the title now lives in `RecipeHeader`,
+  pages must set `hide_title: true` so Docusaurus doesn't auto-inject a duplicate `<h1>`. **Generator must emit
+  `hide_title: true` and must NOT emit a `# title` heading.**
+* **Header adopted the full prototype treatment:** access badge ("Open source" / "Moderne Only" + info popover,
+  from a `moderneOnly` prop), and **RECIPE ID + ARTIFACT code-chips** (artifact = `groupId:artifactId`). The
+  "est. time saved" stat remains deferred (needs platform data).
+* **Component test harness:** the repo's `vitest 4 / vite 8 (rolldown)` toolchain cannot transform JSX in tests,
+  so component RTL tests were dropped. Verification is **`tsc` + `yarn validate:css` + real-page build +
+  Storybook**. Only pure-`.ts` logic (`buildRecipeJsonLd`) keeps a vitest test. Use
+  `NODE_OPTIONS=--max-old-space-size=8192` for `tsc` on this repo.
+* **Fast iteration build:** added `EXAMPLE_RECIPES_ONLY` (`yarn build:examples` / `yarn start:examples`) which
+  excludes the whole catalog except the 3 example pages — ~30s vs ~10min.
+* **CSS:** the prototype `styles.module.css` was ported wholesale then **trimmed** (1,987 → ~1,230 lines) of
+  preview-only rules (TOC/info-pane, design toggle, banner, gutter notes, CTA, related, copy-menu,
+  examples-viewer, yaml-copy) and dead dark-mode rules. New primitives (`CopyButton`, `Accordion`, chips) stay
+  **recipe-local** (no pre-existing equivalents existed). Header card is **outline-only (no fill)** so it works
+  in light + dark.
+* **Storybook root cause fixed:** added `@docusaurus/BrowserOnly` + `@theme/Icon/Close` mocks and a css-loader
+  absolute-url filter so `yarn storybook` builds all stories. Prototype-vs-production **comparison stories** live
+  under `src/components/recipe/*.stories.tsx`.
