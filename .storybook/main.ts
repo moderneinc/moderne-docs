@@ -6,15 +6,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const config: StorybookConfig = {
-  // STORYBOOK_RECIPE_ONLY narrows the build to just the recipe-component stories — a fast, clean
-  // surface for developing/comparing the redesigned recipe page without pulling in unrelated stories.
-  stories: process.env.STORYBOOK_RECIPE_ONLY
-    ? ["../src/components/recipe/**/*.stories.@(js|jsx|mjs|ts|tsx)"]
-    : [
-        "../src/**/*.mdx",
-        "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-        "./**/*.stories.@(js|jsx|mjs|ts|tsx)"
-      ],
+  stories: [
+    "../src/**/*.mdx",
+    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "./**/*.stories.@(js|jsx|mjs|ts|tsx)"
+  ],
   addons: [
     "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-a11y",
@@ -57,6 +53,8 @@ const config: StorybookConfig = {
       '@generated/site-storage': path.resolve(__dirname, '../src/__mocks__/generated/site-storage.ts'),
       '@theme/Heading': path.resolve(__dirname, '../src/__mocks__/theme/Heading.tsx'),
       '@theme/Layout': path.resolve(__dirname, '../src/__mocks__/theme/Layout.tsx'),
+      '@theme/Icon/Close': path.resolve(__dirname, '../src/__mocks__/theme/IconClose.tsx'),
+      '@docusaurus/BrowserOnly': path.resolve(__dirname, '../src/__mocks__/docusaurus/BrowserOnly.tsx'),
       '@theme': path.resolve(__dirname, '../src/theme'),
     };
 
@@ -128,6 +126,9 @@ const config: StorybookConfig = {
                 namedExport: false, // Use default export instead of named exports (matches Docusaurus)
                 exportLocalsConvention: 'as-is', // Keep class names as-is
               };
+              // Absolute url()s (e.g. /img/...) are served from the static dir at runtime — don't
+              // try to resolve them at build time (otherwise css-loader fails on theme stylesheets).
+              loader.options.url = { filter: (url: string) => !url.startsWith('/') };
             }
           }
         });
