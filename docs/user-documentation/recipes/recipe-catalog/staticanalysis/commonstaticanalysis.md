@@ -23,20 +23,17 @@ import { commonStaticAnalysisContent as content } from '@site/src/components/rec
 />
 
 <RecipeHeader
+  displayName="Common static analysis issues"
+  description="Resolve common static analysis issues (also known as SAST issues)."
   type="Composite recipe"
   languages={["Java"]}
   tags={content.tags}
   license="Apache License 2.0"
   fqName="org.openrewrite.staticanalysis.CommonStaticAnalysis"
+  artifact="org.openrewrite.recipe:rewrite-static-analysis"
   appLink="https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis"
   markdownUrl="https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md"
->
-
-# Common static analysis issues
-
-Resolve common static analysis issues (also known as SAST issues).
-
-</RecipeHeader>
+/>
 
 ## Definition
 

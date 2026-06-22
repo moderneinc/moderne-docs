@@ -1,23 +1,27 @@
-import React, { type FunctionComponent, type ReactNode } from 'react';
+import React, { type FunctionComponent } from 'react';
 import clsx from 'clsx';
 import { FileText, ArrowRight } from 'lucide-react';
 import { NeoButton } from '@site/src/components/NeoButton';
 import { CopyButton } from './CopyButton';
 import { AccessInfoButton } from './AccessInfoButton';
-import shared from './styles.module.css';
-import styles from './RecipeHeader.module.css';
+import { renderWithCode } from './renderWithCode';
+import styles from './styles.module.css';
 
 export interface RecipeHeaderProps {
+  displayName: string;
+  description: string;
   type: 'Composite recipe' | 'Single recipe';
   languages: string[];
   tags: string[];
   license: string;
   fqName: string;
+  /** Maven coordinates `groupId:artifactId`, shown as a second code-chip when present. */
+  artifact?: string;
   appLink: string;
   /** Raw markdown source URL (e.g. a raw.githubusercontent.com link) for "View as Markdown". */
   markdownUrl: string;
+  /** Proprietary recipe — shows the "Moderne Only" access badge + info popover instead of "Open source". */
   moderneOnly?: boolean;
-  children?: ReactNode;
 }
 
 /** Tags are clickable on the generated pages (RSPEC rules link to SonarQube). */
@@ -27,35 +31,53 @@ const tagHref = (tag: string): string => {
   return `https://docs.moderne.io/?s=${encodeURIComponent(tag)}`;
 };
 
-/** Header band for a recipe page. Children carry the markdown title + description (slot). */
+/** Header band for a recipe page: access badge, title, recipe-id/artifact code-chips, description, tags, CTAs. */
 export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
-  type, languages, tags, license, fqName, appLink, markdownUrl, moderneOnly = false, children,
+  displayName, description, type, languages, tags, license, fqName, artifact, appLink, markdownUrl, moderneOnly = false,
 }) => (
-  <header className={styles.recipeHeader}>
-    {moderneOnly && (
-      <div className={styles.moderneOnly}>
-        <span className={styles.badgeModerne}>Moderne Only</span>
-        <AccessInfoButton />
-      </div>
-    )}
-
-    <div className={styles.title}>{children}</div>
-
-    <div className={styles.idRow}>
-      <code className={styles.fqName}>{fqName}</code>
-      <CopyButton value={fqName} label="Copy recipe ID" />
+  <header className={styles.header}>
+    <div className={styles.accessRow}>
+      <span
+        className={clsx(styles.accessBadge, moderneOnly ? styles.accessBadge_moderne : styles.accessBadge_oss)}
+        title={
+          moderneOnly
+            ? 'Requires the Moderne platform (Moderne Source Available license)'
+            : 'Open source — free to run anywhere'
+        }
+      >
+        {moderneOnly ? 'Moderne Only' : 'Open source'}
+      </span>
+      {moderneOnly && <AccessInfoButton />}
     </div>
 
-    {/* Uniform, low-contrast metadata pills using the shared chip styling. Tags link to SonarQube. */}
-    <div className={shared.tagRow}>
-      <span className={shared.chip}>{type}</span>
+    <h1 className={styles.title}>{renderWithCode(displayName, styles.titleCode)}</h1>
+
+    <div className={styles.idArtifactRow}>
+      <div className={styles.codeChip}>
+        <span className={styles.codeChipLabel}>Recipe ID</span>
+        <code className={styles.idCode}>{fqName}</code>
+        <CopyButton value={fqName} label="Copy recipe ID" />
+      </div>
+      {artifact && (
+        <div className={styles.codeChip}>
+          <span className={styles.codeChipLabel}>Artifact</span>
+          <code className={styles.idCode}>{artifact}</code>
+          <CopyButton value={artifact} label="Copy artifact coordinates" />
+        </div>
+      )}
+    </div>
+
+    <p className={styles.description}>{renderWithCode(description, styles.descCode)}</p>
+
+    <div className={styles.tagRow}>
+      <span className={styles.chip}>{type}</span>
       {languages.map((l) => (
-        <span key={l} className={shared.chip}>{l}</span>
+        <span key={l} className={styles.chip}>{l}</span>
       ))}
       {tags.map((t) => (
         <a
           key={t}
-          className={clsx(shared.chip, shared.chipLink)}
+          className={clsx(styles.chip, styles.chipLink)}
           href={tagHref(t)}
           target="_blank"
           rel="noopener noreferrer"
@@ -63,11 +85,11 @@ export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
           {t}
         </a>
       ))}
-      <span className={shared.chip}>{license}</span>
+      <span className={styles.chip}>{license}</span>
     </div>
 
-    <div className={shared.actions}>
-      <div className={shared.actionButtons}>
+    <div className={styles.actions}>
+      <div className={styles.actionButtons}>
         <NeoButton
           variant="primary"
           size="small"

@@ -19,20 +19,18 @@ import { quarkus1to2MigrationContent as content } from '@site/src/components/rec
 />
 
 <RecipeHeader
+  displayName="Quarkus 2.x migration from Quarkus 1.x"
+  description="Migrates Quarkus 1.x to 2.x."
   type="Composite recipe"
   languages={["Java", "Properties"]}
   tags={content.tags}
   license="Moderne Source Available License"
   fqName="org.openrewrite.quarkus.quarkus2.Quarkus1to2Migration"
+  artifact="org.openrewrite.recipe:rewrite-quarkus"
   appLink="https://app.moderne.io/recipes/org.openrewrite.quarkus.quarkus2.Quarkus1to2Migration"
   markdownUrl="https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/quarkus1to1_13migration.md"
->
-
-# Quarkus 2.x migration from Quarkus 1.x
-
-Migrates Quarkus 1.x to 2.x.
-
-</RecipeHeader>
+  moderneOnly
+/>
 
 ## Definition
 

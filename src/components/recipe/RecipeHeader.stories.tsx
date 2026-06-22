@@ -119,21 +119,21 @@ const PrototypeHeader: React.FunctionComponent = () => (
   </header>
 );
 
-/** Production header fed the same sample data (title + description supplied as the markdown slot). */
+/** Production header fed the same sample data. */
 const ProductionHeader: React.FunctionComponent<{ moderneOnly?: boolean }> = ({ moderneOnly }) => (
   <RecipeHeader
+    displayName={SAMPLE.displayName}
+    description={SAMPLE.description}
     type={SAMPLE.type}
     languages={SAMPLE.languages}
     tags={SAMPLE.tags}
     license={SAMPLE.license}
     fqName={SAMPLE.fqName}
+    artifact={SAMPLE.artifact}
     appLink={SAMPLE.appLink}
     markdownUrl={SAMPLE.markdownUrl}
     moderneOnly={moderneOnly}
-  >
-    <h1>{SAMPLE.displayName}</h1>
-    <p>{SAMPLE.description}</p>
-  </RecipeHeader>
+  />
 );
 
 const Panel: React.FunctionComponent<{ label: string; children: React.ReactNode }> = ({ label, children }) => (

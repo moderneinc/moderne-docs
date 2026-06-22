@@ -23,20 +23,18 @@ import { replaceDuplicateStringLiteralsContent as content } from '@site/src/comp
 />
 
 <RecipeHeader
+  displayName="Replace duplicate `String` literals"
+  description="Replaces `String` literals with a length of 5 or greater repeated a minimum of 3 times. Adds a new `private static final String` or uses an existing equivalent class field. Centralizing repeated string values into constants makes refactoring safer and reduces the risk of inconsistent updates."
   type="Single recipe"
   languages={["Java"]}
   tags={content.tags}
   license="Moderne Source Available License"
   fqName="org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals"
+  artifact="org.openrewrite.recipe:rewrite-static-analysis"
   appLink="https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals"
   markdownUrl="https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replaceduplicatestringliterals.md"
->
-
-# Replace duplicate `String` literals
-
-Replaces `String` literals with a length of 5 or greater repeated a minimum of 3 times. Adds a new `private static final String` or uses an existing equivalent class field. Centralizing repeated string values into constants makes refactoring safer and reduces the risk of inconsistent updates.
-
-</RecipeHeader>
+  moderneOnly
+/>
 
 ## Options
 
