@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { RecipeList } from './RecipeList';
 import { RecipeList as ProtoRecipeList } from './_prototype/RecipeList';
-import { Compare } from './_prototype/Compare';
+import { Compare, RecipeScope } from './_prototype/Compare';
 import { commonStaticAnalysisContent as content } from './_sampleData/commonStaticAnalysis.data';
 
 /** Length-adaptive sub-recipe list: inline when ≤15, bounded window + name search when longer. */
@@ -10,6 +10,7 @@ const meta: Meta<typeof RecipeList> = {
   title: 'Recipe/RecipeList',
   component: RecipeList,
   parameters: { layout: 'fullscreen' },
+  decorators: [RecipeScope],
 };
 export default meta;
 type Story = StoryObj<typeof RecipeList>;

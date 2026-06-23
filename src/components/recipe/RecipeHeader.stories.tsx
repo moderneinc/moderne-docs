@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import { RecipeScope } from "./_prototype/Compare";
 import clsx from 'clsx';
 import { ArrowRight, FileText, Clock } from 'lucide-react';
 import { NeoButton } from '@site/src/components/NeoButton';
@@ -149,6 +150,7 @@ const meta: Meta<typeof RecipeHeader> = {
   title: 'Recipe/RecipeHeader',
   component: RecipeHeader,
   parameters: { layout: 'fullscreen' },
+  decorators: [RecipeScope],
 };
 export default meta;
 

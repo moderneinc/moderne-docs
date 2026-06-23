@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { DataTableList } from './DataTableList';
 import { DataTableList as ProtoDataTableList } from './_prototype/DataTableList';
-import { Compare } from './_prototype/Compare';
+import { Compare, RecipeScope } from './_prototype/Compare';
 import { replaceDuplicateStringLiteralsContent as content } from './_sampleData/replaceDuplicateStringLiterals.data';
 
 /**
@@ -13,6 +13,7 @@ const meta: Meta<typeof DataTableList> = {
   title: 'Recipe/DataTableList',
   component: DataTableList,
   parameters: { layout: 'fullscreen' },
+  decorators: [RecipeScope],
 };
 export default meta;
 type Story = StoryObj<typeof DataTableList>;

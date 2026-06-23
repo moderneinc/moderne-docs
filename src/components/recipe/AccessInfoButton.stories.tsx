@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { AccessInfoButton } from './AccessInfoButton';
 import { AccessInfoButton as ProtoAccessInfoButton } from './_prototype/AccessInfoButton';
-import { Compare } from './_prototype/Compare';
+import { Compare, RecipeScope } from './_prototype/Compare';
 
 /**
  * Moderne-only info icon + hover/focus popover. Production is a verbatim port of the prototype.
@@ -12,6 +12,7 @@ const meta: Meta<typeof AccessInfoButton> = {
   title: 'Recipe/AccessInfoButton',
   component: AccessInfoButton,
   parameters: { layout: 'fullscreen' },
+  decorators: [RecipeScope],
 };
 export default meta;
 type Story = StoryObj<typeof AccessInfoButton>;

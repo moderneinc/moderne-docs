@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ExampleList } from './ExampleList';
 import { ExampleList as ProtoExampleList } from './_prototype/ExampleList';
-import { Compare } from './_prototype/Compare';
+import { Compare, RecipeScope } from './_prototype/Compare';
 import { quarkus1to2MigrationContent as content } from './_sampleData/quarkus1to2Migration.data';
 
 /**
@@ -13,6 +13,7 @@ const meta: Meta<typeof ExampleList> = {
   title: 'Recipe/ExampleList',
   component: ExampleList,
   parameters: { layout: 'fullscreen' },
+  decorators: [RecipeScope],
 };
 export default meta;
 type Story = StoryObj<typeof ExampleList>;

@@ -1,11 +1,6 @@
-/** Mock of @theme/TabItem for Storybook. */
+/** Mock of @theme/TabItem for Storybook. The parent Tabs mock renders the tablist + active panel. */
 import React, { type ReactNode } from 'react';
 
-export default function TabItem({ children, label }: { children?: ReactNode; label?: string }): React.ReactElement {
-  return (
-    <div data-tab-label={label}>
-      <div style={{ fontSize: 12, opacity: 0.6, marginBottom: 4 }}>{label}</div>
-      {children}
-    </div>
-  );
+export default function TabItem({ children }: { children?: ReactNode; label?: string; value?: string }): React.ReactElement {
+  return <div role="tabpanel">{children}</div>;
 }

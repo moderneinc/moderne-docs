@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Accordion } from './Accordion';
 import { Accordion as ProtoAccordion } from './_prototype/Accordion';
-import { Compare } from './_prototype/Compare';
+import { Compare, RecipeScope } from './_prototype/Compare';
 
 /**
  * Shared collapsible primitive. The core adaptation: the prototype renders its own section `<h2>`
@@ -13,6 +13,7 @@ const meta: Meta<typeof Accordion> = {
   title: 'Recipe/Accordion',
   component: Accordion,
   parameters: { layout: 'fullscreen' },
+  decorators: [RecipeScope],
 };
 export default meta;
 type Story = StoryObj<typeof Accordion>;

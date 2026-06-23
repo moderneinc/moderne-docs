@@ -1,5 +1,16 @@
 /** Story-only helper: render the PR #776 prototype version and the production version side by side. */
 import React, { type ReactNode } from 'react';
+import styles from '../styles.module.css';
+
+/**
+ * Storybook decorator: wrap every recipe story in the `.recipe` scope so the page-level Docusaurus
+ * customizations (Neo segmented `<Tabs>`, table-chrome resets) apply — matching the real docs site.
+ */
+export const RecipeScope = (Story: React.ComponentType) => (
+  <div className={styles.recipe}>
+    <Story />
+  </div>
+);
 
 const labelStyle: React.CSSProperties = {
   font: '600 12px/1.4 system-ui',
