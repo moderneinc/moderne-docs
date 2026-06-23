@@ -58,10 +58,7 @@ font-size: var(--neo-font-size-sm);
 html[data-theme='dark'] {
 .accessInfoPopover {
 background-color: var(--neo-icons-default);
-}
-
-.accessInfoPopover {
-border-color: var(--neo-grey-700);
+  border-color: var(--neo-grey-700);
 }
 
 .accessInfoText,

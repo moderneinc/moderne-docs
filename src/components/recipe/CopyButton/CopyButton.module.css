@@ -19,11 +19,6 @@ background-color: var(--neo-surfaces-card);
 }
 
 html[data-theme='dark'] {
-.copyId:hover {
-background-color: var(--neo-grey-800);
-    color: var(--neo-digital-green-300);
-}
-
 .copyId {
 color: var(--neo-grey-400);
 }

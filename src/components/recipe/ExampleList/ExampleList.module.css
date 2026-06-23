@@ -1,22 +1,28 @@
-/* ExampleList styles (light + dark). */
+/* ExampleList styles (light + dark). The param table uses shared `.table`; inline code (test id,
+   parameter values) uses shared `.inlineCode`. */
 
 .paramTable {
-width: 100%;
-  display: table;
-  border-collapse: collapse;
   margin-bottom: var(--neo-spacing_2);
 }
 
-.exampleLabel {
-text-transform: uppercase;
+/* Eyebrow labels: Unchanged / Before / After. */
+.exampleLabel,
+.beforeLabel,
+.afterLabel {
+  text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: var(--neo-font-size-xs);
   font-weight: var(--neo-font-weight-semi-bold);
   color: var(--neo-typography-body-secondary);
 }
 
+.beforeLabel,
+.afterLabel {
+  margin-bottom: var(--neo-spacing_1_2);
+}
+
 .exampleName {
-display: flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--neo-spacing_1);
@@ -26,53 +32,18 @@ display: flex;
   margin-bottom: var(--neo-spacing_1);
 }
 
-.exampleTest {
-font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
-  font-size: var(--neo-font-size-code);
-  background-color: var(--neo-surfaces-card-header);
-  color: var(--neo-typography-code-primary);
-  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
-  border: none;
-  border-radius: var(--neo-border-radius-x-s);
-}
-
-.beforeLabel,
-.afterLabel {
-text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: var(--neo-font-size-xs);
-  font-weight: var(--neo-font-weight-semi-bold);
-  margin-bottom: var(--neo-spacing_1_2);
-}
-
-.beforeLabel {
-color: var(--neo-typography-body-secondary);
-}
-
-.afterLabel {
-color: var(--neo-typography-body-secondary);
-}
-
 .unchangedBlock {
-margin-bottom: var(--neo-spacing_2);
+  margin-bottom: var(--neo-spacing_2);
 }
 
 html[data-theme='dark'] {
-.exampleTest {
-background-color: var(--neo-grey-900);
+  .exampleLabel,
+  .beforeLabel,
+  .afterLabel {
+    color: var(--neo-grey-400);
+  }
+
+  .exampleName {
     color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.beforeLabel,
-.afterLabel {
-color: var(--neo-grey-400);
-}
-
-.exampleName {
-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.exampleLabel {
-color: var(--neo-grey-400);
-}
+  }
 }

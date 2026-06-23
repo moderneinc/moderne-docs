@@ -19,13 +19,6 @@ padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
 border-top: 1px solid var(--neo-border-secondary);
 }
 
-.recipeListHeader {
-font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-medium);
-  color: var(--neo-typography-body-secondary);
-  margin-bottom: var(--neo-spacing_1);
-}
-
 .recipeListBounded {
 display: flex;
   flex-direction: column;
@@ -104,7 +97,6 @@ border-top-color: var(--neo-grey-800);
 color: var(--neo-surfaces-snackbar-dark-mode);
 }
 
-.recipeListHeader,
 .recipeListCount,
 .recipeListEmpty {
 color: var(--neo-grey-400);

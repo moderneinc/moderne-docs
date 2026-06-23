@@ -1,4 +1,5 @@
 import React, { type FunctionComponent, type ReactNode } from 'react';
+import clsx from 'clsx';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
@@ -22,11 +23,11 @@ const codeLang = (lang: string): string => {
 const ExampleBody: FunctionComponent<{ example: RecipeExample }> = ({ example: ex }) => (
   <>
     {ex.name && (
-      <div className={styles.exampleName}><code className={styles.exampleTest}>{ex.name}</code></div>
+      <div className={styles.exampleName}><code className={shared.inlineCode}>{ex.name}</code></div>
     )}
     {ex.parameters && ex.parameters.length > 0 && (
       <div className={shared.tableScroll}>
-        <table className={styles.paramTable}>
+        <table className={clsx(shared.table, styles.paramTable)}>
           <thead><tr><th className={shared.th}>Parameter</th><th className={shared.th}>Value</th></tr></thead>
           <tbody>
             {ex.parameters.map((p) => (
@@ -77,7 +78,7 @@ const ExampleBody: FunctionComponent<{ example: RecipeExample }> = ({ example: e
  * heading as children: it renders in the accordion's header row (with the Expand/Collapse-all toggle)
  * and still feeds the native TOC.
  */
-export const ExampleList: FunctionComponent<{ examples: RecipeExample[]; children?: ReactNode }> = ({ examples, children }) => {
+export const ExampleList: FunctionComponent<{ examples: RecipeExample[]; children: ReactNode }> = ({ examples, children }) => {
   const items: AccordionItem[] = examples.map((ex, i) => {
     const langs = ex.variants.map((v) => v.language).join(', ');
     return { key: ex.name ? `${ex.name}-${i}` : `example-${i}`, label: langs || `Example ${i + 1}`, content: <ExampleBody example={ex} /> };

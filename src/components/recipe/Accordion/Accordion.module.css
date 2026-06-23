@@ -3,15 +3,6 @@
 /* The section wrapper (col + gap) and heading row are the shared `.section` / `.sectionHeader`
    primitives in ../shared/styles.module.css — used here and by RecipeList / OptionsTable. */
 
-/* No-children path (heading is still a markdown sibling outside the component): the
-   negative top pulls the toggle up onto that heading row. The list gap is handled by
-   the shared `.section` wrapper. This hack disappears once a section adopts the children slot. */
-.accordionToolbar {
-display: flex;
-  justify-content: flex-end;
-  margin-top: calc(-1 * var(--neo-spacing_5));
-}
-
 .accordion {
 display: flex;
   flex-direction: column;

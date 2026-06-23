@@ -18,14 +18,14 @@ export interface AccordionItem {
  * tables. The first item opens by default; an Expand/Collapse-all toggle (shown
  * only when there's more than one) drives every row.
  *
- * Pass the section's markdown `##` heading as `children`: it renders in one row
+ * The section's markdown `##` heading is passed as `children`: it renders in one row
  * with the toggle, and (being a real markdown heading node) still feeds the native
- * Docusaurus TOC + anchor IDs. When no heading is passed, only the toggle renders.
+ * Docusaurus TOC + anchor IDs.
  *
  * Every <details> keeps its body in the DOM when collapsed, so crawlers and the
  * .md / llms.txt export read all of it.
  */
-export const Accordion: FunctionComponent<{ items: AccordionItem[]; children?: ReactNode }> = ({ items, children }) => {
+export const Accordion: FunctionComponent<{ items: AccordionItem[]; children: ReactNode }> = ({ items, children }) => {
   const [open, setOpen] = useState<boolean[]>(() => items.map((_, i) => i === 0));
   const allOpen = open.length > 0 && open.every(Boolean);
 
@@ -42,14 +42,10 @@ export const Accordion: FunctionComponent<{ items: AccordionItem[]; children?: R
 
   return (
     <div className={shared.section}>
-      {children ? (
-        <div className={shared.sectionHeader}>
-          {children}
-          {toggle}
-        </div>
-      ) : (
-        toggle && <div className={styles.accordionToolbar}>{toggle}</div>
-      )}
+      <div className={shared.sectionHeader}>
+        {children}
+        {toggle}
+      </div>
       <div className={styles.accordion}>
         {items.map((item, i) => (
           <details

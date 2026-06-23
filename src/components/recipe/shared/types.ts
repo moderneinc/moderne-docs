@@ -10,9 +10,6 @@ export interface UsageProps {
 }
 export interface RecipeOption { type: string; name: string; required: boolean; description: string; example?: string; }
 export interface RecipeDataTable { name: string; displayName: string; description: string; columns: DataTableColumn[]; }
-export interface RelatedRecipe { title: string; description: string; }
-export interface GlanceStat { label: string; value: string; }
-export interface SourceLink { label: string; href: string; }
 export interface ExtractedContent {
   tags: string[];
   infoAdmonition: string | null;
@@ -24,13 +21,4 @@ export interface ExtractedContent {
   examples: RecipeExample[];
   usage: UsageProps;
   dataTables: RecipeDataTable[];
-}
-export interface RecipePreviewData {
-  key: string; tabLabel: string; displayName: string; fqName: string; description: string; license: string;
-  type: 'Composite recipe' | 'Single recipe'; languages: string[]; tags: string[];
-  appliesToLanguages?: string[]; alsoAvailableIn?: { language: string; href: string }[];
-  sourceLinks: SourceLink[]; atAGlance: GlanceStat[]; infoAdmonition: string | null; preconditions: string[];
-  options: RecipeOption[]; subRecipes: SubRecipe[]; yaml?: string | null; usedBy: SubRecipe[];
-  examples: RecipeExample[]; usage: UsageProps; usageVariants?: { label: string; props: UsageProps }[];
-  dataTables: RecipeDataTable[]; appLink: string; relatedRecipes: RelatedRecipe[]; rawMarkdownUrl: string;
 }

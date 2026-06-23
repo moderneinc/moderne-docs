@@ -11,7 +11,7 @@ import shared from '../shared/styles.module.css';
  * description, columns. Pass the section's markdown `## Data tables` heading as children: it renders
  * in the accordion header row (with the toggle) and still feeds the native TOC.
  */
-export const DataTableList: FunctionComponent<{ tables: RecipeDataTable[]; children?: ReactNode }> = ({ tables, children }) => {
+export const DataTableList: FunctionComponent<{ tables: RecipeDataTable[]; children: ReactNode }> = ({ tables, children }) => {
   const items: AccordionItem[] = tables.map((dt) => ({
     key: dt.name,
     label: dt.displayName,

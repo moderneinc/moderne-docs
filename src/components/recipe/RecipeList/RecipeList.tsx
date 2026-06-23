@@ -23,7 +23,7 @@ const RecipeLink: FunctionComponent<{ recipe: SubRecipe }> = ({ recipe }) => (
  */
 const BOUNDED_THRESHOLD = 15;
 
-export const RecipeList: FunctionComponent<{ recipes: SubRecipe[]; children?: ReactNode }> = ({ recipes, children }) => {
+export const RecipeList: FunctionComponent<{ recipes: SubRecipe[]; children: ReactNode }> = ({ recipes, children }) => {
   const [query, setQuery] = useState('');
   const bounded = recipes.length > BOUNDED_THRESHOLD;
 
@@ -36,60 +36,48 @@ export const RecipeList: FunctionComponent<{ recipes: SubRecipe[]; children?: Re
 
   const count = `${recipes.length} recipes`;
 
+  // Short list → inline, with the count on the heading row.
   if (!bounded) {
-    const list = (
-      <ul className={styles.recipeList}>
-        {recipes.map((r) => (<RecipeLink key={r.href} recipe={r} />))}
-      </ul>
-    );
-    return children ? (
+    return (
       <div className={shared.section}>
         <div className={shared.sectionHeader}>
           {children}
           <span className={styles.recipeListCount}>{count}</span>
         </div>
-        {list}
+        <ul className={styles.recipeList}>
+          {recipes.map((r) => (<RecipeLink key={r.href} recipe={r} />))}
+        </ul>
       </div>
-    ) : (
-      <>
-        <div className={styles.recipeListHeader}>{count}</div>
-        {list}
-      </>
     );
   }
 
-  const boundedList = (
-    <div className={styles.recipeListBounded}>
-      <div className={styles.recipeListSearch}>
-        <Search size={15} className={styles.recipeListSearchIcon} />
-        <input
-          className={styles.recipeListInput}
-          type="text"
-          placeholder={`Search ${recipes.length} recipes…`}
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          aria-label="Search recipes in this list"
-        />
-        <span className={styles.recipeListCount}>
-          {query.trim() ? `${filtered.length} of ${recipes.length}` : count}
-        </span>
-      </div>
-      <ul className={styles.recipeListWindow} aria-label="Recipe list" tabIndex={0}>
-        {filtered.length ? (
-          filtered.map((r) => <RecipeLink key={r.href} recipe={r} />)
-        ) : (
-          <li className={styles.recipeListEmpty}>No recipes match “{query}”.</li>
-        )}
-      </ul>
-    </div>
-  );
-
-  return children ? (
+  // Long list → bounded window + name search (count lives in the search row).
+  return (
     <div className={shared.section}>
       <div className={shared.sectionHeader}>{children}</div>
-      {boundedList}
+      <div className={styles.recipeListBounded}>
+        <div className={styles.recipeListSearch}>
+          <Search size={15} className={styles.recipeListSearchIcon} />
+          <input
+            className={styles.recipeListInput}
+            type="text"
+            placeholder={`Search ${recipes.length} recipes…`}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            aria-label="Search recipes in this list"
+          />
+          <span className={styles.recipeListCount}>
+            {query.trim() ? `${filtered.length} of ${recipes.length}` : count}
+          </span>
+        </div>
+        <ul className={styles.recipeListWindow} aria-label="Recipe list" tabIndex={0}>
+          {filtered.length ? (
+            filtered.map((r) => <RecipeLink key={r.href} recipe={r} />)
+          ) : (
+            <li className={styles.recipeListEmpty}>No recipes match “{query}”.</li>
+          )}
+        </ul>
+      </div>
     </div>
-  ) : (
-    boundedList
   );
 };

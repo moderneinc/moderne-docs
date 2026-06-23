@@ -51,45 +51,10 @@ border: 1px solid var(--neo-border-card);
   overflow: hidden;
 }
 
-.optionsCard .th {
-padding-left: var(--neo-spacing_2);
-  padding-right: var(--neo-spacing_2);
-}
-
-.optionsCard .td {
-padding-left: var(--neo-spacing_2);
-  padding-right: var(--neo-spacing_2);
-}
-
-.optionsCard .th:nth-child(1),
-.optionsCard .td:nth-child(1) {
-white-space: nowrap;
-}
-
-.optionsCard .th:nth-child(3),
-.optionsCard .td:nth-child(3) {
-min-width: 200px;
-}
-
-.optionsCard .th:nth-child(4),
-.optionsCard .td:nth-child(4) {
-white-space: nowrap;
-}
-
-.optionsCard .th:nth-child(5),
-.optionsCard .td:nth-child(5) {
-white-space: nowrap;
-}
-
+/* `.optionName` / `.optionExample` compose shared `.inlineCode` (chrome + dark mode); these only
+   add the per-cell deltas. */
 .optionName {
-font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
-  font-size: var(--neo-font-size-code);
   font-weight: var(--neo-font-weight-semi-bold);
-  color: var(--neo-typography-code-primary);
-  background-color: var(--neo-surfaces-card-header);
-  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
-  border: none;
-  border-radius: var(--neo-border-radius-x-s);
 }
 
 .optionDesc {
@@ -98,14 +63,7 @@ font-size: var(--neo-font-size-sm);
 }
 
 .optionExample {
-display: inline-block;
-  background-color: var(--neo-surfaces-card-header);
-  color: var(--neo-typography-code-primary);
-  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
-  font-size: var(--neo-font-size-code);
-  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
-  border: none;
-  border-radius: var(--neo-border-radius-x-s);
+  display: inline-block;
   overflow-wrap: break-word;
 }
 
@@ -125,12 +83,6 @@ font-size: var(--neo-font-size-xs);
 }
 
 html[data-theme='dark'] {
-.optionName,
-.optionExample {
-background-color: var(--neo-grey-900);
-    color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
 .optionsSummaryDot_req {
 background-color: var(--neo-surfaces-snackbar-dark-mode);
 }

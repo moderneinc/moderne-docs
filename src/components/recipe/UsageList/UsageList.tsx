@@ -11,7 +11,7 @@ import type { UsageProps } from '../shared/types';
 export const UsageList: FunctionComponent<{
   usage: UsageProps;
   variants?: { label: string; props: UsageProps }[];
-  children?: ReactNode;
+  children: ReactNode;
 }> = ({ usage, variants, children }) => {
   const items: AccordionItem[] =
     variants && variants.length > 0

@@ -14,7 +14,7 @@ import shared from '../shared/styles.module.css';
  * with the metrics (parameter count + required/optional tally) on the right, and still feeds the
  * native TOC.
  */
-export const OptionsTable: FunctionComponent<{ options: RecipeOption[]; children?: ReactNode }> = ({ options, children }) => {
+export const OptionsTable: FunctionComponent<{ options: RecipeOption[]; children: ReactNode }> = ({ options, children }) => {
   const sorted = [...options].sort((a, b) => {
     if (a.required !== b.required) return a.required ? -1 : 1;
     return a.name.localeCompare(b.name);
@@ -59,12 +59,12 @@ export const OptionsTable: FunctionComponent<{ options: RecipeOption[]; children
         <tbody>
           {sorted.map((opt) => (
             <tr key={opt.name}>
-              <td className={shared.td}><code className={styles.optionName}>{opt.name}</code></td>
+              <td className={shared.td}><code className={clsx(shared.inlineCode, styles.optionName)}>{opt.name}</code></td>
               <td className={shared.td}><span className={shared.chip}>{opt.type}</span></td>
               <td className={shared.td}><span className={styles.optionDesc}>{renderWithCode(opt.description, shared.inlineCode)}</span></td>
               <td className={shared.td}>
                 {opt.example ? (
-                  <code className={styles.optionExample}>{opt.example}</code>
+                  <code className={clsx(shared.inlineCode, styles.optionExample)}>{opt.example}</code>
                 ) : (
                   <span className={styles.optionExampleNone}>—</span>
                 )}
