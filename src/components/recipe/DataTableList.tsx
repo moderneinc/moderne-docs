@@ -17,17 +17,19 @@ export const DataTableList: FunctionComponent<{ tables: RecipeDataTable[] }> = (
           <CopyButton value={dt.name} label="Copy data table identifier" />
         </div>
         <p className={styles.dataTableDesc}>{renderWithCode(dt.description, styles.inlineCode)}</p>
-        <table className={styles.table}>
-          <thead><tr><th className={styles.th}>Column</th><th className={styles.th}>Description</th></tr></thead>
-          <tbody>
-            {dt.columns.map((col) => (
-              <tr key={col.name}>
-                <td className={styles.td}>{col.name}</td>
-                <td className={styles.td}>{renderWithCode(col.description, styles.inlineCode)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className={styles.tableScroll}>
+          <table className={styles.table}>
+            <thead><tr><th className={styles.th}>Column</th><th className={styles.th}>Description</th></tr></thead>
+            <tbody>
+              {dt.columns.map((col) => (
+                <tr key={col.name}>
+                  <td className={styles.td}>{col.name}</td>
+                  <td className={styles.td}>{renderWithCode(col.description, styles.inlineCode)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     ),
   }));

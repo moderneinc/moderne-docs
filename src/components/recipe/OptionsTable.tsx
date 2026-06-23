@@ -38,6 +38,7 @@ export const OptionsTable: FunctionComponent<{ options: RecipeOption[] }> = ({ o
         </div>
       </div>
       <div className={styles.optionsCard}>
+      <div className={styles.tableScroll}>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -70,6 +71,7 @@ export const OptionsTable: FunctionComponent<{ options: RecipeOption[] }> = ({ o
           ))}
         </tbody>
       </table>
+      </div>
       </div>
     </>
   );

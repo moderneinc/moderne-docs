@@ -374,6 +374,13 @@
   border-collapse: collapse;
 }
 
+/* Horizontal-scroll wrapper so wide tables (long code in the Example column, long column names)
+   scroll within their container instead of pushing the page sideways. */
+.tableScroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 .paramTable {
   width: 100%;
   display: table;

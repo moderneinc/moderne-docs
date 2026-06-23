@@ -24,17 +24,19 @@ const ExampleBody: FunctionComponent<{ example: RecipeExample }> = ({ example: e
       <div className={styles.exampleName}><code className={styles.exampleTest}>{ex.name}</code></div>
     )}
     {ex.parameters && ex.parameters.length > 0 && (
-      <table className={styles.paramTable}>
-        <thead><tr><th className={styles.th}>Parameter</th><th className={styles.th}>Value</th></tr></thead>
-        <tbody>
-          {ex.parameters.map((p) => (
-            <tr key={p.parameter}>
-              <td className={styles.td}>{p.parameter}</td>
-              <td className={styles.td}><code className={styles.inlineCode}>{p.value}</code></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className={styles.tableScroll}>
+        <table className={styles.paramTable}>
+          <thead><tr><th className={styles.th}>Parameter</th><th className={styles.th}>Value</th></tr></thead>
+          <tbody>
+            {ex.parameters.map((p) => (
+              <tr key={p.parameter}>
+                <td className={styles.td}>{p.parameter}</td>
+                <td className={styles.td}><code className={styles.inlineCode}>{p.value}</code></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     )}
     {ex.unchanged && (
       <div className={styles.unchangedBlock}>
