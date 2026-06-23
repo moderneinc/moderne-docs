@@ -14,6 +14,10 @@ While we've done our best to provide you with [a wide variety of Python recipes]
 This guide focuses on authoring recipes in **Python**. If you would rather write recipes in another language, OpenRewrite has companion guides for [writing a Java refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe) and [writing a JavaScript refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-javascript-refactoring-recipe). The core concepts carry over closely, since Python recipes build on the same Java model those guides use.
 :::
 
+:::tip
+If you would rather start from working code, the [`python-recipe-starter` repository](https://github.com/moderneinc/python-recipe-starter) contains a complete, runnable version of the recipe you'll build below, along with a second worked example and the tests, packaging, and CI already set up. Clone it to follow along, or use it as a scaffold for your own recipe.
+:::
+
 ## Prerequisites
 
 This guide assumes that:
@@ -355,6 +359,7 @@ mod config recipes pip install rename-function-call
 
 Now that you've written your first Python recipe, you can go deeper:
 
+* Clone the [`python-recipe-starter` repository](https://github.com/moderneinc/python-recipe-starter) for a complete, runnable project: it includes the `RenameFunctionCall` recipe from this guide alongside a `RemoveRedundantPass` example that demonstrates deleting nodes - with tests, packaging, and CI already set up
 * Browse the [Python recipes in the Moderne recipe catalog](../recipe-catalog/python/README.md) for real-world examples to learn from and build on
 * Read OpenRewrite's [Java refactoring recipe guide](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe) and [JavaScript refactoring recipe guide](https://docs.openrewrite.org/authoring-recipes/writing-a-javascript-refactoring-recipe) for deeper coverage of visitors, preconditions, and templates that apply to the shared LST model
 * Explore the [`rewrite-python` source](https://github.com/openrewrite/rewrite/tree/main/rewrite-python) to see how the Python LST and its built-in recipes are implemented
