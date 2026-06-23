@@ -60,6 +60,7 @@ const platform = {
           keywords: ['guides'],
         },
         items: [
+          'user-documentation/moderne-platform/how-to-guides/vulnerability-remediation-playbook',
           'user-documentation/moderne-platform/how-to-guides/find-pii',
           'user-documentation/moderne-platform/how-to-guides/vulnerable-dependencies',
           'user-documentation/moderne-platform/how-to-guides/addressing-cves',
