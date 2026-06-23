@@ -51,7 +51,6 @@ This recipe is used as part of the following composite recipes:
 * [Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`](/user-documentation/recipes/recipe-catalog/java/migrate/removedsubjectmethods.md)
 * [Adopt `setLongThreadID` in `java.util.logging.LogRecord`](/user-documentation/recipes/recipe-catalog/java/migrate/deprecatedlogrecordthreadid.md)
 * [Adopt `setLongThreadID` in `java.util.logging.LogRecord`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/deprecatedlogrecordthreadid.md)
-* [Apply Axon Framework 5 messaging module renames](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5messaging.md)
 * [ArchUnit 0.x upgrade](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
 * [Change S3 methods to v2.](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/s3methodstov2.md)
 * [Change S3EventNotification methods to v2.](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/s3eventnotificationmethodstov2.md)

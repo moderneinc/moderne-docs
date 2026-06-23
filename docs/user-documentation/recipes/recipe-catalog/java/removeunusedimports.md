@@ -35,7 +35,6 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Apply Axon Framework 5 messaging module renames](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5messaging.md)
 * [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
 * [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 * [OpenRewrite recipe best practices](/user-documentation/recipes/recipe-catalog/recipes/rewrite/openrewriterecipebestpractices.md)

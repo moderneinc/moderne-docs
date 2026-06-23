@@ -3798,7 +3798,7 @@ _39 recipes_
 
 _License: Moderne Source Available License_
 
-_459 recipes_
+_463 recipes_
 
 * [com.google.guava.InlineGuavaMethods](/user-documentation/recipes/recipe-catalog/google/guava/inlineguavamethods.md)
   * **Inline `guava` methods annotated with `@InlineMe`**
@@ -3853,7 +3853,7 @@ _459 recipes_
   * Adds a maven jar plugin that's configured to suppress Illegal Reflection Warnings.
 * [org.openrewrite.java.migrate.AddSurefireFailsafeArgLine](/user-documentation/recipes/recipe-catalog/java/migrate/addsurefirefailsafeargline.md)
   * **Add `argLine` to surefire and failsafe plugins**
-  * Adds the specified arguments to the `argLine` configuration of the Maven Surefire and Failsafe plugins, merging with any existing argLine value without duplicating arguments.
+  * Adds the specified arguments to the `argLine` configuration of the Maven Surefire and Failsafe plugins, merging with any existing argLine value without duplicating arguments. The `@\{argLine\}` [late property reference](https://maven.apache.org/surefire/maven-surefire-plugin/faq.html) is prepended so that an agent injected by another plugin during the build, such as the JaCoCo coverage agent from `jacoco-maven-plugin:prepare-agent`, is preserved rather than overwritten. It is not added when the existing `argLine` already references the `argLine` property.
 * [org.openrewrite.java.migrate.ArrayStoreExceptionToTypeNotPresentException](/user-documentation/recipes/recipe-catalog/java/migrate/arraystoreexceptiontotypenotpresentexception.md)
   * **Catch `TypeNotPresentException` thrown by `Class.getAnnotation()`**
   * Replace catch blocks for `ArrayStoreException` around `Class.getAnnotation()` with `TypeNotPresentException` to ensure compatibility with Java 11+.
@@ -3881,6 +3881,12 @@ _459 recipes_
 * [org.openrewrite.java.migrate.ComIntelliJAnnotationsToOrgJetbrainsAnnotations](/user-documentation/recipes/recipe-catalog/java/migrate/comintellijannotationstoorgjetbrainsannotations.md)
   * **Migrate com.intellij:annotations to org.jetbrains:annotations**
   * This recipe will upgrade old dependency of com.intellij:annotations to the newer org.jetbrains:annotations.
+* [org.openrewrite.java.migrate.CommentJava24KotlinCap](/user-documentation/recipes/recipe-catalog/java/migrate/commentjava24kotlincap.md)
+  * **Explain why the Java version was capped at 24 for Kotlin modules**
+  * Adds an explanatory comment to Maven `pom.xml` files in modules that were held at Java 24 because they compile Kotlin and depend on `kotlin-stdlib` older than 2.3, which cannot target Java 25 bytecode. The comment names the `kotlin-stdlib` version found and the next step needed to reach Java 25. Self-healing: the comment is added while the module is at Java 24 and removed again once the module reaches a higher Java version (for instance after its Kotlin was upgraded to 2.3), so it only ever remains on modules that truly stay at Java 24 — whether a Kotlin 1.x cap or a 2.0-2.2 module whose Kotlin upgrade could not be applied. Intended to run last, scoped to modules that compile Kotlin.
+* [org.openrewrite.java.migrate.CommentKotlinModulesCappedAtJava24](/user-documentation/recipes/recipe-catalog/java/migrate/commentkotlinmodulescappedatjava24.md)
+  * **Comment Kotlin modules capped at Java 24**
+  * Adds an explanatory comment to Kotlin modules that remain at Java 24 after the Java 25 migration, because Kotlin before 2.3 cannot target Java 25 bytecode. This covers both a Kotlin 1.x cap (which cannot be upgraded automatically) and a Kotlin 2.0-2.2 module whose upgrade to 2.3 could not be applied. Scoped to modules that actually compile Kotlin (i.e. contain `.kt` source files); the comment is self-healing, so a module that does reach Java 25 has it removed.
 * [org.openrewrite.java.migrate.DeleteDeprecatedFinalize](/user-documentation/recipes/recipe-catalog/java/migrate/deletedeprecatedfinalize.md)
   * **Avoid using the deprecated empty `finalize()` method in `java.desktop`**
   * The java.desktop module had a few implementations of finalize() that did nothing and have been removed. This recipe will remove these methods.
@@ -4043,9 +4049,9 @@ _459 recipes_
 * [org.openrewrite.java.migrate.UpgradeBuildToJava21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava21.md)
   * **Upgrade build to Java 21**
   * Updates build files to use Java 21 as the target/source.
-* [org.openrewrite.java.migrate.UpgradeBuildToJava24](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava24.md)
-  * **Upgrade build to Java 24 for Kotlin pre-2.3**
-  * Kotlin versions before 2.3 only support up to Java 24. Applies only to modules that actually compile Kotlin (i.e. contain `.kt` source files), so transitive `kotlin-stdlib` dependencies do not trigger the cap.
+* [org.openrewrite.java.migrate.UpgradeBuildToJava24ForKotlin1x](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava24forkotlin1x.md)
+  * **Upgrade build to Java 24 for Kotlin 1.x**
+  * Kotlin versions before 2.3 only support up to Java 24, and Kotlin 1.x cannot be safely upgraded automatically because crossing the K2 compiler default introduced in Kotlin 2.0 is a source-breaking change. Such modules are therefore capped at Java 24 and annotated with an explanation. Modules already on Kotlin 2.0-2.2 are instead bumped to Kotlin 2.3 by `UpgradeKotlinForJava25` so they can reach Java 25. Applies only to modules that actually compile Kotlin (i.e. contain `.kt` source files), so transitive `kotlin-stdlib` dependencies do not trigger the cap.
 * [org.openrewrite.java.migrate.UpgradeBuildToJava25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava25.md)
   * **Upgrade build to Java 25 (non-Kotlin)**
   * Upgrades build files to Java 25 for modules without Kotlin source files. This covers pure Java projects, including those that only pick up `kotlin-stdlib` transitively through another dependency.
@@ -4058,6 +4064,9 @@ _459 recipes_
 * [org.openrewrite.java.migrate.UpgradeJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion.md)
   * **Upgrade Java version**
   * Upgrade build plugin configuration to use the specified Java version. This recipe changes `java.toolchain.languageVersion` in `build.gradle(.kts)` of gradle projects, or maven-compiler-plugin target version and related settings. Will not downgrade if the version is newer than the specified version.
+* [org.openrewrite.java.migrate.UpgradeKotlinForJava25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradekotlinforjava25.md)
+  * **Upgrade Kotlin to 2.3 for Java 25 compatibility**
+  * Only Kotlin 2.3 and later can target Java 25 bytecode, so modules on an older Kotlin are otherwise capped at Java 24. This recipe upgrades modules that compile Kotlin (i.e. contain `.kt` source files) and are already on Kotlin 2.0, 2.1, or 2.2 up to the latest Kotlin 2.3, so they can subsequently be migrated to Java 25. Modules on Kotlin 1.x are left untouched, as crossing the K2 compiler default introduced in Kotlin 2.0 is a source-breaking change that should not be applied automatically. As a safety net the module is also floored at Java 24: if the Kotlin upgrade cannot be applied (for instance because the version is managed externally by a parent or BOM), the module still lands on Java 24 rather than being left behind, and is raised the rest of the way to Java 25 only once it actually reaches Kotlin 2.3.
 * [org.openrewrite.java.migrate.UpgradeKotlinJvmTargetVersion](/user-documentation/recipes/recipe-catalog/java/migrate/upgradekotlinjvmtargetversion.md)
   * **Upgrade Kotlin `jvmTarget` to match the Java version**
   * Align the Kotlin `jvmTarget` with the project's Java version so the Kotlin compiler emits bytecode at the same level as `javac`. Covers `kotlin-maven-plugin` `&lt;jvmTarget&gt;` configuration and the Gradle `kotlinOptions \{ jvmTarget = ... \}` / `compilerOptions \{ jvmTarget = ... \}` blocks (Groovy and Kotlin DSL). Will not downgrade if the existing Kotlin target is higher than the requested version.
@@ -4835,6 +4844,9 @@ _459 recipes_
 * [org.openrewrite.java.migrate.lang.ExplicitRecordImport](/user-documentation/recipes/recipe-catalog/java/migrate/lang/explicitrecordimport.md)
   * **Add explicit import for `Record` classes**
   * Add explicit import for `Record` classes when upgrading past Java 14+, to avoid conflicts with `java.lang.Record`.
+* [org.openrewrite.java.migrate.lang.ExtractExplicitConstructorInvocationArguments](/user-documentation/recipes/recipe-catalog/java/migrate/lang/extractexplicitconstructorinvocationarguments.md)
+  * **Extract complex `super(..)` and `this(..)` arguments into local variables**
+  * [JEP 513](https://openjdk.org/jeps/513) allows statements before an explicit `super(..)` or `this(..)` constructor invocation. When such a call computes one of its arguments through a method invocation or object creation, this recipe extracts the non-trivial arguments into local variables declared right before the call, surfacing the work done before construction.  This is a strictly behavior-preserving transformation: argument expressions are already evaluated before the delegate constructor body runs, and such an argument can never reference the instance under construction, so hoisting them into preceding statements changes neither the order of side effects nor the set of legal references. Arguments are extracted in their original left-to-right order, and trivial arguments (literals and local variable references, which have no side effects) are left in place. Statements that follow the constructor invocation are deliberately *not* moved, as reordering them relative to the delegate constructor's side effects could change behavior.
 * [org.openrewrite.java.migrate.lang.FindNonVirtualExecutors](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findnonvirtualexecutors.md)
   * **Find non-virtual `ExecutorService` creation**
   * Find all places where static `java.util.concurrent.Executors` method creates a non-virtual `java.util.concurrent.ExecutorService`. This recipe can be used to search fro `ExecutorService` that can be replaced by Virtual Thread executor.
@@ -8778,7 +8790,7 @@ _135 recipes_
 
 _License: Moderne Source Available License_
 
-_258 recipes_
+_273 recipes_
 
 * [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
   * **ArchUnit 0.x upgrade**
@@ -8930,6 +8942,9 @@ _258 recipes_
 * [org.openrewrite.java.testing.assertj.CollapseConsecutiveAssertThatStatements](/user-documentation/recipes/recipe-catalog/java/testing/assertj/collapseconsecutiveassertthatstatements.md)
   * **Collapse consecutive `assertThat` statements**
   * Collapse consecutive `assertThat` statements into single `assertThat` chained statement. This recipe ignores `assertThat` statements that have method invocation as parameter.
+* [org.openrewrite.java.testing.assertj.DecomposeConjunctionAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/decomposeconjunctionassertion.md)
+  * **Decompose `assertThat` on conjunctions into separate assertions**
+  * Split `assertThat(a &amp;&amp; b).isTrue()` into separate `assertThat(a).isTrue()` and `assertThat(b).isTrue()` statements, so each condition is asserted (and reported) on its own. This lets the dedicated assertion recipes simplify each conjunct, and `CollapseConsecutiveAssertThatStatements` fuse them back into a single chain when the actual is a plain expression. Only the direct `assertThat(...).isTrue()` form is decomposed; `isFalse()` is left alone, as negating a conjunction is not equivalent to negating each conjunct.
 * [org.openrewrite.java.testing.assertj.FestToAssertj](/user-documentation/recipes/recipe-catalog/java/testing/assertj/festtoassertj.md)
   * **Migrate Fest 2.x to AssertJ**
   * AssertJ provides a rich set of assertions, truly helpful error messages, improves test code readability. Converts Fest 2.x imports to AssertJ imports.
@@ -8984,12 +8999,21 @@ _258 recipes_
 * [org.openrewrite.java.testing.assertj.ReturnActual](/user-documentation/recipes/recipe-catalog/java/testing/assertj/returnactual.md)
   * **Collapse `assertThat` followed by `return` into single statement**
   * Collapse an `assertThat` statement followed by a `return` of the same object into a single `return assertThat(...).assertions().actual()` statement.
+* [org.openrewrite.java.testing.assertj.SimplifyArrayLengthAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyarraylengthassertion.md)
+  * **Simplify AssertJ assertions on an array's `length`**
+  * Replace `assertThat(array.length)` size assertions with the dedicated array assertions, such as `assertThat(array).hasSize(n)`, `assertThat(array).isEmpty()` and `assertThat(array).hasSameSizeAs(other)`. Works for both object and primitive arrays.
 * [org.openrewrite.java.testing.assertj.SimplifyAssertJAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertion.md)
   * **Simplify AssertJ assertions with literal arguments**
   * Simplify AssertJ assertions by replacing them with more expressive dedicated assertions.
 * [org.openrewrite.java.testing.assertj.SimplifyAssertJAssertions](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertions.md)
   * **Shorten AssertJ assertions**
   * Replace AssertJ assertions where a dedicated assertion is available for the same actual value.
+* [org.openrewrite.java.testing.assertj.SimplifyAssertJInstanceOfAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjinstanceofassertion.md)
+  * **Simplify AssertJ assertions on `instanceof` expressions**
+  * Replace `assertThat(x instanceof Type).isTrue()` with the dedicated `assertThat(x).isInstanceOf(Type.class)`, and the negated and `isFalse()` variants with `isNotInstanceOf`, so failures describe the actual type rather than just `expected true but was false`.
+* [org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjnullrelatedassertion.md)
+  * **Simplify AssertJ assertions on `null` reference comparisons**
+  * Replace `assertThat(x == null).isTrue()` and its variants with the dedicated `assertThat(x).isNull()` / `assertThat(x).isNotNull()`. Beyond being more expressive, this avoids the compilation error that results when the `null` literal ends up as the `assertThat` argument (e.g. `assertThat(null == x).isTrue()` becoming `assertThat(null).isSameAs(x)`).
 * [org.openrewrite.java.testing.assertj.SimplifyChainedAssertJAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifychainedassertjassertion.md)
   * **Simplify AssertJ chained assertions**
   * Many AssertJ chained assertions have dedicated assertions that function the same. It is best to use the dedicated assertions.
@@ -8999,6 +9023,9 @@ _258 recipes_
 * [org.openrewrite.java.testing.assertj.SimplifyHasSizeAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyhassizeassertion.md)
   * **Simplify AssertJ assertions with `hasSize` argument**
   * Simplify AssertJ assertions by replacing `hasSize` with `hasSameSizeAs` dedicated assertions.
+* [org.openrewrite.java.testing.assertj.SimplifyHasSizeFromIsEqualToAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyhassizefromisequaltoassertion.md)
+  * **Simplify literal-first AssertJ size assertions to `hasSize`**
+  * Replace `assertThat(&lt;int literal&gt;).isEqualTo(collection.size())` style assertions with the dedicated `assertThat(collection).hasSize(&lt;int literal&gt;)`. Only the structural size form is rewritten, where the comparison is on a primitive `int` and reversing the assertion is behavior-preserving (unlike arbitrary `isEqualTo` object comparisons, which rely on `equals`).
 * [org.openrewrite.java.testing.assertj.SimplifyRedundantAssertJChains](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyredundantassertjchains.md)
   * **Simplify redundant AssertJ assertion chains**
   * Removes redundant AssertJ assertions when chained methods already provide the same or stronger guarantees.
@@ -9239,6 +9266,9 @@ _258 recipes_
 * [org.openrewrite.java.testing.junit5.IgnoreToDisabled](/user-documentation/recipes/recipe-catalog/java/testing/junit5/ignoretodisabled.md)
   * **Use JUnit Jupiter `@Disabled`**
   * Migrates JUnit 4.x `@Ignore` to JUnit Jupiter `@Disabled`.
+* [org.openrewrite.java.testing.junit5.ImplausibleTimeoutToMinutes](/user-documentation/recipes/recipe-catalog/java/testing/junit5/implausibletimeouttominutes.md)
+  * **Make implausibly long `@Timeout` values explicit in minutes**
+  * JUnit Jupiter's `@Timeout` defaults to `TimeUnit.SECONDS`, so a value such as `@Timeout(10000)` is interpreted as almost three hours, which is most likely a mistake where milliseconds were intended. This recipe rewrites such implausibly large second-based timeouts to the equivalent number of minutes, for instance `@Timeout(value = 167, unit = TimeUnit.MINUTES)`, preserving the original (likely erroneous) semantics while making the mistake far more visible for review.
 * [org.openrewrite.java.testing.junit5.JUnit4to5Migration](/user-documentation/recipes/recipe-catalog/java/testing/junit5/junit4to5migration.md)
   * **JUnit Jupiter migration from JUnit 4.x**
   * Migrates JUnit 4.x tests to JUnit Jupiter.
@@ -9425,9 +9455,18 @@ _258 recipes_
 * [org.openrewrite.java.testing.mockito.PowerMockRunnerDelegateToRunWith](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockrunnerdelegatetorunwith.md)
   * **Replace PowerMock runner with JUnit `@RunWith`**
   * Replaces `@RunWith(PowerMockRunner.class)`. If `@PowerMockRunnerDelegate(X.class)` is present, promotes the delegate runner to `@RunWith(X.class)`. Otherwise, replaces it with `@RunWith(MockitoJUnitRunner.class)` when the class uses Mockito annotations like `@Mock`, or removes the `@RunWith(PowerMockRunner.class)` annotation entirely.
+* [org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetFieldToJavaReflection](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxgetfieldtojavareflection.md)
+  * **Replace PowerMock `Whitebox.getField()` with Java reflection**
+  * Replace `Whitebox.getField(Class, String)` with `Class.getDeclaredField(String)` plus `setAccessible(true)`. Unlike PowerMock, `getDeclaredField` does not traverse the class hierarchy for fields inherited from a superclass.
 * [org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetInternalStateToJavaReflection](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxgetinternalstatetojavareflection.md)
   * **Replace PowerMock `Whitebox.getInternalState()` with Java reflection**
   * Replace `Whitebox.getInternalState(Object, String)` with `java.lang.reflect.Field` access, casting to the declared result type where needed. The field lookup uses `getDeclaredField` on the target object's class, which differs from PowerMock's class-hierarchy traversal for fields inherited from a superclass.
+* [org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetMethodToJavaReflection](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxgetmethodtojavareflection.md)
+  * **Replace PowerMock `Whitebox.getMethod()` with Java reflection**
+  * Replace `Whitebox.getMethod(Class, String, Class...)` with `Class.getDeclaredMethod(String, Class...)` plus `setAccessible(true)`. Unlike PowerMock, `getDeclaredMethod` does not traverse the class hierarchy; calls passing an explicit `Class[]` array are left unchanged for manual migration.
+* [org.openrewrite.java.testing.mockito.PowerMockWhiteboxInvokeConstructorToJavaReflection](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxinvokeconstructortojavareflection.md)
+  * **Replace PowerMock `Whitebox.invokeConstructor()` with Java reflection**
+  * Replace `Whitebox.invokeConstructor(..)` with `java.lang.reflect.Constructor` lookup and `newInstance()` on the named class. Constructor parameter types are taken from the unambiguously resolved constructor, falling back to each argument's compile-time class; arrays passed to the `Object...` varargs overload are left unchanged for manual migration.
 * [org.openrewrite.java.testing.mockito.PowerMockWhiteboxInvokeMethodToJavaReflection](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxinvokemethodtojavareflection.md)
   * **Replace PowerMock `Whitebox.invokeMethod()` with Java reflection**
   * Replace `Whitebox.invokeMethod(Object, String, ..)` with `java.lang.reflect.Method` lookup and `invoke()`. Parameter types are taken from the unambiguously resolved target method, falling back to each argument's compile-time class.
@@ -9436,7 +9475,7 @@ _258 recipes_
   * Replace `Whitebox.setInternalState(Object, String, Object)` and `Whitebox.setInternalState(Object, String, Object, Class)` with `java.lang.reflect.Field` access. The 3-arg overload looks up the field on the target's class; the 4-arg where-overload uses the supplied Class to resolve fields declared on a superclass.
 * [org.openrewrite.java.testing.mockito.PowerMockWhiteboxToJavaReflection](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxtojavareflection.md)
   * **Replace PowerMock `Whitebox` with Java reflection**
-  * Replace `org.powermock.reflect.Whitebox` calls (`setInternalState`, `getInternalState`, `invokeMethod`) with plain Java reflection using `java.lang.reflect.Field` and `java.lang.reflect.Method`.
+  * Replace `org.powermock.reflect.Whitebox` calls (`setInternalState`, `getInternalState`, `invokeMethod`, `getField`, `getMethod`, `invokeConstructor`) with plain Java reflection using `java.lang.reflect.Field`, `java.lang.reflect.Method`, and `java.lang.reflect.Constructor`.
 * [org.openrewrite.java.testing.mockito.PowerMockitoDoStubbingToMockito](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockitodostubbingtomockito.md)
   * **Replace PowerMockito `doX().when(instance, &quot;method&quot;)` with Mockito-compatible stubbing**
   * Replaces PowerMockito's private method stubbing pattern `doNothing().when(instance, &quot;methodName&quot;, args...)` with the standard Mockito pattern `doNothing().when(instance).methodName(args...)`.
@@ -9527,12 +9566,30 @@ _258 recipes_
 * [org.openrewrite.java.testing.testcontainers.Testcontainers2Migration](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2migration.md)
   * **Migrate to testcontainers-java 2.x**
   * Change dependencies and types to migrate to testcontainers-java 2.x.
+* [org.openrewrite.java.testing.testng.TestNgAssertEqualsDeepToAssertThat](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertequalsdeeptoassertthat.md)
+  * **TestNG `assertEqualsDeep`/`assertNotEqualsDeep` to AssertJ**
+  * Convert TestNG-style `assertEqualsDeep()` and `assertNotEqualsDeep()` to AssertJ's `assertThat().usingRecursiveComparison().isEqualTo()` / `.isNotEqualTo()`, which performs a deep, recursive comparison of the `Map`/`Set` contents.
+* [org.openrewrite.java.testing.testng.TestNgAssertEqualsNoOrderToAssertThat](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertequalsnoordertoassertthat.md)
+  * **TestNG `assertEqualsNoOrder` to AssertJ**
+  * Convert TestNG-style `assertEqualsNoOrder()` to AssertJ's `assertThat().containsExactlyInAnyOrder()` (arrays) or `assertThat().containsExactlyInAnyOrderElementsOf()` (collections).
 * [org.openrewrite.java.testing.testng.TestNgAssertEqualsToAssertThat](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertequalstoassertthat.md)
   * **TestNG `assertEquals` to AssertJ**
-  * Convert TestNG-style `assertEquals()` to AssertJ's `assertThat().isEqualTo()`.
+  * Convert TestNG-style `assertEquals()` to AssertJ's `assertThat().isEqualTo()`, using element-wise assertions (`containsExactly`/`containsExactlyElementsOf`) for arrays and collections.
+* [org.openrewrite.java.testing.testng.TestNgAssertListToAssertThat](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertlisttoassertthat.md)
+  * **TestNG `assertList*` to AssertJ**
+  * Convert TestNG-style `assertListContainsObject`/`assertListNotContainsObject` to AssertJ's `assertThat().contains()`/`.doesNotContain()`, and `assertListContains`/`assertListNotContains` (predicate-based) to `.anyMatch()`/`.noneMatch()`.
 * [org.openrewrite.java.testing.testng.TestNgAssertNotEqualsToAssertThat](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertnotequalstoassertthat.md)
   * **TestNG `assertNotEquals` to AssertJ**
   * Convert TestNG-style `assertNotEquals()` to AssertJ's `assertThat().isNotEqualTo()`.
+* [org.openrewrite.java.testing.testng.TestNgAssertNotSameToAssertThat](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertnotsametoassertthat.md)
+  * **TestNG `assertNotSame` to AssertJ**
+  * Convert TestNG-style `assertNotSame()` to AssertJ's `assertThat().isNotSameAs()`.
+* [org.openrewrite.java.testing.testng.TestNgAssertSameToAssertThat](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertsametoassertthat.md)
+  * **TestNG `assertSame` to AssertJ**
+  * Convert TestNG-style `assertSame()` to AssertJ's `assertThat().isSameAs()`.
+* [org.openrewrite.java.testing.testng.TestNgAssertThrowsToAssertThat](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertthrowstoassertthat.md)
+  * **TestNG `assertThrows`/`expectThrows` to AssertJ**
+  * Convert TestNG-style `assertThrows()` and `expectThrows()` to AssertJ's `assertThatExceptionOfType().isThrownBy()` (or `assertThatThrownBy()` when no exception type is given) to allow for chained assertions on the thrown exception.
 * [org.openrewrite.java.testing.testng.TestNgToAssertj](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngtoassertj.md)
   * **Migrate TestNG assertions to AssertJ**
   * Convert assertions from `org.testng.Assert` to `org.assertj.core.api.Assertions`.
@@ -9559,7 +9616,7 @@ _258 recipes_
 
 _License: Apache License Version 2.0_
 
-_1639 recipes_
+_1588 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -9957,30 +10014,6 @@ _1639 recipes_
 * [com.oracle.weblogic.rewrite.spring.framework.UpgradeToSpringFramework_6_2](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
   * **Migrate to Spring Framework 6.2 for WebLogic 15.1.1**
   * Migrate applications to the Spring Framework 6.2 release and compatibility with WebLogic 15.1.1.
-* [io.axoniq.framework.migration.Axon4ToAxoniq5AxonServerConnector](/user-documentation/recipes/recipe-catalog/axoniq/framework/migration/axon4toaxoniq5axonserverconnector.md)
-  * **Migrate the Axon Server connector to Axoniq Framework 5**
-  * Relocates the Axon Server connector from `org.axonframework.axonserver.connector` to `io.axoniq.framework.axonserver.connector`. The connector now lives in the Axoniq commercial offering (`io.axoniq.framework:axon-server-connector`). Class names are mostly preserved.
-* [io.axoniq.framework.migration.Axon4ToAxoniq5Bom](/user-documentation/recipes/recipe-catalog/axoniq/framework/migration/axon4toaxoniq5bom.md)
-  * **Swap the BOM to Axoniq Framework 5 commercial**
-  * Replaces the imported `org.axonframework:axon-bom` (AF4) or `org.axonframework:axon-framework-bom` (free AF5) in `&lt;dependencyManagement&gt;` with the Axoniq Framework 5 commercial BOM `io.axoniq.framework:axoniq-framework-bom`.
-* [io.axoniq.framework.migration.Axon4ToAxoniq5DeadLetter](/user-documentation/recipes/recipe-catalog/axoniq/framework/migration/axon4toaxoniq5deadletter.md)
-  * **Migrate the Sequenced Dead-Letter Queue to Axoniq Framework 5**
-  * Relocates the Sequenced Dead-Letter Queue (DLQ) types from the open-source `axon-messaging` module to the Axoniq commercial `axoniq-dead-letter` module (`io.axoniq.framework:axoniq-dead-letter`). Class names — including `SequencedDeadLetterQueue`, `JpaSequencedDeadLetterQueue`, `JdbcSequencedDeadLetterQueue`, `DeadLetteredEventProcessingTask`, `EnqueuePolicy`, `Decisions`, `ThrowableCause` — are preserved.
-* [io.axoniq.framework.migration.Axon4ToAxoniq5DistributedMessaging](/user-documentation/recipes/recipe-catalog/axoniq/framework/migration/axon4toaxoniq5distributedmessaging.md)
-  * **Migrate distributed messaging components to Axoniq Framework 5**
-  * Relocates the distributed command-bus components (DistributedCommandBus, CommandBusConnector) from the AF4 open-source `axon-messaging` module into the Axoniq commercial `axoniq-distributed-messaging` module (`io.axoniq.framework.messaging.commandhandling.distributed`). Each AF4 fully-qualified name is mapped directly to its final Axoniq location, so this recipe is order-independent relative to the open-source messaging package rename.
-* [io.axoniq.framework.migration.Axon4ToAxoniq5EventStreaming](/user-documentation/recipes/recipe-catalog/axoniq/framework/migration/axon4toaxoniq5eventstreaming.md)
-  * **Migrate to Axoniq event streaming (placeholder)**
-  * Placeholder. The Axoniq event streaming module (`io.axoniq.framework:axoniq-event-streaming`) consolidates multi-stream event consumption that lived in `MultiStreamableMessageSource` (available since Axon Framework 4.2) into a dedicated module in Axoniq Framework 5. AF4 applications using `MultiStreamableMessageSource` should migrate to `axoniq-event-streaming` once they adopt Axoniq Framework 5; this recipe will gain class-level mappings as that migration becomes deterministic.
-* [io.axoniq.framework.migration.Axon4ToAxoniq5SpringBoot](/user-documentation/recipes/recipe-catalog/axoniq/framework/migration/axon4toaxoniq5springboot.md)
-  * **Swap the Spring Boot starter to Axoniq Framework 5 commercial**
-  * Swaps the Spring Boot starter dependency to the Axoniq commercial variant (`io.axoniq.framework:axoniq-spring-boot-starter`). Accepts both the AF4 raw coordinate (`org.axonframework:axon-spring-boot-starter`) and the post-`Axon4ToAxon5SpringBootExtension` coordinate (`org.axonframework.extensions.spring:axon-spring-boot-starter`). Class-level mappings for the Axoniq autoconfig package `io.axoniq.framework.springboot.*` are not yet implemented.
-* [io.axoniq.framework.migration.Axon4ToAxoniq5Testcontainer](/user-documentation/recipes/recipe-catalog/axoniq/framework/migration/axon4toaxoniq5testcontainer.md)
-  * **Migrate the Axon Server Testcontainer to Axoniq Framework 5**
-  * Relocates the Axon Server Testcontainer types from the AF4 `axon-test` package `org.axonframework.test.server` to the dedicated Axoniq commercial artifact `io.axoniq.framework:axoniq-testcontainer` under `io.axoniq.framework.testcontainer`. The Enterprise (`AxonServerEEContainer`) and Standard (`AxonServerSEContainer`) edition variants both collapse into the unified `AxonServerContainer` in Axoniq 5.
-* [io.axoniq.framework.migration.UpgradeAxon4ToAxoniq5](/user-documentation/recipes/recipe-catalog/axoniq/framework/migration/upgradeaxon4toaxoniq5.md)
-  * **Upgrade to Axoniq Framework 5 (commercial)**
-  * Migrates an Axon Framework 4.x application to Axoniq Framework 5 (commercial). Composes `UpgradeAxon4ToAxon5` (the free leg) and then layers commercial-only migrations: BOM swap to `io.axoniq.framework:axoniq-framework-bom`, Spring Boot starter swap to `io.axoniq.framework:axoniq-spring-boot-starter`, source rewrites and Maven adds for Axon Server connector, sequenced dead-letter queue, and distributed messaging.
 * [io.quarkus.updates.camel.camel40.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel40/camelquarkusmigrationrecipe.md)
   * **Migrate `camel3` application to `camel4.`**
   * Migrate `camel3` quarkus application to `camel4` quarkus.
@@ -10797,141 +10830,12 @@ _1639 recipes_
 * [org.apache.wicket.MigrateToWicket10](/user-documentation/recipes/recipe-catalog/apache/wicket/migratetowicket10.md)
   * **Migrate to Wicket 10.x**
   * Migrates Wicket 9.x to Wicket 10.x, as well as Java 17 and Jakarta.
-* [org.axonframework.migration.AddAxonTestFixtureTearDown](/user-documentation/recipes/recipe-catalog/axonframework/migration/addaxontestfixtureteardown.md)
-  * **Add @AfterEach tearDown() that stops the AxonTestFixture**
-  * Adds an `@AfterEach tearDown()` method calling `stop()` on the `AxonTestFixture` field, when the test class has such a field but no existing `@AfterEach` method (and no method named `tearDown`). Pairs with `MigrateAggregateTestFixtureSetup` which produces the field; the tear-down step was previously left for manual migration. Java sources only.
-* [org.axonframework.migration.AddCommandAnnotation](/user-documentation/recipes/recipe-catalog/axonframework/migration/addcommandannotation.md)
-  * **Add @Command to command payload classes**
-  * Scans @CommandHandler methods and annotates their command parameter types with @Command. Also migrates @RoutingKey on a field to @Command(routingKey = &quot;fieldName&quot;) on the class, removing the @RoutingKey field annotation.
-* [org.axonframework.migration.AddEntityCreatorAnnotation](/user-documentation/recipes/recipe-catalog/axonframework/migration/addentitycreatorannotation.md)
-  * **Add @EntityCreator to no-arg constructors of event-sourced entities**
-  * Annotates existing no-arg constructors with `@EntityCreator` for any class annotated with `@EventSourcedEntity` or the Spring `@EventSourced` stereotype. Required by AF5 — the framework uses this annotation to instantiate the entity before applying events. Idempotent: skips constructors that are already annotated.
-* [org.axonframework.migration.AddEventAnnotation](/user-documentation/recipes/recipe-catalog/axonframework/migration/addeventannotation.md)
-  * **Add @Event to event payload classes**
-  * Scans @EventSourcingHandler methods and annotates their event parameter types with @Event. Migrates @Revision(&quot;x&quot;) on the class to @Event(version = &quot;x&quot;), removing the now-obsolete @Revision annotation.
-* [org.axonframework.migration.AddEventTagAnnotation](/user-documentation/recipes/recipe-catalog/axonframework/migration/addeventtagannotation.md)
-  * **Add @EventTag to the aggregate-identifier field of event payload classes**
-  * Scans event-sourced entity classes for their @AggregateIdentifier field and the event types used in @EventSourcingHandler methods, then annotates the corresponding field in each event class with @EventTag(key = &quot;&lt;EntitySimpleName&gt;&quot;).
-* [org.axonframework.migration.AnnotateObsoleteSequencingPolicyProperty](/user-documentation/recipes/recipe-catalog/axonframework/migration/annotateobsoletesequencingpolicyproperty.md)
-  * **Annotate obsolete `axon.eventhandling.processors.&lt;group&gt;.sequencing-policy` properties**
-  * Inserts a one-line `# TODO(axon4to5): ...` comment above any `axon.eventhandling.processors.&lt;group&gt;.sequencing-policy` entry in `application.properties` / `application.yml`. AF5 moves the decision onto the handler class via `@SequencingPolicy`; deleting the property here would race the per-construct skill that drives the source-side annotation, so this recipe only annotates. Idempotent.
-* [org.axonframework.migration.Axon4ToAxon5AmqpExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5amqpextension.md)
-  * **Migrate the AMQP extension to Axon Framework 5 (placeholder)**
-  * Placeholder for the AMQP extension migration. The AMQP extension lives at `org.axonframework.extensions.amqp` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 AMQP integration ships.
-* [org.axonframework.migration.Axon4ToAxon5Bom](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5bom.md)
-  * **Migrate the Axon Framework BOM coordinates**
-  * Renames the imported `org.axonframework:axon-bom` BOM in `&lt;dependencyManagement&gt;` to `org.axonframework:axon-framework-bom` and pins the imported version to the current Axon Framework 5 release. The BOM artifactId changed between Axon Framework 4 and Axon Framework 5; the groupId is unchanged.
-* [org.axonframework.migration.Axon4ToAxon5CdiExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5cdiextension.md)
-  * **Migrate the CDI extension to Axon Framework 5 (placeholder)**
-  * Placeholder for the CDI extension migration. The extension lives at `org.axonframework.extensions.cdi` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 CDI integration ships.
-* [org.axonframework.migration.Axon4ToAxon5Common](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5common.md)
-  * **Apply Axon Framework 5 common module renames**
-  * Migrates `org.axonframework.config` to `org.axonframework.common.configuration`, renames `ConfigurerModule` to `ConfigurationEnhancer`, `ModuleConfiguration` to `Module`, `LifecycleOperations` to `LifecycleRegistry`, relocates `EventProcessingConfigurer` under the messaging.eventhandling namespace, and swaps `@ProcessingGroup` for the AF5 `@Namespace` annotation.
-* [org.axonframework.migration.Axon4ToAxon5Conversion](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5conversion.md)
-  * **Apply Axon Framework 5 serialization → conversion rename**
-  * Migrates the Serializer-based `org.axonframework.serialization` namespace to the new Converter-based `org.axonframework.conversion` namespace. Note: this is a package rename; concrete renames such as `JacksonSerializer` to `JacksonConverter` are NOT applied here and must be handled separately.
-* [org.axonframework.migration.Axon4ToAxon5EventSourcing](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5eventsourcing.md)
-  * **Apply Axon Framework 5 event-sourcing module renames**
-  * Relocates the `@EventSourcingHandler` annotation into `eventsourcing.annotation`, relocates `Snapshotter` into the new `eventsourcing.snapshot.api` API package, ensures the `org.axonframework:axon-eventsourcing` dependency is present when the app uses event-sourcing types (the AF5 Spring Boot starter no longer pulls it transitively, so apps not using the BOM need it added explicitly — it transitively brings `axon-modelling` and `axon-messaging`), and applies the source-level aggregate→entity rewrites — annotating no-arg constructors with the now-mandatory `@EntityCreator` and replacing `AggregateLifecycle.apply(...)` with an injected `EventAppender#append(...)`.
-* [org.axonframework.migration.Axon4ToAxon5JGroupsExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5jgroupsextension.md)
-  * **Migrate the JGroups extension to Axon Framework 5 (placeholder)**
-  * Placeholder for the JGroups extension migration. The JGroups extension at `org.axonframework.extensions.jgroups` provided distributed command bus routing in AF4. In Axon Framework 5 the distributed command bus has moved into the AxonIQ commercial offering (`io.axoniq.framework:axoniq-distributed-messaging`). Code using `JGroupsConnector` must be replaced with the AxonIQ commercial distributed messaging APIs.
-* [org.axonframework.migration.Axon4ToAxon5KafkaExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5kafkaextension.md)
-  * **Migrate the Kafka extension to Axon Framework 5 (placeholder)**
-  * Placeholder for the Kafka extension migration. The Kafka extension lives at `org.axonframework.extensions.kafka` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 Kafka integration ships.
-* [org.axonframework.migration.Axon4ToAxon5Messaging](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5messaging.md)
-  * **Apply Axon Framework 5 messaging module renames**
-  * Migrates the messaging core (command, event, query handling) from `org.axonframework.\{command,event,query\}handling` into the `org.axonframework.messaging.*` namespace, relocates handler &amp; interceptor annotations into their `.annotation.*` subpackages, renames `EventBus` to `EventSink`, fixes `MetaData` casing to `Metadata`, relocates the top-level messaging API (`Message`, `Metadata`, `UnitOfWork`, `MessageHandlerInterceptor`, `MessageHandlerInterceptorChain`, `correlation.*`) into `messaging.core.*`, moves the sequencing policy package out of `eventhandling.async` into `messaging.core.sequencing`, relocates `tokenstore` and the replay/reset annotations under their AF5 subpackages, and moves `QueryGateway` into its own gateway subpackage.
-* [org.axonframework.migration.Axon4ToAxon5MetricsDropwizardExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5metricsdropwizardextension.md)
-  * **Migrate the Dropwizard Metrics extension to Axon Framework 5**
-  * Relocates `org.axonframework.metrics` to `org.axonframework.extension.metrics.dropwizard`, reflecting the move from a flat `metrics` namespace to a per-provider layout under `extension.metrics.*`.
-* [org.axonframework.migration.Axon4ToAxon5MetricsMicrometerExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5metricsmicrometerextension.md)
-  * **Migrate the Micrometer Metrics extension to Axon Framework 5**
-  * Relocates `org.axonframework.micrometer` to `org.axonframework.extension.metrics.micrometer`, reflecting the move into the per-provider `extension.metrics.*` layout.
-* [org.axonframework.migration.Axon4ToAxon5Modelling](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5modelling.md)
-  * **Apply Axon Framework 5 modelling module renames**
-  * Migrates the modelling layer from the `aggregate` vocabulary to the `entity` vocabulary: relocates `org.axonframework.modelling.command` to `org.axonframework.modelling.entity`, renames `TargetAggregateIdentifier` to `TargetEntityId`, `AggregateMember` to `EntityMember`, `Repository` into `modelling.repository`, and `CommandTargetResolver` to `EntityIdResolver`. Strips AF4-only modelling annotations (`@AggregateIdentifier`, `@CreationPolicy`) that have no AF5 successor — id resolution moved onto commands via `@TargetEntityId`, and the AF4 creation-policy semantics map onto static command handlers in AF5 (a manual rewrite the recipe cannot infer beyond removing the annotation itself).
-* [org.axonframework.migration.Axon4ToAxon5MongoExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5mongoextension.md)
-  * **Migrate the Mongo extension to Axon Framework 5 (placeholder)**
-  * Placeholder for the Mongo extension migration. The Mongo extension lives at `org.axonframework.extensions.mongo` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 Mongo integration ships.
-* [org.axonframework.migration.Axon4ToAxon5MultitenancyExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5multitenancyextension.md)
-  * **Migrate the Multitenancy extension to Axon Framework 5 (placeholder)**
-  * Placeholder for the Multitenancy extension migration. The extension lives at `org.axonframework.extensions.multitenancy` in AF4 and does not yet have a finalized Axon Framework 5 equivalent. Update this recipe once the AF5 multitenancy story ships.
-* [org.axonframework.migration.Axon4ToAxon5QueryResponseTypes](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5queryresponsetypes.md)
-  * **Unwrap ResponseTypes wrappers on AF5-shape QueryGateway.query(...) calls**
-  * On two-argument `queryGateway.query(payload, ResponseType)` calls, unwraps the AF4 `ResponseTypes.instanceOf(...)` / `optionalInstanceOf(...)` / `multipleInstancesOf(...)` wrapper to the plain `Class&lt;R&gt;` form AF5 expects, and renames `query(payload, multipleInstancesOf(R.class))` to `queryMany(payload, R.class)`. Three-argument `query(String, Object, ...)` forms, `subscriptionQuery(...)`, and `streamingQuery(...)` are left untouched so the per-construct migration skill keeps the AF4 fingerprints it needs for design decisions. Removes `ResponseType` / `ResponseTypes` imports only when no references remain.
-* [org.axonframework.migration.Axon4ToAxon5ReactorExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5reactorextension.md)
-  * **Migrate the Reactor extension to Axon Framework 5**
-  * Relocates `org.axonframework.extensions.reactor.*` to `org.axonframework.extension.reactor.*` (singular `extension`) and inserts the `messaging.` segment in front of the `commandhandling`, `eventhandling`, and `queryhandling` subpackages. The bare `extensions.reactor.messaging.*` package (which holds `ReactorMessageDispatchInterceptor` and the interceptor chain) is moved under `extension.reactor.messaging.core.*`.
-* [org.axonframework.migration.Axon4ToAxon5SpringAotExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5springaotextension.md)
-  * **Remove the unported axon-spring-aot extension**
-  * The `org.axonframework.extensions.spring-aot:axon-spring-aot` extension has no Axon Framework 5 port. Removes the dependency so the project compiles against AF5. Projects that need Spring AOT / native-image support against AF5 must reintroduce equivalent functionality manually — there is no drop-in replacement.
-* [org.axonframework.migration.Axon4ToAxon5SpringBootActuatorExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5springbootactuatorextension.md)
-  * **Migrate the Spring Boot Actuator extension to Axon Framework 5**
-  * Relocates `org.axonframework.actuator` to `org.axonframework.extension.springboot.actuator`. The Actuator support is now nested under the Spring Boot extension namespace.
-* [org.axonframework.migration.Axon4ToAxon5SpringBootExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5springbootextension.md)
-  * **Migrate the Spring Boot extension to Axon Framework 5**
-  * Relocates `org.axonframework.springboot` to `org.axonframework.extension.springboot`, matching the Maven groupId move to `org.axonframework.extensions.spring`. Covers both the autoconfigure and starter artifacts (apps depend on the starter, which transitively pulls autoconfigure). Also rewrites Spring Boot configuration property keys whose binding class moved or was renamed in AF5.
-* [org.axonframework.migration.Axon4ToAxon5SpringCloudExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5springcloudextension.md)
-  * **Migrate the Spring Cloud extension to Axon Framework 5 (placeholder)**
-  * Placeholder for the Spring Cloud extension migration. The Spring Cloud extension at `org.axonframework.extensions.springcloud` provided distributed command bus routing in AF4. In Axon Framework 5 the distributed command bus has moved into the AxonIQ commercial offering (`io.axoniq.framework:axoniq-distributed-messaging`). Code using `SpringCloudCommandRouter` must be replaced with the AxonIQ commercial distributed messaging APIs.
-* [org.axonframework.migration.Axon4ToAxon5SpringExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5springextension.md)
-  * **Migrate the Spring extension to Axon Framework 5**
-  * Relocates `org.axonframework.spring` to `org.axonframework.extension.spring` and renames the Spring stereotype `@Aggregate` to `@EventSourced`. The stereotype rename is mapped from both the AF4 location and the post-package- move location, so the recipe is order-independent.
-* [org.axonframework.migration.Axon4ToAxon5Test](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5test.md)
-  * **Apply Axon Framework 5 test module renames**
-  * Renames `AggregateTestFixture` and `SagaTestFixture` to the unified `AxonTestFixture` introduced in Axon Framework 5, and rewrites AF4-style flat fixture call chains (`fixture.given(...).when(...).expectEvents(...)`) to the AF5 fluent given/when/then API (`fixture.given().events(...).when().command(...).then().events(...)`). Also generates an `@AfterEach tearDown()` calling `fixture.stop()` on test classes that declare an `AxonTestFixture` field but have no existing `@AfterEach`. Targets the `axon-test` Maven artifact. Hamcrest matcher conversions and Kotlin `@AfterEach` insertion remain manual.
-* [org.axonframework.migration.Axon4ToAxon5TracingOpenTelemetryExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5tracingopentelemetryextension.md)
-  * **Migrate the OpenTelemetry tracing extension to Axon Framework 5 (placeholder)**
-  * Placeholder for the OpenTelemetry tracing extension migration. Revisioning of the distributed tracing extension for Axon Framework 5 is slated for a later release (see issue #3594). Update this recipe once the AF5 OpenTelemetry tracing integration ships.
-* [org.axonframework.migration.Axon4ToAxon5TracingOpenTracingExtension](/user-documentation/recipes/recipe-catalog/axonframework/migration/axon4toaxon5tracingopentracingextension.md)
-  * **Migrate the OpenTracing tracing extension to Axon Framework 5 (placeholder)**
-  * Placeholder. The OpenTracing tracing extension at `org.axonframework.extensions.tracing` is superseded by the OpenTelemetry tracing extension in Axon Framework 5 (see `Axon4ToAxon5TracingOpenTelemetryExtension`). Code using OpenTracing must be migrated to OpenTelemetry manually.
-* [org.axonframework.migration.ConfigureEventSourcedAnnotation](/user-documentation/recipes/recipe-catalog/axonframework/migration/configureeventsourcedannotation.md)
-  * **Add explicit tagKey and idType to @EventSourced**
-  * Adds explicit tagKey = &quot;&lt;EntitySimpleName&gt;&quot; and idType = &lt;ResolvedType&gt;.class to @EventSourced annotations that have no tagKey set. The tagKey is derived from the class simple name (matching the AF5 default). The idType is deduced from the type of the field annotated with @AggregateIdentifier in AF4. When that field is absent (e.g. POJO aggregate without an explicit identifier field) the idType falls back to Object.class and is flagged with a TODO(axon4to5): comment.
-* [org.axonframework.migration.ConvertCommandHandlerConstructorToCompanionObject](/user-documentation/recipes/recipe-catalog/axonframework/migration/convertcommandhandlerconstructortocompanionobject.md)
-  * **Convert Kotlin @CommandHandler constructors to a companion-object handle method**
-  * Rewrites Kotlin `@CommandHandler constructor(...)` declarations into `companion object \{ @JvmStatic @CommandHandler fun handle(...) \}` on the same class, matching the AF5 contract where `@CommandHandler` no longer targets constructors. Parameter list and method body are preserved.
-* [org.axonframework.migration.ConvertCommandHandlerConstructorToStaticMethod](/user-documentation/recipes/recipe-catalog/axonframework/migration/convertcommandhandlerconstructortostaticmethod.md)
-  * **Convert @CommandHandler constructors to static handle methods**
-  * Rewrites Axon Framework 4 `@CommandHandler` constructors into `public static void handle(...)` methods, matching the AF5 contract where `@CommandHandler` no longer targets constructors. Parameter list and method body are preserved.
-* [org.axonframework.migration.MigrateAggregateTestFixtureSetup](/user-documentation/recipes/recipe-catalog/axonframework/migration/migrateaggregatetestfixturesetup.md)
-  * **Migrate AggregateTestFixture setup to AxonTestFixture.with(EventSourcingConfigurer...)**
-  * Rewrites `new AggregateTestFixture&lt;X&gt;(X.class)` (the AF4 aggregate-fixture constructor) to AF5's `AxonTestFixture.with(EventSourcingConfigurer.create().registerEntity(EventSourcedEntityModule.autodetected(&lt;IdType&gt;.class, X.class)))`. The aggregate type X is read from the class-literal constructor argument; the id type is looked up via the cross-recipe map populated by AddEventTagAnnotation (while @AggregateIdentifier is still on the source). Only matches the AF4 AggregateTestFixture FQN — SagaTestFixture setups are left for manual migration.
-* [org.axonframework.migration.MigrateAxonTestFixtureFluentApi](/user-documentation/recipes/recipe-catalog/axonframework/migration/migrateaxontestfixturefluentapi.md)
-  * **Migrate AggregateTestFixture calls to the AxonTestFixture fluent API**
-  * Rewrites the flat AF4 `fixture.given(...).when(...).expectEvents(...)` call shape to the AF5 fluent `fixture.given().events(...).when().command(...).then().events(...)` shape, including the leaf-method renames (`expectNoEvents` → `noEvents`, `expectSuccessfulHandlerExecution` → `success`, `expectException` + `expectExceptionMessage` → single `exception(cls, msg)`, etc.). The fixture setup migration (constructor → `AxonTestFixture.with(configurer)`, `@AfterEach stop()`) and Hamcrest matcher conversions stay manual.
-* [org.axonframework.migration.MigrateCommandGatewayInEventHandler](/user-documentation/recipes/recipe-catalog/axonframework/migration/migratecommandgatewayineventhandler.md)
-  * **Replace class-level CommandGateway with method-parameter CommandDispatcher in @EventHandler methods**
-  * Inside every `@EventHandler` method in the class, rewrites calls of the form `commandGateway.send(...)` / `commandGateway.sendAndWait(...)` (where `commandGateway` is a class-level `CommandGateway` field) to `commandDispatcher.send(...)` on a method-level `CommandDispatcher` parameter — adding the parameter when missing. For `void` handlers whose body is a single dispatch expression or a single try/catch with one dispatch per branch, the return type is widened to `CompletableFuture&lt;?&gt;` and the dispatch is converted to `return ... .getResultMessage();`. Once no other references to the gateway field remain, the field, its constructor parameter, and the matching assignment are removed.
-* [org.axonframework.migration.MigrateKotlinDslBomImport](/user-documentation/recipes/recipe-catalog/axonframework/migration/migratekotlindslbomimport.md)
-  * **Migrate Kotlin DSL `mavenBom(...)` import (with property indirection)**
-  * Swaps the `groupId:artifactId` prefix of a Spring Dependency Management `mavenBom(&quot;g:a:$\{property(&quot;...&quot;)\}&quot;)` call in a `build.gradle.kts` script, leaving the `$\{property(...)\}` indirection in place. Optionally updates the literal value of the matching `extra[&quot;...&quot;]` declaration so the version follows the new BOM. Targets a gap in `gradle.ChangeManagedDependency` where the Kotlin string-template variant of `property(...)` is not recognized.
-* [org.axonframework.migration.MigrateMessageInterceptorSignatures](/user-documentation/recipes/recipe-catalog/axonframework/migration/migratemessageinterceptorsignatures.md)
-  * **Migrate MessageHandlerInterceptor / MessageDispatchInterceptor signatures to AF5**
-  * Rewrites the method signatures of `MessageHandlerInterceptor` and `MessageDispatchInterceptor` implementations to their AF5 shape: `handle(UnitOfWork, InterceptorChain) -&gt; Object` becomes `interceptOnHandle(M, ProcessingContext, MessageHandlerInterceptorChain&lt;M&gt;) -&gt; MessageStream&lt;?&gt;` (and similarly for the dispatch interceptor). The method **body is left untouched** — the dropped `unitOfWork` / `interceptorChain` references become compile errors, surfacing every call site that needs review. A class-level `// TODO(axon4to5):` comment points to the migration path doc. The message type `M` is read from the `implements` clause; raw implementations fall back to `Message`. Runs after the AF4 -&gt; AF5 FQN renames.
-* [org.axonframework.migration.MigrateSequencingPolicyLambda](/user-documentation/recipes/recipe-catalog/axonframework/migration/migratesequencingpolicylambda.md)
-  * **Migrate SequencingPolicy lambdas to the AF5 two-arg, Optional-returning shape**
-  * Rewrites single-argument `SequencingPolicy` lambdas (`e -&gt; body`) to the AF5 shape `(e, ctx) -&gt; Optional.ofNullable(body)`. The AF5 `SequencingPolicy.sequenceIdentifierFor` method takes both a message and a `ProcessingContext`, and returns `Optional&lt;Object&gt;` instead of a nullable `Object`. Adds the `java.util.Optional` import. Leaves block-body lambdas, multi-parameter lambdas, and anonymous inner classes alone — those need manual rewriting since the AF4 method name (`getSequenceIdentifierFor`) and the AF5 method name (`sequenceIdentifierFor`) differ.
-* [org.axonframework.migration.MigrateSnapshotTriggerDefinitionToAnnotation](/user-documentation/recipes/recipe-catalog/axonframework/migration/migratesnapshottriggerdefinitiontoannotation.md)
-  * **Migrate SnapshotTriggerDefinition @Bean to @Snapshotting**
-  * Replaces AF4 Spring Boot @Bean methods returning SnapshotTriggerDefinition with the AF5 @Snapshotting annotation on the corresponding aggregate class. EventCountSnapshotTriggerDefinition maps to afterEvents; AggregateLoadTimeSnapshotTriggerDefinition maps to afterSourcingTime. Custom implementations leave a TODO comment for manual review.
-* [org.axonframework.migration.RemoveTypeArguments](/user-documentation/recipes/recipe-catalog/axonframework/migration/removetypearguments.md)
-  * **Remove type arguments from a specific type**
-  * Removes the generic type arguments (`&lt;...&gt;`) from any usage of the configured fully-qualified type. Preserves the underlying type reference and its surrounding context (variables, parameters, return types, generic bounds, etc.).
-* [org.axonframework.migration.ReplaceAggregateLifecycleApply](/user-documentation/recipes/recipe-catalog/axonframework/migration/replaceaggregatelifecycleapply.md)
-  * **Replace AggregateLifecycle.apply(...) with EventAppender.append(...)**
-  * Replaces every `AggregateLifecycle.apply(X)` (statically imported or via the class) with `eventAppender.append(X)`, injecting an `EventAppender eventAppender` parameter into the enclosing method when one is not already declared. Drops the static `apply` import once no usages remain.
-* [org.axonframework.migration.UpgradeAxon4ToAxon5](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradeaxon4toaxon5.md)
-  * **Upgrade to free Axon Framework 5**
-  * Migrates an Axon Framework 4.x application to free (Apache 2.0) Axon Framework 5. Bumps the Axon Framework dependency versions, applies per-module rename recipes (one per core framework module), and renames Maven coordinates within the `org.axonframework.*` namespace. Does NOT touch features dropped from free AF5 (Axon Server, DLQ, DistributedCommandBus) — see `UpgradeAxon4ToAxoniq5` for the commercial path.
-* [org.axonframework.migration.UpgradeJava](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradejava.md)
-  * **Upgrade Java compiler target for Axon Framework 5**
-  * Bumps the Java compiler target in pom.xml/build.gradle to the configured LTS (defaults to 21, the Axon Framework 5 minimum). No-op for modules already at or above the target — projects already on a higher Java release are left untouched.
-* [org.axonframework.migration.UpgradeKotlin](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradekotlin.md)
-  * **Upgrade Kotlin to 2.x for Axon Framework 5**
-  * Bumps the `org.jetbrains.kotlin:*` dependency versions and the `kotlin-maven-plugin` to the configured Kotlin line (defaults to &quot;2.x&quot;, the latest Kotlin 2.x). No-op for modules already at or above the target — the underlying upgrade recipes never downgrade. Rejects targets below Kotlin 2.0.
+* [org.axonframework.migration.UpgradeAxonFramework_4_Jakarta](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradeaxonframework_4_jakarta.md)
+  * **Upgrade to Axonframework 4.x Jakarta**
+  * Migration file to upgrade from an Axon Framework Javax-specific project to Jakarta.
+* [org.axonframework.migration.UpgradeAxonFramework_4_Javax](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradeaxonframework_4_javax.md)
+  * **Upgrade to Axonframework 4.x Javax**
+  * Migration file to upgrade an Axon Framework Javax-specific project and remain on Javax.
 * [org.openrewrite.java.camel.migrate.removedExtensions](/user-documentation/recipes/recipe-catalog/java/camel/migrate/removedextensions.md)
   * **Remove non existing camel-quarkus extensions**
   * Removal of maven dependencies for extension, which are no longer part of Camel 3.x.

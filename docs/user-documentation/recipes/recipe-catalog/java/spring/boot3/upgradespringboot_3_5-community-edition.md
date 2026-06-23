@@ -126,7 +126,6 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 4.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
-* [Upgrade to free Axon Framework 5](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradeaxon4toaxon5.md)
 
 ## Examples
 ##### Example 1

@@ -1242,7 +1242,7 @@ _8 recipes_
 
 _License: Moderne Proprietary License_
 
-_15 recipes_
+_16 recipes_
 
 * [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
   * **Add Python dependency**
@@ -1289,6 +1289,9 @@ _15 recipes_
 * [org.openrewrite.python.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/python/search/dependencyinsight.md)
   * **Python dependency insight**
   * Find direct and transitive Python dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency.
+* [org.openrewrite.python.search.UsesImport](/user-documentation/recipes/recipe-catalog/python/search/usesimport.md)
+  * **Find Python files that import a module**
+  * Marks Python source files that import the given module, matching the as-written import path rather than type attribution. Robust to type-checker canonicalization and to removed or unresolvable symbols, which makes it usable as a precondition for import-migration recipes where `HasType` would miss the file.
 
 ## rewrite-toml
 

@@ -220,7 +220,7 @@ This recipe is used as part of the following composite recipes:
 * [Upgrade Hibernate to 6.6](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/upgradehibernateto66.md)
 * [Upgrade JaCoCo](/user-documentation/recipes/recipe-catalog/java/migrate/jacoco/upgradejacoco.md)
 * [Upgrade Jackson 2.x dependencies to 3.x](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_dependencies.md)
-* [Upgrade Kotlin to 2.x for Axon Framework 5](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradekotlin.md)
+* [Upgrade Kotlin to 2.3 for Java 25 compatibility](/user-documentation/recipes/recipe-catalog/java/migrate/upgradekotlinforjava25.md)
 * [Upgrade Log4j 2.x dependency version](/user-documentation/recipes/recipe-catalog/java/logging/log4j/upgradelog4j2dependencyversion.md)
 * [Upgrade MyBatis to Spring Boot 2.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_0.md)
 * [Upgrade MyBatis to Spring Boot 2.1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_1.md)
@@ -246,7 +246,6 @@ This recipe is used as part of the following composite recipes:
 * [Upgrade dependencies to Spring Cloud 2025](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/dependencyupgrades.md)
 * [Upgrade plugins to Java 21 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava21.md)
 * [Upgrade plugins to Java 25 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava25.md)
-* [Upgrade to Axoniq Framework 5 (commercial)](/user-documentation/recipes/recipe-catalog/axoniq/framework/migration/upgradeaxon4toaxoniq5.md)
 * [Upgrade to Cucumber-JVM 7.x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber7x.md)
 * [Upgrade to JUnit 5.13](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit513.md)
 * [Upgrade to JUnit 5.14](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit514.md)
@@ -260,7 +259,6 @@ This recipe is used as part of the following composite recipes:
 * [Upgrade to SpringDoc 3.0](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_3_0.md)
 * [Upgrade to `kotlinx-coroutines` 1.10](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxcoroutines_1_10)
 * [Upgrade to `kotlinx-serialization` 1.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxserialization_1_8)
-* [Upgrade to free Axon Framework 5](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradeaxon4toaxon5.md)
 * [Use wiremock extension](/user-documentation/recipes/recipe-catalog/java/testing/junit5/usewiremockextension.md)
 
 ## Example

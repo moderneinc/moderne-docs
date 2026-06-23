@@ -25,6 +25,7 @@ Total recipes: 7391
 * [rewrite-jasperreports](all-recipes-io-moderne-recipe.md#rewrite-jasperreports)
 * [rewrite-java-application-server](all-recipes-io-moderne-recipe.md#rewrite-java-application-server)
 * [rewrite-kafka](all-recipes-io-moderne-recipe.md#rewrite-kafka)
+* [rewrite-nullability](all-recipes-io-moderne-recipe.md#rewrite-nullability)
 * [rewrite-prethink](all-recipes-io-moderne-recipe.md#rewrite-prethink)
 * [rewrite-program-analysis](all-recipes-io-moderne-recipe.md#rewrite-program-analysis)
 * [rewrite-react](all-recipes-io-moderne-recipe.md#rewrite-react)

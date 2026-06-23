@@ -50,6 +50,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrates from Netty 3.2.x to Netty 4.1.x](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_3_2_to_4_1.md)
 * [Renamed dependencies](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/renameddependencies.md)
 * [Update the Micronaut Session support](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautsession.md)
+* [Upgrade to Axonframework 4.x Jakarta](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradeaxonframework_4_jakarta.md)
 
 ## Example
 
