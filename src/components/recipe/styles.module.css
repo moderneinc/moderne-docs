@@ -333,6 +333,19 @@
   margin: 0 0 var(--neo-spacing_2);
 }
 
+/* Production section headings are the page's markdown `## ` (kept top-level for the native TOC).
+   Style them to match the design's section title WITHOUT a wrapper (which would break the TOC):
+   every section heading is a later sibling of the recipe `.header`, so target `.header ~ h2`.
+   `:global(.markdown)` lifts specificity above Docusaurus's `.markdown > h2` (2rem). Only matches
+   recipe pages (the only docs with a `.header` card). */
+:global(.markdown) .header ~ h2 {
+  font-size: var(--neo-font-size-h2);
+  font-weight: var(--neo-font-weight-semi-bold);
+  letter-spacing: -0.01em;
+  color: var(--neo-typography-input-default);
+  margin: var(--neo-spacing_4) 0 var(--neo-spacing_2);
+}
+
 .sourceLinks {
   display: flex;
   flex-wrap: wrap;
