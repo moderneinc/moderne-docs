@@ -412,4 +412,3 @@ Now that you've written your first C# recipe, you can go deeper:
 * Read OpenRewrite's [Java refactoring recipe guide](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe) for deeper coverage of visitors, preconditions, and templates that apply to the shared LST model
 * Learn more about [setting up and using C# LSTs with the Moderne CLI](../../moderne-cli/how-to-guides/csharp.md)
 * Work through the [recipe authoring fundamentals workshop](../../../hands-on-learning/fundamentals/workshop-overview.md) for a hands-on introduction to recipe development
-</content>
