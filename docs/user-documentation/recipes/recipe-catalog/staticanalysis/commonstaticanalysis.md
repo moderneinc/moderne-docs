@@ -36,18 +36,26 @@ import { commonStaticAnalysisContent as content } from '@site/src/components/rec
   markdownUrl="https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md"
 />
 
+<RecipeList recipes={content.subRecipes}>
+
 ## Definition
 
-<RecipeList recipes={content.subRecipes} />
+</RecipeList>
+
+<ExampleList examples={content.examples}>
 
 ## Examples
 
-<ExampleList examples={content.examples} />
+</ExampleList>
+
+<UsageList usage={content.usage}>
 
 ## Usage
 
-<UsageList usage={content.usage} />
+</UsageList>
+
+<DataTableList tables={content.dataTables}>
 
 ## Data tables
 
-<DataTableList tables={content.dataTables} />
+</DataTableList>

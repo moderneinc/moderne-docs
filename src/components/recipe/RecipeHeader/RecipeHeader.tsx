@@ -37,56 +37,62 @@ export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
   displayName, description, type, languages, tags, license, fqName, artifact, appLink, markdownUrl, moderneOnly = false,
 }) => (
   <header className={styles.header}>
-    <div className={styles.accessRow}>
-      <span
-        className={clsx(styles.accessBadge, moderneOnly ? styles.accessBadge_moderne : styles.accessBadge_oss)}
-        title={
-          moderneOnly
-            ? 'Requires the Moderne platform (Moderne Source Available license)'
-            : 'Open source — free to run anywhere'
-        }
-      >
-        {moderneOnly ? 'Moderne Only' : 'Open source'}
-      </span>
-      {moderneOnly && <AccessInfoButton />}
-    </div>
-
-    <h1 className={styles.title}>{renderWithCode(displayName, styles.titleCode)}</h1>
-
-    <div className={styles.idArtifactRow}>
-      <div className={styles.codeChip}>
-        <span className={styles.codeChipLabel}>Recipe ID</span>
-        <code className={styles.idCode}>{fqName}</code>
-        <CopyButton value={fqName} label="Copy recipe ID" />
-      </div>
-      {artifact && (
-        <div className={styles.codeChip}>
-          <span className={styles.codeChipLabel}>Artifact</span>
-          <code className={styles.idCode}>{artifact}</code>
-          <CopyButton value={artifact} label="Copy artifact coordinates" />
-        </div>
-      )}
-    </div>
-
-    <p className={styles.description}>{renderWithCode(description, styles.descCode)}</p>
-
-    <div className={styles.tagRow}>
-      <span className={shared.chip}>{type}</span>
-      {languages.map((l) => (
-        <span key={l} className={shared.chip}>{l}</span>
-      ))}
-      {tags.map((t) => (
-        <a
-          key={t}
-          className={clsx(shared.chip, shared.chipLink)}
-          href={tagHref(t)}
-          target="_blank"
-          rel="noopener noreferrer"
+    {/* Identity group: access badge, title, recipe-id/artifact chips — tight gaps within. */}
+    <div className={styles.titleGroup}>
+      <div className={styles.accessRow}>
+        <span
+          className={clsx(styles.accessBadge, moderneOnly ? styles.accessBadge_moderne : styles.accessBadge_oss)}
+          title={
+            moderneOnly
+              ? 'Requires the Moderne platform (Moderne Source Available license)'
+              : 'Open source — free to run anywhere'
+          }
         >
-          {t}
-        </a>
-      ))}
-      <span className={shared.chip}>{license}</span>
+          {moderneOnly ? 'Moderne Only' : 'Open source'}
+        </span>
+        {moderneOnly && <AccessInfoButton />}
+      </div>
+
+      <h1 className={styles.title}>{renderWithCode(displayName, styles.titleCode)}</h1>
+
+      <div className={styles.idArtifactRow}>
+        <div className={styles.codeChip}>
+          <span className={styles.codeChipLabel}>Recipe ID</span>
+          <code className={styles.idCode}>{fqName}</code>
+          <CopyButton value={fqName} label="Copy recipe ID" />
+        </div>
+        {artifact && (
+          <div className={styles.codeChip}>
+            <span className={styles.codeChipLabel}>Artifact</span>
+            <code className={styles.idCode}>{artifact}</code>
+            <CopyButton value={artifact} label="Copy artifact coordinates" />
+          </div>
+        )}
+      </div>
+    </div>
+
+    {/* Summary group: description + tags — tight gaps within. */}
+    <div className={styles.metaGroup}>
+      <p className={styles.description}>{renderWithCode(description, styles.descCode)}</p>
+
+      <div className={styles.tagRow}>
+        <span className={shared.chip}>{type}</span>
+        {languages.map((l) => (
+          <span key={l} className={shared.chip}>{l}</span>
+        ))}
+        {tags.map((t) => (
+          <a
+            key={t}
+            className={clsx(shared.chip, shared.chipLink)}
+            href={tagHref(t)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t}
+          </a>
+        ))}
+        <span className={shared.chip}>{license}</span>
+      </div>
     </div>
 
     <div className={styles.actions}>

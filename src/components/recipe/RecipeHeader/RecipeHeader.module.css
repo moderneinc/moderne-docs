@@ -1,42 +1,12 @@
 /* RecipeHeader styles (light + dark). */
 
-/* Value-prop stat (placeholder) paired with the CTA in the header footer. */
-.headerTimeSaved {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--neo-spacing_1_2);
-  font-size: var(--neo-font-size-sm);
-  color: var(--neo-typography-body-secondary);
-}
-
-.headerTimeSavedIcon {
-  color: var(--neo-icons-default);
-}
-
-.headerTimeSavedValue {
-  font-weight: var(--neo-font-weight-semi-bold);
-  color: var(--neo-typography-input-default);
-}
-
-.headerTimeSavedLabel {
-  color: var(--neo-typography-body-secondary);
-}
-
-html[data-theme='dark'] {
-  .headerTimeSaved,
-  .headerTimeSavedLabel,
-  .headerTimeSavedIcon {
-    color: var(--neo-grey-400);
-  }
-
-  .headerTimeSavedValue {
-    color: var(--neo-surfaces-snackbar-dark-mode);
-  }
-}
-
+/* All vertical rhythm is owned by flex `gap`, not child margins: the header stacks three blocks with
+   a large between-group gap; each block stacks its own parts with a tight within-group gap. */
 .header {
 position: relative;
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_5);
   /* Subtle containment: a faint outline (no fill, no shadow) so the title block
      reads as a contained card instead of floating on the page. */
   padding: var(--neo-spacing_4);
@@ -44,11 +14,25 @@ position: relative;
   border-radius: var(--neo-border-radius-card);
 }
 
+/* Identity block: access badge → title → code chips. */
+.titleGroup {
+display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_1_2);
+}
+
+/* Summary block: description → tags. One step tighter than the title group to offset the
+   description's larger line-height (1.65), so the visual rhythm matches. */
+.metaGroup {
+display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+}
+
 .accessRow {
 display: flex;
   align-items: center;
   gap: var(--neo-spacing_1_4);
-  margin-bottom: var(--neo-spacing_2);
 }
 
 .accessBadge {
@@ -75,10 +59,7 @@ font-size: var(--neo-font-size-h1);
   font-weight: var(--neo-font-weight-semi-bold);
   letter-spacing: -0.02em;
   color: var(--neo-typography-input-default);
-  /* Header groups: [title + code snippets] — space — [description + tags] —
-     space — [buttons]. Tight gap (spacing_1_1_2) WITHIN a group, large gap
-     (spacing_5) BETWEEN groups. This is the within-group gap to the snippets. */
-  margin: 0 0 var(--neo-spacing_1_1_2);
+  margin: 0;
   line-height: 1.2;
 }
 
@@ -105,8 +86,6 @@ font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
 display: flex;
   flex-direction: column;
   gap: var(--neo-spacing_1);
-  /* Between-group space: code snippets → description. */
-  margin-bottom: var(--neo-spacing_5);
 }
 
 .codeChip {
@@ -152,17 +131,13 @@ max-width: 64ch;
   font-size: var(--neo-font-size-default);
   color: var(--neo-grey-700);
   line-height: 1.65;
-  /* Within-group gap: description → tags. One step tighter than the title's
-     bottom margin to offset this block's larger line-height (1.65 vs the title's
-     1.2), so the VISUAL gap matches the title → code-snippets gap. */
-  margin: 0 0 var(--neo-spacing_1);
+  margin: 0;
 }
 
 .tagRow {
 display: flex;
   flex-wrap: wrap;
   gap: var(--neo-spacing_1);
-  margin-bottom: 0;
 }
 
 .actions {
@@ -171,7 +146,6 @@ display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--neo-spacing_2);
-  margin-top: var(--neo-spacing_5);
 }
 
 .actionButtons {
@@ -179,14 +153,6 @@ display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--neo-spacing_1);
-}
-
-:global(.markdown) .header ~ h2 {
-font-size: var(--neo-font-size-h2);
-  font-weight: var(--neo-font-weight-semi-bold);
-  letter-spacing: -0.01em;
-  color: var(--neo-typography-input-default);
-  margin: var(--neo-spacing_4) 0 var(--neo-spacing_2);
 }
 
 html[data-theme='dark'] {

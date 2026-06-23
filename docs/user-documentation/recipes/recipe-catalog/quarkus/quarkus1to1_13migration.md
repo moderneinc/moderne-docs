@@ -33,18 +33,26 @@ import { quarkus1to2MigrationContent as content } from '@site/src/components/rec
   moderneOnly
 />
 
+<RecipeList recipes={content.subRecipes}>
+
 ## Definition
 
-<RecipeList recipes={content.subRecipes} />
+</RecipeList>
+
+<ExampleList examples={content.examples}>
 
 ## Examples
 
-<ExampleList examples={content.examples} />
+</ExampleList>
+
+<UsageList usage={content.usage}>
 
 ## Usage
 
-<UsageList usage={content.usage} />
+</UsageList>
+
+<DataTableList tables={content.dataTables}>
 
 ## Data tables
 
-<DataTableList tables={content.dataTables} />
+</DataTableList>

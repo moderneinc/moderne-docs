@@ -119,10 +119,50 @@ color: var(--neo-typography-tab-active);
   background: var(--neo-surfaces-card);
 }
 
+/* A recipe section: a heading row stacked above the section body. All spacing is owned by flex gap
+   here (the parent), so no child component sets an outer margin. Spacing to the previous section is
+   the page's job. Shared by Accordion (Examples/Usage/Data tables), RecipeList, and OptionsTable. */
+.section {
+display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_2);
+}
+
+/* Heading row: the markdown `## ` heading on the left, optional meta/toggle on the right. */
+.sectionHeader {
+display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--neo-spacing_2);
+}
+
+/* The heading arrives as a bare markdown `## ` <h2> (it can't carry a class), so it's matched as a
+   descendant — the one element selector we accept, kept tightly scoped under .sectionHeader. */
+.sectionHeader h2 {
+margin: 0;
+  font-size: var(--neo-font-size-h2);
+  font-weight: var(--neo-font-weight-semi-bold);
+  letter-spacing: -0.01em;
+  color: var(--neo-typography-input-default);
+}
+
+/* The global `[docMainContainer] h2` rule (src/css/custom.css) underlines every doc h2. In the flex
+   section header the heading shrinks to its text width, so that rule would underline only the word,
+   not the section. Match the doc container and double the class to outrank `(0,2,1)` and drop it. */
+:global([class^='docMainContainer_']) .sectionHeader.sectionHeader h2 {
+border-bottom: none;
+  padding-bottom: 0;
+}
+
 html[data-theme='dark'] {
 .inlineCode {
 background-color: var(--neo-grey-900);
     color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.sectionHeader h2 {
+color: var(--neo-surfaces-snackbar-dark-mode);
 }
 
 .th,

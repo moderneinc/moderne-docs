@@ -1,13 +1,12 @@
 /* OptionsTable styles (light + dark). */
 
+/* The right-hand metrics group inside the shared `.sectionHeader` (the heading sits on the left).
+   Placement + spacing are owned by `.sectionHeader` / `.section`, so this just lays out its own items. */
 .optionsMeta {
 display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
   gap: var(--neo-spacing_2);
-  margin-top: calc(-1 * var(--neo-spacing_5));
-  margin-bottom: var(--neo-spacing_2);
 }
 
 .optionsCount {

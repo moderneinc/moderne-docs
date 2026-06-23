@@ -1,4 +1,4 @@
-import React, { type FunctionComponent } from 'react';
+import React, { type FunctionComponent, type ReactNode } from 'react';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
@@ -72,8 +72,12 @@ const ExampleBody: FunctionComponent<{ example: RecipeExample }> = ({ example: e
   </>
 );
 
-/** Examples as a collapsible accordion — first one open. The `## Examples` heading is in the page markdown. */
-export const ExampleList: FunctionComponent<{ examples: RecipeExample[] }> = ({ examples }) => {
+/**
+ * Examples as a collapsible accordion — first one open. Pass the section's markdown `## Examples`
+ * heading as children: it renders in the accordion's header row (with the Expand/Collapse-all toggle)
+ * and still feeds the native TOC.
+ */
+export const ExampleList: FunctionComponent<{ examples: RecipeExample[]; children?: ReactNode }> = ({ examples, children }) => {
   const items: AccordionItem[] = examples.map((ex, i) => {
     const langs = ex.variants.map((v) => v.language).join(', ');
     return { key: ex.name ? `${ex.name}-${i}` : `example-${i}`, label: langs || `Example ${i + 1}`, content: <ExampleBody example={ex} /> };
@@ -83,7 +87,7 @@ export const ExampleList: FunctionComponent<{ examples: RecipeExample[] }> = ({ 
   // wrapped in `.recipe` the way the standalone prototype page was.
   return (
     <div className={shared.recipe}>
-      <Accordion items={items} />
+      <Accordion items={items}>{children}</Accordion>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { type FunctionComponent } from 'react';
+import React, { type FunctionComponent, type ReactNode } from 'react';
 import { Accordion, type AccordionItem } from '../Accordion';
 import { CopyButton } from '../CopyButton';
 import type { RecipeDataTable } from '../shared/types';
@@ -6,8 +6,12 @@ import { renderWithCode } from '../shared/renderWithCode';
 import styles from './DataTableList.module.css';
 import shared from '../shared/styles.module.css';
 
-/** Data tables as a collapsible accordion: friendly name is the summary; expanding reveals id, description, columns. */
-export const DataTableList: FunctionComponent<{ tables: RecipeDataTable[] }> = ({ tables }) => {
+/**
+ * Data tables as a collapsible accordion: friendly name is the summary; expanding reveals id,
+ * description, columns. Pass the section's markdown `## Data tables` heading as children: it renders
+ * in the accordion header row (with the toggle) and still feeds the native TOC.
+ */
+export const DataTableList: FunctionComponent<{ tables: RecipeDataTable[]; children?: ReactNode }> = ({ tables, children }) => {
   const items: AccordionItem[] = tables.map((dt) => ({
     key: dt.name,
     label: dt.displayName,
@@ -35,5 +39,11 @@ export const DataTableList: FunctionComponent<{ tables: RecipeDataTable[] }> = (
     ),
   }));
 
-  return <Accordion items={items} />;
+  // `.recipe` scopes the table-chrome resets (Infima zebra-striping removal) onto the column tables
+  // inside each accordion body — matching ExampleList.
+  return (
+    <div className={shared.recipe}>
+      <Accordion items={items}>{children}</Accordion>
+    </div>
+  );
 };

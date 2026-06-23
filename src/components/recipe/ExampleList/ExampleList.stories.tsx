@@ -1,42 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ExampleList } from './ExampleList';
-import { ExampleList as ProtoExampleList } from './ExampleList.prototype';
-import { Compare, RecipeScope } from '../shared/Compare';
+import { StoryLayout } from '../shared/storyLayout';
 import { quarkus1to2MigrationContent as content } from '../shared/sampleData/quarkus1to2Migration.data';
 
 /**
- * Examples accordion. Key difference: the prototype owns the section `<h2>` (passed via `title`);
- * production renders no heading — the `## Examples` heading lives in the page markdown (native TOC).
+ * Examples accordion. The `## Examples` heading is passed as `children` so it renders in the accordion
+ * header row with the toggle, and (being a real markdown heading on a page) still feeds the native TOC.
  */
 const meta: Meta<typeof ExampleList> = {
   title: 'Recipe/ExampleList',
   component: ExampleList,
-  parameters: { layout: 'fullscreen' },
-  decorators: [RecipeScope],
+  parameters: { layout: 'fullscreen', maxWidth: 820 },
+  decorators: [StoryLayout],
 };
 export default meta;
 type Story = StoryObj<typeof ExampleList>;
 
 export const Production: Story = {
-  render: () => (
-    <div style={{ padding: 24, maxWidth: 820 }}>
-      <h2>Examples</h2>
-      <ExampleList examples={content.examples} />
-    </div>
-  ),
-};
-
-export const Comparison: Story = {
-  render: () => (
-    <Compare
-      prototype={<ProtoExampleList title="Examples" examples={content.examples} />}
-      production={
-        <>
-          <h2>Examples</h2>
-          <ExampleList examples={content.examples} />
-        </>
-      }
-    />
-  ),
+  args: { examples: content.examples, children: <h2>Examples</h2> },
 };

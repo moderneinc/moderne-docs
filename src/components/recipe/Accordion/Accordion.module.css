@@ -1,31 +1,15 @@
 /* Accordion styles (light + dark). */
 
-.sectionTitle {
-display: flex;
-  align-items: center;
-  gap: var(--neo-spacing_1_1_2);
-  font-size: var(--neo-font-size-h2);
-  font-weight: var(--neo-font-weight-semi-bold);
-  letter-spacing: -0.01em;
-  color: var(--neo-typography-input-default);
-  margin: 0 0 var(--neo-spacing_2);
-}
+/* The section wrapper (col + gap) and heading row are the shared `.section` / `.sectionHeader`
+   primitives in ../shared/styles.module.css — used here and by RecipeList / OptionsTable. */
 
-.accordionSectionHeader {
-display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--neo-spacing_2);
-}
-
+/* No-children path (heading is still a markdown sibling outside the component): the
+   negative top pulls the toggle up onto that heading row. The list gap is handled by
+   the shared `.section` wrapper. This hack disappears once a section adopts the children slot. */
 .accordionToolbar {
 display: flex;
   justify-content: flex-end;
   margin-top: calc(-1 * var(--neo-spacing_5));
-  /* The negative top pulls the toggle onto the heading row; this restores a normal
-     heading → accordion gap (matching single-item sections that have no toolbar). */
-  margin-bottom: var(--neo-spacing_2);
 }
 
 .accordion {
@@ -93,13 +77,5 @@ background-color: var(--neo-grey-900);
 
 .accordionChevron {
 color: var(--neo-grey-400);
-}
-
-.sectionTitle {
-border-bottom-color: var(--neo-grey-700);
-}
-
-.sectionTitle {
-color: var(--neo-surfaces-snackbar-dark-mode);
 }
 }

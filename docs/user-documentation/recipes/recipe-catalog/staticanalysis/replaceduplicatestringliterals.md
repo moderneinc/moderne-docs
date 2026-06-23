@@ -37,18 +37,26 @@ import { replaceDuplicateStringLiteralsContent as content } from '@site/src/comp
   moderneOnly
 />
 
+<OptionsTable options={content.options}>
+
 ## Options
 
-<OptionsTable options={content.options} />
+</OptionsTable>
+
+<ExampleList examples={content.examples}>
 
 ## Examples
 
-<ExampleList examples={content.examples} />
+</ExampleList>
+
+<UsageList usage={content.usage}>
 
 ## Usage
 
-<UsageList usage={content.usage} />
+</UsageList>
+
+<DataTableList tables={content.dataTables}>
 
 ## Data tables
 
-<DataTableList tables={content.dataTables} />
+</DataTableList>
