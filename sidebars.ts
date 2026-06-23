@@ -710,6 +710,20 @@ const recipes = {
     },
     {
       type: 'category' as const,
+      label: 'Recipe authoring',
+      link: {
+        type: 'generated-index' as const,
+        title: 'Recipe authoring',
+        description: 'Guides for writing your own OpenRewrite recipes.',
+        slug: '/user-documentation/recipes/recipe-authoring',
+        keywords: ['guides', 'recipes', 'authoring'],
+      },
+      items: [
+        'user-documentation/recipes/recipe-authoring/writing-python-recipes',
+      ],
+    },
+    {
+      type: 'category' as const,
       label: 'Popular recipe guides',
       link: {
         type: 'generated-index' as const,
