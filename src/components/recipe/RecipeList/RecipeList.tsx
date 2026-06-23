@@ -2,12 +2,13 @@ import React, { useMemo, useState, type FunctionComponent } from 'react';
 import { Search } from 'lucide-react';
 import type { SubRecipe } from '../shared/types';
 import { renderWithCode } from '../shared/renderWithCode';
-import styles from '../shared/styles.module.css';
+import styles from './RecipeList.module.css';
+import shared from '../shared/styles.module.css';
 
 const RecipeLink: FunctionComponent<{ recipe: SubRecipe }> = ({ recipe }) => (
   <li className={styles.recipeListItem}>
     <a className={styles.recipeLink} href={recipe.href} target="_blank" rel="noopener noreferrer">
-      {renderWithCode(recipe.name, styles.inlineCode)}
+      {renderWithCode(recipe.name, shared.inlineCode)}
     </a>
   </li>
 );

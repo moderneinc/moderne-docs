@@ -1,7 +1,7 @@
 import React, { type FunctionComponent } from 'react';
 import { Info } from 'lucide-react';
 import { NeoButton } from '@site/src/components/NeoButton';
-import styles from '../shared/styles.module.css';
+import styles from './AccessInfoButton.module.css';
 
 /**
  * ⚠ CUSTOM REACT + CSS — not a stock Docusaurus/Moderne component.

@@ -1,7 +1,7 @@
 import React, { useState, type FunctionComponent, type ReactNode, type SyntheticEvent } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { NeoButton } from '@site/src/components/NeoButton';
-import styles from '../shared/styles.module.css';
+import styles from './Accordion.module.css';
 
 export interface AccordionItem {
   /** Stable React key. */

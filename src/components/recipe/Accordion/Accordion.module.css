@@ -1,0 +1,105 @@
+/* Accordion styles (light + dark). */
+
+.sectionTitle {
+display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_1_2);
+  font-size: var(--neo-font-size-h2);
+  font-weight: var(--neo-font-weight-semi-bold);
+  letter-spacing: -0.01em;
+  color: var(--neo-typography-input-default);
+  margin: 0 0 var(--neo-spacing_2);
+}
+
+.accordionSectionHeader {
+display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--neo-spacing_2);
+}
+
+.accordionToolbar {
+display: flex;
+  justify-content: flex-end;
+  margin-top: calc(-1 * var(--neo-spacing_5));
+  /* The negative top pulls the toggle onto the heading row; this restores a normal
+     heading → accordion gap (matching single-item sections that have no toolbar). */
+  margin-bottom: var(--neo-spacing_2);
+}
+
+.accordion {
+display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_1_2);
+}
+
+.accordionItem {
+border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  overflow: hidden;
+}
+
+.accordionSummary {
+display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-input-default);
+  cursor: pointer;
+  list-style: none;
+}
+
+.accordionSummary::-webkit-details-marker {
+display: none;
+}
+
+.accordionSummary:hover {
+background-color: var(--neo-surfaces-card-header);
+}
+
+.accordionChevron {
+flex: none;
+  color: var(--neo-icons-default);
+  transition: transform 0.15s ease;
+}
+
+.accordionItem[open] .accordionChevron {
+transform: rotate(90deg);
+}
+
+.accordionLabel {
+min-width: 0;
+}
+
+.accordionBody {
+padding: 0 var(--neo-spacing_2) var(--neo-spacing_2);
+}
+
+html[data-theme='dark'] {
+.accordionItem {
+border-color: var(--neo-grey-700);
+}
+
+.accordionSummary {
+color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.accordionSummary:hover {
+background-color: var(--neo-grey-900);
+}
+
+.accordionChevron {
+color: var(--neo-grey-400);
+}
+
+.sectionTitle {
+border-bottom-color: var(--neo-grey-700);
+}
+
+.sectionTitle {
+color: var(--neo-surfaces-snackbar-dark-mode);
+}
+}

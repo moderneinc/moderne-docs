@@ -5,7 +5,8 @@ import { NeoButton } from '@site/src/components/NeoButton';
 import { CopyButton } from '../CopyButton';
 import { AccessInfoButton } from '../AccessInfoButton';
 import { renderWithCode } from '../shared/renderWithCode';
-import styles from '../shared/styles.module.css';
+import styles from './RecipeHeader.module.css';
+import shared from '../shared/styles.module.css';
 
 export interface RecipeHeaderProps {
   displayName: string;
@@ -70,14 +71,14 @@ export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
     <p className={styles.description}>{renderWithCode(description, styles.descCode)}</p>
 
     <div className={styles.tagRow}>
-      <span className={styles.chip}>{type}</span>
+      <span className={shared.chip}>{type}</span>
       {languages.map((l) => (
-        <span key={l} className={styles.chip}>{l}</span>
+        <span key={l} className={shared.chip}>{l}</span>
       ))}
       {tags.map((t) => (
         <a
           key={t}
-          className={clsx(styles.chip, styles.chipLink)}
+          className={clsx(shared.chip, shared.chipLink)}
           href={tagHref(t)}
           target="_blank"
           rel="noopener noreferrer"
@@ -85,7 +86,7 @@ export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
           {t}
         </a>
       ))}
-      <span className={styles.chip}>{license}</span>
+      <span className={shared.chip}>{license}</span>
     </div>
 
     <div className={styles.actions}>

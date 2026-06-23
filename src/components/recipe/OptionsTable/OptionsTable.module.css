@@ -1,0 +1,156 @@
+/* OptionsTable styles (light + dark). */
+
+.optionsMeta {
+display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--neo-spacing_2);
+  margin-top: calc(-1 * var(--neo-spacing_5));
+  margin-bottom: var(--neo-spacing_2);
+}
+
+.optionsCount {
+font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-body-secondary);
+}
+
+.optionsSummary {
+display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+}
+
+.optionsSummaryItem {
+display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  color: var(--neo-typography-body-secondary);
+}
+
+.optionsSummaryDot {
+width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.optionsSummaryDot_req {
+background-color: var(--neo-typography-input-default);
+}
+
+.optionsSummaryDot_opt {
+background-color: var(--neo-grey-400);
+}
+
+.optionsCard {
+border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-card);
+  overflow: hidden;
+}
+
+.optionsCard .th {
+padding-left: var(--neo-spacing_2);
+  padding-right: var(--neo-spacing_2);
+}
+
+.optionsCard .td {
+padding-left: var(--neo-spacing_2);
+  padding-right: var(--neo-spacing_2);
+}
+
+.optionsCard .th:nth-child(1),
+.optionsCard .td:nth-child(1) {
+white-space: nowrap;
+}
+
+.optionsCard .th:nth-child(3),
+.optionsCard .td:nth-child(3) {
+min-width: 200px;
+}
+
+.optionsCard .th:nth-child(4),
+.optionsCard .td:nth-child(4) {
+white-space: nowrap;
+}
+
+.optionsCard .th:nth-child(5),
+.optionsCard .td:nth-child(5) {
+white-space: nowrap;
+}
+
+.optionName {
+font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-code-primary);
+  background-color: var(--neo-surfaces-card-header);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+}
+
+.optionDesc {
+font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+}
+
+.optionExample {
+display: inline-block;
+  background-color: var(--neo-surfaces-card-header);
+  color: var(--neo-typography-code-primary);
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+  overflow-wrap: break-word;
+}
+
+.optionExampleNone {
+color: var(--neo-typography-body-secondary);
+}
+
+.optionRequired {
+font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-input-default);
+}
+
+.optionOptional {
+font-size: var(--neo-font-size-xs);
+  color: var(--neo-typography-body-secondary);
+}
+
+html[data-theme='dark'] {
+.optionName,
+.optionExample {
+background-color: var(--neo-grey-900);
+    color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.optionsSummaryDot_req {
+background-color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.optionDesc {
+color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.optionsCount,
+.optionExampleNone,
+.optionOptional {
+color: var(--neo-grey-400);
+}
+
+.optionsCard {
+border-color: var(--neo-grey-700);
+}
+
+.optionRequired {
+color: var(--neo-surfaces-snackbar-dark-mode);
+}
+}

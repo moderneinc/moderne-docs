@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, type FunctionComponent } from 'react';
 import { Copy, Check } from 'lucide-react';
-import styles from '../shared/styles.module.css';
+import styles from './CopyButton.module.css';
 
 /** Shared clipboard button used for recipe IDs and data-table IDs. */
 export const CopyButton: FunctionComponent<{ value: string; label: string }> = ({ value, label }) => {

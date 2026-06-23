@@ -1,0 +1,138 @@
+/* RecipeList styles (light + dark). */
+
+.recipeList {
+margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  overflow: hidden;
+}
+
+.recipeListItem {
+padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+}
+
+.recipeListItem + .recipeListItem {
+border-top: 1px solid var(--neo-border-secondary);
+}
+
+.recipeListHeader {
+font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-body-secondary);
+  margin-bottom: var(--neo-spacing_1);
+}
+
+.recipeListBounded {
+display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+}
+
+.recipeListSearch {
+display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1);
+  border: 1px solid var(--neo-border-input);
+  border-radius: var(--neo-border-radius-input);
+  background-color: var(--neo-surfaces-card);
+}
+
+.recipeListSearchIcon {
+color: var(--neo-typography-body-secondary);
+  flex-shrink: 0;
+}
+
+.recipeListInput {
+flex: 1;
+  min-width: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: var(--neo-font-family-body);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+}
+
+.recipeListInput::placeholder {
+color: var(--neo-typography-input-placeholder);
+}
+
+.recipeListCount {
+flex-shrink: 0;
+  font-size: var(--neo-font-size-xs);
+  color: var(--neo-typography-body-secondary);
+  white-space: nowrap;
+}
+
+.recipeListWindow {
+margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+}
+
+.recipeListEmpty {
+padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-body-secondary);
+}
+
+.recipeLink {
+color: var(--neo-typography-link-primary);
+  text-decoration: none;
+}
+
+.recipeLink:hover {
+color: var(--neo-digital-blue-700);
+  text-decoration: underline;
+}
+
+html[data-theme='dark'] {
+.recipeListItem + .recipeListItem {
+border-top-color: var(--neo-grey-800);
+}
+
+.recipeListItem {
+color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.recipeListHeader,
+.recipeListCount,
+.recipeListEmpty {
+color: var(--neo-grey-400);
+}
+
+.recipeListSearch {
+background-color: var(--neo-icons-default);
+    border-color: var(--neo-grey-700);
+}
+
+.recipeListInput {
+color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.recipeListInput::placeholder {
+color: var(--neo-grey-500);
+}
+
+.recipeList,
+.recipeListWindow {
+border-color: var(--neo-grey-700);
+}
+
+.recipeLink {
+color: var(--neo-digital-green-300);
+}
+
+.recipeLink:hover {
+color: var(--neo-digital-green-200);
+}
+}

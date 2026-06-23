@@ -2,7 +2,8 @@ import React, { type FunctionComponent } from 'react';
 import clsx from 'clsx';
 import type { RecipeOption } from '../shared/types';
 import { renderWithCode } from '../shared/renderWithCode';
-import styles from '../shared/styles.module.css';
+import styles from './OptionsTable.module.css';
+import shared from '../shared/styles.module.css';
 
 /**
  * Options as a structured card. Stays a semantic <table> (Parameter / Type /
@@ -38,31 +39,31 @@ export const OptionsTable: FunctionComponent<{ options: RecipeOption[] }> = ({ o
         </div>
       </div>
       <div className={styles.optionsCard}>
-      <div className={styles.tableScroll}>
-      <table className={styles.table}>
+      <div className={shared.tableScroll}>
+      <table className={shared.table}>
         <thead>
           <tr>
-            <th className={styles.th} scope="col">Parameter</th>
-            <th className={styles.th} scope="col">Type</th>
-            <th className={styles.th} scope="col">Description</th>
-            <th className={styles.th} scope="col">Example</th>
-            <th className={styles.th} scope="col">Required</th>
+            <th className={shared.th} scope="col">Parameter</th>
+            <th className={shared.th} scope="col">Type</th>
+            <th className={shared.th} scope="col">Description</th>
+            <th className={shared.th} scope="col">Example</th>
+            <th className={shared.th} scope="col">Required</th>
           </tr>
         </thead>
         <tbody>
           {sorted.map((opt) => (
             <tr key={opt.name}>
-              <td className={styles.td}><code className={styles.optionName}>{opt.name}</code></td>
-              <td className={styles.td}><span className={styles.chip}>{opt.type}</span></td>
-              <td className={styles.td}><span className={styles.optionDesc}>{renderWithCode(opt.description, styles.inlineCode)}</span></td>
-              <td className={styles.td}>
+              <td className={shared.td}><code className={styles.optionName}>{opt.name}</code></td>
+              <td className={shared.td}><span className={shared.chip}>{opt.type}</span></td>
+              <td className={shared.td}><span className={styles.optionDesc}>{renderWithCode(opt.description, shared.inlineCode)}</span></td>
+              <td className={shared.td}>
                 {opt.example ? (
                   <code className={styles.optionExample}>{opt.example}</code>
                 ) : (
                   <span className={styles.optionExampleNone}>—</span>
                 )}
               </td>
-              <td className={styles.td}>
+              <td className={shared.td}>
                 <span className={opt.required ? styles.optionRequired : styles.optionOptional}>
                   {opt.required ? 'Required' : 'Optional'}
                 </span>

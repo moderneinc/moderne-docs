@@ -4,7 +4,8 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import { Accordion, type AccordionItem } from '../Accordion/Accordion.prototype';
 import type { RecipeExample } from '../shared/types';
-import styles from '../shared/styles.module.css';
+import styles from './ExampleList.module.css';
+import shared from '../shared/styles.module.css';
 
 /** Map an example's source kind to a Prism language CodeBlock understands. */
 const codeLang = (lang: string): string => {
@@ -29,16 +30,16 @@ const ExampleBody: FunctionComponent<{ example: RecipeExample }> = ({ example: e
       <table className={styles.paramTable}>
         <thead>
           <tr>
-            <th className={styles.th}>Parameter</th>
-            <th className={styles.th}>Value</th>
+            <th className={shared.th}>Parameter</th>
+            <th className={shared.th}>Value</th>
           </tr>
         </thead>
         <tbody>
           {ex.parameters.map((p) => (
             <tr key={p.parameter}>
-              <td className={styles.td}>{p.parameter}</td>
-              <td className={styles.td}>
-                <code className={styles.inlineCode}>{p.value}</code>
+              <td className={shared.td}>{p.parameter}</td>
+              <td className={shared.td}>
+                <code className={shared.inlineCode}>{p.value}</code>
               </td>
             </tr>
           ))}
