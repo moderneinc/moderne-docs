@@ -7,13 +7,23 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.150.48 |
+| Connector | 0.150.82 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.48/connector-0.150.48.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.82/connector-0.150.82.jar)
 
 ## Changelog
 
 ## June 2026
+
+### v0.150.82 – 2026-06-23
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.82/connector-0.150.82.jar)
+
+* Fix(connector): stop reactor scheduler-metric cardinality explosion (#1348)
+* Disable the expired azure devops pypi integration (#1332)
+* Fix(connector): re-validate redirect targets in ProxyController to close SSRF (#1210) (#1232)
+* Connector: route org-source fetches and all S3 access through the configured HTTP proxy (#1267)
+* Fix(connector): skip client-side DNS resolution on proxied tool clients (#1266)
 
 ### v0.150.48 – 2026-06-12
 
