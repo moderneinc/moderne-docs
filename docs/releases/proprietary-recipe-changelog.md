@@ -10,6 +10,18 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## June 23, 2026
+
+#### rewrite-migrate-python - v0.9.1
+
+* Gate UpgradeToPython module/import recipes on uses_import for perf
+
+#### rewrite-program-analysis - v0.13.0
+
+* Regenerate recipes.csv
+* Add ParameterizeRawCollection recipe
+* Collapse path-sensitive facts by base fact to avoid 2^k explosion
+
 ## June 18, 2026
 
 #### rewrite-nullability - 0.1.0
@@ -4236,11 +4248,4 @@ Republishing to update dependencies
 #### rewrite-vulncheck - 0.3.0
 
 * Update build.gradle.kts
-
-## June 24, 2025
-
-#### rewrite-devcenter - 1.4.1
-
-* Use univocity-parsers for CSV parsing
-* Use FQN check instead of instanceof to avoid parent classloading of `UpgradeMigrationCard` and `ReportAsSecurityIssues`
 
