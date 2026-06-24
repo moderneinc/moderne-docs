@@ -2346,6 +2346,7 @@ Pull request commit completed successfully.
 | `bundle` | [RecipeBundle](#recipebundle)! |  |
 | `options` | [[Option](#option)!]! |  |
 | `dataTables` | [[DataTableDescriptor](#datatabledescriptor)!]! |  |
+| `sourceUrl` | String | URL to the recipe's source file on GitHub, used to power the "Go to sources" link. Currently only OpenRewrite (org.openrewrite) recipes have a source URL; null for all other recipes. |
 | `detail` | [RecipeDetail](#recipedetail)! | Expensive recipe detail fields that require resolving the full recipe bundle. Returns a state machine: query once to trigger resolution, poll until Finished. |
 | `devCenterCards` | [[DevCenterCardDescriptor](#devcentercarddescriptor)!] | DevCenter card descriptors for this recipe, or null if not a DevCenter recipe. |
 
