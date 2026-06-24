@@ -656,6 +656,7 @@ mod build /path/to/project
 | ---- | ----------- |
 | `--dry-run` |  Do not actually build the LST(s), but list the steps that would be required to do so. |
 | `--full` |  Force a full prebuild and parse, ignoring any cached prebuild metadata. |
+| `--incremental` |  (INCUBATING) Update the most recent build in place, rebuilding only what changed since it, instead of producing a fresh full build. Falls back to a full build when no build tool supports it. |
 | `--offline` |  When an underlying build tool has an offline mode, enable it. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--streaming` |  (INCUBATING) Stream results from the build to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like in the IDE. |

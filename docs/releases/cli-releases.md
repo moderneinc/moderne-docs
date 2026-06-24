@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.5           |
+| CLI version | 4.3.6           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,16 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.6 (2026-06-23)
+
+#### What's Changed
+* Incremental `mod build` for Bazel: git-diff target differ + in-place LST reuse
+* Index constructor calls so call: and UsesMethod preconditions match them
+* Lock the build slot for in-place incremental builds
+* Stop probing non-existent files during recipe runs over large monorepos
+* Remove redundant per-repo stat calls in data-table enumeration
+* Skip the unused per-repo isDirectory stat during org-structure read
 
 ### CLI / DX v4.3.5 (2026-06-22)
 
