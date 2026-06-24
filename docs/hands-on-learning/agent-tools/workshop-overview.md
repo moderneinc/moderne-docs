@@ -55,7 +55,7 @@ Most agents ask for your approval before running tools (reading files, executing
 :::
 
 :::tip[Agent-agnostic by design]
-Examples in this workshop demo with Claude Code (slash commands like `/moderne:create-recipe`, the `claude` startup command). Every step works the same way in Cursor, GitHub Copilot, Windsurf, Amp, and Codex. When you see a Claude-specific command, substitute the equivalent for your agent. See [Invoking skills](../../user-documentation/agent-tools/skills.md#invoking-skills) for the per-agent syntax.
+Examples in this workshop demo with Claude Code (for example, the `claude` startup command). Every step works the same way in Cursor, GitHub Copilot, Windsurf, Amp, and Codex. When you see a Claude-specific command, substitute the equivalent for your agent.
 :::
 
 ## Workshop modules

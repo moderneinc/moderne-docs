@@ -60,4 +60,3 @@ mod config agent-tools skills install
 
 * [Learn what tools the MCP server provides](./overview.md)
 * [Set up the tool browser](./tool-browser.md) to monitor builds and test tools
-* [Install skills for AI coding agents](../skills.md)

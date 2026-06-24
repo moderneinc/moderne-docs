@@ -76,11 +76,11 @@ Plan and execute a Spring Boot 4 migration with confidence. Learn to assess your
 
 ### AI-assisted recipe authoring
 
-Use AI as a co-author to build an OpenRewrite migration recipe from scratch. Learn a repeatable workflow for planning, building, and testing recipes with the Moderne CLI's built-in AI skills.
+Use AI as a co-author to build an OpenRewrite migration recipe from scratch. Learn a repeatable workflow for planning, building, and testing recipes with AI agents and the Moderne CLI.
 
 **What you'll learn:**
 
-* The Moderne skills workflow for AI-assisted recipe development (`create-recipe` → `run-recipe` → `create-organization` → iterate)
+* A repeatable workflow for AI-assisted recipe development: plan, build, test, and iterate
 * How to guide AI to choose the right recipe type (declarative YAML, imperative Java, Refaster templates)
 * Why test-driven development is a natural fit for AI-generated recipes
 * How to validate AI-generated recipes against real-world repositories

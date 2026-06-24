@@ -5,7 +5,7 @@ description: Build a Jackson 2→3 migration recipe with AI using test-driven de
 
 # Module 2: Build
 
-In this module, you'll build the Jackson 2→3 migration recipe with AI assistance. You should still be in the same agent session from [Module 1](./module-1-plan.md), with the `create-recipe` skill active and your plan in context. If you need to start a new session, re-invoke the skill and point the agent at your plan file before continuing.
+In this module, you'll build the Jackson 2→3 migration recipe with AI assistance. You should still be in the same agent session from [Module 1](./module-1-plan.md), with your plan in context. If you need to start a new session, point the agent at your plan file before continuing.
 
 You'll follow a test-driven development (TDD) approach: write tests first, validate them, then implement the recipe. Along the way, you'll create a declarative YAML recipe and an imperative Java recipe.
 
@@ -24,7 +24,7 @@ The agent will often try to do multiple steps at once. The exercises below break
 
 #### Step 1: Scaffold the project
 
-Ask the agent to set up the project. The skill includes the project structure, build configuration, and dependencies needed for recipe development, so it can scaffold a project from scratch.
+Ask the agent to set up the project from scratch: the project structure, build configuration, and dependencies needed for recipe development.
 
 <details>
 <summary>Suggested prompt</summary>
@@ -55,7 +55,7 @@ If you're not already working in an IDE, now is a good time to open the project 
 
 ### Takeaways
 
-* The skill includes the build configuration and project structure, so the agent can scaffold from scratch.
+* The agent can scaffold the build configuration and project structure from scratch.
 * Always verify the project builds before you start adding code.
 
 ---
@@ -64,14 +64,14 @@ If you're not already working in an IDE, now is a good time to open the project 
 
 ### Goals for this exercise
 
-* See how the skill drives test-first development
+* Practice test-first development with AI assistance
 * Validate AI-generated test cases and recipe output
 * Create a composite YAML recipe using existing OpenRewrite primitives
 * Iterate on test failures
 
 ### Context
 
-The skill's workflow guides the agent to write tests first, then implement. OpenRewrite's testing framework uses a before/after pattern that works exceptionally well with this approach:
+A test-first workflow has the agent write tests before it implements. OpenRewrite's testing framework uses a before/after pattern that works exceptionally well with this approach:
 * **Before**: The code as it looks today (Jackson 2.x)
 * **After**: The code as it should look after migration (Jackson 3.x)
 
@@ -81,7 +81,7 @@ This is exactly the kind of paired example that an agent is good at generating, 
 
 #### Step 1: Start building
 
-Tell the agent to start on the declarative transformations. The skill's workflow already specifies that the agent should write tests first. The suggested prompt reinforces this, which can't hurt (especially when prompting step by step). If you want to see how the agent acts without that reinforced instruction, try without it, but watch it and make sure it writes tests first.
+Tell the agent to start on the declarative transformations. The suggested prompt asks it to write tests first. If you want to see how the agent acts without that instruction, try without it, but watch it and make sure it writes tests first.
 
 <details>
 <summary>Suggested prompt</summary>
@@ -266,7 +266,7 @@ Just as before, verify the before/after examples are accurate and that there's a
 
 #### Step 3: Review the imperative recipe
 
-The skill covers imperative recipe patterns, so the agent should follow best practices. Key things to verify:
+The agent should follow imperative recipe best practices. Key things to verify:
 * Does it call `super.visitX()` to continue tree traversal?
 * Is the matching logic correct for the specific transformation?
 * Does it handle edge cases (e.g., the negative case from your tests)?

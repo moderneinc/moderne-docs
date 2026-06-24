@@ -89,7 +89,7 @@ The agent will run the same searches you did above, cross-reference them with th
 
 ### Goals for this exercise
 
-* Use the Moderne `create-recipe` skill to scaffold and build a QueryDSL upgrade recipe
+* Use your AI coding agent to scaffold and build a QueryDSL upgrade recipe
 * Follow a test-driven approach
 * Produce a working recipe JAR
 
@@ -104,15 +104,13 @@ mkdir -p $PROJECTS/rewrite-querydsl && cd $PROJECTS/rewrite-querydsl
 claude  # or launch your preferred agent
 ```
 
-#### Step 2: Invoke the skill with the change specification
+#### Step 2: Prompt the agent with the change specification
 
-Invoke the `create-recipe` skill and feed it the change specification from Exercise 5-1. The prompt should describe the concrete changes, not just "fix QueryDSL."
+Feed your agent the change specification from Exercise 5-1. The prompt should describe the concrete changes, not just "fix QueryDSL."
 
 <details>
 <summary>Suggested prompt</summary>
 
-> `/moderne:create-recipe`
->
 > I need a recipe to upgrade QueryDSL from 3.x (com.mysema.querydsl) to 5.x (com.querydsl) for use with Spring Boot 4 / Jakarta EE. Reference: https://github.com/querydsl/querydsl/releases/tag/QUERYDSL_4_0_0
 >
 > The specific changes are:
@@ -173,7 +171,7 @@ You can compare your version against this one after the workshop.
 
 * A clear change specification from Exercise 5-1 keeps the agent focused on the right transformations.
 * The recipe type hierarchy applies here: dependency changes, plugin changes, and package renames are all declarative.
-* The `create-recipe` skill provides the TDD workflow (tests first, then implementation) that catches mistakes early.
+* A test-driven workflow (tests first, then implementation) catches mistakes early.
 
 :::info
 This exercise followed an abbreviated version of the plan-build-test workflow from the [AI recipes workshop](../ai-recipes/workshop-overview.md). If you want to go deeper into AI-assisted recipe development, including Refaster templates, imperative recipes, and testing against larger working sets, check out that workshop.

@@ -5,7 +5,7 @@ description: Learn what the Moderne MCP server provides to AI coding agents and 
 
 # Moderne MCP server
 
-The Moderne CLI includes a local [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents tools for semantic code search, navigation, and refactoring. It runs on your own workstation as a subprocess of your coding agent, operating directly on the repositories you have checked out locally. While [skills](../skills.md) teach agents *how* to work with recipes, the MCP server gives agents direct access to these tools, backed by OpenRewrite's [Lossless Semantic Tree (LST)](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) and [Moderne Trigrep](../trigrep.md).
+The Moderne CLI includes a local [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents tools for semantic code search, navigation, and refactoring. It runs on your own workstation as a subprocess of your coding agent, operating directly on the repositories you have checked out locally. The CLI installs a set of skills that steer agents toward the right tool for a task (see [how skills support the MCP tools](#how-skills-support-the-mcp-tools) below), while the MCP server gives agents direct access to those tools, backed by OpenRewrite's [Lossless Semantic Tree (LST)](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) and [Moderne Trigrep](../trigrep.md).
 
 :::info
 This page describes the **local** MCP server (`mod mcp`), which runs on a developer workstation through the CLI. Moderne also offers a [remote MCP server](./remote-server.md) hosted on the Moderne Platform that runs recipes against the repositories already ingested into your tenant.
@@ -68,12 +68,13 @@ The MCP server exposes the following tools:
 
 ### Working with recipes
 
-| Tool              | Description                                                                                                                              |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `search_recipes`  | Searches available OpenRewrite recipes by natural-language query. Returns a paginated list of matching recipe names ranked by relevance. |
-| `learn_recipe`    | Retrieves full details for a specific recipe, including its description, configurable options, and data table schemas.                   |
-| `run_recipe`      | Runs an OpenRewrite recipe on the repository. Recipes perform automated code analysis, refactoring, migration, and formatting.           |
-| `query_datatable` | Executes SQL against data table results from a recipe run. Lazily loads results into DuckDB for querying.                                |
+| Tool              | Description                                                                                                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `edit_code`       | Searches the OpenRewrite marketplace catalog for a transformation recipe by natural-language query. Reach for this before grep or manual edits on any "change X across the codebase" task.            |
+| `analyze_code`    | Searches the catalog for a read-only analysis recipe by natural-language query. Use it to find usages, audit annotations, or compute an impact picture without modifying code.                        |
+| `learn_recipe`    | Retrieves full details for a specific recipe, including its description, configurable options, and data table schemas.                                                                              |
+| `run_recipe`      | Runs an OpenRewrite recipe on the repository. Recipes perform automated code analysis, refactoring, migration, and formatting.                                                                      |
+| `query_datatable` | Executes SQL against data table results from a recipe run. Lazily loads results into DuckDB for querying.                                                                                           |
 
 ### Checking status
 
@@ -84,22 +85,15 @@ The MCP server exposes the following tools:
 | `lst_status`   | Reports the status of the LST build. Shows build state, source file count, and pending incremental changes.                         |
 
 <figure>
-  ![The Moderne Agent Tools browser showing all available MCP tools in a dropdown list](./assets/mcp-tools.png)
+  <img src={require('./assets/mcp-tools.png').default} alt="The Moderne Agent Tools browser showing all available MCP tools in a dropdown list" width="500" />
   <figcaption>_The tool browser showing all available MCP tools_</figcaption>
 </figure>
 
-## Skills vs MCP
+## How skills support the MCP tools
 
-Skills and the MCP server are complementary:
+Alongside the MCP server, `mod config agent-tools install` also installs a set of **skills**. Each skill is a short guide that maps to one or more of these tools and steers the agent to call them - for example, reaching for `edit_code` before grep on a cross-codebase change, or `find_methods` instead of text search to locate a method's callers.
 
-|                         | Skills                                                    | MCP server                                              |
-|-------------------------|-----------------------------------------------------------|---------------------------------------------------------|
-| **What they provide**   | Workflow guidance and domain knowledge                    | Semantic code search, navigation, and refactoring tools |
-| **How agents use them** | Read as instructions/prompts                              | Call as tools during conversation                       |
-| **When they help**      | Creating recipes, analyzing impact, building working sets | Searching, navigating, and refactoring code             |
-| **Requires LST build**  | No                                                        | Yes (for semantic tools)                                |
-
-For the best experience, install both. Skills teach agents the recipe development workflow, while the MCP server gives them the tools to execute that workflow effectively.
+The skills exist to support MCP tool usage; they aren't useful on their own, since they direct the agent to call the MCP tools. That's why the install command sets up both together.
 
 ## Next steps
 
@@ -107,5 +101,4 @@ For the best experience, install both. Skills teach agents the recipe developmen
 * [Install the MCP server](./getting-started.md) for your AI coding agent
 * [Set up the tool browser](./tool-browser.md) to monitor builds and test tools
 * [Review the security architecture](./security.md) for compliance and IT review
-* [Install skills for AI coding agents](../skills.md)
 * [Learn about Moderne Prethink](../prethink.md) for giving agents pre-resolved codebase context

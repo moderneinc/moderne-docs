@@ -97,7 +97,8 @@ All 18 tools perform deterministic code analysis or transformation against local
 | `find_annotations`     | Finds all usages of a specified annotation across the codebase.                                                                |
 | `find_implementations` | Finds all classes implementing or extending a given type, including indirect implementations.                                  |
 | `symbols_overview`     | Returns the symbol structure (classes, methods, fields) of a specific source file.                                             |
-| `search_recipes`       | Searches the local recipe marketplace CSV for OpenRewrite recipes by keyword.                                                  |
+| `edit_code`            | Searches the local recipe marketplace CSV for transformation recipes by keyword.                                              |
+| `analyze_code`         | Searches the local recipe marketplace CSV for read-only analysis recipes by keyword.                                          |
 | `learn_recipe`         | Returns full metadata for a specific recipe from the local marketplace.                                                        |
 | `run_recipe`           | Executes an OpenRewrite recipe against the LST. May trigger a Maven artifact download if the recipe JAR is not locally cached. |
 | `query_datatable`      | SQL interface (DuckDB, in-process) over `.csv.gz` DataTable files produced by a prior `run_recipe` call.                       |
@@ -160,7 +161,7 @@ Recipes may make outbound HTTPS connections as part of their normal behavior. Th
 
 In its default configuration, `mod mcp` transmits no telemetry, analytics, crash reports, or usage data. The transcript watcher writes search-tool usage observations to a local CSV at `~/.moderne/mcp/tool-observations.csv`. This file is never transmitted anywhere. There is no phone-home mechanism.
 
-`mod mcp` does not contact the Moderne SaaS platform API by default. The recipe marketplace used by `search_recipes`, `learn_recipe`, and `run_recipe` is read entirely from local CSV files installed by `mod config recipes` commands.
+`mod mcp` does not contact the Moderne SaaS platform API by default. The recipe marketplace used by `edit_code`, `analyze_code`, `learn_recipe`, and `run_recipe` is read entirely from local CSV files installed by `mod config recipes` commands.
 
 :::info
 In a future release, the Moderne CLI will provide an opt-in feature to connect to your Moderne platform for centralized telemetry collection and audit/governance data. This will require explicit configuration and will not be enabled by default.

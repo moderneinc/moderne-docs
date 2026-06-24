@@ -180,16 +180,16 @@ git restore .
 
 ### Goals for this exercise
 
-* See the agent invoke `search_recipes`, `learn_recipe`, and `run_recipe`
+* See the agent invoke `analyze_code`, `learn_recipe`, and `run_recipe`
 * Connect what you've learned in earlier modules: the agent uses Prethink + Trigrep + recipes to drive a fix
 
 ### Steps
 
 #### Step 1: Ask the agent to find a relevant recipe
 
-> Use `search_recipes` to find an OpenRewrite recipe that upgrades dependencies with known vulnerabilities. Show me the top 3 results.
+> Use `analyze_code` to find an OpenRewrite recipe that reports dependencies with known vulnerabilities. Show me the top 3 results.
 
-The `search_recipes` tool returns a paginated list of matching recipes ranked by relevance. The agent picks one and uses `learn_recipe` to retrieve its description, options, and data table schemas before deciding to run it.
+The `analyze_code` tool returns a paginated list of matching recipes ranked by relevance. The agent picks one and uses `learn_recipe` to retrieve its description, options, and data table schemas before deciding to run it.
 
 #### Step 2: Run the recipe
 
@@ -198,7 +198,7 @@ The `search_recipes` tool returns a paginated list of matching recipes ranked by
 The `query_datatable` tool runs SQL against the recipe's output data tables (DuckDB under the hood). This is how the agent goes from raw recipe output to a structured answer.
 
 :::tip
-This is the same workflow `analyze-impact` skill walks the agent through, but driven by you. If you want the skill to do the orchestration, invoke it explicitly: `/moderne:analyze-impact` (Claude Code) or the equivalent in your agent.
+This is the same workflow the `analyze-code` skill walks the agent through, but driven by you. To let the skill orchestrate it instead, just describe the goal in plain language - for example, ask the agent to find and report dependencies with known vulnerabilities - and it loads `analyze-code` on its own.
 :::
 
 ### Takeaways
@@ -249,8 +249,7 @@ Point all of this at your own repositories and you'll get the same setup with yo
 
 ## Further reading
 
-* [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md)
 * [Moderne MCP server overview](../../user-documentation/agent-tools/mcp/overview.md)
 * [Moderne Prethink recipes](../../user-documentation/agent-tools/prethink.md)
 * [Moderne Trigrep](../../user-documentation/agent-tools/trigrep.md)
-* [AI-assisted recipe authoring workshop](../ai-recipes/workshop-overview.md) for using the same skills to build new recipes
+* [AI-assisted recipe authoring workshop](../ai-recipes/workshop-overview.md) for building new recipes with AI assistance

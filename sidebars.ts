@@ -625,7 +625,6 @@ const agentTools = {
   items: [
     'user-documentation/agent-tools/prethink',
     'user-documentation/agent-tools/trigrep',
-    'user-documentation/agent-tools/skills',
     {
       type: 'category' as const,
       label: 'Moderne MCP',
@@ -907,7 +906,7 @@ const handsOnLearning = {
       link: {
         type: 'generated-index' as const,
         title: 'Teaching AI to write better OpenRewrite recipes',
-        description: 'Learn to use AI as a co-author for building OpenRewrite migration recipes, using the Moderne CLI\'s built-in AI skills.',
+        description: 'Learn to use AI as a co-author for building OpenRewrite migration recipes with the Moderne CLI.',
         slug: '/hands-on-learning/ai-recipes',
         keywords: ['ai', 'recipes', 'skills'],
       },
