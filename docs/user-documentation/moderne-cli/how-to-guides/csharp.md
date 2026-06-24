@@ -23,6 +23,7 @@ This guide assumes that:
 * You have [.NET SDK](https://dotnet.microsoft.com/download) 10.0 or higher installed on your machine
 * You have the [NuGet CLI](https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools#nugetexe-cli) (`nuget.exe`) installed
 * (macOS and Linux only) You have [Mono](https://www.mono-project.com/download/stable/) installed
+  * Installing Mono can cause `mod` to launch Mono's tool instead of the Moderne CLI. See [Troubleshooting](#mod-runs-monos-tool-instead-of-the-moderne-cli) if this happens.
 
 :::info
 The C# recipe runtime (`rewrite-csharp`) is packaged as a `net10.0` application, so the .NET 10 runtime is required. Earlier SDK versions (8.0, 9.0) will not work.
@@ -243,3 +244,17 @@ Done (1s)
 
 Data tables for each organization with rows are linked above
 ```
+
+## Troubleshooting
+
+### `mod` runs Mono's tool instead of the Moderne CLI
+
+Mono installs its own `mod` executable and adds its directory to your `PATH` (via `/etc/paths.d/mono-commands` on macOS). Depending on your `PATH` order, that `mod` can shadow the Moderne CLI, so running `mod` launches the wrong tool.
+
+Confirm the conflict with `which -a mod`. If a Mono path appears above `~/.moderne/cli/bin/mod`, prepend the Moderne CLI's `bin` directory to your `PATH` in your shell's startup file (`~/.zshrc` for zsh, `~/.bashrc` or `~/.bash_profile` for bash), then open a new terminal:
+
+```bash
+export PATH="$HOME/.moderne/cli/bin:$PATH"
+```
+
+Don't delete Mono's `mod`. Mono recreates it on its next update, and the `PATH` change keeps both tools available.
