@@ -7,18 +7,30 @@ import CopyPageButton from 'docusaurus-plugin-copy-page-button/react';
  */
 export const SuppressCopyPageContext = createContext(false);
 
+const GITHUB_RAW_DOCS = 'https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs';
+
+/**
+ * Where the View / Open-in-ChatGPT / Open-in-Claude actions fetch markdown from:
+ * - Recipe-catalog pages are generated React-component MDX, so DOM-scraping is noisy — point at the
+ *   committed markdown source on GitHub (always exists on `main`; no extra files to build/serve).
+ * - Every other page reuses the per-page markdown that `docusaurus-plugin-llms` already publishes at
+ *   `/<path>.md`.
+ * (The clipboard "Copy" action always DOM-scrapes; this only redirects View + the AI links.)
+ */
+const markdownUrlFor = (pageUrl: string): string => {
+  const path = new URL(pageUrl, 'https://docs.moderne.io').pathname.replace(/\/$/, '');
+  return path.includes('/recipe-catalog/') ? `${GITHUB_RAW_DOCS}${path}.md` : `${path}.md`;
+};
+
 /**
  * The configured copy / view-as-markdown / open-in-LLM button, shared by the breadcrumb-row placement
  * (DocBreadcrumbs swizzle) and the no-breadcrumb fallback (DocItem/Layout swizzle).
- *
- * `generateMarkdownRoutes` emits a `/path.md` per page that the View + AI-tool actions point at.
- * FOLLOW-UP: recipe pages are React components, so that generated markdown is DOM-scraped (noisy). Once
- * rewrite-recipe-markdown-generator (PR #344) emits a clean `.md` per recipe, pass a `markdownUrl`
- * function here that maps recipe-catalog pages to it — landed together so the URLs never 404.
  */
 export const CopyPageAction: FunctionComponent = () => {
   if (useContext(SuppressCopyPageContext)) {
     return null;
   }
-  return <CopyPageButton generateMarkdownRoutes enabledActions={['copy', 'view', 'chatgpt', 'claude']} />;
+  return (
+    <CopyPageButton enabledActions={['copy', 'view', 'chatgpt', 'claude']} markdownUrl={markdownUrlFor} />
+  );
 };

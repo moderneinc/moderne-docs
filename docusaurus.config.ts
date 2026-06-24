@@ -165,12 +165,12 @@ const config: Config = {
     [
       'docusaurus-plugin-copy-page-button',
       {
-        // Auto-injection (post-hydration DOM insertion) is unreliable on pages with hydration
-        // mismatches (e.g. ReactPlayer/banners), so we render the button from a swizzled
-        // DocItem/Layout instead — see src/theme/DocItem/Layout.
+        // We render the button ourselves (src/components/CopyPageAction via the DocBreadcrumbs /
+        // DocItem-Layout swizzles) rather than the plugin's auto-injection, which is unreliable on
+        // pages with hydration mismatches. Actions + markdownUrl are configured on the component.
+        // No generateMarkdownRoutes: non-catalog pages reuse docusaurus-plugin-llms' /path.md, and
+        // recipe pages point at their GitHub raw source.
         injectButton: false,
-        generateMarkdownRoutes: true,
-        enabledActions: ['copy', 'view', 'chatgpt', 'claude'],
       },
     ],
     [
