@@ -6,6 +6,7 @@ export { ExampleList } from './ExampleList';
 export { DataTableList } from './DataTableList';
 export { UsageList } from './UsageList';
 export { AccessInfoButton } from './AccessInfoButton';
+export { MarkdownToggle, type MarkdownView } from './MarkdownToggle';
 export { CopyButton } from './CopyButton';
 export { Accordion } from './Accordion';
 export type { AccordionItem } from './Accordion';

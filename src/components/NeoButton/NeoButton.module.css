@@ -55,6 +55,9 @@
 
   &:hover:not(:disabled) {
     background-color: var(--neo-buttons-primary-hover);
+    /* Pin the text color: when rendered as an <a> (href), Infima's global `a:hover` color
+       (higher specificity than the variant's resting color) would otherwise repaint it dark. */
+    color: var(--neo-grey-50);
   }
 
   &:active:not(:disabled) {
@@ -80,6 +83,8 @@
 
   &:hover:not(:disabled) {
     background-color: var(--neo-buttons-secondary-hover-background);
+    /* Pin the text color against Infima's `a:hover` override when rendered as a link. */
+    color: var(--neo-buttons-secondary-default);
   }
 
   &:active:not(:disabled) {

@@ -25,8 +25,13 @@ export interface AccordionItem {
  * Every <details> keeps its body in the DOM when collapsed, so crawlers and the
  * .md / llms.txt export read all of it.
  */
-export const Accordion: FunctionComponent<{ items: AccordionItem[]; children: ReactNode }> = ({ items, children }) => {
-  const [open, setOpen] = useState<boolean[]>(() => items.map((_, i) => i === 0));
+export const Accordion: FunctionComponent<{
+  items: AccordionItem[];
+  children: ReactNode;
+  /** Which items start expanded: just the first (default, space-saving) or all of them. */
+  defaultOpen?: 'first' | 'all';
+}> = ({ items, children, defaultOpen = 'first' }) => {
+  const [open, setOpen] = useState<boolean[]>(() => items.map((_, i) => defaultOpen === 'all' || i === 0));
   const allOpen = open.length > 0 && open.every(Boolean);
 
   const toggleAll = () => setOpen(items.map(() => !allOpen));

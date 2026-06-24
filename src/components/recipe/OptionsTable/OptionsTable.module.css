@@ -45,21 +45,70 @@ background-color: var(--neo-typography-input-default);
 background-color: var(--neo-grey-400);
 }
 
+/* Horizontal padding insets the header rule + row dividers from the card border, so they don't run
+   edge-to-edge — matching the data table (a `shared.table` inside the accordion body's `spacing_2`
+   padding). Keeps row treatments consistent across the page. */
 .optionsCard {
 border: 1px solid var(--neo-border-card);
   border-radius: var(--neo-border-radius-card);
   overflow: hidden;
+  padding: 0 var(--neo-spacing_2);
+}
+
+/* Two-line option table. Line 1 (`.paramRow`) holds the scannable fields; line 2 (`.descRow`) holds
+   the description across all columns. Dividers go between options (`.optionDivider`), never between
+   an option's own two rows — so each option reads as one block. Cell chrome mirrors shared `.th`/`.td`
+   tokens but the divider lives here, decoupled from shared's `tbody tr + tr` row rule. */
+.optionsTable {
+width: 100%;
+  display: table;
+  border-collapse: collapse;
+}
+
+.headCell {
+text-align: left;
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-input-default);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--neo-border-card);
+  white-space: nowrap;
+}
+
+/* Line 1: a touch of top room, tight to the description that follows. */
+.cell {
+text-align: left;
+  padding: var(--neo-spacing_2) var(--neo-spacing_1_1_2) var(--neo-spacing_1);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+  font-weight: var(--neo-font-weight-regular);
+  vertical-align: baseline;
+  border: none;
+}
+
+.paramCell {
+white-space: nowrap;
+}
+
+/* Line 2: no top padding (hugs line 1), bottom room before the next option. */
+.descCell {
+padding: 0 var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  border: none;
+}
+
+/* The one divider: a hairline above each option's line 1, except the first. Matches the header rule
+   and card edge (`--neo-border-card`) so every line in the card is one uniform weight — `--neo-border-secondary`
+   resolves to a semi-transparent navy that renders darker/cooler than the neutral borders. */
+.optionDivider .cell {
+border-top: 1px solid var(--neo-border-card);
 }
 
 /* `.optionName` / `.optionExample` compose shared `.inlineCode` (chrome + dark mode); these only
    add the per-cell deltas. */
 .optionName {
   font-weight: var(--neo-font-weight-semi-bold);
-}
-
-.optionDesc {
-font-size: var(--neo-font-size-sm);
-  color: var(--neo-typography-input-default);
 }
 
 .optionExample {
@@ -69,6 +118,19 @@ font-size: var(--neo-font-size-sm);
 
 .optionExampleNone {
 color: var(--neo-typography-body-secondary);
+}
+
+.optionDesc {
+font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+}
+
+/* Required marker: the same dot vocabulary as the section-header tally, paired with its label. */
+.requiredMarker {
+display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  white-space: nowrap;
 }
 
 .optionRequired {
@@ -99,6 +161,19 @@ color: var(--neo-grey-400);
 
 .optionsCard {
 border-color: var(--neo-grey-700);
+}
+
+.headCell {
+color: var(--neo-surfaces-snackbar-dark-mode);
+    border-bottom-color: var(--neo-grey-700);
+}
+
+.cell {
+color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.optionDivider .cell {
+border-top-color: var(--neo-grey-700);
 }
 
 .optionRequired {

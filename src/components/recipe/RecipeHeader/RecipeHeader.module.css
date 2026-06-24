@@ -155,6 +155,46 @@ display: flex;
   gap: var(--neo-spacing_1);
 }
 
+/* Lightweight expectation-setting tooltip on the "Try in Platform" CTA. Reveal + card chrome echo
+   the AccessInfoButton popover so the two info affordances read the same. */
+.tryWrap {
+position: relative;
+  display: inline-flex;
+}
+
+.tryTooltip {
+position: absolute;
+  top: calc(100% + var(--neo-spacing_1));
+  left: 0;
+  z-index: 40;
+  width: 280px;
+  max-width: 80vw;
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+  line-height: 1.5;
+  color: var(--neo-typography-body-secondary);
+  background-color: var(--neo-surfaces-card);
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  box-shadow: var(--neo-shadow-dropdown);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+
+.tryWrap:hover .tryTooltip,
+.tryWrap:focus-within .tryTooltip {
+opacity: 1;
+  visibility: visible;
+}
+
+html[data-theme='dark'] .tryTooltip {
+color: var(--neo-grey-400);
+  background-color: var(--neo-icons-default);
+  border-color: var(--neo-grey-700);
+}
+
 html[data-theme='dark'] {
 .codeChip {
 background-color: var(--neo-grey-900);
