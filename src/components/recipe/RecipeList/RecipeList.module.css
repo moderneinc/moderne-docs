@@ -1,16 +1,47 @@
-/* RecipeList styles (light + dark). */
+/* RecipeList styles (light + dark). Rendered through the shared Accordion: lists are borderless and
+   inset inside the accordion body, matching the data table (no inner card, dividers don't reach the
+   container edge). */
 
-.recipeList {
+/* Accordion-label count badge: violet for preconditions, neutral for the recipe list. */
+.itemLabel {
+display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+}
+
+.countBadge {
+display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--neo-spacing_1_2);
+  border-radius: var(--neo-border-radius-full);
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-semi-bold);
+  line-height: 1;
+}
+
+.countBadge_violet {
+background-color: var(--neo-violet-200);
+  color: var(--neo-violet-700);
+}
+
+.countBadge_neutral {
+background-color: var(--neo-status-neutral-light);
+  color: var(--neo-status-neutral-dark);
+}
+
+/* Borderless, inset list of links. The accordion body's horizontal padding does the insetting, so the
+   row dividers stop short of the container edge — same as the data table. */
+.recipeRows {
 margin: 0;
   padding: 0;
   list-style: none;
-  border: 1px solid var(--neo-border-card);
-  border-radius: var(--neo-border-radius-input);
-  overflow: hidden;
 }
 
 .recipeListItem {
-padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+padding: var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2);
   font-size: var(--neo-font-size-sm);
   color: var(--neo-typography-input-default);
 }
@@ -62,18 +93,18 @@ flex-shrink: 0;
   white-space: nowrap;
 }
 
+/* No border: the scroll window flows inside the accordion body like the preconditions list, so its
+   row dividers inset the same way (no bounding box around the results). Stays scrollable. */
 .recipeListWindow {
 margin: 0;
   padding: 0;
   list-style: none;
   max-height: 300px;
   overflow-y: auto;
-  border: 1px solid var(--neo-border-card);
-  border-radius: var(--neo-border-radius-input);
 }
 
 .recipeListEmpty {
-padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+padding: var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2);
   font-size: var(--neo-font-size-sm);
   color: var(--neo-typography-body-secondary);
 }
@@ -115,16 +146,21 @@ color: var(--neo-surfaces-snackbar-dark-mode);
 color: var(--neo-grey-500);
 }
 
-.recipeList,
-.recipeListWindow {
-border-color: var(--neo-grey-700);
-}
-
 .recipeLink {
 color: var(--neo-digital-green-300);
 }
 
 .recipeLink:hover {
 color: var(--neo-digital-green-200);
+}
+
+.countBadge_violet {
+background-color: var(--neo-violet-800);
+    color: var(--neo-violet-200);
+}
+
+.countBadge_neutral {
+background-color: var(--neo-grey-800);
+    color: var(--neo-grey-300);
 }
 }

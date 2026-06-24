@@ -1,6 +1,6 @@
 import React, { type FunctionComponent } from 'react';
 import clsx from 'clsx';
-import { FileText, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { NeoButton } from '@site/src/components/NeoButton';
 import { CopyButton } from '../CopyButton';
 import { AccessInfoButton } from '../AccessInfoButton';
@@ -19,7 +19,8 @@ export interface RecipeHeaderProps {
   /** Maven coordinates `groupId:artifactId`, shown as a second code-chip when present. */
   artifact?: string;
   appLink: string;
-  /** Raw markdown source URL (e.g. a raw.githubusercontent.com link) for "View as Markdown". */
+  /** Raw markdown source URL (e.g. a raw.githubusercontent.com link). Consumed by the page-level
+   *  rendered/raw MarkdownToggle, not the header itself. */
   markdownUrl: string;
   /** Proprietary recipe — shows the "Moderne Only" access badge + info popover instead of "Open source". */
   moderneOnly?: boolean;
@@ -34,7 +35,7 @@ const tagHref = (tag: string): string => {
 
 /** Header band for a recipe page: access badge, title, recipe-id/artifact code-chips, description, tags, CTAs. */
 export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
-  displayName, description, type, languages, tags, license, fqName, artifact, appLink, markdownUrl, moderneOnly = false,
+  displayName, description, type, languages, tags, license, fqName, artifact, appLink, moderneOnly = false,
 }) => (
   <header className={styles.header}>
     {/* Identity group: access badge, title, recipe-id/artifact chips — tight gaps within. */}
@@ -97,28 +98,25 @@ export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
 
     <div className={styles.actions}>
       <div className={styles.actionButtons}>
-        <NeoButton
-          variant="primary"
-          size="small"
-          href={appLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          icon={<ArrowRight size={14} />}
-          iconPosition="right"
-        >
-          Try in Platform
-        </NeoButton>
-        <NeoButton
-          variant="outline"
-          size="small"
-          href={markdownUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          icon={<FileText size={14} />}
-          iconPosition="left"
-        >
-          View as Markdown
-        </NeoButton>
+        {/* Tooltip sets expectations: the platform is the hosted product and needs a Moderne
+            account — so prospects aren't surprised by a sign-in. Button itself is unchanged. */}
+        <span className={styles.tryWrap}>
+          <NeoButton
+            variant="primary"
+            size="small"
+            href={appLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            icon={<ArrowRight size={14} />}
+            iconPosition="right"
+          >
+            Try in Platform
+          </NeoButton>
+          <span className={styles.tryTooltip} role="tooltip">
+            Try this recipe in the Moderne platform. Not a user yet? You’ll get a no-setup demo
+            environment, with nothing to install or configure.
+          </span>
+        </span>
       </div>
     </div>
   </header>
