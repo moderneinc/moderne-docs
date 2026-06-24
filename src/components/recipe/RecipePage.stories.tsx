@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
+import React, { type ReactNode } from 'react';
 import {
   RecipeHeader,
   RecipeList,
@@ -8,7 +8,6 @@ import {
   UsageList,
   DataTableList,
   RecipeMeta,
-  RecipePage,
 } from '.';
 import { StoryLayout } from './shared/storyLayout';
 import { SAMPLE } from './RecipeHeader/RecipeHeader.fixtures';
@@ -16,8 +15,7 @@ import { commonStaticAnalysisContent as composite } from './shared/sampleData/co
 import { replaceDuplicateStringLiteralsContent as single } from './shared/sampleData/replaceDuplicateStringLiterals.data';
 
 /**
- * Whole recipe pages assembled from every component, mirroring the MDX the generator will emit:
- * the body is wrapped in `<RecipePage>`, which owns the rendered ⇄ raw markdown toggle.
+ * Whole recipe pages assembled from every component, mirroring the MDX the generator will emit.
  * Two faithful variants because a recipe is either composite or single — never both:
  * `CompositeRecipe` shows the Definition (sub-recipe) list; `SingleRecipe` shows the Options table.
  */
@@ -29,35 +27,11 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-/** Stand-in for the raw `.md` source the generator emits — shown when the toggle flips to "Raw". */
-const SAMPLE_RAW_MARKDOWN = `---
-sidebar_label: "Common static analysis issues"
-description: "Resolve common static analysis issues (also known as SAST issues)."
----
-
-# Common static analysis issues
-
-**org.openrewrite.staticanalysis.CommonStaticAnalysis**
-
-_Resolve common static analysis issues (also known as SAST issues)._
-
-## Recipe source
-
-This recipe is composed of more than one recipe. If you want to see the source
-code for this recipe, you can find it in the [rewrite-static-analysis] repository.
-
-## Definition
-
-### Preconditions
-
-* [Singleton](/recipes/core/singleton)
-
-### Recipe list
-
-* [Constructors of an \`abstract\` class should not be declared \`public\`](/recipes/...)
-* [Atomic Boolean, Integer, and Long equality checks compare their values](/recipes/...)
-* ...
-`;
+/** Page body stand-in: on real pages, Docusaurus `.markdown > *` margins space the sections; in
+ *  Storybook there's no `.markdown`, so a flex column with the same rhythm stands in for it. */
+const Page = ({ children }: { children: ReactNode }) => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--neo-spacing_5)' }}>{children}</div>
+);
 
 const singleHeader = {
   displayName: 'Replace duplicate `String` literals',
@@ -78,7 +52,7 @@ const singleHeader = {
 /** Composite recipe: access badge + Definition (sub-recipe list) + Examples + Usage + Data tables. */
 export const CompositeRecipe: Story = {
   render: () => (
-    <RecipePage rawMarkdown={SAMPLE_RAW_MARKDOWN}>
+    <Page>
       <RecipeMeta
         displayName={SAMPLE.displayName}
         description={SAMPLE.description}
@@ -106,14 +80,14 @@ export const CompositeRecipe: Story = {
       <DataTableList tables={composite.dataTables}>
         <h2>Data tables</h2>
       </DataTableList>
-    </RecipePage>
+    </Page>
   ),
 };
 
 /** Single recipe: Moderne-only badge + Options table + Examples + Usage + Data tables. */
 export const SingleRecipe: Story = {
   render: () => (
-    <RecipePage rawMarkdown={SAMPLE_RAW_MARKDOWN}>
+    <Page>
       <RecipeMeta
         displayName="Replace duplicate String literals"
         description="Replaces String literals repeated a minimum of 3 times with a shared constant."
@@ -135,6 +109,6 @@ export const SingleRecipe: Story = {
       <DataTableList tables={single.dataTables}>
         <h2>Data tables</h2>
       </DataTableList>
-    </RecipePage>
+    </Page>
   ),
 };

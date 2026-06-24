@@ -6774,6 +6774,11 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+docusaurus-plugin-copy-page-button@0.8.3:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/docusaurus-plugin-copy-page-button/-/docusaurus-plugin-copy-page-button-0.8.3.tgz#fbe3f6d83bf737d9fc9510fe98b38952d19e7e4d"
+  integrity sha512-2/k4H/ePsuZUVv5S91XC2zhnIWLufHzEPTdo/6jYcvonQqHKcLK9vfOp24L5qwMO16VGhHRIEYcEVrXOshxaBw==
+
 docusaurus-plugin-llms@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/docusaurus-plugin-llms/-/docusaurus-plugin-llms-0.2.2.tgz#3461e8295d18d4057cf0fbcf5e3feac561ea6fd1"

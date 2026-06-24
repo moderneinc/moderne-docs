@@ -2,6 +2,7 @@ import { useCurrentSidebarCategory, useSidebarBreadcrumbs } from '@docusaurus/pl
 import { PageMetadata } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
+import { SuppressCopyPageContext } from '@site/src/components/CopyPageAction';
 import DocCardList from '@theme/DocCardList';
 import type { Props } from '@theme/DocCategoryGeneratedIndexPage';
 import DocPaginator from '@theme/DocPaginator';
@@ -76,7 +77,10 @@ const DocCategoryGeneratedIndexPageContent: FunctionComponent<Props> = ({
     <div className={`${styles.generatedIndexPage} ${isTopLevel ? styles.topLevelCategory : ''}`}>
       <DocVersionBanner />
       <div className={styles.content}>
-        <DocBreadcrumbs />
+        {/* Category index pages are card lists — no copy-page button on their breadcrumb row. */}
+        <SuppressCopyPageContext.Provider value={true}>
+          <DocBreadcrumbs />
+        </SuppressCopyPageContext.Provider>
         <DocVersionBadge />
         <header className={styles.header} style={headerStyle}>
           <Heading as="h1" className={styles.title}>

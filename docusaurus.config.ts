@@ -161,6 +161,18 @@ const config: Config = {
   ],
 
   plugins: [
+    // TRIAL (throwaway): site-wide copy/view-as-markdown button for LLMs.
+    [
+      'docusaurus-plugin-copy-page-button',
+      {
+        // Auto-injection (post-hydration DOM insertion) is unreliable on pages with hydration
+        // mismatches (e.g. ReactPlayer/banners), so we render the button from a swizzled
+        // DocItem/Layout instead — see src/theme/DocItem/Layout.
+        injectButton: false,
+        generateMarkdownRoutes: true,
+        enabledActions: ['copy', 'view', 'chatgpt', 'claude'],
+      },
+    ],
     [
       'docusaurus-plugin-llms',
       {
