@@ -1,0 +1,46 @@
+/* RecipePage: page-level rendered/raw toggle wrapper (light + dark via semantic Neo tokens). */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_3);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Section rhythm: the wrapper owns the gap between the header and each section, since the page body
+   is nested inside this component rather than being a direct child of Docusaurus `.markdown`. */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_5);
+}
+
+.rawWrap {
+  position: relative;
+}
+
+.rawCopy {
+  position: absolute;
+  top: var(--neo-spacing_1);
+  right: var(--neo-spacing_1);
+  background: var(--neo-surfaces-card);
+  border-radius: var(--neo-border-radius-x-s);
+}
+
+.raw {
+  margin: 0;
+  padding: var(--neo-spacing_2);
+  /* Leave room for the corner copy button. */
+  padding-right: var(--neo-spacing_5);
+  font-size: var(--neo-font-size-code);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  background: var(--neo-surfaces-card-header);
+  border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-card);
+  color: var(--neo-typography-input-default);
+}

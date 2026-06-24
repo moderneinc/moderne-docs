@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React, { useState, type ReactNode } from 'react';
+import React from 'react';
 import {
   RecipeHeader,
   RecipeList,
@@ -8,9 +8,7 @@ import {
   UsageList,
   DataTableList,
   RecipeMeta,
-  MarkdownToggle,
-  type MarkdownView,
-  CopyButton,
+  RecipePage,
 } from '.';
 import { StoryLayout } from './shared/storyLayout';
 import { SAMPLE } from './RecipeHeader/RecipeHeader.fixtures';
@@ -18,7 +16,8 @@ import { commonStaticAnalysisContent as composite } from './shared/sampleData/co
 import { replaceDuplicateStringLiteralsContent as single } from './shared/sampleData/replaceDuplicateStringLiterals.data';
 
 /**
- * Whole recipe pages assembled from every component, mirroring the MDX the generator will emit.
+ * Whole recipe pages assembled from every component, mirroring the MDX the generator will emit:
+ * the body is wrapped in `<RecipePage>`, which owns the rendered ⇄ raw markdown toggle.
  * Two faithful variants because a recipe is either composite or single — never both:
  * `CompositeRecipe` shows the Definition (sub-recipe) list; `SingleRecipe` shows the Options table.
  */
@@ -29,12 +28,6 @@ const meta: Meta = {
 };
 export default meta;
 type Story = StoryObj;
-
-/** Page body stand-in: on real pages, Docusaurus `.markdown > *` margins space the sections; in
- *  Storybook there's no `.markdown`, so a flex column with the same rhythm stands in for it. */
-const Page = ({ children }: { children: ReactNode }) => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--neo-spacing_5)' }}>{children}</div>
-);
 
 /** Stand-in for the raw `.md` source the generator emits — shown when the toggle flips to "Raw". */
 const SAMPLE_RAW_MARKDOWN = `---
@@ -66,54 +59,6 @@ code for this recipe, you can find it in the [rewrite-static-analysis] repositor
 * ...
 `;
 
-/** Top-right rendered ⇄ raw toggle (IDE-style) over the page body, in place of the old "View as
- *  Markdown" CTA. "Raw" swaps the rendered components for the `.md` source, in place. */
-const PageWithToggle = ({ children }: { children: ReactNode }) => {
-  const [view, setView] = useState<MarkdownView>('rendered');
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--neo-spacing_3)' }}>
-      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <MarkdownToggle value={view} onChange={setView} />
-      </div>
-      {view === 'rendered' ? (
-        <Page>{children}</Page>
-      ) : (
-        <div style={{ position: 'relative' }}>
-          {/* Corner copy button — same CopyButton as the recipe-id chips, matching every code block's
-              copy affordance. The raw view exists to grab the source, so copy is front-and-center. */}
-          <div
-            style={{
-              position: 'absolute',
-              top: 'var(--neo-spacing_1)',
-              right: 'var(--neo-spacing_1)',
-              background: 'var(--neo-surfaces-card)',
-              borderRadius: 'var(--neo-border-radius-x-s)',
-            }}
-          >
-            <CopyButton value={SAMPLE_RAW_MARKDOWN} label="Copy markdown source" />
-          </div>
-          <pre
-            style={{
-              margin: 0,
-              padding: 'var(--neo-spacing_2)',
-              paddingRight: 'var(--neo-spacing_5)',
-              fontSize: 'var(--neo-font-size-code)',
-              lineHeight: 1.6,
-              whiteSpace: 'pre-wrap',
-              background: 'var(--neo-surfaces-card-header)',
-              border: '1px solid var(--neo-border-card)',
-              borderRadius: 'var(--neo-border-radius-card)',
-              color: 'var(--neo-typography-input-default)',
-            }}
-          >
-            {SAMPLE_RAW_MARKDOWN}
-          </pre>
-        </div>
-      )}
-    </div>
-  );
-};
-
 const singleHeader = {
   displayName: 'Replace duplicate `String` literals',
   description:
@@ -133,7 +78,7 @@ const singleHeader = {
 /** Composite recipe: access badge + Definition (sub-recipe list) + Examples + Usage + Data tables. */
 export const CompositeRecipe: Story = {
   render: () => (
-    <PageWithToggle>
+    <RecipePage rawMarkdown={SAMPLE_RAW_MARKDOWN}>
       <RecipeMeta
         displayName={SAMPLE.displayName}
         description={SAMPLE.description}
@@ -161,14 +106,14 @@ export const CompositeRecipe: Story = {
       <DataTableList tables={composite.dataTables}>
         <h2>Data tables</h2>
       </DataTableList>
-    </PageWithToggle>
+    </RecipePage>
   ),
 };
 
 /** Single recipe: Moderne-only badge + Options table + Examples + Usage + Data tables. */
 export const SingleRecipe: Story = {
   render: () => (
-    <PageWithToggle>
+    <RecipePage rawMarkdown={SAMPLE_RAW_MARKDOWN}>
       <RecipeMeta
         displayName="Replace duplicate String literals"
         description="Replaces String literals repeated a minimum of 3 times with a shared constant."
@@ -190,6 +135,6 @@ export const SingleRecipe: Story = {
       <DataTableList tables={single.dataTables}>
         <h2>Data tables</h2>
       </DataTableList>
-    </PageWithToggle>
+    </RecipePage>
   ),
 };

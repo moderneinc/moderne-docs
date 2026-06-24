@@ -11,5 +11,6 @@ export { CopyButton } from './CopyButton';
 export { Accordion } from './Accordion';
 export type { AccordionItem } from './Accordion';
 export { RecipeMeta, buildRecipeJsonLd } from './RecipeMeta';
+export { RecipePage } from './RecipePage';
 export { renderWithCode } from './shared/renderWithCode';
 export * from './shared/types';
