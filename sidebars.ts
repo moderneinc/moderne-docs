@@ -222,7 +222,6 @@ const platform = {
           'administrator-documentation/moderne-platform/references/mass-ingest-vs-ci',
           'administrator-documentation/moderne-platform/references/supported-scms',
           'administrator-documentation/moderne-platform/references/standard-vs-enterprise-edition',
-          'administrator-documentation/moderne-platform/references/lossless-semantic-trees',
           {
             type: 'link' as const,
             label: 'GraphQL API reference',
@@ -722,6 +721,22 @@ const recipes = {
         keywords: ['recipes', 'authoring', 'concepts'],
       },
       items: [
+        {
+          type: 'category' as const,
+          label: 'Concepts',
+          link: {
+            type: 'generated-index' as const,
+            title: 'Concepts',
+            description: 'The building blocks behind OpenRewrite recipes: LSTs, visitors, recipes, and more.',
+            slug: '/user-documentation/recipes/authoring-recipes/concepts',
+            keywords: ['concepts', 'recipes', 'lst'],
+          },
+          items: [
+            'user-documentation/recipes/authoring-recipes/concepts/recipes',
+            'user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees',
+            'user-documentation/recipes/authoring-recipes/concepts/type-attribution',
+          ],
+        },
         {
           type: 'category' as const,
           label: 'Writing recipes',
