@@ -579,6 +579,7 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/custom-parser-mappings',
         'user-documentation/moderne-cli/how-to-guides/build-partitions',
         'user-documentation/moderne-cli/how-to-guides/batch-changes',
+        'user-documentation/moderne-cli/how-to-guides/managing-gradle-lock-files',
         'user-documentation/moderne-cli/how-to-guides/repos-lock-csv',
         'user-documentation/moderne-cli/how-to-guides/cli-telemetry',
         'user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export'
@@ -695,35 +696,6 @@ const recipes = {
   items: [
     {
       type: 'category' as const,
-      label: 'How-to guides',
-      link: {
-        type: 'generated-index' as const,
-        title: 'How-to guides',
-        description: 'Practical guides for working with recipes.',
-        slug: '/user-documentation/recipes/how-to-guides',
-        keywords: ['guides', 'recipes'],
-      },
-      items: [
-        'user-documentation/recipes/coordinating-parent-pom-migrations',
-        'user-documentation/recipes/managing-gradle-lock-files',
-      ],
-    },
-    {
-      type: 'category' as const,
-      label: 'Recipe authoring',
-      link: {
-        type: 'generated-index' as const,
-        title: 'Recipe authoring',
-        description: 'Guides for writing your own OpenRewrite recipes.',
-        slug: '/user-documentation/recipes/recipe-authoring',
-        keywords: ['guides', 'recipes', 'authoring'],
-      },
-      items: [
-        'user-documentation/recipes/recipe-authoring/writing-python-recipes',
-      ],
-    },
-    {
-      type: 'category' as const,
       label: 'Recipe guides',
       link: {
         type: 'generated-index' as const,
@@ -736,6 +708,34 @@ const recipes = {
         'user-documentation/recipes/popular-recipe-guides/migrate-to-java',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-spring-boot',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-jakarta-ee-10',
+        'user-documentation/recipes/popular-recipe-guides/coordinating-parent-pom-migrations',
+      ],
+    },
+    {
+      type: 'category' as const,
+      label: 'Authoring recipes',
+      link: {
+        type: 'generated-index' as const,
+        title: 'Authoring recipes',
+        description: 'Concepts, guides, and reference for writing your own OpenRewrite recipes.',
+        slug: '/user-documentation/recipes/authoring-recipes',
+        keywords: ['recipes', 'authoring', 'concepts'],
+      },
+      items: [
+        {
+          type: 'category' as const,
+          label: 'Writing recipes',
+          link: {
+            type: 'generated-index' as const,
+            title: 'Writing recipes',
+            description: 'Guides for writing recipes in different languages and styles.',
+            slug: '/user-documentation/recipes/authoring-recipes/writing-recipes',
+            keywords: ['recipes', 'authoring'],
+          },
+          items: [
+            'user-documentation/recipes/authoring-recipes/writing-recipes/writing-python-recipes',
+          ],
+        },
       ],
     },
     {
