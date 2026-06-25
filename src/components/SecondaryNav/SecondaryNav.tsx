@@ -34,7 +34,10 @@ export const SecondaryNav: FunctionComponent<SecondaryNavProps> = ({
   const location = useLocation();
 
   const isProductActive = (productHref: string) => {
-    return location.pathname.startsWith(productHref);
+    // Case-insensitive: some category slugs differ in case from their doc routes — e.g. the DX
+    // section slug is `/administrator-documentation/moderne-DX` but its pages live under
+    // `…/moderne-dx/…`, so a case-sensitive match would never highlight DX.
+    return location.pathname.toLowerCase().startsWith(productHref.toLowerCase());
   };
 
   const isDropdownItemActive = (itemHref: string) => {
@@ -44,6 +47,9 @@ export const SecondaryNav: FunctionComponent<SecondaryNavProps> = ({
     }
     return location.pathname.startsWith(itemHref);
   };
+
+  // A dropdown (Training / Releases) is active when the current page lives under one of its items.
+  const isDropdownActive = (items: NavLink[]) => items.some((item) => isDropdownItemActive(item.href));
 
   const toggleDropdown = useCallback((dropdown: 'training' | 'releases') => {
     setOpenDropdown((prev) => (prev === dropdown ? null : dropdown));
@@ -112,6 +118,7 @@ export const SecondaryNav: FunctionComponent<SecondaryNavProps> = ({
           <button
             className={clsx(styles.dropdownButton, {
               [styles.dropdownButtonOpen]: openDropdown === 'training',
+              [styles.dropdownButtonActive]: isDropdownActive(trainingItems),
             })}
             onClick={() => toggleDropdown('training')}
             aria-expanded={openDropdown === 'training'}
@@ -153,6 +160,7 @@ export const SecondaryNav: FunctionComponent<SecondaryNavProps> = ({
           <button
             className={clsx(styles.dropdownButton, {
               [styles.dropdownButtonOpen]: openDropdown === 'releases',
+              [styles.dropdownButtonActive]: isDropdownActive(releasesItems),
             })}
             onClick={() => toggleDropdown('releases')}
             aria-expanded={openDropdown === 'releases'}
