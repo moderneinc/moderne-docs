@@ -35,6 +35,8 @@ const config: StorybookConfig = {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
+      // Recipe component stories: mock the Docusaurus-runtime modules they pull in (must precede '@site').
+      '@site/src/components/RunRecipe': path.resolve(__dirname, '../src/__mocks__/RunRecipe.tsx'),
       '@site': path.resolve(__dirname, '..'),
       '@docusaurus/Link': path.resolve(__dirname, '../src/__mocks__/docusaurus/Link.tsx'),
       '@docusaurus/Head': path.resolve(__dirname, '../src/__mocks__/docusaurus/Head.tsx'),
@@ -53,6 +55,11 @@ const config: StorybookConfig = {
       '@generated/site-storage': path.resolve(__dirname, '../src/__mocks__/generated/site-storage.ts'),
       '@theme/Heading': path.resolve(__dirname, '../src/__mocks__/theme/Heading.tsx'),
       '@theme/Layout': path.resolve(__dirname, '../src/__mocks__/theme/Layout.tsx'),
+      '@theme/Icon/Close': path.resolve(__dirname, '../src/__mocks__/theme/IconClose.tsx'),
+      '@theme/Tabs': path.resolve(__dirname, '../src/__mocks__/theme/Tabs.tsx'),
+      '@theme/TabItem': path.resolve(__dirname, '../src/__mocks__/theme/TabItem.tsx'),
+      '@theme/CodeBlock': path.resolve(__dirname, '../src/__mocks__/theme/CodeBlock.tsx'),
+      '@docusaurus/BrowserOnly': path.resolve(__dirname, '../src/__mocks__/docusaurus/BrowserOnly.tsx'),
       '@theme': path.resolve(__dirname, '../src/theme'),
     };
 
@@ -124,6 +131,9 @@ const config: StorybookConfig = {
                 namedExport: false, // Use default export instead of named exports (matches Docusaurus)
                 exportLocalsConvention: 'as-is', // Keep class names as-is
               };
+              // Absolute url()s (e.g. /img/...) are served from the static dir at runtime — don't
+              // try to resolve them at build time (otherwise css-loader fails on theme stylesheets).
+              loader.options.url = { filter: (url: string) => !url.startsWith('/') };
             }
           }
         });

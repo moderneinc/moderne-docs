@@ -4,6 +4,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import {useSidebarBreadcrumbs} from '@docusaurus/plugin-content-docs/client';
 import DocBreadcrumbsStructuredData from '@theme/DocBreadcrumbs/StructuredData';
 import {House, ChevronRight} from 'lucide-react';
+import {CopyPageAction} from '@site/src/components/CopyPageAction';
 import styles from './styles.module.css';
 
 const DocBreadcrumbsWrapper: FunctionComponent = () => {
@@ -17,6 +18,7 @@ const DocBreadcrumbsWrapper: FunctionComponent = () => {
   return (
     <>
       <DocBreadcrumbsStructuredData breadcrumbs={breadcrumbs} />
+      <div className={styles.breadcrumbsRow}>
       <nav className={styles.breadcrumbs} aria-label="Breadcrumbs">
         <Link to={homeHref} className={styles.homeLink} aria-label="Home page">
           <House size={16} strokeWidth={2} aria-hidden="true" />
@@ -43,6 +45,8 @@ const DocBreadcrumbsWrapper: FunctionComponent = () => {
           );
         })}
       </nav>
+        <CopyPageAction />
+      </div>
     </>
   );
 };

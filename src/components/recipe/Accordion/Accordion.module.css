@@ -1,0 +1,72 @@
+/* Accordion styles (light + dark). */
+
+/* The section wrapper (col + gap) and heading row are the shared `.section` / `.sectionHeader`
+   primitives in ../shared/styles.module.css — used here and by RecipeList / OptionsTable. */
+
+.accordion {
+display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_1_2);
+}
+
+.accordionItem {
+border: 1px solid var(--neo-border-card);
+  border-radius: var(--neo-border-radius-input);
+  overflow: hidden;
+}
+
+.accordionSummary {
+display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-input-default);
+  cursor: pointer;
+  list-style: none;
+}
+
+.accordionSummary::-webkit-details-marker {
+display: none;
+}
+
+.accordionSummary:hover {
+background-color: var(--neo-surfaces-card-header);
+}
+
+.accordionChevron {
+flex: none;
+  color: var(--neo-icons-default);
+  transition: transform 0.15s ease;
+}
+
+.accordionItem[open] .accordionChevron {
+transform: rotate(90deg);
+}
+
+.accordionLabel {
+min-width: 0;
+}
+
+.accordionBody {
+padding: 0 var(--neo-spacing_2) var(--neo-spacing_2);
+}
+
+html[data-theme='dark'] {
+.accordionItem {
+border-color: var(--neo-grey-700);
+}
+
+.accordionSummary {
+color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.accordionSummary:hover {
+background-color: var(--neo-grey-900);
+}
+
+.accordionChevron {
+color: var(--neo-grey-400);
+}
+}
