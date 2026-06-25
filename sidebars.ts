@@ -735,6 +735,11 @@ const recipes = {
             'user-documentation/recipes/authoring-recipes/concepts/recipes',
             'user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees',
             'user-documentation/recipes/authoring-recipes/concepts/type-attribution',
+            'user-documentation/recipes/authoring-recipes/concepts/visitors',
+            'user-documentation/recipes/authoring-recipes/concepts/cursors',
+            'user-documentation/recipes/authoring-recipes/concepts/markers',
+            'user-documentation/recipes/authoring-recipes/concepts/traits',
+            'user-documentation/recipes/authoring-recipes/concepts/styles',
           ],
         },
         {
