@@ -724,21 +724,18 @@ const recipes = {
     },
     {
       type: 'category' as const,
-      label: 'Popular recipe guides',
+      label: 'Recipe guides',
       link: {
         type: 'generated-index' as const,
-        title: 'Popular recipe guides',
+        title: 'Recipe guides',
         description: 'Step-by-step guides for running Moderne\'s most popular migration and modernization recipes.',
         slug: '/user-documentation/recipes/popular-recipe-guides',
         keywords: ['guides', 'recipes', 'migration'],
       },
       items: [
-        'user-documentation/recipes/popular-recipe-guides/migrate-to-java-17',
-        'user-documentation/recipes/popular-recipe-guides/migrate-to-java-21',
-        'user-documentation/recipes/popular-recipe-guides/migrate-to-java-25',
+        'user-documentation/recipes/popular-recipe-guides/migrate-to-java',
+        'user-documentation/recipes/popular-recipe-guides/migrate-to-spring-boot',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-jakarta-ee-10',
-        'user-documentation/recipes/popular-recipe-guides/migrate-to-spring-boot-3',
-        'user-documentation/recipes/popular-recipe-guides/migrate-to-spring-boot-4',
       ],
     },
     {
