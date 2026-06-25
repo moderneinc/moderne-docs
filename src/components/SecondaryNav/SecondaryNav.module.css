@@ -87,6 +87,11 @@
   color: var(--ifm-navbar-link-hover-color);
 }
 
+/* Highlight the dropdown trigger when the current page lives under one of its items. */
+.dropdownButtonActive {
+  color: var(--neo-buttons-primary-default);
+}
+
 /* Chevron icon animation */
 .chevron {
   transition: transform 0.2s ease;
@@ -161,7 +166,8 @@
 }
 
 :global(html[data-theme='dark']) .productLinkActive,
-:global(html[data-theme='dark']) .productLinkActive:hover {
+:global(html[data-theme='dark']) .productLinkActive:hover,
+:global(html[data-theme='dark']) .dropdownButtonActive {
   color: var(--brand-digital-green);
 }
 
