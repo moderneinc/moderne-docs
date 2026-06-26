@@ -9,7 +9,7 @@ In this module, you'll learn the key concepts behind OpenRewrite and get hands-o
 
 ## Key concepts
 
-Before diving into running recipes, it's important to understand some fundamental concepts. The summaries below provide a high-level overview of these ideas; review the [linked documentation](https://docs.openrewrite.org/concepts-explanations) for more details.
+Before diving into running recipes, it's important to understand some fundamental concepts. The summaries below provide a high-level overview of these ideas; follow the links in each summary for more details.
 
 ### Lossless Semantic Tree (LST)
 

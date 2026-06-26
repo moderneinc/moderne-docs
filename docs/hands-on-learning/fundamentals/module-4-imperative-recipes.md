@@ -13,7 +13,7 @@ As you've already seen, testing is a critical feedback loop for enabling recipe 
 
 If you get stuck, you can reference the [workshop-solutions branch](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/) of the starter repo for completed examples (and you’ll also see code embedded inline throughout the steps).
 
-The following concepts in the [OpenRewrite documentation](https://docs.openrewrite.org/) are important to understand, particularly when writing imperative OpenRewrite recipes:
+The following concepts are important to understand, particularly when writing imperative OpenRewrite recipes:
 
 1. [Lossless Semantic Trees](../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md)
    * [Java LST examples](../../user-documentation/recipes/authoring-recipes/concepts/lst-examples/java.md)
