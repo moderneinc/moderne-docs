@@ -10,6 +10,12 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## June 25, 2026
+
+#### rewrite-program-analysis - 0.13.1
+
+* perf(dataflow): converge path-sensitive loops instead of churning to the iteration cap
+
 ## June 23, 2026
 
 #### rewrite-migrate-python - v0.9.1
