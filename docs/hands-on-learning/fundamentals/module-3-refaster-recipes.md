@@ -5,7 +5,7 @@ description: Exploring and writing Refaster recipes.
 
 # Module 3: Refaster recipes
 
-[Refaster](https://errorprone.info/docs/refaster) is a code refactoring technology open sourced by Google, and [OpenRewrite supports Refaster's syntax](https://docs.openrewrite.org/authoring-recipes/refaster-recipes) to make these easy-to-write, easy-to-read transformations available to OpenRewrite users.
+[Refaster](https://errorprone.info/docs/refaster) is a code refactoring technology open sourced by Google, and [OpenRewrite supports Refaster's syntax](../../user-documentation/recipes/authoring-recipes/writing-recipes/refaster-recipes.md) to make these easy-to-write, easy-to-read transformations available to OpenRewrite users.
 
 Refaster recipes are an easy step-up to writing imperative recipes, as they are written in Java and can be run as recipes. Refaster template recipes can be used to replace one expression with another, or one statement with another, but only if the expression or statement can fit inside the body of a method. Your compiler will help you catch syntax errors, and you can use your IDE to navigate to definitions and references. The generated recipes can also be used as a starting point for more complex recipe implementations.
 

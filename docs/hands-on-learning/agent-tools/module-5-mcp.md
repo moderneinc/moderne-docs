@@ -157,7 +157,7 @@ Pick a class or method in one of the workspace repositories that has obvious ren
 
 `pattern_replace` runs a Refaster template across the codebase. Provide a Java class with `@BeforeTemplate` and `@AfterTemplate` methods, and the agent applies it everywhere the pattern matches. This is the right tool when you have a mechanical pattern that's identical across many call sites (for example, replacing `Optional.ofNullable(x).orElse(y)` with `x != null ? x : y`).
 
-See the [Refaster template documentation](https://docs.openrewrite.org/concepts-and-explanations/recipes#refaster-template-recipes) for how the templates are structured. Most agents can write the template for you if you describe the change in plain English.
+See the [Refaster template documentation](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#refaster-template-recipes) for how the templates are structured. Most agents can write the template for you if you describe the change in plain English.
 
 #### Step 4: Revert if needed
 

@@ -64,7 +64,7 @@ When prompted, give it a simple task:
 
 Watch how the agent responds. Don't worry about the output. Just notice how the skill shapes the agent's approach:
 
-* The agent should choose a [recipe type](https://docs.openrewrite.org/authoring-recipes/types-of-recipes) *before* writing any code (declarative vs Refaster vs imperative)
+* The agent should choose a [recipe type](../../user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes.md) *before* writing any code (declarative vs Refaster vs imperative)
 * The skill writes **tests** using OpenRewrite's `RewriteTest` framework with before/after code snippets
 * It follows a structured project layout rather than just dumping code (or YAML) in a single file
 

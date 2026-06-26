@@ -11,7 +11,7 @@ In this module, you'll learn how to use the Moderne recipe builder to compose cu
 
 ### What is a declarative recipe?
 
-A [declarative recipe](https://docs.openrewrite.org/concepts-and-explanations/recipes#declarative-recipes) is a recipe defined in YAML that combines and configures existing recipes. Declarative recipes are powerful because they allow you to:
+A [declarative recipe](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#declarative-recipes) is a recipe defined in YAML that combines and configures existing recipes. Declarative recipes are powerful because they allow you to:
 
 * Combine multiple recipes into a single, reusable unit
 * Configure recipe options for your specific needs
@@ -331,5 +331,5 @@ Once again, you can open any of the `Fix results` links and review the diffs to 
 ## Learn more
 
 * [Recipe builder documentation](../../user-documentation/moderne-platform/how-to-guides/new-recipe-builder.md)
-* [Declarative YAML format reference](https://docs.openrewrite.org/reference/yaml-format-reference)
+* [Declarative YAML format reference](../../user-documentation/recipes/authoring-recipes/references/yaml-format-reference.md)
 * [Customizing recipes](https://docs.openrewrite.org/running-recipes/customize-recipe)

@@ -13,7 +13,7 @@ Before diving into running recipes, it's important to understand some fundamenta
 
 ### Lossless Semantic Tree (LST)
 
-The [Lossless Semantic Tree (LST)](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees) is a tree representation of your source code that preserves all formatting, comments, and whitespace while also capturing type information. This is what enables OpenRewrite to make precise changes without disrupting the style of your code.
+The [Lossless Semantic Tree (LST)](../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) is a tree representation of your source code that preserves all formatting, comments, and whitespace while also capturing type information. This is what enables OpenRewrite to make precise changes without disrupting the style of your code.
 
 Key characteristics of the LST:
 
@@ -23,7 +23,7 @@ Key characteristics of the LST:
 
 ### Recipes
 
-[Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) are the unit of work in OpenRewrite. A recipe can:
+[Recipes](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md) are the unit of work in OpenRewrite. A recipe can:
 
 * Make changes to source code (by modifying the LST then printing it out as code)
 * Search for specific patterns and code structures (methods, types, annotations, etc.) then mark results

@@ -20,7 +20,7 @@ For the deep reference on what Prethink is, see the [Moderne Prethink doc](../..
 
 ### Key concepts
 
-Prethink is delivered as an OpenRewrite [composite recipe](https://docs.openrewrite.org/concepts-and-explanations/recipes#composite-recipes) that runs many smaller recipes in phases. Each phase produces data tables, and a final phase exports those tables as CSV and Markdown into `.moderne/context/` inside each repository. Your AI agent reads those files instead of inferring everything from the source code.
+Prethink is delivered as an OpenRewrite [composite recipe](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#composite-recipes) that runs many smaller recipes in phases. Each phase produces data tables, and a final phase exports those tables as CSV and Markdown into `.moderne/context/` inside each repository. Your AI agent reads those files instead of inferring everything from the source code.
 
 You'll run the **No AI** starter in this workshop, which doesn't require an LLM provider. If you have an OpenAI/Gemini/Poolside key handy, you can swap to `UpdatePrethinkContextStarter` later to also get AI-generated method/class summaries. See [Available recipes](../../user-documentation/agent-tools/prethink.md#available-recipes) for the parameters.
 

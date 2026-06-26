@@ -209,7 +209,7 @@ mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
 ```
 
 :::tip
-The `-P` flag sets a recipe option at runtime, similarly to how you set options under a recipe in YAML in Module 2. Here, we’re setting the `methodPattern` option for `FindMethods` to target a specific method signature. For more detail on the pattern syntax, see the OpenRewrite [method patterns reference](https://docs.openrewrite.org/reference/method-patterns).
+The `-P` flag sets a recipe option at runtime, similarly to how you set options under a recipe in YAML in Module 2. Here, we’re setting the `methodPattern` option for `FindMethods` to target a specific method signature. For more detail on the pattern syntax, see the OpenRewrite [method patterns reference](../../user-documentation/recipes/authoring-recipes/references/method-patterns.md).
 :::
 
 This is a search-only recipe and should not modify source code.
