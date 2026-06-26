@@ -253,7 +253,7 @@ recipeList:
 If you wanted to run this recipe (but not distribute it to others), you would:
 
 1. Copy the above YAML into a `rewrite.yml` file at the root of your project
-2. Configure the [Gradle plugin](gradle-plugin-configuration.md) or [Maven plugin](rewrite-maven-plugin.md) to have an active recipe of `com.yourorg.RecipeA`
+2. Configure the [Gradle plugin](https://docs.openrewrite.org/reference/gradle-plugin-configuration) or [Maven plugin](https://docs.openrewrite.org/reference/rewrite-maven-plugin) to have an active recipe of `com.yourorg.RecipeA`
 3. Run the `mvn rewrite:run` or the `gradle rewriteRun` command
 
 ## Styles
@@ -291,7 +291,7 @@ styleConfigs:
 To put this style in effect for any formatting performed by OpenRewrite within the current project:
 
 1. Put the above into a `rewrite.yml` file at the project root
-2. Configure the [gradle plugin](gradle-plugin-configuration.md) or [maven plugin](rewrite-maven-plugin.md) with `com.yourorg.YesTabsNoStarImports` listed as the active style
+2. Configure the [gradle plugin](https://docs.openrewrite.org/reference/gradle-plugin-configuration) or [maven plugin](https://docs.openrewrite.org/reference/rewrite-maven-plugin) with `com.yourorg.YesTabsNoStarImports` listed as the active style
 
 The next time any OpenRewrite recipe is run in that project, any formatting it performs will take these styles into account.
 

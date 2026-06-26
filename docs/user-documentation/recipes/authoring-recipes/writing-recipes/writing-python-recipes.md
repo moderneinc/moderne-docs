@@ -11,7 +11,7 @@ Across a large codebase, you often need to make the same change many times over:
 While we've done our best to provide you with [a wide variety of Python recipes](../../recipe-catalog/python/README.md), you may find it useful to write your own. In this guide, we will walk you through everything you need to know to get started with creating and publishing your own Python recipe. 
 
 :::info
-This guide focuses on authoring recipes in **Python**. If you would rather write recipes in another language, OpenRewrite has companion guides for [writing a Java refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe) and [writing a JavaScript refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-javascript-refactoring-recipe). The core concepts carry over closely, since Python recipes build on the same Java model those guides use.
+This guide focuses on authoring recipes in **Python**. If you would rather write recipes in another language, there are companion guides for [writing a Java refactoring recipe](./writing-a-java-refactoring-recipe.md) and [writing a JavaScript refactoring recipe](./writing-a-javascript-refactoring-recipe.md). The core concepts carry over closely, since Python recipes build on the same Java model those guides use.
 :::
 
 :::tip
@@ -31,9 +31,9 @@ This guide assumes that:
 
 Before we dive into how to write your own recipe, it's a good idea to take a few minutes to learn about Python recipes at a high level.
 
-OpenRewrite represents Python code as a [Lossless Semantic Tree (LST)](../../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md): a tree that preserves the code's exact formatting and is [type-attributed](https://docs.openrewrite.org/concepts-and-explanations/type-attribution), so every element carries its resolved type. Working against that tree instead of the raw text is what lets a recipe make precise, type-aware changes.
+OpenRewrite represents Python code as a [Lossless Semantic Tree (LST)](../concepts/lossless-semantic-trees.md): a tree that preserves the code's exact formatting and is [type-attributed](../concepts/type-attribution.md), so every element carries its resolved type. Working against that tree instead of the raw text is what lets a recipe make precise, type-aware changes.
 
-Every [recipe](https://docs.openrewrite.org/concepts-and-explanations/recipes) is a class that describes itself with a name, a display name, and a description, and that returns a [visitor](https://docs.openrewrite.org/concepts-and-explanations/visitors) from its `editor()` method. The visitor traverses the LST and returns modified nodes wherever it wants to make a change. Anything it returns unchanged is left exactly as it was, formatting included.
+Every [recipe](../concepts/recipes.md) is a class that describes itself with a name, a display name, and a description, and that returns a [visitor](../concepts/visitors.md) from its `editor()` method. The visitor traverses the LST and returns modified nodes wherever it wants to make a change. Anything it returns unchanged is left exactly as it was, formatting included.
 
 The [Python LST](https://github.com/openrewrite/rewrite/blob/main/rewrite-python/src/main/java/org/openrewrite/python/tree/Py.java) builds on the [Java LST](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/tree/J.java). Shared constructs such as method invocations, identifiers, literals, and blocks come from the Java model (the `J` namespace), while Python-specific constructs such as `pass` statements, imports, and comprehensions live in the Python model (the `Py` namespace). Because of this, a Python visitor works with familiar `J` node types for most transformations.
 
@@ -361,6 +361,6 @@ Now that you've written your first Python recipe, you can go deeper:
 
 * Clone the [`python-recipe-starter` repository](https://github.com/moderneinc/python-recipe-starter) for a complete, runnable project: it includes the `RenameFunctionCall` recipe from this guide alongside a `RemoveRedundantPass` example that demonstrates deleting nodes - with tests, packaging, and CI already set up
 * Browse the [Python recipes in the Moderne recipe catalog](../../recipe-catalog/python/README.md) for real-world examples to learn from and build on
-* Read OpenRewrite's [Java refactoring recipe guide](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe) and [JavaScript refactoring recipe guide](https://docs.openrewrite.org/authoring-recipes/writing-a-javascript-refactoring-recipe) for deeper coverage of visitors, preconditions, and templates that apply to the shared LST model
+* Read the [Java refactoring recipe guide](./writing-a-java-refactoring-recipe.md) and [JavaScript refactoring recipe guide](./writing-a-javascript-refactoring-recipe.md) for deeper coverage of visitors, preconditions, and templates that apply to the shared LST model
 * Explore the [`rewrite-python` source](https://github.com/openrewrite/rewrite/tree/main/rewrite-python) to see how the Python LST and its built-in recipes are implemented
 * Work through the [recipe authoring fundamentals workshop](../../../../hands-on-learning/fundamentals/workshop-overview.md) for a hands-on introduction to recipe development

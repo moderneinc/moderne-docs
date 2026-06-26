@@ -21,8 +21,8 @@ To help you understand how to create and use multiple visitors in a single recip
 This guide assumes that you:
 
 * Have a strong Java background
-* Have already set up your [Recipe Development Environment](recipe-development-environment.md)
-* Are familiar with recipe creation (via working through the [Writing a Java refactoring recipe](writing-a-java-refactoring-recipe.md) and [Modifying methods with JavaTemplate](modifying-methods-with-javatemplate.md) guides)
+* Have already set up your [Recipe Development Environment](../set-up/recipe-development-environment.md)
+* Are familiar with recipe creation (via working through the [Writing a Java refactoring recipe](../writing-recipes/writing-a-java-refactoring-recipe.md) and [Modifying methods with JavaTemplate](modifying-methods-with-javatemplate.md) guides)
 
 ## Figure out what the recipe should do
 

@@ -98,7 +98,7 @@ For an example of a recipe that does this, check out the [AddManagedDependency r
 
 ## Declarative Recipes
 
-Declarative recipes are defined in YAML and loaded as part of OpenRewrite's managed [Environment](./environment.md). A declarative recipe composes and configures other recipes via the OpenRewrite configuration file. In our above example, the declarative version of the "Migrate JUnit 5" recipe might look similar to the following:
+Declarative recipes are defined in YAML and loaded as part of OpenRewrite's managed [Environment](https://docs.openrewrite.org/concepts-and-explanations/environment). A declarative recipe composes and configures other recipes via the OpenRewrite configuration file. In our above example, the declarative version of the "Migrate JUnit 5" recipe might look similar to the following:
 
 ```yaml
 ---
