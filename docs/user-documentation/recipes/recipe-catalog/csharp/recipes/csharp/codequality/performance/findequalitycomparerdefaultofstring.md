@@ -1,43 +1,36 @@
 ---
 title: "Find EqualityComparer&lt;string&gt;.Default usage"
 sidebar_label: "Find EqualityComparer&lt;string&gt;.Default usage"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find EqualityComparer&lt;string&gt;.Default usage
+<RecipeMeta
+  displayName={"Find EqualityComparer<string>.Default usage"}
+  description={"Detect `EqualityComparer<string>.Default` which uses ordinal comparison. Consider using an explicit `StringComparer` instead."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindEqualityComparerDefaultOfString"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindEqualityComparerDefaultOfString**
+<RecipeHeader
+  displayName={"Find EqualityComparer<string>.Default usage"}
+  description={"Detect `EqualityComparer<string>.Default` which uses ordinal comparison. Consider using an explicit `StringComparer` instead."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","performance","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindEqualityComparerDefaultOfString"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindEqualityComparerDefaultOfString"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findequalitycomparerdefaultofstring.md"}
+  moderneOnly
+/>
 
-_Detect `EqualityComparer<string>.Default` which uses ordinal comparison. Consider using an explicit `StringComparer` instead._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [performance](/user-documentation/recipes/lists/recipes-by-tag#performance)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Performance code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/performancecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindEqualityComparerDefaultOfString","displayName":"Find EqualityComparer<string>.Default usage","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindEqualityComparerDefaultOfString"
-  displayName="Find EqualityComparer&lt;string&gt;.Default usage"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

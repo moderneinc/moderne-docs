@@ -1,37 +1,36 @@
 ---
 title: "Make standalone flag explicit"
 sidebar_label: "Make standalone flag explicit"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Make standalone flag explicit
+<RecipeMeta
+  displayName={"Make standalone flag explicit"}
+  description={"Adds `standalone: false` to non-standalone Angular components, directives, and pipes, and removes redundant `standalone: true` since it became the default in Angular 19."}
+  fqName={"org.openrewrite.angular.migration.explicit-standalone-flag"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.explicit-standalone-flag**
+<RecipeHeader
+  displayName={"Make standalone flag explicit"}
+  description={"Adds `standalone: false` to non-standalone Angular components, directives, and pipes, and removes redundant `standalone: true` since it became the default in Angular 19."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.explicit-standalone-flag"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.explicit-standalone-flag"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/explicit-standalone-flag.md"}
+  moderneOnly
+/>
 
-_Adds `standalone: false` to non-standalone Angular components, directives, and pipes, and removes redundant `standalone: true` since it became the default in Angular 19._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular19)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.explicit-standalone-flag","displayName":"Make standalone flag explicit","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.explicit-standalone-flag"
-  displayName="Make standalone flag explicit"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

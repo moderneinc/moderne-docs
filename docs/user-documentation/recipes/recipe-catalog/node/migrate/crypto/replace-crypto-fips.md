@@ -1,41 +1,36 @@
 ---
 title: "Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`"
 sidebar_label: "Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`
+<RecipeMeta
+  displayName={"Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`"}
+  description={"Replace deprecated `crypto.fips` property access with `crypto.getFips()` for reads and `crypto.setFips(value)` for writes."}
+  fqName={"org.openrewrite.node.migrate.crypto.replace-crypto-fips"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.node.migrate.crypto.replace-crypto-fips**
+<RecipeHeader
+  displayName={"Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`"}
+  description={"Replace deprecated `crypto.fips` property access with `crypto.getFips()` for reads and `crypto.setFips(value)` for writes."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["DEP0093"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.node.migrate.crypto.replace-crypto-fips"}
+  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.crypto.replace-crypto-fips"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-crypto-fips.md"}
+  moderneOnly
+/>
 
-_Replace deprecated `crypto.fips` property access with `crypto.getFips()` for reads and `crypto.setFips(value)` for writes._
-
-### Tags
-
-* [DEP0093](/user-documentation/recipes/lists/recipes-by-tag#dep0093)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Node.js 24](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24)
-
+<UsageList usage={{"recipeName":"org.openrewrite.node.migrate.crypto.replace-crypto-fips","displayName":"Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.node.migrate.crypto.replace-crypto-fips"
-  displayName="Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`"
-  npmPackage="@openrewrite/recipes-nodejs"
-/>
+</UsageList>
+

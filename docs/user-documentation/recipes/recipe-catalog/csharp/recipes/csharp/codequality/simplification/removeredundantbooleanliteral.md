@@ -1,42 +1,36 @@
 ---
 title: "Remove redundant boolean literal"
 sidebar_label: "Remove redundant boolean literal"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove redundant boolean literal
+<RecipeMeta
+  displayName={"Remove redundant boolean literal"}
+  description={"Remove redundant `== true` comparison from boolean expressions."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.RemoveRedundantBooleanLiteral"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.RemoveRedundantBooleanLiteral**
+<RecipeHeader
+  displayName={"Remove redundant boolean literal"}
+  description={"Remove redundant `== true` comparison from boolean expressions."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.RemoveRedundantBooleanLiteral"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.RemoveRedundantBooleanLiteral"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/removeredundantbooleanliteral.md"}
+  moderneOnly
+/>
 
-_Remove redundant `== true` comparison from boolean expressions._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Simplification code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplificationcodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.RemoveRedundantBooleanLiteral","displayName":"Remove redundant boolean literal","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.RemoveRedundantBooleanLiteral"
-  displayName="Remove redundant boolean literal"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

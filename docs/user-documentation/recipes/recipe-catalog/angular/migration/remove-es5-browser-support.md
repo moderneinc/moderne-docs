@@ -1,37 +1,36 @@
 ---
 title: "Remove `es5BrowserSupport` from `angular.json`"
 sidebar_label: "Remove `es5BrowserSupport` from `angular.json`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove `es5BrowserSupport` from `angular.json`
+<RecipeMeta
+  displayName={"Remove `es5BrowserSupport` from `angular.json`"}
+  description={"Removes the deprecated `es5BrowserSupport` option from `angular.json`. `es5BrowserSupport` was deprecated in Angular 7.3 and removed in Angular 10. Differential loading is now handled automatically by the Angular CLI based on the project's browserslist configuration."}
+  fqName={"org.openrewrite.angular.migration.remove-es5-browser-support"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.remove-es5-browser-support**
+<RecipeHeader
+  displayName={"Remove `es5BrowserSupport` from `angular.json`"}
+  description={"Removes the deprecated `es5BrowserSupport` option from `angular.json`. `es5BrowserSupport` was deprecated in Angular 7.3 and removed in Angular 10. Differential loading is now handled automatically by the Angular CLI based on the project's browserslist configuration."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.remove-es5-browser-support"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-es5-browser-support"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-es5-browser-support.md"}
+  moderneOnly
+/>
 
-_Removes the deprecated `es5BrowserSupport` option from `angular.json`. `es5BrowserSupport` was deprecated in Angular 7.3 and removed in Angular 10. Differential loading is now handled automatically by the Angular CLI based on the project's browserslist configuration._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 10](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular10)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-es5-browser-support","displayName":"Remove `es5BrowserSupport` from `angular.json`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.remove-es5-browser-support"
-  displayName="Remove `es5BrowserSupport` from `angular.json`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

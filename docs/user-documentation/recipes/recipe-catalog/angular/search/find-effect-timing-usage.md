@@ -1,37 +1,36 @@
 ---
 title: "Find `effect()` usage affected by Angular 19 timing changes"
 sidebar_label: "Find `effect()` usage affected by Angular 19 timing changes"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find `effect()` usage affected by Angular 19 timing changes
+<RecipeMeta
+  displayName={"Find `effect()` usage affected by Angular 19 timing changes"}
+  description={"Finds `effect()` calls from `@angular/core`. In Angular 19, effects triggered outside change detection now run as part of the change detection process instead of as a microtask, and effects triggered during change detection run earlier, before the component's template."}
+  fqName={"org.openrewrite.angular.search.find-effect-timing-usage"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.search.find-effect-timing-usage**
+<RecipeHeader
+  displayName={"Find `effect()` usage affected by Angular 19 timing changes"}
+  description={"Finds `effect()` calls from `@angular/core`. In Angular 19, effects triggered outside change detection now run as part of the change detection process instead of as a microtask, and effects triggered during change detection run earlier, before the component's template."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.search.find-effect-timing-usage"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-effect-timing-usage"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-effect-timing-usage.md"}
+  moderneOnly
+/>
 
-_Finds `effect()` calls from `@angular/core`. In Angular 19, effects triggered outside change detection now run as part of the change detection process instead of as a microtask, and effects triggered during change detection run earlier, before the component's template._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular19)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-effect-timing-usage","displayName":"Find `effect()` usage affected by Angular 19 timing changes","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.search.find-effect-timing-usage"
-  displayName="Find `effect()` usage affected by Angular 19 timing changes"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

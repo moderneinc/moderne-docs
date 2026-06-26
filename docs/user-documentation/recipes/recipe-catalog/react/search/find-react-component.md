@@ -1,37 +1,42 @@
 ---
 title: "Find React component"
 sidebar_label: "Find React component"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find React component
+<RecipeMeta
+  displayName={"Find React component"}
+  description={"Finds all usages of a specific React component including imports, JSX elements, and exports."}
+  fqName={"org.openrewrite.react.search.find-react-component"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.search.find-react-component**
+<RecipeHeader
+  displayName={"Find React component"}
+  description={"Finds all usages of a specific React component including imports, JSX elements, and exports."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.search.find-react-component"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.search.find-react-component"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/search/find-react-component.md"}
+  moderneOnly
+/>
 
-_Finds all usages of a specific React component including imports, JSX elements, and exports._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"String","name":"componentName","required":true,"description":"The name of the React component to find (e.g., 'Button', 'TextField')","example":"Button"},{"type":"String","name":"importPath","required":false,"description":"Optional module path to narrow the search (e.g., '@mui/material'). Supports glob patterns.","example":"@mui/material"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `null` | componentName | The name of the React component to find (e.g., 'Button', 'TextField') | `Button` |
-| `null` | importPath | *Optional*. Optional module path to narrow the search (e.g., '@mui/material'). Supports glob patterns. | `@mui/material` |
+</OptionsTable>
 
+<UsageList usage={{"recipeName":"org.openrewrite.react.search.find-react-component","displayName":"Find React component","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.search.find-react-component"
-  displayName="Find React component"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

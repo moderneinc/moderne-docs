@@ -1,373 +1,54 @@
 ---
 title: "Migrate to Struts 6.0"
 sidebar_label: "Migrate to Struts 6.0"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate to Struts 6.0
+<RecipeMeta
+  displayName={"Migrate to Struts 6.0"}
+  description={"Migrate Struts 2.x to Struts 6.0."}
+  fqName={"org.openrewrite.java.struts.migrate6.MigrateStruts6"}
+  languages={["Java"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.java.struts.migrate6.MigrateStruts6**
+<RecipeHeader
+  displayName={"Migrate to Struts 6.0"}
+  description={"Migrate Struts 2.x to Struts 6.0."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.java.struts.migrate6.MigrateStruts6"}
+  artifact={"org.openrewrite.recipe:rewrite-struts"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate6.MigrateStruts6"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6.md"}
+  moderneOnly
+/>
 
-_Migrate Struts 2.x to Struts 6.0._
+<RecipeList recipes={[{"name":"Migrate Struts 2.0 interceptors to action \"aware\" interfaces","href":"java/struts/migrate6/migrateawareinterfaces"},{"name":"Migrate Dynamic Method Invocation to explicit action mappings","href":"java/struts/migrate6/migratedynamicmethodinvocation"},{"name":"Migrate OpenSymphony classes to Struts 6.0","href":"java/struts/migrate6/migrateopensymphonyclasses"},{"name":"Upgrade Struts 6.0 dependencies","href":"java/struts/migrate6/upgradestruts6dependencies"},{"name":"Migrate to Struts 6.0 constants","href":"java/struts/migrate6/migratestruts6constants"},{"name":"Migrate Struts date tag format patterns","href":"java/struts/migrate6/migratedatetagformat"},{"name":"Remove deprecated Freemarker `?html` built-in","href":"java/struts/migrate6/removefreemarkerhtmlbuiltin"},{"name":"Migrate DTD to a specific Struts version","href":"java/struts/migratestrutsdtd"},{"name":"Migrate static OGNL method access to action wrapper methods","href":"java/struts/migrate6/migratestaticognlmethodaccess"},{"name":"Migrate `xwork-validator` DTD to 1.0.4","href":"java/struts/migrate6/migratevalidatordtd"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML tag value","href":"xml/changetagvalue"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<ExampleList examples={[{"variants":[{"language":"xml","before":"<struts>\n    <package name=\"default\" extends=\"struts-default\">\n        <action name=\"save\" class=\"com.example.SaveAction\">\n            <interceptor-ref name=\"defaultStack\">\n                <param name=\"validation.excludeMethods\">input,back,cancel</param>\n            </interceptor-ref>\n            <result>/success.jsp</result>\n        </action>\n    </package>\n</struts>\n","after":"<struts>\n    <package name=\"default\" extends=\"struts-default\">\n        <action name=\"save\" class=\"com.example.SaveAction\">\n            <interceptor-ref name=\"defaultStack\">\n                <param name=\"validation.disabled\">input,back,cancel</param>\n            </interceptor-ref>\n            <result>/success.jsp</result>\n        </action>\n    </package>\n</struts>\n","diff":"@@ -5,1 +5,1 @@\n        <action name=\"save\" class=\"com.example.SaveAction\">\n            <interceptor-ref name=\"defaultStack\">\n-               <param name=\"validation.excludeMethods\">input,back,cancel</param>\n+               <param name=\"validation.disabled\">input,back,cancel</param>\n            </interceptor-ref>\n","newFile":false}]},{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-app xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://xmlns.jcp.org/xml/ns/javaee\n         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd\"\n         version=\"4.0\">\n\n    <listener>\n        <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>\n    </listener>\n\n    <filter>\n        <filter-name>struts2</filter-name>\n        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>\n    </filter>\n\n</web-app>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-app xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://xmlns.jcp.org/xml/ns/javaee\n         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd\"\n         version=\"4.0\">\n\n    <listener>\n        <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>\n    </listener>\n\n    <filter>\n        <filter-name>struts2</filter-name>\n        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>\n    </filter>\n\n</web-app>\n","diff":"--- web.xml\n+++ web.xml\n@@ -9,1 +9,1 @@\n\n    <listener>\n-       <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>\n+       <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>\n    </listener>\n","newFile":false}]},{"variants":[{"language":"xml","before":"<struts>\n    <package name=\"default\" extends=\"struts-default\">\n        <action name=\"save\" class=\"com.example.SaveAction\">\n            <interceptor-ref name=\"defaultStack\">\n                <param name=\"validation.excludeMethods\">input,back,cancel</param>\n            </interceptor-ref>\n            <result>/success.jsp</result>\n        </action>\n    </package>\n</struts>\n","after":"<struts>\n    <package name=\"default\" extends=\"struts-default\">\n        <action name=\"save\" class=\"com.example.SaveAction\">\n            <interceptor-ref name=\"defaultStack\">\n                <param name=\"validation.disabled\">input,back,cancel</param>\n            </interceptor-ref>\n            <result>/success.jsp</result>\n        </action>\n    </package>\n</struts>\n","diff":"@@ -5,1 +5,1 @@\n        <action name=\"save\" class=\"com.example.SaveAction\">\n            <interceptor-ref name=\"defaultStack\">\n-               <param name=\"validation.excludeMethods\">input,back,cancel</param>\n+               <param name=\"validation.disabled\">input,back,cancel</param>\n            </interceptor-ref>\n","newFile":false}]},{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-app xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://xmlns.jcp.org/xml/ns/javaee\n         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd\"\n         version=\"4.0\">\n\n    <listener>\n        <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>\n    </listener>\n\n    <filter>\n        <filter-name>struts2</filter-name>\n        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>\n    </filter>\n\n</web-app>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-app xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://xmlns.jcp.org/xml/ns/javaee\n         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd\"\n         version=\"4.0\">\n\n    <listener>\n        <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>\n    </listener>\n\n    <filter>\n        <filter-name>struts2</filter-name>\n        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>\n    </filter>\n\n</web-app>\n","diff":"--- web.xml\n+++ web.xml\n@@ -9,1 +9,1 @@\n\n    <listener>\n-       <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>\n+       <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>\n    </listener>\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`MigrateInterceptorDisabledParamTest#migrateExcludeMethodsToDisabled`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="xml" label="xml">
-
-
-###### Before
-```xml
-<struts>
-    <package name="default" extends="struts-default">
-        <action name="save" class="com.example.SaveAction">
-            <interceptor-ref name="defaultStack">
-                <param name="validation.excludeMethods">input,back,cancel</param>
-            </interceptor-ref>
-            <result>/success.jsp</result>
-        </action>
-    </package>
-</struts>
-```
-
-###### After
-```xml
-<struts>
-    <package name="default" extends="struts-default">
-        <action name="save" class="com.example.SaveAction">
-            <interceptor-ref name="defaultStack">
-                <param name="validation.disabled">input,back,cancel</param>
-            </interceptor-ref>
-            <result>/success.jsp</result>
-        </action>
-    </package>
-</struts>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -5,1 +5,1 @@
-        <action name="save" class="com.example.SaveAction">
-            <interceptor-ref name="defaultStack">
--               <param name="validation.excludeMethods">input,back,cancel</param>
-+               <param name="validation.disabled">input,back,cancel</param>
-            </interceptor-ref>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`MigrateTilesListenerTest#migrateTilesListener`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="web.xml" label="web.xml">
-
-
-###### Before
-```xml title="web.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
-
-    <listener>
-        <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
-    </listener>
-
-    <filter>
-        <filter-name>struts2</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
-    </filter>
-
-</web-app>
-```
-
-###### After
-```xml title="web.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
-
-    <listener>
-        <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
-    </listener>
-
-    <filter>
-        <filter-name>struts2</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
-    </filter>
-
-</web-app>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- web.xml
-+++ web.xml
-@@ -9,1 +9,1 @@
-
-    <listener>
--       <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
-+       <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
-    </listener>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 3
-`MigrateInterceptorDisabledParamTest#migrateExcludeMethodsToDisabled`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="xml" label="xml">
-
-
-###### Before
-```xml
-<struts>
-    <package name="default" extends="struts-default">
-        <action name="save" class="com.example.SaveAction">
-            <interceptor-ref name="defaultStack">
-                <param name="validation.excludeMethods">input,back,cancel</param>
-            </interceptor-ref>
-            <result>/success.jsp</result>
-        </action>
-    </package>
-</struts>
-```
-
-###### After
-```xml
-<struts>
-    <package name="default" extends="struts-default">
-        <action name="save" class="com.example.SaveAction">
-            <interceptor-ref name="defaultStack">
-                <param name="validation.disabled">input,back,cancel</param>
-            </interceptor-ref>
-            <result>/success.jsp</result>
-        </action>
-    </package>
-</struts>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -5,1 +5,1 @@
-        <action name="save" class="com.example.SaveAction">
-            <interceptor-ref name="defaultStack">
--               <param name="validation.excludeMethods">input,back,cancel</param>
-+               <param name="validation.disabled">input,back,cancel</param>
-            </interceptor-ref>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 4
-`MigrateTilesListenerTest#migrateTilesListener`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="web.xml" label="web.xml">
-
-
-###### Before
-```xml title="web.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
-
-    <listener>
-        <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
-    </listener>
-
-    <filter>
-        <filter-name>struts2</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
-    </filter>
-
-</web-app>
-```
-
-###### After
-```xml title="web.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
-
-    <listener>
-        <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
-    </listener>
-
-    <filter>
-        <filter-name>struts2</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
-    </filter>
-
-</web-app>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- web.xml
-+++ web.xml
-@@ -9,1 +9,1 @@
-
-    <listener>
--       <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
-+       <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
-    </listener>
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.struts.migrate6.MigrateStruts6","displayName":"Migrate to Struts 6.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-struts","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STRUTS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.struts.migrate6.MigrateStruts6"
-  displayName="Migrate to Struts 6.0"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-struts"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STRUTS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.java.struts.table.StaticOgnlMethodAccess","displayName":"Static OGNL method access","description":"Locations where OGNL expressions use static method access, which is disabled by default in Struts 6.","columns":[{"name":"Source file","description":"The source file containing the OGNL expression."},{"name":"OGNL expression","description":"The full OGNL expression containing the static method access."},{"name":"Static class","description":"The fully qualified class name being accessed statically."},{"name":"Static method","description":"The static method being called."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate6.MigrateStruts6" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.java.struts.table.StaticOgnlMethodAccess" label="StaticOgnlMethodAccess">
-
-### Static OGNL method access
-**org.openrewrite.java.struts.table.StaticOgnlMethodAccess**
-
-_Locations where OGNL expressions use static method access, which is disabled by default in Struts 6._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source file | The source file containing the OGNL expression. |
-| OGNL expression | The full OGNL expression containing the static method access. |
-| Static class | The fully qualified class name being accessed statically. |
-| Static method | The static method being called. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

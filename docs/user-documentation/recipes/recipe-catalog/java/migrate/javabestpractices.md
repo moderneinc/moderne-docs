@@ -1,6 +1,7 @@
 ---
 title: "Java best practices"
 sidebar_label: "Java best practices"
+hide_title: true
 ---
 
 
@@ -8,375 +9,51 @@ sidebar_label: "Java best practices"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javabestpractices" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Java best practices
+<RecipeMeta
+  displayName={"Java best practices"}
+  description={"Applies opinionated best practices for Java projects targeting Java 25. This recipe includes the full Java 25 upgrade chain plus additional improvements to code style, API usage, and third-party dependency reduction that go beyond what the version migration recipes apply."}
+  fqName={"org.openrewrite.java.migrate.JavaBestPractices"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/java-best-practices.yml"}
+/>
 
-**org.openrewrite.java.migrate.JavaBestPractices**
+<RecipeHeader
+  displayName={"Java best practices"}
+  description={"Applies opinionated best practices for Java projects targeting Java 25. This recipe includes the full Java 25 upgrade chain plus additional improvements to code style, API usage, and third-party dependency reduction that go beyond what the version migration recipes apply."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["best-practices","java25"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.migrate.JavaBestPractices"}
+  artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.JavaBestPractices"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md"}
+/>
 
-_Applies opinionated best practices for Java projects targeting Java 25. This recipe includes the full Java 25 upgrade chain plus additional improvements to code style, API usage, and third-party dependency reduction that go beyond what the version migration recipes apply._
-
-### Tags
-
-* [best-practices](/user-documentation/recipes/lists/recipes-by-tag#best)
-* [java25](/user-documentation/recipes/lists/recipes-by-tag#java25)
-
-## Recipe source
-
-[GitHub: java-best-practices.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/java-best-practices.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Migrate to Java 25","href":"java/migrate/upgradetojava25"},{"name":"Migrate `public static void main(String[] args)` to instance `void main()`","href":"java/migrate/lang/migratemainmethodtoinstancemain"},{"name":"Extract complex `super(..)` and `this(..)` arguments into local variables","href":"java/migrate/lang/extractexplicitconstructorinvocationarguments"},{"name":"Use text blocks","href":"java/migrate/lang/usetextblocks"},{"name":"Prefer `String.formatted(Object...)`","href":"java/migrate/lang/stringformatted"},{"name":"Prefer the Java standard library instead of Guava","href":"java/migrate/guava/noguava"},{"name":"Prefer the Java standard library instead of Joda-Time","href":"java/joda/time/nojodatime"},{"name":"JSpecify best practices","href":"java/jspecify/jspecifybestpractices"},{"name":"Use `var` for variables initialized with type casts","href":"java/migrate/lang/var/usevarfortypecast"},{"name":"Use `var` for constructor call assignments","href":"java/migrate/lang/var/usevarforconstructors"},{"name":"Apply `var` to Generic Constructors","href":"java/migrate/lang/var/usevarforgenericsconstructors"},{"name":"Apply `var` to generic method invocations","href":"java/migrate/lang/var/usevarforgenericmethodinvocations"},{"name":"Use `var` for primitive and String variables","href":"java/migrate/lang/var/usevarforprimitive"},{"name":"Use modernized `java.util` APIs","href":"java/migrate/util/javautilapis"},{"name":"Equals avoids null","href":"staticanalysis/equalsavoidsnull"},{"name":"Add missing `@Override` to overriding and implementing methods","href":"staticanalysis/missingoverrideannotation"},{"name":"Week Year (YYYY) should not be used for date formatting","href":"staticanalysis/replaceweekyearwithyear"},{"name":"`hashCode()` should not be called on array instances","href":"staticanalysis/removehashcodecallsfromarrayinstances"},{"name":"Remove `toString()` calls on arrays","href":"staticanalysis/removetostringcallsfromarrayinstances"},{"name":"Replaces `Object.notify()` with `Object.notifyAll()`","href":"staticanalysis/useobjectnotifyall"},{"name":"Remove garbage collection invocations","href":"staticanalysis/removecallstosystemgc"},{"name":"Remove `Object.finalize()` invocations","href":"staticanalysis/removecallstoobjectfinalize"},{"name":"URL Equals and Hash Code","href":"staticanalysis/urlequalshashcoderecipes"},{"name":"Simplify lambda blocks to expressions","href":"staticanalysis/lambdablocktoexpression"},{"name":"Use method references in lambda","href":"staticanalysis/replacelambdawithmethodreference"},{"name":"Use the diamond operator","href":"staticanalysis/usediamondoperator"},{"name":"Remove unnecessary parentheses","href":"staticanalysis/unnecessaryparentheses"},{"name":"Remove redundant null checks before instanceof","href":"staticanalysis/removeredundantnullcheckbeforeinstanceof"},{"name":"Replace `StringBuilder#append` with `String`","href":"staticanalysis/replacestringbuilderwithstring"},{"name":"Use `Collection` interfaces","href":"staticanalysis/usecollectioninterfaces"},{"name":"Enum values should be compared with \"==\"","href":"staticanalysis/compareenumswithequalityoperator"},{"name":"Combine semantically equal catch blocks","href":"staticanalysis/combinesemanticallyequalcatchblocks"},{"name":"Use `String::replace()` when first parameter is not a real regular expression","href":"staticanalysis/usestringreplace"},{"name":"Use `StandardCharset` constants","href":"staticanalysis/usestandardcharset"},{"name":"Use `System.lineSeparator()`","href":"staticanalysis/usesystemlineseparator"},{"name":"Remove redundant casts","href":"staticanalysis/removeredundanttypecast"},{"name":"Replace `java.util.Stack` with `java.util.Deque`","href":"staticanalysis/replacestackwithdeque"},{"name":"Replace invocations of `Collections#sort(List, Comparator)` with `List#sort(Comparator)`","href":"staticanalysis/uselistsort"},{"name":"Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`","href":"staticanalysis/equalstocontentequals"},{"name":"Convert Javadoc to Markdown documentation comments","href":"java/migrate/lang/javadoctomarkdowndoccomment"},{"name":"Remove unused imports","href":"java/removeunusedimports"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../core/singleton)
+<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"xml","before":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>17</maven.compiler.release>\n    </properties>\n</project>\n","after":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,1 +6,1 @@\n    <version>1</version>\n    <properties>\n-       <maven.compiler.release>17</maven.compiler.release>\n+       <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n","newFile":false}]},{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"xml","before":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>17</maven.compiler.release>\n    </properties>\n</project>\n","after":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,1 +6,1 @@\n    <version>1</version>\n    <properties>\n-       <maven.compiler.release>17</maven.compiler.release>\n+       <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n","newFile":false}]}]}>
 
-**Recipes**
-
-* [Migrate to Java 25](../../java/migrate/upgradetojava25)
-* [Migrate `public static void main(String[] args)` to instance `void main()`](../../java/migrate/lang/migratemainmethodtoinstancemain)
-* [Extract complex `super(..)` and `this(..)` arguments into local variables](../../java/migrate/lang/extractexplicitconstructorinvocationarguments)
-* [Use text blocks](../../java/migrate/lang/usetextblocks)
-  * convertStringsWithoutNewlines: `true`
-  * avoidLineContinuations: `false`
-* [Prefer `String.formatted(Object...)`](../../java/migrate/lang/stringformatted)
-  * addParentheses: `true`
-* [Prefer the Java standard library instead of Guava](../../java/migrate/guava/noguava)
-* [Prefer the Java standard library instead of Joda-Time](../../java/joda/time/nojodatime)
-* [JSpecify best practices](../../java/jspecify/jspecifybestpractices)
-* [Use `var` for variables initialized with type casts](../../java/migrate/lang/var/usevarfortypecast)
-* [Use `var` for constructor call assignments](../../java/migrate/lang/var/usevarforconstructors)
-* [Apply `var` to Generic Constructors](../../java/migrate/lang/var/usevarforgenericsconstructors)
-* [Apply `var` to generic method invocations](../../java/migrate/lang/var/usevarforgenericmethodinvocations)
-* [Use `var` for primitive and String variables](../../java/migrate/lang/var/usevarforprimitive)
-* [Use modernized `java.util` APIs](../../java/migrate/util/javautilapis)
-* [Equals avoids null](../../staticanalysis/equalsavoidsnull)
-* [Add missing `@Override` to overriding and implementing methods](../../staticanalysis/missingoverrideannotation)
-* [Week Year (YYYY) should not be used for date formatting](../../staticanalysis/replaceweekyearwithyear)
-* [`hashCode()` should not be called on array instances](../../staticanalysis/removehashcodecallsfromarrayinstances)
-* [Remove `toString()` calls on arrays](../../staticanalysis/removetostringcallsfromarrayinstances)
-* [Replaces `Object.notify()` with `Object.notifyAll()`](../../staticanalysis/useobjectnotifyall)
-* [Remove garbage collection invocations](../../staticanalysis/removecallstosystemgc)
-* [Remove `Object.finalize()` invocations](../../staticanalysis/removecallstoobjectfinalize)
-* [URL Equals and Hash Code](../../staticanalysis/urlequalshashcoderecipes)
-* [Simplify lambda blocks to expressions](../../staticanalysis/lambdablocktoexpression)
-* [Use method references in lambda](../../staticanalysis/replacelambdawithmethodreference)
-* [Use the diamond operator](../../staticanalysis/usediamondoperator)
-* [Remove unnecessary parentheses](../../staticanalysis/unnecessaryparentheses)
-* [Remove redundant null checks before instanceof](../../staticanalysis/removeredundantnullcheckbeforeinstanceof)
-* [Replace `StringBuilder#append` with `String`](../../staticanalysis/replacestringbuilderwithstring)
-* [Use `Collection` interfaces](../../staticanalysis/usecollectioninterfaces)
-* [Enum values should be compared with &quot;==&quot;](../../staticanalysis/compareenumswithequalityoperator)
-* [Combine semantically equal catch blocks](../../staticanalysis/combinesemanticallyequalcatchblocks)
-* [Use `String::replace()` when first parameter is not a real regular expression](../../staticanalysis/usestringreplace)
-* [Use `StandardCharset` constants](../../staticanalysis/usestandardcharset)
-* [Use `System.lineSeparator()`](../../staticanalysis/usesystemlineseparator)
-* [Remove redundant casts](../../staticanalysis/removeredundanttypecast)
-* [Replace `java.util.Stack` with `java.util.Deque`](../../staticanalysis/replacestackwithdeque)
-* [Replace invocations of `Collections#sort(List, Comparator)` with `List#sort(Comparator)`](../../staticanalysis/uselistsort)
-* [Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`](../../staticanalysis/equalstocontentequals)
-* [Convert Javadoc to Markdown documentation comments](../../java/migrate/lang/javadoctomarkdowndoccomment)
-* [Remove unused imports](../../java/removeunusedimports)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.migrate.JavaBestPractices
-displayName: Java best practices
-description: |
-  Applies opinionated best practices for Java projects targeting Java 25. This recipe includes the full Java 25 upgrade chain plus additional improvements to code style, API usage, and third-party dependency reduction that go beyond what the version migration recipes apply.
-tags:
-  - best-practices
-  - java25
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.java.migrate.UpgradeToJava25
-  - org.openrewrite.java.migrate.lang.MigrateMainMethodToInstanceMain
-  - org.openrewrite.java.migrate.lang.ExtractExplicitConstructorInvocationArguments
-  - org.openrewrite.java.migrate.lang.UseTextBlocks:
-      convertStringsWithoutNewlines: true
-      avoidLineContinuations: false
-  - org.openrewrite.java.migrate.lang.StringFormatted:
-      addParentheses: true
-  - org.openrewrite.java.migrate.guava.NoGuava
-  - org.openrewrite.java.joda.time.NoJodaTime
-  - org.openrewrite.java.jspecify.JSpecifyBestPractices
-  - org.openrewrite.java.migrate.lang.var.UseVarForTypeCast
-  - org.openrewrite.java.migrate.lang.var.UseVarForConstructors
-  - org.openrewrite.java.migrate.lang.var.UseVarForGenericsConstructors
-  - org.openrewrite.java.migrate.lang.var.UseVarForGenericMethodInvocations
-  - org.openrewrite.java.migrate.lang.var.UseVarForPrimitive
-  - org.openrewrite.java.migrate.util.JavaUtilAPIs
-  - org.openrewrite.staticanalysis.EqualsAvoidsNull
-  - org.openrewrite.staticanalysis.MissingOverrideAnnotation
-  - org.openrewrite.staticanalysis.ReplaceWeekYearWithYear
-  - org.openrewrite.staticanalysis.RemoveHashCodeCallsFromArrayInstances
-  - org.openrewrite.staticanalysis.RemoveToStringCallsFromArrayInstances
-  - org.openrewrite.staticanalysis.UseObjectNotifyAll
-  - org.openrewrite.staticanalysis.RemoveCallsToSystemGc
-  - org.openrewrite.staticanalysis.RemoveCallsToObjectFinalize
-  - org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes
-  - org.openrewrite.staticanalysis.LambdaBlockToExpression
-  - org.openrewrite.staticanalysis.ReplaceLambdaWithMethodReference
-  - org.openrewrite.staticanalysis.UseDiamondOperator
-  - org.openrewrite.staticanalysis.UnnecessaryParentheses
-  - org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeInstanceof
-  - org.openrewrite.staticanalysis.ReplaceStringBuilderWithString
-  - org.openrewrite.staticanalysis.UseCollectionInterfaces
-  - org.openrewrite.staticanalysis.CompareEnumsWithEqualityOperator
-  - org.openrewrite.staticanalysis.CombineSemanticallyEqualCatchBlocks
-  - org.openrewrite.staticanalysis.UseStringReplace
-  - org.openrewrite.staticanalysis.UseStandardCharset
-  - org.openrewrite.staticanalysis.UseSystemLineSeparator
-  - org.openrewrite.staticanalysis.RemoveRedundantTypeCast
-  - org.openrewrite.staticanalysis.ReplaceStackWithDeque
-  - org.openrewrite.staticanalysis.UseListSort
-  - org.openrewrite.staticanalysis.EqualsToContentEquals
-  - org.openrewrite.java.migrate.lang.JavadocToMarkdownDocComment
-  - org.openrewrite.java.RemoveUnusedImports
-
-```
-</TabItem>
-</Tabs>
 ## Examples
-##### Example 1
-`JavaBestPracticesTest#updateCompilerVersion`
 
+</ExampleList>
 
-###### Unchanged
-```mavenProject
-project
-```
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>17</maven.compiler.release>
-    </properties>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -6,1 +6,1 @@
-    <version>1</version>
-    <properties>
--       <maven.compiler.release>17</maven.compiler.release>
-+       <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`JavaBestPracticesTest#updateCompilerVersion`
-
-
-###### Unchanged
-```mavenProject
-project
-```
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>17</maven.compiler.release>
-    </properties>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -6,1 +6,1 @@
-    <version>1</version>
-    <properties>
--       <maven.compiler.release>17</maven.compiler.release>
-+       <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.JavaBestPractices","displayName":"Java best practices","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.migrate.JavaBestPractices"
-  displayName="Java best practices"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-migrate-java"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.JavaBestPractices" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

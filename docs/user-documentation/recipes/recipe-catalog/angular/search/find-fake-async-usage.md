@@ -1,37 +1,36 @@
 ---
 title: "Find zone.js-dependent test helper usage"
 sidebar_label: "Find zone.js-dependent test helper usage"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find zone.js-dependent test helper usage
+<RecipeMeta
+  displayName={"Find zone.js-dependent test helper usage"}
+  description={"Finds `fakeAsync()`, `tick()`, and `waitForAsync()` calls from `@angular/core/testing`. These zone.js-dependent test helpers are incompatible with Vitest, the default test runner in Angular 21. Migrate to native async/await patterns instead."}
+  fqName={"org.openrewrite.angular.search.find-fake-async-usage"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.search.find-fake-async-usage**
+<RecipeHeader
+  displayName={"Find zone.js-dependent test helper usage"}
+  description={"Finds `fakeAsync()`, `tick()`, and `waitForAsync()` calls from `@angular/core/testing`. These zone.js-dependent test helpers are incompatible with Vitest, the default test runner in Angular 21. Migrate to native async/await patterns instead."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.search.find-fake-async-usage"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-fake-async-usage"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-fake-async-usage.md"}
+  moderneOnly
+/>
 
-_Finds `fakeAsync()`, `tick()`, and `waitForAsync()` calls from `@angular/core/testing`. These zone.js-dependent test helpers are incompatible with Vitest, the default test runner in Angular 21. Migrate to native async/await patterns instead._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 21](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular21)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-fake-async-usage","displayName":"Find zone.js-dependent test helper usage","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.search.find-fake-async-usage"
-  displayName="Find zone.js-dependent test helper usage"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

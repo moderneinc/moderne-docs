@@ -1,43 +1,36 @@
 ---
 title: "Find ThrowIfNull with value type argument"
 sidebar_label: "Find ThrowIfNull with value type argument"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find ThrowIfNull with value type argument
+<RecipeMeta
+  displayName={"Find ThrowIfNull with value type argument"}
+  description={"Detect `ArgumentNullException.ThrowIfNull` called with value type parameters that can never be null."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindThrowIfNullWithNonNullable"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindThrowIfNullWithNonNullable**
+<RecipeHeader
+  displayName={"Find ThrowIfNull with value type argument"}
+  description={"Detect `ArgumentNullException.ThrowIfNull` called with value type parameters that can never be null."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","style","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindThrowIfNullWithNonNullable"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindThrowIfNullWithNonNullable"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findthrowifnullwithnonnullable.md"}
+  moderneOnly
+/>
 
-_Detect `ArgumentNullException.ThrowIfNull` called with value type parameters that can never be null._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [style](/user-documentation/recipes/lists/recipes-by-tag#style)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindThrowIfNullWithNonNullable","displayName":"Find ThrowIfNull with value type argument","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindThrowIfNullWithNonNullable"
-  displayName="Find ThrowIfNull with value type argument"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

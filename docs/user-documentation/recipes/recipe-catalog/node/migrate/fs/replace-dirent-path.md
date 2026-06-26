@@ -1,41 +1,36 @@
 ---
 title: "Replace `dirent.path` with `dirent.parentPath`"
 sidebar_label: "Replace `dirent.path` with `dirent.parentPath`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `dirent.path` with `dirent.parentPath`
+<RecipeMeta
+  displayName={"Replace `dirent.path` with `dirent.parentPath`"}
+  description={"Replaces deprecated `dirent.path` property access with `dirent.parentPath` on `fs.Dirent` instances to address DEP0178 deprecation."}
+  fqName={"org.openrewrite.node.migrate.fs.replace-dirent-path"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.node.migrate.fs.replace-dirent-path**
+<RecipeHeader
+  displayName={"Replace `dirent.path` with `dirent.parentPath`"}
+  description={"Replaces deprecated `dirent.path` property access with `dirent.parentPath` on `fs.Dirent` instances to address DEP0178 deprecation."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["DEP0178"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.node.migrate.fs.replace-dirent-path"}
+  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.fs.replace-dirent-path"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-dirent-path.md"}
+  moderneOnly
+/>
 
-_Replaces deprecated `dirent.path` property access with `dirent.parentPath` on `fs.Dirent` instances to address DEP0178 deprecation._
-
-### Tags
-
-* [DEP0178](/user-documentation/recipes/lists/recipes-by-tag#dep0178)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Node.js 24](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24)
-
+<UsageList usage={{"recipeName":"org.openrewrite.node.migrate.fs.replace-dirent-path","displayName":"Replace `dirent.path` with `dirent.parentPath`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.node.migrate.fs.replace-dirent-path"
-  displayName="Replace `dirent.path` with `dirent.parentPath`"
-  npmPackage="@openrewrite/recipes-nodejs"
-/>
+</UsageList>
+

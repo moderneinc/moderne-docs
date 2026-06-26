@@ -1,319 +1,54 @@
 ---
 title: "Migrate to Spring Boot 3.4 (Moderne Edition)"
 sidebar_label: "Migrate to Spring Boot 3.4 (Moderne Edition)"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate to Spring Boot 3.4 (Moderne Edition)
+<RecipeMeta
+  displayName={"Migrate to Spring Boot 3.4"}
+  description={"Migrate applications to the latest Spring Boot 3.4 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.4."}
+  fqName={"io.moderne.java.spring.boot3.UpgradeSpringBoot_3_4"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**io.moderne.java.spring.boot3.UpgradeSpringBoot\_3\_4**
+<RecipeHeader
+  displayName={"Migrate to Spring Boot 3.4"}
+  description={"Migrate applications to the latest Spring Boot 3.4 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.4."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={["spring","boot"]}
+  license={"Moderne Proprietary License"}
+  fqName={"io.moderne.java.spring.boot3.UpgradeSpringBoot_3_4"}
+  artifact={"io.moderne.recipe:rewrite-spring"}
+  appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.UpgradeSpringBoot_3_4"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-moderne-edition.md"}
+  moderneOnly
+/>
 
-_Migrate applications to the latest Spring Boot 3.4 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.4._
+<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.0","href":"java/spring/boot3/upgradespringboot_3_0-moderne-edition"},{"name":"Migrate to Spring Boot 3.4","href":"java/spring/boot3/upgradespringboot_3_4-community-edition"},{"name":"Migrate to Spring Framework 5.3","href":"java/spring/framework/upgradespringframework_5_3-moderne-edition"},{"name":"Resolve Deprecations in Spring Boot 3.3","href":"java/spring/boot3/resolvedeprecationsspringboot_3_3"},{"name":"Migrate to Reactor 3.5","href":"reactive/reactor/upgradereactor_3_5"},{"name":"Upgrade Spring Cloud AWS to Spring Boot 3.4 compatible version","href":"java/spring/boot3/upgradespringcloudawstospringboot_3_4"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate Spring Boot 3.4 deprecated classes and methods","href":"java/spring/boot3/springboot34deprecations"},{"name":"Migrate `@Endpoint` Security properties to 3.4","href":"java/spring/boot3/springbootproperties_3_4-moderne-edition"},{"name":"Migrate to Spring Kafka 3.3","href":"java/spring/boot3/upgradespringkafka_3_3"},{"name":"Change parameter type for a method declaration","href":"java/spring/changemethodparameter"},{"name":"Migrate to Hibernate 6.6.x","href":"hibernate/migratetohibernate66-moderne-edition"},{"name":"Migrate to HtmlUnit 3.x","href":"java/testing/htmlunit/upgradehtmlunit_3"},{"name":"Add `@Valid` annotation to fields","href":"java/spring/boot3/addvalidtoconfigurationpropertiesfields"},{"name":"Migrate `ConditionalOnAvailableEndpoint` for Spring Boot 3.4","href":"java/spring/boot3/conditionalonavailableendpointmigrationspring34"},{"name":"Remove `Replace.NONE` from `@AutoConfigureTestDatabase`","href":"java/spring/boot3/removereplacenonefromautoconfiguretestdatabase"},{"name":"Replace `@MockitoBean` and `@MockitoSpyBean` with `@Bean` methods in `@Configuration` classes","href":"java/spring/boot3/replacemockitobeanwithbeanmethod"},{"name":"Comment deprecated methods in Spring 3.4","href":"java/spring/boot3/commentdeprecations"},{"name":"Sync Gradle ext properties with BOM","href":"gradle/syncgradleextpropertieswithbom"},{"name":"Upgrade Gradle to 7.6.4+ for Spring Boot 3.4","href":"java/spring/boot3/upgradegradle7spring34"},{"name":"Upgrade Gradle 8 to 8.4+ for Spring Boot 3.4","href":"java/spring/boot3/upgradegradle8spring34"},{"name":"Upgrade MyBatis to Spring Boot 3.4","href":"java/spring/boot3/upgrademybatistospringboot_3_4"},{"name":"Migrate Spring Cloud properties to 2024","href":"java/spring/cloud2024/springcloudproperties_2024"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
-### Tags
+## Definition
 
-* [spring](/user-documentation/recipes/lists/recipes-by-tag#spring)
-* [boot](/user-documentation/recipes/lists/recipes-by-tag#boot)
+</RecipeList>
 
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Spring Boot 3.5 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition)
+<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"demo"},"variants":[{"language":"java","before":"import org.springframework.batch.item.ExecutionContext;\nimport org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;\nimport org.springframework.core.io.Resource;\n\nclass MyWriter implements ResourceAwareItemWriterItemStream<String> {\n    @Override\n    public void setResource(Resource resource) {\n    }\n    @Override public void open(ExecutionContext executionContext) {}\n    @Override public void update(ExecutionContext executionContext) {}\n    @Override public void close() {}\n    @Override public void write(java.util.List<? extends String> items) {}\n}\n","after":"import org.springframework.batch.item.Chunk;\nimport org.springframework.batch.item.ExecutionContext;\nimport org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;\nimport org.springframework.core.io.WritableResource;\n\nclass MyWriter implements ResourceAwareItemWriterItemStream<String> {\n    @Override\n    public void setResource(WritableResource resource) {\n    }\n    @Override public void open(ExecutionContext executionContext) {}\n    @Override public void update(ExecutionContext executionContext) {}\n    @Override public void close() {}\n\n    @Override\n    public void write(Chunk<? extends String> items) throws Exception {\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.springframework.batch.item.Chunk;\nimport org.springframework.batch.item.ExecutionContext;\n@@ -3,1 +4,1 @@\nimport org.springframework.batch.item.ExecutionContext;\nimport org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;\n-import org.springframework.core.io.Resource;\n+import org.springframework.core.io.WritableResource;\n\n@@ -7,1 +8,1 @@\nclass MyWriter implements ResourceAwareItemWriterItemStream<String> {\n    @Override\n-   public void setResource(Resource resource) {\n+   public void setResource(WritableResource resource) {\n    }\n@@ -12,1 +13,4 @@\n    @Override public void update(ExecutionContext executionContext) {}\n    @Override public void close() {}\n-   @Override public void write(java.util.List<? extends String> items) {}\n+\n+   @Override\n+   public void write(Chunk<? extends String> items) throws Exception {\n+   }\n}\n","newFile":false}]},{"unchanged":{"language":"mavenProject","code":"demo"},"variants":[{"language":"java","before":"import org.springframework.batch.item.ExecutionContext;\nimport org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;\nimport org.springframework.core.io.Resource;\n\nclass MyWriter implements ResourceAwareItemWriterItemStream<String> {\n    @Override\n    public void setResource(Resource resource) {\n    }\n    @Override public void open(ExecutionContext executionContext) {}\n    @Override public void update(ExecutionContext executionContext) {}\n    @Override public void close() {}\n    @Override public void write(java.util.List<? extends String> items) {}\n}\n","after":"import org.springframework.batch.item.Chunk;\nimport org.springframework.batch.item.ExecutionContext;\nimport org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;\nimport org.springframework.core.io.WritableResource;\n\nclass MyWriter implements ResourceAwareItemWriterItemStream<String> {\n    @Override\n    public void setResource(WritableResource resource) {\n    }\n    @Override public void open(ExecutionContext executionContext) {}\n    @Override public void update(ExecutionContext executionContext) {}\n    @Override public void close() {}\n\n    @Override\n    public void write(Chunk<? extends String> items) throws Exception {\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.springframework.batch.item.Chunk;\nimport org.springframework.batch.item.ExecutionContext;\n@@ -3,1 +4,1 @@\nimport org.springframework.batch.item.ExecutionContext;\nimport org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;\n-import org.springframework.core.io.Resource;\n+import org.springframework.core.io.WritableResource;\n\n@@ -7,1 +8,1 @@\nclass MyWriter implements ResourceAwareItemWriterItemStream<String> {\n    @Override\n-   public void setResource(Resource resource) {\n+   public void setResource(WritableResource resource) {\n    }\n@@ -12,1 +13,4 @@\n    @Override public void update(ExecutionContext executionContext) {}\n    @Override public void close() {}\n-   @Override public void write(java.util.List<? extends String> items) {}\n+\n+   @Override\n+   public void write(Chunk<? extends String> items) throws Exception {\n+   }\n}\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`UpgradeSetResourceParameterTypeTest#retypesOverrideOnResourceAwareItemWriterItemStream`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.springframework.batch.item.ExecutionContext;
-import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
-import org.springframework.core.io.Resource;
-
-class MyWriter implements ResourceAwareItemWriterItemStream<String> {
-    @Override
-    public void setResource(Resource resource) {
-    }
-    @Override public void open(ExecutionContext executionContext) {}
-    @Override public void update(ExecutionContext executionContext) {}
-    @Override public void close() {}
-    @Override public void write(java.util.List<? extends String> items) {}
-}
-```
-
-###### After
-```java
-import org.springframework.batch.item.Chunk;
-import org.springframework.batch.item.ExecutionContext;
-import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
-import org.springframework.core.io.WritableResource;
-
-class MyWriter implements ResourceAwareItemWriterItemStream<String> {
-    @Override
-    public void setResource(WritableResource resource) {
-    }
-    @Override public void open(ExecutionContext executionContext) {}
-    @Override public void update(ExecutionContext executionContext) {}
-    @Override public void close() {}
-
-    @Override
-    public void write(Chunk<? extends String> items) throws Exception {
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,0 +1,1 @@
-+import org.springframework.batch.item.Chunk;
-import org.springframework.batch.item.ExecutionContext;
-@@ -3,1 +4,1 @@
-import org.springframework.batch.item.ExecutionContext;
-import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
--import org.springframework.core.io.Resource;
-+import org.springframework.core.io.WritableResource;
-
-@@ -7,1 +8,1 @@
-class MyWriter implements ResourceAwareItemWriterItemStream<String> {
-    @Override
--   public void setResource(Resource resource) {
-+   public void setResource(WritableResource resource) {
-    }
-@@ -12,1 +13,4 @@
-    @Override public void update(ExecutionContext executionContext) {}
-    @Override public void close() {}
--   @Override public void write(java.util.List<? extends String> items) {}
-+
-+   @Override
-+   public void write(Chunk<? extends String> items) throws Exception {
-+   }
-}
-```
-</TabItem>
-</Tabs>
-
-###### Unchanged
-```mavenProject
-demo
-```
-
----
-
-##### Example 2
-`UpgradeSetResourceParameterTypeTest#retypesOverrideOnResourceAwareItemWriterItemStream`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.springframework.batch.item.ExecutionContext;
-import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
-import org.springframework.core.io.Resource;
-
-class MyWriter implements ResourceAwareItemWriterItemStream<String> {
-    @Override
-    public void setResource(Resource resource) {
-    }
-    @Override public void open(ExecutionContext executionContext) {}
-    @Override public void update(ExecutionContext executionContext) {}
-    @Override public void close() {}
-    @Override public void write(java.util.List<? extends String> items) {}
-}
-```
-
-###### After
-```java
-import org.springframework.batch.item.Chunk;
-import org.springframework.batch.item.ExecutionContext;
-import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
-import org.springframework.core.io.WritableResource;
-
-class MyWriter implements ResourceAwareItemWriterItemStream<String> {
-    @Override
-    public void setResource(WritableResource resource) {
-    }
-    @Override public void open(ExecutionContext executionContext) {}
-    @Override public void update(ExecutionContext executionContext) {}
-    @Override public void close() {}
-
-    @Override
-    public void write(Chunk<? extends String> items) throws Exception {
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,0 +1,1 @@
-+import org.springframework.batch.item.Chunk;
-import org.springframework.batch.item.ExecutionContext;
-@@ -3,1 +4,1 @@
-import org.springframework.batch.item.ExecutionContext;
-import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
--import org.springframework.core.io.Resource;
-+import org.springframework.core.io.WritableResource;
-
-@@ -7,1 +8,1 @@
-class MyWriter implements ResourceAwareItemWriterItemStream<String> {
-    @Override
--   public void setResource(Resource resource) {
-+   public void setResource(WritableResource resource) {
-    }
-@@ -12,1 +13,4 @@
-    @Override public void update(ExecutionContext executionContext) {}
-    @Override public void close() {}
--   @Override public void write(java.util.List<? extends String> items) {}
-+
-+   @Override
-+   public void write(Chunk<? extends String> items) throws Exception {
-+   }
-}
-```
-</TabItem>
-</Tabs>
-
-###### Unchanged
-```mavenProject
-demo
-```
-
+<UsageList usage={{"recipeName":"io.moderne.java.spring.boot3.UpgradeSpringBoot_3_4","displayName":"Migrate to Spring Boot 3.4","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false,"useFullyQualifiedCliName":true}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="io.moderne.java.spring.boot3.UpgradeSpringBoot_3_4"
-  displayName="Migrate to Spring Boot 3.4 (Moderne Edition)"
-  groupId="io.moderne.recipe"
-  artifactId="rewrite-spring"
-  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-  useFullyQualifiedCliName
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.java.spring.boot3.UpgradeSpringBoot_3_4" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

@@ -1,31 +1,36 @@
 ---
 title: "Order imports"
 sidebar_label: "Order imports"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Order imports
+<RecipeMeta
+  displayName={"Order imports"}
+  description={"Sort imports by category and module path. Categories: side-effect, namespace, default, named, type. Within each category, imports are sorted alphabetically by module path. Named specifiers within each import are also sorted alphabetically."}
+  fqName={"org.openrewrite.javascript.cleanup.order-imports"}
+  languages={["JavaScript"]}
+  license={"Moderne Source Available License"}
+/>
 
-**org.openrewrite.javascript.cleanup.order-imports**
+<RecipeHeader
+  displayName={"Order imports"}
+  description={"Sort imports by category and module path. Categories: side-effect, namespace, default, named, type. Within each category, imports are sorted alphabetically by module path. Named specifiers within each import are also sorted alphabetically."}
+  type={"Single recipe"}
+  languages={["JavaScript"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.javascript.cleanup.order-imports"}
+  artifact={"org.openrewrite:rewrite-javascript"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.order-imports"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/order-imports.md"}
+  moderneOnly
+/>
 
-_Sort imports by category and module path. Categories: side-effect, namespace, default, named, type. Within each category, imports are sorted alphabetically by module path. Named specifiers within each import are also sorted alphabetically._
-
-## Recipe source
-
-[GitHub: rewrite+org.openrewrite.javascript.cleanup.order-imports](https://github.com/search?type=code&q=repo:openrewrite/rewrite+org.openrewrite.javascript.cleanup.order-imports),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-javascript/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.cleanup.order-imports","displayName":"Order imports","npmPackage":"@openrewrite/rewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.javascript.cleanup.order-imports"
-  displayName="Order imports"
-  npmPackage="@openrewrite/rewrite"
-/>
+</UsageList>
+

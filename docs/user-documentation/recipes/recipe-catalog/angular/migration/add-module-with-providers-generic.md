@@ -1,37 +1,36 @@
 ---
 title: "Add generic type to `ModuleWithProviders`"
 sidebar_label: "Add generic type to `ModuleWithProviders`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Add generic type to `ModuleWithProviders`
+<RecipeMeta
+  displayName={"Add generic type to `ModuleWithProviders`"}
+  description={"Adds the required generic type parameter to bare `ModuleWithProviders` return types. Angular 10 requires `ModuleWithProviders<T>` where `T` is the NgModule type. The module type is inferred from the `ngModule` property in the return statement."}
+  fqName={"org.openrewrite.angular.migration.add-module-with-providers-generic"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.add-module-with-providers-generic**
+<RecipeHeader
+  displayName={"Add generic type to `ModuleWithProviders`"}
+  description={"Adds the required generic type parameter to bare `ModuleWithProviders` return types. Angular 10 requires `ModuleWithProviders<T>` where `T` is the NgModule type. The module type is inferred from the `ngModule` property in the return statement."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.add-module-with-providers-generic"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.add-module-with-providers-generic"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/add-module-with-providers-generic.md"}
+  moderneOnly
+/>
 
-_Adds the required generic type parameter to bare `ModuleWithProviders` return types. Angular 10 requires `ModuleWithProviders<T>` where `T` is the NgModule type. The module type is inferred from the `ngModule` property in the return statement._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular9)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.add-module-with-providers-generic","displayName":"Add generic type to `ModuleWithProviders`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.add-module-with-providers-generic"
-  displayName="Add generic type to `ModuleWithProviders`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

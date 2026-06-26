@@ -1,6 +1,7 @@
 ---
 title: "`String.format()` in logging statements should use SLF4J parameterized logging"
 sidebar_label: "`String.format()` in logging statements should use SLF4J parameterized logging"
+hide_title: true
 ---
 
 
@@ -8,304 +9,45 @@ sidebar_label: "`String.format()` in logging statements should use SLF4J paramet
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/stringformattoparameterizedlogging" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# `String.format()` in logging statements should use SLF4J parameterized logging
+<RecipeMeta
+  displayName={"`String.format()` in logging statements should use SLF4J parameterized logging"}
+  description={"Replace `String.format()` calls in SLF4J logging statements with parameterized placeholders for improved performance."}
+  fqName={"org.openrewrite.java.logging.slf4j.StringFormatToParameterizedLogging"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-logging-frameworks/blob/main/src/main/java/org/openrewrite/java/logging/slf4j/StringFormatToParameterizedLogging.java"}
+/>
 
-**org.openrewrite.java.logging.slf4j.StringFormatToParameterizedLogging**
+<RecipeHeader
+  displayName={"`String.format()` in logging statements should use SLF4J parameterized logging"}
+  description={"Replace `String.format()` calls in SLF4J logging statements with parameterized placeholders for improved performance."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={["slf4j","logging"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.logging.slf4j.StringFormatToParameterizedLogging"}
+  artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.StringFormatToParameterizedLogging"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/stringformattoparameterizedlogging.md"}
+/>
 
-_Replace `String.format()` calls in SLF4J logging statements with parameterized placeholders for improved performance._
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\nimport org.slf4j.Marker;\nimport org.slf4j.MarkerFactory;\n\nclass Test {\n    private static final Logger LOGGER = LoggerFactory.getLogger(Test.class);\n    private static final Marker MARKER = MarkerFactory.getMarker(\"TEST\");\n\n    void method(String username, int count, double value, String message) {\n        Exception exception = new Exception();\n\n        LOGGER.trace(String.format(\"Trace %s\", username));\n        LOGGER.debug(String.format(\"Debug %s\", username));\n        LOGGER.info(String.format(\"User %s logged in\", username));\n        LOGGER.warn(String.format(\"Warning %s\", username));\n        LOGGER.error(String.format(\"Error %s\", username));\n\n        LOGGER.info(String.format(\"Count: %d\", count));\n        LOGGER.info(String.format(\"Value: %f\", value));\n        LOGGER.info(String.format(\"User %s has %d items\", username, count));\n        LOGGER.info(String.format(\"User %s has %d items worth $%f\", username, count, value));\n\n        LOGGER.info(String.format(\"String: %s\", username));\n        LOGGER.info(String.format(\"Decimal: %d\", count));\n        LOGGER.info(String.format(\"Hex: %x\", count));\n        LOGGER.info(String.format(\"Octal: %o\", count));\n        LOGGER.info(String.format(\"Float: %f\", value));\n        LOGGER.info(String.format(\"Boolean: %b\", true));\n        LOGGER.info(String.format(\"Char: %c\", 'x'));\n\n        LOGGER.info(MARKER, String.format(\"Message %s\", message));\n        LOGGER.error(String.format(\"Failed: %s\", message), exception);\n        LOGGER.error(MARKER, String.format(\"Failed: %s\", message), exception);\n\n        LOGGER.info(String.format(\"User %s\"\n                + \" logged in\", username));\n        LOGGER.info(String.format(\"isHTML\"\n                + \" '%s', body: %s\", username, message));\n        LOGGER.info(String.format(\"part1\"\n                + \" part2\"\n                + \" %s\", username));\n    }\n}\n","after":"import org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\nimport org.slf4j.Marker;\nimport org.slf4j.MarkerFactory;\n\nclass Test {\n    private static final Logger LOGGER = LoggerFactory.getLogger(Test.class);\n    private static final Marker MARKER = MarkerFactory.getMarker(\"TEST\");\n\n    void method(String username, int count, double value, String message) {\n        Exception exception = new Exception();\n\n        LOGGER.trace(\"Trace {}\", username);\n        LOGGER.debug(\"Debug {}\", username);\n        LOGGER.info(\"User {} logged in\", username);\n        LOGGER.warn(\"Warning {}\", username);\n        LOGGER.error(\"Error {}\", username);\n\n        LOGGER.info(\"Count: {}\", count);\n        LOGGER.info(\"Value: {}\", value);\n        LOGGER.info(\"User {} has {} items\", username, count);\n        LOGGER.info(\"User {} has {} items worth ${}\", username, count, value);\n\n        LOGGER.info(\"String: {}\", username);\n        LOGGER.info(\"Decimal: {}\", count);\n        LOGGER.info(\"Hex: {}\", count);\n        LOGGER.info(\"Octal: {}\", count);\n        LOGGER.info(\"Float: {}\", value);\n        LOGGER.info(\"Boolean: {}\", true);\n        LOGGER.info(\"Char: {}\", 'x');\n\n        LOGGER.info(MARKER, \"Message {}\", message);\n        LOGGER.error(\"Failed: {}\", message, exception);\n        LOGGER.error(MARKER, \"Failed: {}\", message, exception);\n\n        LOGGER.info(\"User {} logged in\", username);\n        LOGGER.info(\"isHTML '{}', body: {}\", username, message);\n        LOGGER.info(\"part1 part2 {}\", username);\n    }\n}\n","diff":"@@ -13,5 +13,5 @@\n        Exception exception = new Exception();\n\n-       LOGGER.trace(String.format(\"Trace %s\", username));\n-       LOGGER.debug(String.format(\"Debug %s\", username));\n-       LOGGER.info(String.format(\"User %s logged in\", username));\n-       LOGGER.warn(String.format(\"Warning %s\", username));\n-       LOGGER.error(String.format(\"Error %s\", username));\n+       LOGGER.trace(\"Trace {}\", username);\n+       LOGGER.debug(\"Debug {}\", username);\n+       LOGGER.info(\"User {} logged in\", username);\n+       LOGGER.warn(\"Warning {}\", username);\n+       LOGGER.error(\"Error {}\", username);\n\n@@ -19,4 +19,4 @@\n        LOGGER.error(String.format(\"Error %s\", username));\n\n-       LOGGER.info(String.format(\"Count: %d\", count));\n-       LOGGER.info(String.format(\"Value: %f\", value));\n-       LOGGER.info(String.format(\"User %s has %d items\", username, count));\n-       LOGGER.info(String.format(\"User %s has %d items worth $%f\", username, count, value));\n+       LOGGER.info(\"Count: {}\", count);\n+       LOGGER.info(\"Value: {}\", value);\n+       LOGGER.info(\"User {} has {} items\", username, count);\n+       LOGGER.info(\"User {} has {} items worth ${}\", username, count, value);\n\n@@ -24,7 +24,7 @@\n        LOGGER.info(String.format(\"User %s has %d items worth $%f\", username, count, value));\n\n-       LOGGER.info(String.format(\"String: %s\", username));\n-       LOGGER.info(String.format(\"Decimal: %d\", count));\n-       LOGGER.info(String.format(\"Hex: %x\", count));\n-       LOGGER.info(String.format(\"Octal: %o\", count));\n-       LOGGER.info(String.format(\"Float: %f\", value));\n-       LOGGER.info(String.format(\"Boolean: %b\", true));\n-       LOGGER.info(String.format(\"Char: %c\", 'x'));\n+       LOGGER.info(\"String: {}\", username);\n+       LOGGER.info(\"Decimal: {}\", count);\n+       LOGGER.info(\"Hex: {}\", count);\n+       LOGGER.info(\"Octal: {}\", count);\n+       LOGGER.info(\"Float: {}\", value);\n+       LOGGER.info(\"Boolean: {}\", true);\n+       LOGGER.info(\"Char: {}\", 'x');\n\n@@ -32,3 +32,3 @@\n        LOGGER.info(String.format(\"Char: %c\", 'x'));\n\n-       LOGGER.info(MARKER, String.format(\"Message %s\", message));\n-       LOGGER.error(String.format(\"Failed: %s\", message), exception);\n-       LOGGER.error(MARKER, String.format(\"Failed: %s\", message), exception);\n+       LOGGER.info(MARKER, \"Message {}\", message);\n+       LOGGER.error(\"Failed: {}\", message, exception);\n+       LOGGER.error(MARKER, \"Failed: {}\", message, exception);\n\n@@ -36,7 +36,3 @@\n        LOGGER.error(MARKER, String.format(\"Failed: %s\", message), exception);\n\n-       LOGGER.info(String.format(\"User %s\"\n-               + \" logged in\", username));\n-       LOGGER.info(String.format(\"isHTML\"\n-               + \" '%s', body: %s\", username, message));\n-       LOGGER.info(String.format(\"part1\"\n-               + \" part2\"\n-               + \" %s\", username));\n+       LOGGER.info(\"User {} logged in\", username);\n+       LOGGER.info(\"isHTML '{}', body: {}\", username, message);\n+       LOGGER.info(\"part1 part2 {}\", username);\n    }\n","newFile":false}]}]}>
 
-### Tags
+## Examples
 
-* [slf4j](/user-documentation/recipes/lists/recipes-by-tag#slf4j)
-* [logging](/user-documentation/recipes/lists/recipes-by-tag#logging)
+</ExampleList>
 
-## Recipe source
-
-[GitHub: StringFormatToParameterizedLogging.java](https://github.com/openrewrite/rewrite-logging-frameworks/blob/main/src/main/java/org/openrewrite/java/logging/slf4j/StringFormatToParameterizedLogging.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-logging-frameworks/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-logging-frameworks/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [SLF4J best practices](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/slf4jbestpractices.md)
-
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Marker;
-import org.slf4j.MarkerFactory;
-
-class Test {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Test.class);
-    private static final Marker MARKER = MarkerFactory.getMarker("TEST");
-
-    void method(String username, int count, double value, String message) {
-        Exception exception = new Exception();
-
-        LOGGER.trace(String.format("Trace %s", username));
-        LOGGER.debug(String.format("Debug %s", username));
-        LOGGER.info(String.format("User %s logged in", username));
-        LOGGER.warn(String.format("Warning %s", username));
-        LOGGER.error(String.format("Error %s", username));
-
-        LOGGER.info(String.format("Count: %d", count));
-        LOGGER.info(String.format("Value: %f", value));
-        LOGGER.info(String.format("User %s has %d items", username, count));
-        LOGGER.info(String.format("User %s has %d items worth $%f", username, count, value));
-
-        LOGGER.info(String.format("String: %s", username));
-        LOGGER.info(String.format("Decimal: %d", count));
-        LOGGER.info(String.format("Hex: %x", count));
-        LOGGER.info(String.format("Octal: %o", count));
-        LOGGER.info(String.format("Float: %f", value));
-        LOGGER.info(String.format("Boolean: %b", true));
-        LOGGER.info(String.format("Char: %c", 'x'));
-
-        LOGGER.info(MARKER, String.format("Message %s", message));
-        LOGGER.error(String.format("Failed: %s", message), exception);
-        LOGGER.error(MARKER, String.format("Failed: %s", message), exception);
-
-        LOGGER.info(String.format("User %s"
-                + " logged in", username));
-        LOGGER.info(String.format("isHTML"
-                + " '%s', body: %s", username, message));
-        LOGGER.info(String.format("part1"
-                + " part2"
-                + " %s", username));
-    }
-}
-```
-
-###### After
-```java
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Marker;
-import org.slf4j.MarkerFactory;
-
-class Test {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Test.class);
-    private static final Marker MARKER = MarkerFactory.getMarker("TEST");
-
-    void method(String username, int count, double value, String message) {
-        Exception exception = new Exception();
-
-        LOGGER.trace("Trace {}", username);
-        LOGGER.debug("Debug {}", username);
-        LOGGER.info("User {} logged in", username);
-        LOGGER.warn("Warning {}", username);
-        LOGGER.error("Error {}", username);
-
-        LOGGER.info("Count: {}", count);
-        LOGGER.info("Value: {}", value);
-        LOGGER.info("User {} has {} items", username, count);
-        LOGGER.info("User {} has {} items worth ${}", username, count, value);
-
-        LOGGER.info("String: {}", username);
-        LOGGER.info("Decimal: {}", count);
-        LOGGER.info("Hex: {}", count);
-        LOGGER.info("Octal: {}", count);
-        LOGGER.info("Float: {}", value);
-        LOGGER.info("Boolean: {}", true);
-        LOGGER.info("Char: {}", 'x');
-
-        LOGGER.info(MARKER, "Message {}", message);
-        LOGGER.error("Failed: {}", message, exception);
-        LOGGER.error(MARKER, "Failed: {}", message, exception);
-
-        LOGGER.info("User {} logged in", username);
-        LOGGER.info("isHTML '{}', body: {}", username, message);
-        LOGGER.info("part1 part2 {}", username);
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -13,5 +13,5 @@
-        Exception exception = new Exception();
-
--       LOGGER.trace(String.format("Trace %s", username));
--       LOGGER.debug(String.format("Debug %s", username));
--       LOGGER.info(String.format("User %s logged in", username));
--       LOGGER.warn(String.format("Warning %s", username));
--       LOGGER.error(String.format("Error %s", username));
-+       LOGGER.trace("Trace {}", username);
-+       LOGGER.debug("Debug {}", username);
-+       LOGGER.info("User {} logged in", username);
-+       LOGGER.warn("Warning {}", username);
-+       LOGGER.error("Error {}", username);
-
-@@ -19,4 +19,4 @@
-        LOGGER.error(String.format("Error %s", username));
-
--       LOGGER.info(String.format("Count: %d", count));
--       LOGGER.info(String.format("Value: %f", value));
--       LOGGER.info(String.format("User %s has %d items", username, count));
--       LOGGER.info(String.format("User %s has %d items worth $%f", username, count, value));
-+       LOGGER.info("Count: {}", count);
-+       LOGGER.info("Value: {}", value);
-+       LOGGER.info("User {} has {} items", username, count);
-+       LOGGER.info("User {} has {} items worth ${}", username, count, value);
-
-@@ -24,7 +24,7 @@
-        LOGGER.info(String.format("User %s has %d items worth $%f", username, count, value));
-
--       LOGGER.info(String.format("String: %s", username));
--       LOGGER.info(String.format("Decimal: %d", count));
--       LOGGER.info(String.format("Hex: %x", count));
--       LOGGER.info(String.format("Octal: %o", count));
--       LOGGER.info(String.format("Float: %f", value));
--       LOGGER.info(String.format("Boolean: %b", true));
--       LOGGER.info(String.format("Char: %c", 'x'));
-+       LOGGER.info("String: {}", username);
-+       LOGGER.info("Decimal: {}", count);
-+       LOGGER.info("Hex: {}", count);
-+       LOGGER.info("Octal: {}", count);
-+       LOGGER.info("Float: {}", value);
-+       LOGGER.info("Boolean: {}", true);
-+       LOGGER.info("Char: {}", 'x');
-
-@@ -32,3 +32,3 @@
-        LOGGER.info(String.format("Char: %c", 'x'));
-
--       LOGGER.info(MARKER, String.format("Message %s", message));
--       LOGGER.error(String.format("Failed: %s", message), exception);
--       LOGGER.error(MARKER, String.format("Failed: %s", message), exception);
-+       LOGGER.info(MARKER, "Message {}", message);
-+       LOGGER.error("Failed: {}", message, exception);
-+       LOGGER.error(MARKER, "Failed: {}", message, exception);
-
-@@ -36,7 +36,3 @@
-        LOGGER.error(MARKER, String.format("Failed: %s", message), exception);
-
--       LOGGER.info(String.format("User %s"
--               + " logged in", username));
--       LOGGER.info(String.format("isHTML"
--               + " '%s', body: %s", username, message));
--       LOGGER.info(String.format("part1"
--               + " part2"
--               + " %s", username));
-+       LOGGER.info("User {} logged in", username);
-+       LOGGER.info("isHTML '{}', body: {}", username, message);
-+       LOGGER.info("part1 part2 {}", username);
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.StringFormatToParameterizedLogging","displayName":"`String.format()` in logging statements should use SLF4J parameterized logging","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.logging.slf4j.StringFormatToParameterizedLogging"
-  displayName="`String.format()` in logging statements should use SLF4J parameterized logging"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-logging-frameworks"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.StringFormatToParameterizedLogging" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

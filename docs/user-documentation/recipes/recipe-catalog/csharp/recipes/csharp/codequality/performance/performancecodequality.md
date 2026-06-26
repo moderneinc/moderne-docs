@@ -1,43 +1,42 @@
 ---
 title: "Performance code quality"
 sidebar_label: "Performance code quality"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Performance code quality
+<RecipeMeta
+  displayName={"Performance code quality"}
+  description={"Performance optimization recipes for C# code."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.PerformanceCodeQuality"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Performance.PerformanceCodeQuality**
+<RecipeHeader
+  displayName={"Performance code quality"}
+  description={"Performance optimization recipes for C# code."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","performance","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.PerformanceCodeQuality"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.PerformanceCodeQuality"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/performancecodequality.md"}
+  moderneOnly
+/>
 
-_Performance optimization recipes for C# code._
+<RecipeList recipes={[{"name":"Avoid boxing of value type","href":"csharp/recipes/csharp/codequality/performance/avoidboxingofvaluetype"},{"name":"Use StringComparison","href":"csharp/recipes/csharp/codequality/performance/usestringcomparison"},{"name":"Avoid locking on publicly accessible instance","href":"csharp/recipes/csharp/codequality/performance/avoidlockingonpubliclyaccessible"},{"name":"Use StringBuilder.AppendLine","href":"csharp/recipes/csharp/codequality/performance/usestringbuilderappendline"},{"name":"Use Array.Empty<T>() instead of new T[0]","href":"csharp/recipes/csharp/codequality/performance/usearrayempty"},{"name":"Return completed task instead of null","href":"csharp/recipes/csharp/codequality/performance/returncompletedtask"},{"name":"Use Count/Length property instead of Count()","href":"csharp/recipes/csharp/codequality/performance/usecountproperty"},{"name":"Use Regex.IsMatch","href":"csharp/recipes/csharp/codequality/performance/useregexismatch"},{"name":"Use string.Concat instead of string.Join","href":"csharp/recipes/csharp/codequality/performance/usestringconcatinsteadofjoin"},{"name":"Bitwise operation on enum without Flags attribute","href":"csharp/recipes/csharp/codequality/performance/bitoperationonenumwithoutflags"},{"name":"Make parameter ref read-only","href":"csharp/recipes/csharp/codequality/performance/makeparameterrefreadonly"},{"name":"Avoid NullReferenceException","href":"csharp/recipes/csharp/codequality/performance/avoidnullreferenceexception"},{"name":"Remove unnecessary explicit enumerator","href":"csharp/recipes/csharp/codequality/performance/unnecessaryexplicitenumerator"},{"name":"Throwing of new NotImplementedException","href":"csharp/recipes/csharp/codequality/performance/throwingnotimplementedexception"},{"name":"Optimize method call","href":"csharp/recipes/csharp/codequality/performance/optimizemethodcall"},{"name":"Do not pass non-read-only struct by read-only reference","href":"csharp/recipes/csharp/codequality/performance/donotpassnonreadonlystructbyreadonlyref"},{"name":"Replace Enum.ToString() with nameof","href":"csharp/recipes/csharp/codequality/performance/replaceenumtostringwithnameof"},{"name":"Optimize StringBuilder.Append usage","href":"csharp/recipes/csharp/codequality/performance/optimizestringbuilderappend"},{"name":"Find blocking calls in async methods","href":"csharp/recipes/csharp/codequality/performance/findblockingcallsinasync"},{"name":"Find methods not forwarding CancellationToken","href":"csharp/recipes/csharp/codequality/performance/findmissingcancellationtoken"},{"name":"Find implicit culture-sensitive string methods","href":"csharp/recipes/csharp/codequality/performance/findimplicitculturesensitivemethods"},{"name":"Find implicit culture-sensitive ToString calls","href":"csharp/recipes/csharp/codequality/performance/findimplicitculturesensitivetostring"},{"name":"Find LINQ methods replaceable with direct methods","href":"csharp/recipes/csharp/codequality/performance/findlinqondirectmethods"},{"name":"Find missing WithCancellation on async enumerables","href":"csharp/recipes/csharp/codequality/performance/findmissingwithcancellation"},{"name":"Do not use async void","href":"csharp/recipes/csharp/codequality/performance/findasyncvoid"},{"name":"Do not use NaN in comparisons","href":"csharp/recipes/csharp/codequality/performance/findnancomparison"},{"name":"Add timeout to Regex","href":"csharp/recipes/csharp/codequality/performance/findmissingtimeoutforregex"},{"name":"Do not use blocking calls on tasks","href":"csharp/recipes/csharp/codequality/performance/finddonotuseblockingcall"},{"name":"Use ContainsKey instead of TryGetValue with discard","href":"csharp/recipes/csharp/codequality/performance/findusecontainskeyinsteadoftrygetvalue"},{"name":"String.Format format string should be constant","href":"csharp/recipes/csharp/codequality/performance/findstringformatshouldbeconstant"},{"name":"Avoid closure when using ConcurrentDictionary","href":"csharp/recipes/csharp/codequality/performance/findavoidclosureinconcurrentdictionary"},{"name":"Use RegexOptions.ExplicitCapture","href":"csharp/recipes/csharp/codequality/performance/finduseexplicitcaptureregexoption"},{"name":"Do not use ToString on GetType result","href":"csharp/recipes/csharp/codequality/performance/finddonotusetostringifobject"},{"name":"Find EqualityComparer<string>.Default usage","href":"csharp/recipes/csharp/codequality/performance/findequalitycomparerdefaultofstring"},{"name":"Find string.GetHashCode() without StringComparer","href":"csharp/recipes/csharp/codequality/performance/findstringgethashcode"},{"name":"Use char overload for single-character string methods","href":"csharp/recipes/csharp/codequality/performance/findoptimizestartswith"},{"name":"Find Regex that could use source generator","href":"csharp/recipes/csharp/codequality/performance/finduseregexsourcegenerator"},{"name":"Find FormattableString that could use string.Create","href":"csharp/recipes/csharp/codequality/performance/findstringcreateinsteadofformattable"},{"name":"Find GetCustomAttributes that could use Attribute.IsDefined","href":"csharp/recipes/csharp/codequality/performance/finduseattributeisdefined"},{"name":"Find Span<char> equality that should use SequenceEqual","href":"csharp/recipes/csharp/codequality/performance/findsequenceequalforspan"},{"name":"Find structs without StructLayout attribute","href":"csharp/recipes/csharp/codequality/performance/findmissingstructlayout"},{"name":"Find methods that could be static","href":"csharp/recipes/csharp/codequality/performance/findmakemethodstatic"},{"name":"Find Guid.Parse with constant string","href":"csharp/recipes/csharp/codequality/performance/findoptimizeguidcreation"},{"name":"Find calls that could use TimeProvider","href":"csharp/recipes/csharp/codequality/performance/findusetimeprovideroverload"},{"name":"Find simplifiable string.Create calls","href":"csharp/recipes/csharp/codequality/performance/findsimplifystringcreate"},{"name":"Find closure in GetOrAdd that could use factory argument","href":"csharp/recipes/csharp/codequality/performance/findavoidclosurebyusingfactoryarg"},{"name":"Find GetType() called on System.Type","href":"csharp/recipes/csharp/codequality/performance/findgettypeonsystemtype"},{"name":"Find LINQ Count() on materialized collection","href":"csharp/recipes/csharp/codequality/performance/findoptimizeenumerablecountvsany"},{"name":"Find unused Stream.Read return value","href":"csharp/recipes/csharp/codequality/performance/findstreamreadresultnotused"},{"name":"Find Dictionary/HashSet with struct key type","href":"csharp/recipes/csharp/codequality/performance/findstructwithdefaultequalsaskey"},{"name":"Find LINQ methods replaceable with indexer","href":"csharp/recipes/csharp/codequality/performance/finduseindexerinsteadoflinq"},{"name":"Use ContainsKey instead of Keys.Contains","href":"csharp/recipes/csharp/codequality/performance/usecontainskey"},{"name":"Find Values.Contains() instead of ContainsValue()","href":"csharp/recipes/csharp/codequality/performance/findusevaluescontainsinsteadofvalues"},{"name":"Find closure in GetOrAdd/AddOrUpdate factory","href":"csharp/recipes/csharp/codequality/performance/findavoidclosureinmethod"}]}>
 
-### Tags
+## Definition
 
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [performance](/user-documentation/recipes/lists/recipes-by-tag#performance)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
+</RecipeList>
 
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/codequality-recipe)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.PerformanceCodeQuality","displayName":"Performance code quality","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Performance.PerformanceCodeQuality"
-  displayName="Performance code quality"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

@@ -1,37 +1,36 @@
 ---
 title: "Remove redundant pass statements"
 sidebar_label: "Remove redundant pass statements"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove redundant pass statements
+<RecipeMeta
+  displayName={"Remove redundant pass statements"}
+  description={"Remove redundant `pass` statements from Python code when there are other executable statements in the block."}
+  fqName={"org.openrewrite.python.RemovePass"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.RemovePass**
+<RecipeHeader
+  displayName={"Remove redundant pass statements"}
+  description={"Remove redundant `pass` statements from Python code when there are other executable statements in the block."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.RemovePass"}
+  artifact={"org.openrewrite:rewrite-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.RemovePass"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/removepass.md"}
+  moderneOnly
+/>
 
-_Remove redundant `pass` statements from Python code when there are other executable statements in the block._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.RemovePass","displayName":"Remove redundant pass statements","pipPackage":"openrewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.RemovePass"
-  displayName="Remove redundant pass statements"
-  pipPackage="openrewrite"
-/>
+</UsageList>
+

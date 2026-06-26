@@ -1,375 +1,54 @@
 ---
 title: "Migrate to JSF 2.3"
 sidebar_label: "Migrate to JSF 2.3"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate to JSF 2.3
+<RecipeMeta
+  displayName={"Migrate to JSF 2.3"}
+  description={"Complete migration to JSF 2.3, including associated technologies like RichFaces. Updates dependencies, transforms XHTML views, and migrates Java APIs."}
+  fqName={"io.moderne.java.jsf.MigrateToJsf_2_3"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**io.moderne.java.jsf.MigrateToJsf\_2\_3**
+<RecipeHeader
+  displayName={"Migrate to JSF 2.3"}
+  description={"Complete migration to JSF 2.3, including associated technologies like RichFaces. Updates dependencies, transforms XHTML views, and migrates Java APIs."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={["richfaces","jsf"]}
+  license={"Moderne Proprietary License"}
+  fqName={"io.moderne.java.jsf.MigrateToJsf_2_3"}
+  artifact={"io.moderne.recipe:rewrite-spring"}
+  appLink={"https://app.moderne.io/recipes/io.moderne.java.jsf.MigrateToJsf_2_3"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md"}
+  moderneOnly
+/>
 
-_Complete migration to JSF 2.3, including associated technologies like RichFaces. Updates dependencies, transforms XHTML views, and migrates Java APIs._
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Migrate JSF variable-resolver to el-resolver","href":"java/spring/framework/jsf23/migratefacesconfig"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Migrate RichFaces 3.x to 4.5","href":"java/jsf/richfaces/migraterichfaces_4_5"},{"name":"Find and replace","href":"text/findandreplace"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
-### Tags
+## Definition
 
-* [richfaces](/user-documentation/recipes/lists/recipes-by-tag#richfaces)
-* [jsf](/user-documentation/recipes/lists/recipes-by-tag#jsf)
+</RecipeList>
 
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Spring Framework 5.3 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-moderne-edition)
+<ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<faces-config xmlns=\"http://java.sun.com/xml/ns/javaee\"\n              xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n              xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd\"\n              version=\"1.2\">\n    <application>\n        <locale-config>\n            <default-locale>en</default-locale>\n        </locale-config>\n    </application>\n</faces-config>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<faces-config xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n              xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n              xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd\"\n              version=\"2.3\">\n    <application>\n        <locale-config>\n            <default-locale>en</default-locale>\n        </locale-config>\n    </application>\n</faces-config>\n","diff":"--- faces-config.xml\n+++ faces-config.xml\n@@ -2,1 +2,1 @@\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n-<faces-config xmlns=\"http://java.sun.com/xml/ns/javaee\"\n+<faces-config xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n              xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n@@ -4,2 +4,2 @@\n<faces-config xmlns=\"http://java.sun.com/xml/ns/javaee\"\n              xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n-             xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd\"\n-             version=\"1.2\">\n+             xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd\"\n+             version=\"2.3\">\n    <application>\n","newFile":false}]},{"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>com.sun.faces</groupId>\n            <artifactId>jsf-api</artifactId>\n            <version>1.2_04</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>com.sun.faces</groupId>\n            <artifactId>jsf-api</artifactId>\n            <version>2.3.18</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -10,1 +10,1 @@\n            <groupId>com.sun.faces</groupId>\n            <artifactId>jsf-api</artifactId>\n-           <version>1.2_04</version>\n+           <version>2.3.18</version>\n        </dependency>\n","newFile":false}]},{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<faces-config xmlns=\"http://java.sun.com/xml/ns/javaee\"\n              xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n              xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd\"\n              version=\"1.2\">\n    <application>\n        <locale-config>\n            <default-locale>en</default-locale>\n        </locale-config>\n    </application>\n</faces-config>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<faces-config xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n              xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n              xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd\"\n              version=\"2.3\">\n    <application>\n        <locale-config>\n            <default-locale>en</default-locale>\n        </locale-config>\n    </application>\n</faces-config>\n","diff":"--- faces-config.xml\n+++ faces-config.xml\n@@ -2,1 +2,1 @@\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n-<faces-config xmlns=\"http://java.sun.com/xml/ns/javaee\"\n+<faces-config xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n              xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n@@ -4,2 +4,2 @@\n<faces-config xmlns=\"http://java.sun.com/xml/ns/javaee\"\n              xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n-             xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd\"\n-             version=\"1.2\">\n+             xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd\"\n+             version=\"2.3\">\n    <application>\n","newFile":false}]},{"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>com.sun.faces</groupId>\n            <artifactId>jsf-api</artifactId>\n            <version>1.2_04</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>com.sun.faces</groupId>\n            <artifactId>jsf-api</artifactId>\n            <version>2.3.18</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -10,1 +10,1 @@\n            <groupId>com.sun.faces</groupId>\n            <artifactId>jsf-api</artifactId>\n-           <version>1.2_04</version>\n+           <version>2.3.18</version>\n        </dependency>\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`Faces#migrateFacesConfigXml`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="faces-config.xml" label="faces-config.xml">
-
-
-###### Before
-```xml title="faces-config.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
-              version="1.2">
-    <application>
-        <locale-config>
-            <default-locale>en</default-locale>
-        </locale-config>
-    </application>
-</faces-config>
-```
-
-###### After
-```xml title="faces-config.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
-              version="2.3">
-    <application>
-        <locale-config>
-            <default-locale>en</default-locale>
-        </locale-config>
-    </application>
-</faces-config>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- faces-config.xml
-+++ faces-config.xml
-@@ -2,1 +2,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
--<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-@@ -4,2 +4,2 @@
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
--             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
--             version="1.2">
-+             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
-+             version="2.3">
-    <application>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`JsfDependencies#upgradeJsfApiDependency`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.sun.faces</groupId>
-            <artifactId>jsf-api</artifactId>
-            <version>1.2_04</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.sun.faces</groupId>
-            <artifactId>jsf-api</artifactId>
-            <version>2.3.18</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -10,1 +10,1 @@
-            <groupId>com.sun.faces</groupId>
-            <artifactId>jsf-api</artifactId>
--           <version>1.2_04</version>
-+           <version>2.3.18</version>
-        </dependency>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 3
-`Faces#migrateFacesConfigXml`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="faces-config.xml" label="faces-config.xml">
-
-
-###### Before
-```xml title="faces-config.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
-              version="1.2">
-    <application>
-        <locale-config>
-            <default-locale>en</default-locale>
-        </locale-config>
-    </application>
-</faces-config>
-```
-
-###### After
-```xml title="faces-config.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
-              version="2.3">
-    <application>
-        <locale-config>
-            <default-locale>en</default-locale>
-        </locale-config>
-    </application>
-</faces-config>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- faces-config.xml
-+++ faces-config.xml
-@@ -2,1 +2,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
--<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-@@ -4,2 +4,2 @@
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
--             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
--             version="1.2">
-+             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
-+             version="2.3">
-    <application>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 4
-`JsfDependencies#upgradeJsfApiDependency`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.sun.faces</groupId>
-            <artifactId>jsf-api</artifactId>
-            <version>1.2_04</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.sun.faces</groupId>
-            <artifactId>jsf-api</artifactId>
-            <version>2.3.18</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -10,1 +10,1 @@
-            <groupId>com.sun.faces</groupId>
-            <artifactId>jsf-api</artifactId>
--           <version>1.2_04</version>
-+           <version>2.3.18</version>
-        </dependency>
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"io.moderne.java.jsf.MigrateToJsf_2_3","displayName":"Migrate to JSF 2.3","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="io.moderne.java.jsf.MigrateToJsf_2_3"
-  displayName="Migrate to JSF 2.3"
-  groupId="io.moderne.recipe"
-  artifactId="rewrite-spring"
-  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.java.jsf.MigrateToJsf_2_3" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

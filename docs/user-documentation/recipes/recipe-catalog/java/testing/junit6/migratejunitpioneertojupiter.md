@@ -1,6 +1,7 @@
 ---
 title: "Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents"
 sidebar_label: "Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents"
+hide_title: true
 ---
 
 
@@ -8,325 +9,51 @@ sidebar_label: "Migrate JUnit Pioneer extensions to native JUnit Jupiter equival
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit6/migratejunitpioneertojupiter" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents
+<RecipeMeta
+  displayName={"Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents"}
+  description={"Migrates `@DefaultLocale`, `@DefaultTimeZone`, `@SetSystemProperty`, `@ClearSystemProperty`, `@RestoreSystemProperties` (and their `@Reads.../@Writes...` companions) from JUnit Pioneer to the native equivalents added in JUnit Jupiter 6.1. The `junit-pioneer` dependency is not removed since other Pioneer features (e.g. `@RetryingTest`, `@CartesianTest`) have no Jupiter equivalent."}
+  fqName={"org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/junit-pioneer.yml"}
+/>
 
-**org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter**
+<RecipeHeader
+  displayName={"Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents"}
+  description={"Migrates `@DefaultLocale`, `@DefaultTimeZone`, `@SetSystemProperty`, `@ClearSystemProperty`, `@RestoreSystemProperties` (and their `@Reads.../@Writes...` companions) from JUnit Pioneer to the native equivalents added in JUnit Jupiter 6.1. The `junit-pioneer` dependency is not removed since other Pioneer features (e.g. `@RetryingTest`, `@CartesianTest`) have no Jupiter equivalent."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["junit","testing","junit-pioneer","jupiter"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter"}
+  artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit6/migratejunitpioneertojupiter.md"}
+/>
 
-_Migrates `@DefaultLocale`, `@DefaultTimeZone`, `@SetSystemProperty`, `@ClearSystemProperty`, `@RestoreSystemProperties` (and their `@Reads.../@Writes...` companions) from JUnit Pioneer to the native equivalents added in JUnit Jupiter 6.1. The `junit-pioneer` dependency is not removed since other Pioneer features (e.g. `@RetryingTest`, `@CartesianTest`) have no Jupiter equivalent._
-
-### Tags
-
-* [junit](/user-documentation/recipes/lists/recipes-by-tag#junit)
-* [testing](/user-documentation/recipes/lists/recipes-by-tag#testing)
-* [junit-pioneer](/user-documentation/recipes/lists/recipes-by-tag#junit)
-* [jupiter](/user-documentation/recipes/lists/recipes-by-tag#jupiter)
-
-## Recipe source
-
-[GitHub: junit-pioneer.yml](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/junit-pioneer.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-testing-frameworks/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-testing-frameworks/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.junitpioneer.jupiter.DefaultLocale`
-  * newFullyQualifiedTypeName: `org.junit.jupiter.api.util.DefaultLocale`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.junitpioneer.jupiter.DefaultTimeZone`
-  * newFullyQualifiedTypeName: `org.junit.jupiter.api.util.DefaultTimeZone`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.junitpioneer.jupiter.SetSystemProperty`
-  * newFullyQualifiedTypeName: `org.junit.jupiter.api.util.SetSystemProperty`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.junitpioneer.jupiter.ClearSystemProperty`
-  * newFullyQualifiedTypeName: `org.junit.jupiter.api.util.ClearSystemProperty`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.junitpioneer.jupiter.RestoreSystemProperties`
-  * newFullyQualifiedTypeName: `org.junit.jupiter.api.util.RestoreSystemProperties`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.junitpioneer.jupiter.ReadsDefaultLocale`
-  * newFullyQualifiedTypeName: `org.junit.jupiter.api.util.ReadsDefaultLocale`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.junitpioneer.jupiter.WritesDefaultLocale`
-  * newFullyQualifiedTypeName: `org.junit.jupiter.api.util.WritesDefaultLocale`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.junitpioneer.jupiter.ReadsDefaultTimeZone`
-  * newFullyQualifiedTypeName: `org.junit.jupiter.api.util.ReadsDefaultTimeZone`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.junitpioneer.jupiter.WritesDefaultTimeZone`
-  * newFullyQualifiedTypeName: `org.junit.jupiter.api.util.WritesDefaultTimeZone`
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter
-displayName: Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents
-description: |
-  Migrates `@DefaultLocale`, `@DefaultTimeZone`, `@SetSystemProperty`, `@ClearSystemProperty`, `@RestoreSystemProperties` (and their `@Reads.../@Writes...` companions) from JUnit Pioneer to the native equivalents added in JUnit Jupiter 6.1. The `junit-pioneer` dependency is not removed since other Pioneer features (e.g. `@RetryingTest`, `@CartesianTest`) have no Jupiter equivalent.
-tags:
-  - junit
-  - testing
-  - junit-pioneer
-  - jupiter
-recipeList:
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.junitpioneer.jupiter.DefaultLocale
-      newFullyQualifiedTypeName: org.junit.jupiter.api.util.DefaultLocale
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.junitpioneer.jupiter.DefaultTimeZone
-      newFullyQualifiedTypeName: org.junit.jupiter.api.util.DefaultTimeZone
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.junitpioneer.jupiter.SetSystemProperty
-      newFullyQualifiedTypeName: org.junit.jupiter.api.util.SetSystemProperty
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.junitpioneer.jupiter.ClearSystemProperty
-      newFullyQualifiedTypeName: org.junit.jupiter.api.util.ClearSystemProperty
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.junitpioneer.jupiter.RestoreSystemProperties
-      newFullyQualifiedTypeName: org.junit.jupiter.api.util.RestoreSystemProperties
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.junitpioneer.jupiter.ReadsDefaultLocale
-      newFullyQualifiedTypeName: org.junit.jupiter.api.util.ReadsDefaultLocale
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.junitpioneer.jupiter.WritesDefaultLocale
-      newFullyQualifiedTypeName: org.junit.jupiter.api.util.WritesDefaultLocale
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.junitpioneer.jupiter.ReadsDefaultTimeZone
-      newFullyQualifiedTypeName: org.junit.jupiter.api.util.ReadsDefaultTimeZone
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.junitpioneer.jupiter.WritesDefaultTimeZone
-      newFullyQualifiedTypeName: org.junit.jupiter.api.util.WritesDefaultTimeZone
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [JUnit 6 migration from JUnit 5.x](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.junitpioneer.jupiter.DefaultLocale;\nimport org.junitpioneer.jupiter.DefaultTimeZone;\n\nclass MyTest {\n    @Test\n    @DefaultLocale(\"en-US\")\n    @DefaultTimeZone(\"UTC\")\n    void test() {\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.util.DefaultLocale;\nimport org.junit.jupiter.api.util.DefaultTimeZone;\n\nclass MyTest {\n    @Test\n    @DefaultLocale(\"en-US\")\n    @DefaultTimeZone(\"UTC\")\n    void test() {\n    }\n}\n","diff":"@@ -2,2 +2,2 @@\nimport org.junit.jupiter.api.Test;\n-import org.junitpioneer.jupiter.DefaultLocale;\n-import org.junitpioneer.jupiter.DefaultTimeZone;\n+import org.junit.jupiter.api.util.DefaultLocale;\n+import org.junit.jupiter.api.util.DefaultTimeZone;\n\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.junitpioneer.jupiter.DefaultLocale;\nimport org.junitpioneer.jupiter.DefaultTimeZone;\n\nclass MyTest {\n    @Test\n    @DefaultLocale(\"en-US\")\n    @DefaultTimeZone(\"UTC\")\n    void test() {\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.util.DefaultLocale;\nimport org.junit.jupiter.api.util.DefaultTimeZone;\n\nclass MyTest {\n    @Test\n    @DefaultLocale(\"en-US\")\n    @DefaultTimeZone(\"UTC\")\n    void test() {\n    }\n}\n","diff":"@@ -2,2 +2,2 @@\nimport org.junit.jupiter.api.Test;\n-import org.junitpioneer.jupiter.DefaultLocale;\n-import org.junitpioneer.jupiter.DefaultTimeZone;\n+import org.junit.jupiter.api.util.DefaultLocale;\n+import org.junit.jupiter.api.util.DefaultTimeZone;\n\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`MigrateJUnitPioneerToJupiterTest#migrateDefaultLocaleAndDefaultTimeZone`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.junit.jupiter.api.Test;
-import org.junitpioneer.jupiter.DefaultLocale;
-import org.junitpioneer.jupiter.DefaultTimeZone;
-
-class MyTest {
-    @Test
-    @DefaultLocale("en-US")
-    @DefaultTimeZone("UTC")
-    void test() {
-    }
-}
-```
-
-###### After
-```java
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.util.DefaultLocale;
-import org.junit.jupiter.api.util.DefaultTimeZone;
-
-class MyTest {
-    @Test
-    @DefaultLocale("en-US")
-    @DefaultTimeZone("UTC")
-    void test() {
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,2 +2,2 @@
-import org.junit.jupiter.api.Test;
--import org.junitpioneer.jupiter.DefaultLocale;
--import org.junitpioneer.jupiter.DefaultTimeZone;
-+import org.junit.jupiter.api.util.DefaultLocale;
-+import org.junit.jupiter.api.util.DefaultTimeZone;
-
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`MigrateJUnitPioneerToJupiterTest#migrateDefaultLocaleAndDefaultTimeZone`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.junit.jupiter.api.Test;
-import org.junitpioneer.jupiter.DefaultLocale;
-import org.junitpioneer.jupiter.DefaultTimeZone;
-
-class MyTest {
-    @Test
-    @DefaultLocale("en-US")
-    @DefaultTimeZone("UTC")
-    void test() {
-    }
-}
-```
-
-###### After
-```java
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.util.DefaultLocale;
-import org.junit.jupiter.api.util.DefaultTimeZone;
-
-class MyTest {
-    @Test
-    @DefaultLocale("en-US")
-    @DefaultTimeZone("UTC")
-    void test() {
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,2 +2,2 @@
-import org.junit.jupiter.api.Test;
--import org.junitpioneer.jupiter.DefaultLocale;
--import org.junitpioneer.jupiter.DefaultTimeZone;
-+import org.junit.jupiter.api.util.DefaultLocale;
-+import org.junit.jupiter.api.util.DefaultTimeZone;
-
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter","displayName":"Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter"
-  displayName="Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-testing-frameworks"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

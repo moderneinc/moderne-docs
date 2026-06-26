@@ -1,37 +1,36 @@
 ---
 title: "Use `[]` literal instead of `list()` constructor"
 sidebar_label: "Use `[]` literal instead of `list()` constructor"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use `[]` literal instead of `list()` constructor
+<RecipeMeta
+  displayName={"Use `[]` literal instead of `list()` constructor"}
+  description={"Convert no-argument `list()` calls to the `[]` literal, which is more concise and avoids a function call."}
+  fqName={"org.openrewrite.python.cleanup.ListLiteral"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.ListLiteral**
+<RecipeHeader
+  displayName={"Use `[]` literal instead of `list()` constructor"}
+  description={"Convert no-argument `list()` calls to the `[]` literal, which is more concise and avoids a function call."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.ListLiteral"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.ListLiteral"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/listliteral.md"}
+  moderneOnly
+/>
 
-_Convert no-argument `list()` calls to the `[]` literal, which is more concise and avoids a function call._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.ListLiteral","displayName":"Use `[]` literal instead of `list()` constructor","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.ListLiteral"
-  displayName="Use `[]` literal instead of `list()` constructor"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

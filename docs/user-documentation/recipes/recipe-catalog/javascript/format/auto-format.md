@@ -1,31 +1,36 @@
 ---
 title: "Auto-format JavaScript/TypeScript code"
 sidebar_label: "Auto-format JavaScript/TypeScript code"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Auto-format JavaScript/TypeScript code
+<RecipeMeta
+  displayName={"Auto-format JavaScript/TypeScript code"}
+  description={"Format JavaScript and TypeScript code using formatting rules auto-detected from the project's existing code style."}
+  fqName={"org.openrewrite.javascript.format.auto-format"}
+  languages={["JavaScript"]}
+  license={"Moderne Source Available License"}
+/>
 
-**org.openrewrite.javascript.format.auto-format**
+<RecipeHeader
+  displayName={"Auto-format JavaScript/TypeScript code"}
+  description={"Format JavaScript and TypeScript code using formatting rules auto-detected from the project's existing code style."}
+  type={"Single recipe"}
+  languages={["JavaScript"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.javascript.format.auto-format"}
+  artifact={"org.openrewrite:rewrite-javascript"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.format.auto-format"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/format/auto-format.md"}
+  moderneOnly
+/>
 
-_Format JavaScript and TypeScript code using formatting rules auto-detected from the project's existing code style._
-
-## Recipe source
-
-[GitHub: rewrite+org.openrewrite.javascript.format.auto-format](https://github.com/search?type=code&q=repo:openrewrite/rewrite+org.openrewrite.javascript.format.auto-format),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-javascript/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.format.auto-format","displayName":"Auto-format JavaScript/TypeScript code","npmPackage":"@openrewrite/rewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.javascript.format.auto-format"
-  displayName="Auto-format JavaScript/TypeScript code"
-  npmPackage="@openrewrite/rewrite"
-/>
+</UsageList>
+

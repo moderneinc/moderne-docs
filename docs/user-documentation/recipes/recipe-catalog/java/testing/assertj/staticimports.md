@@ -1,6 +1,7 @@
 ---
 title: "Statically import AssertJ's `assertThat`"
 sidebar_label: "Statically import AssertJ's `assertThat`"
+hide_title: true
 ---
 
 
@@ -8,317 +9,51 @@ sidebar_label: "Statically import AssertJ's `assertThat`"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/assertj/staticimports" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Statically import AssertJ's `assertThat`
+<RecipeMeta
+  displayName={"Statically import AssertJ's `assertThat`"}
+  description={"Consistently use a static import rather than inlining the `Assertions` class name in tests."}
+  fqName={"org.openrewrite.java.testing.assertj.StaticImports"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/assertj.yml"}
+/>
 
-**org.openrewrite.java.testing.assertj.StaticImports**
+<RecipeHeader
+  displayName={"Statically import AssertJ's `assertThat`"}
+  description={"Consistently use a static import rather than inlining the `Assertions` class name in tests."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["testing","assertj"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.testing.assertj.StaticImports"}
+  artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.StaticImports"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/staticimports.md"}
+/>
 
-_Consistently use a static import rather than inlining the `Assertions` class name in tests._
-
-### Tags
-
-* [testing](/user-documentation/recipes/lists/recipes-by-tag#testing)
-* [assertj](/user-documentation/recipes/lists/recipes-by-tag#assertj)
-
-## Recipe source
-
-[GitHub: assertj.yml](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/assertj.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-testing-frameworks/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-testing-frameworks/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Use static import","href":"java/usestaticimport"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../../core/singleton)
-
-**Recipes**
-
-* [Change method target to static](../../../java/changemethodtargettostatic)
-  * methodPattern: `org.assertj.core.api.Fail fail(..)`
-  * fullyQualifiedTargetTypeName: `org.assertj.core.api.Assertions`
-* [Use static import](../../../java/usestaticimport)
-  * methodPattern: `org.assertj.core.api.Assertions *(..)`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.testing.assertj.StaticImports
-displayName: Statically import AssertJ's `assertThat`
-description: |
-  Consistently use a static import rather than inlining the `Assertions` class name in tests.
-tags:
-  - testing
-  - assertj
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.java.ChangeMethodTargetToStatic:
-      methodPattern: org.assertj.core.api.Fail fail(..)
-      fullyQualifiedTargetTypeName: org.assertj.core.api.Assertions
-  - org.openrewrite.java.UseStaticImport:
-      methodPattern: org.assertj.core.api.Assertions *(..)
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [AssertJ best practices](/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertj-best-practices.md)
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\nimport org.assertj.core.api.Assertions;\nimport static org.assertj.core.api.Fail.fail;\n\npublic class Test {\n    List<String> exampleList;\n    void method() {\n        Assertions.assertThat(true).isTrue();\n        Assertions.assertThat(exampleList).hasSize(0);\n        fail(\"This is a failure\");\n    }\n}\n","after":"import java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\nimport static org.assertj.core.api.Assertions.fail;\n\npublic class Test {\n    List<String> exampleList;\n    void method() {\n        assertThat(true).isTrue();\n        assertThat(exampleList).hasSize(0);\n        fail(\"This is a failure\");\n    }\n}\n","diff":"@@ -2,2 +2,0 @@\nimport java.util.List;\n-import org.assertj.core.api.Assertions;\n-import static org.assertj.core.api.Fail.fail;\n\n@@ -5,0 +3,3 @@\nimport static org.assertj.core.api.Fail.fail;\n\n+import static org.assertj.core.api.Assertions.assertThat;\n+import static org.assertj.core.api.Assertions.fail;\n+\npublic class Test {\n@@ -8,2 +9,2 @@\n    List<String> exampleList;\n    void method() {\n-       Assertions.assertThat(true).isTrue();\n-       Assertions.assertThat(exampleList).hasSize(0);\n+       assertThat(true).isTrue();\n+       assertThat(exampleList).hasSize(0);\n        fail(\"This is a failure\");\n","newFile":false}]},{"variants":[{"language":"java","before":"import java.util.List;\nimport org.assertj.core.api.Assertions;\nimport static org.assertj.core.api.Fail.fail;\n\npublic class Test {\n    List<String> exampleList;\n    void method() {\n        Assertions.assertThat(true).isTrue();\n        Assertions.assertThat(exampleList).hasSize(0);\n        fail(\"This is a failure\");\n    }\n}\n","after":"import java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\nimport static org.assertj.core.api.Assertions.fail;\n\npublic class Test {\n    List<String> exampleList;\n    void method() {\n        assertThat(true).isTrue();\n        assertThat(exampleList).hasSize(0);\n        fail(\"This is a failure\");\n    }\n}\n","diff":"@@ -2,2 +2,0 @@\nimport java.util.List;\n-import org.assertj.core.api.Assertions;\n-import static org.assertj.core.api.Fail.fail;\n\n@@ -5,0 +3,3 @@\nimport static org.assertj.core.api.Fail.fail;\n\n+import static org.assertj.core.api.Assertions.assertThat;\n+import static org.assertj.core.api.Assertions.fail;\n+\npublic class Test {\n@@ -8,2 +9,2 @@\n    List<String> exampleList;\n    void method() {\n-       Assertions.assertThat(true).isTrue();\n-       Assertions.assertThat(exampleList).hasSize(0);\n+       assertThat(true).isTrue();\n+       assertThat(exampleList).hasSize(0);\n        fail(\"This is a failure\");\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`StaticImportsTest#useStaticImports`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.util.List;
-import org.assertj.core.api.Assertions;
-import static org.assertj.core.api.Fail.fail;
-
-public class Test {
-    List<String> exampleList;
-    void method() {
-        Assertions.assertThat(true).isTrue();
-        Assertions.assertThat(exampleList).hasSize(0);
-        fail("This is a failure");
-    }
-}
-```
-
-###### After
-```java
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
-
-public class Test {
-    List<String> exampleList;
-    void method() {
-        assertThat(true).isTrue();
-        assertThat(exampleList).hasSize(0);
-        fail("This is a failure");
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,2 +2,0 @@
-import java.util.List;
--import org.assertj.core.api.Assertions;
--import static org.assertj.core.api.Fail.fail;
-
-@@ -5,0 +3,3 @@
-import static org.assertj.core.api.Fail.fail;
-
-+import static org.assertj.core.api.Assertions.assertThat;
-+import static org.assertj.core.api.Assertions.fail;
-+
-public class Test {
-@@ -8,2 +9,2 @@
-    List<String> exampleList;
-    void method() {
--       Assertions.assertThat(true).isTrue();
--       Assertions.assertThat(exampleList).hasSize(0);
-+       assertThat(true).isTrue();
-+       assertThat(exampleList).hasSize(0);
-        fail("This is a failure");
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`StaticImportsTest#useStaticImports`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.util.List;
-import org.assertj.core.api.Assertions;
-import static org.assertj.core.api.Fail.fail;
-
-public class Test {
-    List<String> exampleList;
-    void method() {
-        Assertions.assertThat(true).isTrue();
-        Assertions.assertThat(exampleList).hasSize(0);
-        fail("This is a failure");
-    }
-}
-```
-
-###### After
-```java
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
-
-public class Test {
-    List<String> exampleList;
-    void method() {
-        assertThat(true).isTrue();
-        assertThat(exampleList).hasSize(0);
-        fail("This is a failure");
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,2 +2,0 @@
-import java.util.List;
--import org.assertj.core.api.Assertions;
--import static org.assertj.core.api.Fail.fail;
-
-@@ -5,0 +3,3 @@
-import static org.assertj.core.api.Fail.fail;
-
-+import static org.assertj.core.api.Assertions.assertThat;
-+import static org.assertj.core.api.Assertions.fail;
-+
-public class Test {
-@@ -8,2 +9,2 @@
-    List<String> exampleList;
-    void method() {
--       Assertions.assertThat(true).isTrue();
--       Assertions.assertThat(exampleList).hasSize(0);
-+       assertThat(true).isTrue();
-+       assertThat(exampleList).hasSize(0);
-        fail("This is a failure");
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.StaticImports","displayName":"Statically import AssertJ's `assertThat`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.testing.assertj.StaticImports"
-  displayName="Statically import AssertJ's `assertThat`"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-testing-frameworks"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.StaticImports" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

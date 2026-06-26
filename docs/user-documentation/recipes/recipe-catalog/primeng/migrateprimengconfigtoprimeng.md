@@ -1,37 +1,42 @@
 ---
 title: "Migrate `PrimeNGConfig` to `PrimeNG`"
 sidebar_label: "Migrate `PrimeNGConfig` to `PrimeNG`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate `PrimeNGConfig` to `PrimeNG`
+<RecipeMeta
+  displayName={"Migrate `PrimeNGConfig` to `PrimeNG`"}
+  description={"Renames the `PrimeNGConfig` import from `primeng/api` to `PrimeNG` from `primeng/config`, renames all identifier usages, and flags injection sites that should be migrated to `providePrimeNG()` in application providers."}
+  fqName={"org.openrewrite.primeng.MigratePrimeNgConfigToPrimeNG"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.primeng.MigratePrimeNgConfigToPrimeNG**
+<RecipeHeader
+  displayName={"Migrate `PrimeNGConfig` to `PrimeNG`"}
+  description={"Renames the `PrimeNGConfig` import from `primeng/api` to `PrimeNG` from `primeng/config`, renames all identifier usages, and flags injection sites that should be migrated to `providePrimeNG()` in application providers."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.primeng.MigratePrimeNgConfigToPrimeNG"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.MigratePrimeNgConfigToPrimeNG"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/migrateprimengconfigtoprimeng.md"}
+  moderneOnly
+/>
 
-_Renames the `PrimeNGConfig` import from `primeng/api` to `PrimeNG` from `primeng/config`, renames all identifier usages, and flags injection sites that should be migrated to `providePrimeNG()` in application providers._
+<RecipeList recipes={[{"name":"Rename `PrimeNGConfig` identifiers to `PrimeNG`","href":""},{"name":"Change import","href":"javascript/change-import"},{"name":"Find `PrimeNGConfig` / `PrimeNG` service injection","href":""}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to PrimeNG 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/primeng/upgradeto18)
-
+<UsageList usage={{"recipeName":"org.openrewrite.primeng.MigratePrimeNgConfigToPrimeNG","displayName":"Migrate `PrimeNGConfig` to `PrimeNG`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.primeng.MigratePrimeNgConfigToPrimeNG"
-  displayName="Migrate `PrimeNGConfig` to `PrimeNG`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

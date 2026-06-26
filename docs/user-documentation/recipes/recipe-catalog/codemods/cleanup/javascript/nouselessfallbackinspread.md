@@ -1,6 +1,7 @@
 ---
 title: "Disallow useless fallback when spreading in object literals"
 sidebar_label: "Disallow useless fallback when spreading in object literals"
+hide_title: true
 ---
 
 
@@ -8,177 +9,45 @@ sidebar_label: "Disallow useless fallback when spreading in object literals"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselessfallbackinspread" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Disallow useless fallback when spreading in object literals
+<RecipeMeta
+  displayName={"Disallow useless fallback when spreading in object literals"}
+  description={"Disallow useless fallback when spreading in object literals.\nSee [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-fallback-in-spread.md)."}
+  fqName={"org.openrewrite.codemods.cleanup.javascript.NoUselessFallbackInSpread"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/moderneinc/rewrite-codemods/blob/main/src/main/resources/META-INF/rewrite/unicorn.yml"}
+/>
 
-**org.openrewrite.codemods.cleanup.javascript.NoUselessFallbackInSpread**
+<RecipeHeader
+  displayName={"Disallow useless fallback when spreading in object literals"}
+  description={"Disallow useless fallback when spreading in object literals.\nSee [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-fallback-in-spread.md)."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.codemods.cleanup.javascript.NoUselessFallbackInSpread"}
+  artifact={"org.openrewrite.recipe:rewrite-codemods"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.NoUselessFallbackInSpread"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/nouselessfallbackinspread.md"}
+/>
 
-_Disallow useless fallback when spreading in object literals. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-fallback-in-spread.md)._
-
-## Recipe source
-
-[GitHub: unicorn.yml](https://github.com/moderneinc/rewrite-codemods/blob/main/src/main/resources/META-INF/rewrite/unicorn.yml),
-[Issue Tracker](https://github.com/moderneinc/rewrite-codemods/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-codemods/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Lint source code with ESLint](../../../codemods/eslint)
-  * fix: `true`
-  * configFile: `{   "root": true,   "parser": "@typescript-eslint/parser",   "parserOptions": { "project": ["./tsconfig.json"] },   "plugins": ["unicorn"],   "rules": {     "unicorn/no-useless-fallback-in-spread": 2   },   "globals": {     "browser": true,     "node": true   } } `
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUselessFallbackInSpread
-displayName: Disallow useless fallback when spreading in object literals
-description: |
-  Disallow useless fallback when spreading in object literals. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-fallback-in-spread.md).
-recipeList:
-  - org.openrewrite.codemods.ESLint:
-      fix: true
-      configFile: {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": { "project": ["./tsconfig.json"] },
-  "plugins": ["unicorn"],
-  "rules": {
-    "unicorn/no-useless-fallback-in-spread": 2
-  },
-  "globals": {
-    "browser": true,
-    "node": true
-  }
-}
-
-
-```
-</TabItem>
-</Tabs>
+<UsageList usage={{"recipeName":"org.openrewrite.codemods.cleanup.javascript.NoUselessFallbackInSpread","displayName":"Disallow useless fallback when spreading in object literals","groupId":"org.openrewrite.recipe","artifactId":"rewrite-codemods","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CODEMODS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.codemods.cleanup.javascript.NoUselessFallbackInSpread"
-  displayName="Disallow useless fallback when spreading in object literals"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-codemods"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CODEMODS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.codemods.ESLintMessages","displayName":"ESLint messages","description":"Errors and warnings as reported by ESLint.","columns":[{"name":"Source Path","description":"The source path of the file."},{"name":"Rule ID","description":"ESLint Rule ID."},{"name":"Severity","description":"Either `Warning` or `Error`."},{"name":"Fatal","description":"Is this a fatal error (like a parse error)."},{"name":"Message","description":"The message created by the rule."},{"name":"Line","description":"Line in source file this message pertains to."},{"name":"Column","description":"Column in source file this message pertains to."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.NoUselessFallbackInSpread" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.codemods.ESLintMessages" label="ESLintMessages">
-
-### ESLint messages
-**org.openrewrite.codemods.ESLintMessages**
-
-_Errors and warnings as reported by ESLint._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source Path | The source path of the file. |
-| Rule ID | ESLint Rule ID. |
-| Severity | Either `Warning` or `Error`. |
-| Fatal | Is this a fatal error (like a parse error). |
-| Message | The message created by the rule. |
-| Line | Line in source file this message pertains to. |
-| Column | Column in source file this message pertains to. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

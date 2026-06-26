@@ -1,6 +1,7 @@
 ---
 title: "Is the project a Jenkins plugin?"
 sidebar_label: "Is the project a Jenkins plugin?"
+hide_title: true
 ---
 
 
@@ -8,211 +9,51 @@ sidebar_label: "Is the project a Jenkins plugin?"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/isjenkinsplugin" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Is the project a Jenkins plugin?
+<RecipeMeta
+  displayName={"Is the project a Jenkins plugin?"}
+  description={"Checks if the project is a Jenkins plugin by the presence of a managed version of `jenkins-core`."}
+  fqName={"org.openrewrite.jenkins.IsJenkinsPlugin"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-jenkins/blob/main/src/main/java/org/openrewrite/jenkins/IsJenkinsPlugin.java"}
+/>
 
-**org.openrewrite.jenkins.IsJenkinsPlugin**
+<RecipeHeader
+  displayName={"Is the project a Jenkins plugin?"}
+  description={"Checks if the project is a Jenkins plugin by the presence of a managed version of `jenkins-core`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.jenkins.IsJenkinsPlugin"}
+  artifact={"org.openrewrite.recipe:rewrite-jenkins"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.IsJenkinsPlugin"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/isjenkinsplugin.md"}
+/>
 
-_Checks if the project is a Jenkins plugin by the presence of a managed version of `jenkins-core`._
-
-## Recipe source
-
-[GitHub: IsJenkinsPlugin.java](https://github.com/openrewrite/rewrite-jenkins/blob/main/src/main/java/org/openrewrite/jenkins/IsJenkinsPlugin.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-jenkins/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-jenkins/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+<OptionsTable options={[{"type":"String","name":"version","required":true,"description":"The value of the `<jenkins.version>` property.","example":"[1,)"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | version | The value of the `<jenkins.version>` property. | `[1,)` |
+</OptionsTable>
 
-## Example
+<ExampleList examples={[{"parameters":[{"parameter":"version","value":"*"}],"variants":[{"language":"xml","before":"<project>\n    <parent>\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n        <version>4.86</version>\n    </parent>\n    <artifactId>my-plugin</artifactId>\n    <version>0.1</version>\n    <repositories>\n          <repository>\n              <id>maven-central</id>\n              <url>https://repo1.maven.org/maven2/</url>\n          </repository>\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n            <url>https://repo.jenkins-ci.org/public/</url>\n        </repository>\n    </repositories>\n</project>\n","after":"<!--~~(2.249)~~>--><project>\n    <parent>\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n        <version>4.86</version>\n    </parent>\n    <artifactId>my-plugin</artifactId>\n    <version>0.1</version>\n    <repositories>\n          <repository>\n              <id>maven-central</id>\n              <url>https://repo1.maven.org/maven2/</url>\n          </repository>\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n            <url>https://repo.jenkins-ci.org/public/</url>\n        </repository>\n    </repositories>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -1,1 +1,1 @@\n-<project>\n+<!--~~(2.249)~~>--><project>\n    <parent>\n","newFile":false}]}]}>
 
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|version|`*`|
+## Examples
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <parent>
-        <groupId>org.jenkins-ci.plugins</groupId>
-        <artifactId>plugin</artifactId>
-        <version>4.86</version>
-    </parent>
-    <artifactId>my-plugin</artifactId>
-    <version>0.1</version>
-    <repositories>
-          <repository>
-              <id>maven-central</id>
-              <url>https://repo1.maven.org/maven2/</url>
-          </repository>
-        <repository>
-            <id>repo.jenkins-ci.org</id>
-            <url>https://repo.jenkins-ci.org/public/</url>
-        </repository>
-    </repositories>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<!--~~(2.249)~~>--><project>
-    <parent>
-        <groupId>org.jenkins-ci.plugins</groupId>
-        <artifactId>plugin</artifactId>
-        <version>4.86</version>
-    </parent>
-    <artifactId>my-plugin</artifactId>
-    <version>0.1</version>
-    <repositories>
-          <repository>
-              <id>maven-central</id>
-              <url>https://repo1.maven.org/maven2/</url>
-          </repository>
-        <repository>
-            <id>repo.jenkins-ci.org</id>
-            <url>https://repo.jenkins-ci.org/public/</url>
-        </repository>
-    </repositories>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -1,1 +1,1 @@
--<project>
-+<!--~~(2.249)~~>--><project>
-    <parent>
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.jenkins.IsJenkinsPlugin","displayName":"Is the project a Jenkins plugin?","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jenkins","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS","requiresConfiguration":true,"cliOptions":" --recipe-option \"version='[1,)'\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.IsJenkinsPluginExample
-displayName: Is the project a Jenkins plugin? example
-recipeList:
-  - org.openrewrite.jenkins.IsJenkinsPlugin:
-      version: '[1,)'
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.jenkins.IsJenkinsPlugin"
-  displayName="Is the project a Jenkins plugin?"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-jenkins"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS"
-  requiresConfiguration
-  cliOptions={' --recipe-option "version=\'[1,)\'"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.jenkins.IsJenkinsPlugin" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

@@ -1,42 +1,36 @@
 ---
 title: "Simplify boolean logic with constants"
 sidebar_label: "Simplify boolean logic with constants"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Simplify boolean logic with constants
+<RecipeMeta
+  displayName={"Simplify boolean logic with constants"}
+  description={"Simplify `x || true` to `true`, `x && false` to `false`, `x || false` to `x`, and `x && true` to `x`."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.SimplifyBooleanLogic"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.SimplifyBooleanLogic**
+<RecipeHeader
+  displayName={"Simplify boolean logic with constants"}
+  description={"Simplify `x || true` to `true`, `x && false` to `false`, `x || false` to `x`, and `x && true` to `x`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.SimplifyBooleanLogic"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.SimplifyBooleanLogic"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/simplifybooleanlogic.md"}
+  moderneOnly
+/>
 
-_Simplify `x || true` to `true`, `x && false` to `false`, `x || false` to `x`, and `x && true` to `x`._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.SimplifyBooleanLogic","displayName":"Simplify boolean logic with constants","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.SimplifyBooleanLogic"
-  displayName="Simplify boolean logic with constants"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

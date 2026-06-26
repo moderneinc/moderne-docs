@@ -1,266 +1,54 @@
 ---
 title: "Remove class variables matching package filter"
 sidebar_label: "Remove class variables matching package filter"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove class variables matching package filter
+<RecipeMeta
+  displayName={"Remove class variables matching package filter"}
+  description={"Removes variable declarations whose type belongs to the specified package."}
+  fqName={"io.moderne.java.dropwizard.boot.general.RemoveVariablesByPackage"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**io.moderne.java.dropwizard.boot.general.RemoveVariablesByPackage**
+<RecipeHeader
+  displayName={"Remove class variables matching package filter"}
+  description={"Removes variable declarations whose type belongs to the specified package."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"io.moderne.java.dropwizard.boot.general.RemoveVariablesByPackage"}
+  artifact={"io.moderne.recipe:rewrite-dropwizard"}
+  appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.general.RemoveVariablesByPackage"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/general/removevariablesbypackage.md"}
+  moderneOnly
+/>
 
-_Removes variable declarations whose type belongs to the specified package._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"String","name":"packageFilter","required":true,"description":"The package name to filter by. Variables with types in this package (or subpackages) will be removed.","example":"com.example.unwanted"},{"type":"Boolean","name":"removeOnlyClassScope","required":true,"description":"When true, only removes class-level field declarations; local variables within methods are left unchanged.","example":"true"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | packageFilter | The package name to filter by. Variables with types in this package (or subpackages) will be removed. | `com.example.unwanted` |
-| `Boolean` | removeOnlyClassScope | When true, only removes class-level field declarations; local variables within methods are left unchanged. | `true` |
+</OptionsTable>
 
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
+<ExampleList examples={[{"parameters":[{"parameter":"packageFilter","value":"com.codahale.metrics"},{"parameter":"removeOnlyClassScope","value":"false"}],"variants":[{"language":"java","before":"package com.example;\n\nimport com.codahale.metrics.MetricRegistry;\n\nclass MyService {\n    private MetricRegistry registry;\n}\n","after":"package com.example;\n\nimport io.micrometer.core.instrument.MeterRegistry;\n\nclass MyService {\n    private MeterRegistry registry;\n}\n","diff":"@@ -3,1 +3,1 @@\npackage com.example;\n\n-import com.codahale.metrics.MetricRegistry;\n+import io.micrometer.core.instrument.MeterRegistry;\n\n@@ -6,1 +6,1 @@\n\nclass MyService {\n-   private MetricRegistry registry;\n+   private MeterRegistry registry;\n}\n","newFile":false}]},{"parameters":[{"parameter":"packageFilter","value":"java.lang"},{"parameter":"removeOnlyClassScope","value":"false"}],"variants":[{"language":"java","before":"package com.example;\n\nclass TestClass {\n    private String shouldBeRemoved = \"test\";\n    private static final int STAYS = 42;\n\n    public void method() {\n        String localVar = \"REMOVED\";\n    }\n}\n","after":"package com.example;\n\nclass TestClass {\n    private static final int STAYS = 42;\n\n    public void method() {\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n\nclass TestClass {\n-   private String shouldBeRemoved = \"test\";\n    private static final int STAYS = 42;\n@@ -8,1 +7,0 @@\n\n    public void method() {\n-       String localVar = \"REMOVED\";\n    }\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`MetricRegistryToMeterRegistryTest#changeTypeForField`
 
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|packageFilter|`com.codahale.metrics`|
-|removeOnlyClassScope|`false`|
+</ExampleList>
 
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-package com.example;
-
-import com.codahale.metrics.MetricRegistry;
-
-class MyService {
-    private MetricRegistry registry;
-}
-```
-
-###### After
-```java
-package com.example;
-
-import io.micrometer.core.instrument.MeterRegistry;
-
-class MyService {
-    private MeterRegistry registry;
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -3,1 +3,1 @@
-package com.example;
-
--import com.codahale.metrics.MetricRegistry;
-+import io.micrometer.core.instrument.MeterRegistry;
-
-@@ -6,1 +6,1 @@
-
-class MyService {
--   private MetricRegistry registry;
-+   private MeterRegistry registry;
-}
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`RemoveVariablesByPackageTest#removesMatchingClassVariables`
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|packageFilter|`java.lang`|
-|removeOnlyClassScope|`false`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-package com.example;
-
-class TestClass {
-    private String shouldBeRemoved = "test";
-    private static final int STAYS = 42;
-
-    public void method() {
-        String localVar = "REMOVED";
-    }
-}
-```
-
-###### After
-```java
-package com.example;
-
-class TestClass {
-    private static final int STAYS = 42;
-
-    public void method() {
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -4,1 +4,0 @@
-
-class TestClass {
--   private String shouldBeRemoved = "test";
-    private static final int STAYS = 42;
-@@ -8,1 +7,0 @@
-
-    public void method() {
--       String localVar = "REMOVED";
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.general.RemoveVariablesByPackage","displayName":"Remove class variables matching package filter","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":true,"cliOptions":" --recipe-option \"packageFilter=com.example.unwanted\" --recipe-option \"removeOnlyClassScope=true\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.RemoveVariablesByPackageExample
-displayName: Remove class variables matching package filter example
-recipeList:
-  - io.moderne.java.dropwizard.boot.general.RemoveVariablesByPackage:
-      packageFilter: com.example.unwanted
-      removeOnlyClassScope: true
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="io.moderne.java.dropwizard.boot.general.RemoveVariablesByPackage"
-  displayName="Remove class variables matching package filter"
-  groupId="io.moderne.recipe"
-  artifactId="rewrite-dropwizard"
-  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD"
-  requiresConfiguration
-  cliOptions={' --recipe-option "packageFilter=com.example.unwanted" --recipe-option "removeOnlyClassScope=true"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.general.RemoveVariablesByPackage" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

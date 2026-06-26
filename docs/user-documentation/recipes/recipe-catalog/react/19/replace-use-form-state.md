@@ -1,37 +1,36 @@
 ---
 title: "Replace `useFormState` with `useActionState`"
 sidebar_label: "Replace `useFormState` with `useActionState`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `useFormState` with `useActionState`
+<RecipeMeta
+  displayName={"Replace `useFormState` with `useActionState`"}
+  description={"In React 19, `useFormState` from `react-dom` has been renamed to `useActionState` and moved to `react`."}
+  fqName={"org.openrewrite.react.19.replace-use-form-state"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.19.replace-use-form-state**
+<RecipeHeader
+  displayName={"Replace `useFormState` with `useActionState`"}
+  description={"In React 19, `useFormState` from `react-dom` has been renamed to `useActionState` and moved to `react`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.19.replace-use-form-state"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.replace-use-form-state"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/replace-use-form-state.md"}
+  moderneOnly
+/>
 
-_In React 19, `useFormState` from `react-dom` has been renamed to `useActionState` and moved to `react`._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to React 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-19)
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.19.replace-use-form-state","displayName":"Replace `useFormState` with `useActionState`","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.19.replace-use-form-state"
-  displayName="Replace `useFormState` with `useActionState`"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

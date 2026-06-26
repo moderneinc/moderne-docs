@@ -1,37 +1,36 @@
 ---
 title: "Swap ternary branches to drop negated condition"
 sidebar_label: "Swap ternary branches to drop negated condition"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Swap ternary branches to drop negated condition
+<RecipeMeta
+  displayName={"Swap ternary branches to drop negated condition"}
+  description={"Flip the branches of a conditional expression whose test uses ``not``, eliminating the negation for clearer intent."}
+  fqName={"org.openrewrite.python.cleanup.SwapIfExpression"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.SwapIfExpression**
+<RecipeHeader
+  displayName={"Swap ternary branches to drop negated condition"}
+  description={"Flip the branches of a conditional expression whose test uses ``not``, eliminating the negation for clearer intent."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.SwapIfExpression"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SwapIfExpression"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/swapifexpression.md"}
+  moderneOnly
+/>
 
-_Flip the branches of a conditional expression whose test uses ``not``, eliminating the negation for clearer intent._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SwapIfExpression","displayName":"Swap ternary branches to drop negated condition","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.SwapIfExpression"
-  displayName="Swap ternary branches to drop negated condition"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

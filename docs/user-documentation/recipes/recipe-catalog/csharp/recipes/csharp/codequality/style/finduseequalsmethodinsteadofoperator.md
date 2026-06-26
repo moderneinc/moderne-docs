@@ -1,43 +1,36 @@
 ---
 title: "Find == comparison that should use Equals()"
 sidebar_label: "Find == comparison that should use Equals()"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find == comparison that should use Equals()
+<RecipeMeta
+  displayName={"Find == comparison that should use Equals()"}
+  description={"Detect `==` comparisons on reference types that override `Equals`. Using `==` may compare references instead of values."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseEqualsMethodInsteadOfOperator"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseEqualsMethodInsteadOfOperator**
+<RecipeHeader
+  displayName={"Find == comparison that should use Equals()"}
+  description={"Detect `==` comparisons on reference types that override `Equals`. Using `==` may compare references instead of values."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","style","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseEqualsMethodInsteadOfOperator"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseEqualsMethodInsteadOfOperator"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduseequalsmethodinsteadofoperator.md"}
+  moderneOnly
+/>
 
-_Detect `==` comparisons on reference types that override `Equals`. Using `==` may compare references instead of values._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [style](/user-documentation/recipes/lists/recipes-by-tag#style)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseEqualsMethodInsteadOfOperator","displayName":"Find == comparison that should use Equals()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseEqualsMethodInsteadOfOperator"
-  displayName="Find == comparison that should use Equals()"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

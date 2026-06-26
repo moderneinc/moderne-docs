@@ -1,37 +1,36 @@
 ---
 title: "Convert `apply('name')` to a direct method invocation"
 sidebar_label: "Convert `apply('name')` to a direct method invocation"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Convert `apply('name')` to a direct method invocation
+<RecipeMeta
+  displayName={"Convert `apply('name')` to a direct method invocation"}
+  description={"When `apply()` receives a string literal like `'sum'` or `'mean'`, rewrite the call as a direct method invocation on the object."}
+  fqName={"org.openrewrite.python.cleanup.ReplaceApplyWithMethodCall"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.ReplaceApplyWithMethodCall**
+<RecipeHeader
+  displayName={"Convert `apply('name')` to a direct method invocation"}
+  description={"When `apply()` receives a string literal like `'sum'` or `'mean'`, rewrite the call as a direct method invocation on the object."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.ReplaceApplyWithMethodCall"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.ReplaceApplyWithMethodCall"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/replaceapplywithmethodcall.md"}
+  moderneOnly
+/>
 
-_When `apply()` receives a string literal like `'sum'` or `'mean'`, rewrite the call as a direct method invocation on the object._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.ReplaceApplyWithMethodCall","displayName":"Convert `apply('name')` to a direct method invocation","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.ReplaceApplyWithMethodCall"
-  displayName="Convert `apply('name')` to a direct method invocation"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

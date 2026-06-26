@@ -1,37 +1,36 @@
 ---
 title: "Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`"
 sidebar_label: "Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`
+<RecipeMeta
+  displayName={"Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`"}
+  description={"Renames `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug` in imports and usages. The experimental API was promoted to developer preview in Angular 20."}
+  fqName={"org.openrewrite.angular.migration.rename-check-no-changes"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.rename-check-no-changes**
+<RecipeHeader
+  displayName={"Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`"}
+  description={"Renames `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug` in imports and usages. The experimental API was promoted to developer preview in Angular 20."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.rename-check-no-changes"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.rename-check-no-changes"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/rename-check-no-changes.md"}
+  moderneOnly
+/>
 
-_Renames `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug` in imports and usages. The experimental API was promoted to developer preview in Angular 20._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 20](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular20)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.rename-check-no-changes","displayName":"Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.rename-check-no-changes"
-  displayName="Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

@@ -1,6 +1,7 @@
 ---
 title: "Migrate to Java 11"
 sidebar_label: "Migrate to Java 11"
+hide_title: true
 ---
 
 
@@ -8,415 +9,51 @@ sidebar_label: "Migrate to Java 11"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/java8tojava11" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate to Java 11
+<RecipeMeta
+  displayName={"Migrate to Java 11"}
+  description={"This recipe will apply changes commonly needed when upgrading to Java 11. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 11 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 11."}
+  fqName={"org.openrewrite.java.migrate.Java8toJava11"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/java-version-11.yml"}
+/>
 
-**org.openrewrite.java.migrate.Java8toJava11**
+<RecipeHeader
+  displayName={"Migrate to Java 11"}
+  description={"This recipe will apply changes commonly needed when upgrading to Java 11. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 11 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 11."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["jaxb","deprecated","java11","jaxws","jakarta"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.migrate.Java8toJava11"}
+  artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/java8tojava11.md"}
+/>
 
-_This recipe will apply changes commonly needed when upgrading to Java 11. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 11 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 11._
-
-### Tags
-
-* [jaxb](/user-documentation/recipes/lists/recipes-by-tag#jaxb)
-* [deprecated](/user-documentation/recipes/lists/recipes-by-tag#deprecated)
-* [java11](/user-documentation/recipes/lists/recipes-by-tag#java11)
-* [jaxws](/user-documentation/recipes/lists/recipes-by-tag#jaxws)
-* [jakarta](/user-documentation/recipes/lists/recipes-by-tag#jakarta)
-
-## Recipe source
-
-[GitHub: java-version-11.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/java-version-11.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Migrate to Java 8","href":"java/migrate/upgradetojava8"},{"name":"Rename `_` identifier to `__`","href":"java/migrate/lang/renameunderscoreidentifier"},{"name":"Prefer `java.util.Base64` instead of `sun.misc`","href":"java/migrate/usejavautilbase64"},{"name":"Remove explicit casts on `Arrays.asList(..).toArray()`","href":"java/migrate/castarraysaslisttolist"},{"name":"Add explicit JAXB API dependencies and runtime","href":"java/migrate/javax/addjaxbdependencieswithruntime"},{"name":"Add explicit JAX-WS dependencies","href":"java/migrate/javax/addjaxwsdependencies"},{"name":"Migrate JAXB-WS Plugin","href":"java/migrate/javax/migratejaxbwsplugin"},{"name":"Add explicit Inject dependencies","href":"java/migrate/javax/addinjectdependencies"},{"name":"Add explicit Common Annotations dependencies","href":"java/migrate/javax/addcommonannotationsdependencies"},{"name":"`BigDecimal` rounding constants to `RoundingMode` enums","href":"staticanalysis/bigdecimalroundingconstantstoenums"},{"name":"Use primitive wrapper `valueOf` method","href":"staticanalysis/primitivewrapperclassconstructortovalueof"},{"name":"Use try-with-resources","href":"staticanalysis/usetrywithresources"},{"name":"Use modernized `java.util.concurrent` APIs","href":"java/migrate/concurrent/javaconcurrentapis"},{"name":"Use modernized `java.lang` APIs","href":"java/migrate/lang/javalangapis"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Use modernized `java.util.logging` APIs","href":"java/migrate/logging/javaloggingapis"},{"name":"Migrate Lombok to a Java 11 compatible version","href":"java/migrate/lombok/updatelomboktojava11"},{"name":"Use modernized `java.net` APIs","href":"java/migrate/net/javanetapis"},{"name":"Replace `Paths.get` with `Path.of`","href":"java/migrate/nio/file/pathsgettopathof"},{"name":"Use modernized `java.sql` APIs","href":"java/migrate/sql/javasqlapis"},{"name":"Use modernized `javax.lang.model.util` APIs","href":"java/migrate/javax/javaxlangmodelutil"},{"name":"Use modernized `javax.management.monitor` APIs","href":"java/migrate/javax/javaxmanagementmonitorapis"},{"name":"Use modernized `javax.xml.stream` APIs","href":"java/migrate/javax/javaxxmlstreamapis"},{"name":"Remove Cobertura Maven plugin","href":"java/migrate/cobertura/removecoberturamavenplugin"},{"name":"Upgrade build to Java 11","href":"java/migrate/upgradebuildtojava11"},{"name":"Prefer `Optional.isEmpty()`","href":"java/migrate/util/optionalnotpresenttoisempty"},{"name":"Prefer `Optional.isPresent()`","href":"java/migrate/util/optionalnotemptytoispresent"},{"name":"`Stream<Optional>` idiom recipe","href":"java/migrate/util/optionalstreamrecipe"},{"name":"Prefer `Predicate.not(..)` over casting to `Predicate` and calling `negate()`","href":"java/migrate/util/usepredicatenot"},{"name":"Use `com.sun.xml.bind.*` instead of `com.sun.xml.internal.bind.*`","href":"java/migrate/internalbindpackages"},{"name":"Replace deprecated methods in`SecurityManager`","href":"java/migrate/removedsecuritymanagermethods"},{"name":"Upgrade plugins to Java 11 compatible versions","href":"java/migrate/upgradepluginsforjava11"},{"name":"Replace `javax.security.auth.Policy` with `java.security.Policy`","href":"java/migrate/removedpolicy"},{"name":"Replace `java.lang.ref.Reference.clone()` with constructor call","href":"java/migrate/referenceclonemethod"},{"name":"Remove `Thread.destroy()` and `Thread.stop(Throwable)`","href":"java/migrate/threadstopdestroy"},{"name":"Replace AWT `getPeer()` method","href":"java/migrate/replaceawtgetpeermethod"},{"name":"Migrate to Scala 2.12.+","href":"scala/migrate/upgradescala_2_12"},{"name":"Replace `com.sun.awt.AWTUtilities` static method invocations","href":"java/migrate/replacecomsunawtutilitiesmethods"},{"name":"Replace `getLocalizedInputStream` and `getLocalizedOutputStream` with direct assignment","href":"java/migrate/replacelocalizedstreammethods"},{"name":"Catch `TypeNotPresentException` thrown by `Class.getAnnotation()`","href":"java/migrate/arraystoreexceptiontotypenotpresentexception"},{"name":"Replace `IllegalArgumentException` with `AlreadyConnectedException` in `DatagramChannel.send()` method","href":"java/migrate/illegalargumentexceptiontoalreadyconnectedexception"},{"name":"Return String `jks` when  `KeyStore.getDefaultType()` is called","href":"java/migrate/changedefaultkeystore"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../core/singleton)
-
-**Recipes**
-
-* [Migrate to Java 8](../../java/migrate/upgradetojava8)
-* [Rename `_` identifier to `__`](../../java/migrate/lang/renameunderscoreidentifier)
-* [Prefer `java.util.Base64` instead of `sun.misc`](../../java/migrate/usejavautilbase64)
-  * useMimeCoder: `false`
-* [Remove explicit casts on `Arrays.asList(..).toArray()`](../../java/migrate/castarraysaslisttolist)
-* [Add explicit JAXB API dependencies and runtime](../../java/migrate/javax/addjaxbdependencieswithruntime)
-* [Add explicit JAX-WS dependencies](../../java/migrate/javax/addjaxwsdependencies)
-* [Migrate JAXB-WS Plugin](../../java/migrate/javax/migratejaxbwsplugin)
-* [Add explicit Inject dependencies](../../java/migrate/javax/addinjectdependencies)
-* [Add explicit Common Annotations dependencies](../../java/migrate/javax/addcommonannotationsdependencies)
-* [`BigDecimal` rounding constants to `RoundingMode` enums](../../staticanalysis/bigdecimalroundingconstantstoenums)
-* [Use primitive wrapper `valueOf` method](../../staticanalysis/primitivewrapperclassconstructortovalueof)
-* [Use try-with-resources](../../staticanalysis/usetrywithresources)
-* [Use modernized `java.util.concurrent` APIs](../../java/migrate/concurrent/javaconcurrentapis)
-* [Use modernized `java.lang` APIs](../../java/migrate/lang/javalangapis)
-* [Remove method invocations](../../java/removemethodinvocations)
-  * methodPattern: `java.lang.Runtime runFinalizersOnExit(boolean)`
-* [Remove method invocations](../../java/removemethodinvocations)
-  * methodPattern: `java.lang.System runFinalizersOnExit(boolean)`
-* [Use modernized `java.util.logging` APIs](../../java/migrate/logging/javaloggingapis)
-* [Migrate Lombok to a Java 11 compatible version](../../java/migrate/lombok/updatelomboktojava11)
-* [Use modernized `java.net` APIs](../../java/migrate/net/javanetapis)
-* [Replace `Paths.get` with `Path.of`](../../java/migrate/nio/file/pathsgettopathof)
-* [Use modernized `java.sql` APIs](../../java/migrate/sql/javasqlapis)
-* [Use modernized `javax.lang.model.util` APIs](../../java/migrate/javax/javaxlangmodelutil)
-* [Use modernized `javax.management.monitor` APIs](../../java/migrate/javax/javaxmanagementmonitorapis)
-* [Use modernized `javax.xml.stream` APIs](../../java/migrate/javax/javaxxmlstreamapis)
-* [Remove Cobertura Maven plugin](../../java/migrate/cobertura/removecoberturamavenplugin)
-* [Upgrade build to Java 11](../../java/migrate/upgradebuildtojava11)
-* [Prefer `Optional.isEmpty()`](../../java/migrate/util/optionalnotpresenttoisempty)
-* [Prefer `Optional.isPresent()`](../../java/migrate/util/optionalnotemptytoispresent)
-* [`Stream&lt;Optional&gt;` idiom recipe](../../java/migrate/util/optionalstreamrecipe)
-* [Prefer `Predicate.not(..)` over casting to `Predicate` and calling `negate()`](../../java/migrate/util/usepredicatenot)
-* [Use `com.sun.xml.bind.*` instead of `com.sun.xml.internal.bind.*`](../../java/migrate/internalbindpackages)
-* [Replace deprecated methods in`SecurityManager`](../../java/migrate/removedsecuritymanagermethods)
-* [Upgrade plugins to Java 11 compatible versions](../../java/migrate/upgradepluginsforjava11)
-* [Replace `javax.security.auth.Policy` with `java.security.Policy`](../../java/migrate/removedpolicy)
-* [Replace `java.lang.ref.Reference.clone()` with constructor call](../../java/migrate/referenceclonemethod)
-* [Remove `Thread.destroy()` and `Thread.stop(Throwable)`](../../java/migrate/threadstopdestroy)
-* [Replace AWT `getPeer()` method](../../java/migrate/replaceawtgetpeermethod)
-  * getPeerMethodPattern: `java.awt.* getPeer()`
-  * lightweightPeerFQCN: `java.awt.peer.LightweightPeer`
-* [Migrate to Scala 2.12.+](../../scala/migrate/upgradescala_2_12)
-* [Replace `com.sun.awt.AWTUtilities` static method invocations](../../java/migrate/replacecomsunawtutilitiesmethods)
-  * getAWTIsWindowsTranslucencyPattern: `com.sun.awt.AWTUtilities isTranslucencySupported(com.sun.awt.AWTUtilities.Translucency)`
-  * isWindowOpaquePattern: `com.sun.awt.AWTUtilities isWindowOpaque(java.awt.Window)`
-  * isTranslucencyCapablePattern: `com.sun.awt.AWTUtilities isTranslucencyCapable(java.awt.GraphicsConfiguration)`
-  * setWindowOpacityPattern: `com.sun.awt.AWTUtilities setWindowOpacity(java.awt.Window, float)`
-  * getWindowOpacityPattern: `com.sun.awt.AWTUtilities getWindowOpacity(java.awt.Window)`
-  * getWindowShapePattern: `com.sun.awt.AWTUtilities getWindowShape(java.awt.Window)`
-  * setComponentMixingCutoutShapePattern: `com.sun.awt.AWTUtilities setComponentMixingCutoutShape(java.awt.Component,java.awt.Shape)`
-* [Replace `getLocalizedInputStream` and `getLocalizedOutputStream` with direct assignment](../../java/migrate/replacelocalizedstreammethods)
-  * localizedInputStreamMethodMatcher: `java.lang.Runtime getLocalizedInputStream(java.io.InputStream)`
-  * localizedOutputStreamMethodMatcher: `java.lang.Runtime getLocalizedOutputStream(java.io.OutputStream)`
-* [Catch `TypeNotPresentException` thrown by `Class.getAnnotation()`](../../java/migrate/arraystoreexceptiontotypenotpresentexception)
-* [Replace `IllegalArgumentException` with `AlreadyConnectedException` in `DatagramChannel.send()` method](../../java/migrate/illegalargumentexceptiontoalreadyconnectedexception)
-* [Return String `jks` when  `KeyStore.getDefaultType()` is called](../../java/migrate/changedefaultkeystore)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.migrate.Java8toJava11
-displayName: Migrate to Java 11
-description: |
-  This recipe will apply changes commonly needed when upgrading to Java 11. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 11 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 11.
-tags:
-  - jaxb
-  - deprecated
-  - java11
-  - jaxws
-  - jakarta
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.java.migrate.UpgradeToJava8
-  - org.openrewrite.java.migrate.lang.RenameUnderscoreIdentifier
-  - org.openrewrite.java.migrate.UseJavaUtilBase64:
-      useMimeCoder: false
-  - org.openrewrite.java.migrate.CastArraysAsListToList
-  - org.openrewrite.java.migrate.javax.AddJaxbDependenciesWithRuntime
-  - org.openrewrite.java.migrate.javax.AddJaxwsDependencies
-  - org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin
-  - org.openrewrite.java.migrate.javax.AddInjectDependencies
-  - org.openrewrite.java.migrate.javax.AddCommonAnnotationsDependencies
-  - org.openrewrite.staticanalysis.BigDecimalRoundingConstantsToEnums
-  - org.openrewrite.staticanalysis.PrimitiveWrapperClassConstructorToValueOf
-  - org.openrewrite.staticanalysis.UseTryWithResources
-  - org.openrewrite.java.migrate.concurrent.JavaConcurrentAPIs
-  - org.openrewrite.java.migrate.lang.JavaLangAPIs
-  - org.openrewrite.java.RemoveMethodInvocations:
-      methodPattern: java.lang.Runtime runFinalizersOnExit(boolean)
-  - org.openrewrite.java.RemoveMethodInvocations:
-      methodPattern: java.lang.System runFinalizersOnExit(boolean)
-  - org.openrewrite.java.migrate.logging.JavaLoggingAPIs
-  - org.openrewrite.java.migrate.lombok.UpdateLombokToJava11
-  - org.openrewrite.java.migrate.net.JavaNetAPIs
-  - org.openrewrite.java.migrate.nio.file.PathsGetToPathOf
-  - org.openrewrite.java.migrate.sql.JavaSqlAPIs
-  - org.openrewrite.java.migrate.javax.JavaxLangModelUtil
-  - org.openrewrite.java.migrate.javax.JavaxManagementMonitorAPIs
-  - org.openrewrite.java.migrate.javax.JavaxXmlStreamAPIs
-  - org.openrewrite.java.migrate.cobertura.RemoveCoberturaMavenPlugin
-  - org.openrewrite.java.migrate.UpgradeBuildToJava11
-  - org.openrewrite.java.migrate.util.OptionalNotPresentToIsEmpty
-  - org.openrewrite.java.migrate.util.OptionalNotEmptyToIsPresent
-  - org.openrewrite.java.migrate.util.OptionalStreamRecipe
-  - org.openrewrite.java.migrate.util.UsePredicateNot
-  - org.openrewrite.java.migrate.InternalBindPackages
-  - org.openrewrite.java.migrate.RemovedSecurityManagerMethods
-  - org.openrewrite.java.migrate.UpgradePluginsForJava11
-  - org.openrewrite.java.migrate.RemovedPolicy
-  - org.openrewrite.java.migrate.ReferenceCloneMethod
-  - org.openrewrite.java.migrate.ThreadStopDestroy
-  - org.openrewrite.java.migrate.ReplaceAWTGetPeerMethod:
-      getPeerMethodPattern: java.awt.* getPeer()
-      lightweightPeerFQCN: java.awt.peer.LightweightPeer
-  - org.openrewrite.scala.migrate.UpgradeScala_2_12
-  - org.openrewrite.java.migrate.ReplaceComSunAWTUtilitiesMethods:
-      getAWTIsWindowsTranslucencyPattern: com.sun.awt.AWTUtilities isTranslucencySupported(com.sun.awt.AWTUtilities.Translucency)
-      isWindowOpaquePattern: com.sun.awt.AWTUtilities isWindowOpaque(java.awt.Window)
-      isTranslucencyCapablePattern: com.sun.awt.AWTUtilities isTranslucencyCapable(java.awt.GraphicsConfiguration)
-      setWindowOpacityPattern: com.sun.awt.AWTUtilities setWindowOpacity(java.awt.Window, float)
-      getWindowOpacityPattern: com.sun.awt.AWTUtilities getWindowOpacity(java.awt.Window)
-      getWindowShapePattern: com.sun.awt.AWTUtilities getWindowShape(java.awt.Window)
-      setComponentMixingCutoutShapePattern: com.sun.awt.AWTUtilities setComponentMixingCutoutShape(java.awt.Component,java.awt.Shape)
-  - org.openrewrite.java.migrate.ReplaceLocalizedStreamMethods:
-      localizedInputStreamMethodMatcher: java.lang.Runtime getLocalizedInputStream(java.io.InputStream)
-      localizedOutputStreamMethodMatcher: java.lang.Runtime getLocalizedOutputStream(java.io.OutputStream)
-  - org.openrewrite.java.migrate.ArrayStoreExceptionToTypeNotPresentException
-  - org.openrewrite.java.migrate.IllegalArgumentExceptionToAlreadyConnectedException
-  - org.openrewrite.java.migrate.ChangeDefaultKeyStore
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Java 17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17.md)
-* [Migrate to WebLogic 14.1.1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeto1411.md)
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.net.URI;\nclass A {\n    Path pathA = Paths.get(\"path\");\n    Path pathB = Paths.get(\"path\", \"subpath\");\n    Path pathC = Paths.get(URI.create(\"file:///path\"));\n}\n","after":"import java.nio.file.Path;\nimport java.net.URI;\nclass A {\n    Path pathA = Path.of(\"path\");\n    Path pathB = Path.of(\"path\", \"subpath\");\n    Path pathC = Path.of(URI.create(\"file:///path\"));\n}\n","diff":"@@ -2,1 +2,0 @@\nimport java.nio.file.Path;\n-import java.nio.file.Paths;\nimport java.net.URI;\n@@ -5,3 +4,3 @@\nimport java.net.URI;\nclass A {\n-   Path pathA = Paths.get(\"path\");\n-   Path pathB = Paths.get(\"path\", \"subpath\");\n-   Path pathC = Paths.get(URI.create(\"file:///path\"));\n+   Path pathA = Path.of(\"path\");\n+   Path pathB = Path.of(\"path\", \"subpath\");\n+   Path pathC = Path.of(URI.create(\"file:///path\"));\n}\n","newFile":false}]},{"variants":[{"language":"java","before":"import java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.net.URI;\nclass A {\n    Path pathA = Paths.get(\"path\");\n    Path pathB = Paths.get(\"path\", \"subpath\");\n    Path pathC = Paths.get(URI.create(\"file:///path\"));\n}\n","after":"import java.nio.file.Path;\nimport java.net.URI;\nclass A {\n    Path pathA = Path.of(\"path\");\n    Path pathB = Path.of(\"path\", \"subpath\");\n    Path pathC = Path.of(URI.create(\"file:///path\"));\n}\n","diff":"@@ -2,1 +2,0 @@\nimport java.nio.file.Path;\n-import java.nio.file.Paths;\nimport java.net.URI;\n@@ -5,3 +4,3 @@\nimport java.net.URI;\nclass A {\n-   Path pathA = Paths.get(\"path\");\n-   Path pathB = Paths.get(\"path\", \"subpath\");\n-   Path pathC = Paths.get(URI.create(\"file:///path\"));\n+   Path pathA = Path.of(\"path\");\n+   Path pathB = Path.of(\"path\", \"subpath\");\n+   Path pathC = Path.of(URI.create(\"file:///path\"));\n}\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`PathsGetToPathOfTest#convertPathsGetToPathOf`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.net.URI;
-class A {
-    Path pathA = Paths.get("path");
-    Path pathB = Paths.get("path", "subpath");
-    Path pathC = Paths.get(URI.create("file:///path"));
-}
-```
-
-###### After
-```java
-import java.nio.file.Path;
-import java.net.URI;
-class A {
-    Path pathA = Path.of("path");
-    Path pathB = Path.of("path", "subpath");
-    Path pathC = Path.of(URI.create("file:///path"));
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,1 +2,0 @@
-import java.nio.file.Path;
--import java.nio.file.Paths;
-import java.net.URI;
-@@ -5,3 +4,3 @@
-import java.net.URI;
-class A {
--   Path pathA = Paths.get("path");
--   Path pathB = Paths.get("path", "subpath");
--   Path pathC = Paths.get(URI.create("file:///path"));
-+   Path pathA = Path.of("path");
-+   Path pathB = Path.of("path", "subpath");
-+   Path pathC = Path.of(URI.create("file:///path"));
-}
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`PathsGetToPathOfTest#convertPathsGetToPathOf`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.net.URI;
-class A {
-    Path pathA = Paths.get("path");
-    Path pathB = Paths.get("path", "subpath");
-    Path pathC = Paths.get(URI.create("file:///path"));
-}
-```
-
-###### After
-```java
-import java.nio.file.Path;
-import java.net.URI;
-class A {
-    Path pathA = Path.of("path");
-    Path pathB = Path.of("path", "subpath");
-    Path pathC = Path.of(URI.create("file:///path"));
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,1 +2,0 @@
-import java.nio.file.Path;
--import java.nio.file.Paths;
-import java.net.URI;
-@@ -5,3 +4,3 @@
-import java.net.URI;
-class A {
--   Path pathA = Paths.get("path");
--   Path pathB = Paths.get("path", "subpath");
--   Path pathC = Paths.get(URI.create("file:///path"));
-+   Path pathA = Path.of("path");
-+   Path pathB = Path.of("path", "subpath");
-+   Path pathC = Path.of(URI.create("file:///path"));
-}
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.Java8toJava11","displayName":"Migrate to Java 11","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.migrate.Java8toJava11"
-  displayName="Migrate to Java 11"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-migrate-java"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

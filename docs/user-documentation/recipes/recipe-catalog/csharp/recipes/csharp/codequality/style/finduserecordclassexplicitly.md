@@ -1,43 +1,36 @@
 ---
 title: "Find implicit record class declaration"
 sidebar_label: "Find implicit record class declaration"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find implicit record class declaration
+<RecipeMeta
+  displayName={"Find implicit record class declaration"}
+  description={"Detect `record` declarations that should use `record class` explicitly to clarify that they are reference types."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseRecordClassExplicitly"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseRecordClassExplicitly**
+<RecipeHeader
+  displayName={"Find implicit record class declaration"}
+  description={"Detect `record` declarations that should use `record class` explicitly to clarify that they are reference types."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","style","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseRecordClassExplicitly"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseRecordClassExplicitly"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduserecordclassexplicitly.md"}
+  moderneOnly
+/>
 
-_Detect `record` declarations that should use `record class` explicitly to clarify that they are reference types._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [style](/user-documentation/recipes/lists/recipes-by-tag#style)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseRecordClassExplicitly","displayName":"Find implicit record class declaration","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseRecordClassExplicitly"
-  displayName="Find implicit record class declaration"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

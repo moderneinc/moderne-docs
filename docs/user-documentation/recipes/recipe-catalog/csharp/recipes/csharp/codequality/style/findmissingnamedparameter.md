@@ -1,43 +1,36 @@
 ---
 title: "Find boolean literal arguments without parameter name"
 sidebar_label: "Find boolean literal arguments without parameter name"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find boolean literal arguments without parameter name
+<RecipeMeta
+  displayName={"Find boolean literal arguments without parameter name"}
+  description={"Detect method calls passing `true` or `false` literals as arguments. Using named parameters improves readability."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingNamedParameter"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingNamedParameter**
+<RecipeHeader
+  displayName={"Find boolean literal arguments without parameter name"}
+  description={"Detect method calls passing `true` or `false` literals as arguments. Using named parameters improves readability."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","style","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingNamedParameter"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingNamedParameter"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findmissingnamedparameter.md"}
+  moderneOnly
+/>
 
-_Detect method calls passing `true` or `false` literals as arguments. Using named parameters improves readability._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [style](/user-documentation/recipes/lists/recipes-by-tag#style)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingNamedParameter","displayName":"Find boolean literal arguments without parameter name","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingNamedParameter"
-  displayName="Find boolean literal arguments without parameter name"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

@@ -1,33 +1,36 @@
 ---
 title: "Use truthiness instead of empty-container equality"
 sidebar_label: "Use truthiness instead of empty-container equality"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use truthiness instead of empty-container equality
+<RecipeMeta
+  displayName={"Use truthiness instead of empty-container equality"}
+  description={"Convert ``== \"\"``/``== []``/``== {}``/``== ()`` into ``not var`` and the corresponding ``!=`` forms into ``var``, relying on Python's truthiness semantics for empty collections."}
+  fqName={"org.openrewrite.python.cleanup.SimplifyEmptyCollectionComparison"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.SimplifyEmptyCollectionComparison**
+<RecipeHeader
+  displayName={"Use truthiness instead of empty-container equality"}
+  description={"Convert ``== \"\"``/``== []``/``== {}``/``== ()`` into ``not var`` and the corresponding ``!=`` forms into ``var``, relying on Python's truthiness semantics for empty collections."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.SimplifyEmptyCollectionComparison"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyEmptyCollectionComparison"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifyemptycollectioncomparison.md"}
+  moderneOnly
+/>
 
-```
-Convert ``== ""``/``== []``/``== {}``/``== ()`` into ``not var`` and the corresponding ``!=`` forms into ``var``, relying on Python's truthiness semantics for empty collections.
-```
-
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyEmptyCollectionComparison","displayName":"Use truthiness instead of empty-container equality","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.SimplifyEmptyCollectionComparison"
-  displayName="Use truthiness instead of empty-container equality"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

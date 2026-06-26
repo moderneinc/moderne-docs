@@ -1,38 +1,42 @@
 ---
 title: "Update component `templateUrl`"
 sidebar_label: "Update component `templateUrl`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Update component `templateUrl`
+<RecipeMeta
+  displayName={"Update component `templateUrl`"}
+  description={"Updates the `templateUrl` property value in Angular `@Component` decorators. Useful for refactoring template file paths or standardizing path conventions."}
+  fqName={"org.openrewrite.angular.migration.update-component-template-url"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.update-component-template-url**
+<RecipeHeader
+  displayName={"Update component `templateUrl`"}
+  description={"Updates the `templateUrl` property value in Angular `@Component` decorators. Useful for refactoring template file paths or standardizing path conventions."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.update-component-template-url"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.update-component-template-url"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/update-component-template-url.md"}
+  moderneOnly
+/>
 
-_Updates the `templateUrl` property value in Angular `@Component` decorators. Useful for refactoring template file paths or standardizing path conventions._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"String","name":"oldTemplateUrl","required":true,"description":"The template URL to replace. Can be an exact path (e.g., `./old.html`) or a pattern.","example":"./old-template.html"},{"type":"String","name":"newTemplateUrl","required":true,"description":"The new template URL to use.","example":"./new-template.html"},{"type":"String","name":"useRegex","required":false,"description":"If `true`, treats `oldTemplateUrl` as a regex pattern and supports capture groups in `newTemplateUrl`. Default: `false`","example":"true"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `null` | oldTemplateUrl | The template URL to replace. Can be an exact path (e.g., `./old.html`) or a pattern. | `./old-template.html` |
-| `null` | newTemplateUrl | The new template URL to use. | `./new-template.html` |
-| `null` | useRegex | *Optional*. If `true`, treats `oldTemplateUrl` as a regex pattern and supports capture groups in `newTemplateUrl`. Default: `false` | `true` |
+</OptionsTable>
 
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.update-component-template-url","displayName":"Update component `templateUrl`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.update-component-template-url"
-  displayName="Update component `templateUrl`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

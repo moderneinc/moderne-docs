@@ -1,6 +1,7 @@
 ---
 title: "Migrate from Swagger to OpenAPI"
 sidebar_label: "Migrate from Swagger to OpenAPI"
+hide_title: true
 ---
 
 
@@ -8,412 +9,51 @@ sidebar_label: "Migrate from Swagger to OpenAPI"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/openapi/swagger/swaggertoopenapi" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate from Swagger to OpenAPI
+<RecipeMeta
+  displayName={"Migrate from Swagger to OpenAPI"}
+  description={"Migrate from Swagger to OpenAPI."}
+  fqName={"org.openrewrite.openapi.swagger.SwaggerToOpenAPI"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-openapi/blob/main/src/main/resources/META-INF/rewrite/swagger-2.yml"}
+/>
 
-**org.openrewrite.openapi.swagger.SwaggerToOpenAPI**
+<RecipeHeader
+  displayName={"Migrate from Swagger to OpenAPI"}
+  description={"Migrate from Swagger to OpenAPI."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={["openapi","swagger"]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.openapi.swagger.SwaggerToOpenAPI"}
+  artifact={"org.openrewrite.recipe:rewrite-openapi"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.SwaggerToOpenAPI"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/swaggertoopenapi.md"}
+/>
 
-_Migrate from Swagger to OpenAPI._
-
-### Tags
-
-* [openapi](/user-documentation/recipes/lists/recipes-by-tag#openapi)
-* [swagger](/user-documentation/recipes/lists/recipes-by-tag#swagger)
-
-## Recipe source
-
-[GitHub: swagger-2.yml](https://github.com/openrewrite/rewrite-openapi/blob/main/src/main/resources/META-INF/rewrite/swagger-2.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-openapi/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-openapi/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change type","href":"java/changetype"},{"name":"Replace springfox `@ApiIgnore` on method parameters with `@Parameter(hidden = true)`","href":"openapi/swagger/migrateapiignoreparametertoparameterhidden"},{"name":"Change type","href":"java/changetype"},{"name":"Migrate from `@ApiOperation` to `@Operation`","href":"openapi/swagger/migrateapioperationtooperation"},{"name":"Migrate from `@ApiResponses` to `@ApiResponses`","href":"openapi/swagger/migrateapiresponsestoapiresponses"},{"name":"Migrate from `@ApiImplicitParams`  to `@Parameters`","href":"openapi/swagger/migrateapiimplicitparamstoparameters"},{"name":"Migrate from `@Api` to `@Tag`","href":"openapi/swagger/migrateapitotag"},{"name":"Migrate from `@ApiParam` to `@Parameter`","href":"openapi/swagger/migrateapiparamtoparameter"},{"name":"Migrate from `@ApiModelProperty` to `@Schema`","href":"openapi/swagger/migrateapimodelpropertytoschema"},{"name":"Migrate from `@ApiModel` to `@Schema`","href":"openapi/swagger/migrateapimodeltoschema"},{"name":"Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`","href":"openapi/swagger/migrateswaggerdefinitiontoopenapidefinition"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Change Gradle or Maven dependency](../../java/dependencies/changedependency)
-  * oldGroupId: `io.swagger`
-  * oldArtifactId: `swagger-jersey2-jaxrs`
-  * newGroupId: `io.swagger.core.v3`
-  * newArtifactId: `swagger-jaxrs2`
-  * newVersion: `2.2.x`
-* [Change Gradle or Maven dependency](../../java/dependencies/changedependency)
-  * oldGroupId: `io.swagger`
-  * oldArtifactId: `swagger-jaxrs`
-  * newGroupId: `io.swagger.core.v3`
-  * newArtifactId: `swagger-jaxrs2`
-  * newVersion: `2.2.x`
-* [Change Gradle or Maven dependency](../../java/dependencies/changedependency)
-  * oldGroupId: `io.swagger`
-  * oldArtifactId: `swagger-*`
-  * newGroupId: `io.swagger.core.v3`
-  * newVersion: `2.2.x`
-* [Change type](../../java/changetype)
-  * oldFullyQualifiedTypeName: `io.swagger.annotations.Info`
-  * newFullyQualifiedTypeName: `io.swagger.v3.oas.annotations.info.Info`
-* [Replace springfox `@ApiIgnore` on method parameters with `@Parameter(hidden = true)`](../../openapi/swagger/migrateapiignoreparametertoparameterhidden)
-* [Change type](../../java/changetype)
-  * oldFullyQualifiedTypeName: `springfox.documentation.annotations.ApiIgnore`
-  * newFullyQualifiedTypeName: `io.swagger.v3.oas.annotations.Hidden`
-* [Migrate from `@ApiOperation` to `@Operation`](../../openapi/swagger/migrateapioperationtooperation)
-* [Migrate from `@ApiResponses` to `@ApiResponses`](../../openapi/swagger/migrateapiresponsestoapiresponses)
-* [Migrate from `@ApiImplicitParams`  to `@Parameters`](../../openapi/swagger/migrateapiimplicitparamstoparameters)
-* [Migrate from `@Api` to `@Tag`](../../openapi/swagger/migrateapitotag)
-* [Migrate from `@ApiParam` to `@Parameter`](../../openapi/swagger/migrateapiparamtoparameter)
-* [Migrate from `@ApiModelProperty` to `@Schema`](../../openapi/swagger/migrateapimodelpropertytoschema)
-* [Migrate from `@ApiModel` to `@Schema`](../../openapi/swagger/migrateapimodeltoschema)
-* [Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`](../../openapi/swagger/migrateswaggerdefinitiontoopenapidefinition)
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.openapi.swagger.SwaggerToOpenAPI
-displayName: Migrate from Swagger to OpenAPI
-description: |
-  Migrate from Swagger to OpenAPI.
-tags:
-  - openapi
-  - swagger
-recipeList:
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: io.swagger
-      oldArtifactId: swagger-jersey2-jaxrs
-      newGroupId: io.swagger.core.v3
-      newArtifactId: swagger-jaxrs2
-      newVersion: 2.2.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: io.swagger
-      oldArtifactId: swagger-jaxrs
-      newGroupId: io.swagger.core.v3
-      newArtifactId: swagger-jaxrs2
-      newVersion: 2.2.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: io.swagger
-      oldArtifactId: swagger-*
-      newGroupId: io.swagger.core.v3
-      newVersion: 2.2.x
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: io.swagger.annotations.Info
-      newFullyQualifiedTypeName: io.swagger.v3.oas.annotations.info.Info
-  - org.openrewrite.openapi.swagger.MigrateApiIgnoreParameterToParameterHidden
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: springfox.documentation.annotations.ApiIgnore
-      newFullyQualifiedTypeName: io.swagger.v3.oas.annotations.Hidden
-  - org.openrewrite.openapi.swagger.MigrateApiOperationToOperation
-  - org.openrewrite.openapi.swagger.MigrateApiResponsesToApiResponses
-  - org.openrewrite.openapi.swagger.MigrateApiImplicitParamsToParameters
-  - org.openrewrite.openapi.swagger.MigrateApiToTag
-  - org.openrewrite.openapi.swagger.MigrateApiParamToParameter
-  - org.openrewrite.openapi.swagger.MigrateApiModelPropertyToSchema
-  - org.openrewrite.openapi.swagger.MigrateApiModelToSchema
-  - org.openrewrite.openapi.swagger.MigrateSwaggerDefinitionToOpenAPIDefinition
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate from Swagger to SpringDoc and OpenAPI](/user-documentation/recipes/recipe-catalog/java/springdoc/swaggertospringdoc.md)
-* [Upgrade to SpringDoc 2.1](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2.md)
+<ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.example</groupId>\n  <artifactId>demo</artifactId>\n  <version>0.0.1-SNAPSHOT</version>\n  <dependencies>\n    <dependency>\n      <groupId>io.swagger</groupId>\n      <artifactId>swagger-annotations</artifactId>\n      <version>1.6.14</version>\n    </dependency>\n    <dependency>\n      <groupId>io.swagger</groupId>\n      <artifactId>swagger-models</artifactId>\n      <version>1.6.14</version>\n    </dependency>\n    <dependency>\n      <groupId>io.swagger</groupId>\n      <artifactId>swagger-core</artifactId>\n      <version>1.6.14</version>\n    </dependency>\n    <dependency>\n      <groupId>io.swagger</groupId>\n      <artifactId>swagger-jersey2-jaxrs</artifactId>\n      <version>1.6.14</version>\n    </dependency>\n    <dependency>\n      <groupId>io.swagger</groupId>\n      <artifactId>swagger-jaxrs</artifactId>\n      <version>1.6.14</version>\n    </dependency>\n  </dependencies>\n</project>\n"},"variants":[{"language":"java","before":"import io.swagger.annotations.ApiModel;\nimport io.swagger.annotations.ApiModelProperty;\n\n@ApiModel(value=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n  @ApiModelProperty(value = \"ApiModelPropertyExampleValue\", position = 1)\n  private String example;\n}\n","after":"import io.swagger.v3.oas.annotations.media.Schema;\n\n@Schema(name=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n  @Schema(description = \"ApiModelPropertyExampleValue\")\n  private String example;\n}\n","diff":"@@ -1,2 +1,1 @@\n-import io.swagger.annotations.ApiModel;\n-import io.swagger.annotations.ApiModelProperty;\n+import io.swagger.v3.oas.annotations.media.Schema;\n\n@@ -4,1 +3,1 @@\nimport io.swagger.annotations.ApiModelProperty;\n\n-@ApiModel(value=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\n+@Schema(name=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n@@ -6,1 +5,1 @@\n@ApiModel(value=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n- @ApiModelProperty(value = \"ApiModelPropertyExampleValue\", position = 1)\n+ @Schema(description = \"ApiModelPropertyExampleValue\")\n  private String example;\n","newFile":false}]},{"unchanged":{"language":"xml","code":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.example</groupId>\n  <artifactId>demo</artifactId>\n  <version>0.0.1-SNAPSHOT</version>\n  <dependencies>\n    <dependency>\n      <groupId>io.swagger</groupId>\n      <artifactId>swagger-annotations</artifactId>\n      <version>1.6.14</version>\n    </dependency>\n    <dependency>\n      <groupId>io.swagger</groupId>\n      <artifactId>swagger-models</artifactId>\n      <version>1.6.14</version>\n    </dependency>\n    <dependency>\n      <groupId>io.swagger</groupId>\n      <artifactId>swagger-core</artifactId>\n      <version>1.6.14</version>\n    </dependency>\n    <dependency>\n      <groupId>io.swagger</groupId>\n      <artifactId>swagger-jersey2-jaxrs</artifactId>\n      <version>1.6.14</version>\n    </dependency>\n    <dependency>\n      <groupId>io.swagger</groupId>\n      <artifactId>swagger-jaxrs</artifactId>\n      <version>1.6.14</version>\n    </dependency>\n  </dependencies>\n</project>\n"},"variants":[{"language":"java","before":"import io.swagger.annotations.ApiModel;\nimport io.swagger.annotations.ApiModelProperty;\n\n@ApiModel(value=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n  @ApiModelProperty(value = \"ApiModelPropertyExampleValue\", position = 1)\n  private String example;\n}\n","after":"import io.swagger.v3.oas.annotations.media.Schema;\n\n@Schema(name=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n  @Schema(description = \"ApiModelPropertyExampleValue\")\n  private String example;\n}\n","diff":"@@ -1,2 +1,1 @@\n-import io.swagger.annotations.ApiModel;\n-import io.swagger.annotations.ApiModelProperty;\n+import io.swagger.v3.oas.annotations.media.Schema;\n\n@@ -4,1 +3,1 @@\nimport io.swagger.annotations.ApiModelProperty;\n\n-@ApiModel(value=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\n+@Schema(name=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n@@ -6,1 +5,1 @@\n@ApiModel(value=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n- @ApiModelProperty(value = \"ApiModelPropertyExampleValue\", position = 1)\n+ @Schema(description = \"ApiModelPropertyExampleValue\")\n  private String example;\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`SwaggerToOpenAPITest#shouldChangeSwaggerArtifacts`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@ApiModel(value="ApiModelExampleValue", description="ApiModelExampleDescription")
-class Example {
-  @ApiModelProperty(value = "ApiModelPropertyExampleValue", position = 1)
-  private String example;
-}
-```
-
-###### After
-```java
-import io.swagger.v3.oas.annotations.media.Schema;
-
-@Schema(name="ApiModelExampleValue", description="ApiModelExampleDescription")
-class Example {
-  @Schema(description = "ApiModelPropertyExampleValue")
-  private String example;
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,1 @@
--import io.swagger.annotations.ApiModel;
--import io.swagger.annotations.ApiModelProperty;
-+import io.swagger.v3.oas.annotations.media.Schema;
-
-@@ -4,1 +3,1 @@
-import io.swagger.annotations.ApiModelProperty;
-
--@ApiModel(value="ApiModelExampleValue", description="ApiModelExampleDescription")
-+@Schema(name="ApiModelExampleValue", description="ApiModelExampleDescription")
-class Example {
-@@ -6,1 +5,1 @@
-@ApiModel(value="ApiModelExampleValue", description="ApiModelExampleDescription")
-class Example {
-- @ApiModelProperty(value = "ApiModelPropertyExampleValue", position = 1)
-+ @Schema(description = "ApiModelPropertyExampleValue")
-  private String example;
-```
-</TabItem>
-</Tabs>
-
-###### Unchanged
-```xml title="pom.xml"
-<project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example</groupId>
-  <artifactId>demo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-annotations</artifactId>
-      <version>1.6.14</version>
-    </dependency>
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-models</artifactId>
-      <version>1.6.14</version>
-    </dependency>
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-core</artifactId>
-      <version>1.6.14</version>
-    </dependency>
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-jersey2-jaxrs</artifactId>
-      <version>1.6.14</version>
-    </dependency>
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-jaxrs</artifactId>
-      <version>1.6.14</version>
-    </dependency>
-  </dependencies>
-</project>
-```
-
----
-
-##### Example 2
-`SwaggerToOpenAPITest#shouldChangeSwaggerArtifacts`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@ApiModel(value="ApiModelExampleValue", description="ApiModelExampleDescription")
-class Example {
-  @ApiModelProperty(value = "ApiModelPropertyExampleValue", position = 1)
-  private String example;
-}
-```
-
-###### After
-```java
-import io.swagger.v3.oas.annotations.media.Schema;
-
-@Schema(name="ApiModelExampleValue", description="ApiModelExampleDescription")
-class Example {
-  @Schema(description = "ApiModelPropertyExampleValue")
-  private String example;
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,1 @@
--import io.swagger.annotations.ApiModel;
--import io.swagger.annotations.ApiModelProperty;
-+import io.swagger.v3.oas.annotations.media.Schema;
-
-@@ -4,1 +3,1 @@
-import io.swagger.annotations.ApiModelProperty;
-
--@ApiModel(value="ApiModelExampleValue", description="ApiModelExampleDescription")
-+@Schema(name="ApiModelExampleValue", description="ApiModelExampleDescription")
-class Example {
-@@ -6,1 +5,1 @@
-@ApiModel(value="ApiModelExampleValue", description="ApiModelExampleDescription")
-class Example {
-- @ApiModelProperty(value = "ApiModelPropertyExampleValue", position = 1)
-+ @Schema(description = "ApiModelPropertyExampleValue")
-  private String example;
-```
-</TabItem>
-</Tabs>
-
-###### Unchanged
-```xml title="pom.xml"
-<project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example</groupId>
-  <artifactId>demo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-annotations</artifactId>
-      <version>1.6.14</version>
-    </dependency>
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-models</artifactId>
-      <version>1.6.14</version>
-    </dependency>
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-core</artifactId>
-      <version>1.6.14</version>
-    </dependency>
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-jersey2-jaxrs</artifactId>
-      <version>1.6.14</version>
-    </dependency>
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-jaxrs</artifactId>
-      <version>1.6.14</version>
-    </dependency>
-  </dependencies>
-</project>
-```
-
+<UsageList usage={{"recipeName":"org.openrewrite.openapi.swagger.SwaggerToOpenAPI","displayName":"Migrate from Swagger to OpenAPI","groupId":"org.openrewrite.recipe","artifactId":"rewrite-openapi","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_OPENAPI","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.openapi.swagger.SwaggerToOpenAPI"
-  displayName="Migrate from Swagger to OpenAPI"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-openapi"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_OPENAPI"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.SwaggerToOpenAPI" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

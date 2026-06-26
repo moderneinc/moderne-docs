@@ -1,41 +1,36 @@
 ---
 title: "Replace `OutgoingMessage._headers` and `._headerNames` with public methods"
 sidebar_label: "Replace `OutgoingMessage._headers` and `._headerNames` with public methods"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `OutgoingMessage._headers` and `._headerNames` with public methods
+<RecipeMeta
+  displayName={"Replace `OutgoingMessage._headers` and `._headerNames` with public methods"}
+  description={"Replace deprecated `OutgoingMessage.prototype._headers` with `getHeaders()`, `setHeader()`, `removeHeader()` and `OutgoingMessage.prototype._headerNames` with `getHeaderNames()` to address DEP0066 deprecation."}
+  fqName={"org.openrewrite.node.migrate.http.replace-outgoing-message-headers"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.node.migrate.http.replace-outgoing-message-headers**
+<RecipeHeader
+  displayName={"Replace `OutgoingMessage._headers` and `._headerNames` with public methods"}
+  description={"Replace deprecated `OutgoingMessage.prototype._headers` with `getHeaders()`, `setHeader()`, `removeHeader()` and `OutgoingMessage.prototype._headerNames` with `getHeaderNames()` to address DEP0066 deprecation."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["DEP0066"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.node.migrate.http.replace-outgoing-message-headers"}
+  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.http.replace-outgoing-message-headers"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/http/replace-outgoing-message-headers.md"}
+  moderneOnly
+/>
 
-_Replace deprecated `OutgoingMessage.prototype._headers` with `getHeaders()`, `setHeader()`, `removeHeader()` and `OutgoingMessage.prototype._headerNames` with `getHeaderNames()` to address DEP0066 deprecation._
-
-### Tags
-
-* [DEP0066](/user-documentation/recipes/lists/recipes-by-tag#dep0066)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Node.js 24](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24)
-
+<UsageList usage={{"recipeName":"org.openrewrite.node.migrate.http.replace-outgoing-message-headers","displayName":"Replace `OutgoingMessage._headers` and `._headerNames` with public methods","npmPackage":"@openrewrite/recipes-nodejs"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.node.migrate.http.replace-outgoing-message-headers"
-  displayName="Replace `OutgoingMessage._headers` and `._headerNames` with public methods"
-  npmPackage="@openrewrite/recipes-nodejs"
-/>
+</UsageList>
+

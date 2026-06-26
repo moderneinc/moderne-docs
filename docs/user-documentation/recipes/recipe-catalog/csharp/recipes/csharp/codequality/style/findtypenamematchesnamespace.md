@@ -1,43 +1,36 @@
 ---
 title: "Find type name matching namespace"
 sidebar_label: "Find type name matching namespace"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find type name matching namespace
+<RecipeMeta
+  displayName={"Find type name matching namespace"}
+  description={"Detect type names that match their containing namespace, which can cause ambiguous references."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindTypeNameMatchesNamespace"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindTypeNameMatchesNamespace**
+<RecipeHeader
+  displayName={"Find type name matching namespace"}
+  description={"Detect type names that match their containing namespace, which can cause ambiguous references."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","style","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindTypeNameMatchesNamespace"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindTypeNameMatchesNamespace"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findtypenamematchesnamespace.md"}
+  moderneOnly
+/>
 
-_Detect type names that match their containing namespace, which can cause ambiguous references._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [style](/user-documentation/recipes/lists/recipes-by-tag#style)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindTypeNameMatchesNamespace","displayName":"Find type name matching namespace","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindTypeNameMatchesNamespace"
-  displayName="Find type name matching namespace"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

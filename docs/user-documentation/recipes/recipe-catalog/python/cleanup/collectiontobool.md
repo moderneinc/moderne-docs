@@ -1,37 +1,36 @@
 ---
 title: "Substitute constant collection condition with boolean"
 sidebar_label: "Substitute constant collection condition with boolean"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Substitute constant collection condition with boolean
+<RecipeMeta
+  displayName={"Substitute constant collection condition with boolean"}
+  description={"When a list, tuple, dict, or set literal is used as an ``if`` or ``while`` condition, replace it with ``True`` (non-empty) or ``False`` (empty) to state the intent directly."}
+  fqName={"org.openrewrite.python.cleanup.CollectionToBool"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.CollectionToBool**
+<RecipeHeader
+  displayName={"Substitute constant collection condition with boolean"}
+  description={"When a list, tuple, dict, or set literal is used as an ``if`` or ``while`` condition, replace it with ``True`` (non-empty) or ``False`` (empty) to state the intent directly."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.CollectionToBool"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.CollectionToBool"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/collectiontobool.md"}
+  moderneOnly
+/>
 
-_When a list, tuple, dict, or set literal is used as an ``if`` or ``while`` condition, replace it with ``True`` (non-empty) or ``False`` (empty) to state the intent directly._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.CollectionToBool","displayName":"Substitute constant collection condition with boolean","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.CollectionToBool"
-  displayName="Substitute constant collection condition with boolean"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

@@ -1,6 +1,7 @@
 ---
 title: "Change method name"
 sidebar_label: "Change method name"
+hide_title: true
 ---
 
 
@@ -8,346 +9,51 @@ sidebar_label: "Change method name"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/changemethodname" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Change method name
+<RecipeMeta
+  displayName={"Change method name"}
+  description={"Rename a method."}
+  fqName={"org.openrewrite.java.ChangeMethodName"}
+  languages={["Java"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/ChangeMethodName.java"}
+/>
 
-**org.openrewrite.java.ChangeMethodName**
+<RecipeHeader
+  displayName={"Change method name"}
+  description={"Rename a method."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.java.ChangeMethodName"}
+  artifact={"org.openrewrite:rewrite-java"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ChangeMethodName"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/changemethodname.md"}
+/>
 
-_Rename a method._
-
-## Recipe source
-
-[GitHub: ChangeMethodName.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/ChangeMethodName.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/)
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+<OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results.","example":"org.mockito.Matchers anyVararg()"},{"type":"String","name":"newMethodName","required":true,"description":"The method name that will replace the existing name.","example":"any"},{"type":"Boolean","name":"matchOverrides","required":false,"description":"When enabled, find methods that are overrides of the method pattern."},{"type":"Boolean","name":"ignoreDefinition","required":false,"description":"When set to `true` the definition of the old type will be left untouched. This is useful when you're replacing usage of a class but don't want to rename it."}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | methodPattern | A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results. | `org.mockito.Matchers anyVararg()` |
-| `String` | newMethodName | The method name that will replace the existing name. | `any` |
-| `Boolean` | matchOverrides | *Optional*. When enabled, find methods that are overrides of the method pattern. |  |
-| `Boolean` | ignoreDefinition | *Optional*. When set to `true` the definition of the old type will be left untouched. This is useful when you're replacing usage of a class but don't want to rename it. |  |
+</OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"methodPattern","value":"com.abc.B singleArg(String)"},{"parameter":"newMethodName","value":"bar"},{"parameter":"matchOverrides","value":"null"},{"parameter":"ignoreDefinition","value":"null"}],"variants":[{"language":"java","before":"package com.abc;\nclass A {\n   public void test() {\n       new B().singleArg(\"boo\");\n   }\n}\n","after":"package com.abc;\nclass A {\n   public void test() {\n       new B().bar(\"boo\");\n   }\n}\n","diff":"@@ -4,1 +4,1 @@\nclass A {\n   public void test() {\n-      new B().singleArg(\"boo\");\n+      new B().bar(\"boo\");\n   }\n","newFile":false}]}]}>
 
-## Used by
+## Examples
 
-This recipe is used as part of the following composite recipes:
+</ExampleList>
 
-* [Adopt `SequencedCollection`](/user-documentation/recipes/recipe-catalog/java/migrate/util/sequencedcollection.md)
-* [Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`](/user-documentation/recipes/recipe-catalog/java/migrate/removedsubjectmethods.md)
-* [Adopt `setLongThreadID` in `java.util.logging.LogRecord`](/user-documentation/recipes/recipe-catalog/java/migrate/deprecatedlogrecordthreadid.md)
-* [Adopt `setLongThreadID` in `java.util.logging.LogRecord`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/deprecatedlogrecordthreadid.md)
-* [ArchUnit 0.x upgrade](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
-* [Change S3 methods to v2.](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/s3methodstov2.md)
-* [Change S3EventNotification methods to v2.](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/s3eventnotificationmethodstov2.md)
-* [Change SDK Exception types from v1 to v2](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changeexceptiontypes.md)
-* [Change TransferManager simple methods to v2.](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changetransfermanagersimplemethods.md)
-* [Change `List#add` to `List#plus` and verify](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/compiled/verification/changelistmethodandverify)
-* [Change auth related classes from v1 to v2](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changeauthtypes.md)
-* [Change config related classes from v1 to v2](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changeconfigtypes.md)
-* [Change dataformat fury to fury in xml/java dsl.](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel413/furydsl.md)
-* [Change method name](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/changemethodname)
-* [Change of method names brought by Camel JMX API changes](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/changemanagedchoicembeanmethodname.md)
-* [Change of method names brought by Camel JMX API changes](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/changemanagedfailoverloadbalancermbeanmethodname.md)
-* [Change region related classes](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changeregiontypes.md)
-* [Change v1 enum getters to v2](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/enumgetterstov2.md)
-* [JUnit 6 migration from JUnit 5.x](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
-* [JUnit Jupiter migration from JUnit 4.x](/user-documentation/recipes/recipe-catalog/java/testing/junit5/junit4to5migration.md)
-* [Migrate Apache Commons Logging 1.x to SLF4J 1.x](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/commonslogging1toslf4j1.md)
-* [Migrate Apache HttpAsyncClient 4.x classes to HttpClient 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5_asyncclientclassmapping.md)
-* [Migrate Apache HttpCore Nio Input Buffer classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_nioinputbuffers.md)
-* [Migrate Apache HttpCore Nio Output Buffer classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_niooutputbuffers.md)
-* [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
-* [Migrate Fest 2.x to AssertJ](/user-documentation/recipes/recipe-catalog/java/testing/assertj/festtoassertj.md)
-* [Migrate Google Truth to AssertJ](/user-documentation/recipes/recipe-catalog/java/testing/truth/migratetruthtoassertj.md)
-* [Migrate Hamcrest assertions to JUnit Jupiter](/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/migratehamcresttojunit5.md)
-* [Migrate JBoss Logging to SLF4J](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jbossloggingtoslf4j.md)
-* [Migrate JCL to Log4j 2.x API](/user-documentation/recipes/recipe-catalog/java/logging/log4j/commonsloggingtolog4j.md)
-* [Migrate JUL to Log4j 2.x API](/user-documentation/recipes/recipe-catalog/java/logging/log4j/jultolog4j.md)
-* [Migrate Log4j 1.x to Log4j 2.x](/user-documentation/recipes/recipe-catalog/java/logging/log4j/log4j1tolog4j2.md)
-* [Migrate Log4j 2.x to SLF4J 1.x](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2toslf4j1.md)
-* [Migrate RichFaces 3.x to 4.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/migraterichfaces_4_5)
-* [Migrate SLF4J to Log4j 2.x API](/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md)
-* [Migrate Spring Boot 3.5 deprecated classes and methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot35deprecations)
-* [Migrate Spring Events to CDI Events](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringevents.md)
-* [Migrate Struts 2.0 interceptors to action &quot;aware&quot; interfaces](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migrateawareinterfaces)
-* [Migrate `Admin.listConsumerGroups()` to `listGroups()`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migrateadminlistconsumergroups)
-* [Migrate `ApiInfoBuilder` to `Info`](/user-documentation/recipes/recipe-catalog/java/spring/doc/apiinfobuildertoinfo.md)
-* [Migrate `AuthState` to `AuthExchange`](/user-documentation/recipes/recipe-catalog/apache/httpclient5/migrateauthstate.md)
-* [Migrate `ConsumerGroupState` to `GroupState`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migrateconsumergroupstatetogroupstate)
-* [Migrate `Joined.named()` to `Joined.as()`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/streams/migratejoinednamemethod)
-* [Migrate from Acegi Security 1.0.x to Spring Security 5.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0)
-* [Migrate from EasyMock to Mockito](/user-documentation/recipes/recipe-catalog/java/testing/easymock/easymocktomockito.md)
-* [Migrate from Java Faker to Datafaker](/user-documentation/recipes/recipe-catalog/java/testing/datafaker/javafakertodatafaker.md)
-* [Migrate from Micronaut 2.x to 3.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut2to3migration.md)
-* [Migrate from springdoc-openapi-common to springdoc-openapi-starter-common](/user-documentation/recipes/recipe-catalog/java/springdoc/migratespringdoccommon.md)
-* [Migrate packages to modular starters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateautoconfigurepackages.md)
-* [Migrate removed `LocalStackContainer` members to Testcontainers 2.x](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2localstack.md)
-* [Migrate to ApacheHttpClient 5.x deprecated methods from 4.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5_deprecatedmethods.md)
-* [Migrate to Hibernate 6.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-moderne-edition)
-* [Migrate to Hibernate 7.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-community-edition.md)
-* [Migrate to Hibernate 7.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition)
-* [Migrate to HtmlUnit 3.x](/user-documentation/recipes/recipe-catalog/java/testing/htmlunit/upgradehtmlunit_3.md)
-* [Migrate to Kafka 2.7](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka27)
-* [Migrate to Kafka 3.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka30)
-* [Migrate to Kafka 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka40)
-* [Migrate to Reactor 3.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/reactive/reactor/upgradereactor_3_5)
-* [Migrate to Spring Batch 6.0 from 5.2](/user-documentation/recipes/recipe-catalog/java/spring/batch/springbatch5to6migration.md)
-* [Migrate to Spring Data JPA 2.5](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_5.md)
-* [Migrate to Spring Data JPA 2.7](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_7.md)
-* [Migrate to Spring Framework 6.2](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_2.md)
-* [Migrate to Spring Security 7.0](/user-documentation/recipes/recipe-catalog/java/spring/security7/upgradespringsecurity_7_0.md)
-* [Migrates Spring Kafka deprecated error handlers](/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_2_8_errorhandlers.md)
-* [Migrates `camel 4.16` application to `camel 4.17`](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel417/camelmigrationrecipe.md)
-* [Migrates from Netty 3.2.x to Netty 4.1.x](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_3_2_to_4_1.md)
-* [Migrates to Apache Commons Lang 3.x](/user-documentation/recipes/recipe-catalog/apache/commons/lang/upgradeapachecommonslang_2_3.md)
-* [Mockito 3.x migration from 1.x](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
-* [OkHttp `MockWebServer` `MockResponse` to 5.x `MockWebServer3` `MockResponse`](/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebservermockresponse.md)
-* [PlanningVariable's `nullable` is newly called `unassignedValues`](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/nullablerecipe.md)
-* [Prefer `Integer#compareUnsigned`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegercompareunsigned.md)
-* [Prefer `Integer#divideUnsigned`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegerdivideunsigned.md)
-* [Prefer `Long#compareUnsigned`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferlongcompareunsigned.md)
-* [Prefer `Long#divideUnsigned`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferlongdivideunsigned.md)
-* [Prefer `Math#addExact`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefermathaddexact.md)
-* [Prefer `Math#clamp`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefermathclamp.md)
-* [Prefer `Math#multiplyExact`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefermathmultiplyexact.md)
-* [Prefer `Math#subtractExact`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefermathsubtractexact.md)
-* [Prefer `java.util.Objects#equals`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautilobjectsequals.md)
-* [Prefer `java.util.Objects#hash`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautilobjectshashcode.md)
-* [Prefer `java.util.Objects#requireNonNullElse`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautilobjectsrequirenonnullelse.md)
-* [Prefer `java.util.Optional`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptional.md)
-* [Prefer the Java standard library instead of Joda-Time](/user-documentation/recipes/recipe-catalog/java/joda/time/nojodatime.md)
-* [Quarkus 1.13 migration from Quarkus 1.11](/user-documentation/recipes/recipe-catalog/quarkus/quarkus1to1_13migration.md)
-* [Recipe testing best practices](/user-documentation/recipes/recipe-catalog/java/recipes/recipetestingbestpractices.md)
-* [Recommended Fit API becomes Assignment Recommendation API](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/solutionmanagerrecommendassignmentrecipe.md)
-* [Refactored dataFormats](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel415/dataformats.md)
-* [Rename Exposed deprecated methods for 1.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedchangemethodnames)
-* [Rename Jackson 2.x methods to 3.x equivalents for JsonGenerator](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsongeneratormethodrenames.md)
-* [Rename Jackson 2.x methods to 3.x equivalents for JsonNode](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsonnodemethodrenames.md)
-* [Rename Jackson 2.x methods to 3.x equivalents for JsonParser](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsonparsermethodrenames.md)
-* [Rename Jackson 2.x methods to 3.x equivalents for ObjectNode](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_objectnodemethodrenames.md)
-* [Rename Jackson 2.x methods to 3.x equivalents](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_methodrenames.md)
-* [Replace  deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removalsservletjakarta10.md)
-* [Replace `ContainerState.getContainerIpAddress()` with `getHost()`](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/gethostmigration.md)
-* [Replace `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` with `isRequestedSessionIdFromURL()`](/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/servletisrequestedsessionidfromurl.md)
-* [Replace `Inflater` and `Deflater` `end()` calls with `close()`](/user-documentation/recipes/recipe-catalog/java/migrate/util/migrateinflaterdeflatertoclose.md)
-* [Replace `Paths.get` with `Path.of`](/user-documentation/recipes/recipe-catalog/java/migrate/nio/file/pathsgettopathof.md)
-* [Replace `SSLSession.getPeerCertificateChain()` method](/user-documentation/recipes/recipe-catalog/java/migrate/removedsslsessiongetpeercertificatechainmethodimpl.md)
-* [Replace `doUpgrade(..)` with `ServerContainer.upgradeHttpToWebSocket(..)`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/wswsocservercontainerdeprecation.md)
-* [Replace `finalize` method in `java.io.FileInputStream`  and `java.io.FileOutputStream`](/user-documentation/recipes/recipe-catalog/java/migrate/removedfileiofinalizemethods.md)
-* [Replace `finalize` method in `java.util.zip.ZipFile`, `java.util.zip.Inflater` and `java.util.zip.Deflater`](/user-documentation/recipes/recipe-catalog/java/migrate/removedzipfinalizemethods.md)
-* [Replace `hudson.Util.getPastTimeString` with `getTimeSpanString`](/user-documentation/recipes/recipe-catalog/jenkins/migrate/hudson/utilgetpasttimestringtogettimespanstring.md)
-* [Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`](/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingsingleargwithobjectsrequirenonnull.md)
-* [Replace calls to `Thread.run()` with `Thread.start()`](/user-documentation/recipes/recipe-catalog/staticanalysis/replacethreadrunwiththreadstart.md)
-* [Replace deprecated Char case conversions](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedcharcaseconversions)
-* [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
-* [Replace deprecated String case conversions](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedstringcaseconversions)
-* [Replace deprecated `appendln` with `appendLine`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedappendln)
-* [Replace deprecated setters in `RestTemplateBuilder`](/user-documentation/recipes/recipe-catalog/java/spring/boot3/replaceresttemplatebuildermethods.md)
-* [Spring Boot 4.0 Module Starter Relocations](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulestarterrelocations)
-* [The header name for the List metadata has changed](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel43/kafkametadata.md)
-* [Upgrade to JUnit 5.14](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit514.md)
-* [Upgrade to SpringDoc 2.1](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2.md)
-* [Upgrade to the latest Timefold Solver](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/tolatest.md)
-* [Use OkHttp 3 MockWebServer for JUnit 5](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradeokhttpmockwebserver.md)
-* [Use `AtomicBoolean#weakCompareAndSetPlain(boolean, boolean)`](/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicbooleanweakcompareandsettoweakcompareandsetplain.md)
-* [Use `AtomicInteger#weakCompareAndSetPlain(int, int)`](/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicintegerweakcompareandsettoweakcompareandsetplain.md)
-* [Use `AtomicIntegerArray#weakCompareAndSetPlain(int, int, int)`](/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicintegerarrayweakcompareandsettoweakcompareandsetplain.md)
-* [Use `AtomicLong#weakCompareAndSetPlain(long, long)`](/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomiclongweakcompareandsettoweakcompareandsetplain.md)
-* [Use `AtomicLongArray#weakCompareAndSetPlain(int, long, long)`](/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomiclongarrayweakcompareandsettoweakcompareandsetplain.md)
-* [Use `AtomicReference#weakCompareAndSetPlain(T, T)`](/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicreferenceweakcompareandsettoweakcompareandsetplain.md)
-* [Use `AtomicReferenceArray#weakCompareAndSetPlain(int, T, T)`](/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicreferencearrayweakcompareandsettoweakcompareandsetplain.md)
-* [Use `Character#isJavaIdentifierPart(char)`](/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratecharacterisjavaletterordigittoisjavaidentifierpart.md)
-* [Use `Character#isJavaIdentifierStart(char)`](/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratecharacterisjavalettertoisjavaidentifierstart.md)
-* [Use `Character#isWhitespace(char)`](/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratecharacterisspacetoiswhitespace.md)
-* [Use `RestTemplateBuilder#basicAuthentication`](/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateresttemplatebuilderbasicauthorization.md)
-* [Use `Runtime.Version#feature()`](/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateruntimeversionmajortofeature.md)
-* [Use `Runtime.Version#interim()`](/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateruntimeversionminortointerim.md)
-* [Use `Runtime.Version#update()`](/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateruntimeversionsecuritytoupdate.md)
-* [Use `StateManagementStrategy`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removedstatemanagermethods.md)
-* [Use `StateManagementStrategy`](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/removedstatemanagermethods3.md)
-* [Use `getSSOCookieFromSSOToken` and `logout`](/user-documentation/recipes/recipe-catalog/java/liberty/websphereunavailablessomethods.md)
-* [Use `isEagerFilterInit()`](/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateundertowservletwebserverfactoryiseagerinitfilters.md)
-* [Use `isParametersProvided()`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removedisparmetersprovidedmethod.md)
-* [Use `jakarta.xml.soap.SOAPFactory` to create `SOAPElements`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removedsoapelementfactory.md)
-* [Use `java.net.MulticastSocket#getTimeToLive()`](/user-documentation/recipes/recipe-catalog/java/migrate/net/migratemulticastsocketgetttltogettimetolive.md)
-* [Use `javax.management.monitor.CounterMonitor#setInitThreshold`](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratecountermonitorsetthresholdtosetinitthreshold.md)
-* [Use `javax.xml.stream.XMLEventFactory#newFactory(String, ClassLoader)`](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratexmleventfactorynewinstancetonewfactory.md)
-* [Use `javax.xml.stream.XMLInputFactory#newFactory(String, ClassLoader)`](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratexmlinputfactorynewinstancetonewfactory.md)
-* [Use `javax.xml.stream.XMLOutputFactory#newFactory(String, ClassLoader)`](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratexmloutputfactorynewinstancetonewfactory.md)
-* [Use `setEagerFilterInit(boolean)`](/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateundertowservletwebserverfactoryseteagerinitfilters.md)
-* [Use non-deprecated related sorting fields and methods](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/sortingmigrationrecipe.md)
-* [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmSessionMethodsRemovedIn7](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus324/migratefromhibernateormsessionmethodsremovedin7.md)
-* [io.quarkus.updates.core.quarkus35.MutinyUniAndGroupCombinedWith](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus35/mutinyuniandgroupcombinedwith.md)
-* [io.quarkus.updates.core.quarkus35.MutinyUniMemoizeAtLeast](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus35/mutinyunimemoizeatleast.md)
-
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|methodPattern|`com.abc.B singleArg(String)`|
-|newMethodName|`bar`|
-|matchOverrides|`null`|
-|ignoreDefinition|`null`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-package com.abc;
-class A {
-   public void test() {
-       new B().singleArg("boo");
-   }
-}
-```
-
-###### After
-```java
-package com.abc;
-class A {
-   public void test() {
-       new B().bar("boo");
-   }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -4,1 +4,1 @@
-class A {
-   public void test() {
--      new B().singleArg("boo");
-+      new B().bar("boo");
-   }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeMethodName","displayName":"Change method name","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.mockito.Matchers anyVararg()\" --recipe-option \"newMethodName=any\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.ChangeMethodNameExample
-displayName: Change method name example
-recipeList:
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.mockito.Matchers anyVararg()
-      newMethodName: any
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.java.ChangeMethodName"
-  displayName="Change method name"
-  groupId="org.openrewrite"
-  artifactId="rewrite-java"
-  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_JAVA"
-  isCoreLibrary
-  requiresConfiguration
-  cliOptions={' --recipe-option "methodPattern=org.mockito.Matchers anyVararg()" --recipe-option "newMethodName=any"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.ChangeMethodName" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

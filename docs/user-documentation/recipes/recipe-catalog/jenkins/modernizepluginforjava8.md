@@ -1,6 +1,7 @@
 ---
 title: "Modernize a Jenkins plugin to the latest versions supported by Java 8"
 sidebar_label: "Modernize a Jenkins plugin to the latest versions supported by Java 8"
+hide_title: true
 ---
 
 
@@ -8,467 +9,51 @@ sidebar_label: "Modernize a Jenkins plugin to the latest versions supported by J
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/modernizepluginforjava8" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Modernize a Jenkins plugin to the latest versions supported by Java 8
+<RecipeMeta
+  displayName={"Modernize a Jenkins plugin to the latest versions supported by Java 8"}
+  description={"This recipe is intended to break down the modernization of very old plugins into distinct steps. It allows modernizing all tooling up to the last versions that supported Java 8. This can then be followed by another recipe that makes the jump to Java 11."}
+  fqName={"org.openrewrite.jenkins.ModernizePluginForJava8"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-jenkins/blob/main/src/main/resources/META-INF/rewrite/java-8.yml"}
+/>
 
-**org.openrewrite.jenkins.ModernizePluginForJava8**
+<RecipeHeader
+  displayName={"Modernize a Jenkins plugin to the latest versions supported by Java 8"}
+  description={"This recipe is intended to break down the modernization of very old plugins into distinct steps. It allows modernizing all tooling up to the last versions that supported Java 8. This can then be followed by another recipe that makes the jump to Java 11."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.jenkins.ModernizePluginForJava8"}
+  artifact={"org.openrewrite.recipe:rewrite-jenkins"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.ModernizePluginForJava8"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/modernizepluginforjava8.md"}
+/>
 
-_This recipe is intended to break down the modernization of very old plugins into distinct steps. It allows modernizing all tooling up to the last versions that supported Java 8. This can then be followed by another recipe that makes the jump to Java 11._
-
-## Recipe source
-
-[GitHub: java-8.yml](https://github.com/openrewrite/rewrite-jenkins/blob/main/src/main/resources/META-INF/rewrite/java-8.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-jenkins/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-jenkins/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Use HTTPS for repositories","href":"maven/security/usehttpsforrepositories"},{"name":"Disables local file resolution for parent POM","href":"jenkins/disablelocalresolutionforparentpom"},{"name":"Add or correct Jenkins plugins BOM","href":"jenkins/addpluginsbom"},{"name":"Change Maven parent","href":"maven/changeparentpom"},{"name":"Upgrade property's value to version","href":"jenkins/upgradeversionproperty"},{"name":"Remove redundant explicit dependency and plugin versions","href":"maven/removeredundantdependencyversions"},{"name":"Remove Maven project property","href":"maven/removeproperty"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Use HTTPS for repositories](../maven/security/usehttpsforrepositories)
-* [Disables local file resolution for parent POM](../jenkins/disablelocalresolutionforparentpom)
-* [Add or correct Jenkins plugins BOM](../jenkins/addpluginsbom)
-* [Change Maven parent](../maven/changeparentpom)
-  * oldGroupId: `org.jenkins-ci.plugins`
-  * oldArtifactId: `plugin`
-  * newVersion: `4.51`
-  * allowVersionDowngrades: `false`
-* [Upgrade property's value to version](../jenkins/upgradeversionproperty)
-  * key: `jenkins.version`
-  * minimumVersion: `2.346.3`
-* [Remove redundant explicit dependency and plugin versions](../maven/removeredundantdependencyversions)
-  * onlyIfVersionsMatch: `false`
-* [Remove Maven project property](../maven/removeproperty)
-  * propertyName: `java.level`
+</RecipeList>
 
-</TabItem>
+<ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n    <parent>\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n        <version>4.42</version>\n    </parent>\n    <artifactId>example-plugin</artifactId>\n    <version>0.8-SNAPSHOT</version>\n    <properties>\n        <jenkins.version>2.303.3</jenkins.version>\n        <java.level>8</java.level>\n    </properties>\n    <dependencies>\n        <dependency>\n            <groupId>org.jenkins-ci.plugins</groupId>\n            <artifactId>junit</artifactId>\n            <version>1.12</version>\n        </dependency>\n    </dependencies>\n    <repositories>\n        <repository>\n            <id>maven-central</id>\n            <url>https://repo1.maven.org/maven2/</url>\n        </repository>\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n            <url>http://repo.jenkins-ci.org/public/</url>\n        </repository>\n    </repositories>\n</project>\n","after":"<project>\n    <parent>\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n        <version>4.51</version>\n        <relativePath />\n    </parent>\n    <artifactId>example-plugin</artifactId>\n    <version>0.8-SNAPSHOT</version>\n    <properties>\n        <jenkins.version>2.346.3</jenkins.version>\n    </properties>\n    <dependencyManagement>\n        <dependencies>\n            <dependency>\n                <groupId>io.jenkins.tools.bom</groupId>\n                <artifactId>bom-2.346.x</artifactId>\n                <version>1763.v092b_8980a_f5e</version>\n                <type>pom</type>\n                <scope>import</scope>\n            </dependency>\n        </dependencies>\n    </dependencyManagement>\n    <dependencies>\n        <dependency>\n            <groupId>org.jenkins-ci.plugins</groupId>\n            <artifactId>junit</artifactId>\n        </dependency>\n    </dependencies>\n    <repositories>\n        <repository>\n            <id>maven-central</id>\n            <url>https://repo1.maven.org/maven2/</url>\n        </repository>\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n            <url>https://repo.jenkins-ci.org/public/</url>\n        </repository>\n    </repositories>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -5,1 +5,2 @@\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n-       <version>4.42</version>\n+       <version>4.51</version>\n+       <relativePath />\n    </parent>\n@@ -10,2 +11,1 @@\n    <version>0.8-SNAPSHOT</version>\n    <properties>\n-       <jenkins.version>2.303.3</jenkins.version>\n-       <java.level>8</java.level>\n+       <jenkins.version>2.346.3</jenkins.version>\n    </properties>\n@@ -13,0 +13,11 @@\n        <java.level>8</java.level>\n    </properties>\n+   <dependencyManagement>\n+       <dependencies>\n+           <dependency>\n+               <groupId>io.jenkins.tools.bom</groupId>\n+               <artifactId>bom-2.346.x</artifactId>\n+               <version>1763.v092b_8980a_f5e</version>\n+               <type>pom</type>\n+               <scope>import</scope>\n+           </dependency>\n+       </dependencies>\n+   </dependencyManagement>\n    <dependencies>\n@@ -17,1 +28,0 @@\n            <groupId>org.jenkins-ci.plugins</groupId>\n            <artifactId>junit</artifactId>\n-           <version>1.12</version>\n        </dependency>\n@@ -27,1 +37,1 @@\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n-           <url>http://repo.jenkins-ci.org/public/</url>\n+           <url>https://repo.jenkins-ci.org/public/</url>\n        </repository>\n","newFile":false}]},{"variants":[{"language":"xml","before":"<project>\n    <parent>\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n        <version>4.42</version>\n    </parent>\n    <artifactId>example-plugin</artifactId>\n    <version>0.8-SNAPSHOT</version>\n    <properties>\n        <jenkins.version>2.303.3</jenkins.version>\n        <java.level>8</java.level>\n    </properties>\n    <dependencies>\n        <dependency>\n            <groupId>org.jenkins-ci.plugins</groupId>\n            <artifactId>junit</artifactId>\n            <version>1.12</version>\n        </dependency>\n    </dependencies>\n    <repositories>\n        <repository>\n            <id>maven-central</id>\n            <url>https://repo1.maven.org/maven2/</url>\n        </repository>\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n            <url>http://repo.jenkins-ci.org/public/</url>\n        </repository>\n    </repositories>\n</project>\n","after":"<project>\n    <parent>\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n        <version>4.51</version>\n        <relativePath />\n    </parent>\n    <artifactId>example-plugin</artifactId>\n    <version>0.8-SNAPSHOT</version>\n    <properties>\n        <jenkins.version>2.346.3</jenkins.version>\n    </properties>\n    <dependencyManagement>\n        <dependencies>\n            <dependency>\n                <groupId>io.jenkins.tools.bom</groupId>\n                <artifactId>bom-2.346.x</artifactId>\n                <version>1763.v092b_8980a_f5e</version>\n                <type>pom</type>\n                <scope>import</scope>\n            </dependency>\n        </dependencies>\n    </dependencyManagement>\n    <dependencies>\n        <dependency>\n            <groupId>org.jenkins-ci.plugins</groupId>\n            <artifactId>junit</artifactId>\n        </dependency>\n    </dependencies>\n    <repositories>\n        <repository>\n            <id>maven-central</id>\n            <url>https://repo1.maven.org/maven2/</url>\n        </repository>\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n            <url>https://repo.jenkins-ci.org/public/</url>\n        </repository>\n    </repositories>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -5,1 +5,2 @@\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n-       <version>4.42</version>\n+       <version>4.51</version>\n+       <relativePath />\n    </parent>\n@@ -10,2 +11,1 @@\n    <version>0.8-SNAPSHOT</version>\n    <properties>\n-       <jenkins.version>2.303.3</jenkins.version>\n-       <java.level>8</java.level>\n+       <jenkins.version>2.346.3</jenkins.version>\n    </properties>\n@@ -13,0 +13,11 @@\n        <java.level>8</java.level>\n    </properties>\n+   <dependencyManagement>\n+       <dependencies>\n+           <dependency>\n+               <groupId>io.jenkins.tools.bom</groupId>\n+               <artifactId>bom-2.346.x</artifactId>\n+               <version>1763.v092b_8980a_f5e</version>\n+               <type>pom</type>\n+               <scope>import</scope>\n+           </dependency>\n+       </dependencies>\n+   </dependencyManagement>\n    <dependencies>\n@@ -17,1 +28,0 @@\n            <groupId>org.jenkins-ci.plugins</groupId>\n            <artifactId>junit</artifactId>\n-           <version>1.12</version>\n        </dependency>\n@@ -27,1 +37,1 @@\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n-           <url>http://repo.jenkins-ci.org/public/</url>\n+           <url>https://repo.jenkins-ci.org/public/</url>\n        </repository>\n","newFile":false}]}]}>
 
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.jenkins.ModernizePluginForJava8
-displayName: Modernize a Jenkins plugin to the latest versions supported by Java 8
-description: |
-  This recipe is intended to break down the modernization of very old plugins into distinct steps. It allows modernizing all tooling up to the last versions that supported Java 8. This can then be followed by another recipe that makes the jump to Java 11.
-recipeList:
-  - org.openrewrite.maven.security.UseHttpsForRepositories
-  - org.openrewrite.jenkins.DisableLocalResolutionForParentPom
-  - org.openrewrite.jenkins.AddPluginsBom
-  - org.openrewrite.maven.ChangeParentPom:
-      oldGroupId: org.jenkins-ci.plugins
-      oldArtifactId: plugin
-      newVersion: 4.51
-      allowVersionDowngrades: false
-  - org.openrewrite.jenkins.UpgradeVersionProperty:
-      key: jenkins.version
-      minimumVersion: 2.346.3
-  - org.openrewrite.maven.RemoveRedundantDependencyVersions:
-      onlyIfVersionsMatch: false
-  - org.openrewrite.maven.RemoveProperty:
-      propertyName: java.level
-
-```
-</TabItem>
-</Tabs>
 ## Examples
-##### Example 1
-`ModernizePluginForJava8Test#shouldDoTheWorks`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <parent>
-        <groupId>org.jenkins-ci.plugins</groupId>
-        <artifactId>plugin</artifactId>
-        <version>4.42</version>
-    </parent>
-    <artifactId>example-plugin</artifactId>
-    <version>0.8-SNAPSHOT</version>
-    <properties>
-        <jenkins.version>2.303.3</jenkins.version>
-        <java.level>8</java.level>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>junit</artifactId>
-            <version>1.12</version>
-        </dependency>
-    </dependencies>
-    <repositories>
-        <repository>
-            <id>maven-central</id>
-            <url>https://repo1.maven.org/maven2/</url>
-        </repository>
-        <repository>
-            <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
-        </repository>
-    </repositories>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <parent>
-        <groupId>org.jenkins-ci.plugins</groupId>
-        <artifactId>plugin</artifactId>
-        <version>4.51</version>
-        <relativePath />
-    </parent>
-    <artifactId>example-plugin</artifactId>
-    <version>0.8-SNAPSHOT</version>
-    <properties>
-        <jenkins.version>2.346.3</jenkins.version>
-    </properties>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.jenkins.tools.bom</groupId>
-                <artifactId>bom-2.346.x</artifactId>
-                <version>1763.v092b_8980a_f5e</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-    </dependencies>
-    <repositories>
-        <repository>
-            <id>maven-central</id>
-            <url>https://repo1.maven.org/maven2/</url>
-        </repository>
-        <repository>
-            <id>repo.jenkins-ci.org</id>
-            <url>https://repo.jenkins-ci.org/public/</url>
-        </repository>
-    </repositories>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -5,1 +5,2 @@
-        <groupId>org.jenkins-ci.plugins</groupId>
-        <artifactId>plugin</artifactId>
--       <version>4.42</version>
-+       <version>4.51</version>
-+       <relativePath />
-    </parent>
-@@ -10,2 +11,1 @@
-    <version>0.8-SNAPSHOT</version>
-    <properties>
--       <jenkins.version>2.303.3</jenkins.version>
--       <java.level>8</java.level>
-+       <jenkins.version>2.346.3</jenkins.version>
-    </properties>
-@@ -13,0 +13,11 @@
-        <java.level>8</java.level>
-    </properties>
-+   <dependencyManagement>
-+       <dependencies>
-+           <dependency>
-+               <groupId>io.jenkins.tools.bom</groupId>
-+               <artifactId>bom-2.346.x</artifactId>
-+               <version>1763.v092b_8980a_f5e</version>
-+               <type>pom</type>
-+               <scope>import</scope>
-+           </dependency>
-+       </dependencies>
-+   </dependencyManagement>
-    <dependencies>
-@@ -17,1 +28,0 @@
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>junit</artifactId>
--           <version>1.12</version>
-        </dependency>
-@@ -27,1 +37,1 @@
-        <repository>
-            <id>repo.jenkins-ci.org</id>
--           <url>http://repo.jenkins-ci.org/public/</url>
-+           <url>https://repo.jenkins-ci.org/public/</url>
-        </repository>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`ModernizePluginForJava8Test#shouldDoTheWorks`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <parent>
-        <groupId>org.jenkins-ci.plugins</groupId>
-        <artifactId>plugin</artifactId>
-        <version>4.42</version>
-    </parent>
-    <artifactId>example-plugin</artifactId>
-    <version>0.8-SNAPSHOT</version>
-    <properties>
-        <jenkins.version>2.303.3</jenkins.version>
-        <java.level>8</java.level>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>junit</artifactId>
-            <version>1.12</version>
-        </dependency>
-    </dependencies>
-    <repositories>
-        <repository>
-            <id>maven-central</id>
-            <url>https://repo1.maven.org/maven2/</url>
-        </repository>
-        <repository>
-            <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
-        </repository>
-    </repositories>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <parent>
-        <groupId>org.jenkins-ci.plugins</groupId>
-        <artifactId>plugin</artifactId>
-        <version>4.51</version>
-        <relativePath />
-    </parent>
-    <artifactId>example-plugin</artifactId>
-    <version>0.8-SNAPSHOT</version>
-    <properties>
-        <jenkins.version>2.346.3</jenkins.version>
-    </properties>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.jenkins.tools.bom</groupId>
-                <artifactId>bom-2.346.x</artifactId>
-                <version>1763.v092b_8980a_f5e</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-    </dependencies>
-    <repositories>
-        <repository>
-            <id>maven-central</id>
-            <url>https://repo1.maven.org/maven2/</url>
-        </repository>
-        <repository>
-            <id>repo.jenkins-ci.org</id>
-            <url>https://repo.jenkins-ci.org/public/</url>
-        </repository>
-    </repositories>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -5,1 +5,2 @@
-        <groupId>org.jenkins-ci.plugins</groupId>
-        <artifactId>plugin</artifactId>
--       <version>4.42</version>
-+       <version>4.51</version>
-+       <relativePath />
-    </parent>
-@@ -10,2 +11,1 @@
-    <version>0.8-SNAPSHOT</version>
-    <properties>
--       <jenkins.version>2.303.3</jenkins.version>
--       <java.level>8</java.level>
-+       <jenkins.version>2.346.3</jenkins.version>
-    </properties>
-@@ -13,0 +13,11 @@
-        <java.level>8</java.level>
-    </properties>
-+   <dependencyManagement>
-+       <dependencies>
-+           <dependency>
-+               <groupId>io.jenkins.tools.bom</groupId>
-+               <artifactId>bom-2.346.x</artifactId>
-+               <version>1763.v092b_8980a_f5e</version>
-+               <type>pom</type>
-+               <scope>import</scope>
-+           </dependency>
-+       </dependencies>
-+   </dependencyManagement>
-    <dependencies>
-@@ -17,1 +28,0 @@
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>junit</artifactId>
--           <version>1.12</version>
-        </dependency>
-@@ -27,1 +37,1 @@
-        <repository>
-            <id>repo.jenkins-ci.org</id>
--           <url>http://repo.jenkins-ci.org/public/</url>
-+           <url>https://repo.jenkins-ci.org/public/</url>
-        </repository>
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.jenkins.ModernizePluginForJava8","displayName":"Modernize a Jenkins plugin to the latest versions supported by Java 8","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jenkins","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.jenkins.ModernizePluginForJava8"
-  displayName="Modernize a Jenkins plugin to the latest versions supported by Java 8"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-jenkins"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.jenkins.ModernizePluginForJava8" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

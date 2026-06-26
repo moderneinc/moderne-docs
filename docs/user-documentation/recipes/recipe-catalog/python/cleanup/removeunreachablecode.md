@@ -1,37 +1,36 @@
 ---
 title: "Strip dead code after terminal statements"
 sidebar_label: "Strip dead code after terminal statements"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Strip dead code after terminal statements
+<RecipeMeta
+  displayName={"Strip dead code after terminal statements"}
+  description={"Delete statements that follow a `return`, `raise`, `continue`, or `break` in the same block, since they can never execute."}
+  fqName={"org.openrewrite.python.cleanup.RemoveUnreachableCode"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.RemoveUnreachableCode**
+<RecipeHeader
+  displayName={"Strip dead code after terminal statements"}
+  description={"Delete statements that follow a `return`, `raise`, `continue`, or `break` in the same block, since they can never execute."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.RemoveUnreachableCode"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveUnreachableCode"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeunreachablecode.md"}
+  moderneOnly
+/>
 
-_Delete statements that follow a `return`, `raise`, `continue`, or `break` in the same block, since they can never execute._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveUnreachableCode","displayName":"Strip dead code after terminal statements","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.RemoveUnreachableCode"
-  displayName="Strip dead code after terminal statements"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

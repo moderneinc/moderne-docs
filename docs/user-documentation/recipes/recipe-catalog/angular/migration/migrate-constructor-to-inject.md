@@ -1,37 +1,36 @@
 ---
 title: "Migrate constructor injection to `inject()`"
 sidebar_label: "Migrate constructor injection to `inject()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate constructor injection to `inject()`
+<RecipeMeta
+  displayName={"Migrate constructor injection to `inject()`"}
+  description={"Converts constructor parameter properties in Angular classes to field declarations using the `inject()` function. For example, `constructor(private svc: MyService) {}` becomes `private svc = inject(MyService);`."}
+  fqName={"org.openrewrite.angular.migration.migrate-constructor-to-inject"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.migrate-constructor-to-inject**
+<RecipeHeader
+  displayName={"Migrate constructor injection to `inject()`"}
+  description={"Converts constructor parameter properties in Angular classes to field declarations using the `inject()` function. For example, `constructor(private svc: MyService) {}` becomes `private svc = inject(MyService);`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.migrate-constructor-to-inject"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.migrate-constructor-to-inject"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/migrate-constructor-to-inject.md"}
+  moderneOnly
+/>
 
-_Converts constructor parameter properties in Angular classes to field declarations using the `inject()` function. For example, `constructor(private svc: MyService) {}` becomes `private svc = inject(MyService);`._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 21](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular21)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.migrate-constructor-to-inject","displayName":"Migrate constructor injection to `inject()`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.migrate-constructor-to-inject"
-  displayName="Migrate constructor injection to `inject()`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

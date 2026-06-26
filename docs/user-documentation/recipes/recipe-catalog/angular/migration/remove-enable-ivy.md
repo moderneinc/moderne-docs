@@ -1,37 +1,36 @@
 ---
 title: "Remove `enableIvy` compiler option"
 sidebar_label: "Remove `enableIvy` compiler option"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove `enableIvy` compiler option
+<RecipeMeta
+  displayName={"Remove `enableIvy` compiler option"}
+  description={"Removes the `enableIvy` option from `angularCompilerOptions` in `tsconfig.json`. Ivy is the only rendering engine since Angular 12, and the option was removed in Angular 15."}
+  fqName={"org.openrewrite.angular.migration.remove-enable-ivy"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.remove-enable-ivy**
+<RecipeHeader
+  displayName={"Remove `enableIvy` compiler option"}
+  description={"Removes the `enableIvy` option from `angularCompilerOptions` in `tsconfig.json`. Ivy is the only rendering engine since Angular 12, and the option was removed in Angular 15."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.remove-enable-ivy"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-enable-ivy"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-enable-ivy.md"}
+  moderneOnly
+/>
 
-_Removes the `enableIvy` option from `angularCompilerOptions` in `tsconfig.json`. Ivy is the only rendering engine since Angular 12, and the option was removed in Angular 15._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 15](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular15)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-enable-ivy","displayName":"Remove `enableIvy` compiler option","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.remove-enable-ivy"
-  displayName="Remove `enableIvy` compiler option"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

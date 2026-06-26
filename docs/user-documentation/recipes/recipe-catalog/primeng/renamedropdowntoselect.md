@@ -1,37 +1,42 @@
 ---
 title: "Rename `Dropdown` to `Select`"
 sidebar_label: "Rename `Dropdown` to `Select`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Rename `Dropdown` to `Select`
+<RecipeMeta
+  displayName={"Rename `Dropdown` to `Select`"}
+  description={"Renames `Dropdown` and `DropdownModule` imports from `primeng/dropdown` to `Select` and `SelectModule` from `primeng/select`, and updates all identifier usages. The old names are deprecated in PrimeNG 18."}
+  fqName={"org.openrewrite.primeng.RenameDropdownToSelect"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.primeng.RenameDropdownToSelect**
+<RecipeHeader
+  displayName={"Rename `Dropdown` to `Select`"}
+  description={"Renames `Dropdown` and `DropdownModule` imports from `primeng/dropdown` to `Select` and `SelectModule` from `primeng/select`, and updates all identifier usages. The old names are deprecated in PrimeNG 18."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.primeng.RenameDropdownToSelect"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.RenameDropdownToSelect"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/renamedropdowntoselect.md"}
+  moderneOnly
+/>
 
-_Renames `Dropdown` and `DropdownModule` imports from `primeng/dropdown` to `Select` and `SelectModule` from `primeng/select`, and updates all identifier usages. The old names are deprecated in PrimeNG 18._
+<RecipeList recipes={[{"name":"Rename `Dropdown` identifiers to `Select`","href":""},{"name":"Change import","href":"javascript/change-import"},{"name":"Change import","href":"javascript/change-import"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade PrimeNG components to 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/primeng/upgradecomponentsto18)
-
+<UsageList usage={{"recipeName":"org.openrewrite.primeng.RenameDropdownToSelect","displayName":"Rename `Dropdown` to `Select`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.primeng.RenameDropdownToSelect"
-  displayName="Rename `Dropdown` to `Select`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

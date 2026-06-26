@@ -1,43 +1,36 @@
 ---
 title: "Remove explicit 'class' from record"
 sidebar_label: "Remove explicit 'class' from record"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove explicit 'class' from record
+<RecipeMeta
+  displayName={"Remove explicit 'class' from record"}
+  description={"Remove the redundant `class` keyword from `record class` declarations. Records are reference types by default."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveExplicitClassFromRecord"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveExplicitClassFromRecord**
+<RecipeHeader
+  displayName={"Remove explicit 'class' from record"}
+  description={"Remove the redundant `class` keyword from `record class` declarations. Records are reference types by default."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","redundancy","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveExplicitClassFromRecord"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveExplicitClassFromRecord"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeexplicitclassfromrecord.md"}
+  moderneOnly
+/>
 
-_Remove the redundant `class` keyword from `record class` declarations. Records are reference types by default._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [redundancy](/user-documentation/recipes/lists/recipes-by-tag#redundancy)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Redundancy code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/redundancycodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveExplicitClassFromRecord","displayName":"Remove explicit 'class' from record","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveExplicitClassFromRecord"
-  displayName="Remove explicit 'class' from record"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

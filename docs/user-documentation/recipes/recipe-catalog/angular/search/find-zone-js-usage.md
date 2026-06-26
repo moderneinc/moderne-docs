@@ -1,30 +1,36 @@
 ---
 title: "Find zone.js usage"
 sidebar_label: "Find zone.js usage"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find zone.js usage
+<RecipeMeta
+  displayName={"Find zone.js usage"}
+  description={"Finds zone.js imports and NgZone references. Angular 20 supports zoneless change detection via `provideZonelessChangeDetection()`, making zone.js optional."}
+  fqName={"org.openrewrite.angular.search.find-zone-js-usage"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.search.find-zone-js-usage**
+<RecipeHeader
+  displayName={"Find zone.js usage"}
+  description={"Finds zone.js imports and NgZone references. Angular 20 supports zoneless change detection via `provideZonelessChangeDetection()`, making zone.js optional."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.search.find-zone-js-usage"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-zone-js-usage"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-zone-js-usage.md"}
+  moderneOnly
+/>
 
-_Finds zone.js imports and NgZone references. Angular 20 supports zoneless change detection via `provideZonelessChangeDetection()`, making zone.js optional._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-zone-js-usage","displayName":"Find zone.js usage","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.search.find-zone-js-usage"
-  displayName="Find zone.js usage"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

@@ -1,6 +1,7 @@
 ---
 title: "Migrate Log4j 2.x Layout to logback-classic equivalents"
 sidebar_label: "Migrate Log4j 2.x Layout to logback-classic equivalents"
+hide_title: true
 ---
 
 
@@ -8,211 +9,45 @@ sidebar_label: "Migrate Log4j 2.x Layout to logback-classic equivalents"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/logback/log4jlayouttologback" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate Log4j 2.x Layout to logback-classic equivalents
+<RecipeMeta
+  displayName={"Migrate Log4j 2.x Layout to logback-classic equivalents"}
+  description={"Migrates custom Log4j 2.x Layout components to `logback-classic`. This recipe operates on the following assumptions: 1. A logback-classic layout must extend the `LayoutBase<ILoggingEvent>` class. 2. log4j's `format()` is renamed to `doLayout()` in a logback-classic layout. 3. LoggingEvent `getRenderedMessage()` is converted to LoggingEvent `getMessage()`. 4. The log4j ignoresThrowable() method is not needed and has no equivalent in logback-classic. 5. The activateOptions() method merits further discussion. In log4j, a layout will have its activateOptions() method invoked by log4j configurators, that is PropertyConfigurator or DOMConfigurator just after all the options of the layout have been set. Thus, the layout will have an opportunity to check that its options are coherent and if so, proceed to fully initialize itself. 6. In logback-classic, layouts must implement the LifeCycle interface which includes a method called start(). The start() method is the equivalent of log4j's activateOptions() method. For more details, see this page from logback: [`Migration from log4j`](http://logback.qos.ch/manual/migrationFromLog4j.html)."}
+  fqName={"org.openrewrite.java.logging.logback.Log4jLayoutToLogback"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-logging-frameworks/blob/main/src/main/java/org/openrewrite/java/logging/logback/Log4jLayoutToLogback.java"}
+/>
 
-**org.openrewrite.java.logging.logback.Log4jLayoutToLogback**
+<RecipeHeader
+  displayName={"Migrate Log4j 2.x Layout to logback-classic equivalents"}
+  description={"Migrates custom Log4j 2.x Layout components to `logback-classic`. This recipe operates on the following assumptions: 1. A logback-classic layout must extend the `LayoutBase<ILoggingEvent>` class. 2. log4j's `format()` is renamed to `doLayout()` in a logback-classic layout. 3. LoggingEvent `getRenderedMessage()` is converted to LoggingEvent `getMessage()`. 4. The log4j ignoresThrowable() method is not needed and has no equivalent in logback-classic. 5. The activateOptions() method merits further discussion. In log4j, a layout will have its activateOptions() method invoked by log4j configurators, that is PropertyConfigurator or DOMConfigurator just after all the options of the layout have been set. Thus, the layout will have an opportunity to check that its options are coherent and if so, proceed to fully initialize itself. 6. In logback-classic, layouts must implement the LifeCycle interface which includes a method called start(). The start() method is the equivalent of log4j's activateOptions() method. For more details, see this page from logback: [`Migration from log4j`](http://logback.qos.ch/manual/migrationFromLog4j.html)."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.logging.logback.Log4jLayoutToLogback"}
+  artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.logback.Log4jLayoutToLogback"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/logback/log4jlayouttologback.md"}
+/>
 
-_Migrates custom Log4j 2.x Layout components to `logback-classic`. This recipe operates on the following assumptions: 1. A logback-classic layout must extend the `LayoutBase<ILoggingEvent>` class. 2. log4j's `format()` is renamed to `doLayout()` in a logback-classic layout. 3. LoggingEvent `getRenderedMessage()` is converted to LoggingEvent `getMessage()`. 4. The log4j ignoresThrowable() method is not needed and has no equivalent in logback-classic. 5. The activateOptions() method merits further discussion. In log4j, a layout will have its activateOptions() method invoked by log4j configurators, that is PropertyConfigurator or DOMConfigurator just after all the options of the layout have been set. Thus, the layout will have an opportunity to check that its options are coherent and if so, proceed to fully initialize itself. 6. In logback-classic, layouts must implement the LifeCycle interface which includes a method called start(). The start() method is the equivalent of log4j's activateOptions() method. For more details, see this page from logback: [`Migration from log4j`](http://logback.qos.ch/manual/migrationFromLog4j.html)._
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.log4j.Layout;\nimport org.apache.log4j.spi.LoggingEvent;\n\nclass TrivialLayout extends Layout {\n\n    @Override\n    public void activateOptions() {\n        // there are no options to activate\n    }\n\n    @Override\n    public String format(LoggingEvent event) {\n        return event.getRenderedMessage();\n    }\n\n    @Override\n    public boolean ignoresThrowable() {\n        return true;\n    }\n}\n","after":"import ch.qos.logback.classic.spi.ILoggingEvent;\nimport ch.qos.logback.core.LayoutBase;\n\nclass TrivialLayout extends LayoutBase<ILoggingEvent> {\n\n    @Override\n    public String doLayout(ILoggingEvent event) {\n        return event.getMessage();\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.apache.log4j.Layout;\n-import org.apache.log4j.spi.LoggingEvent;\n+import ch.qos.logback.classic.spi.ILoggingEvent;\n+import ch.qos.logback.core.LayoutBase;\n\n@@ -4,1 +4,1 @@\nimport org.apache.log4j.spi.LoggingEvent;\n\n-class TrivialLayout extends Layout {\n+class TrivialLayout extends LayoutBase<ILoggingEvent> {\n\n@@ -7,2 +7,2 @@\n\n    @Override\n-   public void activateOptions() {\n-       // there are no options to activate\n+   public String doLayout(ILoggingEvent event) {\n+       return event.getMessage();\n    }\n@@ -10,10 +10,0 @@\n        // there are no options to activate\n    }\n-\n-   @Override\n-   public String format(LoggingEvent event) {\n-       return event.getRenderedMessage();\n-   }\n-\n-   @Override\n-   public boolean ignoresThrowable() {\n-       return true;\n-   }\n}\n","newFile":false}]}]}>
 
-## Recipe source
+## Examples
 
-[GitHub: Log4jLayoutToLogback.java](https://github.com/openrewrite/rewrite-logging-frameworks/blob/main/src/main/java/org/openrewrite/java/logging/logback/Log4jLayoutToLogback.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-logging-frameworks/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-logging-frameworks/)
+</ExampleList>
 
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate Log4j 2.x to Logback](/user-documentation/recipes/recipe-catalog/java/logging/logback/log4jtologback.md)
-
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.apache.log4j.Layout;
-import org.apache.log4j.spi.LoggingEvent;
-
-class TrivialLayout extends Layout {
-
-    @Override
-    public void activateOptions() {
-        // there are no options to activate
-    }
-
-    @Override
-    public String format(LoggingEvent event) {
-        return event.getRenderedMessage();
-    }
-
-    @Override
-    public boolean ignoresThrowable() {
-        return true;
-    }
-}
-```
-
-###### After
-```java
-import ch.qos.logback.classic.spi.ILoggingEvent;
-import ch.qos.logback.core.LayoutBase;
-
-class TrivialLayout extends LayoutBase<ILoggingEvent> {
-
-    @Override
-    public String doLayout(ILoggingEvent event) {
-        return event.getMessage();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,2 @@
--import org.apache.log4j.Layout;
--import org.apache.log4j.spi.LoggingEvent;
-+import ch.qos.logback.classic.spi.ILoggingEvent;
-+import ch.qos.logback.core.LayoutBase;
-
-@@ -4,1 +4,1 @@
-import org.apache.log4j.spi.LoggingEvent;
-
--class TrivialLayout extends Layout {
-+class TrivialLayout extends LayoutBase<ILoggingEvent> {
-
-@@ -7,2 +7,2 @@
-
-    @Override
--   public void activateOptions() {
--       // there are no options to activate
-+   public String doLayout(ILoggingEvent event) {
-+       return event.getMessage();
-    }
-@@ -10,10 +10,0 @@
-        // there are no options to activate
-    }
--
--   @Override
--   public String format(LoggingEvent event) {
--       return event.getRenderedMessage();
--   }
--
--   @Override
--   public boolean ignoresThrowable() {
--       return true;
--   }
-}
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.logging.logback.Log4jLayoutToLogback","displayName":"Migrate Log4j 2.x Layout to logback-classic equivalents","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.logging.logback.Log4jLayoutToLogback"
-  displayName="Migrate Log4j 2.x Layout to logback-classic equivalents"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-logging-frameworks"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.logging.logback.Log4jLayoutToLogback" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

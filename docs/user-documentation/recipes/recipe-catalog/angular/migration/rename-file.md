@@ -1,44 +1,42 @@
 ---
 title: "Rename file"
 sidebar_label: "Rename file"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Rename file
+<RecipeMeta
+  displayName={"Rename file"}
+  description={"Renames files matching a glob pattern to a new file name, preserving the directory."}
+  fqName={"org.openrewrite.angular.migration.rename-file"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.rename-file**
+<RecipeHeader
+  displayName={"Rename file"}
+  description={"Renames files matching a glob pattern to a new file name, preserving the directory."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.rename-file"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.rename-file"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/rename-file.md"}
+  moderneOnly
+/>
 
-_Renames files matching a glob pattern to a new file name, preserving the directory._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"String","name":"fileMatcher","required":true,"description":"Glob pattern to match files (e.g., `**/browserslist`). Supports `**` prefix to match in any directory.","example":"**/browserslist"},{"type":"String","name":"fileName","required":true,"description":"The new file name (just the basename, e.g., `.browserslistrc`).","example":".browserslistrc"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `null` | fileMatcher | Glob pattern to match files (e.g., `**/browserslist`). Supports `**` prefix to match in any directory. | `**/browserslist` |
-| `null` | fileName | The new file name (just the basename, e.g., `.browserslistrc`). | `.browserslistrc` |
+</OptionsTable>
 
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 10](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular10)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.rename-file","displayName":"Rename file","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.rename-file"
-  displayName="Rename file"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

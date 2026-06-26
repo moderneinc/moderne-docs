@@ -1,35 +1,36 @@
 ---
 title: "Use coalesce expression instead of 'if'"
 sidebar_label: "Use coalesce expression instead of 'if'"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use coalesce expression instead of 'if'
+<RecipeMeta
+  displayName={"Use coalesce expression instead of 'if'"}
+  description={"Replace `if (x == null) x = y;` with `x ??= y`."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseCoalesceExpressionInsteadOfIf"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseCoalesceExpressionInsteadOfIf**
+<RecipeHeader
+  displayName={"Use coalesce expression instead of 'if'"}
+  description={"Replace `if (x == null) x = y;` with `x ??= y`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseCoalesceExpressionInsteadOfIf"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseCoalesceExpressionInsteadOfIf"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usecoalesceexpressioninsteadofif.md"}
+  moderneOnly
+/>
 
-_Replace `if (x == null) x = y;` with `x ??= y`._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseCoalesceExpressionInsteadOfIf","displayName":"Use coalesce expression instead of 'if'","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseCoalesceExpressionInsteadOfIf"
-  displayName="Use coalesce expression instead of 'if'"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

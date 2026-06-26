@@ -1,37 +1,36 @@
 ---
 title: "Remove implicit ref callback returns"
 sidebar_label: "Remove implicit ref callback returns"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove implicit ref callback returns
+<RecipeMeta
+  displayName={"Remove implicit ref callback returns"}
+  description={"In React 19, ref callbacks can return cleanup functions. Arrow functions with expression bodies implicitly return values, which React would interpret as cleanup functions. This recipe wraps them in block bodies."}
+  fqName={"org.openrewrite.react.19.no-implicit-ref-callback-return"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.19.no-implicit-ref-callback-return**
+<RecipeHeader
+  displayName={"Remove implicit ref callback returns"}
+  description={"In React 19, ref callbacks can return cleanup functions. Arrow functions with expression bodies implicitly return values, which React would interpret as cleanup functions. This recipe wraps them in block bodies."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.19.no-implicit-ref-callback-return"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.no-implicit-ref-callback-return"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/no-implicit-ref-callback-return.md"}
+  moderneOnly
+/>
 
-_In React 19, ref callbacks can return cleanup functions. Arrow functions with expression bodies implicitly return values, which React would interpret as cleanup functions. This recipe wraps them in block bodies._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to React 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-19)
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.19.no-implicit-ref-callback-return","displayName":"Remove implicit ref callback returns","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.19.no-implicit-ref-callback-return"
-  displayName="Remove implicit ref callback returns"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

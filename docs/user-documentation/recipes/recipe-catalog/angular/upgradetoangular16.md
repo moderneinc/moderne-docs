@@ -1,37 +1,42 @@
 ---
 title: "Upgrade to Angular 16"
 sidebar_label: "Upgrade to Angular 16"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Upgrade to Angular 16
+<RecipeMeta
+  displayName={"Upgrade to Angular 16"}
+  description={"Migrates Angular 15.x applications to Angular 16. This includes removing `entryComponents` and `moduleId` from decorators, replacing `RouterLinkWithHref` with `RouterLink`, moving the `XhrFactory` import to `@angular/common`, and flagging removed APIs like `ReflectiveInjector`, `renderModuleFactory`, and `BrowserTransferStateModule`."}
+  fqName={"org.openrewrite.angular.UpgradeToAngular16"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.UpgradeToAngular16**
+<RecipeHeader
+  displayName={"Upgrade to Angular 16"}
+  description={"Migrates Angular 15.x applications to Angular 16. This includes removing `entryComponents` and `moduleId` from decorators, replacing `RouterLinkWithHref` with `RouterLink`, moving the `XhrFactory` import to `@angular/common`, and flagging removed APIs like `ReflectiveInjector`, `renderModuleFactory`, and `BrowserTransferStateModule`."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.UpgradeToAngular16"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular16"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/upgradetoangular16.md"}
+  moderneOnly
+/>
 
-_Migrates Angular 15.x applications to Angular 16. This includes removing `entryComponents` and `moduleId` from decorators, replacing `RouterLinkWithHref` with `RouterLink`, moving the `XhrFactory` import to `@angular/common`, and flagging removed APIs like `ReflectiveInjector`, `renderModuleFactory`, and `BrowserTransferStateModule`._
+<RecipeList recipes={[{"name":"Upgrade to Angular 15","href":"angular/upgradetoangular15"},{"name":"Remove `entryComponents`","href":"angular/migration/remove-entry-components"},{"name":"Remove `moduleId`","href":"angular/migration/remove-module-id"},{"name":"Replace `RouterLinkWithHref` with `RouterLink`","href":"angular/migration/replace-router-link-with-href"},{"name":"Change import","href":"javascript/change-import"},{"name":"Find `ReflectiveInjector` usage","href":"angular/search/find-reflective-injector-usage"},{"name":"Find `renderModuleFactory` usage","href":"angular/search/find-render-module-factory-usage"},{"name":"Find `BrowserTransferStateModule` usage","href":"angular/search/find-browser-transfer-state-module-usage"},{"name":"Find `renderApplication` usage","href":"angular/search/find-render-application-usage"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 17](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular17)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.UpgradeToAngular16","displayName":"Upgrade to Angular 16","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.UpgradeToAngular16"
-  displayName="Upgrade to Angular 16"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

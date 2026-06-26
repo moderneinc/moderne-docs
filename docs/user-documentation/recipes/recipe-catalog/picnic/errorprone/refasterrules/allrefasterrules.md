@@ -1,6 +1,7 @@
 ---
 title: "All Picnic Refaster rules"
 sidebar_label: "All Picnic Refaster rules"
+hide_title: true
 ---
 
 
@@ -8,297 +9,45 @@ sidebar_label: "All Picnic Refaster rules"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/picnic/errorprone/refasterrules/allrefasterrules" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# All Picnic Refaster rules
+<RecipeMeta
+  displayName={"All Picnic Refaster rules"}
+  description={"Collection of all Refaster rules from Picnic's error-prone-contrib project."}
+  fqName={"tech.picnic.errorprone.refasterrules.AllRefasterRules"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/search?type=code&q=tech.picnic.errorprone.refasterrules.AllRefasterRules"}
+/>
 
-**tech.picnic.errorprone.refasterrules.AllRefasterRules**
+<RecipeHeader
+  displayName={"All Picnic Refaster rules"}
+  description={"Collection of all Refaster rules from Picnic's error-prone-contrib project."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"tech.picnic.errorprone.refasterrules.AllRefasterRules"}
+  artifact={"org.openrewrite.recipe:rewrite-third-party"}
+  appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AllRefasterRules"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/allrefasterrules.md"}
+/>
 
-_Collection of all Refaster rules from Picnic's error-prone-contrib project._
-
-## Recipe source
-
-[GitHub: search?type=code&q=tech.picnic.errorprone.refasterrules.AllRefasterRules](https://github.com/search?type=code&q=tech.picnic.errorprone.refasterrules.AllRefasterRules),
-[Issue Tracker](https://github.com/openrewrite/rewrite-third-party/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-third-party/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
+<RecipeList recipes={[{"name":"Refaster rules related to AssertJ assertions over `BigDecimal`s","href":"picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes"},{"name":"`AssertJBigIntegerRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes"},{"name":"`AssertJBooleanRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjbooleanrulesrecipes"},{"name":"`AssertJByteRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjbyterulesrecipes"},{"name":"`AssertJCharSequenceRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes"},{"name":"`AssertJComparableRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjcomparablerulesrecipes"},{"name":"`AssertJDoubleRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjdoublerulesrecipes"},{"name":"Refaster rules related to AssertJ assertions over `Duration`s","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes"},{"name":"`AssertJEnumerableRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjenumerablerulesrecipes"},{"name":"Refaster rules related to AssertJ assertions over `File`s","href":"picnic/errorprone/refasterrules/assertjfilerulesrecipes"},{"name":"`AssertJFloatRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjfloatrulesrecipes"},{"name":"Refaster rules related to AssertJ assertions over `Instant`s","href":"picnic/errorprone/refasterrules/assertjinstantrulesrecipes"},{"name":"`AssertJIntegerRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjintegerrulesrecipes"},{"name":"`AssertJIterableRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjiterablerulesrecipes"},{"name":"`AssertJIteratorRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjiteratorrulesrecipes"},{"name":"`AssertJLongRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjlongrulesrecipes"},{"name":"`AssertJMapRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes"},{"name":"`AssertJNumberRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjnumberrulesrecipes"},{"name":"`AssertJObjectRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes"},{"name":"`AssertJOptionalRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjoptionalrulesrecipes"},{"name":"Refaster rules related to AssertJ assertions over `Path`s","href":"picnic/errorprone/refasterrules/assertjpathrulesrecipes"},{"name":"`AssertJPrimitiveRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjprimitiverulesrecipes"},{"name":"`AssertJRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjrulesrecipes"},{"name":"`AssertJShortRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjshortrulesrecipes"},{"name":"`AssertJStreamRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjstreamrulesrecipes"},{"name":"`AssertJStringRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjstringrulesrecipes"},{"name":"Refaster rules related to AssertJ assertions over expressions that may throw a `Throwable` subtype","href":"picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes"},{"name":"`AssortedRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assortedrulesrecipes"},{"name":"`BigDecimalRules` Refaster recipes","href":"picnic/errorprone/refasterrules/bigdecimalrulesrecipes"},{"name":"`BugCheckerRules` Refaster recipes","href":"picnic/errorprone/refasterrules/bugcheckerrulesrecipes"},{"name":"`CharSequenceRules` Refaster recipes","href":"picnic/errorprone/refasterrules/charsequencerulesrecipes"},{"name":"`ClassRules` Refaster recipes","href":"picnic/errorprone/refasterrules/classrulesrecipes"},{"name":"`CollectionRules` Refaster recipes","href":"picnic/errorprone/refasterrules/collectionrulesrecipes"},{"name":"`ComparatorRules` Refaster recipes","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes"},{"name":"`DequeRules` Refaster recipes","href":"picnic/errorprone/refasterrules/dequerulesrecipes"},{"name":"`DoubleStreamRules` Refaster recipes","href":"picnic/errorprone/refasterrules/doublestreamrulesrecipes"},{"name":"`EqualityRules` Refaster recipes","href":"picnic/errorprone/refasterrules/equalityrulesrecipes"},{"name":"`FileRules` Refaster recipes","href":"picnic/errorprone/refasterrules/filerulesrecipes"},{"name":"`ImmutableEnumSetRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutableenumsetrulesrecipes"},{"name":"`ImmutableListMultimapRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes"},{"name":"`ImmutableListRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutablelistrulesrecipes"},{"name":"`ImmutableMapRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutablemaprulesrecipes"},{"name":"`ImmutableMultisetRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutablemultisetrulesrecipes"},{"name":"`ImmutableSetMultimapRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutablesetmultimaprulesrecipes"},{"name":"`ImmutableSetRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutablesetrulesrecipes"},{"name":"`ImmutableSortedMapRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes"},{"name":"`ImmutableSortedMultisetRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes"},{"name":"`ImmutableSortedSetRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes"},{"name":"`ImmutableTableRules` Refaster recipes","href":"picnic/errorprone/refasterrules/immutabletablerulesrecipes"},{"name":"`InputStreamRules` Refaster recipes","href":"picnic/errorprone/refasterrules/inputstreamrulesrecipes"},{"name":"`IntStreamRules` Refaster recipes","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes"},{"name":"`JUnitRules` Refaster recipes","href":"picnic/errorprone/refasterrules/junitrulesrecipes"},{"name":"Refaster rules to replace JUnit assertions with AssertJ equivalents","href":"picnic/errorprone/refasterrules/junittoassertjrulesrecipes"},{"name":"`Jackson2Rules` Refaster recipes","href":"picnic/errorprone/refasterrules/jackson2rulesrecipes"},{"name":"`Jackson3Rules` Refaster recipes","href":"picnic/errorprone/refasterrules/jackson3rulesrecipes"},{"name":"`LongStreamRules` Refaster recipes","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes"},{"name":"`MapEntryRules` Refaster recipes","href":"picnic/errorprone/refasterrules/mapentryrulesrecipes"},{"name":"`MapRules` Refaster recipes","href":"picnic/errorprone/refasterrules/maprulesrecipes"},{"name":"`MicrometerRules` Refaster recipes","href":"picnic/errorprone/refasterrules/micrometerrulesrecipes"},{"name":"`MockitoRules` Refaster recipes","href":"picnic/errorprone/refasterrules/mockitorulesrecipes"},{"name":"`MultimapRules` Refaster recipes","href":"picnic/errorprone/refasterrules/multimaprulesrecipes"},{"name":"`NullRules` Refaster recipes","href":"picnic/errorprone/refasterrules/nullrulesrecipes"},{"name":"`OptionalRules` Refaster recipes","href":"picnic/errorprone/refasterrules/optionalrulesrecipes"},{"name":"`PatternRules` Refaster recipes","href":"picnic/errorprone/refasterrules/patternrulesrecipes"},{"name":"`PreconditionsRules` Refaster recipes","href":"picnic/errorprone/refasterrules/preconditionsrulesrecipes"},{"name":"`PrimitiveRules` Refaster recipes","href":"picnic/errorprone/refasterrules/primitiverulesrecipes"},{"name":"`RandomGeneratorRules` Refaster recipes","href":"picnic/errorprone/refasterrules/randomgeneratorrulesrecipes"},{"name":"`ReactorRules` Refaster recipes","href":"picnic/errorprone/refasterrules/reactorrulesrecipes"},{"name":"`RxJava2AdapterRules` Refaster recipes","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes"},{"name":"`SpringTestRules` Refaster recipes","href":"picnic/errorprone/refasterrules/springtestrulesrecipes"},{"name":"`StreamRules` Refaster recipes","href":"picnic/errorprone/refasterrules/streamrulesrecipes"},{"name":"`StringBuilderRules` Refaster recipes","href":"picnic/errorprone/refasterrules/stringbuilderrulesrecipes"},{"name":"`StringRules` Refaster recipes","href":"picnic/errorprone/refasterrules/stringrulesrecipes"},{"name":"`SuggestedFixRules` Refaster recipes","href":"picnic/errorprone/refasterrules/suggestedfixrulesrecipes"},{"name":"Refaster rules that replace TestNG assertions with equivalent AssertJ assertions","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes"},{"name":"`TimeRules` Refaster recipes","href":"picnic/errorprone/refasterrules/timerulesrecipes"},{"name":"`WebClientRules` Refaster recipes","href":"picnic/errorprone/refasterrules/webclientrulesrecipes"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Refaster rules related to AssertJ assertions over `BigDecimal`s](../../../picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes)
-* [`AssertJBigIntegerRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes)
-* [`AssertJBooleanRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjbooleanrulesrecipes)
-* [`AssertJByteRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjbyterulesrecipes)
-* [`AssertJCharSequenceRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes)
-* [`AssertJComparableRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjcomparablerulesrecipes)
-* [`AssertJDoubleRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjdoublerulesrecipes)
-* [Refaster rules related to AssertJ assertions over `Duration`s](../../../picnic/errorprone/refasterrules/assertjdurationrulesrecipes)
-* [`AssertJEnumerableRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjenumerablerulesrecipes)
-* [Refaster rules related to AssertJ assertions over `File`s](../../../picnic/errorprone/refasterrules/assertjfilerulesrecipes)
-* [`AssertJFloatRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjfloatrulesrecipes)
-* [Refaster rules related to AssertJ assertions over `Instant`s](../../../picnic/errorprone/refasterrules/assertjinstantrulesrecipes)
-* [`AssertJIntegerRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjintegerrulesrecipes)
-* [`AssertJIterableRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjiterablerulesrecipes)
-* [`AssertJIteratorRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjiteratorrulesrecipes)
-* [`AssertJLongRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjlongrulesrecipes)
-* [`AssertJMapRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjmaprulesrecipes)
-* [`AssertJNumberRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjnumberrulesrecipes)
-* [`AssertJObjectRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjobjectrulesrecipes)
-* [`AssertJOptionalRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjoptionalrulesrecipes)
-* [Refaster rules related to AssertJ assertions over `Path`s](../../../picnic/errorprone/refasterrules/assertjpathrulesrecipes)
-* [`AssertJPrimitiveRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjprimitiverulesrecipes)
-* [`AssertJRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjrulesrecipes)
-* [`AssertJShortRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjshortrulesrecipes)
-* [`AssertJStreamRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjstreamrulesrecipes)
-* [`AssertJStringRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjstringrulesrecipes)
-* [Refaster rules related to AssertJ assertions over expressions that may throw a `Throwable` subtype](../../../picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes)
-* [`AssortedRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assortedrulesrecipes)
-* [`BigDecimalRules` Refaster recipes](../../../picnic/errorprone/refasterrules/bigdecimalrulesrecipes)
-* [`BugCheckerRules` Refaster recipes](../../../picnic/errorprone/refasterrules/bugcheckerrulesrecipes)
-* [`CharSequenceRules` Refaster recipes](../../../picnic/errorprone/refasterrules/charsequencerulesrecipes)
-* [`ClassRules` Refaster recipes](../../../picnic/errorprone/refasterrules/classrulesrecipes)
-* [`CollectionRules` Refaster recipes](../../../picnic/errorprone/refasterrules/collectionrulesrecipes)
-* [`ComparatorRules` Refaster recipes](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes)
-* [`DequeRules` Refaster recipes](../../../picnic/errorprone/refasterrules/dequerulesrecipes)
-* [`DoubleStreamRules` Refaster recipes](../../../picnic/errorprone/refasterrules/doublestreamrulesrecipes)
-* [`EqualityRules` Refaster recipes](../../../picnic/errorprone/refasterrules/equalityrulesrecipes)
-* [`FileRules` Refaster recipes](../../../picnic/errorprone/refasterrules/filerulesrecipes)
-* [`ImmutableEnumSetRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutableenumsetrulesrecipes)
-* [`ImmutableListMultimapRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes)
-* [`ImmutableListRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutablelistrulesrecipes)
-* [`ImmutableMapRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutablemaprulesrecipes)
-* [`ImmutableMultisetRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutablemultisetrulesrecipes)
-* [`ImmutableSetMultimapRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutablesetmultimaprulesrecipes)
-* [`ImmutableSetRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutablesetrulesrecipes)
-* [`ImmutableSortedMapRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes)
-* [`ImmutableSortedMultisetRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes)
-* [`ImmutableSortedSetRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes)
-* [`ImmutableTableRules` Refaster recipes](../../../picnic/errorprone/refasterrules/immutabletablerulesrecipes)
-* [`InputStreamRules` Refaster recipes](../../../picnic/errorprone/refasterrules/inputstreamrulesrecipes)
-* [`IntStreamRules` Refaster recipes](../../../picnic/errorprone/refasterrules/intstreamrulesrecipes)
-* [`JUnitRules` Refaster recipes](../../../picnic/errorprone/refasterrules/junitrulesrecipes)
-* [Refaster rules to replace JUnit assertions with AssertJ equivalents](../../../picnic/errorprone/refasterrules/junittoassertjrulesrecipes)
-* [`Jackson2Rules` Refaster recipes](../../../picnic/errorprone/refasterrules/jackson2rulesrecipes)
-* [`Jackson3Rules` Refaster recipes](../../../picnic/errorprone/refasterrules/jackson3rulesrecipes)
-* [`LongStreamRules` Refaster recipes](../../../picnic/errorprone/refasterrules/longstreamrulesrecipes)
-* [`MapEntryRules` Refaster recipes](../../../picnic/errorprone/refasterrules/mapentryrulesrecipes)
-* [`MapRules` Refaster recipes](../../../picnic/errorprone/refasterrules/maprulesrecipes)
-* [`MicrometerRules` Refaster recipes](../../../picnic/errorprone/refasterrules/micrometerrulesrecipes)
-* [`MockitoRules` Refaster recipes](../../../picnic/errorprone/refasterrules/mockitorulesrecipes)
-* [`MultimapRules` Refaster recipes](../../../picnic/errorprone/refasterrules/multimaprulesrecipes)
-* [`NullRules` Refaster recipes](../../../picnic/errorprone/refasterrules/nullrulesrecipes)
-* [`OptionalRules` Refaster recipes](../../../picnic/errorprone/refasterrules/optionalrulesrecipes)
-* [`PatternRules` Refaster recipes](../../../picnic/errorprone/refasterrules/patternrulesrecipes)
-* [`PreconditionsRules` Refaster recipes](../../../picnic/errorprone/refasterrules/preconditionsrulesrecipes)
-* [`PrimitiveRules` Refaster recipes](../../../picnic/errorprone/refasterrules/primitiverulesrecipes)
-* [`RandomGeneratorRules` Refaster recipes](../../../picnic/errorprone/refasterrules/randomgeneratorrulesrecipes)
-* [`ReactorRules` Refaster recipes](../../../picnic/errorprone/refasterrules/reactorrulesrecipes)
-* [`RxJava2AdapterRules` Refaster recipes](../../../picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes)
-* [`SpringTestRules` Refaster recipes](../../../picnic/errorprone/refasterrules/springtestrulesrecipes)
-* [`StreamRules` Refaster recipes](../../../picnic/errorprone/refasterrules/streamrulesrecipes)
-* [`StringBuilderRules` Refaster recipes](../../../picnic/errorprone/refasterrules/stringbuilderrulesrecipes)
-* [`StringRules` Refaster recipes](../../../picnic/errorprone/refasterrules/stringrulesrecipes)
-* [`SuggestedFixRules` Refaster recipes](../../../picnic/errorprone/refasterrules/suggestedfixrulesrecipes)
-* [Refaster rules that replace TestNG assertions with equivalent AssertJ assertions](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes)
-* [`TimeRules` Refaster recipes](../../../picnic/errorprone/refasterrules/timerulesrecipes)
-* [`WebClientRules` Refaster recipes](../../../picnic/errorprone/refasterrules/webclientrulesrecipes)
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: tech.picnic.errorprone.refasterrules.AllRefasterRules
-displayName: All Picnic Refaster rules
-description: |
-  Collection of all Refaster rules from Picnic's error-prone-contrib project.
-recipeList:
-  - tech.picnic.errorprone.refasterrules.AssertJBigDecimalRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJBigIntegerRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJBooleanRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJByteRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJCharSequenceRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJComparableRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJDoubleRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJFloatRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJInstantRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJIntegerRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJIteratorRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJLongRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJNumberRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJPrimitiveRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJShortRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssortedRulesRecipes
-  - tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes
-  - tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes
-  - tech.picnic.errorprone.refasterrules.CharSequenceRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ClassRulesRecipes
-  - tech.picnic.errorprone.refasterrules.CollectionRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes
-  - tech.picnic.errorprone.refasterrules.DequeRulesRecipes
-  - tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes
-  - tech.picnic.errorprone.refasterrules.EqualityRulesRecipes
-  - tech.picnic.errorprone.refasterrules.FileRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableListMultimapRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableMapRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableMultisetRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableSetMultimapRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableSetRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableSortedMapRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableSortedMultisetRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableSortedSetRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ImmutableTableRulesRecipes
-  - tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes
-  - tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes
-  - tech.picnic.errorprone.refasterrules.JUnitRulesRecipes
-  - tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes
-  - tech.picnic.errorprone.refasterrules.Jackson2RulesRecipes
-  - tech.picnic.errorprone.refasterrules.Jackson3RulesRecipes
-  - tech.picnic.errorprone.refasterrules.LongStreamRulesRecipes
-  - tech.picnic.errorprone.refasterrules.MapEntryRulesRecipes
-  - tech.picnic.errorprone.refasterrules.MapRulesRecipes
-  - tech.picnic.errorprone.refasterrules.MicrometerRulesRecipes
-  - tech.picnic.errorprone.refasterrules.MockitoRulesRecipes
-  - tech.picnic.errorprone.refasterrules.MultimapRulesRecipes
-  - tech.picnic.errorprone.refasterrules.NullRulesRecipes
-  - tech.picnic.errorprone.refasterrules.OptionalRulesRecipes
-  - tech.picnic.errorprone.refasterrules.PatternRulesRecipes
-  - tech.picnic.errorprone.refasterrules.PreconditionsRulesRecipes
-  - tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes
-  - tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes
-  - tech.picnic.errorprone.refasterrules.ReactorRulesRecipes
-  - tech.picnic.errorprone.refasterrules.RxJava2AdapterRulesRecipes
-  - tech.picnic.errorprone.refasterrules.SpringTestRulesRecipes
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes
-  - tech.picnic.errorprone.refasterrules.StringBuilderRulesRecipes
-  - tech.picnic.errorprone.refasterrules.StringRulesRecipes
-  - tech.picnic.errorprone.refasterrules.SuggestedFixRulesRecipes
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes
-  - tech.picnic.errorprone.refasterrules.TimeRulesRecipes
-  - tech.picnic.errorprone.refasterrules.WebClientRulesRecipes
-
-```
-</TabItem>
-</Tabs>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AllRefasterRules","displayName":"All Picnic Refaster rules","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="tech.picnic.errorprone.refasterrules.AllRefasterRules"
-  displayName="All Picnic Refaster rules"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-third-party"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AllRefasterRules" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

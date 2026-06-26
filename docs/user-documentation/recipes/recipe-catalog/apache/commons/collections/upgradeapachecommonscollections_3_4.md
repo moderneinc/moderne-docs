@@ -1,6 +1,7 @@
 ---
 title: "Migrates to Apache Commons Collections 4.x"
 sidebar_label: "Migrates to Apache Commons Collections 4.x"
+hide_title: true
 ---
 
 
@@ -8,392 +9,51 @@ sidebar_label: "Migrates to Apache Commons Collections 4.x"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/collections/upgradeapachecommonscollections_3_4" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrates to Apache Commons Collections 4.x
+<RecipeMeta
+  displayName={"Migrates to Apache Commons Collections 4.x"}
+  description={"Migrate applications to the latest Apache Commons Collections 4.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions."}
+  fqName={"org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-apache/blob/main/src/main/resources/META-INF/rewrite/apache-commons-collections-3-4.yml"}
+/>
 
-**org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections\_3\_4**
+<RecipeHeader
+  displayName={"Migrates to Apache Commons Collections 4.x"}
+  description={"Migrate applications to the latest Apache Commons Collections 4.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={["apache","collections","commons"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4"}
+  artifact={"org.openrewrite.recipe:rewrite-apache"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/collections/upgradeapachecommonscollections_3_4.md"}
+/>
 
-_Migrate applications to the latest Apache Commons Collections 4.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions._
-
-### Tags
-
-* [apache](/user-documentation/recipes/lists/recipes-by-tag#apache)
-* [collections](/user-documentation/recipes/lists/recipes-by-tag#collections)
-* [commons](/user-documentation/recipes/lists/recipes-by-tag#commons)
-
-## Recipe source
-
-[GitHub: apache-commons-collections-3-4.yml](https://github.com/openrewrite/rewrite-apache/blob/main/src/main/resources/META-INF/rewrite/apache-commons-collections-3-4.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-apache/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-apache/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"},{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"},{"name":"Rename package name","href":"java/changepackage"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
-  * oldGroupId: `commons-collections`
-  * oldArtifactId: `commons-collections`
-  * newGroupId: `org.apache.commons`
-  * newArtifactId: `commons-collections4`
-  * newVersion: `4.x`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.commons.collections.map.IdentityMap`
-  * newFullyQualifiedTypeName: `java.util.IdentityHashMap`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.commons.collections.FastArrayList`
-  * newFullyQualifiedTypeName: `java.util.concurrent.CopyOnWriteArrayList`
-* [Change static field access to static method access](../../../java/changestaticfieldtomethod)
-  * oldClassName: `org.apache.commons.collections.MapUtils`
-  * oldFieldName: `EMPTY_MAP`
-  * newClassName: `java.util.Collections`
-  * newMethodName: `emptyMap`
-* [Change static field access to static method access](../../../java/changestaticfieldtomethod)
-  * oldClassName: `org.apache.commons.collections.ListUtils`
-  * oldFieldName: `EMPTY_LIST`
-  * newClassName: `java.util.Collections`
-  * newMethodName: `emptyList`
-* [Rename package name](../../../java/changepackage)
-  * oldPackageName: `org.apache.commons.collections`
-  * newPackageName: `org.apache.commons.collections4`
-  * recursive: `true`
+</RecipeList>
 
-</TabItem>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.collections.CollectionUtils;\nimport org.apache.commons.collections.map.IdentityMap;\nimport org.apache.commons.collections.ListUtils;\nimport org.apache.commons.collections.MapUtils;\nimport org.apache.commons.collections.FastArrayList;\n\nimport java.util.List;\nimport java.util.Map;\n\nclass Test {\n    static void helloApacheCollections() {\n        Object[] input = new Object[] { \"one\", \"two\" };\n        CollectionUtils.reverseArray(input);\n        IdentityMap identityMap = new IdentityMap();\n        Map emptyMap = MapUtils.EMPTY_MAP;\n        FastArrayList fastList = new FastArrayList(100);\n        List emptyList = ListUtils.EMPTY_LIST;\n    }\n}\n","after":"import org.apache.commons.collections4.CollectionUtils;\n\nimport java.util.Collections;\nimport java.util.IdentityHashMap;\nimport java.util.List;\nimport java.util.Map;\nimport java.util.concurrent.CopyOnWriteArrayList;\n\nclass Test {\n    static void helloApacheCollections() {\n        Object[] input = new Object[] { \"one\", \"two\" };\n        CollectionUtils.reverseArray(input);\n        IdentityHashMap identityMap = new IdentityHashMap();\n        Map emptyMap = Collections.emptyMap();\n        CopyOnWriteArrayList fastList = new CopyOnWriteArrayList(100);\n        List emptyList = Collections.emptyList();\n    }\n}\n","diff":"@@ -1,5 +1,1 @@\n-import org.apache.commons.collections.CollectionUtils;\n-import org.apache.commons.collections.map.IdentityMap;\n-import org.apache.commons.collections.ListUtils;\n-import org.apache.commons.collections.MapUtils;\n-import org.apache.commons.collections.FastArrayList;\n+import org.apache.commons.collections4.CollectionUtils;\n\n@@ -7,0 +3,2 @@\nimport org.apache.commons.collections.FastArrayList;\n\n+import java.util.Collections;\n+import java.util.IdentityHashMap;\nimport java.util.List;\n@@ -9,0 +7,1 @@\nimport java.util.List;\nimport java.util.Map;\n+import java.util.concurrent.CopyOnWriteArrayList;\n\n@@ -14,4 +13,4 @@\n        Object[] input = new Object[] { \"one\", \"two\" };\n        CollectionUtils.reverseArray(input);\n-       IdentityMap identityMap = new IdentityMap();\n-       Map emptyMap = MapUtils.EMPTY_MAP;\n-       FastArrayList fastList = new FastArrayList(100);\n-       List emptyList = ListUtils.EMPTY_LIST;\n+       IdentityHashMap identityMap = new IdentityHashMap();\n+       Map emptyMap = Collections.emptyMap();\n+       CopyOnWriteArrayList fastList = new CopyOnWriteArrayList(100);\n+       List emptyList = Collections.emptyList();\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.apache.commons.collections.CollectionUtils;\nimport org.apache.commons.collections.map.IdentityMap;\nimport org.apache.commons.collections.ListUtils;\nimport org.apache.commons.collections.MapUtils;\nimport org.apache.commons.collections.FastArrayList;\n\nimport java.util.List;\nimport java.util.Map;\n\nclass Test {\n    static void helloApacheCollections() {\n        Object[] input = new Object[] { \"one\", \"two\" };\n        CollectionUtils.reverseArray(input);\n        IdentityMap identityMap = new IdentityMap();\n        Map emptyMap = MapUtils.EMPTY_MAP;\n        FastArrayList fastList = new FastArrayList(100);\n        List emptyList = ListUtils.EMPTY_LIST;\n    }\n}\n","after":"import org.apache.commons.collections4.CollectionUtils;\n\nimport java.util.Collections;\nimport java.util.IdentityHashMap;\nimport java.util.List;\nimport java.util.Map;\nimport java.util.concurrent.CopyOnWriteArrayList;\n\nclass Test {\n    static void helloApacheCollections() {\n        Object[] input = new Object[] { \"one\", \"two\" };\n        CollectionUtils.reverseArray(input);\n        IdentityHashMap identityMap = new IdentityHashMap();\n        Map emptyMap = Collections.emptyMap();\n        CopyOnWriteArrayList fastList = new CopyOnWriteArrayList(100);\n        List emptyList = Collections.emptyList();\n    }\n}\n","diff":"@@ -1,5 +1,1 @@\n-import org.apache.commons.collections.CollectionUtils;\n-import org.apache.commons.collections.map.IdentityMap;\n-import org.apache.commons.collections.ListUtils;\n-import org.apache.commons.collections.MapUtils;\n-import org.apache.commons.collections.FastArrayList;\n+import org.apache.commons.collections4.CollectionUtils;\n\n@@ -7,0 +3,2 @@\nimport org.apache.commons.collections.FastArrayList;\n\n+import java.util.Collections;\n+import java.util.IdentityHashMap;\nimport java.util.List;\n@@ -9,0 +7,1 @@\nimport java.util.List;\nimport java.util.Map;\n+import java.util.concurrent.CopyOnWriteArrayList;\n\n@@ -14,4 +13,4 @@\n        Object[] input = new Object[] { \"one\", \"two\" };\n        CollectionUtils.reverseArray(input);\n-       IdentityMap identityMap = new IdentityMap();\n-       Map emptyMap = MapUtils.EMPTY_MAP;\n-       FastArrayList fastList = new FastArrayList(100);\n-       List emptyList = ListUtils.EMPTY_LIST;\n+       IdentityHashMap identityMap = new IdentityHashMap();\n+       Map emptyMap = Collections.emptyMap();\n+       CopyOnWriteArrayList fastList = new CopyOnWriteArrayList(100);\n+       List emptyList = Collections.emptyList();\n    }\n","newFile":false}]}]}>
 
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4
-displayName: Migrates to Apache Commons Collections 4.x
-description: |
-  Migrate applications to the latest Apache Commons Collections 4.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions.
-tags:
-  - apache
-  - collections
-  - commons
-recipeList:
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: commons-collections
-      oldArtifactId: commons-collections
-      newGroupId: org.apache.commons
-      newArtifactId: commons-collections4
-      newVersion: 4.x
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.commons.collections.map.IdentityMap
-      newFullyQualifiedTypeName: java.util.IdentityHashMap
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.commons.collections.FastArrayList
-      newFullyQualifiedTypeName: java.util.concurrent.CopyOnWriteArrayList
-  - org.openrewrite.java.ChangeStaticFieldToMethod:
-      oldClassName: org.apache.commons.collections.MapUtils
-      oldFieldName: EMPTY_MAP
-      newClassName: java.util.Collections
-      newMethodName: emptyMap
-  - org.openrewrite.java.ChangeStaticFieldToMethod:
-      oldClassName: org.apache.commons.collections.ListUtils
-      oldFieldName: EMPTY_LIST
-      newClassName: java.util.Collections
-      newMethodName: emptyList
-  - org.openrewrite.java.ChangePackage:
-      oldPackageName: org.apache.commons.collections
-      newPackageName: org.apache.commons.collections4
-      recursive: true
-
-```
-</TabItem>
-</Tabs>
 ## Examples
-##### Example 1
-`UpgradeApacheCommonsCollections_3_4Test#apacheCommonsCollections`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.map.IdentityMap;
-import org.apache.commons.collections.ListUtils;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.collections.FastArrayList;
-
-import java.util.List;
-import java.util.Map;
-
-class Test {
-    static void helloApacheCollections() {
-        Object[] input = new Object[] { "one", "two" };
-        CollectionUtils.reverseArray(input);
-        IdentityMap identityMap = new IdentityMap();
-        Map emptyMap = MapUtils.EMPTY_MAP;
-        FastArrayList fastList = new FastArrayList(100);
-        List emptyList = ListUtils.EMPTY_LIST;
-    }
-}
-```
-
-###### After
-```java
-import org.apache.commons.collections4.CollectionUtils;
-
-import java.util.Collections;
-import java.util.IdentityHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
-
-class Test {
-    static void helloApacheCollections() {
-        Object[] input = new Object[] { "one", "two" };
-        CollectionUtils.reverseArray(input);
-        IdentityHashMap identityMap = new IdentityHashMap();
-        Map emptyMap = Collections.emptyMap();
-        CopyOnWriteArrayList fastList = new CopyOnWriteArrayList(100);
-        List emptyList = Collections.emptyList();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,5 +1,1 @@
--import org.apache.commons.collections.CollectionUtils;
--import org.apache.commons.collections.map.IdentityMap;
--import org.apache.commons.collections.ListUtils;
--import org.apache.commons.collections.MapUtils;
--import org.apache.commons.collections.FastArrayList;
-+import org.apache.commons.collections4.CollectionUtils;
-
-@@ -7,0 +3,2 @@
-import org.apache.commons.collections.FastArrayList;
-
-+import java.util.Collections;
-+import java.util.IdentityHashMap;
-import java.util.List;
-@@ -9,0 +7,1 @@
-import java.util.List;
-import java.util.Map;
-+import java.util.concurrent.CopyOnWriteArrayList;
-
-@@ -14,4 +13,4 @@
-        Object[] input = new Object[] { "one", "two" };
-        CollectionUtils.reverseArray(input);
--       IdentityMap identityMap = new IdentityMap();
--       Map emptyMap = MapUtils.EMPTY_MAP;
--       FastArrayList fastList = new FastArrayList(100);
--       List emptyList = ListUtils.EMPTY_LIST;
-+       IdentityHashMap identityMap = new IdentityHashMap();
-+       Map emptyMap = Collections.emptyMap();
-+       CopyOnWriteArrayList fastList = new CopyOnWriteArrayList(100);
-+       List emptyList = Collections.emptyList();
-    }
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`UpgradeApacheCommonsCollections_3_4Test#apacheCommonsCollections`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.map.IdentityMap;
-import org.apache.commons.collections.ListUtils;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.collections.FastArrayList;
-
-import java.util.List;
-import java.util.Map;
-
-class Test {
-    static void helloApacheCollections() {
-        Object[] input = new Object[] { "one", "two" };
-        CollectionUtils.reverseArray(input);
-        IdentityMap identityMap = new IdentityMap();
-        Map emptyMap = MapUtils.EMPTY_MAP;
-        FastArrayList fastList = new FastArrayList(100);
-        List emptyList = ListUtils.EMPTY_LIST;
-    }
-}
-```
-
-###### After
-```java
-import org.apache.commons.collections4.CollectionUtils;
-
-import java.util.Collections;
-import java.util.IdentityHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
-
-class Test {
-    static void helloApacheCollections() {
-        Object[] input = new Object[] { "one", "two" };
-        CollectionUtils.reverseArray(input);
-        IdentityHashMap identityMap = new IdentityHashMap();
-        Map emptyMap = Collections.emptyMap();
-        CopyOnWriteArrayList fastList = new CopyOnWriteArrayList(100);
-        List emptyList = Collections.emptyList();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,5 +1,1 @@
--import org.apache.commons.collections.CollectionUtils;
--import org.apache.commons.collections.map.IdentityMap;
--import org.apache.commons.collections.ListUtils;
--import org.apache.commons.collections.MapUtils;
--import org.apache.commons.collections.FastArrayList;
-+import org.apache.commons.collections4.CollectionUtils;
-
-@@ -7,0 +3,2 @@
-import org.apache.commons.collections.FastArrayList;
-
-+import java.util.Collections;
-+import java.util.IdentityHashMap;
-import java.util.List;
-@@ -9,0 +7,1 @@
-import java.util.List;
-import java.util.Map;
-+import java.util.concurrent.CopyOnWriteArrayList;
-
-@@ -14,4 +13,4 @@
-        Object[] input = new Object[] { "one", "two" };
-        CollectionUtils.reverseArray(input);
--       IdentityMap identityMap = new IdentityMap();
--       Map emptyMap = MapUtils.EMPTY_MAP;
--       FastArrayList fastList = new FastArrayList(100);
--       List emptyList = ListUtils.EMPTY_LIST;
-+       IdentityHashMap identityMap = new IdentityHashMap();
-+       Map emptyMap = Collections.emptyMap();
-+       CopyOnWriteArrayList fastList = new CopyOnWriteArrayList(100);
-+       List emptyList = Collections.emptyList();
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4","displayName":"Migrates to Apache Commons Collections 4.x","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4"
-  displayName="Migrates to Apache Commons Collections 4.x"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-apache"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

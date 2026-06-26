@@ -1,36 +1,36 @@
 ---
 title: "Simplify redundant logical expression"
 sidebar_label: "Simplify redundant logical expression"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Simplify redundant logical expression
+<RecipeMeta
+  displayName={"Simplify redundant logical expression"}
+  description={"Simplify `x && x` to `x`, `x || x` to `x`, and similarly for `&` and `|`, where both sides of a logical or bitwise operator are identical."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyRedundantLogicalExpression"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyRedundantLogicalExpression**
+<RecipeHeader
+  displayName={"Simplify redundant logical expression"}
+  description={"Simplify `x && x` to `x`, `x || x` to `x`, and similarly for `&` and `|`, where both sides of a logical or bitwise operator are identical."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","simplification","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyRedundantLogicalExpression"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyRedundantLogicalExpression"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifyredundantlogicalexpression.md"}
+  moderneOnly
+/>
 
-_Simplify `x && x` to `x`, `x || x` to `x`, and similarly for `&` and `|`, where both sides of a logical or bitwise operator are identical._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [simplification](/user-documentation/recipes/lists/recipes-by-tag#simplification)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyRedundantLogicalExpression","displayName":"Simplify redundant logical expression","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyRedundantLogicalExpression"
-  displayName="Simplify redundant logical expression"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

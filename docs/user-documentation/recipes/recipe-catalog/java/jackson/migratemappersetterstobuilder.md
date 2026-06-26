@@ -1,6 +1,7 @@
 ---
 title: "Migrate mapper setter calls to builder pattern"
 sidebar_label: "Migrate mapper setter calls to builder pattern"
+hide_title: true
 ---
 
 
@@ -8,481 +9,45 @@ sidebar_label: "Migrate mapper setter calls to builder pattern"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/migratemappersetterstobuilder" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate mapper setter calls to builder pattern
+<RecipeMeta
+  displayName={"Migrate mapper setter calls to builder pattern"}
+  description={"In Jackson 3, `JsonMapper` and other format-aligned mappers are immutable. Configuration methods like `setFilterProvider`, `addMixIn`, `disable`, `enable`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible."}
+  fqName={"org.openrewrite.java.jackson.MigrateMapperSettersToBuilder"}
+  languages={["Java"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-jackson/blob/main/src/main/java/org/openrewrite/java/jackson/MigrateMapperSettersToBuilder.java"}
+/>
 
-**org.openrewrite.java.jackson.MigrateMapperSettersToBuilder**
+<RecipeHeader
+  displayName={"Migrate mapper setter calls to builder pattern"}
+  description={"In Jackson 3, `JsonMapper` and other format-aligned mappers are immutable. Configuration methods like `setFilterProvider`, `addMixIn`, `disable`, `enable`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={["jackson-3"]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.java.jackson.MigrateMapperSettersToBuilder"}
+  artifact={"org.openrewrite.recipe:rewrite-jackson"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.MigrateMapperSettersToBuilder"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/migratemappersetterstobuilder.md"}
+/>
 
-_In Jackson 3, `JsonMapper` and other format-aligned mappers are immutable. Configuration methods like `setFilterProvider`, `addMixIn`, `disable`, `enable`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible._
-
-### Tags
-
-* [jackson-3](/user-documentation/recipes/lists/recipes-by-tag#jackson)
-
-## Recipe source
-
-[GitHub: MigrateMapperSettersToBuilder.java](https://github.com/openrewrite/rewrite-jackson/blob/main/src/main/java/org/openrewrite/java/jackson/MigrateMapperSettersToBuilder.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-jackson/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-jackson/)
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrates from Jackson 2.x to Jackson 3.x](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3.md)
+<ExampleList examples={[{"variants":[{"language":"kotlin","before":"import com.fasterxml.jackson.databind.SerializationFeature\nimport com.fasterxml.jackson.databind.json.JsonMapper\n\nclass A {\n    fun create(): JsonMapper {\n        return JsonMapper()\n            .disable(SerializationFeature.INDENT_OUTPUT)\n    }\n}\n","after":"import com.fasterxml.jackson.databind.SerializationFeature\nimport com.fasterxml.jackson.databind.json.JsonMapper\n\nclass A {\n    fun create(): JsonMapper {\n        return JsonMapper.builder()\n            .disable(SerializationFeature.INDENT_OUTPUT)\n            .build()\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass A {\n    fun create(): JsonMapper {\n-       return JsonMapper()\n+       return JsonMapper.builder()\n            .disable(SerializationFeature.INDENT_OUTPUT)\n@@ -8,0 +8,1 @@\n        return JsonMapper()\n            .disable(SerializationFeature.INDENT_OUTPUT)\n+           .build()\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import com.fasterxml.jackson.annotation.JsonAutoDetect;\nimport com.fasterxml.jackson.annotation.JsonInclude;\nimport com.fasterxml.jackson.annotation.JsonSetter;\nimport com.fasterxml.jackson.annotation.PropertyAccessor;\nimport com.fasterxml.jackson.core.Base64Variants;\nimport com.fasterxml.jackson.core.PrettyPrinter;\nimport com.fasterxml.jackson.databind.AnnotationIntrospector;\nimport com.fasterxml.jackson.databind.DeserializationFeature;\nimport com.fasterxml.jackson.databind.InjectableValues;\nimport com.fasterxml.jackson.databind.MapperFeature;\nimport com.fasterxml.jackson.databind.Module;\nimport com.fasterxml.jackson.databind.ObjectMapper;\nimport com.fasterxml.jackson.databind.PropertyNamingStrategy;\nimport com.fasterxml.jackson.databind.SerializationFeature;\nimport com.fasterxml.jackson.databind.cfg.CacheProvider;\nimport com.fasterxml.jackson.databind.cfg.ConstructorDetector;\nimport com.fasterxml.jackson.databind.cfg.ContextAttributes;\nimport com.fasterxml.jackson.databind.cfg.HandlerInstantiator;\nimport com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;\nimport com.fasterxml.jackson.databind.introspect.AccessorNamingStrategy;\nimport com.fasterxml.jackson.databind.json.JsonMapper;\nimport com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;\nimport com.fasterxml.jackson.databind.jsontype.SubtypeResolver;\nimport com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder;\nimport com.fasterxml.jackson.databind.node.JsonNodeFactory;\nimport com.fasterxml.jackson.databind.ser.FilterProvider;\nimport com.fasterxml.jackson.databind.ser.SerializerFactory;\nimport com.fasterxml.jackson.databind.type.TypeFactory;\n\nimport java.text.SimpleDateFormat;\nimport java.util.Locale;\nimport java.util.TimeZone;\n\nclass A {\n    JsonMapper create(\n            Module module,\n            DeserializationProblemHandler handler,\n            PolymorphicTypeValidator validator,\n            TypeResolverBuilder<?> typeResolver,\n            FilterProvider filterProvider,\n            SerializerFactory serializerFactory,\n            PrettyPrinter prettyPrinter,\n            InjectableValues injectableValues,\n            ConstructorDetector constructorDetector,\n            CacheProvider cacheProvider,\n            AnnotationIntrospector introspector,\n            SubtypeResolver subtypeResolver,\n            HandlerInstantiator handlerInstantiator,\n            PropertyNamingStrategy namingStrategy,\n            AccessorNamingStrategy.Provider accessorNaming,\n            ContextAttributes attributes\n    ) {\n        JsonMapper mapper = new JsonMapper();\n        mapper.configure(MapperFeature.AUTO_DETECT_FIELDS, true);\n        mapper.disable(SerializationFeature.INDENT_OUTPUT);\n        mapper.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);\n        mapper.registerModule(module);\n        mapper.registerModules(module);\n        mapper.findAndRegisterModules();\n        mapper.addMixIn(Object.class, Comparable.class);\n        mapper.registerSubtypes(Object.class);\n        mapper.addHandler(handler);\n        mapper.clearProblemHandlers();\n        mapper.activateDefaultTyping(validator);\n        mapper.activateDefaultTypingAsProperty(validator, ObjectMapper.DefaultTyping.NON_FINAL, \"@type\");\n        mapper.deactivateDefaultTyping();\n        mapper.setDefaultTyping(typeResolver);\n        mapper.setFilterProvider(filterProvider);\n        mapper.setSerializerFactory(serializerFactory);\n        mapper.setDefaultPrettyPrinter(prettyPrinter);\n        mapper.setInjectableValues(injectableValues);\n        mapper.setNodeFactory(JsonNodeFactory.instance);\n        mapper.setConstructorDetector(constructorDetector);\n        mapper.setCacheProvider(cacheProvider);\n        mapper.setAnnotationIntrospector(introspector);\n        mapper.setTypeFactory(TypeFactory.defaultInstance());\n        mapper.setSubtypeResolver(subtypeResolver);\n        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);\n        mapper.setHandlerInstantiator(handlerInstantiator);\n        mapper.setPropertyNamingStrategy(namingStrategy);\n        mapper.setAccessorNaming(accessorNaming);\n        mapper.setPolymorphicTypeValidator(validator);\n        mapper.setDateFormat(new SimpleDateFormat(\"yyyy-MM-dd\"));\n        mapper.setTimeZone(TimeZone.getDefault());\n        mapper.setLocale(Locale.US);\n        mapper.setBase64Variant(Base64Variants.MIME);\n        mapper.setDefaultAttributes(attributes);\n        mapper.setDefaultPropertyInclusion(JsonInclude.Value.empty());\n        mapper.setDefaultSetterInfo(JsonSetter.Value.empty());\n        mapper.setDefaultMergeable(Boolean.TRUE);\n        mapper.setDefaultLeniency(Boolean.TRUE);\n        return mapper;\n    }\n}\n","after":"import com.fasterxml.jackson.annotation.JsonAutoDetect;\nimport com.fasterxml.jackson.annotation.JsonInclude;\nimport com.fasterxml.jackson.annotation.JsonSetter;\nimport com.fasterxml.jackson.annotation.PropertyAccessor;\nimport com.fasterxml.jackson.core.Base64Variants;\nimport com.fasterxml.jackson.core.PrettyPrinter;\nimport com.fasterxml.jackson.databind.AnnotationIntrospector;\nimport com.fasterxml.jackson.databind.DeserializationFeature;\nimport com.fasterxml.jackson.databind.InjectableValues;\nimport com.fasterxml.jackson.databind.MapperFeature;\nimport com.fasterxml.jackson.databind.Module;\nimport com.fasterxml.jackson.databind.ObjectMapper;\nimport com.fasterxml.jackson.databind.PropertyNamingStrategy;\nimport com.fasterxml.jackson.databind.SerializationFeature;\nimport com.fasterxml.jackson.databind.cfg.CacheProvider;\nimport com.fasterxml.jackson.databind.cfg.ConstructorDetector;\nimport com.fasterxml.jackson.databind.cfg.ContextAttributes;\nimport com.fasterxml.jackson.databind.cfg.HandlerInstantiator;\nimport com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;\nimport com.fasterxml.jackson.databind.introspect.AccessorNamingStrategy;\nimport com.fasterxml.jackson.databind.json.JsonMapper;\nimport com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;\nimport com.fasterxml.jackson.databind.jsontype.SubtypeResolver;\nimport com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder;\nimport com.fasterxml.jackson.databind.node.JsonNodeFactory;\nimport com.fasterxml.jackson.databind.ser.FilterProvider;\nimport com.fasterxml.jackson.databind.ser.SerializerFactory;\nimport com.fasterxml.jackson.databind.type.TypeFactory;\n\nimport java.text.SimpleDateFormat;\nimport java.util.Locale;\nimport java.util.TimeZone;\n\nclass A {\n    JsonMapper create(\n            Module module,\n            DeserializationProblemHandler handler,\n            PolymorphicTypeValidator validator,\n            TypeResolverBuilder<?> typeResolver,\n            FilterProvider filterProvider,\n            SerializerFactory serializerFactory,\n            PrettyPrinter prettyPrinter,\n            InjectableValues injectableValues,\n            ConstructorDetector constructorDetector,\n            CacheProvider cacheProvider,\n            AnnotationIntrospector introspector,\n            SubtypeResolver subtypeResolver,\n            HandlerInstantiator handlerInstantiator,\n            PropertyNamingStrategy namingStrategy,\n            AccessorNamingStrategy.Provider accessorNaming,\n            ContextAttributes attributes\n    ) {\n        return JsonMapper.builder()\n                .configure(MapperFeature.AUTO_DETECT_FIELDS, true)\n                .disable(SerializationFeature.INDENT_OUTPUT)\n                .enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)\n                .addModule(module)\n                .addModules(module)\n                .findAndAddModules()\n                .addMixIn(Object.class, Comparable.class)\n                .registerSubtypes(Object.class)\n                .addHandler(handler)\n                .clearProblemHandlers()\n                .activateDefaultTyping(validator)\n                .activateDefaultTypingAsProperty(validator, ObjectMapper.DefaultTyping.NON_FINAL, \"@type\")\n                .deactivateDefaultTyping()\n                .setDefaultTyping(typeResolver)\n                .filterProvider(filterProvider)\n                .serializerFactory(serializerFactory)\n                .defaultPrettyPrinter(prettyPrinter)\n                .injectableValues(injectableValues)\n                .nodeFactory(JsonNodeFactory.instance)\n                .constructorDetector(constructorDetector)\n                .cacheProvider(cacheProvider)\n                .annotationIntrospector(introspector)\n                .typeFactory(TypeFactory.defaultInstance())\n                .subtypeResolver(subtypeResolver)\n                .visibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)\n                .handlerInstantiator(handlerInstantiator)\n                .propertyNamingStrategy(namingStrategy)\n                .accessorNaming(accessorNaming)\n                .polymorphicTypeValidator(validator)\n                .defaultDateFormat(new SimpleDateFormat(\"yyyy-MM-dd\"))\n                .defaultTimeZone(TimeZone.getDefault())\n                .defaultLocale(Locale.US)\n                .defaultBase64Variant(Base64Variants.MIME)\n                .defaultAttributes(attributes)\n                .changeDefaultPropertyInclusion(incl -> JsonInclude.Value.empty())\n                .defaultSetterInfo(JsonSetter.Value.empty())\n                .defaultMergeable(Boolean.TRUE)\n                .defaultLeniency(Boolean.TRUE)\n                .build();\n    }\n}\n","diff":"@@ -53,40 +53,40 @@\n            ContextAttributes attributes\n    ) {\n-       JsonMapper mapper = new JsonMapper();\n-       mapper.configure(MapperFeature.AUTO_DETECT_FIELDS, true);\n-       mapper.disable(SerializationFeature.INDENT_OUTPUT);\n-       mapper.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);\n-       mapper.registerModule(module);\n-       mapper.registerModules(module);\n-       mapper.findAndRegisterModules();\n-       mapper.addMixIn(Object.class, Comparable.class);\n-       mapper.registerSubtypes(Object.class);\n-       mapper.addHandler(handler);\n-       mapper.clearProblemHandlers();\n-       mapper.activateDefaultTyping(validator);\n-       mapper.activateDefaultTypingAsProperty(validator, ObjectMapper.DefaultTyping.NON_FINAL, \"@type\");\n-       mapper.deactivateDefaultTyping();\n-       mapper.setDefaultTyping(typeResolver);\n-       mapper.setFilterProvider(filterProvider);\n-       mapper.setSerializerFactory(serializerFactory);\n-       mapper.setDefaultPrettyPrinter(prettyPrinter);\n-       mapper.setInjectableValues(injectableValues);\n-       mapper.setNodeFactory(JsonNodeFactory.instance);\n-       mapper.setConstructorDetector(constructorDetector);\n-       mapper.setCacheProvider(cacheProvider);\n-       mapper.setAnnotationIntrospector(introspector);\n-       mapper.setTypeFactory(TypeFactory.defaultInstance());\n-       mapper.setSubtypeResolver(subtypeResolver);\n-       mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);\n-       mapper.setHandlerInstantiator(handlerInstantiator);\n-       mapper.setPropertyNamingStrategy(namingStrategy);\n-       mapper.setAccessorNaming(accessorNaming);\n-       mapper.setPolymorphicTypeValidator(validator);\n-       mapper.setDateFormat(new SimpleDateFormat(\"yyyy-MM-dd\"));\n-       mapper.setTimeZone(TimeZone.getDefault());\n-       mapper.setLocale(Locale.US);\n-       mapper.setBase64Variant(Base64Variants.MIME);\n-       mapper.setDefaultAttributes(attributes);\n-       mapper.setDefaultPropertyInclusion(JsonInclude.Value.empty());\n-       mapper.setDefaultSetterInfo(JsonSetter.Value.empty());\n-       mapper.setDefaultMergeable(Boolean.TRUE);\n-       mapper.setDefaultLeniency(Boolean.TRUE);\n-       return mapper;\n+       return JsonMapper.builder()\n+               .configure(MapperFeature.AUTO_DETECT_FIELDS, true)\n+               .disable(SerializationFeature.INDENT_OUTPUT)\n+               .enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)\n+               .addModule(module)\n+               .addModules(module)\n+               .findAndAddModules()\n+               .addMixIn(Object.class, Comparable.class)\n+               .registerSubtypes(Object.class)\n+               .addHandler(handler)\n+               .clearProblemHandlers()\n+               .activateDefaultTyping(validator)\n+               .activateDefaultTypingAsProperty(validator, ObjectMapper.DefaultTyping.NON_FINAL, \"@type\")\n+               .deactivateDefaultTyping()\n+               .setDefaultTyping(typeResolver)\n+               .filterProvider(filterProvider)\n+               .serializerFactory(serializerFactory)\n+               .defaultPrettyPrinter(prettyPrinter)\n+               .injectableValues(injectableValues)\n+               .nodeFactory(JsonNodeFactory.instance)\n+               .constructorDetector(constructorDetector)\n+               .cacheProvider(cacheProvider)\n+               .annotationIntrospector(introspector)\n+               .typeFactory(TypeFactory.defaultInstance())\n+               .subtypeResolver(subtypeResolver)\n+               .visibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)\n+               .handlerInstantiator(handlerInstantiator)\n+               .propertyNamingStrategy(namingStrategy)\n+               .accessorNaming(accessorNaming)\n+               .polymorphicTypeValidator(validator)\n+               .defaultDateFormat(new SimpleDateFormat(\"yyyy-MM-dd\"))\n+               .defaultTimeZone(TimeZone.getDefault())\n+               .defaultLocale(Locale.US)\n+               .defaultBase64Variant(Base64Variants.MIME)\n+               .defaultAttributes(attributes)\n+               .changeDefaultPropertyInclusion(incl -> JsonInclude.Value.empty())\n+               .defaultSetterInfo(JsonSetter.Value.empty())\n+               .defaultMergeable(Boolean.TRUE)\n+               .defaultLeniency(Boolean.TRUE)\n+               .build();\n    }\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`KotlinMigrateMapperSettersToBuilderTest#fluentChainInFunction`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="kotlin" label="kotlin">
-
-
-###### Before
-```kotlin
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.databind.json.JsonMapper
-
-class A {
-    fun create(): JsonMapper {
-        return JsonMapper()
-            .disable(SerializationFeature.INDENT_OUTPUT)
-    }
-}
-```
-
-###### After
-```kotlin
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.databind.json.JsonMapper
-
-class A {
-    fun create(): JsonMapper {
-        return JsonMapper.builder()
-            .disable(SerializationFeature.INDENT_OUTPUT)
-            .build()
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -6,1 +6,1 @@
-class A {
-    fun create(): JsonMapper {
--       return JsonMapper()
-+       return JsonMapper.builder()
-            .disable(SerializationFeature.INDENT_OUTPUT)
-@@ -8,0 +8,1 @@
-        return JsonMapper()
-            .disable(SerializationFeature.INDENT_OUTPUT)
-+           .build()
-    }
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`MigrateMapperSettersToBuilderTest#allSettersMigratedToBuilder`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonSetter;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.Base64Variants;
-import com.fasterxml.jackson.core.PrettyPrinter;
-import com.fasterxml.jackson.databind.AnnotationIntrospector;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.InjectableValues;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.Module;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.cfg.CacheProvider;
-import com.fasterxml.jackson.databind.cfg.ConstructorDetector;
-import com.fasterxml.jackson.databind.cfg.ContextAttributes;
-import com.fasterxml.jackson.databind.cfg.HandlerInstantiator;
-import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
-import com.fasterxml.jackson.databind.introspect.AccessorNamingStrategy;
-import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
-import com.fasterxml.jackson.databind.jsontype.SubtypeResolver;
-import com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.ser.FilterProvider;
-import com.fasterxml.jackson.databind.ser.SerializerFactory;
-import com.fasterxml.jackson.databind.type.TypeFactory;
-
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-import java.util.TimeZone;
-
-class A {
-    JsonMapper create(
-            Module module,
-            DeserializationProblemHandler handler,
-            PolymorphicTypeValidator validator,
-            TypeResolverBuilder<?> typeResolver,
-            FilterProvider filterProvider,
-            SerializerFactory serializerFactory,
-            PrettyPrinter prettyPrinter,
-            InjectableValues injectableValues,
-            ConstructorDetector constructorDetector,
-            CacheProvider cacheProvider,
-            AnnotationIntrospector introspector,
-            SubtypeResolver subtypeResolver,
-            HandlerInstantiator handlerInstantiator,
-            PropertyNamingStrategy namingStrategy,
-            AccessorNamingStrategy.Provider accessorNaming,
-            ContextAttributes attributes
-    ) {
-        JsonMapper mapper = new JsonMapper();
-        mapper.configure(MapperFeature.AUTO_DETECT_FIELDS, true);
-        mapper.disable(SerializationFeature.INDENT_OUTPUT);
-        mapper.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-        mapper.registerModule(module);
-        mapper.registerModules(module);
-        mapper.findAndRegisterModules();
-        mapper.addMixIn(Object.class, Comparable.class);
-        mapper.registerSubtypes(Object.class);
-        mapper.addHandler(handler);
-        mapper.clearProblemHandlers();
-        mapper.activateDefaultTyping(validator);
-        mapper.activateDefaultTypingAsProperty(validator, ObjectMapper.DefaultTyping.NON_FINAL, "@type");
-        mapper.deactivateDefaultTyping();
-        mapper.setDefaultTyping(typeResolver);
-        mapper.setFilterProvider(filterProvider);
-        mapper.setSerializerFactory(serializerFactory);
-        mapper.setDefaultPrettyPrinter(prettyPrinter);
-        mapper.setInjectableValues(injectableValues);
-        mapper.setNodeFactory(JsonNodeFactory.instance);
-        mapper.setConstructorDetector(constructorDetector);
-        mapper.setCacheProvider(cacheProvider);
-        mapper.setAnnotationIntrospector(introspector);
-        mapper.setTypeFactory(TypeFactory.defaultInstance());
-        mapper.setSubtypeResolver(subtypeResolver);
-        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        mapper.setHandlerInstantiator(handlerInstantiator);
-        mapper.setPropertyNamingStrategy(namingStrategy);
-        mapper.setAccessorNaming(accessorNaming);
-        mapper.setPolymorphicTypeValidator(validator);
-        mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd"));
-        mapper.setTimeZone(TimeZone.getDefault());
-        mapper.setLocale(Locale.US);
-        mapper.setBase64Variant(Base64Variants.MIME);
-        mapper.setDefaultAttributes(attributes);
-        mapper.setDefaultPropertyInclusion(JsonInclude.Value.empty());
-        mapper.setDefaultSetterInfo(JsonSetter.Value.empty());
-        mapper.setDefaultMergeable(Boolean.TRUE);
-        mapper.setDefaultLeniency(Boolean.TRUE);
-        return mapper;
-    }
-}
-```
-
-###### After
-```java
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonSetter;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.Base64Variants;
-import com.fasterxml.jackson.core.PrettyPrinter;
-import com.fasterxml.jackson.databind.AnnotationIntrospector;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.InjectableValues;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.Module;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.cfg.CacheProvider;
-import com.fasterxml.jackson.databind.cfg.ConstructorDetector;
-import com.fasterxml.jackson.databind.cfg.ContextAttributes;
-import com.fasterxml.jackson.databind.cfg.HandlerInstantiator;
-import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
-import com.fasterxml.jackson.databind.introspect.AccessorNamingStrategy;
-import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
-import com.fasterxml.jackson.databind.jsontype.SubtypeResolver;
-import com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.ser.FilterProvider;
-import com.fasterxml.jackson.databind.ser.SerializerFactory;
-import com.fasterxml.jackson.databind.type.TypeFactory;
-
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-import java.util.TimeZone;
-
-class A {
-    JsonMapper create(
-            Module module,
-            DeserializationProblemHandler handler,
-            PolymorphicTypeValidator validator,
-            TypeResolverBuilder<?> typeResolver,
-            FilterProvider filterProvider,
-            SerializerFactory serializerFactory,
-            PrettyPrinter prettyPrinter,
-            InjectableValues injectableValues,
-            ConstructorDetector constructorDetector,
-            CacheProvider cacheProvider,
-            AnnotationIntrospector introspector,
-            SubtypeResolver subtypeResolver,
-            HandlerInstantiator handlerInstantiator,
-            PropertyNamingStrategy namingStrategy,
-            AccessorNamingStrategy.Provider accessorNaming,
-            ContextAttributes attributes
-    ) {
-        return JsonMapper.builder()
-                .configure(MapperFeature.AUTO_DETECT_FIELDS, true)
-                .disable(SerializationFeature.INDENT_OUTPUT)
-                .enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-                .addModule(module)
-                .addModules(module)
-                .findAndAddModules()
-                .addMixIn(Object.class, Comparable.class)
-                .registerSubtypes(Object.class)
-                .addHandler(handler)
-                .clearProblemHandlers()
-                .activateDefaultTyping(validator)
-                .activateDefaultTypingAsProperty(validator, ObjectMapper.DefaultTyping.NON_FINAL, "@type")
-                .deactivateDefaultTyping()
-                .setDefaultTyping(typeResolver)
-                .filterProvider(filterProvider)
-                .serializerFactory(serializerFactory)
-                .defaultPrettyPrinter(prettyPrinter)
-                .injectableValues(injectableValues)
-                .nodeFactory(JsonNodeFactory.instance)
-                .constructorDetector(constructorDetector)
-                .cacheProvider(cacheProvider)
-                .annotationIntrospector(introspector)
-                .typeFactory(TypeFactory.defaultInstance())
-                .subtypeResolver(subtypeResolver)
-                .visibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
-                .handlerInstantiator(handlerInstantiator)
-                .propertyNamingStrategy(namingStrategy)
-                .accessorNaming(accessorNaming)
-                .polymorphicTypeValidator(validator)
-                .defaultDateFormat(new SimpleDateFormat("yyyy-MM-dd"))
-                .defaultTimeZone(TimeZone.getDefault())
-                .defaultLocale(Locale.US)
-                .defaultBase64Variant(Base64Variants.MIME)
-                .defaultAttributes(attributes)
-                .changeDefaultPropertyInclusion(incl -> JsonInclude.Value.empty())
-                .defaultSetterInfo(JsonSetter.Value.empty())
-                .defaultMergeable(Boolean.TRUE)
-                .defaultLeniency(Boolean.TRUE)
-                .build();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -53,40 +53,40 @@
-            ContextAttributes attributes
-    ) {
--       JsonMapper mapper = new JsonMapper();
--       mapper.configure(MapperFeature.AUTO_DETECT_FIELDS, true);
--       mapper.disable(SerializationFeature.INDENT_OUTPUT);
--       mapper.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
--       mapper.registerModule(module);
--       mapper.registerModules(module);
--       mapper.findAndRegisterModules();
--       mapper.addMixIn(Object.class, Comparable.class);
--       mapper.registerSubtypes(Object.class);
--       mapper.addHandler(handler);
--       mapper.clearProblemHandlers();
--       mapper.activateDefaultTyping(validator);
--       mapper.activateDefaultTypingAsProperty(validator, ObjectMapper.DefaultTyping.NON_FINAL, "@type");
--       mapper.deactivateDefaultTyping();
--       mapper.setDefaultTyping(typeResolver);
--       mapper.setFilterProvider(filterProvider);
--       mapper.setSerializerFactory(serializerFactory);
--       mapper.setDefaultPrettyPrinter(prettyPrinter);
--       mapper.setInjectableValues(injectableValues);
--       mapper.setNodeFactory(JsonNodeFactory.instance);
--       mapper.setConstructorDetector(constructorDetector);
--       mapper.setCacheProvider(cacheProvider);
--       mapper.setAnnotationIntrospector(introspector);
--       mapper.setTypeFactory(TypeFactory.defaultInstance());
--       mapper.setSubtypeResolver(subtypeResolver);
--       mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
--       mapper.setHandlerInstantiator(handlerInstantiator);
--       mapper.setPropertyNamingStrategy(namingStrategy);
--       mapper.setAccessorNaming(accessorNaming);
--       mapper.setPolymorphicTypeValidator(validator);
--       mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd"));
--       mapper.setTimeZone(TimeZone.getDefault());
--       mapper.setLocale(Locale.US);
--       mapper.setBase64Variant(Base64Variants.MIME);
--       mapper.setDefaultAttributes(attributes);
--       mapper.setDefaultPropertyInclusion(JsonInclude.Value.empty());
--       mapper.setDefaultSetterInfo(JsonSetter.Value.empty());
--       mapper.setDefaultMergeable(Boolean.TRUE);
--       mapper.setDefaultLeniency(Boolean.TRUE);
--       return mapper;
-+       return JsonMapper.builder()
-+               .configure(MapperFeature.AUTO_DETECT_FIELDS, true)
-+               .disable(SerializationFeature.INDENT_OUTPUT)
-+               .enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-+               .addModule(module)
-+               .addModules(module)
-+               .findAndAddModules()
-+               .addMixIn(Object.class, Comparable.class)
-+               .registerSubtypes(Object.class)
-+               .addHandler(handler)
-+               .clearProblemHandlers()
-+               .activateDefaultTyping(validator)
-+               .activateDefaultTypingAsProperty(validator, ObjectMapper.DefaultTyping.NON_FINAL, "@type")
-+               .deactivateDefaultTyping()
-+               .setDefaultTyping(typeResolver)
-+               .filterProvider(filterProvider)
-+               .serializerFactory(serializerFactory)
-+               .defaultPrettyPrinter(prettyPrinter)
-+               .injectableValues(injectableValues)
-+               .nodeFactory(JsonNodeFactory.instance)
-+               .constructorDetector(constructorDetector)
-+               .cacheProvider(cacheProvider)
-+               .annotationIntrospector(introspector)
-+               .typeFactory(TypeFactory.defaultInstance())
-+               .subtypeResolver(subtypeResolver)
-+               .visibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
-+               .handlerInstantiator(handlerInstantiator)
-+               .propertyNamingStrategy(namingStrategy)
-+               .accessorNaming(accessorNaming)
-+               .polymorphicTypeValidator(validator)
-+               .defaultDateFormat(new SimpleDateFormat("yyyy-MM-dd"))
-+               .defaultTimeZone(TimeZone.getDefault())
-+               .defaultLocale(Locale.US)
-+               .defaultBase64Variant(Base64Variants.MIME)
-+               .defaultAttributes(attributes)
-+               .changeDefaultPropertyInclusion(incl -> JsonInclude.Value.empty())
-+               .defaultSetterInfo(JsonSetter.Value.empty())
-+               .defaultMergeable(Boolean.TRUE)
-+               .defaultLeniency(Boolean.TRUE)
-+               .build();
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.jackson.MigrateMapperSettersToBuilder","displayName":"Migrate mapper setter calls to builder pattern","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.jackson.MigrateMapperSettersToBuilder"
-  displayName="Migrate mapper setter calls to builder pattern"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-jackson"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.jackson.MigrateMapperSettersToBuilder" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

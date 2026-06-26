@@ -1,6 +1,7 @@
 ---
 title: "JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`"
 sidebar_label: "JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`"
+hide_title: true
 ---
 
 
@@ -8,204 +9,51 @@ sidebar_label: "JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/runnertoextension" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`
+<RecipeMeta
+  displayName={"JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`"}
+  description={"Replace runners with the JUnit Jupiter extension equivalent."}
+  fqName={"org.openrewrite.java.testing.junit5.RunnerToExtension"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/junit5/RunnerToExtension.java"}
+/>
 
-**org.openrewrite.java.testing.junit5.RunnerToExtension**
+<RecipeHeader
+  displayName={"JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`"}
+  description={"Replace runners with the JUnit Jupiter extension equivalent."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.testing.junit5.RunnerToExtension"}
+  artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.RunnerToExtension"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/runnertoextension.md"}
+/>
 
-_Replace runners with the JUnit Jupiter extension equivalent._
-
-## Recipe source
-
-[GitHub: RunnerToExtension.java](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/junit5/RunnerToExtension.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-testing-frameworks/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-testing-frameworks/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+<OptionsTable options={[{"type":"List","name":"runners","required":true,"description":"The fully qualified class names of the JUnit 4 runners to replace. Sometimes several runners are replaced by a single JUnit Jupiter extension.","example":"[ org.springframework.test.context.junit4.SpringRunner ]"},{"type":"String","name":"extension","required":true,"description":"The fully qualified class names of the JUnit Jupiter extension.","example":"org.springframework.test.context.junit.jupiter.SpringExtension"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `List` | runners | The fully qualified class names of the JUnit 4 runners to replace. Sometimes several runners are replaced by a single JUnit Jupiter extension. | `[ org.springframework.test.context.junit4.SpringRunner ]` |
-| `String` | extension | The fully qualified class names of the JUnit Jupiter extension. | `org.springframework.test.context.junit.jupiter.SpringExtension` |
+</OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"runners","value":"List.of(\"org.mockito.runners.MockitoJUnitRunner\")"},{"parameter":"extension","value":"org.mockito.junit.jupiter.MockitoExtension"}],"variants":[{"language":"java","before":"import org.junit.runner.RunWith;\nimport org.mockito.runners.MockitoJUnitRunner;\n\n@RunWith(MockitoJUnitRunner.class)\npublic class MyTest {\n}\n","after":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.junit.jupiter.MockitoExtension;\n\n@ExtendWith(MockitoExtension.class)\npublic class MyTest {\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.junit.runner.RunWith;\n-import org.mockito.runners.MockitoJUnitRunner;\n+import org.junit.jupiter.api.extension.ExtendWith;\n+import org.mockito.junit.jupiter.MockitoExtension;\n\n@@ -4,1 +4,1 @@\nimport org.mockito.runners.MockitoJUnitRunner;\n\n-@RunWith(MockitoJUnitRunner.class)\n+@ExtendWith(MockitoExtension.class)\npublic class MyTest {\n","newFile":false}]}]}>
 
-## Used by
+## Examples
 
-This recipe is used as part of the following composite recipes:
+</ExampleList>
 
-* [Remove unnecessary Spring `@RunWith`](/user-documentation/recipes/recipe-catalog/java/spring/boot2/unnecessaryspringrunwith.md)
-* [Use Arquillian JUnit 5 Extension](/user-documentation/recipes/recipe-catalog/java/testing/arquillian/arquillianjunit4toarquillianjunit5.md)
-* [Use Vert.x JUnit 5 Extension](/user-documentation/recipes/recipe-catalog/java/testing/junit5/vertxunittovertxjunit5.md)
-
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|runners|`List.of("org.mockito.runners.MockitoJUnitRunner")`|
-|extension|`org.mockito.junit.jupiter.MockitoExtension`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
-
-@RunWith(MockitoJUnitRunner.class)
-public class MyTest {
-}
-```
-
-###### After
-```java
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
-
-@ExtendWith(MockitoExtension.class)
-public class MyTest {
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,2 @@
--import org.junit.runner.RunWith;
--import org.mockito.runners.MockitoJUnitRunner;
-+import org.junit.jupiter.api.extension.ExtendWith;
-+import org.mockito.junit.jupiter.MockitoExtension;
-
-@@ -4,1 +4,1 @@
-import org.mockito.runners.MockitoJUnitRunner;
-
--@RunWith(MockitoJUnitRunner.class)
-+@ExtendWith(MockitoExtension.class)
-public class MyTest {
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.RunnerToExtension","displayName":"JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"runners=[ org.springframework.test.context.junit4.SpringRunner ]\" --recipe-option \"extension=org.springframework.test.context.junit.jupiter.SpringExtension\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.RunnerToExtensionExample
-displayName: JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith` example
-recipeList:
-  - org.openrewrite.java.testing.junit5.RunnerToExtension:
-      runners:
-        - [ org.springframework.test.context.junit4.SpringRunner ]
-      extension: org.springframework.test.context.junit.jupiter.SpringExtension
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.java.testing.junit5.RunnerToExtension"
-  displayName="JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-testing-frameworks"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS"
-  requiresConfiguration
-  cliOptions={' --recipe-option "runners=[ org.springframework.test.context.junit4.SpringRunner ]" --recipe-option "extension=org.springframework.test.context.junit.jupiter.SpringExtension"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.RunnerToExtension" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

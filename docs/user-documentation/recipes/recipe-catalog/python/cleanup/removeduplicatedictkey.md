@@ -1,37 +1,36 @@
 ---
 title: "Deduplicate repeated keys in dict literals"
 sidebar_label: "Deduplicate repeated keys in dict literals"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Deduplicate repeated keys in dict literals
+<RecipeMeta
+  displayName={"Deduplicate repeated keys in dict literals"}
+  description={"When a dict literal contains the same key more than once, only the final value survives at runtime. This removes the shadowed entries."}
+  fqName={"org.openrewrite.python.cleanup.RemoveDuplicateDictKey"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.RemoveDuplicateDictKey**
+<RecipeHeader
+  displayName={"Deduplicate repeated keys in dict literals"}
+  description={"When a dict literal contains the same key more than once, only the final value survives at runtime. This removes the shadowed entries."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.RemoveDuplicateDictKey"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveDuplicateDictKey"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeduplicatedictkey.md"}
+  moderneOnly
+/>
 
-_When a dict literal contains the same key more than once, only the final value survives at runtime. This removes the shadowed entries._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveDuplicateDictKey","displayName":"Deduplicate repeated keys in dict literals","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.RemoveDuplicateDictKey"
-  displayName="Deduplicate repeated keys in dict literals"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

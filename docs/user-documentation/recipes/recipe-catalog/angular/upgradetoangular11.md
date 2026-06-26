@@ -1,37 +1,42 @@
 ---
 title: "Upgrade to Angular 11"
 sidebar_label: "Upgrade to Angular 11"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Upgrade to Angular 11
+<RecipeMeta
+  displayName={"Upgrade to Angular 11"}
+  description={"Migrates Angular 10.x applications to Angular 11. This includes replacing `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`, removing the deprecated `extractCss` build option from `angular.json`, flagging deprecated string-based `loadChildren` and `preserveQueryParams` usage, and upgrading Angular, TypeScript, and related dependency versions."}
+  fqName={"org.openrewrite.angular.UpgradeToAngular11"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.UpgradeToAngular11**
+<RecipeHeader
+  displayName={"Upgrade to Angular 11"}
+  description={"Migrates Angular 10.x applications to Angular 11. This includes replacing `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`, removing the deprecated `extractCss` build option from `angular.json`, flagging deprecated string-based `loadChildren` and `preserveQueryParams` usage, and upgrading Angular, TypeScript, and related dependency versions."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.UpgradeToAngular11"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular11"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/upgradetoangular11.md"}
+  moderneOnly
+/>
 
-_Migrates Angular 10.x applications to Angular 11. This includes replacing `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`, removing the deprecated `extractCss` build option from `angular.json`, flagging deprecated string-based `loadChildren` and `preserveQueryParams` usage, and upgrading Angular, TypeScript, and related dependency versions._
+<RecipeList recipes={[{"name":"Upgrade to Angular 10","href":"angular/upgradetoangular10"},{"name":"Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`","href":"angular/migration/replace-view-encapsulation-native"},{"name":"Remove `extractCss` from `angular.json`","href":"angular/migration/remove-extract-css"},{"name":"Replace `initialNavigation` option values","href":"angular/migration/replace-initial-navigation"},{"name":"Find deprecated `preserveQueryParams` usage","href":"angular/search/find-preserve-query-params-usage"},{"name":"Find deprecated `preserveFragment` usage","href":"angular/search/find-preserve-fragment-usage"},{"name":"Find deprecated `WrappedValue` usage","href":"angular/search/find-wrapped-value-usage"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 12](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular12)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.UpgradeToAngular11","displayName":"Upgrade to Angular 11","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.UpgradeToAngular11"
-  displayName="Upgrade to Angular 11"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

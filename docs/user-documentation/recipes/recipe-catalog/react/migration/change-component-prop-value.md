@@ -1,40 +1,42 @@
 ---
 title: "Change React component prop value"
 sidebar_label: "Change React component prop value"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Change React component prop value
+<RecipeMeta
+  displayName={"Change React component prop value"}
+  description={"Changes literal prop values on React components. Useful for library upgrades where prop values were renamed (e.g., Material-UI, Ant Design)."}
+  fqName={"org.openrewrite.react.migration.change-component-prop-value"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.migration.change-component-prop-value**
+<RecipeHeader
+  displayName={"Change React component prop value"}
+  description={"Changes literal prop values on React components. Useful for library upgrades where prop values were renamed (e.g., Material-UI, Ant Design)."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.migration.change-component-prop-value"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.migration.change-component-prop-value"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/migration/change-component-prop-value.md"}
+  moderneOnly
+/>
 
-_Changes literal prop values on React components. Useful for library upgrades where prop values were renamed (e.g., Material-UI, Ant Design)._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"String","name":"componentName","required":true,"description":"The name of the React component to target","example":"Button"},{"type":"String","name":"propName","required":true,"description":"The name of the prop whose value should be changed","example":"variant"},{"type":"String","name":"oldValue","required":false,"description":"The old value to match. If `regex` is `true`, interpreted as a regular expression pattern. Supports `/pattern/flags` format for specifying regex flags (e.g., `/pattern/i` for case-insensitive). If not provided, matches all values.","example":"outlined"},{"type":"String","name":"newValue","required":true,"description":"The new value to replace with. Can use `$1`, `$2`, etc. to reference capture groups if `regex` is `true`.","example":"outlined-primary"},{"type":"String","name":"regex","required":false,"description":"If `true`, `oldValue` is interpreted as a regex pattern. Capture groups can be referenced in newValue using `$1`, `$2`, etc."}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `null` | componentName | The name of the React component to target | `Button` |
-| `null` | propName | The name of the prop whose value should be changed | `variant` |
-| `null` | oldValue | *Optional*. The old value to match. If `regex` is `true`, interpreted as a regular expression pattern. Supports `/pattern/flags` format for specifying regex flags (e.g., `/pattern/i` for case-insensitive). If not provided, matches all values. | `outlined` |
-| `null` | newValue | The new value to replace with. Can use `$1`, `$2`, etc. to reference capture groups if `regex` is `true`. | `outlined-primary` |
-| `null` | regex | *Optional*. If `true`, `oldValue` is interpreted as a regex pattern. Capture groups can be referenced in newValue using `$1`, `$2`, etc. |  |
+</OptionsTable>
 
+<UsageList usage={{"recipeName":"org.openrewrite.react.migration.change-component-prop-value","displayName":"Change React component prop value","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.migration.change-component-prop-value"
-  displayName="Change React component prop value"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

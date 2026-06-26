@@ -1,39 +1,36 @@
 ---
 title: "Detect async callbacks in synchronous array methods"
 sidebar_label: "Detect async callbacks in synchronous array methods"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Detect async callbacks in synchronous array methods
+<RecipeMeta
+  displayName={"Detect async callbacks in synchronous array methods"}
+  description={"Detects async callbacks passed to array methods like .some(), .every(), .filter() which don't await promises. This is a common bug where Promise objects are always truthy."}
+  fqName={"org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method"}
+  languages={["JavaScript"]}
+  license={"Moderne Source Available License"}
+/>
 
-**org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method**
+<RecipeHeader
+  displayName={"Detect async callbacks in synchronous array methods"}
+  description={"Detects async callbacks passed to array methods like .some(), .every(), .filter() which don't await promises. This is a common bug where Promise objects are always truthy."}
+  type={"Single recipe"}
+  languages={["JavaScript"]}
+  tags={["async","bug","cleanup","typescript","javascript"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method"}
+  artifact={"org.openrewrite:rewrite-javascript"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/async-callback-in-sync-array-method.md"}
+  moderneOnly
+/>
 
-_Detects async callbacks passed to array methods like .some(), .every(), .filter() which don't await promises. This is a common bug where Promise objects are always truthy._
-
-### Tags
-
-* [async](/user-documentation/recipes/lists/recipes-by-tag#async)
-* [bug](/user-documentation/recipes/lists/recipes-by-tag#bug)
-* [cleanup](/user-documentation/recipes/lists/recipes-by-tag#cleanup)
-* [typescript](/user-documentation/recipes/lists/recipes-by-tag#typescript)
-* [javascript](/user-documentation/recipes/lists/recipes-by-tag#javascript)
-
-## Recipe source
-
-[GitHub: rewrite+org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method](https://github.com/search?type=code&q=repo:openrewrite/rewrite+org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-javascript/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method","displayName":"Detect async callbacks in synchronous array methods","npmPackage":"@openrewrite/rewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method"
-  displayName="Detect async callbacks in synchronous array methods"
-  npmPackage="@openrewrite/rewrite"
-/>
+</UsageList>
+

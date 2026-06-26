@@ -1,37 +1,36 @@
 ---
 title: "Add `UNSAFE_` prefix to deprecated lifecycle methods"
 sidebar_label: "Add `UNSAFE_` prefix to deprecated lifecycle methods"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Add `UNSAFE_` prefix to deprecated lifecycle methods
+<RecipeMeta
+  displayName={"Add `UNSAFE_` prefix to deprecated lifecycle methods"}
+  description={"Renames `componentWillMount`, `componentWillReceiveProps`, and `componentWillUpdate` to their UNSAFE_ prefixed versions."}
+  fqName={"org.openrewrite.react.17.rename-unsafe-lifecycles"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.17.rename-unsafe-lifecycles**
+<RecipeHeader
+  displayName={"Add `UNSAFE_` prefix to deprecated lifecycle methods"}
+  description={"Renames `componentWillMount`, `componentWillReceiveProps`, and `componentWillUpdate` to their UNSAFE_ prefixed versions."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.17.rename-unsafe-lifecycles"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.17.rename-unsafe-lifecycles"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/17/rename-unsafe-lifecycles.md"}
+  moderneOnly
+/>
 
-_Renames `componentWillMount`, `componentWillReceiveProps`, and `componentWillUpdate` to their UNSAFE_ prefixed versions._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to React 17](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-17)
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.17.rename-unsafe-lifecycles","displayName":"Add `UNSAFE_` prefix to deprecated lifecycle methods","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.17.rename-unsafe-lifecycles"
-  displayName="Add `UNSAFE_` prefix to deprecated lifecycle methods"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

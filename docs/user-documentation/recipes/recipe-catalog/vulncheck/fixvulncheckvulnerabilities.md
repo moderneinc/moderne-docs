@@ -1,284 +1,54 @@
 ---
 title: "Use VulnCheck Exploit Intelligence to fix vulnerabilities"
 sidebar_label: "Use VulnCheck Exploit Intelligence to fix vulnerabilities"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use VulnCheck Exploit Intelligence to fix vulnerabilities
+<RecipeMeta
+  displayName={"Use [VulnCheck Exploit Intelligence](https://docs.vulncheck.com/products/exploit-and-vulnerability-intelligence/exploit-intelligence) to fix vulnerabilities"}
+  description={"This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from VulnCheck Vulnerability Intelligence. The recipe has an option to limit fixes to only those vulnerabilities that have evidence of exploitation at various levels of severity."}
+  fqName={"io.moderne.vulncheck.FixVulnCheckVulnerabilities"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**io.moderne.vulncheck.FixVulnCheckVulnerabilities**
+<RecipeHeader
+  displayName={"Use [VulnCheck Exploit Intelligence](https://docs.vulncheck.com/products/exploit-and-vulnerability-intelligence/exploit-intelligence) to fix vulnerabilities"}
+  description={"This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from VulnCheck Vulnerability Intelligence. The recipe has an option to limit fixes to only those vulnerabilities that have evidence of exploitation at various levels of severity."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"io.moderne.vulncheck.FixVulnCheckVulnerabilities"}
+  artifact={"io.moderne.recipe:rewrite-vulncheck"}
+  appLink={"https://app.moderne.io/recipes/io.moderne.vulncheck.FixVulnCheckVulnerabilities"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/vulncheck/fixvulncheckvulnerabilities.md"}
+  moderneOnly
+/>
 
-_This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from VulnCheck Vulnerability Intelligence. The recipe has an option to limit fixes to only those vulnerabilities that have evidence of exploitation at various levels of severity._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"String","name":"apiToken","required":true,"description":"The API token for the VulnCheck api","example":"A_TOKEN_GENERATED_FROM_VULNCHECK"},{"type":"String","name":"scope","required":false,"description":"Match dependencies with the specified scope. Default is `compile`. An explanation of what each scope means can be found in the [Apache Maven documentation](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope).","example":"compile"},{"type":"Boolean","name":"overrideTransitive","required":false,"description":"When enabled transitive dependencies with vulnerabilities will have their versions overridden. By default only direct dependencies have their version numbers upgraded.","example":"false"},{"type":"UpgradeDelta","name":"maximumUpgradeDelta","required":false,"description":"The maximum difference to allow when suggesting a dependency version upgrade. Patch version upgrades are the default and safest option, as patch releases assert full backwards compatibility with no breaking changes. Minor version upgrades can introduce new features but do not _typically_ include breaking changes. Major version upgrades will typically require code changes above and beyond this recipe. ","example":"patch"},{"type":"String","name":"exploitMaturity","required":false,"description":"Fix only those vulnerabilities that have an exploit maturity level equal to or greater than the specified level.","example":"weaponized"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | apiToken | The API token for the VulnCheck api | `A_TOKEN_GENERATED_FROM_VULNCHECK` |
-| `String` | scope | *Optional*. Match dependencies with the specified scope. Default is `compile`. An explanation of what each scope means can be found in the [Apache Maven documentation](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope). Valid options: `compile`, `test`, `runtime`, `provided` | `compile` |
-| `Boolean` | overrideTransitive | *Optional*. When enabled transitive dependencies with vulnerabilities will have their versions overridden. By default only direct dependencies have their version numbers upgraded. | `false` |
-| `UpgradeDelta` | maximumUpgradeDelta | *Optional*. The maximum difference to allow when suggesting a dependency version upgrade. Patch version upgrades are the default and safest option, as patch releases assert full backwards compatibility with no breaking changes. Minor version upgrades can introduce new features but do not _typically_ include breaking changes. Major version upgrades will typically require code changes above and beyond this recipe.  Valid options: `patch`, `minor`, `major` | `patch` |
-| `String` | exploitMaturity | *Optional*. Fix only those vulnerabilities that have an exploit maturity level equal to or greater than the specified level. Valid options: `public`, `commercial`, `weaponized` | `weaponized` |
+</OptionsTable>
 
-## Example
+<ExampleList examples={[{"parameters":[{"parameter":"apiToken","value":"vulncheck_93a74420e799d42d3c74b947dc7c729a873034543bc5bf20391278d9b2e94d80"},{"parameter":"scope","value":"null"},{"parameter":"overrideTransitive","value":"null"},{"parameter":"maximumUpgradeDelta","value":"null"},{"parameter":"exploitMaturity","value":"null"}],"variants":[{"language":"xml","before":"<project>\n  <groupId>com.example</groupId>\n  <artifactId>demo</artifactId>\n  <version>0.0.1-SNAPSHOT</version>\n  <dependencies>\n  <dependency>\n      <groupId>commons-collections</groupId>\n      <artifactId>commons-collections</artifactId>\n      <version>3.2.1</version>\n    </dependency>\n  </dependencies>\n</project>\n","after":"<project>\n  <groupId>com.example</groupId>\n  <artifactId>demo</artifactId>\n  <version>0.0.1-SNAPSHOT</version>\n  <dependencies>\n  <dependency>\n      <groupId>commons-collections</groupId>\n      <artifactId>commons-collections</artifactId>\n      <version>3.2.2</version>\n    </dependency>\n  </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -9,1 +9,1 @@\n      <groupId>commons-collections</groupId>\n      <artifactId>commons-collections</artifactId>\n-     <version>3.2.1</version>\n+     <version>3.2.2</version>\n    </dependency>\n","newFile":false}]}]}>
 
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|apiToken|`vulncheck_93a74420e799d42d3c74b947dc7c729a873034543bc5bf20391278d9b2e94d80`|
-|scope|`null`|
-|overrideTransitive|`null`|
-|maximumUpgradeDelta|`null`|
-|exploitMaturity|`null`|
+## Examples
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-  <groupId>com.example</groupId>
-  <artifactId>demo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-  <dependency>
-      <groupId>commons-collections</groupId>
-      <artifactId>commons-collections</artifactId>
-      <version>3.2.1</version>
-    </dependency>
-  </dependencies>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-  <groupId>com.example</groupId>
-  <artifactId>demo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-  <dependency>
-      <groupId>commons-collections</groupId>
-      <artifactId>commons-collections</artifactId>
-      <version>3.2.2</version>
-    </dependency>
-  </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -9,1 +9,1 @@
-      <groupId>commons-collections</groupId>
-      <artifactId>commons-collections</artifactId>
--     <version>3.2.1</version>
-+     <version>3.2.2</version>
-    </dependency>
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"io.moderne.vulncheck.FixVulnCheckVulnerabilities","displayName":"Use [VulnCheck Exploit Intelligence](https://docs.vulncheck.com/products/exploit-and-vulnerability-intelligence/exploit-intelligence) to fix vulnerabilities","groupId":"io.moderne.recipe","artifactId":"rewrite-vulncheck","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_VULNCHECK","requiresConfiguration":true,"cliOptions":" --recipe-option \"apiToken=A_TOKEN_GENERATED_FROM_VULNCHECK\" --recipe-option \"scope=compile\" --recipe-option \"overrideTransitive=false\" --recipe-option \"maximumUpgradeDelta=patch\" --recipe-option \"exploitMaturity=weaponized\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.FixVulnCheckVulnerabilitiesExample
-displayName: Use VulnCheck Exploit Intelligence to fix vulnerabilities example
-recipeList:
-  - io.moderne.vulncheck.FixVulnCheckVulnerabilities:
-      apiToken: A_TOKEN_GENERATED_FROM_VULNCHECK
-      scope: compile
-      overrideTransitive: false
-      maximumUpgradeDelta: patch
-      exploitMaturity: weaponized
-```
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.java.dependencies.table.VulnerabilityReport","displayName":"Vulnerability report","description":"A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.","columns":[{"name":"Project","description":"The name of the project / module taking the dependency. Relevant in repositories with multiple modules."},{"name":"CVE","description":"The CVE number."},{"name":"Group","description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`."},{"name":"Artifact","description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`."},{"name":"Version","description":"The resolved version."},{"name":"Fixed in version","description":"The minimum version that is no longer vulnerable."},{"name":"Last affected version","description":"The last version which was vulnerable."},{"name":"Version within delta","description":"The difference between the version in use and the fixed version is within the configured maximum version delta. The recipe attempted to upgrade the version in use to a fixed version."},{"name":"Summary","description":"The summary of the CVE."},{"name":"Base score","description":"The calculated base score."},{"name":"Depth","description":"Zero for direct dependencies."},{"name":"CWEs","description":"Common Weakness Enumeration (CWE) identifiers; semicolon separated."},{"name":"EPSS","description":"EPSS probability score (0.0 to 1.0), or null if no EPSS data available."}]},{"name":"io.moderne.vulncheck.table.VulnerabilityReportWithExploits","displayName":"Vulnerability report with exploit intelligence","description":"A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs and enriched by VulnCheck exploit data.","columns":[{"name":"Project","description":"The name of the project / module taking the dependency. Relevant in repositories with multiple modules."},{"name":"CVE","description":"The CVE number."},{"name":"Group","description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`."},{"name":"Artifact","description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`."},{"name":"Version","description":"The resolved version."},{"name":"Fixed in version","description":"The minimum version that is no longer vulnerable."},{"name":"Fixable with version update only","description":"Whether the vulnerability is likely to be fixed by increasing the dependency version only, with no code modifications required. This is a heuristic which assumes that the dependency is accurately versioned according to [semver](https://semver.org/)."},{"name":"Summary","description":"The summary of the CVE."},{"name":"Base score","description":"The calculated base score."},{"name":"Depth","description":"Zero for direct dependencies."},{"name":"CWEs","description":"Common Weakness Enumeration (CWE) identifiers; semicolon separated."},{"name":"Exploit maturity","description":"The maturity of the exploit."},{"name":"Reported exploit","description":"Whether the vulnerability has been exploited."},{"name":"Reported exploited by threat actors","description":"Whether the vulnerability has been exploited by threat actors."},{"name":"Reported exploited by ransomware","description":"Whether the vulnerability has been exploited by ransomware."},{"name":"Reported exploited by botnets","description":"Whether the vulnerability has been exploited by botnets."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="io.moderne.vulncheck.FixVulnCheckVulnerabilities"
-  displayName="Use VulnCheck Exploit Intelligence to fix vulnerabilities"
-  groupId="io.moderne.recipe"
-  artifactId="rewrite-vulncheck"
-  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_VULNCHECK"
-  requiresConfiguration
-  cliOptions={' --recipe-option "apiToken=A_TOKEN_GENERATED_FROM_VULNCHECK" --recipe-option "scope=compile" --recipe-option "overrideTransitive=false" --recipe-option "maximumUpgradeDelta=patch" --recipe-option "exploitMaturity=weaponized"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.vulncheck.FixVulnCheckVulnerabilities" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.java.dependencies.table.VulnerabilityReport" label="VulnerabilityReport">
-
-### Vulnerability report
-**org.openrewrite.java.dependencies.table.VulnerabilityReport**
-
-_A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Project | The name of the project / module taking the dependency. Relevant in repositories with multiple modules. |
-| CVE | The CVE number. |
-| Group | The first part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Artifact | The second part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Version | The resolved version. |
-| Fixed in version | The minimum version that is no longer vulnerable. |
-| Last affected version | The last version which was vulnerable. |
-| Version within delta | The difference between the version in use and the fixed version is within the configured maximum version delta. The recipe attempted to upgrade the version in use to a fixed version. |
-| Summary | The summary of the CVE. |
-| Base score | The calculated base score. |
-| Depth | Zero for direct dependencies. |
-| CWEs | Common Weakness Enumeration (CWE) identifiers; semicolon separated. |
-| EPSS | EPSS probability score (0.0 to 1.0), or null if no EPSS data available. |
-
-</TabItem>
-
-<TabItem value="io.moderne.vulncheck.table.VulnerabilityReportWithExploits" label="VulnerabilityReportWithExploits">
-
-### Vulnerability report with exploit intelligence
-**io.moderne.vulncheck.table.VulnerabilityReportWithExploits**
-
-_A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs and enriched by VulnCheck exploit data._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Project | The name of the project / module taking the dependency. Relevant in repositories with multiple modules. |
-| CVE | The CVE number. |
-| Group | The first part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Artifact | The second part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Version | The resolved version. |
-| Fixed in version | The minimum version that is no longer vulnerable. |
-| Fixable with version update only | Whether the vulnerability is likely to be fixed by increasing the dependency version only, with no code modifications required. This is a heuristic which assumes that the dependency is accurately versioned according to [semver](https://semver.org/). |
-| Summary | The summary of the CVE. |
-| Base score | The calculated base score. |
-| Depth | Zero for direct dependencies. |
-| CWEs | Common Weakness Enumeration (CWE) identifiers; semicolon separated. |
-| Exploit maturity | The maturity of the exploit. |
-| Reported exploit | Whether the vulnerability has been exploited. |
-| Reported exploited by threat actors | Whether the vulnerability has been exploited by threat actors. |
-| Reported exploited by ransomware | Whether the vulnerability has been exploited by ransomware. |
-| Reported exploited by botnets | Whether the vulnerability has been exploited by botnets. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

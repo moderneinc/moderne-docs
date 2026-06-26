@@ -1,6 +1,7 @@
 ---
 title: "`ComparatorRules` Refaster recipes"
 sidebar_label: "`ComparatorRules` Refaster recipes"
+hide_title: true
 ---
 
 
@@ -8,206 +9,45 @@ sidebar_label: "`ComparatorRules` Refaster recipes"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/picnic/errorprone/refasterrules/comparatorrulesrecipes" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# `ComparatorRules` Refaster recipes
+<RecipeMeta
+  displayName={"`ComparatorRules` Refaster recipes"}
+  description={"Refaster rules related to expressions dealing with `Comparator`s.\n[Source](https://error-prone.picnic.tech/refasterrules/ComparatorRules)."}
+  fqName={"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/search?type=code&q=tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes"}
+/>
 
-**tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes**
+<RecipeHeader
+  displayName={"`ComparatorRules` Refaster recipes"}
+  description={"Refaster rules related to expressions dealing with `Comparator`s.\n[Source](https://error-prone.picnic.tech/refasterrules/ComparatorRules)."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes"}
+  artifact={"org.openrewrite.recipe:rewrite-third-party"}
+  appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/comparatorrulesrecipes.md"}
+/>
 
-_Refaster rules related to expressions dealing with `Comparator`s. [Source](https://error-prone.picnic.tech/refasterrules/ComparatorRules)._
-
-## Recipe source
-
-[GitHub: search?type=code&q=tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes](https://github.com/search?type=code&q=tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes),
-[Issue Tracker](https://github.com/openrewrite/rewrite-third-party/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-third-party/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
+<RecipeList recipes={[{"name":"Refaster template `ComparatorRules.ReverseOrder`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$reverseorderrecipe"},{"name":"Refaster template `ComparatorRules.ThenComparing`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingrecipe"},{"name":"Refaster template `ComparatorRules.ThenComparingReversed`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingreversedrecipe"},{"name":"Refaster template `ComparatorRules.ThenComparingCustom`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingcustomrecipe"},{"name":"Refaster template `ComparatorRules.ThenComparingCustomReversed`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingcustomreversedrecipe"},{"name":"Refaster template `ComparatorRules.ThenComparingDouble`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingdoublerecipe"},{"name":"Refaster template `ComparatorRules.ThenComparingInt`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingintrecipe"},{"name":"Refaster template `ComparatorRules.ThenComparingLong`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparinglongrecipe"},{"name":"Refaster template `ComparatorRules.CompareTo`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$comparetorecipe"},{"name":"Refaster template `ComparatorRules.CollectionsSort`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionssortrecipe"},{"name":"Refaster template `ComparatorRules.CollectionsMin`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionsminrecipe"},{"name":"Refaster template `ComparatorRules.MinOfArray`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$minofarrayrecipe"},{"name":"Refaster template `ComparatorRules.CollectionsMinWithComparator`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionsminwithcomparatorrecipe"},{"name":"Refaster template `ComparatorRules.MinOfVarargs`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$minofvarargsrecipe"},{"name":"Refaster template `ComparatorRules.CollectionsMax`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionsmaxrecipe"},{"name":"Refaster template `ComparatorRules.MaxOfArray`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$maxofarrayrecipe"},{"name":"Refaster template `ComparatorRules.CollectionsMaxWithComparator`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionsmaxwithcomparatorrecipe"},{"name":"Refaster template `ComparatorRules.MaxOfVarargs`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$maxofvarargsrecipe"},{"name":"Refaster template `ComparatorRules.Least`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$leastrecipe"},{"name":"Refaster template `ComparatorRules.Greatest`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$greatestrecipe"},{"name":"Refaster template `ComparatorRules.LeastNaturalOrder`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$leastnaturalorderrecipe"},{"name":"Refaster template `ComparatorRules.GreatestNaturalOrder`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$greatestnaturalorderrecipe"},{"name":"Refaster template `ComparatorRules.ComparatorsMin`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$comparatorsminrecipe"},{"name":"Refaster template `ComparatorRules.ComparatorsMax`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$comparatorsmaxrecipe"},{"name":"Refaster template `ComparatorRules.MinByNaturalOrder`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$minbynaturalorderrecipe"},{"name":"Refaster template `ComparatorRules.MaxByNaturalOrder`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$maxbynaturalorderrecipe"},{"name":"Refaster template `ComparatorRules.IsLessThan`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$islessthanrecipe"},{"name":"Refaster template `ComparatorRules.IsLessThanOrEqualTo`","href":"picnic/errorprone/refasterrules/comparatorrulesrecipes$islessthanorequaltorecipe"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Refaster template `ComparatorRules.ReverseOrder`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$reverseorderrecipe)
-* [Refaster template `ComparatorRules.ThenComparing`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingrecipe)
-* [Refaster template `ComparatorRules.ThenComparingReversed`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingreversedrecipe)
-* [Refaster template `ComparatorRules.ThenComparingCustom`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingcustomrecipe)
-* [Refaster template `ComparatorRules.ThenComparingCustomReversed`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingcustomreversedrecipe)
-* [Refaster template `ComparatorRules.ThenComparingDouble`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingdoublerecipe)
-* [Refaster template `ComparatorRules.ThenComparingInt`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingintrecipe)
-* [Refaster template `ComparatorRules.ThenComparingLong`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparinglongrecipe)
-* [Refaster template `ComparatorRules.CompareTo`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$comparetorecipe)
-* [Refaster template `ComparatorRules.CollectionsSort`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionssortrecipe)
-* [Refaster template `ComparatorRules.CollectionsMin`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionsminrecipe)
-* [Refaster template `ComparatorRules.MinOfArray`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$minofarrayrecipe)
-* [Refaster template `ComparatorRules.CollectionsMinWithComparator`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionsminwithcomparatorrecipe)
-* [Refaster template `ComparatorRules.MinOfVarargs`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$minofvarargsrecipe)
-* [Refaster template `ComparatorRules.CollectionsMax`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionsmaxrecipe)
-* [Refaster template `ComparatorRules.MaxOfArray`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$maxofarrayrecipe)
-* [Refaster template `ComparatorRules.CollectionsMaxWithComparator`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionsmaxwithcomparatorrecipe)
-* [Refaster template `ComparatorRules.MaxOfVarargs`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$maxofvarargsrecipe)
-* [Refaster template `ComparatorRules.Least`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$leastrecipe)
-* [Refaster template `ComparatorRules.Greatest`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$greatestrecipe)
-* [Refaster template `ComparatorRules.LeastNaturalOrder`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$leastnaturalorderrecipe)
-* [Refaster template `ComparatorRules.GreatestNaturalOrder`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$greatestnaturalorderrecipe)
-* [Refaster template `ComparatorRules.ComparatorsMin`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$comparatorsminrecipe)
-* [Refaster template `ComparatorRules.ComparatorsMax`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$comparatorsmaxrecipe)
-* [Refaster template `ComparatorRules.MinByNaturalOrder`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$minbynaturalorderrecipe)
-* [Refaster template `ComparatorRules.MaxByNaturalOrder`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$maxbynaturalorderrecipe)
-* [Refaster template `ComparatorRules.IsLessThan`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$islessthanrecipe)
-* [Refaster template `ComparatorRules.IsLessThanOrEqualTo`](../../../picnic/errorprone/refasterrules/comparatorrulesrecipes$islessthanorequaltorecipe)
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes
-displayName: `ComparatorRules` Refaster recipes
-description: |
-  Refaster rules related to expressions dealing with `Comparator`s. [Source](https://error-prone.picnic.tech/refasterrules/ComparatorRules).
-recipeList:
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ReverseOrderRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ThenComparingRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ThenComparingReversedRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ThenComparingCustomRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ThenComparingCustomReversedRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ThenComparingDoubleRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ThenComparingIntRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ThenComparingLongRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$CompareToRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$CollectionsSortRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$CollectionsMinRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MinOfArrayRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$CollectionsMinWithComparatorRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MinOfVarargsRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$CollectionsMaxRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MaxOfArrayRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$CollectionsMaxWithComparatorRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MaxOfVarargsRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$LeastRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$GreatestRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$LeastNaturalOrderRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$GreatestNaturalOrderRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ComparatorsMinRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ComparatorsMaxRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MinByNaturalOrderRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MaxByNaturalOrderRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$IsLessThanRecipe
-  - tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$IsLessThanOrEqualToRecipe
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [All Picnic Refaster rules](/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/allrefasterrules.md)
-
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes","displayName":"`ComparatorRules` Refaster recipes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes"
-  displayName="`ComparatorRules` Refaster recipes"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-third-party"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

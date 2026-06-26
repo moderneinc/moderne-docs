@@ -1,37 +1,42 @@
 ---
 title: "Rename `InputSwitch` to `ToggleSwitch`"
 sidebar_label: "Rename `InputSwitch` to `ToggleSwitch`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Rename `InputSwitch` to `ToggleSwitch`
+<RecipeMeta
+  displayName={"Rename `InputSwitch` to `ToggleSwitch`"}
+  description={"Renames `InputSwitch` and `InputSwitchModule` imports from `primeng/inputswitch` to `ToggleSwitch` and `ToggleSwitchModule` from `primeng/toggleswitch`, and updates all identifier usages. The old names are deprecated in PrimeNG 18."}
+  fqName={"org.openrewrite.primeng.RenameInputSwitchToToggleSwitch"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.primeng.RenameInputSwitchToToggleSwitch**
+<RecipeHeader
+  displayName={"Rename `InputSwitch` to `ToggleSwitch`"}
+  description={"Renames `InputSwitch` and `InputSwitchModule` imports from `primeng/inputswitch` to `ToggleSwitch` and `ToggleSwitchModule` from `primeng/toggleswitch`, and updates all identifier usages. The old names are deprecated in PrimeNG 18."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.primeng.RenameInputSwitchToToggleSwitch"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.RenameInputSwitchToToggleSwitch"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/renameinputswitchtotoggleswitch.md"}
+  moderneOnly
+/>
 
-_Renames `InputSwitch` and `InputSwitchModule` imports from `primeng/inputswitch` to `ToggleSwitch` and `ToggleSwitchModule` from `primeng/toggleswitch`, and updates all identifier usages. The old names are deprecated in PrimeNG 18._
+<RecipeList recipes={[{"name":"Rename `InputSwitch` identifiers to `ToggleSwitch`","href":""},{"name":"Change import","href":"javascript/change-import"},{"name":"Change import","href":"javascript/change-import"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade PrimeNG components to 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/primeng/upgradecomponentsto18)
-
+<UsageList usage={{"recipeName":"org.openrewrite.primeng.RenameInputSwitchToToggleSwitch","displayName":"Rename `InputSwitch` to `ToggleSwitch`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.primeng.RenameInputSwitchToToggleSwitch"
-  displayName="Rename `InputSwitch` to `ToggleSwitch`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

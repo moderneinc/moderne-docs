@@ -1,37 +1,36 @@
 ---
 title: "Replace `RouterLinkWithHref` with `RouterLink`"
 sidebar_label: "Replace `RouterLinkWithHref` with `RouterLink`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `RouterLinkWithHref` with `RouterLink`
+<RecipeMeta
+  displayName={"Replace `RouterLinkWithHref` with `RouterLink`"}
+  description={"Replaces `RouterLinkWithHref` with `RouterLink` in imports and usages. `RouterLinkWithHref` was merged into `RouterLink` in Angular 16."}
+  fqName={"org.openrewrite.angular.migration.replace-router-link-with-href"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.replace-router-link-with-href**
+<RecipeHeader
+  displayName={"Replace `RouterLinkWithHref` with `RouterLink`"}
+  description={"Replaces `RouterLinkWithHref` with `RouterLink` in imports and usages. `RouterLinkWithHref` was merged into `RouterLink` in Angular 16."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.replace-router-link-with-href"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-router-link-with-href"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-router-link-with-href.md"}
+  moderneOnly
+/>
 
-_Replaces `RouterLinkWithHref` with `RouterLink` in imports and usages. `RouterLinkWithHref` was merged into `RouterLink` in Angular 16._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 16](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular16)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-router-link-with-href","displayName":"Replace `RouterLinkWithHref` with `RouterLink`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.replace-router-link-with-href"
-  displayName="Replace `RouterLinkWithHref` with `RouterLink`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

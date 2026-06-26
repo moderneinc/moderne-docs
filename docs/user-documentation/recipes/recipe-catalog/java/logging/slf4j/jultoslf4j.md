@@ -1,6 +1,7 @@
 ---
 title: "Migrate JUL to SLF4J"
 sidebar_label: "Migrate JUL to SLF4J"
+hide_title: true
 ---
 
 
@@ -8,526 +9,51 @@ sidebar_label: "Migrate JUL to SLF4J"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/jultoslf4j" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate JUL to SLF4J
+<RecipeMeta
+  displayName={"Migrate JUL to SLF4J"}
+  description={"Migrates usage of Java Util Logging (JUL) to using SLF4J directly."}
+  fqName={"org.openrewrite.java.logging.slf4j.JulToSlf4j"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-logging-frameworks/blob/main/src/main/resources/META-INF/rewrite/slf4j.yml"}
+/>
 
-**org.openrewrite.java.logging.slf4j.JulToSlf4j**
+<RecipeHeader
+  displayName={"Migrate JUL to SLF4J"}
+  description={"Migrates usage of Java Util Logging (JUL) to using SLF4J directly."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["slf4j","java-util-logging","logging"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.logging.slf4j.JulToSlf4j"}
+  artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JulToSlf4j"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4j.md"}
+/>
 
-_Migrates usage of Java Util Logging (JUL) to using SLF4J directly._
-
-### Tags
-
-* [slf4j](/user-documentation/recipes/lists/recipes-by-tag#slf4j)
-* [java-util-logging](/user-documentation/recipes/lists/recipes-by-tag#java)
-* [logging](/user-documentation/recipes/lists/recipes-by-tag#logging)
-
-## Recipe source
-
-[GitHub: slf4j.yml](https://github.com/openrewrite/rewrite-logging-frameworks/blob/main/src/main/resources/META-INF/rewrite/slf4j.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-logging-frameworks/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-logging-frameworks/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Replace JUL Logger creation with SLF4J LoggerFactory","href":"java/logging/slf4j/julgetloggertologgerfactory"},{"name":"Replace JUL active Level check with corresponding SLF4J method calls","href":"java/logging/slf4j/julisloggabletoisenabledrecipes"},{"name":"Replace parameterized JUL level call with corresponding SLF4J method calls","href":"java/logging/slf4j/julparameterizedarguments"},{"name":"Replace JUL active Level check with corresponding SLF4J method calls","href":"java/logging/slf4j/jultoslf4jlambdasupplierrecipes"},{"name":"Replace JUL `log(Level, Throwable, Supplier<String>)` with corresponding SLF4J method calls","href":"java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes"},{"name":"Replace JUL `log(Level, String, Throwable)` with corresponding SLF4J method calls","href":"java/logging/slf4j/jultoslf4jsimplecallswiththrowablerecipes"},{"name":"Replace JUL `Level.ALL` logging with SLF4J's trace level","href":"java/logging/slf4j/jullevelalltotracerecipe"},{"name":"Migrate JUL to Log4j 2.x API","href":"java/logging/log4j/jultolog4j"},{"name":"Migrate Log4j 2.x to SLF4J 1.x","href":"java/logging/slf4j/log4j2toslf4j1"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../../core/singleton)
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.logging.Level;\nimport java.util.logging.Logger;\n\nclass Test {\n    void method(Logger logger, String param1) {\n        logger.log(Level.INFO, \"INFO Log entry, param1: {0}\", param1);\n    }\n}\n","after":"import org.slf4j.Logger;\n\nclass Test {\n    void method(Logger logger, String param1) {\n        logger.info(\"INFO Log entry, param1: {}\", param1);\n    }\n}\n","diff":"@@ -1,2 +1,1 @@\n-import java.util.logging.Level;\n-import java.util.logging.Logger;\n+import org.slf4j.Logger;\n\n@@ -6,1 +5,1 @@\nclass Test {\n    void method(Logger logger, String param1) {\n-       logger.log(Level.INFO, \"INFO Log entry, param1: {0}\", param1);\n+       logger.info(\"INFO Log entry, param1: {}\", param1);\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import java.util.logging.Level;\nimport java.util.logging.Logger;\n\nclass Test {\n    void method(Logger logger) {\n        logger.finest(\"finest\");\n        logger.finer(\"finer\");\n        logger.fine(\"fine\");\n        logger.config(\"config\");\n        logger.info(\"info\");\n        logger.warning(\"warning\");\n        logger.severe(\"severe\");\n\n        logger.log(Level.FINEST, \"finest\");\n        logger.log(Level.FINER, \"finer\");\n        logger.log(Level.FINE, \"fine\");\n        logger.log(Level.CONFIG, \"config\");\n        logger.log(Level.INFO, \"info\");\n        logger.log(Level.WARNING, \"warning\");\n        logger.log(Level.SEVERE, \"severe\");\n\n        logger.log(Level.ALL, \"all\");\n    }\n}\n","after":"import org.slf4j.Logger;\n\nclass Test {\n    void method(Logger logger) {\n        logger.trace(\"finest\");\n        logger.trace(\"finer\");\n        logger.debug(\"fine\");\n        logger.info(\"config\");\n        logger.info(\"info\");\n        logger.warn(\"warning\");\n        logger.error(\"severe\");\n\n        logger.trace(\"finest\");\n        logger.trace(\"finer\");\n        logger.debug(\"fine\");\n        logger.info(\"config\");\n        logger.info(\"info\");\n        logger.warn(\"warning\");\n        logger.error(\"severe\");\n\n        logger.trace(\"all\");\n    }\n}\n","diff":"@@ -1,2 +1,1 @@\n-import java.util.logging.Level;\n-import java.util.logging.Logger;\n+import org.slf4j.Logger;\n\n@@ -6,4 +5,4 @@\nclass Test {\n    void method(Logger logger) {\n-       logger.finest(\"finest\");\n-       logger.finer(\"finer\");\n-       logger.fine(\"fine\");\n-       logger.config(\"config\");\n+       logger.trace(\"finest\");\n+       logger.trace(\"finer\");\n+       logger.debug(\"fine\");\n+       logger.info(\"config\");\n        logger.info(\"info\");\n@@ -11,2 +10,2 @@\n        logger.config(\"config\");\n        logger.info(\"info\");\n-       logger.warning(\"warning\");\n-       logger.severe(\"severe\");\n+       logger.warn(\"warning\");\n+       logger.error(\"severe\");\n\n@@ -14,7 +13,7 @@\n        logger.severe(\"severe\");\n\n-       logger.log(Level.FINEST, \"finest\");\n-       logger.log(Level.FINER, \"finer\");\n-       logger.log(Level.FINE, \"fine\");\n-       logger.log(Level.CONFIG, \"config\");\n-       logger.log(Level.INFO, \"info\");\n-       logger.log(Level.WARNING, \"warning\");\n-       logger.log(Level.SEVERE, \"severe\");\n+       logger.trace(\"finest\");\n+       logger.trace(\"finer\");\n+       logger.debug(\"fine\");\n+       logger.info(\"config\");\n+       logger.info(\"info\");\n+       logger.warn(\"warning\");\n+       logger.error(\"severe\");\n\n@@ -22,1 +21,1 @@\n        logger.log(Level.SEVERE, \"severe\");\n\n-       logger.log(Level.ALL, \"all\");\n+       logger.trace(\"all\");\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import java.util.logging.Level;\nimport java.util.logging.Logger;\n\nclass Test {\n    void method(Logger logger, String param1) {\n        logger.log(Level.INFO, \"INFO Log entry, param1: {0}\", param1);\n    }\n}\n","after":"import org.slf4j.Logger;\n\nclass Test {\n    void method(Logger logger, String param1) {\n        logger.info(\"INFO Log entry, param1: {}\", param1);\n    }\n}\n","diff":"@@ -1,2 +1,1 @@\n-import java.util.logging.Level;\n-import java.util.logging.Logger;\n+import org.slf4j.Logger;\n\n@@ -6,1 +5,1 @@\nclass Test {\n    void method(Logger logger, String param1) {\n-       logger.log(Level.INFO, \"INFO Log entry, param1: {0}\", param1);\n+       logger.info(\"INFO Log entry, param1: {}\", param1);\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import java.util.logging.Level;\nimport java.util.logging.Logger;\n\nclass Test {\n    void method(Logger logger) {\n        logger.finest(\"finest\");\n        logger.finer(\"finer\");\n        logger.fine(\"fine\");\n        logger.config(\"config\");\n        logger.info(\"info\");\n        logger.warning(\"warning\");\n        logger.severe(\"severe\");\n\n        logger.log(Level.FINEST, \"finest\");\n        logger.log(Level.FINER, \"finer\");\n        logger.log(Level.FINE, \"fine\");\n        logger.log(Level.CONFIG, \"config\");\n        logger.log(Level.INFO, \"info\");\n        logger.log(Level.WARNING, \"warning\");\n        logger.log(Level.SEVERE, \"severe\");\n\n        logger.log(Level.ALL, \"all\");\n    }\n}\n","after":"import org.slf4j.Logger;\n\nclass Test {\n    void method(Logger logger) {\n        logger.trace(\"finest\");\n        logger.trace(\"finer\");\n        logger.debug(\"fine\");\n        logger.info(\"config\");\n        logger.info(\"info\");\n        logger.warn(\"warning\");\n        logger.error(\"severe\");\n\n        logger.trace(\"finest\");\n        logger.trace(\"finer\");\n        logger.debug(\"fine\");\n        logger.info(\"config\");\n        logger.info(\"info\");\n        logger.warn(\"warning\");\n        logger.error(\"severe\");\n\n        logger.trace(\"all\");\n    }\n}\n","diff":"@@ -1,2 +1,1 @@\n-import java.util.logging.Level;\n-import java.util.logging.Logger;\n+import org.slf4j.Logger;\n\n@@ -6,4 +5,4 @@\nclass Test {\n    void method(Logger logger) {\n-       logger.finest(\"finest\");\n-       logger.finer(\"finer\");\n-       logger.fine(\"fine\");\n-       logger.config(\"config\");\n+       logger.trace(\"finest\");\n+       logger.trace(\"finer\");\n+       logger.debug(\"fine\");\n+       logger.info(\"config\");\n        logger.info(\"info\");\n@@ -11,2 +10,2 @@\n        logger.config(\"config\");\n        logger.info(\"info\");\n-       logger.warning(\"warning\");\n-       logger.severe(\"severe\");\n+       logger.warn(\"warning\");\n+       logger.error(\"severe\");\n\n@@ -14,7 +13,7 @@\n        logger.severe(\"severe\");\n\n-       logger.log(Level.FINEST, \"finest\");\n-       logger.log(Level.FINER, \"finer\");\n-       logger.log(Level.FINE, \"fine\");\n-       logger.log(Level.CONFIG, \"config\");\n-       logger.log(Level.INFO, \"info\");\n-       logger.log(Level.WARNING, \"warning\");\n-       logger.log(Level.SEVERE, \"severe\");\n+       logger.trace(\"finest\");\n+       logger.trace(\"finer\");\n+       logger.debug(\"fine\");\n+       logger.info(\"config\");\n+       logger.info(\"info\");\n+       logger.warn(\"warning\");\n+       logger.error(\"severe\");\n\n@@ -22,1 +21,1 @@\n        logger.log(Level.SEVERE, \"severe\");\n\n-       logger.log(Level.ALL, \"all\");\n+       logger.trace(\"all\");\n    }\n","newFile":false}]}]}>
 
-**Recipes**
-
-* [Replace JUL Logger creation with SLF4J LoggerFactory](../../../java/logging/slf4j/julgetloggertologgerfactory)
-* [Replace JUL active Level check with corresponding SLF4J method calls](../../../java/logging/slf4j/julisloggabletoisenabledrecipes)
-* [Replace parameterized JUL level call with corresponding SLF4J method calls](../../../java/logging/slf4j/julparameterizedarguments)
-* [Replace JUL active Level check with corresponding SLF4J method calls](../../../java/logging/slf4j/jultoslf4jlambdasupplierrecipes)
-* [Replace JUL `log(Level, Throwable, Supplier&lt;String&gt;)` with corresponding SLF4J method calls](../../../java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes)
-* [Replace JUL `log(Level, String, Throwable)` with corresponding SLF4J method calls](../../../java/logging/slf4j/jultoslf4jsimplecallswiththrowablerecipes)
-* [Replace JUL `Level.ALL` logging with SLF4J's trace level](../../../java/logging/slf4j/jullevelalltotracerecipe)
-* [Migrate JUL to Log4j 2.x API](../../../java/logging/log4j/jultolog4j)
-* [Migrate Log4j 2.x to SLF4J 1.x](../../../java/logging/slf4j/log4j2toslf4j1)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.logging.slf4j.JulToSlf4j
-displayName: Migrate JUL to SLF4J
-description: |
-  Migrates usage of Java Util Logging (JUL) to using SLF4J directly.
-tags:
-  - slf4j
-  - java-util-logging
-  - logging
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.java.logging.slf4j.JulGetLoggerToLoggerFactory
-  - org.openrewrite.java.logging.slf4j.JulIsLoggableToIsEnabledRecipes
-  - org.openrewrite.java.logging.slf4j.JulParameterizedArguments
-  - org.openrewrite.java.logging.slf4j.JulToSlf4jLambdaSupplierRecipes
-  - org.openrewrite.java.logging.slf4j.JulToSlf4jLambdaSupplierWithThrowableRecipes
-  - org.openrewrite.java.logging.slf4j.JulToSlf4jSimpleCallsWithThrowableRecipes
-  - org.openrewrite.java.logging.slf4j.JulLevelAllToTraceRecipe
-  - org.openrewrite.java.logging.log4j.JulToLog4j
-  - org.openrewrite.java.logging.slf4j.Log4j2ToSlf4j1
-
-```
-</TabItem>
-</Tabs>
 ## Examples
-##### Example 1
-`JulParameterizedArgumentsTest#parameterizedSingleArgument`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-class Test {
-    void method(Logger logger, String param1) {
-        logger.log(Level.INFO, "INFO Log entry, param1: {0}", param1);
-    }
-}
-```
-
-###### After
-```java
-import org.slf4j.Logger;
-
-class Test {
-    void method(Logger logger, String param1) {
-        logger.info("INFO Log entry, param1: {}", param1);
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,1 @@
--import java.util.logging.Level;
--import java.util.logging.Logger;
-+import org.slf4j.Logger;
-
-@@ -6,1 +5,1 @@
-class Test {
-    void method(Logger logger, String param1) {
--       logger.log(Level.INFO, "INFO Log entry, param1: {0}", param1);
-+       logger.info("INFO Log entry, param1: {}", param1);
-    }
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`JulToSlf4jTest#simpleLoggerCalls`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-class Test {
-    void method(Logger logger) {
-        logger.finest("finest");
-        logger.finer("finer");
-        logger.fine("fine");
-        logger.config("config");
-        logger.info("info");
-        logger.warning("warning");
-        logger.severe("severe");
-
-        logger.log(Level.FINEST, "finest");
-        logger.log(Level.FINER, "finer");
-        logger.log(Level.FINE, "fine");
-        logger.log(Level.CONFIG, "config");
-        logger.log(Level.INFO, "info");
-        logger.log(Level.WARNING, "warning");
-        logger.log(Level.SEVERE, "severe");
-
-        logger.log(Level.ALL, "all");
-    }
-}
-```
-
-###### After
-```java
-import org.slf4j.Logger;
-
-class Test {
-    void method(Logger logger) {
-        logger.trace("finest");
-        logger.trace("finer");
-        logger.debug("fine");
-        logger.info("config");
-        logger.info("info");
-        logger.warn("warning");
-        logger.error("severe");
-
-        logger.trace("finest");
-        logger.trace("finer");
-        logger.debug("fine");
-        logger.info("config");
-        logger.info("info");
-        logger.warn("warning");
-        logger.error("severe");
-
-        logger.trace("all");
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,1 @@
--import java.util.logging.Level;
--import java.util.logging.Logger;
-+import org.slf4j.Logger;
-
-@@ -6,4 +5,4 @@
-class Test {
-    void method(Logger logger) {
--       logger.finest("finest");
--       logger.finer("finer");
--       logger.fine("fine");
--       logger.config("config");
-+       logger.trace("finest");
-+       logger.trace("finer");
-+       logger.debug("fine");
-+       logger.info("config");
-        logger.info("info");
-@@ -11,2 +10,2 @@
-        logger.config("config");
-        logger.info("info");
--       logger.warning("warning");
--       logger.severe("severe");
-+       logger.warn("warning");
-+       logger.error("severe");
-
-@@ -14,7 +13,7 @@
-        logger.severe("severe");
-
--       logger.log(Level.FINEST, "finest");
--       logger.log(Level.FINER, "finer");
--       logger.log(Level.FINE, "fine");
--       logger.log(Level.CONFIG, "config");
--       logger.log(Level.INFO, "info");
--       logger.log(Level.WARNING, "warning");
--       logger.log(Level.SEVERE, "severe");
-+       logger.trace("finest");
-+       logger.trace("finer");
-+       logger.debug("fine");
-+       logger.info("config");
-+       logger.info("info");
-+       logger.warn("warning");
-+       logger.error("severe");
-
-@@ -22,1 +21,1 @@
-        logger.log(Level.SEVERE, "severe");
-
--       logger.log(Level.ALL, "all");
-+       logger.trace("all");
-    }
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 3
-`JulParameterizedArgumentsTest#parameterizedSingleArgument`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-class Test {
-    void method(Logger logger, String param1) {
-        logger.log(Level.INFO, "INFO Log entry, param1: {0}", param1);
-    }
-}
-```
-
-###### After
-```java
-import org.slf4j.Logger;
-
-class Test {
-    void method(Logger logger, String param1) {
-        logger.info("INFO Log entry, param1: {}", param1);
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,1 @@
--import java.util.logging.Level;
--import java.util.logging.Logger;
-+import org.slf4j.Logger;
-
-@@ -6,1 +5,1 @@
-class Test {
-    void method(Logger logger, String param1) {
--       logger.log(Level.INFO, "INFO Log entry, param1: {0}", param1);
-+       logger.info("INFO Log entry, param1: {}", param1);
-    }
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 4
-`JulToSlf4jTest#simpleLoggerCalls`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-class Test {
-    void method(Logger logger) {
-        logger.finest("finest");
-        logger.finer("finer");
-        logger.fine("fine");
-        logger.config("config");
-        logger.info("info");
-        logger.warning("warning");
-        logger.severe("severe");
-
-        logger.log(Level.FINEST, "finest");
-        logger.log(Level.FINER, "finer");
-        logger.log(Level.FINE, "fine");
-        logger.log(Level.CONFIG, "config");
-        logger.log(Level.INFO, "info");
-        logger.log(Level.WARNING, "warning");
-        logger.log(Level.SEVERE, "severe");
-
-        logger.log(Level.ALL, "all");
-    }
-}
-```
-
-###### After
-```java
-import org.slf4j.Logger;
-
-class Test {
-    void method(Logger logger) {
-        logger.trace("finest");
-        logger.trace("finer");
-        logger.debug("fine");
-        logger.info("config");
-        logger.info("info");
-        logger.warn("warning");
-        logger.error("severe");
-
-        logger.trace("finest");
-        logger.trace("finer");
-        logger.debug("fine");
-        logger.info("config");
-        logger.info("info");
-        logger.warn("warning");
-        logger.error("severe");
-
-        logger.trace("all");
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,1 @@
--import java.util.logging.Level;
--import java.util.logging.Logger;
-+import org.slf4j.Logger;
-
-@@ -6,4 +5,4 @@
-class Test {
-    void method(Logger logger) {
--       logger.finest("finest");
--       logger.finer("finer");
--       logger.fine("fine");
--       logger.config("config");
-+       logger.trace("finest");
-+       logger.trace("finer");
-+       logger.debug("fine");
-+       logger.info("config");
-        logger.info("info");
-@@ -11,2 +10,2 @@
-        logger.config("config");
-        logger.info("info");
--       logger.warning("warning");
--       logger.severe("severe");
-+       logger.warn("warning");
-+       logger.error("severe");
-
-@@ -14,7 +13,7 @@
-        logger.severe("severe");
-
--       logger.log(Level.FINEST, "finest");
--       logger.log(Level.FINER, "finer");
--       logger.log(Level.FINE, "fine");
--       logger.log(Level.CONFIG, "config");
--       logger.log(Level.INFO, "info");
--       logger.log(Level.WARNING, "warning");
--       logger.log(Level.SEVERE, "severe");
-+       logger.trace("finest");
-+       logger.trace("finer");
-+       logger.debug("fine");
-+       logger.info("config");
-+       logger.info("info");
-+       logger.warn("warning");
-+       logger.error("severe");
-
-@@ -22,1 +21,1 @@
-        logger.log(Level.SEVERE, "severe");
-
--       logger.log(Level.ALL, "all");
-+       logger.trace("all");
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.JulToSlf4j","displayName":"Migrate JUL to SLF4J","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.logging.slf4j.JulToSlf4j"
-  displayName="Migrate JUL to SLF4J"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-logging-frameworks"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JulToSlf4j" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

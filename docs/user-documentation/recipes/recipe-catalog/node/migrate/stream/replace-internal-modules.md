@@ -1,34 +1,36 @@
 ---
 title: "Replace deprecated `node:_stream_*` with `node:stream`"
 sidebar_label: "Replace deprecated `node:_stream_*` with `node:stream`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace deprecated `node:_stream_*` with `node:stream`
+<RecipeMeta
+  displayName={"Replace deprecated `node:_stream_*` with `node:stream`"}
+  description={"Replace deprecated internal stream module imports like `require('node:_stream_readable')` with the public `node:stream` module."}
+  fqName={"org.openrewrite.node.migrate.stream.replace-internal-modules"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.node.migrate.stream.replace-internal-modules**
+<RecipeHeader
+  displayName={"Replace deprecated `node:_stream_*` with `node:stream`"}
+  description={"Replace deprecated internal stream module imports like `require('node:_stream_readable')` with the public `node:stream` module."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["DEP0193"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.node.migrate.stream.replace-internal-modules"}
+  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.stream.replace-internal-modules"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/stream/replace-internal-modules.md"}
+  moderneOnly
+/>
 
-_Replace deprecated internal stream module imports like `require('node:_stream_readable')` with the public `node:stream` module._
-
-### Tags
-
-* [DEP0193](/user-documentation/recipes/lists/recipes-by-tag#dep0193)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.node.migrate.stream.replace-internal-modules","displayName":"Replace deprecated `node:_stream_*` with `node:stream`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.node.migrate.stream.replace-internal-modules"
-  displayName="Replace deprecated `node:_stream_*` with `node:stream`"
-  npmPackage="@openrewrite/recipes-nodejs"
-/>
+</UsageList>
+

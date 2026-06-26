@@ -1,42 +1,36 @@
 ---
 title: "Use string interpolation instead of concatenation"
 sidebar_label: "Use string interpolation instead of concatenation"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use string interpolation instead of concatenation
+<RecipeMeta
+  displayName={"Use string interpolation instead of concatenation"}
+  description={"Replace string.Concat with string interpolation."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringInterpolationInsteadOfConcat"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringInterpolationInsteadOfConcat**
+<RecipeHeader
+  displayName={"Use string interpolation instead of concatenation"}
+  description={"Replace string.Concat with string interpolation."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringInterpolationInsteadOfConcat"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringInterpolationInsteadOfConcat"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usestringinterpolationinsteadofconcat.md"}
+  moderneOnly
+/>
 
-_Replace string.Concat with string interpolation._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Simplification code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplificationcodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringInterpolationInsteadOfConcat","displayName":"Use string interpolation instead of concatenation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringInterpolationInsteadOfConcat"
-  displayName="Use string interpolation instead of concatenation"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

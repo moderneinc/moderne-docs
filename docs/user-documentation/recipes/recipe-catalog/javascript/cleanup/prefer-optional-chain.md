@@ -1,31 +1,36 @@
 ---
 title: "Prefer optional chaining"
 sidebar_label: "Prefer optional chaining"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Prefer optional chaining
+<RecipeMeta
+  displayName={"Prefer optional chaining"}
+  description={"Converts ternary expressions like `foo ? foo.bar : undefined` to use optional chaining syntax `foo?.bar`."}
+  fqName={"org.openrewrite.javascript.cleanup.prefer-optional-chain"}
+  languages={["JavaScript"]}
+  license={"Moderne Source Available License"}
+/>
 
-**org.openrewrite.javascript.cleanup.prefer-optional-chain**
+<RecipeHeader
+  displayName={"Prefer optional chaining"}
+  description={"Converts ternary expressions like `foo ? foo.bar : undefined` to use optional chaining syntax `foo?.bar`."}
+  type={"Single recipe"}
+  languages={["JavaScript"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.javascript.cleanup.prefer-optional-chain"}
+  artifact={"org.openrewrite:rewrite-javascript"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.prefer-optional-chain"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/prefer-optional-chain.md"}
+  moderneOnly
+/>
 
-_Converts ternary expressions like `foo ? foo.bar : undefined` to use optional chaining syntax `foo?.bar`._
-
-## Recipe source
-
-[GitHub: rewrite+org.openrewrite.javascript.cleanup.prefer-optional-chain](https://github.com/search?type=code&q=repo:openrewrite/rewrite+org.openrewrite.javascript.cleanup.prefer-optional-chain),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-javascript/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.cleanup.prefer-optional-chain","displayName":"Prefer optional chaining","npmPackage":"@openrewrite/rewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.javascript.cleanup.prefer-optional-chain"
-  displayName="Prefer optional chaining"
-  npmPackage="@openrewrite/rewrite"
-/>
+</UsageList>
+

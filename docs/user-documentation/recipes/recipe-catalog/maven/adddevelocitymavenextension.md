@@ -1,6 +1,7 @@
 ---
 title: "Add the Develocity Maven extension"
 sidebar_label: "Add the Develocity Maven extension"
+hide_title: true
 ---
 
 
@@ -8,225 +9,51 @@ sidebar_label: "Add the Develocity Maven extension"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/adddevelocitymavenextension" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Add the Develocity Maven extension
+<RecipeMeta
+  displayName={"Add the Develocity Maven extension"}
+  description={"To integrate the Develocity Maven extension into Maven projects, ensure that the `develocity-maven-extension` is added to the `.mvn/extensions.xml` file if not already present. Additionally, configure the extension by adding the `.mvn/develocity.xml` configuration file."}
+  fqName={"org.openrewrite.maven.AddDevelocityMavenExtension"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/openrewrite/rewrite/blob/main/rewrite-maven/src/main/java/org/openrewrite/maven/AddDevelocityMavenExtension.java"}
+/>
 
-**org.openrewrite.maven.AddDevelocityMavenExtension**
+<RecipeHeader
+  displayName={"Add the Develocity Maven extension"}
+  description={"To integrate the Develocity Maven extension into Maven projects, ensure that the `develocity-maven-extension` is added to the `.mvn/extensions.xml` file if not already present. Additionally, configure the extension by adding the `.mvn/develocity.xml` configuration file."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.maven.AddDevelocityMavenExtension"}
+  artifact={"org.openrewrite:rewrite-maven"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddDevelocityMavenExtension"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/adddevelocitymavenextension.md"}
+/>
 
-_To integrate the Develocity Maven extension into Maven projects, ensure that the `develocity-maven-extension` is added to the `.mvn/extensions.xml` file if not already present. Additionally, configure the extension by adding the `.mvn/develocity.xml` configuration file._
-
-## Recipe source
-
-[GitHub: AddDevelocityMavenExtension.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-maven/src/main/java/org/openrewrite/maven/AddDevelocityMavenExtension.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-maven/)
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+<OptionsTable options={[{"type":"String","name":"version","required":false,"description":"A maven-compatible version number to select the gradle-enterprise-maven-extension version.","example":"1.17.4"},{"type":"String","name":"server","required":true,"description":"The URL of the Develocity server.","example":"https://scans.gradle.com/"},{"type":"Boolean","name":"allowUntrustedServer","required":false,"description":"When set to `true` the extension will be configured to allow unencrypted http connections with the server. If set to `false` or omitted, the extension will refuse to communicate without transport layer security enabled.","example":"true"},{"type":"Boolean","name":"fileFingerprints","required":false,"description":"When set to `true` the extension will capture additional information about the inputs to Maven goals. This increases the size of build scans, but is useful for diagnosing issues with goal caching. ","example":"true"},{"type":"Boolean","name":"uploadInBackground","required":false,"description":"When set to `false` the extension will not upload build scan in the background. By default, build scans are uploaded in the background after the build has finished to avoid blocking the build process.","example":"false"},{"type":"PublishCriteria","name":"publishCriteria","required":false,"description":"When set to `Always` the extension will publish build scans of every single build. This is the default behavior when omitted.When set to `Failure` the extension will only publish build scans when the build fails. When set to `Demand` the extension will only publish build scans when explicitly requested.","example":"Always"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | version | *Optional*. A maven-compatible version number to select the gradle-enterprise-maven-extension version. | `1.17.4` |
-| `String` | server | The URL of the Develocity server. | `https://scans.gradle.com/` |
-| `Boolean` | allowUntrustedServer | *Optional*. When set to `true` the extension will be configured to allow unencrypted http connections with the server. If set to `false` or omitted, the extension will refuse to communicate without transport layer security enabled. | `true` |
-| `Boolean` | fileFingerprints | *Optional*. When set to `true` the extension will capture additional information about the inputs to Maven goals. This increases the size of build scans, but is useful for diagnosing issues with goal caching.  | `true` |
-| `Boolean` | uploadInBackground | *Optional*. When set to `false` the extension will not upload build scan in the background. By default, build scans are uploaded in the background after the build has finished to avoid blocking the build process. | `false` |
-| `PublishCriteria` | publishCriteria | *Optional*. When set to `Always` the extension will publish build scans of every single build. This is the default behavior when omitted.When set to `Failure` the extension will only publish build scans when the build fails. When set to `Demand` the extension will only publish build scans when explicitly requested. Valid options: `Always`, `Failure`, `Demand` | `Always` |
+</OptionsTable>
 
-## Example
+<ExampleList examples={[{"parameters":[{"parameter":"version","value":"1.17"},{"parameter":"server","value":"https://foo"},{"parameter":"allowUntrustedServer","value":"null"},{"parameter":"fileFingerprints","value":"null"},{"parameter":"uploadInBackground","value":"null"},{"parameter":"publishCriteria","value":"null"}],"unchanged":{"language":"xml","code":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n</project>\n"},"variants":[{"language":"xml","before":"","after":"<gradleEnterprise>\n  <server>\n    <url>https://foo</url>\n  </server>\n</gradleEnterprise>\n","newFile":true},{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<extensions>\n</extensions>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<extensions>\n  <extension>\n    <groupId>com.gradle</groupId>\n    <artifactId>gradle-enterprise-maven-extension</artifactId>\n    <version>1.17</version>\n  </extension>\n</extensions>\n","diff":"--- .mvn/extensions.xml\n+++ .mvn/extensions.xml\n@@ -3,0 +3,5 @@\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<extensions>\n+ <extension>\n+   <groupId>com.gradle</groupId>\n+   <artifactId>gradle-enterprise-maven-extension</artifactId>\n+   <version>1.17</version>\n+ </extension>\n</extensions>\n","newFile":false}]}]}>
 
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|version|`1.17`|
-|server|`https://foo`|
-|allowUntrustedServer|`null`|
-|fileFingerprints|`null`|
-|uploadInBackground|`null`|
-|publishCriteria|`null`|
+## Examples
 
+</ExampleList>
 
-
-###### New file
-```xml title=".mvn/gradle-enterprise.xml"
-<gradleEnterprise>
-  <server>
-    <url>https://foo</url>
-  </server>
-</gradleEnterprise>
-```
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value=".mvn/extensions.xml" label=".mvn/extensions.xml">
-
-
-###### Before
-```xml title=".mvn/extensions.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<extensions>
-</extensions>
-```
-
-###### After
-```xml title=".mvn/extensions.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<extensions>
-  <extension>
-    <groupId>com.gradle</groupId>
-    <artifactId>gradle-enterprise-maven-extension</artifactId>
-    <version>1.17</version>
-  </extension>
-</extensions>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- .mvn/extensions.xml
-+++ .mvn/extensions.xml
-@@ -3,0 +3,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<extensions>
-+ <extension>
-+   <groupId>com.gradle</groupId>
-+   <artifactId>gradle-enterprise-maven-extension</artifactId>
-+   <version>1.17</version>
-+ </extension>
-</extensions>
-```
-</TabItem>
-</Tabs>
-
-###### Unchanged
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-</project>
-```
-
+<UsageList usage={{"recipeName":"org.openrewrite.maven.AddDevelocityMavenExtension","displayName":"Add the Develocity Maven extension","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=1.17.4\" --recipe-option \"server=https://scans.gradle.com/\" --recipe-option \"allowUntrustedServer=true\" --recipe-option \"fileFingerprints=true\" --recipe-option \"uploadInBackground=false\" --recipe-option \"publishCriteria=Always\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.AddDevelocityMavenExtensionExample
-displayName: Add the Develocity Maven extension example
-recipeList:
-  - org.openrewrite.maven.AddDevelocityMavenExtension:
-      version: 1.17.4
-      server: https://scans.gradle.com/
-      allowUntrustedServer: true
-      fileFingerprints: true
-      uploadInBackground: false
-      publishCriteria: Always
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.maven.AddDevelocityMavenExtension"
-  displayName="Add the Develocity Maven extension"
-  groupId="org.openrewrite"
-  artifactId="rewrite-maven"
-  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_MAVEN"
-  isCoreLibrary
-  requiresConfiguration
-  cliOptions={' --recipe-option "version=1.17.4" --recipe-option "server=https://scans.gradle.com/" --recipe-option "allowUntrustedServer=true" --recipe-option "fileFingerprints=true" --recipe-option "uploadInBackground=false" --recipe-option "publishCriteria=Always"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.maven.AddDevelocityMavenExtension" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

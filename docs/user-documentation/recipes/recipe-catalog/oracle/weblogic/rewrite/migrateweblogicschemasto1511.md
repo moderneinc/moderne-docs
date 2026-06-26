@@ -1,6 +1,7 @@
 ---
 title: "Migrate WebLogic Schemas to 15.1.1"
 sidebar_label: "Migrate WebLogic Schemas to 15.1.1"
+hide_title: true
 ---
 
 
@@ -8,194 +9,45 @@ sidebar_label: "Migrate WebLogic Schemas to 15.1.1"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/oracle/weblogic/rewrite/migrateweblogicschemasto1511" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate WebLogic Schemas to 15.1.1
+<RecipeMeta
+  displayName={"Migrate WebLogic Schemas to 15.1.1"}
+  description={"This recipe will migrate WebLogic schemas to 15.1.1"}
+  fqName={"com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/search?type=code&q=com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511"}
+/>
 
-**com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511**
+<RecipeHeader
+  displayName={"Migrate WebLogic Schemas to 15.1.1"}
+  description={"This recipe will migrate WebLogic schemas to 15.1.1"}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={["descriptors","java","schemas","weblogic"]}
+  license={"Apache License Version 2.0"}
+  fqName={"com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511"}
+  artifact={"org.openrewrite.recipe:rewrite-third-party"}
+  appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/migrateweblogicschemasto1511.md"}
+/>
 
-_This recipe will migrate WebLogic schemas to 15.1.1_
-
-### Tags
-
-* [descriptors](/user-documentation/recipes/lists/recipes-by-tag#descriptors)
-* [java](/user-documentation/recipes/lists/recipes-by-tag#java)
-* [schemas](/user-documentation/recipes/lists/recipes-by-tag#schemas)
-* [weblogic](/user-documentation/recipes/lists/recipes-by-tag#weblogic)
-
-## Recipe source
-
-[GitHub: search?type=code&q=com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511](https://github.com/search?type=code&q=com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511),
-[Issue Tracker](https://github.com/openrewrite/rewrite-third-party/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-third-party/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
+<RecipeList recipes={[{"name":"Migrate xmlns entries in `weblogic.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicxmlwebappnamespace1511"},{"name":"Migrate xmlns entries in `weblogic-ejb-jar.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicejbjar32xmlnamespace1511"},{"name":"Migrate xmlns entries in `weblogic-rdbms-jar.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicrdbmsjarxmlnamespace1511"},{"name":"Migrate xmlns entries in `persistence-configuration.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicpersistenceconfigurationxmlnamespace1511"},{"name":"Migrate xmlns entries in `weblogic-webservices.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicwebservicesxmlnamespace1511"},{"name":"Migrate xmlns entries in `weblogic-wsee-clientHandlerChain.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicwseeclienthandlerchainxmlnamespace1511"},{"name":"Migrate xmlns entries in `weblogic-webservices-policy.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicwebservicespolicyrefxmlnamespace1511"},{"name":"Migrate xmlns entries in `weblogic-wsee-standaloneclient.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicwseestandaloneclientxmlnamespace1511"},{"name":"Migrate xmlns entries in `weblogic-ra.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicraxmlnamespace1511"},{"name":"Migrate xmlns entries in `weblogic-application.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicapplicationxmlnamespace1511"},{"name":"Migrate xmlns entries in `application-client.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicapplicationclientxmlnamespace1511"},{"name":"Migrate xmlns entries in `weblogic-pubsub.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicpubsubxmlnamespace1511"},{"name":"Migrate xmlns entries in `*-jms.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicjmsxmlnamespace1511"},{"name":"Migrate xmlns entries in `*-jdbc.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicjdbcxmlnamespace1511"},{"name":"Migrate xmlns entries in `plan.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicplanxmlnamespace1511"},{"name":"Migrate xmlns entries in `resource-deployment-plan.xml` files to WebLogic 15.1.1","href":"oracle/weblogic/rewrite/weblogicresourcedeploymentplanxmlnamespace1511"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Migrate xmlns entries in `weblogic.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicxmlwebappnamespace1511)
-* [Migrate xmlns entries in `weblogic-ejb-jar.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicejbjar32xmlnamespace1511)
-* [Migrate xmlns entries in `weblogic-rdbms-jar.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicrdbmsjarxmlnamespace1511)
-* [Migrate xmlns entries in `persistence-configuration.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicpersistenceconfigurationxmlnamespace1511)
-* [Migrate xmlns entries in `weblogic-webservices.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicwebservicesxmlnamespace1511)
-* [Migrate xmlns entries in `weblogic-wsee-clientHandlerChain.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicwseeclienthandlerchainxmlnamespace1511)
-* [Migrate xmlns entries in `weblogic-webservices-policy.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicwebservicespolicyrefxmlnamespace1511)
-* [Migrate xmlns entries in `weblogic-wsee-standaloneclient.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicwseestandaloneclientxmlnamespace1511)
-* [Migrate xmlns entries in `weblogic-ra.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicraxmlnamespace1511)
-* [Migrate xmlns entries in `weblogic-application.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicapplicationxmlnamespace1511)
-* [Migrate xmlns entries in `application-client.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicapplicationclientxmlnamespace1511)
-* [Migrate xmlns entries in `weblogic-pubsub.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicpubsubxmlnamespace1511)
-* [Migrate xmlns entries in `*-jms.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicjmsxmlnamespace1511)
-* [Migrate xmlns entries in `*-jdbc.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicjdbcxmlnamespace1511)
-* [Migrate xmlns entries in `plan.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicplanxmlnamespace1511)
-* [Migrate xmlns entries in `resource-deployment-plan.xml` files to WebLogic 15.1.1](../../../oracle/weblogic/rewrite/weblogicresourcedeploymentplanxmlnamespace1511)
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511
-displayName: Migrate WebLogic Schemas to 15.1.1
-description: |
-  This recipe will migrate WebLogic schemas to 15.1.1
-tags:
-  - descriptors
-  - java
-  - schemas
-  - weblogic
-recipeList:
-  - com.oracle.weblogic.rewrite.WebLogicXmlWebAppNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicEjbJar32XmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicRdbmsJarXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicPersistenceConfigurationXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicWebServicesXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicWseeClientHandlerChainXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicWebservicesPolicyRefXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicWseeStandaloneClientXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicRaXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicApplicationXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicApplicationClientXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicPubSubXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicJmsXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicJdbcXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicPlanXmlNamespace1511
-  - com.oracle.weblogic.rewrite.WebLogicResourceDeploymentPlanXmlNamespace1511
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to WebLogic 15.1.1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeto1511.md)
-
+<UsageList usage={{"recipeName":"com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511","displayName":"Migrate WebLogic Schemas to 15.1.1","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511"
-  displayName="Migrate WebLogic Schemas to 15.1.1"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-third-party"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1511" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

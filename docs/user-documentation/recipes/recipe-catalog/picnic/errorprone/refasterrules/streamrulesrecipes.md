@@ -1,6 +1,7 @@
 ---
 title: "`StreamRules` Refaster recipes"
 sidebar_label: "`StreamRules` Refaster recipes"
+hide_title: true
 ---
 
 
@@ -8,226 +9,45 @@ sidebar_label: "`StreamRules` Refaster recipes"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/picnic/errorprone/refasterrules/streamrulesrecipes" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# `StreamRules` Refaster recipes
+<RecipeMeta
+  displayName={"`StreamRules` Refaster recipes"}
+  description={"Refaster rules related to expressions dealing with `Stream`s.\n[Source](https://error-prone.picnic.tech/refasterrules/StreamRules)."}
+  fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/search?type=code&q=tech.picnic.errorprone.refasterrules.StreamRulesRecipes"}
+/>
 
-**tech.picnic.errorprone.refasterrules.StreamRulesRecipes**
+<RecipeHeader
+  displayName={"`StreamRules` Refaster recipes"}
+  description={"Refaster rules related to expressions dealing with `Stream`s.\n[Source](https://error-prone.picnic.tech/refasterrules/StreamRules)."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes"}
+  artifact={"org.openrewrite.recipe:rewrite-third-party"}
+  appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes.md"}
+/>
 
-_Refaster rules related to expressions dealing with `Stream`s. [Source](https://error-prone.picnic.tech/refasterrules/StreamRules)._
-
-## Recipe source
-
-[GitHub: search?type=code&q=tech.picnic.errorprone.refasterrules.StreamRulesRecipes](https://github.com/search?type=code&q=tech.picnic.errorprone.refasterrules.StreamRulesRecipes),
-[Issue Tracker](https://github.com/openrewrite/rewrite-third-party/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-third-party/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
+<RecipeList recipes={[{"name":"Refaster template `StreamRules.Joining`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$joiningrecipe"},{"name":"Refaster template `StreamRules.StreamOfNullable`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamofnullablerecipe"},{"name":"Refaster template `StreamRules.ConcatOneStream`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$concatonestreamrecipe"},{"name":"Refaster template `StreamRules.ConcatTwoStreams`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$concattwostreamsrecipe"},{"name":"Refaster template `StreamRules.StreamSorted`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamsortedrecipe"},{"name":"Refaster template `StreamRules.StreamFilterSorted`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamfiltersortedrecipe"},{"name":"Refaster template `StreamRules.StreamFilterSortedWithComparator`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamfiltersortedwithcomparatorrecipe"},{"name":"Refaster template `StreamRules.StreamDistinctSorted`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamdistinctsortedrecipe"},{"name":"Refaster template `StreamRules.StreamDistinctSortedWithComparator`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamdistinctsortedwithcomparatorrecipe"},{"name":"Refaster template `StreamRules.StreamCollectLeastStream`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamcollectleaststreamrecipe"},{"name":"Refaster template `StreamRules.StreamCollectLeastNaturalOrderStream`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamcollectleastnaturalorderstreamrecipe"},{"name":"Refaster template `StreamRules.StreamMapFirst`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streammapfirstrecipe"},{"name":"Refaster template `StreamRules.StreamFindAnyIsEmpty`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamfindanyisemptyrecipe"},{"name":"Refaster template `StreamRules.StreamFindAnyIsPresent`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamfindanyispresentrecipe"},{"name":"Refaster template `StreamRules.StreamFindFirst`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamfindfirstrecipe"},{"name":"Refaster template `StreamRules.StreamMapFilter`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streammapfilterrecipe"},{"name":"Refaster template `StreamRules.StreamMin`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamminrecipe"},{"name":"Refaster template `StreamRules.StreamMinNaturalOrder`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamminnaturalorderrecipe"},{"name":"Refaster template `StreamRules.StreamMax`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streammaxrecipe"},{"name":"Refaster template `StreamRules.StreamMaxNaturalOrder`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streammaxnaturalorderrecipe"},{"name":"Refaster template `StreamRules.StreamMapToIntSummaryStatistics`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streammaptointsummarystatisticsrecipe"},{"name":"Refaster template `StreamRules.StreamMapToDoubleSummaryStatistics`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streammaptodoublesummarystatisticsrecipe"},{"name":"Refaster template `StreamRules.StreamMapToLongSummaryStatistics`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streammaptolongsummarystatisticsrecipe"},{"name":"Refaster template `StreamRules.StreamCount`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamcountrecipe"},{"name":"Refaster template `StreamRules.StreamReduce`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamreducerecipe"},{"name":"Refaster template `StreamRules.StreamReduceWithIdentity`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamreducewithidentityrecipe"},{"name":"Refaster template `StreamRules.StreamFilterCollect`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamfiltercollectrecipe"},{"name":"Refaster template `StreamRules.StreamMapCollect`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streammapcollectrecipe"},{"name":"Refaster template `StreamRules.StreamFlatMapCollect`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamflatmapcollectrecipe"},{"name":"Refaster template `StreamRules.StreamTakeWhile`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamtakewhilerecipe"},{"name":"Refaster template `StreamRules.StreamIterate`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamiteraterecipe"},{"name":"Refaster template `StreamRules.StreamOf1`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamof1recipe"},{"name":"Refaster template `StreamRules.StreamOf2`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamof2recipe"},{"name":"Refaster template `StreamRules.StreamOf3`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamof3recipe"},{"name":"Refaster template `StreamRules.StreamOf4`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamof4recipe"},{"name":"Refaster template `StreamRules.StreamOf5`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamof5recipe"},{"name":"Refaster template `StreamRules.StreamsStream`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$streamsstreamrecipe"},{"name":"Refaster template `StreamRules.CollectionParallelStream`","href":"picnic/errorprone/refasterrules/streamrulesrecipes$collectionparallelstreamrecipe"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Refaster template `StreamRules.Joining`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$joiningrecipe)
-* [Refaster template `StreamRules.StreamOfNullable`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamofnullablerecipe)
-* [Refaster template `StreamRules.ConcatOneStream`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$concatonestreamrecipe)
-* [Refaster template `StreamRules.ConcatTwoStreams`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$concattwostreamsrecipe)
-* [Refaster template `StreamRules.StreamSorted`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamsortedrecipe)
-* [Refaster template `StreamRules.StreamFilterSorted`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamfiltersortedrecipe)
-* [Refaster template `StreamRules.StreamFilterSortedWithComparator`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamfiltersortedwithcomparatorrecipe)
-* [Refaster template `StreamRules.StreamDistinctSorted`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamdistinctsortedrecipe)
-* [Refaster template `StreamRules.StreamDistinctSortedWithComparator`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamdistinctsortedwithcomparatorrecipe)
-* [Refaster template `StreamRules.StreamCollectLeastStream`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamcollectleaststreamrecipe)
-* [Refaster template `StreamRules.StreamCollectLeastNaturalOrderStream`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamcollectleastnaturalorderstreamrecipe)
-* [Refaster template `StreamRules.StreamMapFirst`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streammapfirstrecipe)
-* [Refaster template `StreamRules.StreamFindAnyIsEmpty`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamfindanyisemptyrecipe)
-* [Refaster template `StreamRules.StreamFindAnyIsPresent`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamfindanyispresentrecipe)
-* [Refaster template `StreamRules.StreamFindFirst`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamfindfirstrecipe)
-* [Refaster template `StreamRules.StreamMapFilter`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streammapfilterrecipe)
-* [Refaster template `StreamRules.StreamMin`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamminrecipe)
-* [Refaster template `StreamRules.StreamMinNaturalOrder`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamminnaturalorderrecipe)
-* [Refaster template `StreamRules.StreamMax`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streammaxrecipe)
-* [Refaster template `StreamRules.StreamMaxNaturalOrder`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streammaxnaturalorderrecipe)
-* [Refaster template `StreamRules.StreamMapToIntSummaryStatistics`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streammaptointsummarystatisticsrecipe)
-* [Refaster template `StreamRules.StreamMapToDoubleSummaryStatistics`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streammaptodoublesummarystatisticsrecipe)
-* [Refaster template `StreamRules.StreamMapToLongSummaryStatistics`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streammaptolongsummarystatisticsrecipe)
-* [Refaster template `StreamRules.StreamCount`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamcountrecipe)
-* [Refaster template `StreamRules.StreamReduce`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamreducerecipe)
-* [Refaster template `StreamRules.StreamReduceWithIdentity`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamreducewithidentityrecipe)
-* [Refaster template `StreamRules.StreamFilterCollect`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamfiltercollectrecipe)
-* [Refaster template `StreamRules.StreamMapCollect`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streammapcollectrecipe)
-* [Refaster template `StreamRules.StreamFlatMapCollect`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamflatmapcollectrecipe)
-* [Refaster template `StreamRules.StreamTakeWhile`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamtakewhilerecipe)
-* [Refaster template `StreamRules.StreamIterate`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamiteraterecipe)
-* [Refaster template `StreamRules.StreamOf1`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamof1recipe)
-* [Refaster template `StreamRules.StreamOf2`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamof2recipe)
-* [Refaster template `StreamRules.StreamOf3`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamof3recipe)
-* [Refaster template `StreamRules.StreamOf4`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamof4recipe)
-* [Refaster template `StreamRules.StreamOf5`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamof5recipe)
-* [Refaster template `StreamRules.StreamsStream`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$streamsstreamrecipe)
-* [Refaster template `StreamRules.CollectionParallelStream`](../../../picnic/errorprone/refasterrules/streamrulesrecipes$collectionparallelstreamrecipe)
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: tech.picnic.errorprone.refasterrules.StreamRulesRecipes
-displayName: `StreamRules` Refaster recipes
-description: |
-  Refaster rules related to expressions dealing with `Stream`s. [Source](https://error-prone.picnic.tech/refasterrules/StreamRules).
-recipeList:
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$JoiningRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamOfNullableRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$ConcatOneStreamRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$ConcatTwoStreamsRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamSortedRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFilterSortedRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFilterSortedWithComparatorRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamDistinctSortedRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamDistinctSortedWithComparatorRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCollectLeastStreamRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCollectLeastNaturalOrderStreamRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapFirstRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFindAnyIsEmptyRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFindAnyIsPresentRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFindFirstRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapFilterRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMinRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMinNaturalOrderRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMaxRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMaxNaturalOrderRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapToIntSummaryStatisticsRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapToDoubleSummaryStatisticsRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapToLongSummaryStatisticsRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCountRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamReduceRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamReduceWithIdentityRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFilterCollectRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapCollectRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFlatMapCollectRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamTakeWhileRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamIterateRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamOf1Recipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamOf2Recipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamOf3Recipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamOf4Recipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamOf5Recipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamsStreamRecipe
-  - tech.picnic.errorprone.refasterrules.StreamRulesRecipes$CollectionParallelStreamRecipe
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [All Picnic Refaster rules](/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/allrefasterrules.md)
-
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes","displayName":"`StreamRules` Refaster recipes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="tech.picnic.errorprone.refasterrules.StreamRulesRecipes"
-  displayName="`StreamRules` Refaster recipes"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-third-party"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

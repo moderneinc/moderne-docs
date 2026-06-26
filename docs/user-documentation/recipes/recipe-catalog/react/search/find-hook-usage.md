@@ -1,30 +1,36 @@
 ---
 title: "Find React hook usage"
 sidebar_label: "Find React hook usage"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find React hook usage
+<RecipeMeta
+  displayName={"Find React hook usage"}
+  description={"Finds all React hook usages including built-in and custom hooks, and detects Rules of Hooks violations."}
+  fqName={"org.openrewrite.react.search.find-hook-usage"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.search.find-hook-usage**
+<RecipeHeader
+  displayName={"Find React hook usage"}
+  description={"Finds all React hook usages including built-in and custom hooks, and detects Rules of Hooks violations."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.search.find-hook-usage"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.search.find-hook-usage"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/search/find-hook-usage.md"}
+  moderneOnly
+/>
 
-_Finds all React hook usages including built-in and custom hooks, and detects Rules of Hooks violations._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.search.find-hook-usage","displayName":"Find React hook usage","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.search.find-hook-usage"
-  displayName="Find React hook usage"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

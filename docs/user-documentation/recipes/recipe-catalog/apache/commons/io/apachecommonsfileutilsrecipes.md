@@ -1,6 +1,7 @@
 ---
 title: "`ApacheCommonsFileUtils` Refaster recipes"
 sidebar_label: "`ApacheCommonsFileUtils` Refaster recipes"
+hide_title: true
 ---
 
 
@@ -8,333 +9,51 @@ sidebar_label: "`ApacheCommonsFileUtils` Refaster recipes"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/io/apachecommonsfileutilsrecipes" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# `ApacheCommonsFileUtils` Refaster recipes
+<RecipeMeta
+  displayName={"`ApacheCommonsFileUtils` Refaster recipes"}
+  description={"Refaster template recipes for `org.openrewrite.apache.commons.io.ApacheCommonsFileUtils`."}
+  fqName={"org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-apache/blob/main/src/main/java/org/openrewrite/apache/commons/io/ApacheCommonsFileUtils.java"}
+/>
 
-**org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes**
+<RecipeHeader
+  displayName={"`ApacheCommonsFileUtils` Refaster recipes"}
+  description={"Refaster template recipes for `org.openrewrite.apache.commons.io.ApacheCommonsFileUtils`."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes"}
+  artifact={"org.openrewrite.recipe:rewrite-apache"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes.md"}
+/>
 
-_Refaster template recipes for `org.openrewrite.apache.commons.io.ApacheCommonsFileUtils`._
-
-## Recipe source
-
-[GitHub: ApacheCommonsFileUtils.java](https://github.com/openrewrite/rewrite-apache/blob/main/src/main/java/org/openrewrite/apache/commons/io/ApacheCommonsFileUtils.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-apache/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-apache/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Replace `FileUtils.getFile(String...)` with JDK provided API","href":"apache/commons/io/apachecommonsfileutilsrecipes$getfilerecipe"},{"name":"Replace `FileUtils.writeStringToFile(File, String)` with JDK provided API","href":"apache/commons/io/apachecommonsfileutilsrecipes$writestringtofilerecipe"},{"name":"Replace `FileUtils.readFileToString(File)` with `FileUtils.readFileToString(File, StandardCharsets.UTF_8)`","href":"apache/commons/io/apachecommonsfileutilsrecipes$readfiletostringwithcharsetrecipe"},{"name":"Replace `FileUtils.readLines(File)` with `FileUtils.readLines(File, StandardCharsets.UTF_8)`","href":"apache/commons/io/apachecommonsfileutilsrecipes$readlineswithcharsetrecipe"},{"name":"Replace `FileUtils.write(File, CharSequence)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, false)`","href":"apache/commons/io/apachecommonsfileutilsrecipes$writewithcharsetrecipe"},{"name":"Replace `FileUtils.write(File, CharSequence, boolean)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, boolean)`","href":"apache/commons/io/apachecommonsfileutilsrecipes$writeappendwithcharsetrecipe"},{"name":"Replace `FileUtils.writeStringToFile(File, String, boolean)` with `FileUtils.writeStringToFile(File, String, StandardCharsets.UTF_8, boolean)`","href":"apache/commons/io/apachecommonsfileutilsrecipes$writestringtofileappendwithcharsetrecipe"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Replace `FileUtils.getFile(String...)` with JDK provided API](../../../apache/commons/io/apachecommonsfileutilsrecipes$getfilerecipe)
-* [Replace `FileUtils.writeStringToFile(File, String)` with JDK provided API](../../../apache/commons/io/apachecommonsfileutilsrecipes$writestringtofilerecipe)
-* [Replace `FileUtils.readFileToString(File)` with `FileUtils.readFileToString(File, StandardCharsets.UTF_8)`](../../../apache/commons/io/apachecommonsfileutilsrecipes$readfiletostringwithcharsetrecipe)
-* [Replace `FileUtils.readLines(File)` with `FileUtils.readLines(File, StandardCharsets.UTF_8)`](../../../apache/commons/io/apachecommonsfileutilsrecipes$readlineswithcharsetrecipe)
-* [Replace `FileUtils.write(File, CharSequence)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, false)`](../../../apache/commons/io/apachecommonsfileutilsrecipes$writewithcharsetrecipe)
-* [Replace `FileUtils.write(File, CharSequence, boolean)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, boolean)`](../../../apache/commons/io/apachecommonsfileutilsrecipes$writeappendwithcharsetrecipe)
-* [Replace `FileUtils.writeStringToFile(File, String, boolean)` with `FileUtils.writeStringToFile(File, String, StandardCharsets.UTF_8, boolean)`](../../../apache/commons/io/apachecommonsfileutilsrecipes$writestringtofileappendwithcharsetrecipe)
+</RecipeList>
 
-</TabItem>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.io.FileUtils;\n\nimport java.io.File;\nimport java.io.FileFilter;\nimport java.net.URL;\nimport java.nio.charset.Charset;\nimport java.util.Collection;\nimport java.util.Collections;\nimport java.util.List;\n\nclass Foo {\n    void bar(File fileA, File fileB, URL url, Charset cs, FileFilter filter, CharSequence charSeq) throws Exception {\n        long l = 10L;\n        String s = \"hello world\";\n        String[] stringArray = new String[4];\n        Collection<String> collection = Collections.EMPTY_LIST;\n        byte[] bytes = new byte[0];\n        String str;\n        boolean bool;\n        List<String> strList;\n        List<File> fileList;\n        File f;\n\n        FileUtils.write(fileA, s, cs);\n        f = FileUtils.getFile(s);\n        f = FileUtils.getFile(s, s);\n        f = FileUtils.toFile(url);\n\n        str = FileUtils.byteCountToDisplaySize(l);\n        FileUtils.cleanDirectory(fileA);\n        bool = FileUtils.contentEquals(fileA, fileB);\n        bool = FileUtils.contentEqualsIgnoreEOL(fileA, fileB, s);\n        FileUtils.copyDirectory(fileA, fileB);\n        FileUtils.copyFileToDirectory(fileA, fileB);\n        FileUtils.copyFile(fileA, fileB);\n        FileUtils.copyURLToFile(url, fileA);\n        f = FileUtils.current();\n        FileUtils.deleteDirectory(fileA);\n        f = FileUtils.delete(fileA);\n        bool = FileUtils.deleteQuietly(fileA);\n        FileUtils.forceDeleteOnExit(fileA);\n        FileUtils.forceDelete(fileA);\n        FileUtils.forceMkdir(fileA);\n        FileUtils.forceMkdirParent(fileA);\n        f = FileUtils.getTempDirectory();\n        str = FileUtils.readFileToString(fileA, cs);\n        str = FileUtils.readFileToString(fileA, s);\n        strList = FileUtils.readLines(fileA, cs);\n        FileUtils.writeByteArrayToFile(fileA, bytes);\n        FileUtils.writeLines(fileA, collection);\n        FileUtils.writeStringToFile(fileA, s);\n        str = FileUtils.readFileToString(fileA);\n        strList = FileUtils.readLines(fileA);\n        FileUtils.write(fileA, charSeq);\n        FileUtils.write(fileA, charSeq, true);\n        FileUtils.writeStringToFile(fileA, s, true);\n    }\n}\n","after":"import org.apache.commons.io.FileUtils;\n\nimport java.io.File;\nimport java.io.FileFilter;\nimport java.net.URL;\nimport java.nio.charset.Charset;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.Files;\nimport java.util.Collection;\nimport java.util.Collections;\nimport java.util.List;\n\nclass Foo {\n    void bar(File fileA, File fileB, URL url, Charset cs, FileFilter filter, CharSequence charSeq) throws Exception {\n        long l = 10L;\n        String s = \"hello world\";\n        String[] stringArray = new String[4];\n        Collection<String> collection = Collections.EMPTY_LIST;\n        byte[] bytes = new byte[0];\n        String str;\n        boolean bool;\n        List<String> strList;\n        List<File> fileList;\n        File f;\n\n        FileUtils.write(fileA, s, cs);\n        f = new File(s);\n        f = FileUtils.getFile(s, s);\n        f = FileUtils.toFile(url);\n\n        str = FileUtils.byteCountToDisplaySize(l);\n        FileUtils.cleanDirectory(fileA);\n        bool = FileUtils.contentEquals(fileA, fileB);\n        bool = FileUtils.contentEqualsIgnoreEOL(fileA, fileB, s);\n        FileUtils.copyDirectory(fileA, fileB);\n        FileUtils.copyFileToDirectory(fileA, fileB);\n        FileUtils.copyFile(fileA, fileB);\n        FileUtils.copyURLToFile(url, fileA);\n        f = FileUtils.current();\n        FileUtils.deleteDirectory(fileA);\n        f = FileUtils.delete(fileA);\n        bool = FileUtils.deleteQuietly(fileA);\n        FileUtils.forceDeleteOnExit(fileA);\n        FileUtils.forceDelete(fileA);\n        FileUtils.forceMkdir(fileA);\n        FileUtils.forceMkdirParent(fileA);\n        f = FileUtils.getTempDirectory();\n        str = FileUtils.readFileToString(fileA, cs);\n        str = FileUtils.readFileToString(fileA, s);\n        strList = FileUtils.readLines(fileA, cs);\n        FileUtils.writeByteArrayToFile(fileA, bytes);\n        FileUtils.writeLines(fileA, collection);\n        Files.write(fileA.toPath(), s.getBytes());\n        str = FileUtils.readFileToString(fileA, StandardCharsets.UTF_8);\n        strList = FileUtils.readLines(fileA, StandardCharsets.UTF_8);\n        FileUtils.write(fileA, charSeq, StandardCharsets.UTF_8, false);\n        FileUtils.write(fileA, charSeq, StandardCharsets.UTF_8, true);\n        FileUtils.writeStringToFile(fileA, s, StandardCharsets.UTF_8, true);\n    }\n}\n","diff":"@@ -7,0 +7,2 @@\nimport java.net.URL;\nimport java.nio.charset.Charset;\n+import java.nio.charset.StandardCharsets;\n+import java.nio.file.Files;\nimport java.util.Collection;\n@@ -25,1 +27,1 @@\n\n        FileUtils.write(fileA, s, cs);\n-       f = FileUtils.getFile(s);\n+       f = new File(s);\n        f = FileUtils.getFile(s, s);\n@@ -51,6 +53,6 @@\n        FileUtils.writeByteArrayToFile(fileA, bytes);\n        FileUtils.writeLines(fileA, collection);\n-       FileUtils.writeStringToFile(fileA, s);\n-       str = FileUtils.readFileToString(fileA);\n-       strList = FileUtils.readLines(fileA);\n-       FileUtils.write(fileA, charSeq);\n-       FileUtils.write(fileA, charSeq, true);\n-       FileUtils.writeStringToFile(fileA, s, true);\n+       Files.write(fileA.toPath(), s.getBytes());\n+       str = FileUtils.readFileToString(fileA, StandardCharsets.UTF_8);\n+       strList = FileUtils.readLines(fileA, StandardCharsets.UTF_8);\n+       FileUtils.write(fileA, charSeq, StandardCharsets.UTF_8, false);\n+       FileUtils.write(fileA, charSeq, StandardCharsets.UTF_8, true);\n+       FileUtils.writeStringToFile(fileA, s, StandardCharsets.UTF_8, true);\n    }\n","newFile":false}]}]}>
 
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
+## Examples
 
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes
-displayName: `ApacheCommonsFileUtils` Refaster recipes
-description: |
-  Refaster template recipes for `org.openrewrite.apache.commons.io.ApacheCommonsFileUtils`.
-recipeList:
-  - org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$GetFileRecipe
-  - org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$WriteStringToFileRecipe
-  - org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$ReadFileToStringWithCharsetRecipe
-  - org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$ReadLinesWithCharsetRecipe
-  - org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$WriteWithCharsetRecipe
-  - org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$WriteAppendWithCharsetRecipe
-  - org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$WriteStringToFileAppendWithCharsetRecipe
+</ExampleList>
 
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Prefer the Java standard library instead of Apache Commons](/user-documentation/recipes/recipe-catalog/apache/commons/preferjavastandardlibrary.md)
-
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-import java.io.FileFilter;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
-class Foo {
-    void bar(File fileA, File fileB, URL url, Charset cs, FileFilter filter, CharSequence charSeq) throws Exception {
-        long l = 10L;
-        String s = "hello world";
-        String[] stringArray = new String[4];
-        Collection<String> collection = Collections.EMPTY_LIST;
-        byte[] bytes = new byte[0];
-        String str;
-        boolean bool;
-        List<String> strList;
-        List<File> fileList;
-        File f;
-
-        FileUtils.write(fileA, s, cs);
-        f = FileUtils.getFile(s);
-        f = FileUtils.getFile(s, s);
-        f = FileUtils.toFile(url);
-
-        str = FileUtils.byteCountToDisplaySize(l);
-        FileUtils.cleanDirectory(fileA);
-        bool = FileUtils.contentEquals(fileA, fileB);
-        bool = FileUtils.contentEqualsIgnoreEOL(fileA, fileB, s);
-        FileUtils.copyDirectory(fileA, fileB);
-        FileUtils.copyFileToDirectory(fileA, fileB);
-        FileUtils.copyFile(fileA, fileB);
-        FileUtils.copyURLToFile(url, fileA);
-        f = FileUtils.current();
-        FileUtils.deleteDirectory(fileA);
-        f = FileUtils.delete(fileA);
-        bool = FileUtils.deleteQuietly(fileA);
-        FileUtils.forceDeleteOnExit(fileA);
-        FileUtils.forceDelete(fileA);
-        FileUtils.forceMkdir(fileA);
-        FileUtils.forceMkdirParent(fileA);
-        f = FileUtils.getTempDirectory();
-        str = FileUtils.readFileToString(fileA, cs);
-        str = FileUtils.readFileToString(fileA, s);
-        strList = FileUtils.readLines(fileA, cs);
-        FileUtils.writeByteArrayToFile(fileA, bytes);
-        FileUtils.writeLines(fileA, collection);
-        FileUtils.writeStringToFile(fileA, s);
-        str = FileUtils.readFileToString(fileA);
-        strList = FileUtils.readLines(fileA);
-        FileUtils.write(fileA, charSeq);
-        FileUtils.write(fileA, charSeq, true);
-        FileUtils.writeStringToFile(fileA, s, true);
-    }
-}
-```
-
-###### After
-```java
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-import java.io.FileFilter;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
-class Foo {
-    void bar(File fileA, File fileB, URL url, Charset cs, FileFilter filter, CharSequence charSeq) throws Exception {
-        long l = 10L;
-        String s = "hello world";
-        String[] stringArray = new String[4];
-        Collection<String> collection = Collections.EMPTY_LIST;
-        byte[] bytes = new byte[0];
-        String str;
-        boolean bool;
-        List<String> strList;
-        List<File> fileList;
-        File f;
-
-        FileUtils.write(fileA, s, cs);
-        f = new File(s);
-        f = FileUtils.getFile(s, s);
-        f = FileUtils.toFile(url);
-
-        str = FileUtils.byteCountToDisplaySize(l);
-        FileUtils.cleanDirectory(fileA);
-        bool = FileUtils.contentEquals(fileA, fileB);
-        bool = FileUtils.contentEqualsIgnoreEOL(fileA, fileB, s);
-        FileUtils.copyDirectory(fileA, fileB);
-        FileUtils.copyFileToDirectory(fileA, fileB);
-        FileUtils.copyFile(fileA, fileB);
-        FileUtils.copyURLToFile(url, fileA);
-        f = FileUtils.current();
-        FileUtils.deleteDirectory(fileA);
-        f = FileUtils.delete(fileA);
-        bool = FileUtils.deleteQuietly(fileA);
-        FileUtils.forceDeleteOnExit(fileA);
-        FileUtils.forceDelete(fileA);
-        FileUtils.forceMkdir(fileA);
-        FileUtils.forceMkdirParent(fileA);
-        f = FileUtils.getTempDirectory();
-        str = FileUtils.readFileToString(fileA, cs);
-        str = FileUtils.readFileToString(fileA, s);
-        strList = FileUtils.readLines(fileA, cs);
-        FileUtils.writeByteArrayToFile(fileA, bytes);
-        FileUtils.writeLines(fileA, collection);
-        Files.write(fileA.toPath(), s.getBytes());
-        str = FileUtils.readFileToString(fileA, StandardCharsets.UTF_8);
-        strList = FileUtils.readLines(fileA, StandardCharsets.UTF_8);
-        FileUtils.write(fileA, charSeq, StandardCharsets.UTF_8, false);
-        FileUtils.write(fileA, charSeq, StandardCharsets.UTF_8, true);
-        FileUtils.writeStringToFile(fileA, s, StandardCharsets.UTF_8, true);
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -7,0 +7,2 @@
-import java.net.URL;
-import java.nio.charset.Charset;
-+import java.nio.charset.StandardCharsets;
-+import java.nio.file.Files;
-import java.util.Collection;
-@@ -25,1 +27,1 @@
-
-        FileUtils.write(fileA, s, cs);
--       f = FileUtils.getFile(s);
-+       f = new File(s);
-        f = FileUtils.getFile(s, s);
-@@ -51,6 +53,6 @@
-        FileUtils.writeByteArrayToFile(fileA, bytes);
-        FileUtils.writeLines(fileA, collection);
--       FileUtils.writeStringToFile(fileA, s);
--       str = FileUtils.readFileToString(fileA);
--       strList = FileUtils.readLines(fileA);
--       FileUtils.write(fileA, charSeq);
--       FileUtils.write(fileA, charSeq, true);
--       FileUtils.writeStringToFile(fileA, s, true);
-+       Files.write(fileA.toPath(), s.getBytes());
-+       str = FileUtils.readFileToString(fileA, StandardCharsets.UTF_8);
-+       strList = FileUtils.readLines(fileA, StandardCharsets.UTF_8);
-+       FileUtils.write(fileA, charSeq, StandardCharsets.UTF_8, false);
-+       FileUtils.write(fileA, charSeq, StandardCharsets.UTF_8, true);
-+       FileUtils.writeStringToFile(fileA, s, StandardCharsets.UTF_8, true);
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes","displayName":"`ApacheCommonsFileUtils` Refaster recipes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes"
-  displayName="`ApacheCommonsFileUtils` Refaster recipes"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-apache"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

@@ -1,42 +1,36 @@
 ---
 title: "Use 'is' operator instead of 'as' operator"
 sidebar_label: "Use 'is' operator instead of 'as' operator"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use 'is' operator instead of 'as' operator
+<RecipeMeta
+  displayName={"Use 'is' operator instead of 'as' operator"}
+  description={"Replace 'as' operator followed by null check with 'is' operator."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseIsOperatorInsteadOfAs"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseIsOperatorInsteadOfAs**
+<RecipeHeader
+  displayName={"Use 'is' operator instead of 'as' operator"}
+  description={"Replace 'as' operator followed by null check with 'is' operator."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseIsOperatorInsteadOfAs"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseIsOperatorInsteadOfAs"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useisoperatorinsteadofas.md"}
+  moderneOnly
+/>
 
-_Replace 'as' operator followed by null check with 'is' operator._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Simplification code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplificationcodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseIsOperatorInsteadOfAs","displayName":"Use 'is' operator instead of 'as' operator","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseIsOperatorInsteadOfAs"
-  displayName="Use 'is' operator instead of 'as' operator"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

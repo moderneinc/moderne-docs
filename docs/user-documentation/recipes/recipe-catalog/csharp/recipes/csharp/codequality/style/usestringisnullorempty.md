@@ -1,43 +1,36 @@
 ---
 title: "Use string.IsNullOrEmpty method"
 sidebar_label: "Use string.IsNullOrEmpty method"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use string.IsNullOrEmpty method
+<RecipeMeta
+  displayName={"Use string.IsNullOrEmpty method"}
+  description={"Replace `s == null || s == \"\"` and `s == null || s.Length == 0` with `string.IsNullOrEmpty(s)`."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringIsNullOrEmpty"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringIsNullOrEmpty**
+<RecipeHeader
+  displayName={"Use string.IsNullOrEmpty method"}
+  description={"Replace `s == null || s == \"\"` and `s == null || s.Length == 0` with `string.IsNullOrEmpty(s)`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","style","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringIsNullOrEmpty"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringIsNullOrEmpty"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usestringisnullorempty.md"}
+  moderneOnly
+/>
 
-_Replace `s == null || s == ""` and `s == null || s.Length == 0` with `string.IsNullOrEmpty(s)`._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [style](/user-documentation/recipes/lists/recipes-by-tag#style)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringIsNullOrEmpty","displayName":"Use string.IsNullOrEmpty method","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringIsNullOrEmpty"
-  displayName="Use string.IsNullOrEmpty method"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

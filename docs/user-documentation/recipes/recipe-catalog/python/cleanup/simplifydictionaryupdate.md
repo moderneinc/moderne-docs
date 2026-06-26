@@ -1,37 +1,36 @@
 ---
 title: "Convert one-item `dict.update()` to bracket assignment"
 sidebar_label: "Convert one-item `dict.update()` to bracket assignment"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Convert one-item `dict.update()` to bracket assignment
+<RecipeMeta
+  displayName={"Convert one-item `dict.update()` to bracket assignment"}
+  description={"When `.update()` receives a dictionary literal containing exactly one key, rewrite it as a direct key assignment for clarity and efficiency."}
+  fqName={"org.openrewrite.python.cleanup.SimplifyDictionaryUpdate"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.SimplifyDictionaryUpdate**
+<RecipeHeader
+  displayName={"Convert one-item `dict.update()` to bracket assignment"}
+  description={"When `.update()` receives a dictionary literal containing exactly one key, rewrite it as a direct key assignment for clarity and efficiency."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.SimplifyDictionaryUpdate"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyDictionaryUpdate"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifydictionaryupdate.md"}
+  moderneOnly
+/>
 
-_When `.update()` receives a dictionary literal containing exactly one key, rewrite it as a direct key assignment for clarity and efficiency._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyDictionaryUpdate","displayName":"Convert one-item `dict.update()` to bracket assignment","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.SimplifyDictionaryUpdate"
-  displayName="Convert one-item `dict.update()` to bracket assignment"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

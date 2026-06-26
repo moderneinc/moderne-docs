@@ -1,34 +1,36 @@
 ---
 title: "Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`"
 sidebar_label: "Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`
+<RecipeMeta
+  displayName={"Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`"}
+  description={"Replace deprecated `new SlowBuffer(size)` calls with `Buffer.allocUnsafeSlow(size)`. SlowBuffer was used to create un-pooled Buffer instances, but has been removed in favor of the explicit Buffer.allocUnsafeSlow() method."}
+  fqName={"org.openrewrite.node.migrate.buffer.replace-slow-buffer"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.node.migrate.buffer.replace-slow-buffer**
+<RecipeHeader
+  displayName={"Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`"}
+  description={"Replace deprecated `new SlowBuffer(size)` calls with `Buffer.allocUnsafeSlow(size)`. SlowBuffer was used to create un-pooled Buffer instances, but has been removed in favor of the explicit Buffer.allocUnsafeSlow() method."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["DEP0030"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.node.migrate.buffer.replace-slow-buffer"}
+  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.buffer.replace-slow-buffer"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-slow-buffer.md"}
+  moderneOnly
+/>
 
-_Replace deprecated `new SlowBuffer(size)` calls with `Buffer.allocUnsafeSlow(size)`. SlowBuffer was used to create un-pooled Buffer instances, but has been removed in favor of the explicit Buffer.allocUnsafeSlow() method._
-
-### Tags
-
-* [DEP0030](/user-documentation/recipes/lists/recipes-by-tag#dep0030)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.node.migrate.buffer.replace-slow-buffer","displayName":"Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.node.migrate.buffer.replace-slow-buffer"
-  displayName="Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`"
-  npmPackage="@openrewrite/recipes-nodejs"
-/>
+</UsageList>
+

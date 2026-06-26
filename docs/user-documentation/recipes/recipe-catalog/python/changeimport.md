@@ -1,51 +1,42 @@
 ---
 title: "Change import"
 sidebar_label: "Change import"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Change import
+<RecipeMeta
+  displayName={"Change import"}
+  description={"Change a Python import from one module/name to another, updating all type attributions."}
+  fqName={"org.openrewrite.python.ChangeImport"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.ChangeImport**
+<RecipeHeader
+  displayName={"Change import"}
+  description={"Change a Python import from one module/name to another, updating all type attributions."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.ChangeImport"}
+  artifact={"org.openrewrite:rewrite-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.ChangeImport"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/changeimport.md"}
+  moderneOnly
+/>
 
-_Change a Python import from one module/name to another, updating all type attributions._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"String","name":"old_module","required":true,"description":"The module to change imports from","example":"collections"},{"type":"String","name":"old_name","required":false,"description":"The name to change (for 'from X import name' style). Leave empty for direct imports.","example":"Mapping"},{"type":"String","name":"new_module","required":true,"description":"The module to change imports to","example":"collections.abc"},{"type":"String","name":"new_name","required":false,"description":"The new name. If not specified, uses the old name.","example":"Mapping"},{"type":"String","name":"new_alias","required":false,"description":"Optional alias for the new import"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `null` | old_module | The module to change imports from | `collections` |
-| `null` | old_name | *Optional*. The name to change (for 'from X import name' style). Leave empty for direct imports. | `Mapping` |
-| `null` | new_module | The module to change imports to | `collections.abc` |
-| `null` | new_name | *Optional*. The new name. If not specified, uses the old name. | `Mapping` |
-| `null` | new_alias | *Optional*. Optional alias for the new import |  |
+</OptionsTable>
 
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Replace `typing.Callable` with `collections.abc.Callable`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingcallablewithcollectionsabccallable)
-* [Upgrade to Python 3.11](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython311)
-* [Upgrade to Python 3.12](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython312)
-* [Upgrade to Python 3.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38)
-* [Upgrade to Python 3.9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.ChangeImport","displayName":"Change import","pipPackage":"openrewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.ChangeImport"
-  displayName="Change import"
-  pipPackage="openrewrite"
-/>
+</UsageList>
+

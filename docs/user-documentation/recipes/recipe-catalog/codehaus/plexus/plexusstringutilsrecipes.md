@@ -1,6 +1,7 @@
 ---
 title: "`PlexusStringUtils` Refaster recipes"
 sidebar_label: "`PlexusStringUtils` Refaster recipes"
+hide_title: true
 ---
 
 
@@ -8,308 +9,51 @@ sidebar_label: "`PlexusStringUtils` Refaster recipes"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/codehaus/plexus/plexusstringutilsrecipes" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# `PlexusStringUtils` Refaster recipes
+<RecipeMeta
+  displayName={"`PlexusStringUtils` Refaster recipes"}
+  description={"Refaster template recipes for `org.openrewrite.codehaus.plexus.PlexusStringUtils`."}
+  fqName={"org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-apache/blob/main/src/main/java/org/openrewrite/codehaus/plexus/PlexusStringUtils.java"}
+/>
 
-**org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes**
+<RecipeHeader
+  displayName={"`PlexusStringUtils` Refaster recipes"}
+  description={"Refaster template recipes for `org.openrewrite.codehaus.plexus.PlexusStringUtils`."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes"}
+  artifact={"org.openrewrite.recipe:rewrite-apache"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusstringutilsrecipes.md"}
+/>
 
-_Refaster template recipes for `org.openrewrite.codehaus.plexus.PlexusStringUtils`._
-
-## Recipe source
-
-[GitHub: PlexusStringUtils.java](https://github.com/openrewrite/rewrite-apache/blob/main/src/main/java/org/openrewrite/codehaus/plexus/PlexusStringUtils.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-apache/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-apache/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Replace `StringUtils.abbreviate(String, int)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$abbreviaterecipe"},{"name":"Replace `StringUtils.capitalise(String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$capitaliserecipe"},{"name":"Replace `StringUtils.defaultString(Object)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$defaultstringrecipe"},{"name":"Replace `StringUtils.defaultString(Object, String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$defaultstringfallbackrecipe"},{"name":"Replace `StringUtils.deleteWhitespace(String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$deletewhitespacerecipe"},{"name":"Replace `StringUtils.equalsIgnoreCase(String, String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$equalsignorecaserecipe"},{"name":"Replace `StringUtils.equals(String, String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$equalsrecipe"},{"name":"Replace `StringUtils.lowerCase(String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$lowercaserecipe"},{"name":"Replace `StringUtils.replace(String, String, String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$replacerecipe"},{"name":"Replace `StringUtils.reverse(String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$reverserecipe"},{"name":"Replace `StringUtils.split(String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$splitrecipe"},{"name":"Replace `StringUtils.strip(String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$striprecipe"},{"name":"Replace `StringUtils.trim(String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$trimrecipe"},{"name":"Replace `StringUtils.upperCase(String)` with JDK provided API","href":"codehaus/plexus/plexusstringutilsrecipes$uppercaserecipe"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Replace `StringUtils.abbreviate(String, int)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$abbreviaterecipe)
-* [Replace `StringUtils.capitalise(String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$capitaliserecipe)
-* [Replace `StringUtils.defaultString(Object)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$defaultstringrecipe)
-* [Replace `StringUtils.defaultString(Object, String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$defaultstringfallbackrecipe)
-* [Replace `StringUtils.deleteWhitespace(String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$deletewhitespacerecipe)
-* [Replace `StringUtils.equalsIgnoreCase(String, String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$equalsignorecaserecipe)
-* [Replace `StringUtils.equals(String, String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$equalsrecipe)
-* [Replace `StringUtils.lowerCase(String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$lowercaserecipe)
-* [Replace `StringUtils.replace(String, String, String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$replacerecipe)
-* [Replace `StringUtils.reverse(String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$reverserecipe)
-* [Replace `StringUtils.split(String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$splitrecipe)
-* [Replace `StringUtils.strip(String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$striprecipe)
-* [Replace `StringUtils.trim(String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$trimrecipe)
-* [Replace `StringUtils.upperCase(String)` with JDK provided API](../../codehaus/plexus/plexusstringutilsrecipes$uppercaserecipe)
+</RecipeList>
 
-</TabItem>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.codehaus.plexus.util.StringUtils;\n\nclass Foo {\n    void bar(String in, CharSequence cs) {\n        // Reuse output variables for readability\n        String[] array;\n        boolean bool;\n        String string;\n\n        // Test all methods in alphabetical order to only execute the slow recipes once\n        string = StringUtils.abbreviate(in, 10);\n        string = StringUtils.capitalise(in);\n        string = StringUtils.defaultString(in);\n        string = StringUtils.defaultString(in, \"nil\");\n        string = StringUtils.deleteWhitespace(in);\n\n        bool = StringUtils.equalsIgnoreCase(in, \"other\");\n        bool = StringUtils.equals(in, \"other\");\n        //bool = StringUtils.equals(cs, \"other\");\n\n        bool = StringUtils.isAlphanumeric(in);\n        bool = StringUtils.isAlpha(in);\n        bool = StringUtils.isEmpty(in);\n\n        string = StringUtils.lowerCase(in);\n        string = StringUtils.replace(in, \"search\", \"replacement\");\n        string = StringUtils.reverse(in);\n        array = StringUtils.split(in);\n        string = StringUtils.strip(in);\n        string = StringUtils.trim(in);\n        string = StringUtils.upperCase(in);\n    }\n}\n","after":"import org.codehaus.plexus.util.StringUtils;\n\nimport java.util.Objects;\n\nclass Foo {\n    void bar(String in, CharSequence cs) {\n        // Reuse output variables for readability\n        String[] array;\n        boolean bool;\n        String string;\n\n        // Test all methods in alphabetical order to only execute the slow recipes once\n        string = in.length() <= 10 ? in : in.substring(0, 10 - 3) + \"...\";\n        string = in == null || in.isEmpty() ? in : Character.toTitleCase(in.charAt(0)) + in.substring(1);\n        string = Objects.toString(in, \"\");\n        string = Objects.toString(in, \"nil\");\n        string = in.replaceAll(\"\\\\s+\", \"\");\n\n        bool = in == null ? false : in.equalsIgnoreCase(\"other\");\n        bool = Objects.equals(in, \"other\");\n        //bool = StringUtils.equals(cs, \"other\");\n\n        bool = StringUtils.isAlphanumeric(in);\n        bool = StringUtils.isAlpha(in);\n        bool = StringUtils.isEmpty(in);\n\n        string = in == null ? null : in.toLowerCase();\n        string = in == null || in.isEmpty() ? in : in.replace(\"search\", \"replacement\");\n        string = in == null ? null : new StringBuilder(in).reverse().toString();\n        array = in.split(\"\\\\s+\");\n        string = in == null ? null : in.trim();\n        string = in == null ? null : in.trim();\n        string = in == null ? null : in.toUpperCase();\n    }\n}\n","diff":"@@ -3,0 +3,2 @@\nimport org.codehaus.plexus.util.StringUtils;\n\n+import java.util.Objects;\n+\nclass Foo {\n@@ -11,5 +13,5 @@\n\n        // Test all methods in alphabetical order to only execute the slow recipes once\n-       string = StringUtils.abbreviate(in, 10);\n-       string = StringUtils.capitalise(in);\n-       string = StringUtils.defaultString(in);\n-       string = StringUtils.defaultString(in, \"nil\");\n-       string = StringUtils.deleteWhitespace(in);\n+       string = in.length() <= 10 ? in : in.substring(0, 10 - 3) + \"...\";\n+       string = in == null || in.isEmpty() ? in : Character.toTitleCase(in.charAt(0)) + in.substring(1);\n+       string = Objects.toString(in, \"\");\n+       string = Objects.toString(in, \"nil\");\n+       string = in.replaceAll(\"\\\\s+\", \"\");\n\n@@ -17,2 +19,2 @@\n        string = StringUtils.deleteWhitespace(in);\n\n-       bool = StringUtils.equalsIgnoreCase(in, \"other\");\n-       bool = StringUtils.equals(in, \"other\");\n+       bool = in == null ? false : in.equalsIgnoreCase(\"other\");\n+       bool = Objects.equals(in, \"other\");\n        //bool = StringUtils.equals(cs, \"other\");\n@@ -25,7 +27,7 @@\n        bool = StringUtils.isEmpty(in);\n\n-       string = StringUtils.lowerCase(in);\n-       string = StringUtils.replace(in, \"search\", \"replacement\");\n-       string = StringUtils.reverse(in);\n-       array = StringUtils.split(in);\n-       string = StringUtils.strip(in);\n-       string = StringUtils.trim(in);\n-       string = StringUtils.upperCase(in);\n+       string = in == null ? null : in.toLowerCase();\n+       string = in == null || in.isEmpty() ? in : in.replace(\"search\", \"replacement\");\n+       string = in == null ? null : new StringBuilder(in).reverse().toString();\n+       array = in.split(\"\\\\s+\");\n+       string = in == null ? null : in.trim();\n+       string = in == null ? null : in.trim();\n+       string = in == null ? null : in.toUpperCase();\n    }\n","newFile":false}]}]}>
 
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
+## Examples
 
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes
-displayName: `PlexusStringUtils` Refaster recipes
-description: |
-  Refaster template recipes for `org.openrewrite.codehaus.plexus.PlexusStringUtils`.
-recipeList:
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$AbbreviateRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$CapitaliseRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$DefaultStringRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$DefaultStringFallbackRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$DeleteWhitespaceRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$EqualsIgnoreCaseRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$EqualsRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$LowercaseRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$ReplaceRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$ReverseRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$SplitRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$StripRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$TrimRecipe
-  - org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$UppercaseRecipe
+</ExampleList>
 
-```
-</TabItem>
-</Tabs>
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.codehaus.plexus.util.StringUtils;
-
-class Foo {
-    void bar(String in, CharSequence cs) {
-        // Reuse output variables for readability
-        String[] array;
-        boolean bool;
-        String string;
-
-        // Test all methods in alphabetical order to only execute the slow recipes once
-        string = StringUtils.abbreviate(in, 10);
-        string = StringUtils.capitalise(in);
-        string = StringUtils.defaultString(in);
-        string = StringUtils.defaultString(in, "nil");
-        string = StringUtils.deleteWhitespace(in);
-
-        bool = StringUtils.equalsIgnoreCase(in, "other");
-        bool = StringUtils.equals(in, "other");
-        //bool = StringUtils.equals(cs, "other");
-
-        bool = StringUtils.isAlphanumeric(in);
-        bool = StringUtils.isAlpha(in);
-        bool = StringUtils.isEmpty(in);
-
-        string = StringUtils.lowerCase(in);
-        string = StringUtils.replace(in, "search", "replacement");
-        string = StringUtils.reverse(in);
-        array = StringUtils.split(in);
-        string = StringUtils.strip(in);
-        string = StringUtils.trim(in);
-        string = StringUtils.upperCase(in);
-    }
-}
-```
-
-###### After
-```java
-import org.codehaus.plexus.util.StringUtils;
-
-import java.util.Objects;
-
-class Foo {
-    void bar(String in, CharSequence cs) {
-        // Reuse output variables for readability
-        String[] array;
-        boolean bool;
-        String string;
-
-        // Test all methods in alphabetical order to only execute the slow recipes once
-        string = in.length() <= 10 ? in : in.substring(0, 10 - 3) + "...";
-        string = in == null || in.isEmpty() ? in : Character.toTitleCase(in.charAt(0)) + in.substring(1);
-        string = Objects.toString(in, "");
-        string = Objects.toString(in, "nil");
-        string = in.replaceAll("\\s+", "");
-
-        bool = in == null ? false : in.equalsIgnoreCase("other");
-        bool = Objects.equals(in, "other");
-        //bool = StringUtils.equals(cs, "other");
-
-        bool = StringUtils.isAlphanumeric(in);
-        bool = StringUtils.isAlpha(in);
-        bool = StringUtils.isEmpty(in);
-
-        string = in == null ? null : in.toLowerCase();
-        string = in == null || in.isEmpty() ? in : in.replace("search", "replacement");
-        string = in == null ? null : new StringBuilder(in).reverse().toString();
-        array = in.split("\\s+");
-        string = in == null ? null : in.trim();
-        string = in == null ? null : in.trim();
-        string = in == null ? null : in.toUpperCase();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -3,0 +3,2 @@
-import org.codehaus.plexus.util.StringUtils;
-
-+import java.util.Objects;
-+
-class Foo {
-@@ -11,5 +13,5 @@
-
-        // Test all methods in alphabetical order to only execute the slow recipes once
--       string = StringUtils.abbreviate(in, 10);
--       string = StringUtils.capitalise(in);
--       string = StringUtils.defaultString(in);
--       string = StringUtils.defaultString(in, "nil");
--       string = StringUtils.deleteWhitespace(in);
-+       string = in.length() <= 10 ? in : in.substring(0, 10 - 3) + "...";
-+       string = in == null || in.isEmpty() ? in : Character.toTitleCase(in.charAt(0)) + in.substring(1);
-+       string = Objects.toString(in, "");
-+       string = Objects.toString(in, "nil");
-+       string = in.replaceAll("\\s+", "");
-
-@@ -17,2 +19,2 @@
-        string = StringUtils.deleteWhitespace(in);
-
--       bool = StringUtils.equalsIgnoreCase(in, "other");
--       bool = StringUtils.equals(in, "other");
-+       bool = in == null ? false : in.equalsIgnoreCase("other");
-+       bool = Objects.equals(in, "other");
-        //bool = StringUtils.equals(cs, "other");
-@@ -25,7 +27,7 @@
-        bool = StringUtils.isEmpty(in);
-
--       string = StringUtils.lowerCase(in);
--       string = StringUtils.replace(in, "search", "replacement");
--       string = StringUtils.reverse(in);
--       array = StringUtils.split(in);
--       string = StringUtils.strip(in);
--       string = StringUtils.trim(in);
--       string = StringUtils.upperCase(in);
-+       string = in == null ? null : in.toLowerCase();
-+       string = in == null || in.isEmpty() ? in : in.replace("search", "replacement");
-+       string = in == null ? null : new StringBuilder(in).reverse().toString();
-+       array = in.split("\\s+");
-+       string = in == null ? null : in.trim();
-+       string = in == null ? null : in.trim();
-+       string = in == null ? null : in.toUpperCase();
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes","displayName":"`PlexusStringUtils` Refaster recipes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes"
-  displayName="`PlexusStringUtils` Refaster recipes"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-apache"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

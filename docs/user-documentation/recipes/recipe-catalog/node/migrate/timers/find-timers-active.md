@@ -1,42 +1,36 @@
 ---
 title: "Find deprecated `timers.active()` and `timers._unrefActive()` usage"
 sidebar_label: "Find deprecated `timers.active()` and `timers._unrefActive()` usage"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find deprecated `timers.active()` and `timers._unrefActive()` usage
+<RecipeMeta
+  displayName={"Find deprecated `timers.active()` and `timers._unrefActive()` usage"}
+  description={"`timers.active()` (DEP0126) and `timers._unrefActive()` (DEP0127) were deprecated and removed in Node.js 24. Use `timeout.refresh()` instead."}
+  fqName={"org.openrewrite.node.migrate.timers.find-timers-active"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.node.migrate.timers.find-timers-active**
+<RecipeHeader
+  displayName={"Find deprecated `timers.active()` and `timers._unrefActive()` usage"}
+  description={"`timers.active()` (DEP0126) and `timers._unrefActive()` (DEP0127) were deprecated and removed in Node.js 24. Use `timeout.refresh()` instead."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["DEP0126","DEP0127"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.node.migrate.timers.find-timers-active"}
+  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.timers.find-timers-active"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/timers/find-timers-active.md"}
+  moderneOnly
+/>
 
-_`timers.active()` (DEP0126) and `timers._unrefActive()` (DEP0127) were deprecated and removed in Node.js 24. Use `timeout.refresh()` instead._
-
-### Tags
-
-* [DEP0126](/user-documentation/recipes/lists/recipes-by-tag#dep0126)
-* [DEP0127](/user-documentation/recipes/lists/recipes-by-tag#dep0127)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Node.js 24](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24)
-
+<UsageList usage={{"recipeName":"org.openrewrite.node.migrate.timers.find-timers-active","displayName":"Find deprecated `timers.active()` and `timers._unrefActive()` usage","npmPackage":"@openrewrite/recipes-nodejs"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.node.migrate.timers.find-timers-active"
-  displayName="Find deprecated `timers.active()` and `timers._unrefActive()` usage"
-  npmPackage="@openrewrite/recipes-nodejs"
-/>
+</UsageList>
+

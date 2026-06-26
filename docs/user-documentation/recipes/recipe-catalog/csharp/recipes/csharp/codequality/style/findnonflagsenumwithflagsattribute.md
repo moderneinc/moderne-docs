@@ -1,43 +1,36 @@
 ---
 title: "Find non-flags enum with [Flags]"
 sidebar_label: "Find non-flags enum with [Flags]"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find non-flags enum with [Flags]
+<RecipeMeta
+  displayName={"Find non-flags enum with [Flags]"}
+  description={"Detect enums marked with `[Flags]` whose values are not powers of two, indicating they are not truly flags enums."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindNonFlagsEnumWithFlagsAttribute"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindNonFlagsEnumWithFlagsAttribute**
+<RecipeHeader
+  displayName={"Find non-flags enum with [Flags]"}
+  description={"Detect enums marked with `[Flags]` whose values are not powers of two, indicating they are not truly flags enums."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","style","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindNonFlagsEnumWithFlagsAttribute"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindNonFlagsEnumWithFlagsAttribute"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findnonflagsenumwithflagsattribute.md"}
+  moderneOnly
+/>
 
-_Detect enums marked with `[Flags]` whose values are not powers of two, indicating they are not truly flags enums._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [style](/user-documentation/recipes/lists/recipes-by-tag#style)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindNonFlagsEnumWithFlagsAttribute","displayName":"Find non-flags enum with [Flags]","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindNonFlagsEnumWithFlagsAttribute"
-  displayName="Find non-flags enum with [Flags]"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

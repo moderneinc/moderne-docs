@@ -1,6 +1,7 @@
 ---
 title: "Use TLS for AMQP connection strings"
 sidebar_label: "Use TLS for AMQP connection strings"
+hide_title: true
 ---
 
 
@@ -8,235 +9,51 @@ sidebar_label: "Use TLS for AMQP connection strings"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/amqp/usetlsamqpconnectionstring" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use TLS for AMQP connection strings
+<RecipeMeta
+  displayName={"Use TLS for AMQP connection strings"}
+  description={"Use TLS for AMQP connection strings."}
+  fqName={"org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-spring/blob/main/src/main/java/org/openrewrite/java/spring/amqp/UseTlsAmqpConnectionString.java"}
+/>
 
-**org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString**
+<RecipeHeader
+  displayName={"Use TLS for AMQP connection strings"}
+  description={"Use TLS for AMQP connection strings."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString"}
+  artifact={"org.openrewrite.recipe:rewrite-spring"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/amqp/usetlsamqpconnectionstring.md"}
+/>
 
-_Use TLS for AMQP connection strings._
-
-## Recipe source
-
-[GitHub: UseTlsAmqpConnectionString.java](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/java/org/openrewrite/java/spring/amqp/UseTlsAmqpConnectionString.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-spring/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-spring/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+<OptionsTable options={[{"type":"String","name":"propertyKey","required":false,"description":"The Spring property key to perform updates against. If this value is specified, the specified property will be used for searching, otherwise a default of `spring.rabbitmq.addresses` will be used instead.","example":"spring.rabbitmq.addresses"},{"type":"Integer","name":"oldPort","required":true,"description":"The non-TLS enabled port number to replace with the TLS-enabled port. If this value is specified, no changes will be made to amqp connection strings which do not contain this port number. ","example":"1234"},{"type":"Integer","name":"port","required":true,"description":"The TLS-enabled port to use.","example":"1234"},{"type":"String","name":"tlsPropertyKey","required":false,"description":"The Spring property key to enable default TLS mode against. If this value is specified, the specified property will be used when updating the default TLS mode, otherwise a default of `spring.rabbitmq.ssl.enabled` will be used instead.","example":"spring.rabbitmq.ssl.enabled"},{"type":"List","name":"pathExpressions","required":false,"description":"Each value in this list represents a glob expression that is used to match which files will be modified. If this value is not present, this recipe will query the execution context for reasonable defaults. (\"**/application.yml\", \"**/application.yaml\", and \"**/application.properties\".","example":"**/application.yml"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | propertyKey | *Optional*. The Spring property key to perform updates against. If this value is specified, the specified property will be used for searching, otherwise a default of `spring.rabbitmq.addresses` will be used instead. | `spring.rabbitmq.addresses` |
-| `Integer` | oldPort | The non-TLS enabled port number to replace with the TLS-enabled port. If this value is specified, no changes will be made to amqp connection strings which do not contain this port number.  | `1234` |
-| `Integer` | port | The TLS-enabled port to use. | `1234` |
-| `String` | tlsPropertyKey | *Optional*. The Spring property key to enable default TLS mode against. If this value is specified, the specified property will be used when updating the default TLS mode, otherwise a default of `spring.rabbitmq.ssl.enabled` will be used instead. | `spring.rabbitmq.ssl.enabled` |
-| `List` | pathExpressions | *Optional*. Each value in this list represents a glob expression that is used to match which files will be modified. If this value is not present, this recipe will query the execution context for reasonable defaults. ("**/application.yml", "**/application.yaml", and "**/application.properties". | `**/application.yml` |
+</OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"propertyKey","value":"null"},{"parameter":"oldPort","value":"5672"},{"parameter":"port","value":"5671"},{"parameter":"tlsPropertyKey","value":"null"},{"parameter":"pathExpressions","value":"null"}],"variants":[{"language":"properties","before":"spring.rabbitmq.addresses=host1:5672\n","after":"spring.rabbitmq.addresses=host1:5671\nspring.rabbitmq.ssl.enabled=true\n","diff":"--- application.properties\n+++ application.properties\n@@ -1,1 +1,2 @@\n-spring.rabbitmq.addresses=host1:5672\n+spring.rabbitmq.addresses=host1:5671\n+spring.rabbitmq.ssl.enabled=true\n\n","newFile":false},{"language":"yaml","before":"spring:\n  rabbitmq:\n    addresses: host1:5672\n","after":"spring:\n  rabbitmq:\n    addresses: host1:5671\n    ssl:\n      enabled: true\n","diff":"--- application.yml\n+++ application.yml\n@@ -3,1 +3,3 @@\nspring:\n  rabbitmq:\n-   addresses: host1:5672\n+   addresses: host1:5671\n+   ssl:\n+     enabled: true\n\n","newFile":false}]}]}>
 
-## Used by
+## Examples
 
-This recipe is used as part of the following composite recipes:
+</ExampleList>
 
-* [Spring security best practices](/user-documentation/recipes/recipe-catalog/java/spring/security/springsecuritybestpractices.md)
-
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|propertyKey|`null`|
-|oldPort|`5672`|
-|port|`5671`|
-|tlsPropertyKey|`null`|
-|pathExpressions|`null`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="application.properties" label="application.properties">
-
-
-###### Before
-```properties title="application.properties"
-spring.rabbitmq.addresses=host1:5672
-```
-
-###### After
-```properties title="application.properties"
-spring.rabbitmq.addresses=host1:5671
-spring.rabbitmq.ssl.enabled=true
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- application.properties
-+++ application.properties
-@@ -1,1 +1,2 @@
--spring.rabbitmq.addresses=host1:5672
-+spring.rabbitmq.addresses=host1:5671
-+spring.rabbitmq.ssl.enabled=true
-
-```
-</TabItem>
-</Tabs>
-
-<Tabs groupId="beforeAfter">
-<TabItem value="application.yml" label="application.yml">
-
-
-###### Before
-```yaml title="application.yml"
-spring:
-  rabbitmq:
-    addresses: host1:5672
-```
-
-###### After
-```yaml title="application.yml"
-spring:
-  rabbitmq:
-    addresses: host1:5671
-    ssl:
-      enabled: true
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- application.yml
-+++ application.yml
-@@ -3,1 +3,3 @@
-spring:
-  rabbitmq:
--   addresses: host1:5672
-+   addresses: host1:5671
-+   ssl:
-+     enabled: true
-
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString","displayName":"Use TLS for AMQP connection strings","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=spring.rabbitmq.addresses\" --recipe-option \"oldPort=1234\" --recipe-option \"port=1234\" --recipe-option \"tlsPropertyKey=spring.rabbitmq.ssl.enabled\" --recipe-option \"pathExpressions=**/application.yml\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.UseTlsAmqpConnectionStringExample
-displayName: Use TLS for AMQP connection strings example
-recipeList:
-  - org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString:
-      propertyKey: spring.rabbitmq.addresses
-      oldPort: 1234
-      port: 1234
-      tlsPropertyKey: spring.rabbitmq.ssl.enabled
-      pathExpressions:
-        - **/application.yml
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString"
-  displayName="Use TLS for AMQP connection strings"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-spring"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING"
-  requiresConfiguration
-  cliOptions={' --recipe-option "propertyKey=spring.rabbitmq.addresses" --recipe-option "oldPort=1234" --recipe-option "port=1234" --recipe-option "tlsPropertyKey=spring.rabbitmq.ssl.enabled" --recipe-option "pathExpressions=**/application.yml"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

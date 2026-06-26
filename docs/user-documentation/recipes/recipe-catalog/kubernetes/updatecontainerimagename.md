@@ -1,227 +1,54 @@
 ---
 title: "Update image name"
 sidebar_label: "Update image name"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Update image name
+<RecipeMeta
+  displayName={"Update image name"}
+  description={"Search for image names that match patterns and replace the components of the name with new values."}
+  fqName={"org.openrewrite.kubernetes.UpdateContainerImageName"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.kubernetes.UpdateContainerImageName**
+<RecipeHeader
+  displayName={"Update image name"}
+  description={"Search for image names that match patterns and replace the components of the name with new values."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.kubernetes.UpdateContainerImageName"}
+  artifact={"org.openrewrite.recipe:rewrite-kubernetes"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.UpdateContainerImageName"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/updatecontainerimagename.md"}
+  moderneOnly
+/>
 
-_Search for image names that match patterns and replace the components of the name with new values._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"String","name":"repoToFind","required":false,"description":"The repository part of the image name to search for in containers and initContainers.","example":"gcr.io"},{"type":"String","name":"imageToFind","required":true,"description":"The image name to search for in containers and initContainers.","example":"nginx"},{"type":"String","name":"tagToFind","required":false,"description":"The tag part of the image name to search for in containers and initContainers.","example":"v1.2.3"},{"type":"String","name":"digestToFind","required":false,"description":"The digest part of the image name to search for in containers and initContainers.","example":"sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229"},{"type":"String","name":"repoToUpdate","required":false,"description":"The repository part of the image name to update to in containers and initContainers.","example":"gcr.io/account/bucket"},{"type":"String","name":"imageToUpdate","required":false,"description":"The image name to update to in containers and initContainers.","example":"nginx"},{"type":"String","name":"tagToUpdate","required":false,"description":"The tag part of the image name to update to in containers and initContainers.","example":"v1.2.3"},{"type":"String","name":"digestToUpdate","required":false,"description":"The digest part of the image name to update to in containers and initContainers.","example":"sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229"},{"type":"boolean","name":"includeInitContainers","required":false,"description":"Boolean to indicate whether or not to treat initContainers/image identically to containers/image.","example":"false"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | repoToFind | *Optional*. The repository part of the image name to search for in containers and initContainers. | `gcr.io` |
-| `String` | imageToFind | The image name to search for in containers and initContainers. | `nginx` |
-| `String` | tagToFind | *Optional*. The tag part of the image name to search for in containers and initContainers. | `v1.2.3` |
-| `String` | digestToFind | *Optional*. The digest part of the image name to search for in containers and initContainers. | `sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229` |
-| `String` | repoToUpdate | *Optional*. The repository part of the image name to update to in containers and initContainers. | `gcr.io/account/bucket` |
-| `String` | imageToUpdate | *Optional*. The image name to update to in containers and initContainers. | `nginx` |
-| `String` | tagToUpdate | *Optional*. The tag part of the image name to update to in containers and initContainers. | `v1.2.3` |
-| `String` | digestToUpdate | *Optional*. The digest part of the image name to update to in containers and initContainers. | `sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229` |
-| `boolean` | includeInitContainers | *Optional*. Boolean to indicate whether or not to treat initContainers/image identically to containers/image. | `false` |
-| `String` | fileMatcher | *Optional*. Matching files will be modified. This is a glob expression. | `**/pod-*.yml` |
+</OptionsTable>
 
-## Example
+<ExampleList examples={[{"parameters":[{"parameter":"repoToFind","value":"null"},{"parameter":"imageToFind","value":"nginx"},{"parameter":"tagToFind","value":"null"},{"parameter":"digestToFind","value":"null"},{"parameter":"repoToUpdate","value":"gcr.io/myaccount/myrepo"},{"parameter":"imageToUpdate","value":"nginx-custom"},{"parameter":"tagToUpdate","value":"latest"},{"parameter":"digestToUpdate","value":"null"},{"parameter":"includeInitContainers","value":"false"},{"parameter":"fileMatcher","value":"null"}],"variants":[{"language":"yaml","before":"apiVersion: v1\nkind: Pod\nspec:\n    containers:\n    - image: nginx\n---\napiVersion: v1\nkind: Pod\nspec:\n    containers:\n    - image: gcr.io/myaccount/myrepo/nginx\n    initContainers:\n    - image: gcr.io/myaccount/myrepo/myinit:latest\n","after":"apiVersion: v1\nkind: Pod\nspec:\n    containers:\n    - image: gcr.io/myaccount/myrepo/nginx-custom:latest\n---\napiVersion: v1\nkind: Pod\nspec:\n    containers:\n    - image: gcr.io/myaccount/myrepo/nginx\n    initContainers:\n    - image: gcr.io/myaccount/myrepo/myinit:latest\n","diff":"@@ -5,1 +5,1 @@\nspec:\n    containers:\n-   - image: nginx\n+   - image: gcr.io/myaccount/myrepo/nginx-custom:latest\n---\n","newFile":false}]}]}>
 
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|repoToFind|`null`|
-|imageToFind|`nginx`|
-|tagToFind|`null`|
-|digestToFind|`null`|
-|repoToUpdate|`gcr.io/myaccount/myrepo`|
-|imageToUpdate|`nginx-custom`|
-|tagToUpdate|`latest`|
-|digestToUpdate|`null`|
-|includeInitContainers|`false`|
-|fileMatcher|`null`|
+## Examples
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="yaml" label="yaml">
-
-
-###### Before
-```yaml
-apiVersion: v1
-kind: Pod
-spec:
-    containers:
-    - image: nginx
----
-apiVersion: v1
-kind: Pod
-spec:
-    containers:
-    - image: gcr.io/myaccount/myrepo/nginx
-    initContainers:
-    - image: gcr.io/myaccount/myrepo/myinit:latest
-```
-
-###### After
-```yaml
-apiVersion: v1
-kind: Pod
-spec:
-    containers:
-    - image: gcr.io/myaccount/myrepo/nginx-custom:latest
----
-apiVersion: v1
-kind: Pod
-spec:
-    containers:
-    - image: gcr.io/myaccount/myrepo/nginx
-    initContainers:
-    - image: gcr.io/myaccount/myrepo/myinit:latest
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -5,1 +5,1 @@
-spec:
-    containers:
--   - image: nginx
-+   - image: gcr.io/myaccount/myrepo/nginx-custom:latest
----
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.UpdateContainerImageName","displayName":"Update image name","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"repoToFind=gcr.io\" --recipe-option \"imageToFind=nginx\" --recipe-option \"tagToFind=v1.2.3\" --recipe-option \"digestToFind=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229\" --recipe-option \"repoToUpdate=gcr.io/account/bucket\" --recipe-option \"imageToUpdate=nginx\" --recipe-option \"tagToUpdate=v1.2.3\" --recipe-option \"digestToUpdate=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229\" --recipe-option \"includeInitContainers=false\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.UpdateContainerImageNameExample
-displayName: Update image name example
-recipeList:
-  - org.openrewrite.kubernetes.UpdateContainerImageName:
-      repoToFind: gcr.io
-      imageToFind: nginx
-      tagToFind: v1.2.3
-      digestToFind: sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229
-      repoToUpdate: gcr.io/account/bucket
-      imageToUpdate: nginx
-      tagToUpdate: v1.2.3
-      digestToUpdate: sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229
-      includeInitContainers: false
-      fileMatcher: '**/pod-*.yml'
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.kubernetes.UpdateContainerImageName"
-  displayName="Update image name"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-kubernetes"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
-  requiresConfiguration
-  cliOptions={' --recipe-option "repoToFind=gcr.io" --recipe-option "imageToFind=nginx" --recipe-option "tagToFind=v1.2.3" --recipe-option "digestToFind=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229" --recipe-option "repoToUpdate=gcr.io/account/bucket" --recipe-option "imageToUpdate=nginx" --recipe-option "tagToUpdate=v1.2.3" --recipe-option "digestToUpdate=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229" --recipe-option "includeInitContainers=false" --recipe-option "fileMatcher=\'**/pod-*.yml\'"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.kubernetes.UpdateContainerImageName" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

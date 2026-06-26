@@ -1,42 +1,36 @@
 ---
 title: "Composite enum value contains undefined flag"
 sidebar_label: "Composite enum value contains undefined flag"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Composite enum value contains undefined flag
+<RecipeMeta
+  displayName={"Composite enum value contains undefined flag"}
+  description={"Find composite enum values that contain a flag which is not defined in the enum type."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.CompositeEnumContainsUndefinedFlag"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.CompositeEnumContainsUndefinedFlag**
+<RecipeHeader
+  displayName={"Composite enum value contains undefined flag"}
+  description={"Find composite enum values that contain a flag which is not defined in the enum type."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.CompositeEnumContainsUndefinedFlag"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.CompositeEnumContainsUndefinedFlag"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/compositeenumcontainsundefinedflag.md"}
+  moderneOnly
+/>
 
-_Find composite enum values that contain a flag which is not defined in the enum type._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.CompositeEnumContainsUndefinedFlag","displayName":"Composite enum value contains undefined flag","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.CompositeEnumContainsUndefinedFlag"
-  displayName="Composite enum value contains undefined flag"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

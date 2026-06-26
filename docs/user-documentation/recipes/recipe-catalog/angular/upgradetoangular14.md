@@ -1,37 +1,42 @@
 ---
 title: "Upgrade to Angular 14"
 sidebar_label: "Upgrade to Angular 14"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Upgrade to Angular 14
+<RecipeMeta
+  displayName={"Upgrade to Angular 14"}
+  description={"Migrates Angular 13.x applications to Angular 14. This includes replacing form classes with their `Untyped*` equivalents for backward compatibility with typed forms, updating deprecated `initialNavigation` router option values, removing `aotSummaries` from TestBed calls, and flagging `pathMatch` properties that may need type narrowing."}
+  fqName={"org.openrewrite.angular.UpgradeToAngular14"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.UpgradeToAngular14**
+<RecipeHeader
+  displayName={"Upgrade to Angular 14"}
+  description={"Migrates Angular 13.x applications to Angular 14. This includes replacing form classes with their `Untyped*` equivalents for backward compatibility with typed forms, updating deprecated `initialNavigation` router option values, removing `aotSummaries` from TestBed calls, and flagging `pathMatch` properties that may need type narrowing."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.UpgradeToAngular14"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular14"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/upgradetoangular14.md"}
+  moderneOnly
+/>
 
-_Migrates Angular 13.x applications to Angular 14. This includes replacing form classes with their `Untyped*` equivalents for backward compatibility with typed forms, updating deprecated `initialNavigation` router option values, removing `aotSummaries` from TestBed calls, and flagging `pathMatch` properties that may need type narrowing._
+<RecipeList recipes={[{"name":"Upgrade to Angular 13","href":"angular/upgradetoangular13"},{"name":"Replace form classes with untyped variants","href":"angular/migration/replace-untyped-forms"},{"name":"Remove `aotSummaries` from TestBed","href":"angular/migration/remove-aot-summaries"},{"name":"Find `pathMatch` route properties that may need type narrowing","href":"angular/search/find-path-match-type-usage"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 15](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular15)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.UpgradeToAngular14","displayName":"Upgrade to Angular 14","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.UpgradeToAngular14"
-  displayName="Upgrade to Angular 14"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

@@ -1,6 +1,7 @@
 ---
 title: "Refaster rules that replace TestNG assertions with equivalent AssertJ assertions"
 sidebar_label: "Refaster rules that replace TestNG assertions with equivalent AssertJ assertions"
+hide_title: true
 ---
 
 
@@ -8,253 +9,45 @@ sidebar_label: "Refaster rules that replace TestNG assertions with equivalent As
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Refaster rules that replace TestNG assertions with equivalent AssertJ assertions
+<RecipeMeta
+  displayName={"Refaster rules that replace TestNG assertions with equivalent AssertJ assertions"}
+  description={"Some of the classes below have TestNG `@BeforeTemplate`s that reference wildcard type\n bounds (`<?>`), while the associated AssertJ `@AfterTemplate`s reference stricter\n type bounds. This introduces the risk of producing invalid code. We do this anyway, because\n TestNG's wildcard types can cause javac to infer less specific types than AssertJ requires, while\n the appropriate (more specific) types _will_ be inferred properly when plugged into AssertJ's\n API.\n\n The following is an example of a TestNG statement, which would not be rewritten if it weren't\n for the wildcard matching (note that the type parameters of the map on the right-hand side will\n be inferred to be `<Object, Object>` rather than `<String, Object>`).\n\n ```java\n List<Map<String, Object>> myMaps = new ArrayList<>();\n assertEquals(myMaps, ImmutableList.of(ImmutableMap.of()));\n ```\n.\n[Source](https://error-prone.picnic.tech/refasterrules/TestNGToAssertJRules)."}
+  fqName={"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/search?type=code&q=tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes"}
+/>
 
-**tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes**
+<RecipeHeader
+  displayName={"Refaster rules that replace TestNG assertions with equivalent AssertJ assertions"}
+  description={"Some of the classes below have TestNG `@BeforeTemplate`s that reference wildcard type\n bounds (`<?>`), while the associated AssertJ `@AfterTemplate`s reference stricter\n type bounds. This introduces the risk of producing invalid code. We do this anyway, because\n TestNG's wildcard types can cause javac to infer less specific types than AssertJ requires, while\n the appropriate (more specific) types _will_ be inferred properly when plugged into AssertJ's\n API.\n\n The following is an example of a TestNG statement, which would not be rewritten if it weren't\n for the wildcard matching (note that the type parameters of the map on the right-hand side will\n be inferred to be `<Object, Object>` rather than `<String, Object>`).\n\n ```java\n List<Map<String, Object>> myMaps = new ArrayList<>();\n assertEquals(myMaps, ImmutableList.of(ImmutableMap.of()));\n ```\n.\n[Source](https://error-prone.picnic.tech/refasterrules/TestNGToAssertJRules)."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes"}
+  artifact={"org.openrewrite.recipe:rewrite-third-party"}
+  appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes.md"}
+/>
 
-Some of the classes below have TestNG `@BeforeTemplate`s that reference wildcard type
- bounds (`<?>`), while the associated AssertJ `@AfterTemplate`s reference stricter
- type bounds. This introduces the risk of producing invalid code. We do this anyway, because
- TestNG's wildcard types can cause javac to infer less specific types than AssertJ requires, while
- the appropriate (more specific) types _will_ be inferred properly when plugged into AssertJ's
- API.
-
- The following is an example of a TestNG statement, which would not be rewritten if it weren't
- for the wildcard matching (note that the type parameters of the map on the right-hand side will
- be inferred to be `<Object, Object>` rather than `<String, Object>`).
-
- ```java
- List<Map<String, Object>> myMaps = new ArrayList<>();
- assertEquals(myMaps, ImmutableList.of(ImmutableMap.of()));
- ```
-.
-[Source](https://error-prone.picnic.tech/refasterrules/TestNGToAssertJRules).
-
-## Recipe source
-
-[GitHub: search?type=code&q=tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes](https://github.com/search?type=code&q=tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes),
-[Issue Tracker](https://github.com/openrewrite/rewrite-third-party/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-third-party/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
+<RecipeList recipes={[{"name":"Refaster template `TestNGToAssertJRules.Fail`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$failrecipe"},{"name":"Refaster template `TestNGToAssertJRules.FailWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$failwithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.FailWithMessageAndThrowable`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$failwithmessageandthrowablerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertTrue`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$asserttruerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertTrueWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$asserttruewithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertFalse`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertfalserecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertFalseWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertfalsewithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertNull`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnullrecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertNullWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnullwithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertNotNull`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnotnullrecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertNotNullWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnotnullwithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertSame`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertsamerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertSameWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertsamewithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertNotSame`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnotsamerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertNotSameWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnotsamewithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqual`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalrecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalwithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualFloatsWithDelta`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalfloatswithdeltarecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualFloatsWithDeltaWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalfloatswithdeltawithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualDoublesWithDelta`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaldoubleswithdeltarecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualDoublesWithDeltaWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaldoubleswithdeltawithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualArrayIterationOrder`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarrayiterationorderrecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualArrayIterationOrderWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarrayiterationorderwithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualFloatArraysWithDelta`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalfloatarrayswithdeltarecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualFloatArraysWithDeltaWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalfloatarrayswithdeltawithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualDoubleArraysWithDelta`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaldoublearrayswithdeltarecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualDoubleArraysWithDeltaWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaldoublearrayswithdeltawithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualArraysIrrespectiveOfOrder`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarraysirrespectiveoforderrecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualArraysIrrespectiveOfOrderWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarraysirrespectiveoforderwithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualIteratorIterationOrder`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaliteratoriterationorderrecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualIteratorIterationOrderWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaliteratoriterationorderwithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualIterableIterationOrder`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaliterableiterationorderrecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualIterableIterationOrderWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaliterableiterationorderwithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualSets`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalsetsrecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertEqualSetsWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalsetswithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertUnequal`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequalrecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertUnequalWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequalwithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertUnequalFloatsWithDelta`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequalfloatswithdeltarecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertUnequalFloatsWithDeltaWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequalfloatswithdeltawithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertUnequalDoublesWithDelta`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequaldoubleswithdeltarecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertUnequalDoublesWithDeltaWithMessage`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequaldoubleswithdeltawithmessagerecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertThrows`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertthrowsrecipe"},{"name":"Refaster template `TestNGToAssertJRules.AssertThrowsWithType`","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertthrowswithtyperecipe"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Refaster template `TestNGToAssertJRules.Fail`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$failrecipe)
-* [Refaster template `TestNGToAssertJRules.FailWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$failwithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.FailWithMessageAndThrowable`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$failwithmessageandthrowablerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertTrue`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$asserttruerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertTrueWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$asserttruewithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertFalse`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertfalserecipe)
-* [Refaster template `TestNGToAssertJRules.AssertFalseWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertfalsewithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertNull`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnullrecipe)
-* [Refaster template `TestNGToAssertJRules.AssertNullWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnullwithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertNotNull`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnotnullrecipe)
-* [Refaster template `TestNGToAssertJRules.AssertNotNullWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnotnullwithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertSame`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertsamerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertSameWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertsamewithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertNotSame`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnotsamerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertNotSameWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertnotsamewithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqual`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalrecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalwithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualFloatsWithDelta`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalfloatswithdeltarecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualFloatsWithDeltaWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalfloatswithdeltawithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualDoublesWithDelta`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaldoubleswithdeltarecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualDoublesWithDeltaWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaldoubleswithdeltawithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualArrayIterationOrder`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarrayiterationorderrecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualArrayIterationOrderWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarrayiterationorderwithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualFloatArraysWithDelta`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalfloatarrayswithdeltarecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualFloatArraysWithDeltaWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalfloatarrayswithdeltawithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualDoubleArraysWithDelta`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaldoublearrayswithdeltarecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualDoubleArraysWithDeltaWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaldoublearrayswithdeltawithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualArraysIrrespectiveOfOrder`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarraysirrespectiveoforderrecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualArraysIrrespectiveOfOrderWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarraysirrespectiveoforderwithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualIteratorIterationOrder`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaliteratoriterationorderrecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualIteratorIterationOrderWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaliteratoriterationorderwithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualIterableIterationOrder`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaliterableiterationorderrecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualIterableIterationOrderWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaliterableiterationorderwithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualSets`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalsetsrecipe)
-* [Refaster template `TestNGToAssertJRules.AssertEqualSetsWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalsetswithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertUnequal`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequalrecipe)
-* [Refaster template `TestNGToAssertJRules.AssertUnequalWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequalwithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertUnequalFloatsWithDelta`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequalfloatswithdeltarecipe)
-* [Refaster template `TestNGToAssertJRules.AssertUnequalFloatsWithDeltaWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequalfloatswithdeltawithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertUnequalDoublesWithDelta`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequaldoubleswithdeltarecipe)
-* [Refaster template `TestNGToAssertJRules.AssertUnequalDoublesWithDeltaWithMessage`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequaldoubleswithdeltawithmessagerecipe)
-* [Refaster template `TestNGToAssertJRules.AssertThrows`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertthrowsrecipe)
-* [Refaster template `TestNGToAssertJRules.AssertThrowsWithType`](../../../picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertthrowswithtyperecipe)
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes
-displayName: Refaster rules that replace TestNG assertions with equivalent AssertJ assertions
-description: |
-  Some of the classes below have TestNG `@BeforeTemplate`s that reference wildcard type  bounds (`&lt;?&gt;`), while the associated AssertJ `@AfterTemplate`s reference stricter  type bounds. This introduces the risk of producing invalid code. We do this anyway, because  TestNG's wildcard types can cause javac to infer less specific types than AssertJ requires, while  the appropriate (more specific) types _will_ be inferred properly when plugged into AssertJ's  API.   The following is an example of a TestNG statement, which would not be rewritten if it weren't  for the wildcard matching (note that the type parameters of the map on the right-hand side will  be inferred to be `&lt;Object, Object&gt;` rather than `&lt;String, Object&gt;`).   ```java  List&lt;Map&lt;String, Object&gt;&gt; myMaps = new ArrayList&lt;&gt;();  assertEquals(myMaps, ImmutableList.of(ImmutableMap.of()));  ``` . [Source](https://error-prone.picnic.tech/refasterrules/TestNGToAssertJRules).
-recipeList:
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$FailRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$FailWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$FailWithMessageAndThrowableRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertTrueRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertTrueWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertFalseRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertFalseWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertNullRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertNullWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertNotNullRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertNotNullWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertSameRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertSameWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertNotSameRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertNotSameWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualFloatsWithDeltaRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualFloatsWithDeltaWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualDoublesWithDeltaRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualDoublesWithDeltaWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualArrayIterationOrderRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualArrayIterationOrderWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualFloatArraysWithDeltaRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualFloatArraysWithDeltaWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualDoubleArraysWithDeltaRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualDoubleArraysWithDeltaWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualArraysIrrespectiveOfOrderRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualArraysIrrespectiveOfOrderWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualIteratorIterationOrderRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualIteratorIterationOrderWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualIterableIterationOrderRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualIterableIterationOrderWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualSetsRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualSetsWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertUnequalRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertUnequalWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertUnequalFloatsWithDeltaRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertUnequalFloatsWithDeltaWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertUnequalDoublesWithDeltaRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertUnequalDoublesWithDeltaWithMessageRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertThrowsRecipe
-  - tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertThrowsWithTypeRecipe
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [All Picnic Refaster rules](/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/allrefasterrules.md)
-* [Migrate TestNG assertions to AssertJ](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngtoassertj.md)
-
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes","displayName":"Refaster rules that replace TestNG assertions with equivalent AssertJ assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes"
-  displayName="Refaster rules that replace TestNG assertions with equivalent AssertJ assertions"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-third-party"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

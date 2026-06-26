@@ -1,6 +1,7 @@
 ---
 title: "Upgrade Maven dependency version"
 sidebar_label: "Upgrade Maven dependency version"
+hide_title: true
 ---
 
 
@@ -8,379 +9,51 @@ sidebar_label: "Upgrade Maven dependency version"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/upgradedependencyversion" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Upgrade Maven dependency version
+<RecipeMeta
+  displayName={"Upgrade Maven dependency version"}
+  description={"Upgrade the version of a dependency by specifying a group and (optionally) an artifact using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases."}
+  fqName={"org.openrewrite.maven.UpgradeDependencyVersion"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/openrewrite/rewrite/blob/main/rewrite-maven/src/main/java/org/openrewrite/maven/UpgradeDependencyVersion.java"}
+/>
 
-**org.openrewrite.maven.UpgradeDependencyVersion**
+<RecipeHeader
+  displayName={"Upgrade Maven dependency version"}
+  description={"Upgrade the version of a dependency by specifying a group and (optionally) an artifact using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.maven.UpgradeDependencyVersion"}
+  artifact={"org.openrewrite:rewrite-maven"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.UpgradeDependencyVersion"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion.md"}
+/>
 
-_Upgrade the version of a dependency by specifying a group and (optionally) an artifact using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases._
-
-## Recipe source
-
-[GitHub: UpgradeDependencyVersion.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-maven/src/main/java/org/openrewrite/maven/UpgradeDependencyVersion.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-maven/)
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+<OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"jackson-module*"},{"type":"String","name":"newVersion","required":true,"description":"An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors)","example":"29.X"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'newVersion' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"},{"type":"Boolean","name":"overrideManagedVersion","required":false,"description":"This flag can be set to explicitly override a managed dependency's version. If the dependency has its version managed by a Bill of Materials (BOM), enabling this flag will attempt to upgrade the BOM. The default for this flag is `false`."},{"type":"List","name":"retainVersions","required":false,"description":"Accepts a list of GAVs. For each GAV, if it is a project direct dependency, and it is removed from dependency management after the changes from this recipe, then it will be retained with an explicit version. The version can be omitted from the GAV to use the old value from dependency management","example":"com.jcraft:jsch"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | groupId | The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression. | `com.fasterxml.jackson*` |
-| `String` | artifactId | The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression. | `jackson-module*` |
-| `String` | newVersion | An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) | `29.X` |
-| `String` | versionPattern | *Optional*. Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'newVersion' to "25-29" can be paired with a metadata pattern of "-jre" to select Guava 29.0-jre | `-jre` |
-| `Boolean` | overrideManagedVersion | *Optional*. This flag can be set to explicitly override a managed dependency's version. If the dependency has its version managed by a Bill of Materials (BOM), enabling this flag will attempt to upgrade the BOM. The default for this flag is `false`. |  |
-| `List` | retainVersions | *Optional*. Accepts a list of GAVs. For each GAV, if it is a project direct dependency, and it is removed from dependency management after the changes from this recipe, then it will be retained with an explicit version. The version can be omitted from the GAV to use the old value from dependency management | `com.jcraft:jsch` |
+</OptionsTable>
 
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Customize Quarkus BOM Version](/user-documentation/recipes/recipe-catalog/quarkus/spring/customizequarkusversion.md)
-* [Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with J2EE9](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/restassuredjavaxtojakarta.md)
-* [Migrate deprecated `javax.activation` packages to `jakarta.activation`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxactivationmigrationtojakartaactivation.md)
-* [Migrate deprecated `javax.annotation` packages to `jakarta.annotation`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxannotationmigrationtojakartaannotation.md)
-* [Migrate deprecated `javax.batch` packages to `jakarta.batch`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxbatchmigrationtojakartabatch.md)
-* [Migrate deprecated `javax.decorator` packages to `jakarta.decorator`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxdecoratortojakartadecorator.md)
-* [Migrate deprecated `javax.ejb` packages to `jakarta.ejb`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxejbtojakartaejb.md)
-* [Migrate deprecated `javax.el` packages to `jakarta.el`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxeltojakartael.md)
-* [Migrate deprecated `javax.enterprise` packages to `jakarta.enterprise`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxenterprisetojakartaenterprise.md)
-* [Migrate deprecated `javax.faces` packages to `jakarta.faces`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxfacestojakartafaces.md)
-* [Migrate deprecated `javax.inject` packages to `jakarta.inject`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxinjectmigrationtojakartainject.md)
-* [Migrate deprecated `javax.interceptor` packages to `jakarta.interceptor`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxinterceptortojakartainterceptor.md)
-* [Migrate deprecated `javax.jms` packages to `jakarta.jms`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxjmstojakartajms.md)
-* [Migrate deprecated `javax.json` packages to `jakarta.json`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxjsontojakartajson.md)
-* [Migrate deprecated `javax.jws` packages to `jakarta.jws`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxjwstojakartajws.md)
-* [Migrate deprecated `javax.mail` packages to `jakarta.mail`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxmailtojakartamail.md)
-* [Migrate deprecated `javax.persistence` packages to `jakarta.persistence`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxpersistencetojakartapersistence.md)
-* [Migrate deprecated `javax.resource` packages to `jakarta.resource`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxresourcetojakartaresource.md)
-* [Migrate deprecated `javax.security.auth.message` packages to `jakarta.security.auth.message`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxauthenticationmigrationtojakartaauthentication.md)
-* [Migrate deprecated `javax.security.enterprise` packages to `jakarta.security.enterprise`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxsecuritytojakartasecurity.md)
-* [Migrate deprecated `javax.security.jacc` packages to `jakarta.security.jacc`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxauthorizationmigrationtojakartaauthorization.md)
-* [Migrate deprecated `javax.servlet` packages to `jakarta.servlet`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxservlettojakartaservlet.md)
-* [Migrate deprecated `javax.soap` packages to `jakarta.soap`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxxmlsoaptojakartaxmlsoap.md)
-* [Migrate deprecated `javax.transaction` packages to `jakarta.transaction`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxtransactionmigrationtojakartatransaction.md)
-* [Migrate deprecated `javax.validation` packages to `jakarta.validation`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxvalidationmigrationtojakartavalidation.md)
-* [Migrate deprecated `javax.websocket` packages to `jakarta.websocket`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxwebsockettojakartawebsocket.md)
-* [Migrate deprecated `javax.ws` packages to `jakarta.ws`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxwstojakartaws.md)
-* [Migrate deprecated `javax.xml.bind` packages to `jakarta.xml.bind`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxxmlbindmigrationtojakartaxmlbind.md)
-* [Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxxmlwsmigrationtojakartaxmlws.md)
-* [Migrate from Micronaut 2.x to 3.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut2to3migration.md)
-* [Migrate to 4.10.6](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410ltsmigrationrecipe.md)
-* [Migrate to 4.20.0](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camelmigrationrecipe.md)
-* [Migrate to Java 17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17.md)
-* [Migrate to Struts 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7)
-* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/apache/wicket/migratetowicket10.md)
-* [Upgrade to Axonframework 4.x Jakarta](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradeaxonframework_4_jakarta.md)
-* [Upgrade to Axonframework 4.x Javax](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradeaxonframework_4_javax.md)
-* [Upgrade to Quarkus 3.26](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/upgradequarkus3_x)
-* [io.quarkus.updates.core.quarkus30.UpgradeQuarkiverse](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/upgradequarkiverse.md)
+<ExampleList examples={[{"parameters":[{"parameter":"groupId","value":"org.springframework.cloud"},{"parameter":"artifactId","value":"spring-cloud-config-dependencies"},{"parameter":"newVersion","value":"3.1.4"},{"parameter":"versionPattern","value":"null"},{"parameter":"overrideManagedVersion","value":"true"},{"parameter":"retainVersions","value":"singletonList(\"com.jcraft:jsch\")"}],"variants":[{"language":"xml","before":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>org.sample</groupId>\n  <artifactId>sample</artifactId>\n  <version>1.0.0</version>\n  <dependencyManagement>\n    <dependencies>\n      <dependency>\n        <groupId>org.springframework.cloud</groupId>\n        <artifactId>spring-cloud-config-dependencies</artifactId>\n        <version>3.1.2</version>\n        <type>pom</type>\n        <scope>import</scope>\n      </dependency>\n    </dependencies>\n  </dependencyManagement>\n  <dependencies>\n    <dependency>\n      <groupId>com.jcraft</groupId>\n      <artifactId>jsch</artifactId>\n      <version>0.1.55</version>\n    </dependency>\n  </dependencies>\n</project>\n","after":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>org.sample</groupId>\n  <artifactId>sample</artifactId>\n  <version>1.0.0</version>\n  <dependencyManagement>\n    <dependencies>\n      <dependency>\n        <groupId>org.springframework.cloud</groupId>\n        <artifactId>spring-cloud-config-dependencies</artifactId>\n        <version>3.1.4</version>\n        <type>pom</type>\n        <scope>import</scope>\n      </dependency>\n    </dependencies>\n  </dependencyManagement>\n  <dependencies>\n    <dependency>\n      <groupId>com.jcraft</groupId>\n      <artifactId>jsch</artifactId>\n      <version>0.1.55</version>\n    </dependency>\n  </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -11,1 +11,1 @@\n        <groupId>org.springframework.cloud</groupId>\n        <artifactId>spring-cloud-config-dependencies</artifactId>\n-       <version>3.1.2</version>\n+       <version>3.1.4</version>\n        <type>pom</type>\n","newFile":false}]},{"parameters":[{"parameter":"groupId","value":"org.junit.jupiter"},{"parameter":"artifactId","value":"junit-jupiter-api"},{"parameter":"newVersion","value":"5.7.2"},{"parameter":"versionPattern","value":"null"},{"parameter":"overrideManagedVersion","value":"null"},{"parameter":"retainVersions","value":"null"}],"variants":[{"language":"xml","before":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <dependencyManagement>\n        <dependencies>\n            <dependency>\n                <groupId>org.junit.jupiter</groupId>\n                <artifactId>junit-jupiter-api</artifactId>\n                <version>5.6.2</version>\n                <scope>test</scope>\n            </dependency>\n        </dependencies>\n    </dependencyManagement>\n</project>\n","after":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <dependencyManagement>\n        <dependencies>\n            <dependency>\n                <groupId>org.junit.jupiter</groupId>\n                <artifactId>junit-jupiter-api</artifactId>\n                <version>5.7.2</version>\n                <scope>test</scope>\n            </dependency>\n        </dependencies>\n    </dependencyManagement>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -10,1 +10,1 @@\n                <groupId>org.junit.jupiter</groupId>\n                <artifactId>junit-jupiter-api</artifactId>\n-               <version>5.6.2</version>\n+               <version>5.7.2</version>\n                <scope>test</scope>\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`RetainVersions#dependencyWithExplicitVersionRemovedFromDepMgmt`
 
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|groupId|`org.springframework.cloud`|
-|artifactId|`spring-cloud-config-dependencies`|
-|newVersion|`3.1.4`|
-|versionPattern|`null`|
-|overrideManagedVersion|`true`|
-|retainVersions|`singletonList("com.jcraft:jsch")`|
+</ExampleList>
 
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.sample</groupId>
-  <artifactId>sample</artifactId>
-  <version>1.0.0</version>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-config-dependencies</artifactId>
-        <version>3.1.2</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>com.jcraft</groupId>
-      <artifactId>jsch</artifactId>
-      <version>0.1.55</version>
-    </dependency>
-  </dependencies>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.sample</groupId>
-  <artifactId>sample</artifactId>
-  <version>1.0.0</version>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-config-dependencies</artifactId>
-        <version>3.1.4</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>com.jcraft</groupId>
-      <artifactId>jsch</artifactId>
-      <version>0.1.55</version>
-    </dependency>
-  </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -11,1 +11,1 @@
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-config-dependencies</artifactId>
--       <version>3.1.2</version>
-+       <version>3.1.4</version>
-        <type>pom</type>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`UpgradeDependencyVersionTest#updateManagedDependencyVersion`
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|groupId|`org.junit.jupiter`|
-|artifactId|`junit-jupiter-api`|
-|newVersion|`5.7.2`|
-|versionPattern|`null`|
-|overrideManagedVersion|`null`|
-|retainVersions|`null`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <version>5.6.2</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <version>5.7.2</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -10,1 +10,1 @@
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
--               <version>5.6.2</version>
-+               <version>5.7.2</version>
-                <scope>test</scope>
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.maven.UpgradeDependencyVersion","displayName":"Upgrade Maven dependency version","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.fasterxml.jackson*\" --recipe-option \"artifactId=jackson-module*\" --recipe-option \"newVersion=29.X\" --recipe-option \"versionPattern='-jre'\" --recipe-option \"retainVersions=com.jcraft:jsch\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.UpgradeDependencyVersionExample
-displayName: Upgrade Maven dependency version example
-recipeList:
-  - org.openrewrite.maven.UpgradeDependencyVersion:
-      groupId: com.fasterxml.jackson*
-      artifactId: jackson-module*
-      newVersion: 29.X
-      versionPattern: '-jre'
-      retainVersions:
-        - com.jcraft:jsch
-```
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.maven.UpgradeDependencyVersion"
-  displayName="Upgrade Maven dependency version"
-  groupId="org.openrewrite"
-  artifactId="rewrite-maven"
-  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_MAVEN"
-  isCoreLibrary
-  requiresConfiguration
-  cliOptions={' --recipe-option "groupId=com.fasterxml.jackson*" --recipe-option "artifactId=jackson-module*" --recipe-option "newVersion=29.X" --recipe-option "versionPattern=\'-jre\'" --recipe-option "retainVersions=com.jcraft:jsch"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.maven.UpgradeDependencyVersion" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

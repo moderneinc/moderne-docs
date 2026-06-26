@@ -1,37 +1,36 @@
 ---
 title: "Replace string slicing with `removeprefix`/`removesuffix`"
 sidebar_label: "Replace string slicing with `removeprefix`/`removesuffix`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace string slicing with `removeprefix`/`removesuffix`
+<RecipeMeta
+  displayName={"Replace string slicing with `removeprefix`/`removesuffix`"}
+  description={"Replace `if text.startswith(s): text = text[N:]` with `text = text.removeprefix(s)` and the equivalent `endswith` pattern with `removesuffix` (Python 3.9+)."}
+  fqName={"org.openrewrite.python.cleanup.UseStringRemoveAffix"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.UseStringRemoveAffix**
+<RecipeHeader
+  displayName={"Replace string slicing with `removeprefix`/`removesuffix`"}
+  description={"Replace `if text.startswith(s): text = text[N:]` with `text = text.removeprefix(s)` and the equivalent `endswith` pattern with `removesuffix` (Python 3.9+)."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.UseStringRemoveAffix"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UseStringRemoveAffix"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/usestringremoveaffix.md"}
+  moderneOnly
+/>
 
-_Replace `if text.startswith(s): text = text[N:]` with `text = text.removeprefix(s)` and the equivalent `endswith` pattern with `removesuffix` (Python 3.9+)._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UseStringRemoveAffix","displayName":"Replace string slicing with `removeprefix`/`removesuffix`","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.UseStringRemoveAffix"
-  displayName="Replace string slicing with `removeprefix`/`removesuffix`"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

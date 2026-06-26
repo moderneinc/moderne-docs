@@ -1,37 +1,36 @@
 ---
 title: "Split `React` DOM methods to `ReactDOM`"
 sidebar_label: "Split `React` DOM methods to `ReactDOM`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Split `React` DOM methods to `ReactDOM`
+<RecipeMeta
+  displayName={"Split `React` DOM methods to `ReactDOM`"}
+  description={"Moves DOM-specific methods like `React.render()` and `React.findDOMNode()` to `ReactDOM` from the `react-dom` package."}
+  fqName={"org.openrewrite.react.16.react-to-react-dom"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.16.react-to-react-dom**
+<RecipeHeader
+  displayName={"Split `React` DOM methods to `ReactDOM`"}
+  description={"Moves DOM-specific methods like `React.render()` and `React.findDOMNode()` to `ReactDOM` from the `react-dom` package."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.16.react-to-react-dom"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.16.react-to-react-dom"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/16/react-to-react-dom.md"}
+  moderneOnly
+/>
 
-_Moves DOM-specific methods like `React.render()` and `React.findDOMNode()` to `ReactDOM` from the `react-dom` package._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to React 16](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-16)
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.16.react-to-react-dom","displayName":"Split `React` DOM methods to `ReactDOM`","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.16.react-to-react-dom"
-  displayName="Split `React` DOM methods to `ReactDOM`"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

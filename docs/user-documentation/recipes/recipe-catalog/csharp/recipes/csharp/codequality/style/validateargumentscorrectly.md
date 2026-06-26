@@ -1,35 +1,36 @@
 ---
 title: "Validate arguments correctly"
 sidebar_label: "Validate arguments correctly"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Validate arguments correctly
+<RecipeMeta
+  displayName={"Validate arguments correctly"}
+  description={"Ensure argument validation in iterator methods runs immediately by flagging iterator methods that contain argument validation."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.ValidateArgumentsCorrectly"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.ValidateArgumentsCorrectly**
+<RecipeHeader
+  displayName={"Validate arguments correctly"}
+  description={"Ensure argument validation in iterator methods runs immediately by flagging iterator methods that contain argument validation."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.ValidateArgumentsCorrectly"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.ValidateArgumentsCorrectly"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/validateargumentscorrectly.md"}
+  moderneOnly
+/>
 
-_Ensure argument validation in iterator methods runs immediately by flagging iterator methods that contain argument validation._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.ValidateArgumentsCorrectly","displayName":"Validate arguments correctly","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.ValidateArgumentsCorrectly"
-  displayName="Validate arguments correctly"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

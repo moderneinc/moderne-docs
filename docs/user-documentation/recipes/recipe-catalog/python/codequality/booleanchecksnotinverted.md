@@ -1,36 +1,36 @@
 ---
 title: "Boolean checks should not be inverted"
 sidebar_label: "Boolean checks should not be inverted"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Boolean checks should not be inverted
+<RecipeMeta
+  displayName={"Boolean checks should not be inverted"}
+  description={"Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`."}
+  fqName={"org.openrewrite.python.codequality.BooleanChecksNotInverted"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.codequality.BooleanChecksNotInverted**
+<RecipeHeader
+  displayName={"Boolean checks should not be inverted"}
+  description={"Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={["python","code-quality","RSPEC-S1940"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.codequality.BooleanChecksNotInverted"}
+  artifact={"org.openrewrite.recipe:rewrite-migrate-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.codequality.BooleanChecksNotInverted"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/codequality/booleanchecksnotinverted.md"}
+  moderneOnly
+/>
 
-_Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`._
-
-### Tags
-
-* [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-* [RSPEC-S1940](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S1940&open=java%3AS1940)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.codequality.BooleanChecksNotInverted","displayName":"Boolean checks should not be inverted","pipPackage":"openrewrite-migrate-python"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.codequality.BooleanChecksNotInverted"
-  displayName="Boolean checks should not be inverted"
-  pipPackage="openrewrite-migrate-python"
-/>
+</UsageList>
+

@@ -1,37 +1,36 @@
 ---
 title: "Shorten assignment to compound operator form"
 sidebar_label: "Shorten assignment to compound operator form"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Shorten assignment to compound operator form
+<RecipeMeta
+  displayName={"Shorten assignment to compound operator form"}
+  description={"Convert ``target = target op value`` into ``target op= value`` for arithmetic operators (+, -, *, /, %)."}
+  fqName={"org.openrewrite.python.cleanup.AugAssign"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.AugAssign**
+<RecipeHeader
+  displayName={"Shorten assignment to compound operator form"}
+  description={"Convert ``target = target op value`` into ``target op= value`` for arithmetic operators (+, -, *, /, %)."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.AugAssign"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.AugAssign"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/augassign.md"}
+  moderneOnly
+/>
 
-_Convert ``target = target op value`` into ``target op= value`` for arithmetic operators (+, -, *, /, %)._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.AugAssign","displayName":"Shorten assignment to compound operator form","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.AugAssign"
-  displayName="Shorten assignment to compound operator form"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

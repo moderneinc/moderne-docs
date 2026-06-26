@@ -1,37 +1,36 @@
 ---
 title: "Prefer set literals in `in` membership tests"
 sidebar_label: "Prefer set literals in `in` membership tests"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Prefer set literals in `in` membership tests
+<RecipeMeta
+  displayName={"Prefer set literals in `in` membership tests"}
+  description={"When a list or tuple of literals appears on the right side of an `in` test, convert it to a set literal for constant-time lookup."}
+  fqName={"org.openrewrite.python.cleanup.CollectionIntoSet"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.CollectionIntoSet**
+<RecipeHeader
+  displayName={"Prefer set literals in `in` membership tests"}
+  description={"When a list or tuple of literals appears on the right side of an `in` test, convert it to a set literal for constant-time lookup."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.CollectionIntoSet"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.CollectionIntoSet"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/collectionintoset.md"}
+  moderneOnly
+/>
 
-_When a list or tuple of literals appears on the right side of an `in` test, convert it to a set literal for constant-time lookup._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.CollectionIntoSet","displayName":"Prefer set literals in `in` membership tests","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.CollectionIntoSet"
-  displayName="Prefer set literals in `in` membership tests"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

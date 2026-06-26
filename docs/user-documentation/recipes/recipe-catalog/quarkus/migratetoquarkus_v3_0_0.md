@@ -1,6 +1,7 @@
 ---
 title: "Quarkus Updates Aggregate 3.0.0"
 sidebar_label: "Quarkus Updates Aggregate 3.0.0"
+hide_title: true
 ---
 
 
@@ -8,285 +9,45 @@ sidebar_label: "Quarkus Updates Aggregate 3.0.0"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/migratetoquarkus_v3_0_0" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Quarkus Updates Aggregate 3.0.0
+<RecipeMeta
+  displayName={"Quarkus Updates Aggregate 3.0.0"}
+  description={"Quarkus update recipes to upgrade your application to 3.0.0."}
+  fqName={"org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/search?type=code&q=org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0"}
+/>
 
-**org.openrewrite.quarkus.MigrateToQuarkus\_v3\_0\_0**
+<RecipeHeader
+  displayName={"Quarkus Updates Aggregate 3.0.0"}
+  description={"Quarkus update recipes to upgrade your application to 3.0.0."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0"}
+  artifact={"org.openrewrite.recipe:rewrite-third-party"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_0_0.md"}
+/>
 
-_Quarkus update recipes to upgrade your application to 3.0.0._
-
-## Recipe source
-
-[GitHub: search?type=code&q=org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0](https://github.com/search?type=code&q=org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0),
-[Issue Tracker](https://github.com/openrewrite/rewrite-third-party/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-third-party/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
+<RecipeList recipes={[{"name":"Migrate `camel3` application to `camel4.`","href":"quarkus/updates/camel/camel40/camelquarkusmigrationrecipe"},{"name":"Remove non existing camel-quarkus extensions","href":"java/camel/migrate/removedextensions"},{"name":"io.quarkus.updates.core.quarkus30.UpgradeQuarkiverse","href":"quarkus/updates/core/quarkus30/upgradequarkiverse"},{"name":"Migrate deprecated `javax.activation` packages to `jakarta.activation`","href":"quarkus/updates/core/quarkus30/javaxactivationmigrationtojakartaactivation"},{"name":"Migrate deprecated `javax.annotation` packages to `jakarta.annotation`","href":"quarkus/updates/core/quarkus30/javaxannotationmigrationtojakartaannotation"},{"name":"Migrate deprecated `javax.annotation` packages to `jakarta.annotation`","href":"quarkus/updates/core/quarkus30/changejavaxannotationtojakarta"},{"name":"Migrate deprecated `javax.annotation` packages to `jakarta.annotation`","href":"quarkus/updates/core/quarkus30/javaxannotationpackagetojakarta"},{"name":"Migrate deprecated `javax.annotation.security` packages to `jakarta.annotation.security`","href":"quarkus/updates/core/quarkus30/javaxannotationsecuritypackagetojakarta"},{"name":"Migrate deprecated `javax.annotation.sql` packages to `jakarta.annotation.sql`","href":"quarkus/updates/core/quarkus30/javaxannotationsqlpackagetojakarta"},{"name":"Migrate deprecated `javax.security.auth.message` packages to `jakarta.security.auth.message`","href":"quarkus/updates/core/quarkus30/javaxauthenticationmigrationtojakartaauthentication"},{"name":"Migrate deprecated `javax.security.jacc` packages to `jakarta.security.jacc`","href":"quarkus/updates/core/quarkus30/javaxauthorizationmigrationtojakartaauthorization"},{"name":"Migrate deprecated `javax.batch` packages to `jakarta.batch`","href":"quarkus/updates/core/quarkus30/javaxbatchmigrationtojakartabatch"},{"name":"Migrate deprecated `javax.validation` packages to `jakarta.validation`","href":"quarkus/updates/core/quarkus30/javaxvalidationmigrationtojakartavalidation"},{"name":"Migrate deprecated `javax.decorator` packages to `jakarta.decorator`","href":"quarkus/updates/core/quarkus30/javaxdecoratortojakartadecorator"},{"name":"Migrate deprecated `javax.ejb` packages to `jakarta.ejb`","href":"quarkus/updates/core/quarkus30/javaxejbtojakartaejb"},{"name":"Migrate deprecated `javax.el` packages to `jakarta.el`","href":"quarkus/updates/core/quarkus30/javaxeltojakartael"},{"name":"Migrate deprecated `javax.enterprise` packages to `jakarta.enterprise`","href":"quarkus/updates/core/quarkus30/javaxenterprisetojakartaenterprise"},{"name":"Migrate deprecated `javax.faces` packages to `jakarta.faces`","href":"quarkus/updates/core/quarkus30/javaxfacestojakartafaces"},{"name":"Migrate deprecated `javax.inject` packages to `jakarta.inject`","href":"quarkus/updates/core/quarkus30/javaxinjectmigrationtojakartainject"},{"name":"Migrate deprecated `javax.interceptor` packages to `jakarta.interceptor`","href":"quarkus/updates/core/quarkus30/javaxinterceptortojakartainterceptor"},{"name":"Migrate deprecated `javax.jms` packages to `jakarta.jms`","href":"quarkus/updates/core/quarkus30/javaxjmstojakartajms"},{"name":"Migrate deprecated `javax.json` packages to `jakarta.json`","href":"quarkus/updates/core/quarkus30/javaxjsontojakartajson"},{"name":"Migrate deprecated `javax.jws` packages to `jakarta.jws`","href":"quarkus/updates/core/quarkus30/javaxjwstojakartajws"},{"name":"Migrate deprecated `javax.mail` packages to `jakarta.mail`","href":"quarkus/updates/core/quarkus30/javaxmailtojakartamail"},{"name":"Migrate deprecated `javax.persistence` packages to `jakarta.persistence`","href":"quarkus/updates/core/quarkus30/javaxpersistencetojakartapersistence"},{"name":"Migrate deprecated `javax.resource` packages to `jakarta.resource`","href":"quarkus/updates/core/quarkus30/javaxresourcetojakartaresource"},{"name":"Migrate deprecated `javax.security.enterprise` packages to `jakarta.security.enterprise`","href":"quarkus/updates/core/quarkus30/javaxsecuritytojakartasecurity"},{"name":"Migrate deprecated `javax.servlet` packages to `jakarta.servlet`","href":"quarkus/updates/core/quarkus30/javaxservlettojakartaservlet"},{"name":"Migrate deprecated `javax.transaction` packages to `jakarta.transaction`","href":"quarkus/updates/core/quarkus30/javaxtransactionmigrationtojakartatransaction"},{"name":"Migrate deprecated `javax.websocket` packages to `jakarta.websocket`","href":"quarkus/updates/core/quarkus30/javaxwebsockettojakartawebsocket"},{"name":"Migrate deprecated `javax.ws` packages to `jakarta.ws`","href":"quarkus/updates/core/quarkus30/javaxwstojakartaws"},{"name":"Migrate deprecated `javax.xml.bind` packages to `jakarta.xml.bind`","href":"quarkus/updates/core/quarkus30/javaxxmlbindmigrationtojakartaxmlbind"},{"name":"Migrate deprecated `javax.soap` packages to `jakarta.soap`","href":"quarkus/updates/core/quarkus30/javaxxmlsoaptojakartaxmlsoap"},{"name":"Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`","href":"quarkus/updates/core/quarkus30/javaxxmlwsmigrationtojakartaxmlws"},{"name":"Migrate xmlns entries in `persistence.xml` files","href":"quarkus/updates/core/quarkus30/javaxpersistencexmltojakartapersistencexml"},{"name":"Migrate Jackson from javax to jakarta namespace","href":"quarkus/updates/core/quarkus30/jacksonjavaxtojakarta"},{"name":"Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with J2EE9","href":"quarkus/updates/core/quarkus30/restassuredjavaxtojakarta"},{"name":"io.quarkus.updates.core.quarkus30.JavaxToJakartaAdditionalMigration","href":"quarkus/updates/core/quarkus30/javaxtojakartaadditionalmigration"},{"name":"Rename a file example","href":"quarkus/updates/core/quarkus30/renamejavaxservicefiles"},{"name":"io.quarkus.updates.core.quarkus30.JavaxConfigurationFiles","href":"quarkus/updates/core/quarkus30/javaxconfigurationfiles"},{"name":"io.quarkus.updates.core.quarkus30.AdditionalChanges","href":"quarkus/updates/core/quarkus30/additionalchanges"},{"name":"io.quarkus.updates.core.quarkus30.Kotlin","href":"quarkus/updates/core/quarkus30/kotlin"},{"name":"io.quarkus.updates.core.quarkus30.ApplicationProperties","href":"quarkus/updates/core/quarkus30/applicationproperties"},{"name":"io.quarkus.updates.core.quarkus30.ApplicationYml","href":"quarkus/updates/core/quarkus30/applicationyml"},{"name":"io.quarkus.updates.core.quarkus30.JavaxToJakartaDocumentationAdoc","href":"quarkus/updates/core/quarkus30/javaxtojakartadocumentationadoc"},{"name":"io.quarkus.updates.core.quarkus30.JavaxToJakartaDocumentationMd","href":"quarkus/updates/core/quarkus30/javaxtojakartadocumentationmd"},{"name":"io.quarkus.updates.core.quarkus30.JavaxToJakartaCodestarts","href":"quarkus/updates/core/quarkus30/javaxtojakartacodestarts"},{"name":"io.quarkus.updates.core.quarkus30.JavaxToJakartaCodestartsTests","href":"quarkus/updates/core/quarkus30/javaxtojakartacodestartstests"},{"name":"io.quarkus.updates.core.quarkus30.JavaxToJakartaKotlin","href":"quarkus/updates/core/quarkus30/javaxtojakartakotlin"},{"name":"io.quarkus.updates.core.quarkus30.JavaxToJakartaKotlinCodestarts","href":"quarkus/updates/core/quarkus30/javaxtojakartakotlincodestarts"},{"name":"io.quarkus.updates.core.quarkus30.JavaxToJakartaKotlinCodestartsTests","href":"quarkus/updates/core/quarkus30/javaxtojakartakotlincodestartstests"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Module has dependency](../java/dependencies/search/modulehasdependency)
-  * groupIdPattern: `io.quarkus`
-  * artifactIdPattern: `quarkus-core`
-  * version: `(,3.0.0)`
-
-**Recipes**
-
-* [Migrate `camel3` application to `camel4.`](../quarkus/updates/camel/camel40/camelquarkusmigrationrecipe)
-* [Remove non existing camel-quarkus extensions](../java/camel/migrate/removedextensions)
-* [io.quarkus.updates.core.quarkus30.UpgradeQuarkiverse](../quarkus/updates/core/quarkus30/upgradequarkiverse)
-* [Migrate deprecated `javax.activation` packages to `jakarta.activation`](../quarkus/updates/core/quarkus30/javaxactivationmigrationtojakartaactivation)
-* [Migrate deprecated `javax.annotation` packages to `jakarta.annotation`](../quarkus/updates/core/quarkus30/javaxannotationmigrationtojakartaannotation)
-* [Migrate deprecated `javax.annotation` packages to `jakarta.annotation`](../quarkus/updates/core/quarkus30/changejavaxannotationtojakarta)
-* [Migrate deprecated `javax.annotation` packages to `jakarta.annotation`](../quarkus/updates/core/quarkus30/javaxannotationpackagetojakarta)
-* [Migrate deprecated `javax.annotation.security` packages to `jakarta.annotation.security`](../quarkus/updates/core/quarkus30/javaxannotationsecuritypackagetojakarta)
-* [Migrate deprecated `javax.annotation.sql` packages to `jakarta.annotation.sql`](../quarkus/updates/core/quarkus30/javaxannotationsqlpackagetojakarta)
-* [Migrate deprecated `javax.security.auth.message` packages to `jakarta.security.auth.message`](../quarkus/updates/core/quarkus30/javaxauthenticationmigrationtojakartaauthentication)
-* [Migrate deprecated `javax.security.jacc` packages to `jakarta.security.jacc`](../quarkus/updates/core/quarkus30/javaxauthorizationmigrationtojakartaauthorization)
-* [Migrate deprecated `javax.batch` packages to `jakarta.batch`](../quarkus/updates/core/quarkus30/javaxbatchmigrationtojakartabatch)
-* [Migrate deprecated `javax.validation` packages to `jakarta.validation`](../quarkus/updates/core/quarkus30/javaxvalidationmigrationtojakartavalidation)
-* [Migrate deprecated `javax.decorator` packages to `jakarta.decorator`](../quarkus/updates/core/quarkus30/javaxdecoratortojakartadecorator)
-* [Migrate deprecated `javax.ejb` packages to `jakarta.ejb`](../quarkus/updates/core/quarkus30/javaxejbtojakartaejb)
-* [Migrate deprecated `javax.el` packages to `jakarta.el`](../quarkus/updates/core/quarkus30/javaxeltojakartael)
-* [Migrate deprecated `javax.enterprise` packages to `jakarta.enterprise`](../quarkus/updates/core/quarkus30/javaxenterprisetojakartaenterprise)
-* [Migrate deprecated `javax.faces` packages to `jakarta.faces`](../quarkus/updates/core/quarkus30/javaxfacestojakartafaces)
-* [Migrate deprecated `javax.inject` packages to `jakarta.inject`](../quarkus/updates/core/quarkus30/javaxinjectmigrationtojakartainject)
-* [Migrate deprecated `javax.interceptor` packages to `jakarta.interceptor`](../quarkus/updates/core/quarkus30/javaxinterceptortojakartainterceptor)
-* [Migrate deprecated `javax.jms` packages to `jakarta.jms`](../quarkus/updates/core/quarkus30/javaxjmstojakartajms)
-* [Migrate deprecated `javax.json` packages to `jakarta.json`](../quarkus/updates/core/quarkus30/javaxjsontojakartajson)
-* [Migrate deprecated `javax.jws` packages to `jakarta.jws`](../quarkus/updates/core/quarkus30/javaxjwstojakartajws)
-* [Migrate deprecated `javax.mail` packages to `jakarta.mail`](../quarkus/updates/core/quarkus30/javaxmailtojakartamail)
-* [Migrate deprecated `javax.persistence` packages to `jakarta.persistence`](../quarkus/updates/core/quarkus30/javaxpersistencetojakartapersistence)
-* [Migrate deprecated `javax.resource` packages to `jakarta.resource`](../quarkus/updates/core/quarkus30/javaxresourcetojakartaresource)
-* [Migrate deprecated `javax.security.enterprise` packages to `jakarta.security.enterprise`](../quarkus/updates/core/quarkus30/javaxsecuritytojakartasecurity)
-* [Migrate deprecated `javax.servlet` packages to `jakarta.servlet`](../quarkus/updates/core/quarkus30/javaxservlettojakartaservlet)
-* [Migrate deprecated `javax.transaction` packages to `jakarta.transaction`](../quarkus/updates/core/quarkus30/javaxtransactionmigrationtojakartatransaction)
-* [Migrate deprecated `javax.websocket` packages to `jakarta.websocket`](../quarkus/updates/core/quarkus30/javaxwebsockettojakartawebsocket)
-* [Migrate deprecated `javax.ws` packages to `jakarta.ws`](../quarkus/updates/core/quarkus30/javaxwstojakartaws)
-* [Migrate deprecated `javax.xml.bind` packages to `jakarta.xml.bind`](../quarkus/updates/core/quarkus30/javaxxmlbindmigrationtojakartaxmlbind)
-* [Migrate deprecated `javax.soap` packages to `jakarta.soap`](../quarkus/updates/core/quarkus30/javaxxmlsoaptojakartaxmlsoap)
-* [Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`](../quarkus/updates/core/quarkus30/javaxxmlwsmigrationtojakartaxmlws)
-* [Migrate xmlns entries in `persistence.xml` files](../quarkus/updates/core/quarkus30/javaxpersistencexmltojakartapersistencexml)
-* [Migrate Jackson from javax to jakarta namespace](../quarkus/updates/core/quarkus30/jacksonjavaxtojakarta)
-* [Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with J2EE9](../quarkus/updates/core/quarkus30/restassuredjavaxtojakarta)
-* [io.quarkus.updates.core.quarkus30.JavaxToJakartaAdditionalMigration](../quarkus/updates/core/quarkus30/javaxtojakartaadditionalmigration)
-* [Rename a file example](../quarkus/updates/core/quarkus30/renamejavaxservicefiles)
-* [io.quarkus.updates.core.quarkus30.JavaxConfigurationFiles](../quarkus/updates/core/quarkus30/javaxconfigurationfiles)
-* [io.quarkus.updates.core.quarkus30.AdditionalChanges](../quarkus/updates/core/quarkus30/additionalchanges)
-* [io.quarkus.updates.core.quarkus30.Kotlin](../quarkus/updates/core/quarkus30/kotlin)
-* [io.quarkus.updates.core.quarkus30.ApplicationProperties](../quarkus/updates/core/quarkus30/applicationproperties)
-* [io.quarkus.updates.core.quarkus30.ApplicationYml](../quarkus/updates/core/quarkus30/applicationyml)
-* [io.quarkus.updates.core.quarkus30.JavaxToJakartaDocumentationAdoc](../quarkus/updates/core/quarkus30/javaxtojakartadocumentationadoc)
-* [io.quarkus.updates.core.quarkus30.JavaxToJakartaDocumentationMd](../quarkus/updates/core/quarkus30/javaxtojakartadocumentationmd)
-* [io.quarkus.updates.core.quarkus30.JavaxToJakartaCodestarts](../quarkus/updates/core/quarkus30/javaxtojakartacodestarts)
-* [io.quarkus.updates.core.quarkus30.JavaxToJakartaCodestartsTests](../quarkus/updates/core/quarkus30/javaxtojakartacodestartstests)
-* [io.quarkus.updates.core.quarkus30.JavaxToJakartaKotlin](../quarkus/updates/core/quarkus30/javaxtojakartakotlin)
-* [io.quarkus.updates.core.quarkus30.JavaxToJakartaKotlinCodestarts](../quarkus/updates/core/quarkus30/javaxtojakartakotlincodestarts)
-* [io.quarkus.updates.core.quarkus30.JavaxToJakartaKotlinCodestartsTests](../quarkus/updates/core/quarkus30/javaxtojakartakotlincodestartstests)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0
-displayName: Quarkus Updates Aggregate 3.0.0
-description: |
-  Quarkus update recipes to upgrade your application to 3.0.0.
-preconditions:
-  - org.openrewrite.java.dependencies.search.ModuleHasDependency:
-      groupIdPattern: io.quarkus
-      artifactIdPattern: quarkus-core
-      version: (,3.0.0)
-recipeList:
-  - io.quarkus.updates.camel.camel40.CamelQuarkusMigrationRecipe
-  - org.openrewrite.java.camel.migrate.removedExtensions
-  - io.quarkus.updates.core.quarkus30.UpgradeQuarkiverse
-  - io.quarkus.updates.core.quarkus30.JavaxActivationMigrationToJakartaActivation
-  - io.quarkus.updates.core.quarkus30.JavaxAnnotationMigrationToJakartaAnnotation
-  - io.quarkus.updates.core.quarkus30.ChangeJavaxAnnotationToJakarta
-  - io.quarkus.updates.core.quarkus30.JavaxAnnotationPackageToJakarta
-  - io.quarkus.updates.core.quarkus30.JavaxAnnotationSecurityPackageToJakarta
-  - io.quarkus.updates.core.quarkus30.JavaxAnnotationSqlPackageToJakarta
-  - io.quarkus.updates.core.quarkus30.JavaxAuthenticationMigrationToJakartaAuthentication
-  - io.quarkus.updates.core.quarkus30.JavaxAuthorizationMigrationToJakartaAuthorization
-  - io.quarkus.updates.core.quarkus30.JavaxBatchMigrationToJakartaBatch
-  - io.quarkus.updates.core.quarkus30.JavaxValidationMigrationToJakartaValidation
-  - io.quarkus.updates.core.quarkus30.JavaxDecoratorToJakartaDecorator
-  - io.quarkus.updates.core.quarkus30.JavaxEjbToJakartaEjb
-  - io.quarkus.updates.core.quarkus30.JavaxElToJakartaEl
-  - io.quarkus.updates.core.quarkus30.JavaxEnterpriseToJakartaEnterprise
-  - io.quarkus.updates.core.quarkus30.JavaxFacesToJakartaFaces
-  - io.quarkus.updates.core.quarkus30.JavaxInjectMigrationToJakartaInject
-  - io.quarkus.updates.core.quarkus30.JavaxInterceptorToJakartaInterceptor
-  - io.quarkus.updates.core.quarkus30.JavaxJmsToJakartaJms
-  - io.quarkus.updates.core.quarkus30.JavaxJsonToJakartaJson
-  - io.quarkus.updates.core.quarkus30.JavaxJwsToJakartaJws
-  - io.quarkus.updates.core.quarkus30.JavaxMailToJakartaMail
-  - io.quarkus.updates.core.quarkus30.JavaxPersistenceToJakartaPersistence
-  - io.quarkus.updates.core.quarkus30.JavaxResourceToJakartaResource
-  - io.quarkus.updates.core.quarkus30.JavaxSecurityToJakartaSecurity
-  - io.quarkus.updates.core.quarkus30.JavaxServletToJakartaServlet
-  - io.quarkus.updates.core.quarkus30.JavaxTransactionMigrationToJakartaTransaction
-  - io.quarkus.updates.core.quarkus30.JavaxWebsocketToJakartaWebsocket
-  - io.quarkus.updates.core.quarkus30.JavaxWsToJakartaWs
-  - io.quarkus.updates.core.quarkus30.JavaxXmlBindMigrationToJakartaXmlBind
-  - io.quarkus.updates.core.quarkus30.JavaxXmlSoapToJakartaXmlSoap
-  - io.quarkus.updates.core.quarkus30.JavaxXmlWsMigrationToJakartaXmlWs
-  - io.quarkus.updates.core.quarkus30.JavaxPersistenceXmlToJakartaPersistenceXml
-  - io.quarkus.updates.core.quarkus30.JacksonJavaxToJakarta
-  - io.quarkus.updates.core.quarkus30.RestAssuredJavaxToJakarta
-  - io.quarkus.updates.core.quarkus30.JavaxToJakartaAdditionalMigration
-  - io.quarkus.updates.core.quarkus30.RenameJavaxServiceFiles
-  - io.quarkus.updates.core.quarkus30.JavaxConfigurationFiles
-  - io.quarkus.updates.core.quarkus30.AdditionalChanges
-  - io.quarkus.updates.core.quarkus30.Kotlin
-  - io.quarkus.updates.core.quarkus30.ApplicationProperties
-  - io.quarkus.updates.core.quarkus30.ApplicationYml
-  - io.quarkus.updates.core.quarkus30.JavaxToJakartaDocumentationAdoc
-  - io.quarkus.updates.core.quarkus30.JavaxToJakartaDocumentationMd
-  - io.quarkus.updates.core.quarkus30.JavaxToJakartaCodestarts
-  - io.quarkus.updates.core.quarkus30.JavaxToJakartaCodestartsTests
-  - io.quarkus.updates.core.quarkus30.JavaxToJakartaKotlin
-  - io.quarkus.updates.core.quarkus30.JavaxToJakartaKotlinCodestarts
-  - io.quarkus.updates.core.quarkus30.JavaxToJakartaKotlinCodestartsTests
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Quarkus Updates Aggregate 3.1.0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_1_0.md)
-
+<UsageList usage={{"recipeName":"org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0","displayName":"Quarkus Updates Aggregate 3.0.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0"
-  displayName="Quarkus Updates Aggregate 3.0.0"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-third-party"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

@@ -1,37 +1,36 @@
 ---
 title: "Iterate over file objects directly, not via `readlines()`"
 sidebar_label: "Iterate over file objects directly, not via `readlines()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Iterate over file objects directly, not via `readlines()`
+<RecipeMeta
+  displayName={"Iterate over file objects directly, not via `readlines()`"}
+  description={"File objects are iterable and yield lines on demand, so calling `.readlines()` to build an intermediate list is unnecessary."}
+  fqName={"org.openrewrite.python.cleanup.UseFileIterator"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.UseFileIterator**
+<RecipeHeader
+  displayName={"Iterate over file objects directly, not via `readlines()`"}
+  description={"File objects are iterable and yield lines on demand, so calling `.readlines()` to build an intermediate list is unnecessary."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.UseFileIterator"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UseFileIterator"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/usefileiterator.md"}
+  moderneOnly
+/>
 
-_File objects are iterable and yield lines on demand, so calling `.readlines()` to build an intermediate list is unnecessary._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UseFileIterator","displayName":"Iterate over file objects directly, not via `readlines()`","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.UseFileIterator"
-  displayName="Iterate over file objects directly, not via `readlines()`"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

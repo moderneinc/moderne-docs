@@ -1,41 +1,42 @@
 ---
 title: "Use block body or expression body"
 sidebar_label: "Use block body or expression body"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use block body or expression body
+<RecipeMeta
+  displayName={"Use block body or expression body"}
+  description={"Convert between block body and expression body for members."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseBlockBodyOrExpressionBody"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseBlockBodyOrExpressionBody**
+<RecipeHeader
+  displayName={"Use block body or expression body"}
+  description={"Convert between block body and expression body for members."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseBlockBodyOrExpressionBody"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseBlockBodyOrExpressionBody"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useblockbodyorexpressionbody.md"}
+  moderneOnly
+/>
 
-_Convert between block body and expression body for members._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"Boolean","name":"AllowMultiLine","required":false,"description":"When true, also flags methods with multi-line return expressions (e.g., switch expressions, multi-line conditionals). Default is false, matching Roslyn's default RCS1016 behavior."}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `Boolean` | AllowMultiLine | *Optional*. When true, also flags methods with multi-line return expressions (e.g., switch expressions, multi-line conditionals). Default is false, matching Roslyn's default RCS1016 behavior. |  |
+</OptionsTable>
 
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseBlockBodyOrExpressionBody","displayName":"Use block body or expression body","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseBlockBodyOrExpressionBody"
-  displayName="Use block body or expression body"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

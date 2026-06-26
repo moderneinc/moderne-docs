@@ -1,36 +1,42 @@
 ---
 title: "Python cleanup suite"
 sidebar_label: "Python cleanup suite"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Python cleanup suite
+<RecipeMeta
+  displayName={"Python cleanup suite"}
+  description={"Run every Python cleanup recipe in one pass -- literal simplification, boolean and comparison tidying, dead code removal, naming fixes, pandas modernization, and more."}
+  fqName={"org.openrewrite.python.cleanup.PythonBestPractices"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.PythonBestPractices**
+<RecipeHeader
+  displayName={"Python cleanup suite"}
+  description={"Run every Python cleanup recipe in one pass -- literal simplification, boolean and comparison tidying, dead code removal, naming fixes, pandas modernization, and more."}
+  type={"Composite recipe"}
+  languages={["Python"]}
+  tags={["python","cleanup","best-practices"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.PythonBestPractices"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.PythonBestPractices"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices.md"}
+  moderneOnly
+/>
 
-_Run every Python cleanup recipe in one pass -- literal simplification, boolean and comparison tidying, dead code removal, naming fixes, pandas modernization, and more._
+<RecipeList recipes={[{"name":"Use `{}` literal instead of `dict()` constructor","href":"python/cleanup/dictliteral"},{"name":"Use `[]` literal instead of `list()` constructor","href":"python/cleanup/listliteral"},{"name":"Use `()` literal instead of `tuple()` constructor","href":"python/cleanup/tupleliteral"},{"name":"Prefer set literals in `in` membership tests","href":"python/cleanup/collectionintoset"},{"name":"Flatten redundant collection constructor wrapping a literal","href":"python/cleanup/unwrapiterableconstruction"},{"name":"Drop unnecessary `0` start argument from `range()`","href":"python/cleanup/removezerofromrange"},{"name":"Drop unnecessary step `1` argument from `range()`","href":"python/cleanup/removeunitstepfromrange"},{"name":"Compare to `None` with identity operators (`is` / `is not`)","href":"python/cleanup/nonecompare"},{"name":"Fold same-literal `==`/`!=` comparisons to boolean constants","href":"python/cleanup/equalityidentity"},{"name":"Collapse self-cancelling `^` / `-` with duplicate operands to `0`","href":"python/cleanup/binopidentity"},{"name":"Rewrite self-multiplication as `** 2`","href":"python/cleanup/squareidentity"},{"name":"Remove explicit True/False comparisons","href":"python/cleanup/simplifybooleancomparison"},{"name":"Collapse boolean ternary to bare condition","href":"python/cleanup/booleanifexpidentity"},{"name":"Eliminate boolean literal from `and`/`or`","href":"python/cleanup/removeredundantboolean"},{"name":"Replace `len()` emptiness check with truthiness","href":"python/cleanup/simplifylencomparison"},{"name":"Compare string to `\"\"` instead of checking `len()`","href":"python/cleanup/simplifystrlencomparison"},{"name":"Substitute constant collection condition with boolean","href":"python/cleanup/collectiontobool"},{"name":"Flatten negated logic via De Morgan's identities","href":"python/cleanup/demorgan"},{"name":"Reorder comparisons to put literals on the right","href":"python/cleanup/flipcomparison"},{"name":"Replace `.find()` check with `in` / `not in`","href":"python/cleanup/simplifysubstringsearch"},{"name":"Consolidate repeated `==` with `or` into `in`","href":"python/cleanup/mergecomparisons"},{"name":"Merge `isinstance()` calls","href":"python/cleanup/mergeisinstance"},{"name":"Replace self-referencing ternary with `or`","href":"python/cleanup/orifexpidentity"},{"name":"Swap ternary branches to drop negated condition","href":"python/cleanup/swapifexpression"},{"name":"Shorten assignment to compound operator form","href":"python/cleanup/augassign"},{"name":"Remove redundant ternary condition","href":"python/cleanup/removeredundantcondition"},{"name":"Collapse nested ``if`` into a single ``and`` condition","href":"python/cleanup/mergenestedifs"},{"name":"Convert ``else: if`` to ``elif``","href":"python/cleanup/mergeelseifintoelif"},{"name":"Flip empty ``if``-body by negating the condition","href":"python/cleanup/swapifelsebranches"},{"name":"Drop ``pass``-only ``elif`` by negating its condition","href":"python/cleanup/removepasselif"},{"name":"Simplify negated ``elif`` to ``else``","href":"python/cleanup/removeredundantif"},{"name":"Drop ``else`` after early-exit ``if`` branch","href":"python/cleanup/removeunnecessaryelse"},{"name":"Use inline conditional for simple ``if``/``else`` assignment","href":"python/cleanup/assignifexp"},{"name":"Remove redundant pass statements","href":"python/removepass"},{"name":"Strip trailing ``continue`` from loop body","href":"python/cleanup/removeredundantcontinue"},{"name":"Drop ``exists()`` check before ``is_dir()``/``is_file()``","href":"python/cleanup/removeredundantpathexists"},{"name":"Delete no-op `assert True` statements","href":"python/cleanup/removeasserttrue"},{"name":"Strip dead code after terminal statements","href":"python/cleanup/removeunreachablecode"},{"name":"Delete `if` blocks whose body is only `pass`","href":"python/cleanup/removeemptynestedblock"},{"name":"Unwrap ``str()`` from ``print()`` arguments","href":"python/cleanup/removestrfromprint"},{"name":"Remove redundant `None` default from `dict.get()`","href":"python/cleanup/removenonefromdefaultget"},{"name":"Drop ``f`` prefix from strings without placeholders","href":"python/cleanup/removeredundantfstring"},{"name":"Strip ``str()`` from f-string placeholders","href":"python/cleanup/removestrfromfstring"},{"name":"Prefer ``startswith``/``endswith`` over slice comparison","href":"python/cleanup/strprefixsuffix"},{"name":"Use bracket access for ``re.Match`` groups","href":"python/cleanup/usegetitemforrematchgroups"},{"name":"Fold constants and flatten nested f-strings","href":"python/cleanup/simplifyfstringformatting"},{"name":"Replace string slicing with `removeprefix`/`removesuffix`","href":"python/cleanup/usestringremoveaffix"},{"name":"Drop redundant `.keys()` on dict iteration","href":"python/cleanup/removedictkeys"},{"name":"Convert one-item `dict.update()` to bracket assignment","href":"python/cleanup/simplifydictionaryupdate"},{"name":"Use dict union operator instead of double-star unpacking","href":"python/cleanup/usedictionaryunion"},{"name":"Unwrap unnecessary `dict()` from union operands","href":"python/cleanup/removeredundantconstructorindictunion"},{"name":"Deduplicate repeated keys in dict literals","href":"python/cleanup/removeduplicatedictkey"},{"name":"Deduplicate repeated elements in set literals","href":"python/cleanup/removeduplicatesetkey"},{"name":"Iterate over file objects directly, not via `readlines()`","href":"python/cleanup/usefileiterator"},{"name":"Flatten `for/else` when the loop has no `break`","href":"python/cleanup/uselesselseonloop"},{"name":"Collapse for-yield loop into `yield from`","href":"python/cleanup/yieldfrom"},{"name":"Use comprehension syntax instead of `list()`/`set()` around generators","href":"python/cleanup/collectionbuiltintocomprehension"},{"name":"Pass iterable directly to `any()`/`all()` instead of identity generator","href":"python/cleanup/simplifygenerator"},{"name":"Use generator expression instead of list comprehension in iterable-accepting calls","href":"python/cleanup/comprehensiontogenerator"},{"name":"Simplify identity comprehension to `list()`/`set()` call","href":"python/cleanup/identitycomprehension"},{"name":"Swap `not all()`/`not any()` by negating the comparison","href":"python/cleanup/invertanyall"},{"name":"Apply De Morgan's law to `any(not ...)`/`all(not ...)`","href":"python/cleanup/invertanyallbody"},{"name":"Rewrite `any(v == literal ...)` as `literal in collection`","href":"python/cleanup/convertanytoin"},{"name":"Simplify `sum(1 for x in items if cond)` to `sum(bool(cond) for x in items)`","href":"python/cleanup/simplifyconstantsum"},{"name":"Narrow bare `except:` to `except Exception:`","href":"python/cleanup/donotusebareexcept"},{"name":"Unwrap one-element exception tuple in `except`","href":"python/cleanup/simplifysingleexceptiontuple"},{"name":"Chain exceptions with `raise ... from` in except blocks","href":"python/cleanup/raisefrompreviouserror"},{"name":"Replace `try/except: pass` with `contextlib.suppress()`","href":"python/cleanup/usecontextlibsuppress"},{"name":"Standardize `@classmethod` first parameter to `cls`","href":"python/cleanup/classmethodfirstargname"},{"name":"Eliminate `inplace=True` in favor of reassignment","href":"python/cleanup/pandasavoidinplace"},{"name":"Convert `apply('name')` to a direct method invocation","href":"python/cleanup/replaceapplywithmethodcall"},{"name":"Use `.isna()` instead of `== np.nan` comparisons","href":"python/cleanup/useisna"},{"name":"Convert `and`/`or` ternary trick to conditional expression","href":"python/cleanup/ternarytoifexpression"},{"name":"Guard mutable default arguments with `None` sentinel","href":"python/cleanup/defaultmutablearg"},{"name":"Simplify temp-variable swap to tuple unpacking","href":"python/cleanup/swapvariable"},{"name":"Remove `break`/`continue` outside loop","href":"python/cleanup/breakorcontinueoutsideloop"},{"name":"Remove `return`/`yield` outside function","href":"python/cleanup/returnoryieldoutsidefunction"},{"name":"Use `datetime.now()` instead of `datetime.today()`","href":"python/cleanup/usedatetimenownottoday"}]}>
 
-### Tags
+## Definition
 
-* [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [cleanup](/user-documentation/recipes/lists/recipes-by-tag#cleanup)
-* [best-practices](/user-documentation/recipes/lists/recipes-by-tag#best)
+</RecipeList>
 
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.PythonBestPractices","displayName":"Python cleanup suite","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.PythonBestPractices"
-  displayName="Python cleanup suite"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

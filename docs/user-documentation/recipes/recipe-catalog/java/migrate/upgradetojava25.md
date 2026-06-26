@@ -1,6 +1,7 @@
 ---
 title: "Migrate to Java 25"
 sidebar_label: "Migrate to Java 25"
+hide_title: true
 ---
 
 
@@ -8,466 +9,51 @@ sidebar_label: "Migrate to Java 25"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/upgradetojava25" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate to Java 25
+<RecipeMeta
+  displayName={"Migrate to Java 25"}
+  description={"This recipe will apply changes commonly needed when migrating to Java 25. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 25 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 25."}
+  fqName={"org.openrewrite.java.migrate.UpgradeToJava25"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/java-version-25.yml"}
+/>
 
-**org.openrewrite.java.migrate.UpgradeToJava25**
+<RecipeHeader
+  displayName={"Migrate to Java 25"}
+  description={"This recipe will apply changes commonly needed when migrating to Java 25. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 25 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 25."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["java25"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.migrate.UpgradeToJava25"}
+  artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava25"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava25.md"}
+/>
 
-_This recipe will apply changes commonly needed when migrating to Java 25. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 25 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 25._
-
-### Tags
-
-* [java25](/user-documentation/recipes/lists/recipes-by-tag#java25)
-
-## Recipe source
-
-[GitHub: java-version-25.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/java-version-25.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Migrate to Java 21","href":"java/migrate/upgradetojava21"},{"name":"Upgrade Kotlin to 2.3 for Java 25 compatibility","href":"java/migrate/upgradekotlinforjava25"},{"name":"Upgrade build to Java 24 for Kotlin 1.x","href":"java/migrate/upgradebuildtojava24forkotlin1x"},{"name":"Upgrade build to Java 25 (non-Kotlin)","href":"java/migrate/upgradebuildtojava25"},{"name":"Upgrade build to Java 25 for Kotlin 2.3+","href":"java/migrate/upgradebuildtojava25forkotlin"},{"name":"Upgrade plugins to Java 25 compatible versions","href":"java/migrate/upgradepluginsforjava25"},{"name":"Migrate `System.out.print` to Java 25 IO utility class","href":"java/migrate/io/replacesystemoutwithioprint"},{"name":"Use `Process#waitFor(Duration)`","href":"java/migrate/lang/migrateprocesswaitforduration"},{"name":"Replace unused variables with underscore","href":"java/migrate/lang/replaceunusedvariableswithunderscore"},{"name":"Replace `Inflater` and `Deflater` `end()` calls with `close()`","href":"java/migrate/util/migrateinflaterdeflatertoclose"},{"name":"Use `Reader.of(CharSequence)` for non-synchronized readers","href":"java/migrate/util/migratestringreadertoreaderof"},{"name":"Remove Security AccessController","href":"java/migrate/accesscontroller"},{"name":"Remove Security Policy","href":"java/migrate/removesecuritypolicy"},{"name":"Remove Security SecurityManager","href":"java/migrate/removesecuritymanager"},{"name":"Replace `System.getSecurityManager()` with `null`","href":"java/migrate/systemgetsecuritymanagertonull"},{"name":"Use `ZipException` instead of `ZipError`","href":"java/migrate/migrateziperrortozipexception"},{"name":"Migrate GraalVM resource-config.json to glob patterns","href":"java/migrate/migrategraalvmresourceconfig"},{"name":"Comment Kotlin modules capped at Java 24","href":"java/migrate/commentkotlinmodulescappedatjava24"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../core/singleton)
-
-**Recipes**
-
-* [Migrate to Java 21](../../java/migrate/upgradetojava21)
-* [Upgrade Kotlin to 2.3 for Java 25 compatibility](../../java/migrate/upgradekotlinforjava25)
-* [Upgrade build to Java 24 for Kotlin 1.x](../../java/migrate/upgradebuildtojava24forkotlin1x)
-* [Upgrade build to Java 25 (non-Kotlin)](../../java/migrate/upgradebuildtojava25)
-* [Upgrade build to Java 25 for Kotlin 2.3+](../../java/migrate/upgradebuildtojava25forkotlin)
-* [Upgrade plugins to Java 25 compatible versions](../../java/migrate/upgradepluginsforjava25)
-* [Migrate `System.out.print` to Java 25 IO utility class](../../java/migrate/io/replacesystemoutwithioprint)
-* [Use `Process#waitFor(Duration)`](../../java/migrate/lang/migrateprocesswaitforduration)
-* [Replace unused variables with underscore](../../java/migrate/lang/replaceunusedvariableswithunderscore)
-* [Replace `Inflater` and `Deflater` `end()` calls with `close()`](../../java/migrate/util/migrateinflaterdeflatertoclose)
-* [Use `Reader.of(CharSequence)` for non-synchronized readers](../../java/migrate/util/migratestringreadertoreaderof)
-* [Remove Security AccessController](../../java/migrate/accesscontroller)
-* [Remove Security Policy](../../java/migrate/removesecuritypolicy)
-* [Remove Security SecurityManager](../../java/migrate/removesecuritymanager)
-* [Replace `System.getSecurityManager()` with `null`](../../java/migrate/systemgetsecuritymanagertonull)
-* [Use `ZipException` instead of `ZipError`](../../java/migrate/migrateziperrortozipexception)
-* [Migrate GraalVM resource-config.json to glob patterns](../../java/migrate/migrategraalvmresourceconfig)
-* [Comment Kotlin modules capped at Java 24](../../java/migrate/commentkotlinmodulescappedatjava24)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.migrate.UpgradeToJava25
-displayName: Migrate to Java 25
-description: |
-  This recipe will apply changes commonly needed when migrating to Java 25. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 25 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 25.
-tags:
-  - java25
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.java.migrate.UpgradeToJava21
-  - org.openrewrite.java.migrate.UpgradeKotlinForJava25
-  - org.openrewrite.java.migrate.UpgradeBuildToJava24ForKotlin1x
-  - org.openrewrite.java.migrate.UpgradeBuildToJava25
-  - org.openrewrite.java.migrate.UpgradeBuildToJava25ForKotlin
-  - org.openrewrite.java.migrate.UpgradePluginsForJava25
-  - org.openrewrite.java.migrate.io.ReplaceSystemOutWithIOPrint
-  - org.openrewrite.java.migrate.lang.MigrateProcessWaitForDuration
-  - org.openrewrite.java.migrate.lang.ReplaceUnusedVariablesWithUnderscore
-  - org.openrewrite.java.migrate.util.MigrateInflaterDeflaterToClose
-  - org.openrewrite.java.migrate.util.MigrateStringReaderToReaderOf
-  - org.openrewrite.java.migrate.AccessController
-  - org.openrewrite.java.migrate.RemoveSecurityPolicy
-  - org.openrewrite.java.migrate.RemoveSecurityManager
-  - org.openrewrite.java.migrate.SystemGetSecurityManagerToNull
-  - org.openrewrite.java.migrate.MigrateZipErrorToZipException
-  - org.openrewrite.java.migrate.MigrateGraalVMResourceConfig
-  - org.openrewrite.java.migrate.CommentKotlinModulesCappedAtJava24
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
+<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"xml","before":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>17</maven.compiler.release>\n    </properties>\n    <dependencies>\n        <dependency>\n            <groupId>com.google.guava</groupId>\n            <artifactId>guava</artifactId>\n            <version>33.0.0-jre</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n    <dependencies>\n        <dependency>\n            <groupId>com.google.guava</groupId>\n            <artifactId>guava</artifactId>\n            <version>33.0.0-jre</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,1 +6,1 @@\n    <version>1</version>\n    <properties>\n-       <maven.compiler.release>17</maven.compiler.release>\n+       <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n","newFile":false}]},{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"xml","before":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>17</maven.compiler.release>\n    </properties>\n</project>\n","after":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,1 +6,1 @@\n    <version>1</version>\n    <properties>\n-       <maven.compiler.release>17</maven.compiler.release>\n+       <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n","newFile":false}]},{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"xml","before":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>17</maven.compiler.release>\n    </properties>\n    <dependencies>\n        <dependency>\n            <groupId>com.google.guava</groupId>\n            <artifactId>guava</artifactId>\n            <version>33.0.0-jre</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n    <dependencies>\n        <dependency>\n            <groupId>com.google.guava</groupId>\n            <artifactId>guava</artifactId>\n            <version>33.0.0-jre</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,1 +6,1 @@\n    <version>1</version>\n    <properties>\n-       <maven.compiler.release>17</maven.compiler.release>\n+       <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n","newFile":false}]},{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"xml","before":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>17</maven.compiler.release>\n    </properties>\n</project>\n","after":"<project>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <properties>\n        <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,1 +6,1 @@\n    <version>1</version>\n    <properties>\n-       <maven.compiler.release>17</maven.compiler.release>\n+       <maven.compiler.release>25</maven.compiler.release>\n    </properties>\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`EnableLombokAnnotationProcessorTest#doesNotAddLombokWhenNotPresentViaUpgradeToJava25`
 
+</ExampleList>
 
-###### Unchanged
-```mavenProject
-project
-```
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>17</maven.compiler.release>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>33.0.0-jre</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>33.0.0-jre</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -6,1 +6,1 @@
-    <version>1</version>
-    <properties>
--       <maven.compiler.release>17</maven.compiler.release>
-+       <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`UpgradeToJava25Test#updateCompilerVersion`
-
-
-###### Unchanged
-```mavenProject
-project
-```
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>17</maven.compiler.release>
-    </properties>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -6,1 +6,1 @@
-    <version>1</version>
-    <properties>
--       <maven.compiler.release>17</maven.compiler.release>
-+       <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 3
-`EnableLombokAnnotationProcessorTest#doesNotAddLombokWhenNotPresentViaUpgradeToJava25`
-
-
-###### Unchanged
-```mavenProject
-project
-```
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>17</maven.compiler.release>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>33.0.0-jre</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>33.0.0-jre</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -6,1 +6,1 @@
-    <version>1</version>
-    <properties>
--       <maven.compiler.release>17</maven.compiler.release>
-+       <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 4
-`UpgradeToJava25Test#updateCompilerVersion`
-
-
-###### Unchanged
-```mavenProject
-project
-```
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>17</maven.compiler.release>
-    </properties>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
-    <version>1</version>
-    <properties>
-        <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -6,1 +6,1 @@
-    <version>1</version>
-    <properties>
--       <maven.compiler.release>17</maven.compiler.release>
-+       <maven.compiler.release>25</maven.compiler.release>
-    </properties>
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.UpgradeToJava25","displayName":"Migrate to Java 25","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.migrate.UpgradeToJava25"
-  displayName="Migrate to Java 25"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-migrate-java"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava25" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

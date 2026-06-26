@@ -1,43 +1,36 @@
 ---
 title: "Use Any() instead of Count() &gt; 0"
 sidebar_label: "Use Any() instead of Count() &gt; 0"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use Any() instead of Count() &gt; 0
+<RecipeMeta
+  displayName={"Use Any() instead of Count() > 0"}
+  description={"Replace `.Count() > 0` with `.Any()`. `Any()` short-circuits after the first match, while `Count()` enumerates all elements."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseAnyInsteadOfCount"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseAnyInsteadOfCount**
+<RecipeHeader
+  displayName={"Use Any() instead of Count() > 0"}
+  description={"Replace `.Count() > 0` with `.Any()`. `Any()` short-circuits after the first match, while `Count()` enumerates all elements."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","linq","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseAnyInsteadOfCount"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseAnyInsteadOfCount"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/useanyinsteadofcount.md"}
+  moderneOnly
+/>
 
-_Replace `.Count() > 0` with `.Any()`. `Any()` short-circuits after the first match, while `Count()` enumerates all elements._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [linq](/user-documentation/recipes/lists/recipes-by-tag#linq)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [LINQ code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/linqcodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseAnyInsteadOfCount","displayName":"Use Any() instead of Count() > 0","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseAnyInsteadOfCount"
-  displayName="Use Any() instead of Count() &gt; 0"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

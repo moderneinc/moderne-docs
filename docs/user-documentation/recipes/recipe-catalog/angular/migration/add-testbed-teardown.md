@@ -1,37 +1,36 @@
 ---
 title: "Add TestBed module teardown"
 sidebar_label: "Add TestBed module teardown"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Add TestBed module teardown
+<RecipeMeta
+  displayName={"Add TestBed module teardown"}
+  description={"Adds `{ teardown: { destroyAfterEach: true } }` as the third argument to `TestBed.initTestEnvironment()` calls. Angular 13 changed the default teardown behavior, and this ensures explicit opt-in for module teardown after each test."}
+  fqName={"org.openrewrite.angular.migration.add-testbed-teardown"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.add-testbed-teardown**
+<RecipeHeader
+  displayName={"Add TestBed module teardown"}
+  description={"Adds `{ teardown: { destroyAfterEach: true } }` as the third argument to `TestBed.initTestEnvironment()` calls. Angular 13 changed the default teardown behavior, and this ensures explicit opt-in for module teardown after each test."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.add-testbed-teardown"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.add-testbed-teardown"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/add-testbed-teardown.md"}
+  moderneOnly
+/>
 
-_Adds `{ teardown: { destroyAfterEach: true } }` as the third argument to `TestBed.initTestEnvironment()` calls. Angular 13 changed the default teardown behavior, and this ensures explicit opt-in for module teardown after each test._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 13](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular13)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.add-testbed-teardown","displayName":"Add TestBed module teardown","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.add-testbed-teardown"
-  displayName="Add TestBed module teardown"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

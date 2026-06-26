@@ -1,37 +1,36 @@
 ---
 title: "Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`"
 sidebar_label: "Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`
+<RecipeMeta
+  displayName={"Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`"}
+  description={"Replaces `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`. `ViewEncapsulation.Native` was deprecated in Angular 6 and removed in Angular 11."}
+  fqName={"org.openrewrite.angular.migration.replace-view-encapsulation-native"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.replace-view-encapsulation-native**
+<RecipeHeader
+  displayName={"Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`"}
+  description={"Replaces `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`. `ViewEncapsulation.Native` was deprecated in Angular 6 and removed in Angular 11."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.replace-view-encapsulation-native"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-view-encapsulation-native"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-view-encapsulation-native.md"}
+  moderneOnly
+/>
 
-_Replaces `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`. `ViewEncapsulation.Native` was deprecated in Angular 6 and removed in Angular 11._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 11](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular11)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-view-encapsulation-native","displayName":"Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.replace-view-encapsulation-native"
-  displayName="Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

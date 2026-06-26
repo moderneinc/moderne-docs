@@ -1,37 +1,42 @@
 ---
 title: "Rename `Message` interface to `ToastMessageOptions`"
 sidebar_label: "Rename `Message` interface to `ToastMessageOptions`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Rename `Message` interface to `ToastMessageOptions`
+<RecipeMeta
+  displayName={"Rename `Message` interface to `ToastMessageOptions`"}
+  description={"Renames the `Message` interface import from `primeng/api` to `ToastMessageOptions` and updates all identifier usages. The `Message` interface was renamed in PrimeNG 18 due to name collision with the `Message` component."}
+  fqName={"org.openrewrite.primeng.RenameMessageInterface"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.primeng.RenameMessageInterface**
+<RecipeHeader
+  displayName={"Rename `Message` interface to `ToastMessageOptions`"}
+  description={"Renames the `Message` interface import from `primeng/api` to `ToastMessageOptions` and updates all identifier usages. The `Message` interface was renamed in PrimeNG 18 due to name collision with the `Message` component."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.primeng.RenameMessageInterface"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.RenameMessageInterface"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/renamemessageinterface.md"}
+  moderneOnly
+/>
 
-_Renames the `Message` interface import from `primeng/api` to `ToastMessageOptions` and updates all identifier usages. The `Message` interface was renamed in PrimeNG 18 due to name collision with the `Message` component._
+<RecipeList recipes={[{"name":"Rename `Message` identifiers to `ToastMessageOptions`","href":""},{"name":"Change import","href":"javascript/change-import"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade PrimeNG components to 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/primeng/upgradecomponentsto18)
-
+<UsageList usage={{"recipeName":"org.openrewrite.primeng.RenameMessageInterface","displayName":"Rename `Message` interface to `ToastMessageOptions`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.primeng.RenameMessageInterface"
-  displayName="Rename `Message` interface to `ToastMessageOptions`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

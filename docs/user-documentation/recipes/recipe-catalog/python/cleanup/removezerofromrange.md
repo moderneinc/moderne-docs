@@ -1,37 +1,36 @@
 ---
 title: "Drop unnecessary `0` start argument from `range()`"
 sidebar_label: "Drop unnecessary `0` start argument from `range()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Drop unnecessary `0` start argument from `range()`
+<RecipeMeta
+  displayName={"Drop unnecessary `0` start argument from `range()`"}
+  description={"Shorten `range(0, n)` to `range(n)` because `range` already defaults to starting at zero."}
+  fqName={"org.openrewrite.python.cleanup.RemoveZeroFromRange"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.RemoveZeroFromRange**
+<RecipeHeader
+  displayName={"Drop unnecessary `0` start argument from `range()`"}
+  description={"Shorten `range(0, n)` to `range(n)` because `range` already defaults to starting at zero."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.RemoveZeroFromRange"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveZeroFromRange"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removezerofromrange.md"}
+  moderneOnly
+/>
 
-_Shorten `range(0, n)` to `range(n)` because `range` already defaults to starting at zero._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveZeroFromRange","displayName":"Drop unnecessary `0` start argument from `range()`","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.RemoveZeroFromRange"
-  displayName="Drop unnecessary `0` start argument from `range()`"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

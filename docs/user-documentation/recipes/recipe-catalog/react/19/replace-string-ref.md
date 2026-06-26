@@ -1,37 +1,36 @@
 ---
 title: "Replace string refs with callback refs"
 sidebar_label: "Replace string refs with callback refs"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace string refs with callback refs
+<RecipeMeta
+  displayName={"Replace string refs with callback refs"}
+  description={"String refs are removed in React 19. This recipe converts them to callback refs."}
+  fqName={"org.openrewrite.react.19.replace-string-ref"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.19.replace-string-ref**
+<RecipeHeader
+  displayName={"Replace string refs with callback refs"}
+  description={"String refs are removed in React 19. This recipe converts them to callback refs."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.19.replace-string-ref"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.replace-string-ref"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/replace-string-ref.md"}
+  moderneOnly
+/>
 
-_String refs are removed in React 19. This recipe converts them to callback refs._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to React 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-19)
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.19.replace-string-ref","displayName":"Replace string refs with callback refs","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.19.replace-string-ref"
-  displayName="Replace string refs with callback refs"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

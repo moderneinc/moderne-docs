@@ -1,6 +1,7 @@
 ---
 title: "AssertJ best practices"
 sidebar_label: "AssertJ best practices"
+hide_title: true
 ---
 
 
@@ -8,480 +9,51 @@ sidebar_label: "AssertJ best practices"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/assertj/assertj-best-practices" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# AssertJ best practices
+<RecipeMeta
+  displayName={"AssertJ best practices"}
+  description={"Migrates JUnit asserts to AssertJ and applies best practices to assertions."}
+  fqName={"org.openrewrite.java.testing.assertj.Assertj"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/assertj.yml"}
+/>
 
-**org.openrewrite.java.testing.assertj.Assertj**
+<RecipeHeader
+  displayName={"AssertJ best practices"}
+  description={"Migrates JUnit asserts to AssertJ and applies best practices to assertions."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["testing","assertj"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.testing.assertj.Assertj"}
+  artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertj-best-practices.md"}
+/>
 
-_Migrates JUnit asserts to AssertJ and applies best practices to assertions._
-
-### Tags
-
-* [testing](/user-documentation/recipes/lists/recipes-by-tag#testing)
-* [assertj](/user-documentation/recipes/lists/recipes-by-tag#assertj)
-
-## Recipe source
-
-[GitHub: assertj.yml](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/assertj.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-testing-frameworks/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-testing-frameworks/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Migrate Hamcrest assertions to AssertJ","href":"java/testing/hamcrest/migratehamcresttoassertj"},{"name":"Migrate Google Truth to AssertJ","href":"java/testing/truth/migratetruthtoassertj"},{"name":"Migrate Fest 2.x to AssertJ","href":"java/testing/assertj/festtoassertj"},{"name":"Migrate JUnit asserts to AssertJ","href":"java/testing/assertj/junittoassertj"},{"name":"Migrate TestNG assertions to AssertJ","href":"java/testing/testng/testngtoassertj"},{"name":"Adopt AssertJ Duration assertions","href":"java/testing/assertj/adoptassertjdurationassertions"},{"name":"Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`","href":"java/testing/assertj/isequaltoignoringmillistoisclosetorecipe"},{"name":"Decompose `assertThat` on conjunctions into separate assertions","href":"java/testing/assertj/decomposeconjunctionassertion"},{"name":"Simplify AssertJ chained assertions","href":"java/testing/assertj/simplifychainedassertjassertions"},{"name":"Shorten AssertJ assertions","href":"java/testing/assertj/simplifyassertjassertions"},{"name":"Simplify AssertJ assertions on `instanceof` expressions","href":"java/testing/assertj/simplifyassertjinstanceofassertion"},{"name":"Simplify AssertJ assertions on `null` reference comparisons","href":"java/testing/assertj/simplifyassertjnullrelatedassertion"},{"name":"Simplify AssertJ assertions with `hasSize` argument","href":"java/testing/assertj/simplifyhassizeassertion"},{"name":"Simplify literal-first AssertJ size assertions to `hasSize`","href":"java/testing/assertj/simplifyhassizefromisequaltoassertion"},{"name":"Simplify AssertJ assertions on an array's `length`","href":"java/testing/assertj/simplifyarraylengthassertion"},{"name":"Simplify AssertJ assertions on SequencedCollection","href":"java/testing/assertj/simplifysequencedcollectionassertions"},{"name":"Simplify `assertThat(collection.stream().map(...))` to `assertThat(collection).extracting(...)`","href":"java/testing/assertj/simplifystreammaptoextracting"},{"name":"Refaster rules related to AssertJ assertions over `BigDecimal`s","href":"picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes"},{"name":"Adopt AssertJ BigInteger Assertions","href":"java/testing/assertj/assertjbigintegerrulesrecipes"},{"name":"`AssertJBooleanRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjbooleanrulesrecipes"},{"name":"Adopt AssertJ Byte Assertions","href":"java/testing/assertj/assertjbyterulesrecipes"},{"name":"`AssertJCharSequenceRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes"},{"name":"`AssertJComparableRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjcomparablerulesrecipes"},{"name":"Adopt AssertJ Double Assertions","href":"java/testing/assertj/assertjdoublerulesrecipes"},{"name":"`AssertJEnumerableRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjenumerablerulesrecipes"},{"name":"Refaster rules related to AssertJ assertions over `Duration`s","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes"},{"name":"Adopt AssertJ Float Assertions","href":"java/testing/assertj/assertjfloatrulesrecipes"},{"name":"Refaster rules related to AssertJ assertions over `Instant`s","href":"picnic/errorprone/refasterrules/assertjinstantrulesrecipes"},{"name":"Adopt AssertJ Integer Assertions","href":"java/testing/assertj/assertjintegerrulesrecipes"},{"name":"`AssertJIterableRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjiterablerulesrecipes"},{"name":"`AssertJIteratorRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjiteratorrulesrecipes"},{"name":"Adopt AssertJ Long Assertions","href":"java/testing/assertj/assertjlongrulesrecipes"},{"name":"`AssertJMapRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes"},{"name":"`AssertJNumberRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjnumberrulesrecipes"},{"name":"`AssertJObjectRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes"},{"name":"`AssertJOptionalRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjoptionalrulesrecipes"},{"name":"Refaster rules related to AssertJ assertions over `Path`s","href":"picnic/errorprone/refasterrules/assertjpathrulesrecipes"},{"name":"Adopt AssertJ Short Assertions","href":"java/testing/assertj/assertjshortrulesrecipes"},{"name":"`AssertJPrimitiveRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjprimitiverulesrecipes"},{"name":"`AssertJRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjrulesrecipes"},{"name":"`AssertJStringRules` Refaster recipes","href":"picnic/errorprone/refasterrules/assertjstringrulesrecipes"},{"name":"Refaster rules related to AssertJ assertions over expressions that may throw a `Throwable` subtype","href":"picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes"},{"name":"Collapse consecutive `assertThat` statements","href":"java/testing/assertj/collapseconsecutiveassertthatstatements"},{"name":"Collapse `assertThat` followed by `return` into single statement","href":"java/testing/assertj/returnactual"},{"name":"Simplify redundant AssertJ assertion chains","href":"java/testing/assertj/simplifyredundantassertjchains"},{"name":"Migrate `AssertionsForClassTypes` and `AssertionsForInterfaceTypes` to `Assertions`","href":"java/testing/assertj/migrateassertionsforclassandinterfacetypes"},{"name":"Statically import AssertJ's `assertThat`","href":"java/testing/assertj/staticimports"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../../core/singleton)
-
-**Recipes**
-
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.assertj.core.annotations.Beta`
-  * newFullyQualifiedTypeName: `org.assertj.core.annotation.Beta`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.assertj.core.util.CanIgnoreReturnValue`
-  * newFullyQualifiedTypeName: `org.assertj.core.annotation.CanIgnoreReturnValue`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.assertj.core.util.CheckReturnValue`
-  * newFullyQualifiedTypeName: `org.assertj.core.annotation.CheckReturnValue`
-* [Migrate Hamcrest assertions to AssertJ](../../../java/testing/hamcrest/migratehamcresttoassertj)
-* [Migrate Google Truth to AssertJ](../../../java/testing/truth/migratetruthtoassertj)
-* [Migrate Fest 2.x to AssertJ](../../../java/testing/assertj/festtoassertj)
-* [Migrate JUnit asserts to AssertJ](../../../java/testing/assertj/junittoassertj)
-* [Migrate TestNG assertions to AssertJ](../../../java/testing/testng/testngtoassertj)
-* [Adopt AssertJ Duration assertions](../../../java/testing/assertj/adoptassertjdurationassertions)
-* [Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`](../../../java/testing/assertj/isequaltoignoringmillistoisclosetorecipe)
-* [Decompose `assertThat` on conjunctions into separate assertions](../../../java/testing/assertj/decomposeconjunctionassertion)
-* [Simplify AssertJ chained assertions](../../../java/testing/assertj/simplifychainedassertjassertions)
-* [Shorten AssertJ assertions](../../../java/testing/assertj/simplifyassertjassertions)
-* [Simplify AssertJ assertions on `instanceof` expressions](../../../java/testing/assertj/simplifyassertjinstanceofassertion)
-* [Simplify AssertJ assertions on `null` reference comparisons](../../../java/testing/assertj/simplifyassertjnullrelatedassertion)
-* [Simplify AssertJ assertions with `hasSize` argument](../../../java/testing/assertj/simplifyhassizeassertion)
-* [Simplify literal-first AssertJ size assertions to `hasSize`](../../../java/testing/assertj/simplifyhassizefromisequaltoassertion)
-* [Simplify AssertJ assertions on an array's `length`](../../../java/testing/assertj/simplifyarraylengthassertion)
-* [Simplify AssertJ assertions on SequencedCollection](../../../java/testing/assertj/simplifysequencedcollectionassertions)
-* [Simplify `assertThat(collection.stream().map(...))` to `assertThat(collection).extracting(...)`](../../../java/testing/assertj/simplifystreammaptoextracting)
-* [Refaster rules related to AssertJ assertions over `BigDecimal`s](../../../picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes)
-* [Adopt AssertJ BigInteger Assertions](../../../java/testing/assertj/assertjbigintegerrulesrecipes)
-* [`AssertJBooleanRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjbooleanrulesrecipes)
-* [Adopt AssertJ Byte Assertions](../../../java/testing/assertj/assertjbyterulesrecipes)
-* [`AssertJCharSequenceRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes)
-* [`AssertJComparableRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjcomparablerulesrecipes)
-* [Adopt AssertJ Double Assertions](../../../java/testing/assertj/assertjdoublerulesrecipes)
-* [`AssertJEnumerableRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjenumerablerulesrecipes)
-* [Refaster rules related to AssertJ assertions over `Duration`s](../../../picnic/errorprone/refasterrules/assertjdurationrulesrecipes)
-* [Adopt AssertJ Float Assertions](../../../java/testing/assertj/assertjfloatrulesrecipes)
-* [Refaster rules related to AssertJ assertions over `Instant`s](../../../picnic/errorprone/refasterrules/assertjinstantrulesrecipes)
-* [Adopt AssertJ Integer Assertions](../../../java/testing/assertj/assertjintegerrulesrecipes)
-* [`AssertJIterableRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjiterablerulesrecipes)
-* [`AssertJIteratorRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjiteratorrulesrecipes)
-* [Adopt AssertJ Long Assertions](../../../java/testing/assertj/assertjlongrulesrecipes)
-* [`AssertJMapRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjmaprulesrecipes)
-* [`AssertJNumberRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjnumberrulesrecipes)
-* [`AssertJObjectRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjobjectrulesrecipes)
-* [`AssertJOptionalRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjoptionalrulesrecipes)
-* [Refaster rules related to AssertJ assertions over `Path`s](../../../picnic/errorprone/refasterrules/assertjpathrulesrecipes)
-* [Adopt AssertJ Short Assertions](../../../java/testing/assertj/assertjshortrulesrecipes)
-* [`AssertJPrimitiveRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjprimitiverulesrecipes)
-* [`AssertJRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjrulesrecipes)
-* [`AssertJStringRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjstringrulesrecipes)
-* [Refaster rules related to AssertJ assertions over expressions that may throw a `Throwable` subtype](../../../picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes)
-* [Collapse consecutive `assertThat` statements](../../../java/testing/assertj/collapseconsecutiveassertthatstatements)
-* [Collapse `assertThat` followed by `return` into single statement](../../../java/testing/assertj/returnactual)
-* [Simplify redundant AssertJ assertion chains](../../../java/testing/assertj/simplifyredundantassertjchains)
-* [Migrate `AssertionsForClassTypes` and `AssertionsForInterfaceTypes` to `Assertions`](../../../java/testing/assertj/migrateassertionsforclassandinterfacetypes)
-* [Statically import AssertJ's `assertThat`](../../../java/testing/assertj/staticimports)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.testing.assertj.Assertj
-displayName: AssertJ best practices
-description: |
-  Migrates JUnit asserts to AssertJ and applies best practices to assertions.
-tags:
-  - testing
-  - assertj
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.assertj.core.annotations.Beta
-      newFullyQualifiedTypeName: org.assertj.core.annotation.Beta
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.assertj.core.util.CanIgnoreReturnValue
-      newFullyQualifiedTypeName: org.assertj.core.annotation.CanIgnoreReturnValue
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.assertj.core.util.CheckReturnValue
-      newFullyQualifiedTypeName: org.assertj.core.annotation.CheckReturnValue
-  - org.openrewrite.java.testing.hamcrest.MigrateHamcrestToAssertJ
-  - org.openrewrite.java.testing.truth.MigrateTruthToAssertJ
-  - org.openrewrite.java.testing.assertj.FestToAssertj
-  - org.openrewrite.java.testing.assertj.JUnitToAssertj
-  - org.openrewrite.java.testing.testng.TestNgToAssertj
-  - org.openrewrite.java.testing.assertj.AdoptAssertJDurationAssertions
-  - org.openrewrite.java.testing.assertj.IsEqualToIgnoringMillisToIsCloseToRecipe
-  - org.openrewrite.java.testing.assertj.DecomposeConjunctionAssertion
-  - org.openrewrite.java.testing.assertj.SimplifyChainedAssertJAssertions
-  - org.openrewrite.java.testing.assertj.SimplifyAssertJAssertions
-  - org.openrewrite.java.testing.assertj.SimplifyAssertJInstanceOfAssertion
-  - org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion
-  - org.openrewrite.java.testing.assertj.SimplifyHasSizeAssertion
-  - org.openrewrite.java.testing.assertj.SimplifyHasSizeFromIsEqualToAssertion
-  - org.openrewrite.java.testing.assertj.SimplifyArrayLengthAssertion
-  - org.openrewrite.java.testing.assertj.SimplifySequencedCollectionAssertions
-  - org.openrewrite.java.testing.assertj.SimplifyStreamMapToExtracting
-  - tech.picnic.errorprone.refasterrules.AssertJBigDecimalRulesRecipes
-  - org.openrewrite.java.testing.assertj.AssertJBigIntegerRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJBooleanRulesRecipes
-  - org.openrewrite.java.testing.assertj.AssertJByteRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJCharSequenceRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJComparableRulesRecipes
-  - org.openrewrite.java.testing.assertj.AssertJDoubleRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes
-  - org.openrewrite.java.testing.assertj.AssertJFloatRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJInstantRulesRecipes
-  - org.openrewrite.java.testing.assertj.AssertJIntegerRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJIteratorRulesRecipes
-  - org.openrewrite.java.testing.assertj.AssertJLongRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJNumberRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes
-  - org.openrewrite.java.testing.assertj.AssertJShortRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJPrimitiveRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes
-  - tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes
-  - org.openrewrite.java.testing.assertj.CollapseConsecutiveAssertThatStatements
-  - org.openrewrite.java.testing.assertj.ReturnActual
-  - org.openrewrite.java.testing.assertj.SimplifyRedundantAssertJChains
-  - org.openrewrite.java.testing.assertj.MigrateAssertionsForClassAndInterfaceTypes
-  - org.openrewrite.java.testing.assertj.StaticImports
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Recipe testing best practices](/user-documentation/recipes/recipe-catalog/java/recipes/recipetestingbestpractices.md)
+<ExampleList examples={[{"variants":[{"language":"java","before":"import static org.assertj.core.api.Assertions.assertThat;\nclass Test {\n    void test() {\n        assertThat(\"test\").isEqualTo(\"\");\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\nclass Test {\n    void test() {\n        assertThat(\"test\").isEmpty();\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\nclass Test {\n    void test() {\n-       assertThat(\"test\").isEqualTo(\"\");\n+       assertThat(\"test\").isEmpty();\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import static org.testng.Assert.fail;\n\nclass Test {\n    void test() {\n        fail(\"foo\");\n        fail(\"foo\", new IllegalStateException());\n        fail();\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.fail;\n\nclass Test {\n    void test() {\n        fail(\"foo\");\n        fail(\"foo\", new IllegalStateException());\n        fail();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.testng.Assert.fail;\n+import static org.assertj.core.api.Assertions.fail;\n\n","newFile":false}]},{"variants":[{"language":"java","before":"import static org.assertj.core.api.Assertions.assertThat;\nclass Test {\n    void test() {\n        assertThat(\"test\").isEqualTo(\"\");\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\nclass Test {\n    void test() {\n        assertThat(\"test\").isEmpty();\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\nclass Test {\n    void test() {\n-       assertThat(\"test\").isEqualTo(\"\");\n+       assertThat(\"test\").isEmpty();\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import static org.testng.Assert.fail;\n\nclass Test {\n    void test() {\n        fail(\"foo\");\n        fail(\"foo\", new IllegalStateException());\n        fail();\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.fail;\n\nclass Test {\n    void test() {\n        fail(\"foo\");\n        fail(\"foo\", new IllegalStateException());\n        fail();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.testng.Assert.fail;\n+import static org.assertj.core.api.Assertions.fail;\n\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`AssertJBestPracticesTest#convertsIsEqualToEmptyString`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import static org.assertj.core.api.Assertions.assertThat;
-class Test {
-    void test() {
-        assertThat("test").isEqualTo("");
-    }
-}
-```
-
-###### After
-```java
-import static org.assertj.core.api.Assertions.assertThat;
-class Test {
-    void test() {
-        assertThat("test").isEmpty();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -4,1 +4,1 @@
-class Test {
-    void test() {
--       assertThat("test").isEqualTo("");
-+       assertThat("test").isEmpty();
-    }
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`TestNgToAssertJTest#failWithMessage`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import static org.testng.Assert.fail;
-
-class Test {
-    void test() {
-        fail("foo");
-        fail("foo", new IllegalStateException());
-        fail();
-    }
-}
-```
-
-###### After
-```java
-import static org.assertj.core.api.Assertions.fail;
-
-class Test {
-    void test() {
-        fail("foo");
-        fail("foo", new IllegalStateException());
-        fail();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,1 +1,1 @@
--import static org.testng.Assert.fail;
-+import static org.assertj.core.api.Assertions.fail;
-
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 3
-`AssertJBestPracticesTest#convertsIsEqualToEmptyString`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import static org.assertj.core.api.Assertions.assertThat;
-class Test {
-    void test() {
-        assertThat("test").isEqualTo("");
-    }
-}
-```
-
-###### After
-```java
-import static org.assertj.core.api.Assertions.assertThat;
-class Test {
-    void test() {
-        assertThat("test").isEmpty();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -4,1 +4,1 @@
-class Test {
-    void test() {
--       assertThat("test").isEqualTo("");
-+       assertThat("test").isEmpty();
-    }
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 4
-`TestNgToAssertJTest#failWithMessage`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import static org.testng.Assert.fail;
-
-class Test {
-    void test() {
-        fail("foo");
-        fail("foo", new IllegalStateException());
-        fail();
-    }
-}
-```
-
-###### After
-```java
-import static org.assertj.core.api.Assertions.fail;
-
-class Test {
-    void test() {
-        fail("foo");
-        fail("foo", new IllegalStateException());
-        fail();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,1 +1,1 @@
--import static org.testng.Assert.fail;
-+import static org.assertj.core.api.Assertions.fail;
-
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.Assertj","displayName":"AssertJ best practices","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.testing.assertj.Assertj"
-  displayName="AssertJ best practices"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-testing-frameworks"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

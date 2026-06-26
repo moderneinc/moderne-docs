@@ -1,37 +1,36 @@
 ---
 title: "Find deprecated `async` test helper usage"
 sidebar_label: "Find deprecated `async` test helper usage"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find deprecated `async` test helper usage
+<RecipeMeta
+  displayName={"Find deprecated `async` test helper usage"}
+  description={"Finds usages of the deprecated `async` test helper from `@angular/core/testing`. The `async` function was deprecated in Angular 11 and should be replaced with `waitForAsync`."}
+  fqName={"org.openrewrite.angular.search.find-async-test-helper-usage"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.search.find-async-test-helper-usage**
+<RecipeHeader
+  displayName={"Find deprecated `async` test helper usage"}
+  description={"Finds usages of the deprecated `async` test helper from `@angular/core/testing`. The `async` function was deprecated in Angular 11 and should be replaced with `waitForAsync`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.search.find-async-test-helper-usage"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-async-test-helper-usage"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-async-test-helper-usage.md"}
+  moderneOnly
+/>
 
-_Finds usages of the deprecated `async` test helper from `@angular/core/testing`. The `async` function was deprecated in Angular 11 and should be replaced with `waitForAsync`._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 12](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular12)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-async-test-helper-usage","displayName":"Find deprecated `async` test helper usage","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.search.find-async-test-helper-usage"
-  displayName="Find deprecated `async` test helper usage"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

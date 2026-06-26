@@ -1,43 +1,36 @@
 ---
 title: "Find ElementAt() that could use indexer"
 sidebar_label: "Find ElementAt() that could use indexer"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find ElementAt() that could use indexer
+<RecipeMeta
+  displayName={"Find ElementAt() that could use indexer"}
+  description={"Detect LINQ `.ElementAt(index)` calls that could be replaced with direct indexer access `[index]`."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseElementAccessInsteadOfLinq"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseElementAccessInsteadOfLinq**
+<RecipeHeader
+  displayName={"Find ElementAt() that could use indexer"}
+  description={"Detect LINQ `.ElementAt(index)` calls that could be replaced with direct indexer access `[index]`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","style","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseElementAccessInsteadOfLinq"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseElementAccessInsteadOfLinq"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduseelementaccessinsteadoflinq.md"}
+  moderneOnly
+/>
 
-_Detect LINQ `.ElementAt(index)` calls that could be replaced with direct indexer access `[index]`._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [style](/user-documentation/recipes/lists/recipes-by-tag#style)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseElementAccessInsteadOfLinq","displayName":"Find ElementAt() that could use indexer","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseElementAccessInsteadOfLinq"
-  displayName="Find ElementAt() that could use indexer"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

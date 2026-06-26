@@ -1,37 +1,36 @@
 ---
 title: "Replace `try/except: pass` with `contextlib.suppress()`"
 sidebar_label: "Replace `try/except: pass` with `contextlib.suppress()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `try/except: pass` with `contextlib.suppress()`
+<RecipeMeta
+  displayName={"Replace `try/except: pass` with `contextlib.suppress()`"}
+  description={"When an except handler only contains `pass`, the intent is to suppress the error. `contextlib.suppress()` states this explicitly and eliminates the try/except boilerplate."}
+  fqName={"org.openrewrite.python.cleanup.UseContextlibSuppress"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.UseContextlibSuppress**
+<RecipeHeader
+  displayName={"Replace `try/except: pass` with `contextlib.suppress()`"}
+  description={"When an except handler only contains `pass`, the intent is to suppress the error. `contextlib.suppress()` states this explicitly and eliminates the try/except boilerplate."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.UseContextlibSuppress"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UseContextlibSuppress"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/usecontextlibsuppress.md"}
+  moderneOnly
+/>
 
-_When an except handler only contains `pass`, the intent is to suppress the error. `contextlib.suppress()` states this explicitly and eliminates the try/except boilerplate._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UseContextlibSuppress","displayName":"Replace `try/except: pass` with `contextlib.suppress()`","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.UseContextlibSuppress"
-  displayName="Replace `try/except: pass` with `contextlib.suppress()`"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

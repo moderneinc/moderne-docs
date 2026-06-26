@@ -1,37 +1,36 @@
 ---
 title: "Find `withNoDomReuse` usage"
 sidebar_label: "Find `withNoDomReuse` usage"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find `withNoDomReuse` usage
+<RecipeMeta
+  displayName={"Find `withNoDomReuse` usage"}
+  description={"Finds usages of the removed `withNoDomReuse` function from `@angular/platform-browser`. This function was removed in Angular 17. To disable hydration, remove the `provideClientHydration()` call from your providers or use the `ngSkipHydration` attribute on specific components."}
+  fqName={"org.openrewrite.angular.search.find-with-no-dom-reuse-usage"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.search.find-with-no-dom-reuse-usage**
+<RecipeHeader
+  displayName={"Find `withNoDomReuse` usage"}
+  description={"Finds usages of the removed `withNoDomReuse` function from `@angular/platform-browser`. This function was removed in Angular 17. To disable hydration, remove the `provideClientHydration()` call from your providers or use the `ngSkipHydration` attribute on specific components."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.search.find-with-no-dom-reuse-usage"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-with-no-dom-reuse-usage"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-with-no-dom-reuse-usage.md"}
+  moderneOnly
+/>
 
-_Finds usages of the removed `withNoDomReuse` function from `@angular/platform-browser`. This function was removed in Angular 17. To disable hydration, remove the `provideClientHydration()` call from your providers or use the `ngSkipHydration` attribute on specific components._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 17](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular17)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-with-no-dom-reuse-usage","displayName":"Find `withNoDomReuse` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.search.find-with-no-dom-reuse-usage"
-  displayName="Find `withNoDomReuse` usage"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

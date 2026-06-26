@@ -1,37 +1,36 @@
 ---
 title: "Migrate query decorators to signal-based functions"
 sidebar_label: "Migrate query decorators to signal-based functions"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate query decorators to signal-based functions
+<RecipeMeta
+  displayName={"Migrate query decorators to signal-based functions"}
+  description={"Converts `@ViewChild()`, `@ViewChildren()`, `@ContentChild()`, and `@ContentChildren()` decorated properties to signal-based query functions. For example, `@ViewChild('ref') el: ElementRef` becomes `el = viewChild<ElementRef>('ref')`."}
+  fqName={"org.openrewrite.angular.migration.migrate-query-to-signal"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.migrate-query-to-signal**
+<RecipeHeader
+  displayName={"Migrate query decorators to signal-based functions"}
+  description={"Converts `@ViewChild()`, `@ViewChildren()`, `@ContentChild()`, and `@ContentChildren()` decorated properties to signal-based query functions. For example, `@ViewChild('ref') el: ElementRef` becomes `el = viewChild<ElementRef>('ref')`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.migrate-query-to-signal"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.migrate-query-to-signal"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/migrate-query-to-signal.md"}
+  moderneOnly
+/>
 
-_Converts `@ViewChild()`, `@ViewChildren()`, `@ContentChild()`, and `@ContentChildren()` decorated properties to signal-based query functions. For example, `@ViewChild('ref') el: ElementRef` becomes `el = viewChild<ElementRef>('ref')`._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 21](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular21)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.migrate-query-to-signal","displayName":"Migrate query decorators to signal-based functions","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.migrate-query-to-signal"
-  displayName="Migrate query decorators to signal-based functions"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

@@ -1,35 +1,36 @@
 ---
 title: "Convert HasFlag to bitwise operation"
 sidebar_label: "Convert HasFlag to bitwise operation"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Convert HasFlag to bitwise operation
+<RecipeMeta
+  displayName={"Convert HasFlag to bitwise operation"}
+  description={"Replace flags.HasFlag(value) with (flags & value) != 0."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ConvertHasFlagToBitwiseOperation"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ConvertHasFlagToBitwiseOperation**
+<RecipeHeader
+  displayName={"Convert HasFlag to bitwise operation"}
+  description={"Replace flags.HasFlag(value) with (flags & value) != 0."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ConvertHasFlagToBitwiseOperation"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ConvertHasFlagToBitwiseOperation"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/converthasflagtobitwiseoperation.md"}
+  moderneOnly
+/>
 
-_Replace flags.HasFlag(value) with (flags & value) != 0._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ConvertHasFlagToBitwiseOperation","displayName":"Convert HasFlag to bitwise operation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ConvertHasFlagToBitwiseOperation"
-  displayName="Convert HasFlag to bitwise operation"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

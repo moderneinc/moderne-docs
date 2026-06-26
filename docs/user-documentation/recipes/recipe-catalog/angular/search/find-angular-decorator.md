@@ -1,30 +1,36 @@
 ---
 title: "Find Angular decorators"
 sidebar_label: "Find Angular decorators"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find Angular decorators
+<RecipeMeta
+  displayName={"Find Angular decorators"}
+  description={"Finds all Angular decorators like @Component, @Directive, @Injectable, etc."}
+  fqName={"org.openrewrite.angular.search.find-angular-decorator"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.search.find-angular-decorator**
+<RecipeHeader
+  displayName={"Find Angular decorators"}
+  description={"Finds all Angular decorators like @Component, @Directive, @Injectable, etc."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.search.find-angular-decorator"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-angular-decorator"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-angular-decorator.md"}
+  moderneOnly
+/>
 
-_Finds all Angular decorators like @Component, @Directive, @Injectable, etc._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-angular-decorator","displayName":"Find Angular decorators","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.search.find-angular-decorator"
-  displayName="Find Angular decorators"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

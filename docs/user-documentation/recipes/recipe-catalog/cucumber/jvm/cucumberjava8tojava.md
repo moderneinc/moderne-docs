@@ -1,6 +1,7 @@
 ---
 title: "Migrate `cucumber-java8` to `cucumber-java`"
 sidebar_label: "Migrate `cucumber-java8` to `cucumber-java`"
+hide_title: true
 ---
 
 
@@ -8,505 +9,51 @@ sidebar_label: "Migrate `cucumber-java8` to `cucumber-java`"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/cucumber/jvm/cucumberjava8tojava" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate `cucumber-java8` to `cucumber-java`
+<RecipeMeta
+  displayName={"Migrate `cucumber-java8` to `cucumber-java`"}
+  description={"Migrates `cucumber-java8` step definitions and `LambdaGlue` hooks to `cucumber-java` annotated methods."}
+  fqName={"org.openrewrite.cucumber.jvm.CucumberJava8ToJava"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-cucumber-jvm/blob/main/src/main/resources/META-INF/rewrite/cucumber.yml"}
+/>
 
-**org.openrewrite.cucumber.jvm.CucumberJava8ToJava**
+<RecipeHeader
+  displayName={"Migrate `cucumber-java8` to `cucumber-java`"}
+  description={"Migrates `cucumber-java8` step definitions and `LambdaGlue` hooks to `cucumber-java` annotated methods."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={["cucumber","testing"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.cucumber.jvm.CucumberJava8ToJava"}
+  artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.CucumberJava8ToJava"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md"}
+/>
 
-_Migrates `cucumber-java8` step definitions and `LambdaGlue` hooks to `cucumber-java` annotated methods._
-
-### Tags
-
-* [cucumber](/user-documentation/recipes/lists/recipes-by-tag#cucumber)
-* [testing](/user-documentation/recipes/lists/recipes-by-tag#testing)
-
-## Recipe source
-
-[GitHub: cucumber.yml](https://github.com/openrewrite/rewrite-cucumber-jvm/blob/main/src/main/resources/META-INF/rewrite/cucumber.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-cucumber-jvm/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-cucumber-jvm/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Replace `cucumber-java8` hook definition with `cucumber-java`","href":"cucumber/jvm/cucumberjava8hookdefinitiontocucumberjava"},{"name":"Replace `cucumber-java8` step definitions with `cucumber-java`","href":"cucumber/jvm/cucumberjava8stepdefinitiontocucumberjava"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Rename package name","href":"java/changepackage"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Replace `cucumber-java8` hook definition with `cucumber-java`](../../cucumber/jvm/cucumberjava8hookdefinitiontocucumberjava)
-* [Replace `cucumber-java8` step definitions with `cucumber-java`](../../cucumber/jvm/cucumberjava8stepdefinitiontocucumberjava)
-* [Change Gradle or Maven dependency](../../java/dependencies/changedependency)
-  * oldGroupId: `io.cucumber`
-  * oldArtifactId: `cucumber-java8`
-  * newGroupId: `io.cucumber`
-  * newArtifactId: `cucumber-java`
-* [Rename package name](../../java/changepackage)
-  * oldPackageName: `io.cucumber.java8`
-  * newPackageName: `io.cucumber.java`
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.cucumber.jvm.CucumberJava8ToJava
-displayName: Migrate `cucumber-java8` to `cucumber-java`
-description: |
-  Migrates `cucumber-java8` step definitions and `LambdaGlue` hooks to `cucumber-java` annotated methods.
-tags:
-  - cucumber
-  - testing
-recipeList:
-  - org.openrewrite.cucumber.jvm.CucumberJava8HookDefinitionToCucumberJava
-  - org.openrewrite.cucumber.jvm.CucumberJava8StepDefinitionToCucumberJava
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: io.cucumber
-      oldArtifactId: cucumber-java8
-      newGroupId: io.cucumber
-      newArtifactId: cucumber-java
-  - org.openrewrite.java.ChangePackage:
-      oldPackageName: io.cucumber.java8
-      newPackageName: io.cucumber.java
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Cucumber-JVM 7.x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber7x.md)
+<ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.java8.En;\nimport io.cucumber.java8.Scenario;\nimport io.cucumber.java8.Status;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class CucumberJava8Definitions implements En {\n\n    private int a;\n\n    public CucumberJava8Definitions() {\n        Before(() -> {\n            a = 0;\n        });\n        When(\"I add {int}\", (Integer b) -> {\n            a += b;\n        });\n        Then(\"I expect {int}\", (Integer c) -> assertEquals(c, a));\n\n        After((Scenario scn) -> {\n            if (scn.getStatus() == Status.FAILED) {\n                scn.log(\"failed\");\n            }\n        });\n\n    }\n\n}","after":"package com.example.app;\n\nimport io.cucumber.java.After;\nimport io.cucumber.java.Before;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport io.cucumber.java.Scenario;\nimport io.cucumber.java.Status;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class CucumberJava8Definitions {\n\n    private int a;\n\n    @Before\n    public void before() {\n        a = 0;\n    }\n\n    @After\n    public void after(io.cucumber.java.Scenario scn) {\n        if (scn.getStatus() == Status.FAILED) {\n            scn.log(\"failed\");\n        }\n    }\n\n    @When(\"I add {int}\")\n    public void i_add_int(Integer b) {\n        a += b;\n    }\n\n    @Then(\"I expect {int}\")\n    public void i_expect_int(Integer c) {\n        assertEquals(c, a);\n    }\n\n}\n","diff":"@@ -3,3 +3,6 @@\npackage com.example.app;\n\n-import io.cucumber.java8.En;\n-import io.cucumber.java8.Scenario;\n-import io.cucumber.java8.Status;\n+import io.cucumber.java.After;\n+import io.cucumber.java.Before;\n+import io.cucumber.java.en.Then;\n+import io.cucumber.java.en.When;\n+import io.cucumber.java.Scenario;\n+import io.cucumber.java.Status;\n\n@@ -9,1 +12,1 @@\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\n-public class CucumberJava8Definitions implements En {\n+public class CucumberJava8Definitions {\n\n@@ -13,8 +16,4 @@\n    private int a;\n\n-   public CucumberJava8Definitions() {\n-       Before(() -> {\n-           a = 0;\n-       });\n-       When(\"I add {int}\", (Integer b) -> {\n-           a += b;\n-       });\n-       Then(\"I expect {int}\", (Integer c) -> assertEquals(c, a));\n+   @Before\n+   public void before() {\n+       a = 0;\n+   }\n\n@@ -22,5 +21,6 @@\n        Then(\"I expect {int}\", (Integer c) -> assertEquals(c, a));\n\n-       After((Scenario scn) -> {\n-           if (scn.getStatus() == Status.FAILED) {\n-               scn.log(\"failed\");\n-           }\n-       });\n+   @After\n+   public void after(io.cucumber.java.Scenario scn) {\n+       if (scn.getStatus() == Status.FAILED) {\n+           scn.log(\"failed\");\n+       }\n+   }\n\n@@ -28,0 +28,3 @@\n        });\n\n+   @When(\"I add {int}\")\n+   public void i_add_int(Integer b) {\n+       a += b;\n    }\n@@ -30,0 +33,5 @@\n    }\n\n+   @Then(\"I expect {int}\")\n+   public void i_expect_int(Integer c) {\n+       assertEquals(c, a);\n+   }\n+\n}\n@@ -31,0 +39,1 @@\n\n}\n+\n","newFile":false}]},{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.java8.En;\nimport io.cucumber.java8.Scenario;\nimport io.cucumber.java8.Status;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class CucumberJava8Definitions implements En {\n\n    private int a;\n\n    public CucumberJava8Definitions() {\n        Before(() -> {\n            a = 0;\n        });\n        When(\"I add {int}\", (Integer b) -> {\n            a += b;\n        });\n        Then(\"I expect {int}\", (Integer c) -> assertEquals(c, a));\n\n        After((Scenario scn) -> {\n            if (scn.getStatus() == Status.FAILED) {\n                scn.log(\"failed\");\n            }\n        });\n\n    }\n\n}","after":"package com.example.app;\n\nimport io.cucumber.java.After;\nimport io.cucumber.java.Before;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport io.cucumber.java.Scenario;\nimport io.cucumber.java.Status;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class CucumberJava8Definitions {\n\n    private int a;\n\n    @Before\n    public void before() {\n        a = 0;\n    }\n\n    @After\n    public void after(io.cucumber.java.Scenario scn) {\n        if (scn.getStatus() == Status.FAILED) {\n            scn.log(\"failed\");\n        }\n    }\n\n    @When(\"I add {int}\")\n    public void i_add_int(Integer b) {\n        a += b;\n    }\n\n    @Then(\"I expect {int}\")\n    public void i_expect_int(Integer c) {\n        assertEquals(c, a);\n    }\n\n}\n","diff":"@@ -3,3 +3,6 @@\npackage com.example.app;\n\n-import io.cucumber.java8.En;\n-import io.cucumber.java8.Scenario;\n-import io.cucumber.java8.Status;\n+import io.cucumber.java.After;\n+import io.cucumber.java.Before;\n+import io.cucumber.java.en.Then;\n+import io.cucumber.java.en.When;\n+import io.cucumber.java.Scenario;\n+import io.cucumber.java.Status;\n\n@@ -9,1 +12,1 @@\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\n-public class CucumberJava8Definitions implements En {\n+public class CucumberJava8Definitions {\n\n@@ -13,8 +16,4 @@\n    private int a;\n\n-   public CucumberJava8Definitions() {\n-       Before(() -> {\n-           a = 0;\n-       });\n-       When(\"I add {int}\", (Integer b) -> {\n-           a += b;\n-       });\n-       Then(\"I expect {int}\", (Integer c) -> assertEquals(c, a));\n+   @Before\n+   public void before() {\n+       a = 0;\n+   }\n\n@@ -22,5 +21,6 @@\n        Then(\"I expect {int}\", (Integer c) -> assertEquals(c, a));\n\n-       After((Scenario scn) -> {\n-           if (scn.getStatus() == Status.FAILED) {\n-               scn.log(\"failed\");\n-           }\n-       });\n+   @After\n+   public void after(io.cucumber.java.Scenario scn) {\n+       if (scn.getStatus() == Status.FAILED) {\n+           scn.log(\"failed\");\n+       }\n+   }\n\n@@ -28,0 +28,3 @@\n        });\n\n+   @When(\"I add {int}\")\n+   public void i_add_int(Integer b) {\n+       a += b;\n    }\n@@ -30,0 +33,5 @@\n    }\n\n+   @Then(\"I expect {int}\")\n+   public void i_expect_int(Integer c) {\n+       assertEquals(c, a);\n+   }\n+\n}\n@@ -31,0 +39,1 @@\n\n}\n+\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`CucumberJava8ToCucumberJavaTest#cucumberJava8HooksAndSteps`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-package com.example.app;
-
-import io.cucumber.java8.En;
-import io.cucumber.java8.Scenario;
-import io.cucumber.java8.Status;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-public class CucumberJava8Definitions implements En {
-
-    private int a;
-
-    public CucumberJava8Definitions() {
-        Before(() -> {
-            a = 0;
-        });
-        When("I add {int}", (Integer b) -> {
-            a += b;
-        });
-        Then("I expect {int}", (Integer c) -> assertEquals(c, a));
-
-        After((Scenario scn) -> {
-            if (scn.getStatus() == Status.FAILED) {
-                scn.log("failed");
-            }
-        });
-
-    }
-
-}
-```
-
-###### After
-```java
-package com.example.app;
-
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import io.cucumber.java.Scenario;
-import io.cucumber.java.Status;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-public class CucumberJava8Definitions {
-
-    private int a;
-
-    @Before
-    public void before() {
-        a = 0;
-    }
-
-    @After
-    public void after(io.cucumber.java.Scenario scn) {
-        if (scn.getStatus() == Status.FAILED) {
-            scn.log("failed");
-        }
-    }
-
-    @When("I add {int}")
-    public void i_add_int(Integer b) {
-        a += b;
-    }
-
-    @Then("I expect {int}")
-    public void i_expect_int(Integer c) {
-        assertEquals(c, a);
-    }
-
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -3,3 +3,6 @@
-package com.example.app;
-
--import io.cucumber.java8.En;
--import io.cucumber.java8.Scenario;
--import io.cucumber.java8.Status;
-+import io.cucumber.java.After;
-+import io.cucumber.java.Before;
-+import io.cucumber.java.en.Then;
-+import io.cucumber.java.en.When;
-+import io.cucumber.java.Scenario;
-+import io.cucumber.java.Status;
-
-@@ -9,1 +12,1 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
--public class CucumberJava8Definitions implements En {
-+public class CucumberJava8Definitions {
-
-@@ -13,8 +16,4 @@
-    private int a;
-
--   public CucumberJava8Definitions() {
--       Before(() -> {
--           a = 0;
--       });
--       When("I add {int}", (Integer b) -> {
--           a += b;
--       });
--       Then("I expect {int}", (Integer c) -> assertEquals(c, a));
-+   @Before
-+   public void before() {
-+       a = 0;
-+   }
-
-@@ -22,5 +21,6 @@
-        Then("I expect {int}", (Integer c) -> assertEquals(c, a));
-
--       After((Scenario scn) -> {
--           if (scn.getStatus() == Status.FAILED) {
--               scn.log("failed");
--           }
--       });
-+   @After
-+   public void after(io.cucumber.java.Scenario scn) {
-+       if (scn.getStatus() == Status.FAILED) {
-+           scn.log("failed");
-+       }
-+   }
-
-@@ -28,0 +28,3 @@
-        });
-
-+   @When("I add {int}")
-+   public void i_add_int(Integer b) {
-+       a += b;
-    }
-@@ -30,0 +33,5 @@
-    }
-
-+   @Then("I expect {int}")
-+   public void i_expect_int(Integer c) {
-+       assertEquals(c, a);
-+   }
-+
-}
-@@ -31,0 +39,1 @@
-
-}
-+
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`CucumberJava8ToCucumberJavaTest#cucumberJava8HooksAndSteps`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-package com.example.app;
-
-import io.cucumber.java8.En;
-import io.cucumber.java8.Scenario;
-import io.cucumber.java8.Status;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-public class CucumberJava8Definitions implements En {
-
-    private int a;
-
-    public CucumberJava8Definitions() {
-        Before(() -> {
-            a = 0;
-        });
-        When("I add {int}", (Integer b) -> {
-            a += b;
-        });
-        Then("I expect {int}", (Integer c) -> assertEquals(c, a));
-
-        After((Scenario scn) -> {
-            if (scn.getStatus() == Status.FAILED) {
-                scn.log("failed");
-            }
-        });
-
-    }
-
-}
-```
-
-###### After
-```java
-package com.example.app;
-
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import io.cucumber.java.Scenario;
-import io.cucumber.java.Status;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-public class CucumberJava8Definitions {
-
-    private int a;
-
-    @Before
-    public void before() {
-        a = 0;
-    }
-
-    @After
-    public void after(io.cucumber.java.Scenario scn) {
-        if (scn.getStatus() == Status.FAILED) {
-            scn.log("failed");
-        }
-    }
-
-    @When("I add {int}")
-    public void i_add_int(Integer b) {
-        a += b;
-    }
-
-    @Then("I expect {int}")
-    public void i_expect_int(Integer c) {
-        assertEquals(c, a);
-    }
-
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -3,3 +3,6 @@
-package com.example.app;
-
--import io.cucumber.java8.En;
--import io.cucumber.java8.Scenario;
--import io.cucumber.java8.Status;
-+import io.cucumber.java.After;
-+import io.cucumber.java.Before;
-+import io.cucumber.java.en.Then;
-+import io.cucumber.java.en.When;
-+import io.cucumber.java.Scenario;
-+import io.cucumber.java.Status;
-
-@@ -9,1 +12,1 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
--public class CucumberJava8Definitions implements En {
-+public class CucumberJava8Definitions {
-
-@@ -13,8 +16,4 @@
-    private int a;
-
--   public CucumberJava8Definitions() {
--       Before(() -> {
--           a = 0;
--       });
--       When("I add {int}", (Integer b) -> {
--           a += b;
--       });
--       Then("I expect {int}", (Integer c) -> assertEquals(c, a));
-+   @Before
-+   public void before() {
-+       a = 0;
-+   }
-
-@@ -22,5 +21,6 @@
-        Then("I expect {int}", (Integer c) -> assertEquals(c, a));
-
--       After((Scenario scn) -> {
--           if (scn.getStatus() == Status.FAILED) {
--               scn.log("failed");
--           }
--       });
-+   @After
-+   public void after(io.cucumber.java.Scenario scn) {
-+       if (scn.getStatus() == Status.FAILED) {
-+           scn.log("failed");
-+       }
-+   }
-
-@@ -28,0 +28,3 @@
-        });
-
-+   @When("I add {int}")
-+   public void i_add_int(Integer b) {
-+       a += b;
-    }
-@@ -30,0 +33,5 @@
-    }
-
-+   @Then("I expect {int}")
-+   public void i_expect_int(Integer c) {
-+       assertEquals(c, a);
-+   }
-+
-}
-@@ -31,0 +39,1 @@
-
-}
-+
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.CucumberJava8ToJava","displayName":"Migrate `cucumber-java8` to `cucumber-java`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.cucumber.jvm.CucumberJava8ToJava"
-  displayName="Migrate `cucumber-java8` to `cucumber-java`"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-cucumber-jvm"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.CucumberJava8ToJava" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

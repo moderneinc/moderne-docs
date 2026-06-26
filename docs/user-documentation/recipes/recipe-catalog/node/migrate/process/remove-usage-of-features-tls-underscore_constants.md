@@ -1,41 +1,36 @@
 ---
 title: "Remove usage of deprecated `process.features.tls_*` properties"
 sidebar_label: "Remove usage of deprecated `process.features.tls_*` properties"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove usage of deprecated `process.features.tls_*` properties
+<RecipeMeta
+  displayName={"Remove usage of deprecated `process.features.tls_*` properties"}
+  description={"Remove references to deprecated `process.features.tls_*` properties, replace with `process.features.tls`."}
+  fqName={"org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore\_constants**
+<RecipeHeader
+  displayName={"Remove usage of deprecated `process.features.tls_*` properties"}
+  description={"Remove references to deprecated `process.features.tls_*` properties, replace with `process.features.tls`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["DEP0189"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants"}
+  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/process/remove-usage-of-features-tls-underscore_constants.md"}
+  moderneOnly
+/>
 
-_Remove references to deprecated `process.features.tls_*` properties, replace with `process.features.tls`._
-
-### Tags
-
-* [DEP0189](/user-documentation/recipes/lists/recipes-by-tag#dep0189)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Node.js 22](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-22)
-
+<UsageList usage={{"recipeName":"org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants","displayName":"Remove usage of deprecated `process.features.tls_*` properties","npmPackage":"@openrewrite/recipes-nodejs"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants"
-  displayName="Remove usage of deprecated `process.features.tls_*` properties"
-  npmPackage="@openrewrite/recipes-nodejs"
-/>
+</UsageList>
+

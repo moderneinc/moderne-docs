@@ -1,232 +1,54 @@
 ---
 title: "Find exceeds resource ratio"
 sidebar_label: "Find exceeds resource ratio"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find exceeds resource ratio
+<RecipeMeta
+  displayName={"Find exceeds resource ratio"}
+  description={"Find resource manifests that have requests to limits ratios beyond a specific maximum."}
+  fqName={"org.openrewrite.kubernetes.resource.FindExceedsResourceRatio"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.kubernetes.resource.FindExceedsResourceRatio**
+<RecipeHeader
+  displayName={"Find exceeds resource ratio"}
+  description={"Find resource manifests that have requests to limits ratios beyond a specific maximum."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.kubernetes.resource.FindExceedsResourceRatio"}
+  artifact={"org.openrewrite.recipe:rewrite-kubernetes"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.resource.FindExceedsResourceRatio"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/resource/findexceedsresourceratio.md"}
+  moderneOnly
+/>
 
-_Find resource manifests that have requests to limits ratios beyond a specific maximum._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"String","name":"resourceType","required":true,"description":"The type of resource limit to search for.","example":"memory"},{"type":"String","name":"ratioLimit","required":true,"description":"The maximum ratio allowed between requests and limits.","example":"2"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | resourceType | The type of resource limit to search for. Valid options: `cpu`, `memory` | `memory` |
-| `String` | ratioLimit | The maximum ratio allowed between requests and limits. | `2` |
-| `String` | fileMatcher | *Optional*. Matching files will be modified. This is a glob expression. | `**/pod-*.yml` |
+</OptionsTable>
 
-## Example
+<ExampleList examples={[{"parameters":[{"parameter":"resourceType","value":"memory"},{"parameter":"ratioLimit","value":"2"},{"parameter":"fileMatcher","value":"null"}],"variants":[{"language":"yaml","before":"apiVersion: v1\nkind: Pod\nmetadata:\n  labels:\n    app: application\nspec:\n  containers:\n  - image: nginx:latest\n    resources:\n        limits:\n            cpu: \"2Gi\"\n            memory: \"1Gi\"\n        requests:\n            cpu: \"100Mi\"\n            memory: \"64m\"\n  - image: k8s.gcr.io/test-webserver\n    resources:\n        limits:\n            cpu: \"2Gi\"\n            memory: \"1Gi\"\n        requests:\n            cpu: \"100Mi\"\n            memory: \"64m\"\n","after":"apiVersion: v1\nkind: Pod\nmetadata:\n  labels:\n    app: application\nspec:\n  containers:\n  - image: nginx:latest\n    ~~(exceeds max memory limits/requests ratio of 2)~~>resources:\n        limits:\n            cpu: \"2Gi\"\n            memory: \"1Gi\"\n        requests:\n            cpu: \"100Mi\"\n            memory: \"64m\"\n  - image: k8s.gcr.io/test-webserver\n    ~~(exceeds max memory limits/requests ratio of 2)~~>resources:\n        limits:\n            cpu: \"2Gi\"\n            memory: \"1Gi\"\n        requests:\n            cpu: \"100Mi\"\n            memory: \"64m\"\n","diff":"@@ -9,1 +9,1 @@\n  containers:\n  - image: nginx:latest\n-   resources:\n+   ~~(exceeds max memory limits/requests ratio of 2)~~>resources:\n        limits:\n@@ -17,1 +17,1 @@\n            memory: \"64m\"\n  - image: k8s.gcr.io/test-webserver\n-   resources:\n+   ~~(exceeds max memory limits/requests ratio of 2)~~>resources:\n        limits:\n","newFile":false}]}]}>
 
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|resourceType|`memory`|
-|ratioLimit|`2`|
-|fileMatcher|`null`|
+## Examples
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="yaml" label="yaml">
-
-
-###### Before
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  labels:
-    app: application
-spec:
-  containers:
-  - image: nginx:latest
-    resources:
-        limits:
-            cpu: "2Gi"
-            memory: "1Gi"
-        requests:
-            cpu: "100Mi"
-            memory: "64m"
-  - image: k8s.gcr.io/test-webserver
-    resources:
-        limits:
-            cpu: "2Gi"
-            memory: "1Gi"
-        requests:
-            cpu: "100Mi"
-            memory: "64m"
-```
-
-###### After
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  labels:
-    app: application
-spec:
-  containers:
-  - image: nginx:latest
-    ~~(exceeds max memory limits/requests ratio of 2)~~>resources:
-        limits:
-            cpu: "2Gi"
-            memory: "1Gi"
-        requests:
-            cpu: "100Mi"
-            memory: "64m"
-  - image: k8s.gcr.io/test-webserver
-    ~~(exceeds max memory limits/requests ratio of 2)~~>resources:
-        limits:
-            cpu: "2Gi"
-            memory: "1Gi"
-        requests:
-            cpu: "100Mi"
-            memory: "64m"
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -9,1 +9,1 @@
-  containers:
-  - image: nginx:latest
--   resources:
-+   ~~(exceeds max memory limits/requests ratio of 2)~~>resources:
-        limits:
-@@ -17,1 +17,1 @@
-            memory: "64m"
-  - image: k8s.gcr.io/test-webserver
--   resources:
-+   ~~(exceeds max memory limits/requests ratio of 2)~~>resources:
-        limits:
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.resource.FindExceedsResourceRatio","displayName":"Find exceeds resource ratio","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"resourceType=memory\" --recipe-option \"ratioLimit=2\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.FindExceedsResourceRatioExample
-displayName: Find exceeds resource ratio example
-recipeList:
-  - org.openrewrite.kubernetes.resource.FindExceedsResourceRatio:
-      resourceType: memory
-      ratioLimit: 2
-      fileMatcher: '**/pod-*.yml'
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.kubernetes.resource.FindExceedsResourceRatio"
-  displayName="Find exceeds resource ratio"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-kubernetes"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
-  requiresConfiguration
-  cliOptions={' --recipe-option "resourceType=memory" --recipe-option "ratioLimit=2" --recipe-option "fileMatcher=\'**/pod-*.yml\'"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.kubernetes.resource.FindExceedsResourceRatio" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

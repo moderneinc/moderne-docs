@@ -1,37 +1,36 @@
 ---
 title: "Strip trailing ``continue`` from loop body"
 sidebar_label: "Strip trailing ``continue`` from loop body"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Strip trailing ``continue`` from loop body
+<RecipeMeta
+  displayName={"Strip trailing ``continue`` from loop body"}
+  description={"Strip ``continue`` when it is the final statement in a loop body, since the loop naturally advances to the next iteration."}
+  fqName={"org.openrewrite.python.cleanup.RemoveRedundantContinue"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.RemoveRedundantContinue**
+<RecipeHeader
+  displayName={"Strip trailing ``continue`` from loop body"}
+  description={"Strip ``continue`` when it is the final statement in a loop body, since the loop naturally advances to the next iteration."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.RemoveRedundantContinue"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveRedundantContinue"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantcontinue.md"}
+  moderneOnly
+/>
 
-_Strip ``continue`` when it is the final statement in a loop body, since the loop naturally advances to the next iteration._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveRedundantContinue","displayName":"Strip trailing ``continue`` from loop body","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.RemoveRedundantContinue"
-  displayName="Strip trailing ``continue`` from loop body"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

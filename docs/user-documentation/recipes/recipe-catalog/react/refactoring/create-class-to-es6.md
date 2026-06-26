@@ -1,30 +1,36 @@
 ---
 title: "Convert `createClass` to ES6 class"
 sidebar_label: "Convert `createClass` to ES6 class"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Convert `createClass` to ES6 class
+<RecipeMeta
+  displayName={"Convert `createClass` to ES6 class"}
+  description={"Converts `React.createClass()` and `createReactClass()` calls to ES6 class syntax."}
+  fqName={"org.openrewrite.react.refactoring.create-class-to-es6"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.refactoring.create-class-to-es6**
+<RecipeHeader
+  displayName={"Convert `createClass` to ES6 class"}
+  description={"Converts `React.createClass()` and `createReactClass()` calls to ES6 class syntax."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.refactoring.create-class-to-es6"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.refactoring.create-class-to-es6"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/refactoring/create-class-to-es6.md"}
+  moderneOnly
+/>
 
-_Converts `React.createClass()` and `createReactClass()` calls to ES6 class syntax._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.refactoring.create-class-to-es6","displayName":"Convert `createClass` to ES6 class","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.refactoring.create-class-to-es6"
-  displayName="Convert `createClass` to ES6 class"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

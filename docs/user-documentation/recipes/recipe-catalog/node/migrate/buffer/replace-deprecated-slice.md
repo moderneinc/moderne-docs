@@ -1,41 +1,36 @@
 ---
 title: "Replace deprecated `Buffer.slice()` with `Buffer.subarray()`"
 sidebar_label: "Replace deprecated `Buffer.slice()` with `Buffer.subarray()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace deprecated `Buffer.slice()` with `Buffer.subarray()`
+<RecipeMeta
+  displayName={"Replace deprecated `Buffer.slice()` with `Buffer.subarray()`"}
+  description={"Replace deprecated `buffer.slice()` calls with `buffer.subarray()` for compatibility with Uint8Array.prototype.slice()."}
+  fqName={"org.openrewrite.node.migrate.buffer.replace-deprecated-slice"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.node.migrate.buffer.replace-deprecated-slice**
+<RecipeHeader
+  displayName={"Replace deprecated `Buffer.slice()` with `Buffer.subarray()`"}
+  description={"Replace deprecated `buffer.slice()` calls with `buffer.subarray()` for compatibility with Uint8Array.prototype.slice()."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["DEP0158"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.node.migrate.buffer.replace-deprecated-slice"}
+  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.buffer.replace-deprecated-slice"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-deprecated-slice.md"}
+  moderneOnly
+/>
 
-_Replace deprecated `buffer.slice()` calls with `buffer.subarray()` for compatibility with Uint8Array.prototype.slice()._
-
-### Tags
-
-* [DEP0158](/user-documentation/recipes/lists/recipes-by-tag#dep0158)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Node.js 22](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-22)
-
+<UsageList usage={{"recipeName":"org.openrewrite.node.migrate.buffer.replace-deprecated-slice","displayName":"Replace deprecated `Buffer.slice()` with `Buffer.subarray()`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.node.migrate.buffer.replace-deprecated-slice"
-  displayName="Replace deprecated `Buffer.slice()` with `Buffer.subarray()`"
-  npmPackage="@openrewrite/recipes-nodejs"
-/>
+</UsageList>
+

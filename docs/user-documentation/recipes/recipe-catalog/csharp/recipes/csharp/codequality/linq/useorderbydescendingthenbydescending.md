@@ -1,43 +1,36 @@
 ---
 title: "Use OrderByDescending().ThenByDescending()"
 sidebar_label: "Use OrderByDescending().ThenByDescending()"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use OrderByDescending().ThenByDescending()
+<RecipeMeta
+  displayName={"Use OrderByDescending().ThenByDescending()"}
+  description={"Replace `.OrderByDescending(a).OrderByDescending(b)` with `.OrderByDescending(a).ThenByDescending(b)`."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseOrderByDescendingThenByDescending"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseOrderByDescendingThenByDescending**
+<RecipeHeader
+  displayName={"Use OrderByDescending().ThenByDescending()"}
+  description={"Replace `.OrderByDescending(a).OrderByDescending(b)` with `.OrderByDescending(a).ThenByDescending(b)`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","linq","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseOrderByDescendingThenByDescending"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseOrderByDescendingThenByDescending"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/useorderbydescendingthenbydescending.md"}
+  moderneOnly
+/>
 
-_Replace `.OrderByDescending(a).OrderByDescending(b)` with `.OrderByDescending(a).ThenByDescending(b)`._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [linq](/user-documentation/recipes/lists/recipes-by-tag#linq)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [LINQ code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/linqcodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseOrderByDescendingThenByDescending","displayName":"Use OrderByDescending().ThenByDescending()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseOrderByDescendingThenByDescending"
-  displayName="Use OrderByDescending().ThenByDescending()"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

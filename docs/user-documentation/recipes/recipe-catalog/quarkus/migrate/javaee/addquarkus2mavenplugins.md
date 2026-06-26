@@ -1,6 +1,7 @@
 ---
 title: "Migrate JavaEE Maven Dependencies to Quarkus 2"
 sidebar_label: "Migrate JavaEE Maven Dependencies to Quarkus 2"
+hide_title: true
 ---
 
 
@@ -8,261 +9,45 @@ sidebar_label: "Migrate JavaEE Maven Dependencies to Quarkus 2"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/migrate/javaee/addquarkus2mavenplugins" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate JavaEE Maven Dependencies to Quarkus 2
+<RecipeMeta
+  displayName={"Migrate JavaEE Maven Dependencies to Quarkus 2"}
+  description={"Upgrade Standard JavaEE dependencies to Quarkus 2 dependencies."}
+  fqName={"org.openrewrite.quarkus.migrate.javaee.AddQuarkus2MavenPlugins"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-quarkus/blob/main/src/main/resources/META-INF/rewrite/javaee7-to-quarkus.yml"}
+/>
 
-**org.openrewrite.quarkus.migrate.javaee.AddQuarkus2MavenPlugins**
+<RecipeHeader
+  displayName={"Migrate JavaEE Maven Dependencies to Quarkus 2"}
+  description={"Upgrade Standard JavaEE dependencies to Quarkus 2 dependencies."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.quarkus.migrate.javaee.AddQuarkus2MavenPlugins"}
+  artifact={"org.openrewrite.recipe:rewrite-quarkus"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.migrate.javaee.AddQuarkus2MavenPlugins"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2mavenplugins.md"}
+/>
 
-_Upgrade Standard JavaEE dependencies to Quarkus 2 dependencies._
-
-## Recipe source
-
-[GitHub: javaee7-to-quarkus.yml](https://github.com/openrewrite/rewrite-quarkus/blob/main/src/main/resources/META-INF/rewrite/javaee7-to-quarkus.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-quarkus/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-quarkus/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
+<RecipeList recipes={[{"name":"Add managed Maven dependency","href":"maven/addmanageddependency"},{"name":"Add Maven plugin","href":"maven/addplugin"},{"name":"Add Maven plugin","href":"maven/addplugin"},{"name":"Add Maven plugin","href":"maven/addplugin"},{"name":"Add Maven plugin","href":"maven/addplugin"},{"name":"Add Maven profile","href":"maven/addprofile"},{"name":"Configure `quarkus-maven-plugin` with reasonable defaults","href":"quarkus/configurequarkusmavenpluginwithreasonabledefaults"},{"name":"Apache Maven best practices","href":"maven/bestpractices"},{"name":"Add Maven project property","href":"maven/addproperty"},{"name":"Add Maven project property","href":"maven/addproperty"},{"name":"Set Maven project packaging","href":"maven/changepackaging"},{"name":"Remove Maven plugin","href":"maven/removeplugin"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Add managed Maven dependency](../../../maven/addmanageddependency)
-  * groupId: `io.quarkus.platform`
-  * artifactId: `quarkus-bom`
-  * version: `2.x`
-  * scope: `import`
-  * type: `pom`
-* [Add Maven plugin](../../../maven/addplugin)
-  * groupId: `io.quarkus.platform`
-  * artifactId: `quarkus-maven-plugin`
-  * version: `2.16.12.Final`
-  * executions: `<executions><execution><goals><goal>build</goal><goal>generate-code</goal><goal>generate-code-tests</goal></goals></execution></executions>`
-* [Add Maven plugin](../../../maven/addplugin)
-  * groupId: `org.apache.maven.plugins`
-  * artifactId: `maven-compiler-plugin`
-  * version: `3.13.0`
-  * configuration: `<configuration><compilerArgs><arg>-parameters</arg></compilerArgs></configuration>`
-* [Add Maven plugin](../../../maven/addplugin)
-  * groupId: `org.apache.maven.plugins`
-  * artifactId: `maven-surefire-plugin`
-  * version: `3.3.1`
-  * configuration: `<configuration><systemPropertyVariables><java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager><maven.home>${maven.home}</maven.home></systemPropertyVariables></configuration>`
-* [Add Maven plugin](../../../maven/addplugin)
-  * groupId: `org.apache.maven.plugins`
-  * artifactId: `maven-failsafe-plugin`
-  * version: `3.3.1`
-  * configuration: `<configuration><systemPropertyVariables><native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path><java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager><maven.home>${maven.home}</maven.home></systemPropertyVariables></configuration>`
-  * executions: `<executions><execution><goals><goal>integration-test</goal><goal>verify</goal></goals></execution></executions>`
-* [Add Maven profile](../../../maven/addprofile)
-  * id: `native`
-  * activation: `<activation><property><name>native</name></property></activation>`
-  * properties: `<properties><skipITs>false</skipITs><quarkus.package.type>native</quarkus.package.type></properties>`
-* [Configure `quarkus-maven-plugin` with reasonable defaults](../../../quarkus/configurequarkusmavenpluginwithreasonabledefaults)
-* [Apache Maven best practices](../../../maven/bestpractices)
-* [Add Maven project property](../../../maven/addproperty)
-  * key: `maven.compiler.source`
-  * value: `11`
-* [Add Maven project property](../../../maven/addproperty)
-  * key: `maven.compiler.target`
-  * value: `11`
-* [Set Maven project packaging](../../../maven/changepackaging)
-  * groupId: `*`
-  * artifactId: `*`
-  * packaging: `jar`
-* [Remove Maven plugin](../../../maven/removeplugin)
-  * groupId: `org.apache.maven.plugins`
-  * artifactId: `maven-war-plugin`
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.quarkus.migrate.javaee.AddQuarkus2MavenPlugins
-displayName: Migrate JavaEE Maven Dependencies to Quarkus 2
-description: |
-  Upgrade Standard JavaEE dependencies to Quarkus 2 dependencies.
-recipeList:
-  - org.openrewrite.maven.AddManagedDependency:
-      groupId: io.quarkus.platform
-      artifactId: quarkus-bom
-      version: 2.x
-      scope: import
-      type: pom
-  - org.openrewrite.maven.AddPlugin:
-      groupId: io.quarkus.platform
-      artifactId: quarkus-maven-plugin
-      version: 2.16.12.Final
-      executions: <executions><execution><goals><goal>build</goal><goal>generate-code</goal><goal>generate-code-tests</goal></goals></execution></executions>
-  - org.openrewrite.maven.AddPlugin:
-      groupId: org.apache.maven.plugins
-      artifactId: maven-compiler-plugin
-      version: 3.13.0
-      configuration: <configuration><compilerArgs><arg>-parameters</arg></compilerArgs></configuration>
-  - org.openrewrite.maven.AddPlugin:
-      groupId: org.apache.maven.plugins
-      artifactId: maven-surefire-plugin
-      version: 3.3.1
-      configuration: <configuration><systemPropertyVariables><java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager><maven.home>${maven.home}</maven.home></systemPropertyVariables></configuration>
-  - org.openrewrite.maven.AddPlugin:
-      groupId: org.apache.maven.plugins
-      artifactId: maven-failsafe-plugin
-      version: 3.3.1
-      configuration: <configuration><systemPropertyVariables><native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path><java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager><maven.home>${maven.home}</maven.home></systemPropertyVariables></configuration>
-      executions: <executions><execution><goals><goal>integration-test</goal><goal>verify</goal></goals></execution></executions>
-  - org.openrewrite.maven.AddProfile:
-      id: native
-      activation: <activation><property><name>native</name></property></activation>
-      properties: <properties><skipITs>false</skipITs><quarkus.package.type>native</quarkus.package.type></properties>
-  - org.openrewrite.quarkus.ConfigureQuarkusMavenPluginWithReasonableDefaults
-  - org.openrewrite.maven.BestPractices
-  - org.openrewrite.maven.AddProperty:
-      key: maven.compiler.source
-      value: 11
-  - org.openrewrite.maven.AddProperty:
-      key: maven.compiler.target
-      value: 11
-  - org.openrewrite.maven.ChangePackaging:
-      groupId: "*"
-      artifactId: "*"
-      packaging: jar
-  - org.openrewrite.maven.RemovePlugin:
-      groupId: org.apache.maven.plugins
-      artifactId: maven-war-plugin
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate JavaEE to Quarkus 2](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2migration.md)
-
+<UsageList usage={{"recipeName":"org.openrewrite.quarkus.migrate.javaee.AddQuarkus2MavenPlugins","displayName":"Migrate JavaEE Maven Dependencies to Quarkus 2","groupId":"org.openrewrite.recipe","artifactId":"rewrite-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.quarkus.migrate.javaee.AddQuarkus2MavenPlugins"
-  displayName="Migrate JavaEE Maven Dependencies to Quarkus 2"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-quarkus"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.quarkus.migrate.javaee.AddQuarkus2MavenPlugins" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

@@ -1,35 +1,36 @@
 ---
 title: "Remove braces from record declaration"
 sidebar_label: "Remove braces from record declaration"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove braces from record declaration
+<RecipeMeta
+  displayName={"Remove braces from record declaration"}
+  description={"Remove unnecessary braces from record declarations with no body."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveBracesFromRecordDeclaration"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveBracesFromRecordDeclaration**
+<RecipeHeader
+  displayName={"Remove braces from record declaration"}
+  description={"Remove unnecessary braces from record declarations with no body."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveBracesFromRecordDeclaration"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveBracesFromRecordDeclaration"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removebracesfromrecorddeclaration.md"}
+  moderneOnly
+/>
 
-_Remove unnecessary braces from record declarations with no body._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveBracesFromRecordDeclaration","displayName":"Remove braces from record declaration","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveBracesFromRecordDeclaration"
-  displayName="Remove braces from record declaration"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

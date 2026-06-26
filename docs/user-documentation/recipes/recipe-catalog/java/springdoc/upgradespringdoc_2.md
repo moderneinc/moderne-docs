@@ -1,6 +1,7 @@
 ---
 title: "Upgrade to SpringDoc 2.1"
 sidebar_label: "Upgrade to SpringDoc 2.1"
+hide_title: true
 ---
 
 
@@ -8,362 +9,51 @@ sidebar_label: "Upgrade to SpringDoc 2.1"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/springdoc/upgradespringdoc_2" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Upgrade to SpringDoc 2.1
+<RecipeMeta
+  displayName={"Upgrade to SpringDoc 2.1"}
+  description={"Upgrade to SpringDoc v2.1, as described in the [upgrade guide](https://springdoc.org/#migrating-from-springdoc-v1)."}
+  fqName={"org.openrewrite.java.springdoc.UpgradeSpringDoc_2"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/springdoc.yml"}
+/>
 
-**org.openrewrite.java.springdoc.UpgradeSpringDoc\_2**
+<RecipeHeader
+  displayName={"Upgrade to SpringDoc 2.1"}
+  description={"Upgrade to SpringDoc v2.1, as described in the [upgrade guide](https://springdoc.org/#migrating-from-springdoc-v1)."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["springdoc"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.springdoc.UpgradeSpringDoc_2"}
+  artifact={"org.openrewrite.recipe:rewrite-spring"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.springdoc.UpgradeSpringDoc_2"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2.md"}
+/>
 
-_Upgrade to SpringDoc v2.1, as described in the [upgrade guide](https://springdoc.org/#migrating-from-springdoc-v1)._
-
-### Tags
-
-* [springdoc](/user-documentation/recipes/lists/recipes-by-tag#springdoc)
-
-## Recipe source
-
-[GitHub: springdoc.yml](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/springdoc.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-spring/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-spring/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Migrate from Swagger to OpenAPI","href":"openapi/swagger/swaggertoopenapi"},{"name":"Use Jakarta Swagger Artifacts","href":"openapi/swagger/usejakartaswaggerartifacts"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../core/singleton)
-
-**Recipes**
-
-* [Migrate from Swagger to OpenAPI](../../openapi/swagger/swaggertoopenapi)
-* [Use Jakarta Swagger Artifacts](../../openapi/swagger/usejakartaswaggerartifacts)
-* [Change type](../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springdoc.core.SpringDocUtils`
-  * newFullyQualifiedTypeName: `org.springdoc.core.utils.SpringDocUtils`
-* [Change type](../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springdoc.api.annotations.ParameterObject`
-  * newFullyQualifiedTypeName: `org.springdoc.core.annotations.ParameterObject`
-* [Change type](../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springdoc.core.GroupedOpenApi`
-  * newFullyQualifiedTypeName: `org.springdoc.core.models.GroupedOpenApi`
-* [Change type](../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springdoc.core.customizers.OpenApiCustomiser`
-  * newFullyQualifiedTypeName: `org.springdoc.core.customizers.OpenApiCustomizer`
-* [Change type](../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springdoc.core.Constants`
-  * newFullyQualifiedTypeName: `org.springdoc.core.utils.Constants`
-* [Change type](../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springdoc.core.SwaggerUiConfigParameters`
-  * newFullyQualifiedTypeName: `org.springdoc.core.properties.SwaggerUiConfigParameters`
-* [Change method name](../../java/changemethodname)
-  * methodPattern: `org.springdoc.core.models.GroupedOpenApi.Builder addOpenApiCustomiser(..)`
-  * newMethodName: `addOpenApiCustomizer`
-  * matchOverrides: `true`
-* [Remove a Gradle or Maven dependency](../../java/dependencies/removedependency)
-  * groupId: `org.springdoc`
-  * artifactId: `springdoc-openapi-data-rest`
-* [Remove a Gradle or Maven dependency](../../java/dependencies/removedependency)
-  * groupId: `org.springdoc`
-  * artifactId: `springdoc-openapi-groovy`
-* [Remove a Gradle or Maven dependency](../../java/dependencies/removedependency)
-  * groupId: `org.springdoc`
-  * artifactId: `springdoc-openapi-hateoas`
-* [Remove a Gradle or Maven dependency](../../java/dependencies/removedependency)
-  * groupId: `org.springdoc`
-  * artifactId: `springdoc-openapi-javadoc`
-* [Remove a Gradle or Maven dependency](../../java/dependencies/removedependency)
-  * groupId: `org.springdoc`
-  * artifactId: `springdoc-openapi-kotlin`
-* [Remove a Gradle or Maven dependency](../../java/dependencies/removedependency)
-  * groupId: `org.springdoc`
-  * artifactId: `springdoc-openapi-security`
-* [Change Gradle or Maven dependency](../../java/dependencies/changedependency)
-  * oldGroupId: `org.springdoc`
-  * oldArtifactId: `springdoc-openapi-common`
-  * newArtifactId: `springdoc-openapi-starter-common`
-  * newVersion: `2.1.x`
-* [Change Gradle or Maven dependency](../../java/dependencies/changedependency)
-  * oldGroupId: `org.springdoc`
-  * oldArtifactId: `springdoc-openapi-webmvc-core`
-  * newArtifactId: `springdoc-openapi-starter-webmvc-api`
-  * newVersion: `2.1.x`
-* [Change Gradle or Maven dependency](../../java/dependencies/changedependency)
-  * oldGroupId: `org.springdoc`
-  * oldArtifactId: `springdoc-openapi-webflux-core`
-  * newArtifactId: `springdoc-openapi-starter-webflux-api`
-  * newVersion: `2.1.x`
-* [Change Gradle or Maven dependency](../../java/dependencies/changedependency)
-  * oldGroupId: `org.springdoc`
-  * oldArtifactId: `springdoc-openapi-ui`
-  * newArtifactId: `springdoc-openapi-starter-webmvc-ui`
-  * newVersion: `2.1.x`
-* [Change Gradle or Maven dependency](../../java/dependencies/changedependency)
-  * oldGroupId: `org.springdoc`
-  * oldArtifactId: `springdoc-openapi-webflux-ui`
-  * newArtifactId: `springdoc-openapi-starter-webflux-ui`
-  * newVersion: `2.1.x`
-* [Upgrade Gradle or Maven dependency versions](../../java/dependencies/upgradedependencyversion)
-  * groupId: `org.springdoc`
-  * artifactId: `*`
-  * newVersion: `2.1.x`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.springdoc.UpgradeSpringDoc_2
-displayName: Upgrade to SpringDoc 2.1
-description: |
-  Upgrade to SpringDoc v2.1, as described in the [upgrade guide](https://springdoc.org/#migrating-from-springdoc-v1).
-tags:
-  - springdoc
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.openapi.swagger.SwaggerToOpenAPI
-  - org.openrewrite.openapi.swagger.UseJakartaSwaggerArtifacts
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springdoc.core.SpringDocUtils
-      newFullyQualifiedTypeName: org.springdoc.core.utils.SpringDocUtils
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springdoc.api.annotations.ParameterObject
-      newFullyQualifiedTypeName: org.springdoc.core.annotations.ParameterObject
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springdoc.core.GroupedOpenApi
-      newFullyQualifiedTypeName: org.springdoc.core.models.GroupedOpenApi
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springdoc.core.customizers.OpenApiCustomiser
-      newFullyQualifiedTypeName: org.springdoc.core.customizers.OpenApiCustomizer
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springdoc.core.Constants
-      newFullyQualifiedTypeName: org.springdoc.core.utils.Constants
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springdoc.core.SwaggerUiConfigParameters
-      newFullyQualifiedTypeName: org.springdoc.core.properties.SwaggerUiConfigParameters
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.springdoc.core.models.GroupedOpenApi.Builder addOpenApiCustomiser(..)
-      newMethodName: addOpenApiCustomizer
-      matchOverrides: true
-  - org.openrewrite.java.dependencies.RemoveDependency:
-      groupId: org.springdoc
-      artifactId: springdoc-openapi-data-rest
-  - org.openrewrite.java.dependencies.RemoveDependency:
-      groupId: org.springdoc
-      artifactId: springdoc-openapi-groovy
-  - org.openrewrite.java.dependencies.RemoveDependency:
-      groupId: org.springdoc
-      artifactId: springdoc-openapi-hateoas
-  - org.openrewrite.java.dependencies.RemoveDependency:
-      groupId: org.springdoc
-      artifactId: springdoc-openapi-javadoc
-  - org.openrewrite.java.dependencies.RemoveDependency:
-      groupId: org.springdoc
-      artifactId: springdoc-openapi-kotlin
-  - org.openrewrite.java.dependencies.RemoveDependency:
-      groupId: org.springdoc
-      artifactId: springdoc-openapi-security
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.springdoc
-      oldArtifactId: springdoc-openapi-common
-      newArtifactId: springdoc-openapi-starter-common
-      newVersion: 2.1.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.springdoc
-      oldArtifactId: springdoc-openapi-webmvc-core
-      newArtifactId: springdoc-openapi-starter-webmvc-api
-      newVersion: 2.1.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.springdoc
-      oldArtifactId: springdoc-openapi-webflux-core
-      newArtifactId: springdoc-openapi-starter-webflux-api
-      newVersion: 2.1.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.springdoc
-      oldArtifactId: springdoc-openapi-ui
-      newArtifactId: springdoc-openapi-starter-webmvc-ui
-      newVersion: 2.1.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.springdoc
-      oldArtifactId: springdoc-openapi-webflux-ui
-      newArtifactId: springdoc-openapi-starter-webflux-ui
-      newVersion: 2.1.x
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: org.springdoc
-      artifactId: "*"
-      newVersion: 2.1.x
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Spring Boot 3.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
-* [Upgrade to SpringDoc 2.2](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_2.md)
+<ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>org.example</groupId>\n    <artifactId>example</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.springdoc</groupId>\n            <artifactId>springdoc-openapi</artifactId>\n            <version>1.5.13</version>\n        </dependency>\n        <dependency>\n            <groupId>org.springdoc</groupId>\n            <artifactId>springdoc-openapi-common</artifactId>\n            <version>1.5.13</version>\n        </dependency>\n    </dependencies>\n</project>\n"},"variants":[]},{"unchanged":{"language":"xml","code":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>org.example</groupId>\n    <artifactId>example</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.springdoc</groupId>\n            <artifactId>springdoc-openapi</artifactId>\n            <version>1.5.13</version>\n        </dependency>\n        <dependency>\n            <groupId>org.springdoc</groupId>\n            <artifactId>springdoc-openapi-common</artifactId>\n            <version>1.5.13</version>\n        </dependency>\n    </dependencies>\n</project>\n"},"variants":[]}]}>
 
 ## Examples
-##### Example 1
-`UpgradeSpringDoc2Test#upgradeMaven`
 
+</ExampleList>
 
-###### Unchanged
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.example</groupId>
-    <artifactId>example</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi</artifactId>
-            <version>1.5.13</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-common</artifactId>
-            <version>1.5.13</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
----
-
-##### Example 2
-`UpgradeSpringDoc2Test#upgradeMaven`
-
-
-###### Unchanged
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.example</groupId>
-    <artifactId>example</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi</artifactId>
-            <version>1.5.13</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-common</artifactId>
-            <version>1.5.13</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.springdoc.UpgradeSpringDoc_2","displayName":"Upgrade to SpringDoc 2.1","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.springdoc.UpgradeSpringDoc_2"
-  displayName="Upgrade to SpringDoc 2.1"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-spring"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.springdoc.UpgradeSpringDoc_2" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

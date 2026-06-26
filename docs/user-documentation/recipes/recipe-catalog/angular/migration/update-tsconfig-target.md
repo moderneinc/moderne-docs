@@ -1,37 +1,36 @@
 ---
 title: "Update `tsconfig.json` target to `es2017`"
 sidebar_label: "Update `tsconfig.json` target to `es2017`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Update `tsconfig.json` target to `es2017`
+<RecipeMeta
+  displayName={"Update `tsconfig.json` target to `es2017`"}
+  description={"Updates the `compilerOptions.target` in `tsconfig.json` from `es5`, `es2015`, or `es2016` to `es2017`. Angular 13 dropped IE11 support and requires at least ES2017."}
+  fqName={"org.openrewrite.angular.migration.update-tsconfig-target"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.update-tsconfig-target**
+<RecipeHeader
+  displayName={"Update `tsconfig.json` target to `es2017`"}
+  description={"Updates the `compilerOptions.target` in `tsconfig.json` from `es5`, `es2015`, or `es2016` to `es2017`. Angular 13 dropped IE11 support and requires at least ES2017."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.update-tsconfig-target"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.update-tsconfig-target"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/update-tsconfig-target.md"}
+  moderneOnly
+/>
 
-_Updates the `compilerOptions.target` in `tsconfig.json` from `es5`, `es2015`, or `es2016` to `es2017`. Angular 13 dropped IE11 support and requires at least ES2017._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 13](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular13)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.update-tsconfig-target","displayName":"Update `tsconfig.json` target to `es2017`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.update-tsconfig-target"
-  displayName="Update `tsconfig.json` target to `es2017`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

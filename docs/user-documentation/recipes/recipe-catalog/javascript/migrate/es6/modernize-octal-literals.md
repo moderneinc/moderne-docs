@@ -1,31 +1,36 @@
 ---
 title: "Modernize octal literals"
 sidebar_label: "Modernize octal literals"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Modernize octal literals
+<RecipeMeta
+  displayName={"Modernize octal literals"}
+  description={"Convert old-style octal literals (e.g., `0777`) to modern ES6 syntax (e.g., `0o777`)."}
+  fqName={"org.openrewrite.javascript.migrate.es6.modernize-octal-literals"}
+  languages={["JavaScript"]}
+  license={"Moderne Source Available License"}
+/>
 
-**org.openrewrite.javascript.migrate.es6.modernize-octal-literals**
+<RecipeHeader
+  displayName={"Modernize octal literals"}
+  description={"Convert old-style octal literals (e.g., `0777`) to modern ES6 syntax (e.g., `0o777`)."}
+  type={"Single recipe"}
+  languages={["JavaScript"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.javascript.migrate.es6.modernize-octal-literals"}
+  artifact={"org.openrewrite:rewrite-javascript"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.migrate.es6.modernize-octal-literals"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-literals.md"}
+  moderneOnly
+/>
 
-_Convert old-style octal literals (e.g., `0777`) to modern ES6 syntax (e.g., `0o777`)._
-
-## Recipe source
-
-[GitHub: rewrite+org.openrewrite.javascript.migrate.es6.modernize-octal-literals](https://github.com/search?type=code&q=repo:openrewrite/rewrite+org.openrewrite.javascript.migrate.es6.modernize-octal-literals),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-javascript/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.migrate.es6.modernize-octal-literals","displayName":"Modernize octal literals","npmPackage":"@openrewrite/rewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.javascript.migrate.es6.modernize-octal-literals"
-  displayName="Modernize octal literals"
-  npmPackage="@openrewrite/rewrite"
-/>
+</UsageList>
+

@@ -1,37 +1,36 @@
 ---
 title: "Replace `useContext` with `use`"
 sidebar_label: "Replace `useContext` with `use`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `useContext` with `use`
+<RecipeMeta
+  displayName={"Replace `useContext` with `use`"}
+  description={"In React 19, `useContext` is replaced by the `use` API. This recipe updates both direct and namespace imports."}
+  fqName={"org.openrewrite.react.19.use-context-hook"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.19.use-context-hook**
+<RecipeHeader
+  displayName={"Replace `useContext` with `use`"}
+  description={"In React 19, `useContext` is replaced by the `use` API. This recipe updates both direct and namespace imports."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.19.use-context-hook"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.use-context-hook"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/use-context-hook.md"}
+  moderneOnly
+/>
 
-_In React 19, `useContext` is replaced by the `use` API. This recipe updates both direct and namespace imports._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to React 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-19)
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.19.use-context-hook","displayName":"Replace `useContext` with `use`","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.19.use-context-hook"
-  displayName="Replace `useContext` with `use`"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

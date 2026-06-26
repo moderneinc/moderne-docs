@@ -1,35 +1,36 @@
 ---
 title: "Use conditional expression in declaration"
 sidebar_label: "Use conditional expression in declaration"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use conditional expression in declaration
+<RecipeMeta
+  displayName={"Use conditional expression in declaration"}
+  description={"Convert `int x; if (cond) x = a; else x = b;` to `int x = cond ? a : b;`."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalExpressionForDeclaration"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalExpressionForDeclaration**
+<RecipeHeader
+  displayName={"Use conditional expression in declaration"}
+  description={"Convert `int x; if (cond) x = a; else x = b;` to `int x = cond ? a : b;`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalExpressionForDeclaration"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalExpressionForDeclaration"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useconditionalexpressionfordeclaration.md"}
+  moderneOnly
+/>
 
-_Convert `int x; if (cond) x = a; else x = b;` to `int x = cond ? a : b;`._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalExpressionForDeclaration","displayName":"Use conditional expression in declaration","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalExpressionForDeclaration"
-  displayName="Use conditional expression in declaration"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

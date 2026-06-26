@@ -1,6 +1,7 @@
 ---
 title: "Migrate `UserType` to Hibernate 6"
 sidebar_label: "Migrate `UserType` to Hibernate 6"
+hide_title: true
 ---
 
 
@@ -8,362 +9,45 @@ sidebar_label: "Migrate `UserType` to Hibernate 6"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/hibernate/migrateusertype" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate `UserType` to Hibernate 6
+<RecipeMeta
+  displayName={"Migrate `UserType` to Hibernate 6"}
+  description={"With Hibernate 6 the `UserType` interface received a type parameter making it more strictly typed. This recipe applies the changes required to adhere to this change."}
+  fqName={"org.openrewrite.hibernate.MigrateUserType"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-hibernate/blob/main/src/main/java/org/openrewrite/hibernate/MigrateUserType.java"}
+/>
 
-**org.openrewrite.hibernate.MigrateUserType**
+<RecipeHeader
+  displayName={"Migrate `UserType` to Hibernate 6"}
+  description={"With Hibernate 6 the `UserType` interface received a type parameter making it more strictly typed. This recipe applies the changes required to adhere to this change."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.hibernate.MigrateUserType"}
+  artifact={"org.openrewrite.recipe:rewrite-hibernate"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.MigrateUserType"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/migrateusertype.md"}
+/>
 
-_With Hibernate 6 the `UserType` interface received a type parameter making it more strictly typed. This recipe applies the changes required to adhere to this change._
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.HibernateException;\nimport org.hibernate.engine.spi.SharedSessionContractImplementor;\nimport org.hibernate.usertype.UserType;\n\nimport java.io.Serializable;\nimport java.math.BigDecimal;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport java.sql.Types;\nimport java.util.Objects;\n\npublic class BigDecimalAsString implements UserType {\n\n    @Override\n    public int[] sqlTypes() {\n        return new int[]{Types.VARCHAR};\n    }\n\n    @Override\n    public Class returnedClass() {\n        return BigDecimal.class;\n    }\n\n    @Override\n    public boolean equals(Object x, Object y) {\n        return Objects.equals(x, y);\n    }\n\n    @Override\n    public int hashCode(Object x) {\n        return Objects.hashCode(x);\n    }\n\n    @Override\n    public Object nullSafeGet(ResultSet rs, String[] names, SharedSessionContractImplementor session, Object owner) throws SQLException {\n        String string = rs.getString(names[0]);\n        return string == null || rs.wasNull() ? null : new BigDecimal(string);\n    }\n\n    @Override\n    public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws SQLException {\n        if (value == null) {\n            st.setNull(index, Types.VARCHAR);\n        } else {\n            st.setString(index, value.toString());\n        }\n    }\n\n    @Override\n    public Object deepCopy(Object value1) {\n        return value1;\n    }\n\n    @Override\n    public boolean isMutable() {\n        return false;\n    }\n\n    @Override\n    public Serializable disassemble(Object value) {\n        return (BigDecimal) value;\n    }\n\n    @Override\n    public Object assemble(Serializable cached, Object owner) {\n        return cached;\n    }\n\n    @Override\n    public Object replace(Object original, Object target, Object owner) {\n        return original;\n    }\n}\n","after":"import org.hibernate.HibernateException;\nimport org.hibernate.engine.spi.SharedSessionContractImplementor;\nimport org.hibernate.usertype.UserType;\n\nimport java.io.Serializable;\nimport java.math.BigDecimal;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport java.sql.Types;\nimport java.util.Objects;\n\npublic class BigDecimalAsString implements UserType<BigDecimal> {\n\n    @Override\n    public int getSqlType() {\n        return Types.VARCHAR;\n    }\n\n    @Override\n    public Class<BigDecimal> returnedClass() {\n        return BigDecimal.class;\n    }\n\n    @Override\n    public boolean equals(BigDecimal x, BigDecimal y) {\n        return Objects.equals(x, y);\n    }\n\n    @Override\n    public int hashCode(BigDecimal x) {\n        return Objects.hashCode(x);\n    }\n\n    @Override\n    public BigDecimal nullSafeGet(ResultSet rs, int position, SharedSessionContractImplementor session, Object owner) throws SQLException {\n        String string = rs.getString(position);\n        return string == null || rs.wasNull() ? null : new BigDecimal(string);\n    }\n\n    @Override\n    public void nullSafeSet(PreparedStatement st, BigDecimal value, int index, SharedSessionContractImplementor session) throws SQLException {\n        if (value == null) {\n            st.setNull(index, Types.VARCHAR);\n        } else {\n            st.setString(index, value.toString());\n        }\n    }\n\n    @Override\n    public BigDecimal deepCopy(BigDecimal value1) {\n        return value1;\n    }\n\n    @Override\n    public boolean isMutable() {\n        return false;\n    }\n\n    @Override\n    public Serializable disassemble(BigDecimal value) {\n        return value;\n    }\n\n    @Override\n    public BigDecimal assemble(Serializable cached, Object owner) {\n        return (BigDecimal) cached;\n    }\n\n    @Override\n    public BigDecimal replace(BigDecimal original, BigDecimal target, Object owner) {\n        return original;\n    }\n}\n","diff":"@@ -13,1 +13,1 @@\nimport java.util.Objects;\n\n-public class BigDecimalAsString implements UserType {\n+public class BigDecimalAsString implements UserType<BigDecimal> {\n\n@@ -16,2 +16,2 @@\n\n    @Override\n-   public int[] sqlTypes() {\n-       return new int[]{Types.VARCHAR};\n+   public int getSqlType() {\n+       return Types.VARCHAR;\n    }\n@@ -21,1 +21,1 @@\n\n    @Override\n-   public Class returnedClass() {\n+   public Class<BigDecimal> returnedClass() {\n        return BigDecimal.class;\n@@ -26,1 +26,1 @@\n\n    @Override\n-   public boolean equals(Object x, Object y) {\n+   public boolean equals(BigDecimal x, BigDecimal y) {\n        return Objects.equals(x, y);\n@@ -31,1 +31,1 @@\n\n    @Override\n-   public int hashCode(Object x) {\n+   public int hashCode(BigDecimal x) {\n        return Objects.hashCode(x);\n@@ -36,2 +36,2 @@\n\n    @Override\n-   public Object nullSafeGet(ResultSet rs, String[] names, SharedSessionContractImplementor session, Object owner) throws SQLException {\n-       String string = rs.getString(names[0]);\n+   public BigDecimal nullSafeGet(ResultSet rs, int position, SharedSessionContractImplementor session, Object owner) throws SQLException {\n+       String string = rs.getString(position);\n        return string == null || rs.wasNull() ? null : new BigDecimal(string);\n@@ -42,1 +42,1 @@\n\n    @Override\n-   public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws SQLException {\n+   public void nullSafeSet(PreparedStatement st, BigDecimal value, int index, SharedSessionContractImplementor session) throws SQLException {\n        if (value == null) {\n@@ -51,1 +51,1 @@\n\n    @Override\n-   public Object deepCopy(Object value1) {\n+   public BigDecimal deepCopy(BigDecimal value1) {\n        return value1;\n@@ -61,2 +61,2 @@\n\n    @Override\n-   public Serializable disassemble(Object value) {\n-       return (BigDecimal) value;\n+   public Serializable disassemble(BigDecimal value) {\n+       return value;\n    }\n@@ -66,2 +66,2 @@\n\n    @Override\n-   public Object assemble(Serializable cached, Object owner) {\n-       return cached;\n+   public BigDecimal assemble(Serializable cached, Object owner) {\n+       return (BigDecimal) cached;\n    }\n@@ -71,1 +71,1 @@\n\n    @Override\n-   public Object replace(Object original, Object target, Object owner) {\n+   public BigDecimal replace(BigDecimal original, BigDecimal target, Object owner) {\n        return original;\n","newFile":false}]}]}>
 
-## Recipe source
+## Examples
 
-[GitHub: MigrateUserType.java](https://github.com/openrewrite/rewrite-hibernate/blob/main/src/main/java/org/openrewrite/hibernate/MigrateUserType.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-hibernate/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-hibernate/)
+</ExampleList>
 
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.hibernate.HibernateException;
-import org.hibernate.engine.spi.SharedSessionContractImplementor;
-import org.hibernate.usertype.UserType;
-
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
-import java.util.Objects;
-
-public class BigDecimalAsString implements UserType {
-
-    @Override
-    public int[] sqlTypes() {
-        return new int[]{Types.VARCHAR};
-    }
-
-    @Override
-    public Class returnedClass() {
-        return BigDecimal.class;
-    }
-
-    @Override
-    public boolean equals(Object x, Object y) {
-        return Objects.equals(x, y);
-    }
-
-    @Override
-    public int hashCode(Object x) {
-        return Objects.hashCode(x);
-    }
-
-    @Override
-    public Object nullSafeGet(ResultSet rs, String[] names, SharedSessionContractImplementor session, Object owner) throws SQLException {
-        String string = rs.getString(names[0]);
-        return string == null || rs.wasNull() ? null : new BigDecimal(string);
-    }
-
-    @Override
-    public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws SQLException {
-        if (value == null) {
-            st.setNull(index, Types.VARCHAR);
-        } else {
-            st.setString(index, value.toString());
-        }
-    }
-
-    @Override
-    public Object deepCopy(Object value1) {
-        return value1;
-    }
-
-    @Override
-    public boolean isMutable() {
-        return false;
-    }
-
-    @Override
-    public Serializable disassemble(Object value) {
-        return (BigDecimal) value;
-    }
-
-    @Override
-    public Object assemble(Serializable cached, Object owner) {
-        return cached;
-    }
-
-    @Override
-    public Object replace(Object original, Object target, Object owner) {
-        return original;
-    }
-}
-```
-
-###### After
-```java
-import org.hibernate.HibernateException;
-import org.hibernate.engine.spi.SharedSessionContractImplementor;
-import org.hibernate.usertype.UserType;
-
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
-import java.util.Objects;
-
-public class BigDecimalAsString implements UserType<BigDecimal> {
-
-    @Override
-    public int getSqlType() {
-        return Types.VARCHAR;
-    }
-
-    @Override
-    public Class<BigDecimal> returnedClass() {
-        return BigDecimal.class;
-    }
-
-    @Override
-    public boolean equals(BigDecimal x, BigDecimal y) {
-        return Objects.equals(x, y);
-    }
-
-    @Override
-    public int hashCode(BigDecimal x) {
-        return Objects.hashCode(x);
-    }
-
-    @Override
-    public BigDecimal nullSafeGet(ResultSet rs, int position, SharedSessionContractImplementor session, Object owner) throws SQLException {
-        String string = rs.getString(position);
-        return string == null || rs.wasNull() ? null : new BigDecimal(string);
-    }
-
-    @Override
-    public void nullSafeSet(PreparedStatement st, BigDecimal value, int index, SharedSessionContractImplementor session) throws SQLException {
-        if (value == null) {
-            st.setNull(index, Types.VARCHAR);
-        } else {
-            st.setString(index, value.toString());
-        }
-    }
-
-    @Override
-    public BigDecimal deepCopy(BigDecimal value1) {
-        return value1;
-    }
-
-    @Override
-    public boolean isMutable() {
-        return false;
-    }
-
-    @Override
-    public Serializable disassemble(BigDecimal value) {
-        return value;
-    }
-
-    @Override
-    public BigDecimal assemble(Serializable cached, Object owner) {
-        return (BigDecimal) cached;
-    }
-
-    @Override
-    public BigDecimal replace(BigDecimal original, BigDecimal target, Object owner) {
-        return original;
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -13,1 +13,1 @@
-import java.util.Objects;
-
--public class BigDecimalAsString implements UserType {
-+public class BigDecimalAsString implements UserType<BigDecimal> {
-
-@@ -16,2 +16,2 @@
-
-    @Override
--   public int[] sqlTypes() {
--       return new int[]{Types.VARCHAR};
-+   public int getSqlType() {
-+       return Types.VARCHAR;
-    }
-@@ -21,1 +21,1 @@
-
-    @Override
--   public Class returnedClass() {
-+   public Class<BigDecimal> returnedClass() {
-        return BigDecimal.class;
-@@ -26,1 +26,1 @@
-
-    @Override
--   public boolean equals(Object x, Object y) {
-+   public boolean equals(BigDecimal x, BigDecimal y) {
-        return Objects.equals(x, y);
-@@ -31,1 +31,1 @@
-
-    @Override
--   public int hashCode(Object x) {
-+   public int hashCode(BigDecimal x) {
-        return Objects.hashCode(x);
-@@ -36,2 +36,2 @@
-
-    @Override
--   public Object nullSafeGet(ResultSet rs, String[] names, SharedSessionContractImplementor session, Object owner) throws SQLException {
--       String string = rs.getString(names[0]);
-+   public BigDecimal nullSafeGet(ResultSet rs, int position, SharedSessionContractImplementor session, Object owner) throws SQLException {
-+       String string = rs.getString(position);
-        return string == null || rs.wasNull() ? null : new BigDecimal(string);
-@@ -42,1 +42,1 @@
-
-    @Override
--   public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws SQLException {
-+   public void nullSafeSet(PreparedStatement st, BigDecimal value, int index, SharedSessionContractImplementor session) throws SQLException {
-        if (value == null) {
-@@ -51,1 +51,1 @@
-
-    @Override
--   public Object deepCopy(Object value1) {
-+   public BigDecimal deepCopy(BigDecimal value1) {
-        return value1;
-@@ -61,2 +61,2 @@
-
-    @Override
--   public Serializable disassemble(Object value) {
--       return (BigDecimal) value;
-+   public Serializable disassemble(BigDecimal value) {
-+       return value;
-    }
-@@ -66,2 +66,2 @@
-
-    @Override
--   public Object assemble(Serializable cached, Object owner) {
--       return cached;
-+   public BigDecimal assemble(Serializable cached, Object owner) {
-+       return (BigDecimal) cached;
-    }
-@@ -71,1 +71,1 @@
-
-    @Override
--   public Object replace(Object original, Object target, Object owner) {
-+   public BigDecimal replace(BigDecimal original, BigDecimal target, Object owner) {
-        return original;
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.hibernate.MigrateUserType","displayName":"Migrate `UserType` to Hibernate 6","groupId":"org.openrewrite.recipe","artifactId":"rewrite-hibernate","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_HIBERNATE","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.hibernate.MigrateUserType"
-  displayName="Migrate `UserType` to Hibernate 6"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-hibernate"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_HIBERNATE"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.hibernate.MigrateUserType" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

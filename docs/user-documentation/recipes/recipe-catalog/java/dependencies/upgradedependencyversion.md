@@ -1,6 +1,7 @@
 ---
 title: "Upgrade Gradle or Maven dependency versions"
 sidebar_label: "Upgrade Gradle or Maven dependency versions"
+hide_title: true
 ---
 
 
@@ -8,440 +9,51 @@ sidebar_label: "Upgrade Gradle or Maven dependency versions"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dependencies/upgradedependencyversion" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Upgrade Gradle or Maven dependency versions
+<RecipeMeta
+  displayName={"Upgrade Gradle or Maven dependency versions"}
+  description={"For Gradle projects, upgrade the version of a dependency in a `build.gradle` file. Supports updating dependency declarations of various forms:\n * `String` notation: `\"group:artifact:version\"` \n * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`\nIt is possible to update version numbers which are defined earlier in the same file in variable declarations.\n\nFor Maven projects, upgrade the version of a dependency by specifying a group ID and (optionally) an artifact ID using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases."}
+  fqName={"org.openrewrite.java.dependencies.UpgradeDependencyVersion"}
+  languages={["Java"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-java-dependencies/blob/main/src/main/java/org/openrewrite/java/dependencies/UpgradeDependencyVersion.java"}
+/>
 
-**org.openrewrite.java.dependencies.UpgradeDependencyVersion**
+<RecipeHeader
+  displayName={"Upgrade Gradle or Maven dependency versions"}
+  description={"For Gradle projects, upgrade the version of a dependency in a `build.gradle` file. Supports updating dependency declarations of various forms:\n * `String` notation: `\"group:artifact:version\"` \n * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`\nIt is possible to update version numbers which are defined earlier in the same file in variable declarations.\n\nFor Maven projects, upgrade the version of a dependency by specifying a group ID and (optionally) an artifact ID using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.java.dependencies.UpgradeDependencyVersion"}
+  artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.UpgradeDependencyVersion"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion.md"}
+/>
 
-For Gradle projects, upgrade the version of a dependency in a `build.gradle` file. Supports updating dependency declarations of various forms:
- * `String` notation: `"group:artifact:version"` 
- * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`
-It is possible to update version numbers which are defined earlier in the same file in variable declarations.
-
-For Maven projects, upgrade the version of a dependency by specifying a group ID and (optionally) an artifact ID using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases.
-
-## Recipe source
-
-[GitHub: UpgradeDependencyVersion.java](https://github.com/openrewrite/rewrite-java-dependencies/blob/main/src/main/java/org/openrewrite/java/dependencies/UpgradeDependencyVersion.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-java-dependencies/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-java-dependencies/)
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+<OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"jackson-module*"},{"type":"String","name":"newVersion","required":true,"description":"An exact version number or node-style semver selector used to select the version number. ","example":"29.X"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"},{"type":"Boolean","name":"overrideManagedVersion","required":false,"description":"For Maven project only, This flag can be set to explicitly override a managed dependency's version. The default for this flag is `false`."},{"type":"List","name":"retainVersions","required":false,"description":"For Maven project only, accepts a list of GAVs. For each GAV, if it is a project direct dependency, and it is removed from dependency management after the changes from this recipe, then it will be retained with an explicit version. The version can be omitted from the GAV to use the old value from dependency management.","example":"com.jcraft:jsch"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | groupId | The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression. | `com.fasterxml.jackson*` |
-| `String` | artifactId | The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression. | `jackson-module*` |
-| `String` | newVersion | An exact version number or node-style semver selector used to select the version number.  | `29.X` |
-| `String` | versionPattern | *Optional*. Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to "25-29" can be paired with a metadata pattern of "-jre" to select Guava 29.0-jre | `-jre` |
-| `Boolean` | overrideManagedVersion | *Optional*. For Maven project only, This flag can be set to explicitly override a managed dependency's version. The default for this flag is `false`. |  |
-| `List` | retainVersions | *Optional*. For Maven project only, accepts a list of GAVs. For each GAV, if it is a project direct dependency, and it is removed from dependency management after the changes from this recipe, then it will be retained with an explicit version. The version can be omitted from the GAV to use the old value from dependency management. | `com.jcraft:jsch` |
+</OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"groupId","value":"com.google.guava"},{"parameter":"artifactId","value":"guava"},{"parameter":"newVersion","value":"30.x"},{"parameter":"versionPattern","value":"-jre"},{"parameter":"overrideManagedVersion","value":"null"},{"parameter":"retainVersions","value":"null"}],"variants":[{"language":"groovy","before":"plugins {\n  id 'java-library'\n}\n\nrepositories {\n  mavenCentral()\n}\n\ndependencies {\n  compileOnly 'com.google.guava:guava:29.0-jre'\n  runtimeOnly ('com.google.guava:guava:29.0-jre')\n}\n","after":"plugins {\n  id 'java-library'\n}\n\nrepositories {\n  mavenCentral()\n}\n\ndependencies {\n  compileOnly 'com.google.guava:guava:30.1.1-jre'\n  runtimeOnly ('com.google.guava:guava:30.1.1-jre')\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -10,2 +10,2 @@\n\ndependencies {\n- compileOnly 'com.google.guava:guava:29.0-jre'\n- runtimeOnly ('com.google.guava:guava:29.0-jre')\n+ compileOnly 'com.google.guava:guava:30.1.1-jre'\n+ runtimeOnly ('com.google.guava:guava:30.1.1-jre')\n}\n","newFile":false}]}]}>
 
-## Used by
+## Examples
 
-This recipe is used as part of the following composite recipes:
+</ExampleList>
 
-* [Add explicit Inject dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addinjectdependencies.md)
-* [Add explicit JAX-WS dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxwsdependencies.md)
-* [Add explicit JAXB API dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbapidependencies.md)
-* [Add explicit version for REST Assured](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migraterestassured)
-* [ArchUnit 0.x upgrade](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
-* [JUnit 6 migration from JUnit 5.x](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
-* [Jackson best practices](/user-documentation/recipes/recipe-catalog/java/jackson/jacksonbestpractices.md)
-* [Migrate Ehcache from javax to jakarta namespace](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/ehcachejavaxtojakarta.md)
-* [Migrate Hibernate dependencies to 6.0.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernatedependencies60.md)
-* [Migrate Jakarta EE 9 api dependencies to Jakarta EE 10 versions](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migrationtojakarta10apis.md)
-* [Migrate Johnzon from javax to jakarta namespace](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/johnzonjavaxtojakarta.md)
-* [Migrate Log4j to SLF4J](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4jtoslf4j.md)
-* [Migrate Lombok to a Java 11 compatible version](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/updatelomboktojava11.md)
-* [Migrate OkHttp dependencies to 4.x](/user-documentation/recipes/recipe-catalog/okhttp/upgradeokhttp4dependencies.md)
-* [Migrate OkHttp dependencies to 5.x](/user-documentation/recipes/recipe-catalog/okhttp/upgradeokhttp5dependencies.md)
-* [Migrate Okio dependencies to 3.x](/user-documentation/recipes/recipe-catalog/okio/upgradeokio3dependencies.md)
-* [Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with J2EE9](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/restassuredjavaxtojakarta.md)
-* [Migrate RichFaces 3.x to 4.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/migraterichfaces_4_5)
-* [Migrate Spring Cloud AWS (awspring) to 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradeawspringcloud_4_0)
-* [Migrate Spring Retry to Spring Resilience](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretry)
-* [Migrate deprecated `javaee-api` dependencies to `jakarta.platform`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxeeapitojakarta.md)
-* [Migrate deprecated `javax.activation` packages to `jakarta.activation`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxactivationmigrationtojakartaactivation.md)
-* [Migrate deprecated `javax.annotation` to `jakarta.annotation`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxannotationmigrationtojakartaannotation.md)
-* [Migrate deprecated `javax.annotation` to `jakarta.annotation`](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/javaxannotationmigrationtojakarta9annotation.md)
-* [Migrate deprecated `javax.batch` packages to `jakarta.batch`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxbatchmigrationtojakartabatch.md)
-* [Migrate deprecated `javax.decorator` packages to `jakarta.decorator`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxdecoratortojakartadecorator.md)
-* [Migrate deprecated `javax.ejb` packages to `jakarta.ejb`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxejbtojakartaejb.md)
-* [Migrate deprecated `javax.el` packages to `jakarta.el`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxeltojakartael.md)
-* [Migrate deprecated `javax.enterprise` packages to `jakarta.enterprise`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxenterprisetojakartaenterprise.md)
-* [Migrate deprecated `javax.faces` packages to `jakarta.faces`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartafacesapi3.md)
-* [Migrate deprecated `javax.inject` packages to `jakarta.inject`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxinjectmigrationtojakartainject.md)
-* [Migrate deprecated `javax.interceptor` packages to `jakarta.interceptor`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxinterceptortojakartainterceptor.md)
-* [Migrate deprecated `javax.jms` packages to `jakarta.jms`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxjmstojakartajms.md)
-* [Migrate deprecated `javax.json` packages to `jakarta.json`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxjsontojakartajson.md)
-* [Migrate deprecated `javax.jsp` packages to `jakarta.jsp`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxjsptojakartajsp.md)
-* [Migrate deprecated `javax.jws` packages to `jakarta.jws`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxjwstojakartajws.md)
-* [Migrate deprecated `javax.mail` packages to `jakarta.mail`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxmailtojakartamail.md)
-* [Migrate deprecated `javax.persistence` packages to `jakarta.persistence`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxpersistencetojakartapersistence.md)
-* [Migrate deprecated `javax.resource` packages to `jakarta.resource`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxresourcetojakartaresource.md)
-* [Migrate deprecated `javax.security.auth.message` packages to `jakarta.security.auth.message`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxauthenticationmigrationtojakartaauthentication.md)
-* [Migrate deprecated `javax.security.enterprise` packages to `jakarta.security.enterprise`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxsecuritytojakartasecurity.md)
-* [Migrate deprecated `javax.security.jacc` packages to `jakarta.security.jacc`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxauthorizationmigrationtojakartaauthorization.md)
-* [Migrate deprecated `javax.servlet` packages to `jakarta.servlet`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxservlettojakartaservlet.md)
-* [Migrate deprecated `javax.soap` packages to `jakarta.soap`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlsoaptojakartaxmlsoap.md)
-* [Migrate deprecated `javax.transaction` packages to `jakarta.transaction`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxtransactionmigrationtojakartatransaction.md)
-* [Migrate deprecated `javax.validation` packages to `jakarta.validation`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxvalidationmigrationtojakartavalidation.md)
-* [Migrate deprecated `javax.websocket` packages to `jakarta.websocket`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxwebsockettojakartawebsocket.md)
-* [Migrate deprecated `javax.ws` packages to `jakarta.ws`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxwstojakartaws.md)
-* [Migrate deprecated `javax.xml.bind` packages to `jakarta.xml.bind`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlbindmigrationtojakartaxmlbind.md)
-* [Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlwsmigrationtojakartaxmlws.md)
-* [Migrate from Elasticsearch 8 to 9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratetoelasticsearch9)
-* [Migrate from Spring Boot 1.x to 2.0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0.md)
-* [Migrate to DataNucleus 4.0](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_4_0.md)
-* [Migrate to DataNucleus 5.0](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_0.md)
-* [Migrate to DataNucleus 5.1](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_1.md)
-* [Migrate to DataNucleus 5.2](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_2.md)
-* [Migrate to Dropwizard 5.0.x from 4.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5)
-* [Migrate to Hibernate 4.0.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40)
-* [Migrate to Hibernate 6.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-moderne-edition)
-* [Migrate to Hibernate 6.1.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate61.md)
-* [Migrate to Hibernate 6.2.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate62.md)
-* [Migrate to Hibernate 6.3.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate63.md)
-* [Migrate to Hibernate 6.4.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate64.md)
-* [Migrate to Hibernate 6.5.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate65.md)
-* [Migrate to Hibernate 6.6.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate66-community-edition.md)
-* [Migrate to Hibernate 7.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-community-edition.md)
-* [Migrate to Hibernate 7.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition)
-* [Migrate to Hibernate 7.1.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate71-community-edition.md)
-* [Migrate to Hibernate 7.2.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate72)
-* [Migrate to Hibernate for Jakarta EE 9](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/migratehibernatetojakartaee9.md)
-* [Migrate to JSF 2.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3)
-* [Migrate to JasperReports 5.6.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports5)
-* [Migrate to JasperReports 6](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports6)
-* [Migrate to Java 17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17.md)
-* [Migrate to Kafka 2.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka23)
-* [Migrate to Kafka 2.4](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka24)
-* [Migrate to Kafka 2.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka25)
-* [Migrate to Kafka 2.6](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka26)
-* [Migrate to Kafka 2.7](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka27)
-* [Migrate to Kafka 2.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka28)
-* [Migrate to Kafka 3.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka30)
-* [Migrate to Kafka 3.1](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka31)
-* [Migrate to Kafka 3.2](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka32)
-* [Migrate to Kafka 3.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka33)
-* [Migrate to Kafka 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka40)
-* [Migrate to Kafka 4.1](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka41)
-* [Migrate to LaunchDarkly 6.x](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/upgradelaunchdarkly6.md)
-* [Migrate to LaunchDarkly 7.x](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/upgradelaunchdarkly7.md)
-* [Migrate to Micrometer 1.13](/user-documentation/recipes/recipe-catalog/micrometer/upgrademicrometer_1_13.md)
-* [Migrate to Reactor 3.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/reactive/reactor/upgradereactor_3_5)
-* [Migrate to Scala 2.12.+](/user-documentation/recipes/recipe-catalog/scala/migrate/upgradescala_2_12.md)
-* [Migrate to Spring Batch 5.0 from 4.3](/user-documentation/recipes/recipe-catalog/java/spring/batch/springbatch4to5migration.md)
-* [Migrate to Spring Batch 6.0 from 5.2](/user-documentation/recipes/recipe-catalog/java/spring/batch/springbatch5to6migration.md)
-* [Migrate to Spring Boot 2.1](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_1.md)
-* [Migrate to Spring Boot 2.2](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_2.md)
-* [Migrate to Spring Boot 2.3](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_3.md)
-* [Migrate to Spring Boot 2.4](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_4.md)
-* [Migrate to Spring Boot 2.6](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_6.md)
-* [Migrate to Spring Boot 2.7](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_7.md)
-* [Migrate to Spring Boot 3.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
-* [Migrate to Spring Boot 3.1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_1.md)
-* [Migrate to Spring Boot 3.2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_2.md)
-* [Migrate to Spring Boot 3.3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_3.md)
-* [Migrate to Spring Boot 3.4 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-community-edition.md)
-* [Migrate to Spring Boot 3.4 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-moderne-edition)
-* [Migrate to Spring Boot 3.5 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-community-edition.md)
-* [Migrate to Spring Boot 3.5 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition)
-* [Migrate to Spring Boot 4.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
-* [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
-* [Migrate to Spring Boot 4.1](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_1)
-* [Migrate to Spring Cloud 2025.1](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/upgradespringcloud_2025_1.md)
-* [Migrate to Spring Data 3.0](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_3_0.md)
-* [Migrate to Spring Framework 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_4_0)
-* [Migrate to Spring Framework 5.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_0-community-edition.md)
-* [Migrate to Spring Framework 5.1](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_1.md)
-* [Migrate to Spring Framework 5.2](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_2.md)
-* [Migrate to Spring Framework 5.3 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-community-edition.md)
-* [Migrate to Spring Framework 5.3 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-moderne-edition)
-* [Migrate to Spring Framework 6.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition.md)
-* [Migrate to Spring Framework 6.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-moderne-edition)
-* [Migrate to Spring Framework 6.1](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_1.md)
-* [Migrate to Spring Framework 6.2 for WebLogic 15.1.1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
-* [Migrate to Spring Framework 6.2](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_2.md)
-* [Migrate to Spring Framework 7.0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_7_0.md)
-* [Migrate to Spring Kafka 3.0](/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_3_0.md)
-* [Migrate to Spring ORM to 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5)
-* [Migrate to Spring Security 5.7](/user-documentation/recipes/recipe-catalog/java/spring/security5/upgradespringsecurity_5_7.md)
-* [Migrate to Spring Security 5.8](/user-documentation/recipes/recipe-catalog/java/spring/security5/upgradespringsecurity_5_8.md)
-* [Migrate to Spring Security 6.0](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_0.md)
-* [Migrate to Spring Security 6.1](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_1.md)
-* [Migrate to Spring Security 6.2](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_2.md)
-* [Migrate to Spring Security 6.3](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_3.md)
-* [Migrate to Spring Security 6.4](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_4.md)
-* [Migrate to Spring Security 6.5 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-community-edition.md)
-* [Migrate to Spring Security 7.0](/user-documentation/recipes/recipe-catalog/java/spring/security7/upgradespringsecurity_7_0.md)
-* [Migrate to `kotlinx-datetime` 0.7](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxdatetime_0_7)
-* [Migrates from Netty 4.1.x to Netty 4.2.x](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_4_1_to_4_2.md)
-* [Migrates to Apache POI 3.17](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_3_17.md)
-* [Migrates to Apache POI 4.1.2](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_4_1.md)
-* [Migrates to Apache POI 5.x](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_5.md)
-* [Migrates to ApacheHttpClient 4.5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient4/upgradeapachehttpclient_4_5.md)
-* [Mockito 3.x migration from 1.x](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
-* [Mockito 4 to 5.x upgrade only](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito4to5only.md)
-* [Mockito 4.x upgrade](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to4migration.md)
-* [OkHttp 3.x `MockWebServer` `@Rule` To 4.x `MockWebServer`](/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebserver.md)
-* [Prefer the Java 11 standard library instead of Guava](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavajava11.md)
-* [Quarkus 2.x migration from Quarkus 1.x](/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/quarkus1to2migration.md)
-* [Rename Testcontainers dependencies](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2dependencies.md)
-* [Update Apache Shiro Dependencies to 2.0.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateapacheshirodependencies.md)
-* [Update Eclipse Yasson Dependencies to 3.0.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateyassondependencies.md)
-* [Update EclipseLink Dependencies to 4.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateeclipselinkdependencies.md)
-* [Update GlassFish Jersey Dependencies to 3.1.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejerseydependencies.md)
-* [Update Jakarta EE Java Faces Dependencies to 4.0.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartafacesapi4.md)
-* [Update Jakarta EE Java Faces Dependencies to 4.1.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartafacesapi41.md)
-* [Update Jakarta EE Platform Dependencies to 10.0.0](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaplatform10.md)
-* [Update Jakarta EE Platform Dependencies to 11.0.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaplatform11.md)
-* [Update Jakarta EE Platform Dependencies to 9.1.0](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartaplatform9_1.md)
-* [Update Jakarta EE XML Web Services Dependencies for EE 10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaxmlwsee10.md)
-* [Update Jakarta Persistence to 3.1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto31.md)
-* [Update Jakarta Persistence to 3.2](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto32.md)
-* [Update RestLet to 2.6.0](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updaterestlet2_6.md)
-* [Update the WebLogic version to 14.1.2](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/updatebuildtoweblogic1412.md)
-* [Update the WebLogic version to 15.1.1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/updatebuildtoweblogic1511.md)
-* [Upgrade Common open source libraries](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgradecommonopensourcelibraries.md)
-* [Upgrade Exposed Gradle dependencies to 1.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedupgradegradledependencies)
-* [Upgrade Faces open source libraries](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces3opensourcelibraries.md)
-* [Upgrade Faces open source libraries](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces41opensourcelibraries.md)
-* [Upgrade Faces open source libraries](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces4opensourcelibraries.md)
-* [Upgrade Faces open source libraries](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgradefacesopensourcelibraries2.md)
-* [Upgrade Faces open source libraries](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgradefacesopensourcelibraries3.md)
-* [Upgrade Hibernate to 6.6](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/upgradehibernateto66.md)
-* [Upgrade JaCoCo](/user-documentation/recipes/recipe-catalog/java/migrate/jacoco/upgradejacoco.md)
-* [Upgrade Jackson 2.x dependencies to 3.x](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_dependencies.md)
-* [Upgrade Kotlin to 2.3 for Java 25 compatibility](/user-documentation/recipes/recipe-catalog/java/migrate/upgradekotlinforjava25.md)
-* [Upgrade Log4j 2.x dependency version](/user-documentation/recipes/recipe-catalog/java/logging/log4j/upgradelog4j2dependencyversion.md)
-* [Upgrade MyBatis to Spring Boot 2.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_0.md)
-* [Upgrade MyBatis to Spring Boot 2.1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_1.md)
-* [Upgrade MyBatis to Spring Boot 2.2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_2.md)
-* [Upgrade MyBatis to Spring Boot 2.3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_3.md)
-* [Upgrade MyBatis to Spring Boot 2.4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_4.md)
-* [Upgrade MyBatis to Spring Boot 2.5](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_5.md)
-* [Upgrade MyBatis to Spring Boot 2.6](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_6.md)
-* [Upgrade MyBatis to Spring Boot 2.7](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_7.md)
-* [Upgrade MyBatis to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_0.md)
-* [Upgrade MyBatis to Spring Boot 3.2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_2.md)
-* [Upgrade MyBatis to Spring Boot 3.4](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_4)
-* [Upgrade MyBatis to Spring Boot 3.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_5)
-* [Upgrade MyBatis to Spring Boot 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgrademybatistospringboot_4_0)
-* [Upgrade Spock to a Groovy 3 compatible variant](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespocktogroovy3.md)
-* [Upgrade Spring Cloud AWS to Spring Boot 3.4 compatible version](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringcloudawstospringboot_3_4)
-* [Upgrade Spring Data BOM to 2024.1.x](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/data/upgradespringdatabom.md)
-* [Upgrade Spring Data JPA to 3.4.6](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/data/upgradespringdatajpa.md)
-* [Upgrade Struts 6.0 dependencies](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/upgradestruts6dependencies)
-* [Upgrade dependencies to Spring Cloud 2022](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/dependencyupgrades.md)
-* [Upgrade dependencies to Spring Cloud 2023](/user-documentation/recipes/recipe-catalog/java/spring/cloud2023/dependencyupgrades.md)
-* [Upgrade dependencies to Spring Cloud 2024](/user-documentation/recipes/recipe-catalog/java/spring/cloud2024/dependencyupgrades.md)
-* [Upgrade dependencies to Spring Cloud 2025](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/dependencyupgrades.md)
-* [Upgrade plugins to Java 21 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava21.md)
-* [Upgrade plugins to Java 25 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava25.md)
-* [Upgrade to Cucumber-JVM 7.x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber7x.md)
-* [Upgrade to JUnit 5.13](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit513.md)
-* [Upgrade to JUnit 5.14](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit514.md)
-* [Upgrade to Spring Boot 2.5](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_5.md)
-* [Upgrade to Spring Cloud 2025.1](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/cloud20251/upgradespringcloud_2025_1)
-* [Upgrade to SpringDoc 2.1](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2.md)
-* [Upgrade to SpringDoc 2.2](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_2.md)
-* [Upgrade to SpringDoc 2.5](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_5.md)
-* [Upgrade to SpringDoc 2.6](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_6.md)
-* [Upgrade to SpringDoc 2.8](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_8.md)
-* [Upgrade to SpringDoc 3.0](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_3_0.md)
-* [Upgrade to `kotlinx-coroutines` 1.10](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxcoroutines_1_10)
-* [Upgrade to `kotlinx-serialization` 1.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxserialization_1_8)
-* [Use wiremock extension](/user-documentation/recipes/recipe-catalog/java/testing/junit5/usewiremockextension.md)
-
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|groupId|`com.google.guava`|
-|artifactId|`guava`|
-|newVersion|`30.x`|
-|versionPattern|`-jre`|
-|overrideManagedVersion|`null`|
-|retainVersions|`null`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="build.gradle" label="build.gradle">
-
-
-###### Before
-```groovy title="build.gradle"
-plugins {
-  id 'java-library'
-}
-
-repositories {
-  mavenCentral()
-}
-
-dependencies {
-  compileOnly 'com.google.guava:guava:29.0-jre'
-  runtimeOnly ('com.google.guava:guava:29.0-jre')
-}
-```
-
-###### After
-```groovy title="build.gradle"
-plugins {
-  id 'java-library'
-}
-
-repositories {
-  mavenCentral()
-}
-
-dependencies {
-  compileOnly 'com.google.guava:guava:30.1.1-jre'
-  runtimeOnly ('com.google.guava:guava:30.1.1-jre')
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- build.gradle
-+++ build.gradle
-@@ -10,2 +10,2 @@
-
-dependencies {
-- compileOnly 'com.google.guava:guava:29.0-jre'
-- runtimeOnly ('com.google.guava:guava:29.0-jre')
-+ compileOnly 'com.google.guava:guava:30.1.1-jre'
-+ runtimeOnly ('com.google.guava:guava:30.1.1-jre')
-}
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.UpgradeDependencyVersion","displayName":"Upgrade Gradle or Maven dependency versions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.fasterxml.jackson*\" --recipe-option \"artifactId=jackson-module*\" --recipe-option \"newVersion=29.X\" --recipe-option \"versionPattern='-jre'\" --recipe-option \"retainVersions=com.jcraft:jsch\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.UpgradeDependencyVersionExample
-displayName: Upgrade Gradle or Maven dependency versions example
-recipeList:
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: com.fasterxml.jackson*
-      artifactId: jackson-module*
-      newVersion: 29.X
-      versionPattern: '-jre'
-      retainVersions:
-        - com.jcraft:jsch
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.java.dependencies.UpgradeDependencyVersion"
-  displayName="Upgrade Gradle or Maven dependency versions"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-java-dependencies"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES"
-  requiresConfiguration
-  cliOptions={' --recipe-option "groupId=com.fasterxml.jackson*" --recipe-option "artifactId=jackson-module*" --recipe-option "newVersion=29.X" --recipe-option "versionPattern=\'-jre\'" --recipe-option "retainVersions=com.jcraft:jsch"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.dependencies.UpgradeDependencyVersion" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

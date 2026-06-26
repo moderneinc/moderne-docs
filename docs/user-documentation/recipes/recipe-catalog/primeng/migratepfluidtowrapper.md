@@ -1,37 +1,42 @@
 ---
 title: "Migrate `.p-fluid` to `&lt;p-fluid&gt;` wrapper"
 sidebar_label: "Migrate `.p-fluid` to `&lt;p-fluid&gt;` wrapper"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate `.p-fluid` to `&lt;p-fluid&gt;` wrapper
+<RecipeMeta
+  displayName={"Migrate `.p-fluid` to `<p-fluid>` wrapper"}
+  description={"Rewrites `<div class=\"…p-fluid…\">…</div>` to `<p-fluid class=\"…\">…</p-fluid>` and adds a `FluidModule` import from `primeng/fluid` to the corresponding component file. PrimeNG 18 removed the `.p-fluid` CSS class; the `<p-fluid>` wrapper component is its replacement."}
+  fqName={"org.openrewrite.primeng.MigratePFluidToWrapper"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.primeng.MigratePFluidToWrapper**
+<RecipeHeader
+  displayName={"Migrate `.p-fluid` to `<p-fluid>` wrapper"}
+  description={"Rewrites `<div class=\"…p-fluid…\">…</div>` to `<p-fluid class=\"…\">…</p-fluid>` and adds a `FluidModule` import from `primeng/fluid` to the corresponding component file. PrimeNG 18 removed the `.p-fluid` CSS class; the `<p-fluid>` wrapper component is its replacement."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.primeng.MigratePFluidToWrapper"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.MigratePFluidToWrapper"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/migratepfluidtowrapper.md"}
+  moderneOnly
+/>
 
-_Rewrites `<div class="…p-fluid…">…</div>` to `<p-fluid class="…">…</p-fluid>` and adds a `FluidModule` import from `primeng/fluid` to the corresponding component file. PrimeNG 18 removed the `.p-fluid` CSS class; the `<p-fluid>` wrapper component is its replacement._
+<RecipeList recipes={[{"name":"Rewrite `.p-fluid` divs to `<p-fluid>` wrappers","href":""},{"name":"Add `FluidModule` import to components using `<p-fluid>`","href":""}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade PrimeNG components to 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/primeng/upgradecomponentsto18)
-
+<UsageList usage={{"recipeName":"org.openrewrite.primeng.MigratePFluidToWrapper","displayName":"Migrate `.p-fluid` to `<p-fluid>` wrapper","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.primeng.MigratePFluidToWrapper"
-  displayName="Migrate `.p-fluid` to `&lt;p-fluid&gt;` wrapper"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

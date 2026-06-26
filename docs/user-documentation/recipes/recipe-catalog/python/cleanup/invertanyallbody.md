@@ -1,37 +1,36 @@
 ---
 title: "Apply De Morgan's law to `any(not ...)`/`all(not ...)`"
 sidebar_label: "Apply De Morgan's law to `any(not ...)`/`all(not ...)`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Apply De Morgan's law to `any(not ...)`/`all(not ...)`
+<RecipeMeta
+  displayName={"Apply De Morgan's law to `any(not ...)`/`all(not ...)`"}
+  description={"When the generator body just negates the loop variable, De Morgan's law lets us eliminate the generator entirely: `any(not v for v in seq)` becomes `not all(seq)`, and the reverse."}
+  fqName={"org.openrewrite.python.cleanup.InvertAnyAllBody"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.InvertAnyAllBody**
+<RecipeHeader
+  displayName={"Apply De Morgan's law to `any(not ...)`/`all(not ...)`"}
+  description={"When the generator body just negates the loop variable, De Morgan's law lets us eliminate the generator entirely: `any(not v for v in seq)` becomes `not all(seq)`, and the reverse."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.InvertAnyAllBody"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.InvertAnyAllBody"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/invertanyallbody.md"}
+  moderneOnly
+/>
 
-_When the generator body just negates the loop variable, De Morgan's law lets us eliminate the generator entirely: `any(not v for v in seq)` becomes `not all(seq)`, and the reverse._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.InvertAnyAllBody","displayName":"Apply De Morgan's law to `any(not ...)`/`all(not ...)`","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.InvertAnyAllBody"
-  displayName="Apply De Morgan's law to `any(not ...)`/`all(not ...)`"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

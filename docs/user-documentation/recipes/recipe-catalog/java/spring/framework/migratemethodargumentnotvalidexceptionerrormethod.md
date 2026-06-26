@@ -1,6 +1,7 @@
 ---
 title: "Migrate `MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages`"
 sidebar_label: "Migrate `MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages`"
+hide_title: true
 ---
 
 
@@ -8,193 +9,45 @@ sidebar_label: "Migrate `MethodArgumentNotValidException.errorsToStringList` and
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/framework/migratemethodargumentnotvalidexceptionerrormethod" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate `MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages`
+<RecipeMeta
+  displayName={"Migrate `MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages`"}
+  description={"`org.springframework.web.bind.MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages` method was deprecated, in favor of `BindErrorUtils`."}
+  fqName={"org.openrewrite.java.spring.framework.MigrateMethodArgumentNotValidExceptionErrorMethod"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-spring/blob/main/src/main/java/org/openrewrite/java/spring/framework/MigrateMethodArgumentNotValidExceptionErrorMethod.java"}
+/>
 
-**org.openrewrite.java.spring.framework.MigrateMethodArgumentNotValidExceptionErrorMethod**
+<RecipeHeader
+  displayName={"Migrate `MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages`"}
+  description={"`org.springframework.web.bind.MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages` method was deprecated, in favor of `BindErrorUtils`."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.spring.framework.MigrateMethodArgumentNotValidExceptionErrorMethod"}
+  artifact={"org.openrewrite.recipe:rewrite-spring"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateMethodArgumentNotValidExceptionErrorMethod"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratemethodargumentnotvalidexceptionerrormethod.md"}
+/>
 
-_`org.springframework.web.bind.MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages` method was deprecated, in favor of `BindErrorUtils`._
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.MessageSource;\nimport java.util.Locale;\nimport org.springframework.web.bind.MethodArgumentNotValidException;\nimport java.util.List;\nimport java.util.Map;\nimport org.springframework.validation.BindException;\nimport org.springframework.validation.ObjectError;\n\nclass A {\n    public void handleValidationError(BindException bindException, MethodArgumentNotValidException methodArgumentNotValidException, MessageSource messageSource, Locale locale) {\n        List<ObjectError> errors = bindException.getAllErrors();\n        List<String> errorMessages = MethodArgumentNotValidException.errorsToStringList(errors, null, Locale.CANADA);\n        Map<ObjectError, String> errorMessages = methodArgumentNotValidException.resolveErrorMessages(messageSource, locale);\n    }\n}\n","after":"import org.springframework.context.MessageSource;\nimport java.util.Locale;\nimport org.springframework.web.bind.MethodArgumentNotValidException;\nimport org.springframework.web.util.BindErrorUtils;\n\nimport java.util.List;\nimport java.util.Map;\nimport org.springframework.validation.BindException;\nimport org.springframework.validation.ObjectError;\n\nclass A {\n    public void handleValidationError(BindException bindException, MethodArgumentNotValidException methodArgumentNotValidException, MessageSource messageSource, Locale locale) {\n        List<ObjectError> errors = bindException.getAllErrors();\n        List<String> errorMessages = BindErrorUtils.resolve(errors).values().stream().toList();\n        Map<ObjectError, String> errorMessages = BindErrorUtils.resolve(methodArgumentNotValidException.getAllErrors(), messageSource, locale);\n    }\n}\n","diff":"@@ -4,0 +4,2 @@\nimport java.util.Locale;\nimport org.springframework.web.bind.MethodArgumentNotValidException;\n+import org.springframework.web.util.BindErrorUtils;\n+\nimport java.util.List;\n@@ -12,2 +14,2 @@\n    public void handleValidationError(BindException bindException, MethodArgumentNotValidException methodArgumentNotValidException, MessageSource messageSource, Locale locale) {\n        List<ObjectError> errors = bindException.getAllErrors();\n-       List<String> errorMessages = MethodArgumentNotValidException.errorsToStringList(errors, null, Locale.CANADA);\n-       Map<ObjectError, String> errorMessages = methodArgumentNotValidException.resolveErrorMessages(messageSource, locale);\n+       List<String> errorMessages = BindErrorUtils.resolve(errors).values().stream().toList();\n+       Map<ObjectError, String> errorMessages = BindErrorUtils.resolve(methodArgumentNotValidException.getAllErrors(), messageSource, locale);\n    }\n","newFile":false}]}]}>
 
-## Recipe source
+## Examples
 
-[GitHub: MigrateMethodArgumentNotValidExceptionErrorMethod.java](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/java/org/openrewrite/java/spring/framework/MigrateMethodArgumentNotValidExceptionErrorMethod.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-spring/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-spring/)
+</ExampleList>
 
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Spring Framework 6.2](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_2.md)
-
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.springframework.context.MessageSource;
-import java.util.Locale;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import java.util.List;
-import java.util.Map;
-import org.springframework.validation.BindException;
-import org.springframework.validation.ObjectError;
-
-class A {
-    public void handleValidationError(BindException bindException, MethodArgumentNotValidException methodArgumentNotValidException, MessageSource messageSource, Locale locale) {
-        List<ObjectError> errors = bindException.getAllErrors();
-        List<String> errorMessages = MethodArgumentNotValidException.errorsToStringList(errors, null, Locale.CANADA);
-        Map<ObjectError, String> errorMessages = methodArgumentNotValidException.resolveErrorMessages(messageSource, locale);
-    }
-}
-```
-
-###### After
-```java
-import org.springframework.context.MessageSource;
-import java.util.Locale;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.util.BindErrorUtils;
-
-import java.util.List;
-import java.util.Map;
-import org.springframework.validation.BindException;
-import org.springframework.validation.ObjectError;
-
-class A {
-    public void handleValidationError(BindException bindException, MethodArgumentNotValidException methodArgumentNotValidException, MessageSource messageSource, Locale locale) {
-        List<ObjectError> errors = bindException.getAllErrors();
-        List<String> errorMessages = BindErrorUtils.resolve(errors).values().stream().toList();
-        Map<ObjectError, String> errorMessages = BindErrorUtils.resolve(methodArgumentNotValidException.getAllErrors(), messageSource, locale);
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -4,0 +4,2 @@
-import java.util.Locale;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-+import org.springframework.web.util.BindErrorUtils;
-+
-import java.util.List;
-@@ -12,2 +14,2 @@
-    public void handleValidationError(BindException bindException, MethodArgumentNotValidException methodArgumentNotValidException, MessageSource messageSource, Locale locale) {
-        List<ObjectError> errors = bindException.getAllErrors();
--       List<String> errorMessages = MethodArgumentNotValidException.errorsToStringList(errors, null, Locale.CANADA);
--       Map<ObjectError, String> errorMessages = methodArgumentNotValidException.resolveErrorMessages(messageSource, locale);
-+       List<String> errorMessages = BindErrorUtils.resolve(errors).values().stream().toList();
-+       Map<ObjectError, String> errorMessages = BindErrorUtils.resolve(methodArgumentNotValidException.getAllErrors(), messageSource, locale);
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.framework.MigrateMethodArgumentNotValidExceptionErrorMethod","displayName":"Migrate `MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.spring.framework.MigrateMethodArgumentNotValidExceptionErrorMethod"
-  displayName="Migrate `MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages`"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-spring"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateMethodArgumentNotValidExceptionErrorMethod" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

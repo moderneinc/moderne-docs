@@ -1,6 +1,7 @@
 ---
 title: "Transform classes that extend a given Class to implement the given Interface instead"
 sidebar_label: "Transform classes that extend a given Class to implement the given Interface instead"
+hide_title: true
 ---
 
 
@@ -8,149 +9,45 @@ sidebar_label: "Transform classes that extend a given Class to implement the giv
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/batch/replacesupportclasswithitsinterface" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Transform classes that extend a given Class to implement the given Interface instead
+<RecipeMeta
+  displayName={"Transform classes that extend a given Class to implement the given Interface instead"}
+  description={"As of spring-batch 5.x Listeners has default methods (made possible by a Java 8 baseline) and can be implemented directly without the need for this adapter."}
+  fqName={"org.openrewrite.java.spring.batch.ReplaceSupportClassWithItsInterface"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-spring/blob/main/src/main/java/org/openrewrite/java/spring/batch/ReplaceSupportClassWithItsInterface.java"}
+/>
 
-**org.openrewrite.java.spring.batch.ReplaceSupportClassWithItsInterface**
+<RecipeHeader
+  displayName={"Transform classes that extend a given Class to implement the given Interface instead"}
+  description={"As of spring-batch 5.x Listeners has default methods (made possible by a Java 8 baseline) and can be implemented directly without the need for this adapter."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.spring.batch.ReplaceSupportClassWithItsInterface"}
+  artifact={"org.openrewrite.recipe:rewrite-spring"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.ReplaceSupportClassWithItsInterface"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/replacesupportclasswithitsinterface.md"}
+/>
 
-_As of spring-batch 5.x Listeners has default methods (made possible by a Java 8 baseline) and can be implemented directly without the need for this adapter._
-
-## Recipe source
-
-[GitHub: ReplaceSupportClassWithItsInterface.java](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/java/org/openrewrite/java/spring/batch/ReplaceSupportClassWithItsInterface.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-spring/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-spring/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+<OptionsTable options={[{"type":"String","name":"fullyQualifiedClassName","required":true,"description":"A fully-qualified class name to be replaced.","example":"org.springframework.batch.core.listener.JobExecutionListenerSupport"},{"type":"String","name":"fullyQualifiedInterfaceName","required":true,"description":"A fully-qualified Interface name to replace by.","example":"org.springframework.batch.core.JobExecutionListener"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | fullyQualifiedClassName | A fully-qualified class name to be replaced. | `org.springframework.batch.core.listener.JobExecutionListenerSupport` |
-| `String` | fullyQualifiedInterfaceName | A fully-qualified Interface name to replace by. | `org.springframework.batch.core.JobExecutionListener` |
+</OptionsTable>
 
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
-* [Transform classes that extend `*ListenerSupport` to implement the `*Listener` interfaces instead](/user-documentation/recipes/recipe-catalog/java/spring/batch/listenersupportclasstointerface.md)
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.batch.ReplaceSupportClassWithItsInterface","displayName":"Transform classes that extend a given Class to implement the given Interface instead","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedClassName=org.springframework.batch.core.listener.JobExecutionListenerSupport\" --recipe-option \"fullyQualifiedInterfaceName=org.springframework.batch.core.JobExecutionListener\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.ReplaceSupportClassWithItsInterfaceExample
-displayName: Transform classes that extend a given Class to implement the given Interface instead example
-recipeList:
-  - org.openrewrite.java.spring.batch.ReplaceSupportClassWithItsInterface:
-      fullyQualifiedClassName: org.springframework.batch.core.listener.JobExecutionListenerSupport
-      fullyQualifiedInterfaceName: org.springframework.batch.core.JobExecutionListener
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.java.spring.batch.ReplaceSupportClassWithItsInterface"
-  displayName="Transform classes that extend a given Class to implement the given Interface instead"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-spring"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING"
-  requiresConfiguration
-  cliOptions={' --recipe-option "fullyQualifiedClassName=org.springframework.batch.core.listener.JobExecutionListenerSupport" --recipe-option "fullyQualifiedInterfaceName=org.springframework.batch.core.JobExecutionListener"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.ReplaceSupportClassWithItsInterface" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

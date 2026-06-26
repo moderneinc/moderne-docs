@@ -1,207 +1,42 @@
 ---
 title: "Delete method argument"
 sidebar_label: "Delete method argument"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Delete method argument
+<RecipeMeta
+  displayName={"Delete method argument"}
+  description={"Remove an argument from method invocations matching a pattern."}
+  fqName={"org.openrewrite.python.DeleteMethodArgument"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.DeleteMethodArgument**
+<RecipeHeader
+  displayName={"Delete method argument"}
+  description={"Remove an argument from method invocations matching a pattern."}
+  type={"Composite recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.DeleteMethodArgument"}
+  artifact={"org.openrewrite:rewrite-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.DeleteMethodArgument"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/deletemethodargument.md"}
+  moderneOnly
+/>
 
-_Remove an argument from method invocations matching a pattern._
+<RecipeList recipes={[{"name":"org.openrewrite.java.DeleteMethodArgument","href":"java/deletemethodargument"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.DeleteMethodArgument","displayName":"Delete method argument","pipPackage":"openrewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.DeleteMethodArgument"
-  displayName="Delete method argument"
-  pipPackage="openrewrite"
-/>
-penrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/)
+</UsageList>
 
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
-## Options
-
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | methodPattern | A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results. | `com.yourorg.A foo(int, int)` |
-| `int` | argumentIndex | A zero-based index that indicates which argument will be removed from the method invocation. | `0` |
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Delete method argument](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/deletemethodargument)
-* [Migrate Apache HttpCore Nio Input Buffer classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_nioinputbuffers.md)
-* [Migrate Apache HttpCore Nio Output Buffer classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_niooutputbuffers.md)
-* [Migrate removed `LocalStackContainer` members to Testcontainers 2.x](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2localstack.md)
-* [Migrate to ApacheHttpClient 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5.md)
-* [Migrate to Hibernate 7.2.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate72)
-* [Migrate to Kafka 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka40)
-* [Mockito 3.x migration from 1.x](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
-* [Remove `SslBundles` parameter from `KafkaProperties` build methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/removekafkapropertiessslbundlesparameter)
-* [Replace  deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removalsservletjakarta10.md)
-* [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
-
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|methodPattern|`B foo(int, int, int)`|
-|argumentIndex|`1`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-public class A {{ B.foo(0, 1, 2); }}
-```
-
-###### After
-```java
-public class A {{ B.foo(0, 2); }}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,1 +1,1 @@
--public class A {{ B.foo(0, 1, 2); }}
-+public class A {{ B.foo(0, 2); }}
-```
-</TabItem>
-</Tabs>
-
-
-## Usage
-
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
-
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.DeleteMethodArgumentExample
-displayName: Delete method argument example
-recipeList:
-  - org.openrewrite.java.DeleteMethodArgument:
-      methodPattern: com.yourorg.A foo(int, int)
-      argumentIndex: 0
-```
-
-<RunRecipe
-  recipeName="org.openrewrite.java.DeleteMethodArgument"
-  displayName="Delete method argument"
-  groupId="org.openrewrite"
-  artifactId="rewrite-java"
-  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_JAVA"
-  isCoreLibrary
-  requiresConfiguration
-  cliOptions={' --recipe-option "methodPattern=com.yourorg.A foo(int, int)" --recipe-option "argumentIndex=0"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
-
-## See how this recipe works across multiple open-source repositories
-
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.DeleteMethodArgument" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

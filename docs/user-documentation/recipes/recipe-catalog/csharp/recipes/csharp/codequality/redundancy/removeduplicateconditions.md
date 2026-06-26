@@ -1,36 +1,36 @@
 ---
 title: "Remove duplicate conditions"
 sidebar_label: "Remove duplicate conditions"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove duplicate conditions
+<RecipeMeta
+  displayName={"Remove duplicate conditions"}
+  description={"Remove else-if branches whose condition duplicates an earlier branch in the same if/else-if chain, since the later branch is dead code."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveDuplicateConditions"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveDuplicateConditions**
+<RecipeHeader
+  displayName={"Remove duplicate conditions"}
+  description={"Remove else-if branches whose condition duplicates an earlier branch in the same if/else-if chain, since the later branch is dead code."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","redundancy","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveDuplicateConditions"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveDuplicateConditions"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeduplicateconditions.md"}
+  moderneOnly
+/>
 
-_Remove else-if branches whose condition duplicates an earlier branch in the same if/else-if chain, since the later branch is dead code._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [redundancy](/user-documentation/recipes/lists/recipes-by-tag#redundancy)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveDuplicateConditions","displayName":"Remove duplicate conditions","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveDuplicateConditions"
-  displayName="Remove duplicate conditions"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

@@ -1,42 +1,36 @@
 ---
 title: "Combine 'Enumerable.Where' method chain"
 sidebar_label: "Combine 'Enumerable.Where' method chain"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Combine 'Enumerable.Where' method chain
+<RecipeMeta
+  displayName={"Combine 'Enumerable.Where' method chain"}
+  description={"Combine consecutive Enumerable.Where method calls into a single call with a combined predicate."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.CombineWhereMethodChain"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.CombineWhereMethodChain**
+<RecipeHeader
+  displayName={"Combine 'Enumerable.Where' method chain"}
+  description={"Combine consecutive Enumerable.Where method calls into a single call with a combined predicate."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.CombineWhereMethodChain"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.CombineWhereMethodChain"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/combinewheremethodchain.md"}
+  moderneOnly
+/>
 
-_Combine consecutive Enumerable.Where method calls into a single call with a combined predicate._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Simplification code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplificationcodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.CombineWhereMethodChain","displayName":"Combine 'Enumerable.Where' method chain","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.CombineWhereMethodChain"
-  displayName="Combine 'Enumerable.Where' method chain"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

@@ -1,37 +1,36 @@
 ---
 title: "Delete `if` blocks whose body is only `pass`"
 sidebar_label: "Delete `if` blocks whose body is only `pass`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Delete `if` blocks whose body is only `pass`
+<RecipeMeta
+  displayName={"Delete `if` blocks whose body is only `pass`"}
+  description={"Delete `if` statements that contain nothing but `pass` and have no `else` branch. `for`/`while` loops are left alone because iterating may have side effects."}
+  fqName={"org.openrewrite.python.cleanup.RemoveEmptyNestedBlock"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.RemoveEmptyNestedBlock**
+<RecipeHeader
+  displayName={"Delete `if` blocks whose body is only `pass`"}
+  description={"Delete `if` statements that contain nothing but `pass` and have no `else` branch. `for`/`while` loops are left alone because iterating may have side effects."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.RemoveEmptyNestedBlock"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveEmptyNestedBlock"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeemptynestedblock.md"}
+  moderneOnly
+/>
 
-_Delete `if` statements that contain nothing but `pass` and have no `else` branch. `for`/`while` loops are left alone because iterating may have side effects._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveEmptyNestedBlock","displayName":"Delete `if` blocks whose body is only `pass`","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.RemoveEmptyNestedBlock"
-  displayName="Delete `if` blocks whose body is only `pass`"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

@@ -1,30 +1,36 @@
 ---
 title: "Use negative index instead of `len()` offset"
 sidebar_label: "Use negative index instead of `len()` offset"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use negative index instead of `len()` offset
+<RecipeMeta
+  displayName={"Use negative index instead of `len()` offset"}
+  description={"Rewrite ``seq[len(seq) - k]`` as ``seq[-k]``, using Python's native negative-indexing support."}
+  fqName={"org.openrewrite.python.cleanup.SimplifyNegativeIndex"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.SimplifyNegativeIndex**
+<RecipeHeader
+  displayName={"Use negative index instead of `len()` offset"}
+  description={"Rewrite ``seq[len(seq) - k]`` as ``seq[-k]``, using Python's native negative-indexing support."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.SimplifyNegativeIndex"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyNegativeIndex"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifynegativeindex.md"}
+  moderneOnly
+/>
 
-_Rewrite ``seq[len(seq) - k]`` as ``seq[-k]``, using Python's native negative-indexing support._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyNegativeIndex","displayName":"Use negative index instead of `len()` offset","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.SimplifyNegativeIndex"
-  displayName="Use negative index instead of `len()` offset"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

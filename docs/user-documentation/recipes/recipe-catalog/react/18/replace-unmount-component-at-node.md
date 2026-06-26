@@ -1,37 +1,36 @@
 ---
 title: "Replace `unmountComponentAtNode` with `createRoot().unmount()`"
 sidebar_label: "Replace `unmountComponentAtNode` with `createRoot().unmount()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `unmountComponentAtNode` with `createRoot().unmount()`
+<RecipeMeta
+  displayName={"Replace `unmountComponentAtNode` with `createRoot().unmount()`"}
+  description={"Replaces `ReactDOM.unmountComponentAtNode(container)` with `createRoot(container).unmount()` from `react-dom/client`."}
+  fqName={"org.openrewrite.react.18.replace-unmount-component-at-node"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.18.replace-unmount-component-at-node**
+<RecipeHeader
+  displayName={"Replace `unmountComponentAtNode` with `createRoot().unmount()`"}
+  description={"Replaces `ReactDOM.unmountComponentAtNode(container)` with `createRoot(container).unmount()` from `react-dom/client`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.18.replace-unmount-component-at-node"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.18.replace-unmount-component-at-node"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/18/replace-unmount-component-at-node.md"}
+  moderneOnly
+/>
 
-_Replaces `ReactDOM.unmountComponentAtNode(container)` with `createRoot(container).unmount()` from `react-dom/client`._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to React 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-18)
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.18.replace-unmount-component-at-node","displayName":"Replace `unmountComponentAtNode` with `createRoot().unmount()`","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.18.replace-unmount-component-at-node"
-  displayName="Replace `unmountComponentAtNode` with `createRoot().unmount()`"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

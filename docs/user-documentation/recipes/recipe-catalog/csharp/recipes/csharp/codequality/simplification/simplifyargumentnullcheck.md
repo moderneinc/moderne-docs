@@ -1,35 +1,36 @@
 ---
 title: "Simplify argument null check"
 sidebar_label: "Simplify argument null check"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Simplify argument null check
+<RecipeMeta
+  displayName={"Simplify argument null check"}
+  description={"Use ArgumentNullException.ThrowIfNull(arg) instead of manual null check."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyArgumentNullCheck"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyArgumentNullCheck**
+<RecipeHeader
+  displayName={"Simplify argument null check"}
+  description={"Use ArgumentNullException.ThrowIfNull(arg) instead of manual null check."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyArgumentNullCheck"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyArgumentNullCheck"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifyargumentnullcheck.md"}
+  moderneOnly
+/>
 
-_Use ArgumentNullException.ThrowIfNull(arg) instead of manual null check._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyArgumentNullCheck","displayName":"Simplify argument null check","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyArgumentNullCheck"
-  displayName="Simplify argument null check"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

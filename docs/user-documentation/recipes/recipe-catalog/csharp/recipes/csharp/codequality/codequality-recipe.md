@@ -1,35 +1,42 @@
 ---
 title: "Code quality"
 sidebar_label: "Code quality"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Code quality
+<RecipeMeta
+  displayName={"Code quality"}
+  description={"All C# code quality recipes, organized by category."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.CodeQuality"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.CodeQuality**
+<RecipeHeader
+  displayName={"Code quality"}
+  description={"All C# code quality recipes, organized by category."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.CodeQuality"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.CodeQuality"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/codequality-recipe.md"}
+  moderneOnly
+/>
 
-_All C# code quality recipes, organized by category._
+<RecipeList recipes={[{"name":"LINQ code quality","href":"csharp/recipes/csharp/codequality/linq/linqcodequality"},{"name":"Style code quality","href":"csharp/recipes/csharp/codequality/style/stylecodequality"},{"name":"Simplification code quality","href":"csharp/recipes/csharp/codequality/simplification/simplificationcodequality"},{"name":"Redundancy code quality","href":"csharp/recipes/csharp/codequality/redundancy/redundancycodequality"},{"name":"Performance code quality","href":"csharp/recipes/csharp/codequality/performance/performancecodequality"},{"name":"Naming code quality","href":"csharp/recipes/csharp/codequality/naming/namingcodequality"},{"name":"Formatting code quality","href":"csharp/recipes/csharp/codequality/formatting/formattingcodequality"}]}>
 
-### Tags
+## Definition
 
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
+</RecipeList>
 
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.CodeQuality","displayName":"Code quality","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.CodeQuality"
-  displayName="Code quality"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

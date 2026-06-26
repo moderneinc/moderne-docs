@@ -1,31 +1,36 @@
 ---
 title: "Use object property shorthand"
 sidebar_label: "Use object property shorthand"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use object property shorthand
+<RecipeMeta
+  displayName={"Use object property shorthand"}
+  description={"Simplifies object properties where the property name and value/variable name are the same (e.g., `{ x: x }` becomes `{ x }`). Applies to both destructuring patterns and object literals."}
+  fqName={"org.openrewrite.javascript.cleanup.use-object-property-shorthand"}
+  languages={["JavaScript"]}
+  license={"Moderne Source Available License"}
+/>
 
-**org.openrewrite.javascript.cleanup.use-object-property-shorthand**
+<RecipeHeader
+  displayName={"Use object property shorthand"}
+  description={"Simplifies object properties where the property name and value/variable name are the same (e.g., `{ x: x }` becomes `{ x }`). Applies to both destructuring patterns and object literals."}
+  type={"Single recipe"}
+  languages={["JavaScript"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.javascript.cleanup.use-object-property-shorthand"}
+  artifact={"org.openrewrite:rewrite-javascript"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.use-object-property-shorthand"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/use-object-property-shorthand.md"}
+  moderneOnly
+/>
 
-_Simplifies object properties where the property name and value/variable name are the same (e.g., `{ x: x }` becomes `{ x }`). Applies to both destructuring patterns and object literals._
-
-## Recipe source
-
-[GitHub: rewrite+org.openrewrite.javascript.cleanup.use-object-property-shorthand](https://github.com/search?type=code&q=repo:openrewrite/rewrite+org.openrewrite.javascript.cleanup.use-object-property-shorthand),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-javascript/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.cleanup.use-object-property-shorthand","displayName":"Use object property shorthand","npmPackage":"@openrewrite/rewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.javascript.cleanup.use-object-property-shorthand"
-  displayName="Use object property shorthand"
-  npmPackage="@openrewrite/rewrite"
-/>
+</UsageList>
+

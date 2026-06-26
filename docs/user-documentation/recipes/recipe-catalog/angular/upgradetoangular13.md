@@ -1,37 +1,42 @@
 ---
 title: "Upgrade to Angular 13"
 sidebar_label: "Upgrade to Angular 13"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Upgrade to Angular 13
+<RecipeMeta
+  displayName={"Upgrade to Angular 13"}
+  description={"Migrates Angular 12.x applications to Angular 13. This includes updating `tsconfig.json` target to `es2017`, removing IE11 polyfills, removing `defaultProject` from `angular.json`, adding TestBed module teardown, simplifying `ComponentFactoryResolver` usage, and upgrading Angular, TypeScript, and related dependency versions."}
+  fqName={"org.openrewrite.angular.UpgradeToAngular13"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.UpgradeToAngular13**
+<RecipeHeader
+  displayName={"Upgrade to Angular 13"}
+  description={"Migrates Angular 12.x applications to Angular 13. This includes updating `tsconfig.json` target to `es2017`, removing IE11 polyfills, removing `defaultProject` from `angular.json`, adding TestBed module teardown, simplifying `ComponentFactoryResolver` usage, and upgrading Angular, TypeScript, and related dependency versions."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.UpgradeToAngular13"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular13"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/upgradetoangular13.md"}
+  moderneOnly
+/>
 
-_Migrates Angular 12.x applications to Angular 13. This includes updating `tsconfig.json` target to `es2017`, removing IE11 polyfills, removing `defaultProject` from `angular.json`, adding TestBed module teardown, simplifying `ComponentFactoryResolver` usage, and upgrading Angular, TypeScript, and related dependency versions._
+<RecipeList recipes={[{"name":"Upgrade to Angular 12","href":"angular/upgradetoangular12"},{"name":"Update `tsconfig.json` target to `es2017`","href":"angular/migration/update-tsconfig-target"},{"name":"Remove IE11 polyfills","href":"angular/migration/remove-ie-polyfills"},{"name":"Remove `defaultProject` from `angular.json`","href":"angular/migration/remove-default-project"},{"name":"Add TestBed module teardown","href":"angular/migration/add-testbed-teardown"},{"name":"Remove `ComponentFactoryResolver`","href":"angular/migration/remove-component-factory-resolver"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 14](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular14)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.UpgradeToAngular13","displayName":"Upgrade to Angular 13","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.UpgradeToAngular13"
-  displayName="Upgrade to Angular 13"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

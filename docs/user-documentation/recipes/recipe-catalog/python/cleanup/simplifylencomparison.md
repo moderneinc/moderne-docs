@@ -1,40 +1,36 @@
 ---
 title: "Replace `len()` emptiness check with truthiness"
 sidebar_label: "Replace `len()` emptiness check with truthiness"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `len()` emptiness check with truthiness
+<RecipeMeta
+  displayName={"Replace `len()` emptiness check with truthiness"}
+  description={"Rewrite ``len(seq) > 0`` / ``len(seq) != 0`` to ``seq`` and ``len(seq) == 0`` to ``not seq``, leveraging Python's built-in truthiness for collections."}
+  fqName={"org.openrewrite.python.cleanup.SimplifyLenComparison"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.SimplifyLenComparison**
+<RecipeHeader
+  displayName={"Replace `len()` emptiness check with truthiness"}
+  description={"Rewrite ``len(seq) > 0`` / ``len(seq) != 0`` to ``seq`` and ``len(seq) == 0`` to ``not seq``, leveraging Python's built-in truthiness for collections."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.SimplifyLenComparison"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyLenComparison"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifylencomparison.md"}
+  moderneOnly
+/>
 
-```
-Rewrite ``len(seq) > 0`` / ``len(seq) != 0`` to ``seq`` and ``len(seq) == 0`` to ``not seq``, leveraging Python's built-in truthiness for collections.
-```
-
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyLenComparison","displayName":"Replace `len()` emptiness check with truthiness","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.SimplifyLenComparison"
-  displayName="Replace `len()` emptiness check with truthiness"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

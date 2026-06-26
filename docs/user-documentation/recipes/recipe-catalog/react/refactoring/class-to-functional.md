@@ -1,30 +1,36 @@
 ---
 title: "Convert class components to functional components"
 sidebar_label: "Convert class components to functional components"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Convert class components to functional components
+<RecipeMeta
+  displayName={"Convert class components to functional components"}
+  description={"Converts simple render-only class components to functional components."}
+  fqName={"org.openrewrite.react.refactoring.class-to-functional"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.refactoring.class-to-functional**
+<RecipeHeader
+  displayName={"Convert class components to functional components"}
+  description={"Converts simple render-only class components to functional components."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.refactoring.class-to-functional"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.refactoring.class-to-functional"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/refactoring/class-to-functional.md"}
+  moderneOnly
+/>
 
-_Converts simple render-only class components to functional components._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.refactoring.class-to-functional","displayName":"Convert class components to functional components","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.refactoring.class-to-functional"
-  displayName="Convert class components to functional components"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

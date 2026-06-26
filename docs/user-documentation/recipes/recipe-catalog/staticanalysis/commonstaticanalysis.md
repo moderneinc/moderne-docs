@@ -1,6 +1,7 @@
 ---
 title: "Common static analysis issues"
 sidebar_label: "Common static analysis issues"
+hide_title: true
 ---
 
 
@@ -8,400 +9,51 @@ sidebar_label: "Common static analysis issues"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Common static analysis issues
+<RecipeMeta
+  displayName={"Common static analysis issues"}
+  description={"Resolve common static analysis issues (also known as SAST issues)."}
+  fqName={"org.openrewrite.staticanalysis.CommonStaticAnalysis"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-static-analysis/blob/main/src/main/resources/META-INF/rewrite/common-static-analysis.yml"}
+/>
 
-**org.openrewrite.staticanalysis.CommonStaticAnalysis**
+<RecipeHeader
+  displayName={"Common static analysis issues"}
+  description={"Resolve common static analysis issues (also known as SAST issues)."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.staticanalysis.CommonStaticAnalysis"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md"}
+/>
 
-_Resolve common static analysis issues (also known as SAST issues)._
-
-## Recipe source
-
-[GitHub: common-static-analysis.yml](https://github.com/openrewrite/rewrite-static-analysis/blob/main/src/main/resources/META-INF/rewrite/common-static-analysis.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-static-analysis/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-static-analysis/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Constructors of an `abstract` class should not be declared `public`","href":"staticanalysis/abstractclasspublicconstructor"},{"name":"Atomic Boolean, Integer, and Long equality checks compare their values","href":"staticanalysis/atomicprimitiveequalsusesget"},{"name":"`new BigDecimal(double)` should not be used","href":"staticanalysis/bigdecimaldoubleconstructorrecipe"},{"name":"`BigDecimal` rounding constants to `RoundingMode` enums","href":"staticanalysis/bigdecimalroundingconstantstoenums"},{"name":"Boolean checks should not be inverted","href":"staticanalysis/booleanchecksnotinverted"},{"name":"CaseInsensitive comparisons do not alter case","href":"staticanalysis/caseinsensitivecomparisonsdonotchangecase"},{"name":"Catch clause should do more than just rethrow","href":"staticanalysis/catchclauseonlyrethrows"},{"name":"Chain `StringBuilder.append()` calls","href":"staticanalysis/chainstringbuilderappendcalls"},{"name":"'Collection.toArray()' should be passed an array of the proper type","href":"staticanalysis/collectiontoarrayshouldhavepropertype"},{"name":"Covariant equals","href":"staticanalysis/covariantequals"},{"name":"Default comes last","href":"staticanalysis/defaultcomeslast"},{"name":"Remove empty blocks","href":"staticanalysis/emptyblock"},{"name":"Equals avoids null","href":"staticanalysis/equalsavoidsnull"},{"name":"Explicit initialization","href":"staticanalysis/explicitinitialization"},{"name":"`Externalizable` classes have no-arguments constructor","href":"staticanalysis/externalizablehasnoargsconstructor"},{"name":"Finalize private fields","href":"staticanalysis/finalizeprivatefields"},{"name":"Fall through","href":"staticanalysis/fallthrough"},{"name":"Finalize classes with private constructors","href":"staticanalysis/finalclass"},{"name":"Fix `String#format` and `String#formatted` expressions","href":"staticanalysis/fixstringformatexpressions"},{"name":"`for` loop counters incremented in update","href":"staticanalysis/forloopincrementinupdate"},{"name":"Use `indexOf(String, int)`","href":"staticanalysis/indexofchecksshoulduseastartposition"},{"name":"`indexOf()` replaceable by `contains()`","href":"staticanalysis/indexofreplaceablebycontains"},{"name":"`indexOf` should not compare greater than zero","href":"staticanalysis/indexofshouldnotcomparegreaterthanzero"},{"name":"Inline variable","href":"staticanalysis/inlinevariable"},{"name":"Use `Collection#isEmpty()` instead of comparing `size()`","href":"staticanalysis/isemptycalloncollections"},{"name":"Simplify lambda blocks to expressions","href":"staticanalysis/lambdablocktoexpression"},{"name":"Standardize method name casing","href":"staticanalysis/methodnamecasing"},{"name":"`switch` statements should have at least 3 `case` clauses","href":"staticanalysis/minimumswitchcases"},{"name":"Modifier order","href":"staticanalysis/modifierorder"},{"name":"No multiple variable declarations","href":"staticanalysis/multiplevariabledeclarations"},{"name":"Fix missing braces","href":"staticanalysis/needbraces"},{"name":"Nested enums are not static","href":"staticanalysis/nestedenumsarenotstatic"},{"name":"Change `StringBuilder` and `StringBuffer` character constructor argument to `String`","href":"staticanalysis/newstringbuilderbufferwithcharargument"},{"name":"No double brace initialization","href":"staticanalysis/nodoublebraceinitialization"},{"name":"Use `Collections#emptyList()`, `emptyMap()`, and `emptySet()`","href":"staticanalysis/noemptycollectionwithrawtype"},{"name":"Use comparison rather than equality checks in for conditions","href":"staticanalysis/noequalityinforcondition"},{"name":"Remove `finalize()` method","href":"staticanalysis/nofinalizer"},{"name":"No primitive wrappers for #toString() or #compareTo(..)","href":"staticanalysis/noprimitivewrappersfortostringorcompareto"},{"name":"Jump statements should not be redundant","href":"staticanalysis/noredundantjumpstatements"},{"name":"Unnecessary `String#toString`","href":"staticanalysis/notostringonstringtype"},{"name":"Unnecessary `String#valueOf(..)`","href":"staticanalysis/novalueofonstringtype"},{"name":"`finalize()` calls super","href":"staticanalysis/objectfinalizecallssuper"},{"name":"Prefer `System.getProperty(\"user.home\")` over `System.getenv(\"HOME\")`","href":"staticanalysis/prefersystemgetpropertyovergetenv"},{"name":"Use primitive wrapper `valueOf` method","href":"staticanalysis/primitivewrapperclassconstructortovalueof"},{"name":"Redundant file creation","href":"staticanalysis/redundantfilecreation"},{"name":"Remove extra semicolons","href":"staticanalysis/removeextrasemicolons"},{"name":"Remove redundant null checks before instanceof","href":"staticanalysis/removeredundantnullcheckbeforeinstanceof"},{"name":"Remove redundant null checks before literal equals","href":"staticanalysis/removeredundantnullcheckbeforeliteralequals"},{"name":"Rename methods named `hashcode`, `equal`, or `tostring`","href":"staticanalysis/renamemethodsnamedhashcodeequalortostring"},{"name":"Replace `A.class.isInstance(a)` with `a instanceof A`","href":"staticanalysis/replaceclassisinstancewithinstanceof"},{"name":"Use method references in lambda","href":"staticanalysis/replacelambdawithmethodreference"},{"name":"Replace `StringBuilder#append` with `String`","href":"staticanalysis/replacestringbuilderwithstring"},{"name":"Replace String concatenation with `String.valueOf()`","href":"staticanalysis/replacestringconcatenationwithstringvalueof"},{"name":"Simplify `Arrays.asList(..)` with varargs","href":"staticanalysis/simplifyarraysaslist"},{"name":"Simplify boolean expression","href":"staticanalysis/simplifybooleanexpression"},{"name":"Simplify boolean return","href":"staticanalysis/simplifybooleanreturn"},{"name":"Static methods need not be final","href":"staticanalysis/staticmethodnotfinal"},{"name":"Use `String.equals()` on `String` literals","href":"staticanalysis/stringliteralequality"},{"name":"Unnecessary close in try-with-resources","href":"staticanalysis/unnecessarycloseintrywithresources"},{"name":"Unnecessary explicit type arguments","href":"staticanalysis/unnecessaryexplicittypearguments"},{"name":"Remove unnecessary parentheses","href":"staticanalysis/unnecessaryparentheses"},{"name":"Remove `@Nullable` and `@CheckForNull` annotations from primitives","href":"staticanalysis/unnecessaryprimitiveannotations"},{"name":"Unnecessary `return` as last statement in void method","href":"staticanalysis/unnecessaryreturnaslaststatement"},{"name":"Upper case literal suffixes","href":"staticanalysis/uppercaseliteralsuffixes"},{"name":"Use the diamond operator","href":"staticanalysis/usediamondoperator"},{"name":"No C-style array declarations","href":"staticanalysis/usejavastylearraydeclarations"},{"name":"Use %n instead of \\n in format strings","href":"staticanalysis/useportablenewlines"},{"name":"Prefer `while` over `for` loops","href":"staticanalysis/whileinsteadoffor"},{"name":"Write octal values as decimal","href":"staticanalysis/writeoctalvaluesasdecimal"},{"name":"Structural equality tests should use `==` or `!=`","href":"kotlin/cleanup/equalsmethodusage"},{"name":"`it` shouldn't be used as a lambda parameter name","href":"kotlin/cleanup/implicitparameterinlambda"},{"name":"Replace `Char#toInt()` with `Char#code`","href":"kotlin/cleanup/replacechartointwithcode"},{"name":"Order imports","href":"java/orderimports"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../core/singleton)
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nclass Test {\n    static boolean hasIndex(List<String> strList, String str) {\n        if (strList.indexOf(str) > 0) {\n        }\n        return strList.indexOf(str) > 0;\n    }\n}\n","after":"import java.util.List;\n\nclass Test {\n    static boolean hasIndex(List<String> strList, String str) {\n        strList.indexOf(str);\n        return strList.indexOf(str) >= 1;\n    }\n}\n","diff":"@@ -5,3 +5,2 @@\nclass Test {\n    static boolean hasIndex(List<String> strList, String str) {\n-       if (strList.indexOf(str) > 0) {\n-       }\n-       return strList.indexOf(str) > 0;\n+       strList.indexOf(str);\n+       return strList.indexOf(str) >= 1;\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import java.util.List;\n\nclass Test {\n    static boolean hasIndex(List<String> strList, String str) {\n        if (strList.indexOf(str) > 0) {\n        }\n        return strList.indexOf(str) > 0;\n    }\n}\n","after":"import java.util.List;\n\nclass Test {\n    static boolean hasIndex(List<String> strList, String str) {\n        strList.indexOf(str);\n        return strList.indexOf(str) >= 1;\n    }\n}\n","diff":"@@ -5,3 +5,2 @@\nclass Test {\n    static boolean hasIndex(List<String> strList, String str) {\n-       if (strList.indexOf(str) > 0) {\n-       }\n-       return strList.indexOf(str) > 0;\n+       strList.indexOf(str);\n+       return strList.indexOf(str) >= 1;\n    }\n","newFile":false}]}]}>
 
-**Recipes**
-
-* [Constructors of an `abstract` class should not be declared `public`](../staticanalysis/abstractclasspublicconstructor)
-* [Atomic Boolean, Integer, and Long equality checks compare their values](../staticanalysis/atomicprimitiveequalsusesget)
-* [`new BigDecimal(double)` should not be used](../staticanalysis/bigdecimaldoubleconstructorrecipe)
-* [`BigDecimal` rounding constants to `RoundingMode` enums](../staticanalysis/bigdecimalroundingconstantstoenums)
-* [Boolean checks should not be inverted](../staticanalysis/booleanchecksnotinverted)
-* [CaseInsensitive comparisons do not alter case](../staticanalysis/caseinsensitivecomparisonsdonotchangecase)
-* [Catch clause should do more than just rethrow](../staticanalysis/catchclauseonlyrethrows)
-* [Chain `StringBuilder.append()` calls](../staticanalysis/chainstringbuilderappendcalls)
-* ['Collection.toArray()' should be passed an array of the proper type](../staticanalysis/collectiontoarrayshouldhavepropertype)
-* [Covariant equals](../staticanalysis/covariantequals)
-* [Default comes last](../staticanalysis/defaultcomeslast)
-* [Remove empty blocks](../staticanalysis/emptyblock)
-* [Equals avoids null](../staticanalysis/equalsavoidsnull)
-* [Explicit initialization](../staticanalysis/explicitinitialization)
-* [`Externalizable` classes have no-arguments constructor](../staticanalysis/externalizablehasnoargsconstructor)
-* [Finalize private fields](../staticanalysis/finalizeprivatefields)
-* [Fall through](../staticanalysis/fallthrough)
-* [Finalize classes with private constructors](../staticanalysis/finalclass)
-* [Fix `String#format` and `String#formatted` expressions](../staticanalysis/fixstringformatexpressions)
-* [`for` loop counters incremented in update](../staticanalysis/forloopincrementinupdate)
-* [Use `indexOf(String, int)`](../staticanalysis/indexofchecksshoulduseastartposition)
-* [`indexOf()` replaceable by `contains()`](../staticanalysis/indexofreplaceablebycontains)
-* [`indexOf` should not compare greater than zero](../staticanalysis/indexofshouldnotcomparegreaterthanzero)
-* [Inline variable](../staticanalysis/inlinevariable)
-* [Use `Collection#isEmpty()` instead of comparing `size()`](../staticanalysis/isemptycalloncollections)
-* [Simplify lambda blocks to expressions](../staticanalysis/lambdablocktoexpression)
-* [Standardize method name casing](../staticanalysis/methodnamecasing)
-* [`switch` statements should have at least 3 `case` clauses](../staticanalysis/minimumswitchcases)
-* [Modifier order](../staticanalysis/modifierorder)
-* [No multiple variable declarations](../staticanalysis/multiplevariabledeclarations)
-* [Fix missing braces](../staticanalysis/needbraces)
-* [Nested enums are not static](../staticanalysis/nestedenumsarenotstatic)
-* [Change `StringBuilder` and `StringBuffer` character constructor argument to `String`](../staticanalysis/newstringbuilderbufferwithcharargument)
-* [No double brace initialization](../staticanalysis/nodoublebraceinitialization)
-* [Use `Collections#emptyList()`, `emptyMap()`, and `emptySet()`](../staticanalysis/noemptycollectionwithrawtype)
-* [Use comparison rather than equality checks in for conditions](../staticanalysis/noequalityinforcondition)
-* [Remove `finalize()` method](../staticanalysis/nofinalizer)
-* [No primitive wrappers for #toString() or #compareTo(..)](../staticanalysis/noprimitivewrappersfortostringorcompareto)
-* [Jump statements should not be redundant](../staticanalysis/noredundantjumpstatements)
-* [Unnecessary `String#toString`](../staticanalysis/notostringonstringtype)
-* [Unnecessary `String#valueOf(..)`](../staticanalysis/novalueofonstringtype)
-* [`finalize()` calls super](../staticanalysis/objectfinalizecallssuper)
-* [Prefer `System.getProperty(&quot;user.home&quot;)` over `System.getenv(&quot;HOME&quot;)`](../staticanalysis/prefersystemgetpropertyovergetenv)
-* [Use primitive wrapper `valueOf` method](../staticanalysis/primitivewrapperclassconstructortovalueof)
-* [Redundant file creation](../staticanalysis/redundantfilecreation)
-* [Remove extra semicolons](../staticanalysis/removeextrasemicolons)
-* [Remove redundant null checks before instanceof](../staticanalysis/removeredundantnullcheckbeforeinstanceof)
-* [Remove redundant null checks before literal equals](../staticanalysis/removeredundantnullcheckbeforeliteralequals)
-* [Rename methods named `hashcode`, `equal`, or `tostring`](../staticanalysis/renamemethodsnamedhashcodeequalortostring)
-* [Replace `A.class.isInstance(a)` with `a instanceof A`](../staticanalysis/replaceclassisinstancewithinstanceof)
-* [Use method references in lambda](../staticanalysis/replacelambdawithmethodreference)
-* [Replace `StringBuilder#append` with `String`](../staticanalysis/replacestringbuilderwithstring)
-* [Replace String concatenation with `String.valueOf()`](../staticanalysis/replacestringconcatenationwithstringvalueof)
-* [Simplify `Arrays.asList(..)` with varargs](../staticanalysis/simplifyarraysaslist)
-* [Simplify boolean expression](../staticanalysis/simplifybooleanexpression)
-* [Simplify boolean return](../staticanalysis/simplifybooleanreturn)
-* [Static methods need not be final](../staticanalysis/staticmethodnotfinal)
-* [Use `String.equals()` on `String` literals](../staticanalysis/stringliteralequality)
-* [Unnecessary close in try-with-resources](../staticanalysis/unnecessarycloseintrywithresources)
-* [Unnecessary explicit type arguments](../staticanalysis/unnecessaryexplicittypearguments)
-* [Remove unnecessary parentheses](../staticanalysis/unnecessaryparentheses)
-* [Remove `@Nullable` and `@CheckForNull` annotations from primitives](../staticanalysis/unnecessaryprimitiveannotations)
-* [Unnecessary `return` as last statement in void method](../staticanalysis/unnecessaryreturnaslaststatement)
-* [Upper case literal suffixes](../staticanalysis/uppercaseliteralsuffixes)
-* [Use the diamond operator](../staticanalysis/usediamondoperator)
-* [No C-style array declarations](../staticanalysis/usejavastylearraydeclarations)
-* [Use %n instead of \n in format strings](../staticanalysis/useportablenewlines)
-* [Prefer `while` over `for` loops](../staticanalysis/whileinsteadoffor)
-* [Write octal values as decimal](../staticanalysis/writeoctalvaluesasdecimal)
-* [Structural equality tests should use `==` or `!=`](../kotlin/cleanup/equalsmethodusage)
-* [`it` shouldn't be used as a lambda parameter name](../kotlin/cleanup/implicitparameterinlambda)
-* [Replace `Char#toInt()` with `Char#code`](../kotlin/cleanup/replacechartointwithcode)
-* [Order imports](../java/orderimports)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.staticanalysis.CommonStaticAnalysis
-displayName: Common static analysis issues
-description: |
-  Resolve common static analysis issues (also known as SAST issues).
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.staticanalysis.AbstractClassPublicConstructor
-  - org.openrewrite.staticanalysis.AtomicPrimitiveEqualsUsesGet
-  - org.openrewrite.staticanalysis.BigDecimalDoubleConstructorRecipe
-  - org.openrewrite.staticanalysis.BigDecimalRoundingConstantsToEnums
-  - org.openrewrite.staticanalysis.BooleanChecksNotInverted
-  - org.openrewrite.staticanalysis.CaseInsensitiveComparisonsDoNotChangeCase
-  - org.openrewrite.staticanalysis.CatchClauseOnlyRethrows
-  - org.openrewrite.staticanalysis.ChainStringBuilderAppendCalls
-  - org.openrewrite.staticanalysis.CollectionToArrayShouldHaveProperType
-  - org.openrewrite.staticanalysis.CovariantEquals
-  - org.openrewrite.staticanalysis.DefaultComesLast
-  - org.openrewrite.staticanalysis.EmptyBlock
-  - org.openrewrite.staticanalysis.EqualsAvoidsNull
-  - org.openrewrite.staticanalysis.ExplicitInitialization
-  - org.openrewrite.staticanalysis.ExternalizableHasNoArgsConstructor
-  - org.openrewrite.staticanalysis.FinalizePrivateFields
-  - org.openrewrite.staticanalysis.FallThrough
-  - org.openrewrite.staticanalysis.FinalClass
-  - org.openrewrite.staticanalysis.FixStringFormatExpressions
-  - org.openrewrite.staticanalysis.ForLoopIncrementInUpdate
-  - org.openrewrite.staticanalysis.IndexOfChecksShouldUseAStartPosition
-  - org.openrewrite.staticanalysis.IndexOfReplaceableByContains
-  - org.openrewrite.staticanalysis.IndexOfShouldNotCompareGreaterThanZero
-  - org.openrewrite.staticanalysis.InlineVariable
-  - org.openrewrite.staticanalysis.IsEmptyCallOnCollections
-  - org.openrewrite.staticanalysis.LambdaBlockToExpression
-  - org.openrewrite.staticanalysis.MethodNameCasing
-  - org.openrewrite.staticanalysis.MinimumSwitchCases
-  - org.openrewrite.staticanalysis.ModifierOrder
-  - org.openrewrite.staticanalysis.MultipleVariableDeclarations
-  - org.openrewrite.staticanalysis.NeedBraces
-  - org.openrewrite.staticanalysis.NestedEnumsAreNotStatic
-  - org.openrewrite.staticanalysis.NewStringBuilderBufferWithCharArgument
-  - org.openrewrite.staticanalysis.NoDoubleBraceInitialization
-  - org.openrewrite.staticanalysis.NoEmptyCollectionWithRawType
-  - org.openrewrite.staticanalysis.NoEqualityInForCondition
-  - org.openrewrite.staticanalysis.NoFinalizer
-  - org.openrewrite.staticanalysis.NoPrimitiveWrappersForToStringOrCompareTo
-  - org.openrewrite.staticanalysis.NoRedundantJumpStatements
-  - org.openrewrite.staticanalysis.NoToStringOnStringType
-  - org.openrewrite.staticanalysis.NoValueOfOnStringType
-  - org.openrewrite.staticanalysis.ObjectFinalizeCallsSuper
-  - org.openrewrite.staticanalysis.PreferSystemGetPropertyOverGetenv
-  - org.openrewrite.staticanalysis.PrimitiveWrapperClassConstructorToValueOf
-  - org.openrewrite.staticanalysis.RedundantFileCreation
-  - org.openrewrite.staticanalysis.RemoveExtraSemicolons
-  - org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeInstanceof
-  - org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeLiteralEquals
-  - org.openrewrite.staticanalysis.RenameMethodsNamedHashcodeEqualOrToString
-  - org.openrewrite.staticanalysis.ReplaceClassIsInstanceWithInstanceof
-  - org.openrewrite.staticanalysis.ReplaceLambdaWithMethodReference
-  - org.openrewrite.staticanalysis.ReplaceStringBuilderWithString
-  - org.openrewrite.staticanalysis.ReplaceStringConcatenationWithStringValueOf
-  - org.openrewrite.staticanalysis.SimplifyArraysAsList
-  - org.openrewrite.staticanalysis.SimplifyBooleanExpression
-  - org.openrewrite.staticanalysis.SimplifyBooleanReturn
-  - org.openrewrite.staticanalysis.StaticMethodNotFinal
-  - org.openrewrite.staticanalysis.StringLiteralEquality
-  - org.openrewrite.staticanalysis.UnnecessaryCloseInTryWithResources
-  - org.openrewrite.staticanalysis.UnnecessaryExplicitTypeArguments
-  - org.openrewrite.staticanalysis.UnnecessaryParentheses
-  - org.openrewrite.staticanalysis.UnnecessaryPrimitiveAnnotations
-  - org.openrewrite.staticanalysis.UnnecessaryReturnAsLastStatement
-  - org.openrewrite.staticanalysis.UpperCaseLiteralSuffixes
-  - org.openrewrite.staticanalysis.UseDiamondOperator
-  - org.openrewrite.staticanalysis.UseJavaStyleArrayDeclarations
-  - org.openrewrite.staticanalysis.UsePortableNewlines
-  - org.openrewrite.staticanalysis.WhileInsteadOfFor
-  - org.openrewrite.staticanalysis.WriteOctalValuesAsDecimal
-  - org.openrewrite.kotlin.cleanup.EqualsMethodUsage
-  - org.openrewrite.kotlin.cleanup.ImplicitParameterInLambda
-  - org.openrewrite.kotlin.cleanup.ReplaceCharToIntWithCode
-  - org.openrewrite.java.OrderImports
-
-```
-</TabItem>
-</Tabs>
 ## Examples
-##### Example 1
-`CommonStaticAnalysisIssuesPerformanceTest#indexOfOnList`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.util.List;
-
-class Test {
-    static boolean hasIndex(List<String> strList, String str) {
-        if (strList.indexOf(str) > 0) {
-        }
-        return strList.indexOf(str) > 0;
-    }
-}
-```
-
-###### After
-```java
-import java.util.List;
-
-class Test {
-    static boolean hasIndex(List<String> strList, String str) {
-        strList.indexOf(str);
-        return strList.indexOf(str) >= 1;
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -5,3 +5,2 @@
-class Test {
-    static boolean hasIndex(List<String> strList, String str) {
--       if (strList.indexOf(str) > 0) {
--       }
--       return strList.indexOf(str) > 0;
-+       strList.indexOf(str);
-+       return strList.indexOf(str) >= 1;
-    }
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`CommonStaticAnalysisIssuesPerformanceTest#indexOfOnList`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.util.List;
-
-class Test {
-    static boolean hasIndex(List<String> strList, String str) {
-        if (strList.indexOf(str) > 0) {
-        }
-        return strList.indexOf(str) > 0;
-    }
-}
-```
-
-###### After
-```java
-import java.util.List;
-
-class Test {
-    static boolean hasIndex(List<String> strList, String str) {
-        strList.indexOf(str);
-        return strList.indexOf(str) >= 1;
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -5,3 +5,2 @@
-class Test {
-    static boolean hasIndex(List<String> strList, String str) {
--       if (strList.indexOf(str) > 0) {
--       }
--       return strList.indexOf(str) > 0;
-+       strList.indexOf(str);
-+       return strList.indexOf(str) >= 1;
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.CommonStaticAnalysis","displayName":"Common static analysis issues","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.staticanalysis.CommonStaticAnalysis"
-  displayName="Common static analysis issues"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-static-analysis"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

@@ -1,37 +1,36 @@
 ---
 title: "Use generator expression instead of list comprehension in iterable-accepting calls"
 sidebar_label: "Use generator expression instead of list comprehension in iterable-accepting calls"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use generator expression instead of list comprehension in iterable-accepting calls
+<RecipeMeta
+  displayName={"Use generator expression instead of list comprehension in iterable-accepting calls"}
+  description={"Functions that consume iterables lazily (e.g. `any`, `sum`, `sorted`) do not need a list comprehension -- a generator expression suffices."}
+  fqName={"org.openrewrite.python.cleanup.ComprehensionToGenerator"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.ComprehensionToGenerator**
+<RecipeHeader
+  displayName={"Use generator expression instead of list comprehension in iterable-accepting calls"}
+  description={"Functions that consume iterables lazily (e.g. `any`, `sum`, `sorted`) do not need a list comprehension -- a generator expression suffices."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.ComprehensionToGenerator"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.ComprehensionToGenerator"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/comprehensiontogenerator.md"}
+  moderneOnly
+/>
 
-_Functions that consume iterables lazily (e.g. `any`, `sum`, `sorted`) do not need a list comprehension -- a generator expression suffices._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.ComprehensionToGenerator","displayName":"Use generator expression instead of list comprehension in iterable-accepting calls","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.ComprehensionToGenerator"
-  displayName="Use generator expression instead of list comprehension in iterable-accepting calls"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

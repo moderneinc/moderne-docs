@@ -1,6 +1,7 @@
 ---
 title: "Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization"
 sidebar_label: "Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization"
+hide_title: true
 ---
 
 
@@ -8,190 +9,51 @@ sidebar_label: "Replace `MockitoTestExecutionListener` with the equivalent Mocki
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/replacemockitotestexecutionlistener" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization
+<RecipeMeta
+  displayName={"Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization"}
+  description={"Replace `@TestExecutionListeners(MockitoTestExecutionListener.class)` with the appropriate Mockito initialization for the test framework in use: `@ExtendWith(MockitoExtension.class)` for JUnit 5, `@RunWith(MockitoJUnitRunner.class)` for JUnit 4, or `MockitoAnnotations.openMocks(this)` for TestNG."}
+  fqName={"org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/mockito/ReplaceMockitoTestExecutionListener.java"}
+/>
 
-**org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener**
+<RecipeHeader
+  displayName={"Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization"}
+  description={"Replace `@TestExecutionListeners(MockitoTestExecutionListener.class)` with the appropriate Mockito initialization for the test framework in use: `@ExtendWith(MockitoExtension.class)` for JUnit 5, `@RunWith(MockitoJUnitRunner.class)` for JUnit 4, or `MockitoAnnotations.openMocks(this)` for TestNG."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener"}
+  artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacemockitotestexecutionlistener.md"}
+/>
 
-_Replace `@TestExecutionListeners(MockitoTestExecutionListener.class)` with the appropriate Mockito initialization for the test framework in use: `@ExtendWith(MockitoExtension.class)` for JUnit 5, `@RunWith(MockitoJUnitRunner.class)` for JUnit 4, or `MockitoAnnotations.openMocks(this)` for TestNG._
-
-## Recipe source
-
-[GitHub: ReplaceMockitoTestExecutionListener.java](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/mockito/ReplaceMockitoTestExecutionListener.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-testing-frameworks/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-testing-frameworks/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+<OptionsTable options={[{"type":"String","name":"targetFramework","required":false,"description":"The test framework to use when imports alone cannot determine the framework. Typically set by wrapper recipes that check project dependencies."}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | targetFramework | *Optional*. The test framework to use when imports alone cannot determine the framework. Typically set by wrapper recipes that check project dependencies. Valid options: `jupiter`, `junit4`, `testng` |  |
+</OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"targetFramework","value":"null"}],"variants":[{"language":"java","before":"import org.springframework.test.context.TestExecutionListeners;\nimport org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener;\nimport org.junit.jupiter.api.Test;\n\n@TestExecutionListeners(mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS, listeners = {MockitoTestExecutionListener.class})\npublic class SampleTest {\n    @Test\n    void test() {}\n}\n","after":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.junit.jupiter.MockitoExtension;\nimport org.junit.jupiter.api.Test;\n\n@ExtendWith(MockitoExtension.class)\npublic class SampleTest {\n    @Test\n    void test() {}\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.springframework.test.context.TestExecutionListeners;\n-import org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener;\n+import org.junit.jupiter.api.extension.ExtendWith;\n+import org.mockito.junit.jupiter.MockitoExtension;\nimport org.junit.jupiter.api.Test;\n@@ -5,1 +5,1 @@\nimport org.junit.jupiter.api.Test;\n\n-@TestExecutionListeners(mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS, listeners = {MockitoTestExecutionListener.class})\n+@ExtendWith(MockitoExtension.class)\npublic class SampleTest {\n","newFile":false}]}]}>
 
-## Used by
+## Examples
 
-This recipe is used as part of the following composite recipes:
+</ExampleList>
 
-* [Replace `MockitoTestExecutionListener` (JUnit 4 projects)](/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacemockitotestexecutionlistenerforjunit4.md)
-* [Replace `MockitoTestExecutionListener` (JUnit Jupiter projects)](/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacemockitotestexecutionlistenerforjupiter.md)
-* [Replace `MockitoTestExecutionListener` (TestNG projects)](/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacemockitotestexecutionlistenerfortestng.md)
-
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|targetFramework|`null`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener;
-import org.junit.jupiter.api.Test;
-
-@TestExecutionListeners(mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS, listeners = {MockitoTestExecutionListener.class})
-public class SampleTest {
-    @Test
-    void test() {}
-}
-```
-
-###### After
-```java
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.junit.jupiter.api.Test;
-
-@ExtendWith(MockitoExtension.class)
-public class SampleTest {
-    @Test
-    void test() {}
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,2 @@
--import org.springframework.test.context.TestExecutionListeners;
--import org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener;
-+import org.junit.jupiter.api.extension.ExtendWith;
-+import org.mockito.junit.jupiter.MockitoExtension;
-import org.junit.jupiter.api.Test;
-@@ -5,1 +5,1 @@
-import org.junit.jupiter.api.Test;
-
--@TestExecutionListeners(mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS, listeners = {MockitoTestExecutionListener.class})
-+@ExtendWith(MockitoExtension.class)
-public class SampleTest {
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener","displayName":"Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener"
-  displayName="Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-testing-frameworks"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

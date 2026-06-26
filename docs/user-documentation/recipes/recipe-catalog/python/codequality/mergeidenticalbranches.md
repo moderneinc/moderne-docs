@@ -1,36 +1,36 @@
 ---
 title: "Merge consecutive branches with identical bodies"
 sidebar_label: "Merge consecutive branches with identical bodies"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Merge consecutive branches with identical bodies
+<RecipeMeta
+  displayName={"Merge consecutive branches with identical bodies"}
+  description={"Combine consecutive `if`/`elif` branches that have the same body into a single branch with conditions joined by `or`."}
+  fqName={"org.openrewrite.python.codequality.MergeIdenticalBranches"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.codequality.MergeIdenticalBranches**
+<RecipeHeader
+  displayName={"Merge consecutive branches with identical bodies"}
+  description={"Combine consecutive `if`/`elif` branches that have the same body into a single branch with conditions joined by `or`."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={["python","code-quality","RSPEC-S1871"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.codequality.MergeIdenticalBranches"}
+  artifact={"org.openrewrite.recipe:rewrite-migrate-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.codequality.MergeIdenticalBranches"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/codequality/mergeidenticalbranches.md"}
+  moderneOnly
+/>
 
-_Combine consecutive `if`/`elif` branches that have the same body into a single branch with conditions joined by `or`._
-
-### Tags
-
-* [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-* [RSPEC-S1871](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S1871&open=java%3AS1871)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.codequality.MergeIdenticalBranches","displayName":"Merge consecutive branches with identical bodies","pipPackage":"openrewrite-migrate-python"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.codequality.MergeIdenticalBranches"
-  displayName="Merge consecutive branches with identical bodies"
-  pipPackage="openrewrite-migrate-python"
-/>
+</UsageList>
+

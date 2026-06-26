@@ -1,37 +1,36 @@
 ---
 title: "Migrate `PrimeNG` config field assignments to `.set()`"
 sidebar_label: "Migrate `PrimeNG` config field assignments to `.set()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate `PrimeNG` config field assignments to `.set()`
+<RecipeMeta
+  displayName={"Migrate `PrimeNG` config field assignments to `.set()`"}
+  description={"In PrimeNG 18, fields on the `PrimeNG` config service like `ripple`, `inputStyle`, `inputVariant`, and `csp` are `WritableSignal<T>` rather than plain fields. Direct assignment (`service.ripple = true`) no longer compiles. This recipe rewrites such assignments to use the signal's `set()` method (`service.ripple.set(true)`) when the file imports `PrimeNG` from `primeng/config`."}
+  fqName={"org.openrewrite.primeng.MigratePrimeNGSignalAssignments"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.primeng.MigratePrimeNGSignalAssignments**
+<RecipeHeader
+  displayName={"Migrate `PrimeNG` config field assignments to `.set()`"}
+  description={"In PrimeNG 18, fields on the `PrimeNG` config service like `ripple`, `inputStyle`, `inputVariant`, and `csp` are `WritableSignal<T>` rather than plain fields. Direct assignment (`service.ripple = true`) no longer compiles. This recipe rewrites such assignments to use the signal's `set()` method (`service.ripple.set(true)`) when the file imports `PrimeNG` from `primeng/config`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.primeng.MigratePrimeNGSignalAssignments"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.MigratePrimeNGSignalAssignments"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/migrateprimengsignalassignments.md"}
+  moderneOnly
+/>
 
-_In PrimeNG 18, fields on the `PrimeNG` config service like `ripple`, `inputStyle`, `inputVariant`, and `csp` are `WritableSignal<T>` rather than plain fields. Direct assignment (`service.ripple = true`) no longer compiles. This recipe rewrites such assignments to use the signal's `set()` method (`service.ripple.set(true)`) when the file imports `PrimeNG` from `primeng/config`._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to PrimeNG 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/primeng/upgradeto18)
-
+<UsageList usage={{"recipeName":"org.openrewrite.primeng.MigratePrimeNGSignalAssignments","displayName":"Migrate `PrimeNG` config field assignments to `.set()`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.primeng.MigratePrimeNGSignalAssignments"
-  displayName="Migrate `PrimeNG` config field assignments to `.set()`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

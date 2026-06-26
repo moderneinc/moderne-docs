@@ -1,37 +1,36 @@
 ---
 title: "Replace `TestBed.get()` with `TestBed.inject()`"
 sidebar_label: "Replace `TestBed.get()` with `TestBed.inject()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `TestBed.get()` with `TestBed.inject()`
+<RecipeMeta
+  displayName={"Replace `TestBed.get()` with `TestBed.inject()`"}
+  description={"Replaces deprecated `TestBed.get()` calls with `TestBed.inject()`. `TestBed.get()` was deprecated in Angular 9 and removed in Angular 13."}
+  fqName={"org.openrewrite.angular.migration.replace-testbed-get-with-inject"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.replace-testbed-get-with-inject**
+<RecipeHeader
+  displayName={"Replace `TestBed.get()` with `TestBed.inject()`"}
+  description={"Replaces deprecated `TestBed.get()` calls with `TestBed.inject()`. `TestBed.get()` was deprecated in Angular 9 and removed in Angular 13."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.replace-testbed-get-with-inject"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-testbed-get-with-inject"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-testbed-get-with-inject.md"}
+  moderneOnly
+/>
 
-_Replaces deprecated `TestBed.get()` calls with `TestBed.inject()`. `TestBed.get()` was deprecated in Angular 9 and removed in Angular 13._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular9)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-testbed-get-with-inject","displayName":"Replace `TestBed.get()` with `TestBed.inject()`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.replace-testbed-get-with-inject"
-  displayName="Replace `TestBed.get()` with `TestBed.inject()`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

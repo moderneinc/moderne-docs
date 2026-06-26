@@ -1,42 +1,36 @@
 ---
 title: "Rename parameter to camelCase"
 sidebar_label: "Rename parameter to camelCase"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Rename parameter to camelCase
+<RecipeMeta
+  displayName={"Rename parameter to camelCase"}
+  description={"Detect parameters not following camelCase naming convention."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.RenameParameterAccordingToConvention"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Naming.RenameParameterAccordingToConvention**
+<RecipeHeader
+  displayName={"Rename parameter to camelCase"}
+  description={"Detect parameters not following camelCase naming convention."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.RenameParameterAccordingToConvention"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.RenameParameterAccordingToConvention"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/renameparameteraccordingtoconvention.md"}
+  moderneOnly
+/>
 
-_Detect parameters not following camelCase naming convention._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Naming code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/namingcodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.RenameParameterAccordingToConvention","displayName":"Rename parameter to camelCase","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Naming.RenameParameterAccordingToConvention"
-  displayName="Rename parameter to camelCase"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

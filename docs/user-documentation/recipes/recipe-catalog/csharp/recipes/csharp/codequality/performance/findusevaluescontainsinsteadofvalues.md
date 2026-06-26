@@ -1,43 +1,36 @@
 ---
 title: "Find Values.Contains() instead of ContainsValue()"
 sidebar_label: "Find Values.Contains() instead of ContainsValue()"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find Values.Contains() instead of ContainsValue()
+<RecipeMeta
+  displayName={"Find Values.Contains() instead of ContainsValue()"}
+  description={"Detect `.Values.Contains(value)` on dictionaries. Use `.ContainsValue(value)` instead."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindUseValuesContainsInsteadOfValues"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindUseValuesContainsInsteadOfValues**
+<RecipeHeader
+  displayName={"Find Values.Contains() instead of ContainsValue()"}
+  description={"Detect `.Values.Contains(value)` on dictionaries. Use `.ContainsValue(value)` instead."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","performance","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindUseValuesContainsInsteadOfValues"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindUseValuesContainsInsteadOfValues"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findusevaluescontainsinsteadofvalues.md"}
+  moderneOnly
+/>
 
-_Detect `.Values.Contains(value)` on dictionaries. Use `.ContainsValue(value)` instead._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [performance](/user-documentation/recipes/lists/recipes-by-tag#performance)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Performance code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/performancecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindUseValuesContainsInsteadOfValues","displayName":"Find Values.Contains() instead of ContainsValue()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindUseValuesContainsInsteadOfValues"
-  displayName="Find Values.Contains() instead of ContainsValue()"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

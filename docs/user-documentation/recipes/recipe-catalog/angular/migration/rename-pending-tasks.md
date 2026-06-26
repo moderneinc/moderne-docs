@@ -1,37 +1,36 @@
 ---
 title: "Rename `ExperimentalPendingTasks` to `PendingTasks`"
 sidebar_label: "Rename `ExperimentalPendingTasks` to `PendingTasks`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Rename `ExperimentalPendingTasks` to `PendingTasks`
+<RecipeMeta
+  displayName={"Rename `ExperimentalPendingTasks` to `PendingTasks`"}
+  description={"Renames `ExperimentalPendingTasks` to `PendingTasks` in imports and usages. `ExperimentalPendingTasks` was renamed in Angular 19."}
+  fqName={"org.openrewrite.angular.migration.rename-pending-tasks"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.rename-pending-tasks**
+<RecipeHeader
+  displayName={"Rename `ExperimentalPendingTasks` to `PendingTasks`"}
+  description={"Renames `ExperimentalPendingTasks` to `PendingTasks` in imports and usages. `ExperimentalPendingTasks` was renamed in Angular 19."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.rename-pending-tasks"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.rename-pending-tasks"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/rename-pending-tasks.md"}
+  moderneOnly
+/>
 
-_Renames `ExperimentalPendingTasks` to `PendingTasks` in imports and usages. `ExperimentalPendingTasks` was renamed in Angular 19._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular19)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.rename-pending-tasks","displayName":"Rename `ExperimentalPendingTasks` to `PendingTasks`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.rename-pending-tasks"
-  displayName="Rename `ExperimentalPendingTasks` to `PendingTasks`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

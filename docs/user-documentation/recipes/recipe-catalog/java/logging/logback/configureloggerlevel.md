@@ -1,6 +1,7 @@
 ---
 title: "Configure logback logger level"
 sidebar_label: "Configure logback logger level"
+hide_title: true
 ---
 
 
@@ -8,207 +9,51 @@ sidebar_label: "Configure logback logger level"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/logback/configureloggerlevel" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Configure logback logger level
+<RecipeMeta
+  displayName={"Configure logback logger level"}
+  description={"Within logback.xml configuration files sets the specified log level for a particular class. Will not create a logback.xml if one does not already exist."}
+  fqName={"org.openrewrite.java.logging.logback.ConfigureLoggerLevel"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-logging-frameworks/blob/main/src/main/java/org/openrewrite/java/logging/logback/ConfigureLoggerLevel.java"}
+/>
 
-**org.openrewrite.java.logging.logback.ConfigureLoggerLevel**
+<RecipeHeader
+  displayName={"Configure logback logger level"}
+  description={"Within logback.xml configuration files sets the specified log level for a particular class. Will not create a logback.xml if one does not already exist."}
+  type={"Single recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.logging.logback.ConfigureLoggerLevel"}
+  artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.logback.ConfigureLoggerLevel"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/logback/configureloggerlevel.md"}
+/>
 
-_Within logback.xml configuration files sets the specified log level for a particular class. Will not create a logback.xml if one does not already exist._
-
-## Recipe source
-
-[GitHub: ConfigureLoggerLevel.java](https://github.com/openrewrite/rewrite-logging-frameworks/blob/main/src/main/java/org/openrewrite/java/logging/logback/ConfigureLoggerLevel.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-logging-frameworks/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-logging-frameworks/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+<OptionsTable options={[{"type":"String","name":"className","required":true,"description":"The fully qualified class name to configure the log level for","example":"com.example.MyClass"},{"type":"LogLevel","name":"logLevel","required":true,"description":"The log level to set for the class","example":"off"},{"type":"String","name":"filePattern","required":false,"description":"A glob expression that can be used to constrain which directories or source files should be searched. Multiple patterns may be specified, separated by a semicolon `;`. If multiple patterns are supplied any of the patterns matching will be interpreted as a match. When not set, '**/logback.xml' is used.","example":"**/logback-spring.xml"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | className | The fully qualified class name to configure the log level for | `com.example.MyClass` |
-| `LogLevel` | logLevel | The log level to set for the class Valid options: `trace`, `debug`, `info`, `warn`, `error`, `off` | `off` |
-| `String` | filePattern | *Optional*. A glob expression that can be used to constrain which directories or source files should be searched. Multiple patterns may be specified, separated by a semicolon `;`. If multiple patterns are supplied any of the patterns matching will be interpreted as a match. When not set, '**/logback.xml' is used. | `**/logback-spring.xml` |
+</OptionsTable>
 
-## Example
+<ExampleList examples={[{"parameters":[{"parameter":"className","value":"org.springframework"},{"parameter":"logLevel","value":"ConfigureLoggerLevel.LogLevel.off"},{"parameter":"filePattern","value":"null"}],"variants":[{"language":"xml","before":"<configuration>\n    <appender name=\"STDOUT\" class=\"ch.qos.logback.core.ConsoleAppender\">\n        <layout class=\"ch.qos.logback.classic.PatternLayout\">\n            <Pattern>\n                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n\n            </Pattern>\n        </layout>\n    </appender>\n\n    <logger name=\"org.springframework\" level=\"error\" additivity=\"false\">\n        <appender-ref ref=\"STDOUT\" />\n    </logger>\n</configuration>\n","after":"<configuration>\n    <appender name=\"STDOUT\" class=\"ch.qos.logback.core.ConsoleAppender\">\n        <layout class=\"ch.qos.logback.classic.PatternLayout\">\n            <Pattern>\n                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n\n            </Pattern>\n        </layout>\n    </appender>\n\n    <logger name=\"org.springframework\" level=\"off\" additivity=\"false\">\n        <appender-ref ref=\"STDOUT\" />\n    </logger>\n</configuration>\n","diff":"--- logback.xml\n+++ logback.xml\n@@ -10,1 +10,1 @@\n    </appender>\n\n-   <logger name=\"org.springframework\" level=\"error\" additivity=\"false\">\n+   <logger name=\"org.springframework\" level=\"off\" additivity=\"false\">\n        <appender-ref ref=\"STDOUT\" />\n","newFile":false}]}]}>
 
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|className|`org.springframework`|
-|logLevel|`ConfigureLoggerLevel.LogLevel.off`|
-|filePattern|`null`|
+## Examples
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="logback.xml" label="logback.xml">
-
-
-###### Before
-```xml title="logback.xml"
-<configuration>
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
-            </Pattern>
-        </layout>
-    </appender>
-
-    <logger name="org.springframework" level="error" additivity="false">
-        <appender-ref ref="STDOUT" />
-    </logger>
-</configuration>
-```
-
-###### After
-```xml title="logback.xml"
-<configuration>
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
-            </Pattern>
-        </layout>
-    </appender>
-
-    <logger name="org.springframework" level="off" additivity="false">
-        <appender-ref ref="STDOUT" />
-    </logger>
-</configuration>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- logback.xml
-+++ logback.xml
-@@ -10,1 +10,1 @@
-    </appender>
-
--   <logger name="org.springframework" level="error" additivity="false">
-+   <logger name="org.springframework" level="off" additivity="false">
-        <appender-ref ref="STDOUT" />
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.logging.logback.ConfigureLoggerLevel","displayName":"Configure logback logger level","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"className=com.example.MyClass\" --recipe-option \"logLevel=off\" --recipe-option \"filePattern='**/logback-spring.xml'\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.ConfigureLoggerLevelExample
-displayName: Configure logback logger level example
-recipeList:
-  - org.openrewrite.java.logging.logback.ConfigureLoggerLevel:
-      className: com.example.MyClass
-      logLevel: off
-      filePattern: '**/logback-spring.xml'
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.java.logging.logback.ConfigureLoggerLevel"
-  displayName="Configure logback logger level"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-logging-frameworks"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS"
-  requiresConfiguration
-  cliOptions={' --recipe-option "className=com.example.MyClass" --recipe-option "logLevel=off" --recipe-option "filePattern=\'**/logback-spring.xml\'"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.logging.logback.ConfigureLoggerLevel" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

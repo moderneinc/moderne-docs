@@ -1,37 +1,36 @@
 ---
 title: "Drop ``else`` after early-exit ``if`` branch"
 sidebar_label: "Drop ``else`` after early-exit ``if`` branch"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Drop ``else`` after early-exit ``if`` branch
+<RecipeMeta
+  displayName={"Drop ``else`` after early-exit ``if`` branch"}
+  description={"When the ``if`` body always exits via return, raise, continue, or break, remove the ``else`` and dedent its contents."}
+  fqName={"org.openrewrite.python.cleanup.RemoveUnnecessaryElse"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.RemoveUnnecessaryElse**
+<RecipeHeader
+  displayName={"Drop ``else`` after early-exit ``if`` branch"}
+  description={"When the ``if`` body always exits via return, raise, continue, or break, remove the ``else`` and dedent its contents."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.RemoveUnnecessaryElse"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveUnnecessaryElse"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeunnecessaryelse.md"}
+  moderneOnly
+/>
 
-_When the ``if`` body always exits via return, raise, continue, or break, remove the ``else`` and dedent its contents._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveUnnecessaryElse","displayName":"Drop ``else`` after early-exit ``if`` branch","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.RemoveUnnecessaryElse"
-  displayName="Drop ``else`` after early-exit ``if`` branch"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

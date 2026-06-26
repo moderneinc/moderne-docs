@@ -10,5 +10,6 @@ _Recipes that track data flow through programs to identify dead stores, unused v
 
 * [Find dead stores](./finddeadstores.md)
 * [Find unclosed resources (S2095)](./findunclosedresources.md)
+* [Parameterize raw `Collection`-typed local variables](./parameterizerawcollection.md)
 
 

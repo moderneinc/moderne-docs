@@ -1,6 +1,7 @@
 ---
 title: "Migrate Hamcrest assertions to JUnit Jupiter"
 sidebar_label: "Migrate Hamcrest assertions to JUnit Jupiter"
+hide_title: true
 ---
 
 
@@ -8,339 +9,51 @@ sidebar_label: "Migrate Hamcrest assertions to JUnit Jupiter"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/hamcrest/migratehamcresttojunit5" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate Hamcrest assertions to JUnit Jupiter
+<RecipeMeta
+  displayName={"Migrate Hamcrest assertions to JUnit Jupiter"}
+  description={"Migrate Hamcrest `assertThat(..)` to JUnit Jupiter `Assertions`."}
+  fqName={"org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/hamcrest.yml"}
+/>
 
-**org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5**
+<RecipeHeader
+  displayName={"Migrate Hamcrest assertions to JUnit Jupiter"}
+  description={"Migrate Hamcrest `assertThat(..)` to JUnit Jupiter `Assertions`."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["testing","assertj","hamcrest"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5"}
+  artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/migratehamcresttojunit5.md"}
+/>
 
-_Migrate Hamcrest `assertThat(..)` to JUnit Jupiter `Assertions`._
-
-### Tags
-
-* [testing](/user-documentation/recipes/lists/recipes-by-tag#testing)
-* [assertj](/user-documentation/recipes/lists/recipes-by-tag#assertj)
-* [hamcrest](/user-documentation/recipes/lists/recipes-by-tag#hamcrest)
-
-## Recipe source
-
-[GitHub: hamcrest.yml](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/hamcrest.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-testing-frameworks/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-testing-frameworks/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Use consistent Hamcrest matcher imports","href":"java/testing/hamcrest/consistenthamcrestmatcherimports"},{"name":"Reorder method arguments","href":"java/reordermethodarguments"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Migrate from Hamcrest `instanceOf` matcher to JUnit 5","href":"java/testing/hamcrest/hamcrestinstanceoftojunit5"},{"name":"Migrate from Hamcrest `Matcher` to JUnit 5","href":"java/testing/hamcrest/hamcrestmatchertojunit5"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../../core/singleton)
-
-**Recipes**
-
-* [Use consistent Hamcrest matcher imports](../../../java/testing/hamcrest/consistenthamcrestmatcherimports)
-* [Reorder method arguments](../../../java/reordermethodarguments)
-  * methodPattern: `org.hamcrest.MatcherAssert assertThat(java.lang.String, boolean)`
-  * newParameterNames: `[assertion, reason]`
-  * oldParameterNames: `[reason, assertion]`
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.hamcrest.MatcherAssert assertThat(boolean, String)`
-  * newMethodName: `assertTrue`
-* [Change method target to static](../../../java/changemethodtargettostatic)
-  * methodPattern: `org.hamcrest.MatcherAssert assertTrue(boolean, String)`
-  * fullyQualifiedTargetTypeName: `org.junit.jupiter.api.Assertions`
-* [Migrate from Hamcrest `instanceOf` matcher to JUnit 5](../../../java/testing/hamcrest/hamcrestinstanceoftojunit5)
-* [Migrate from Hamcrest `Matcher` to JUnit 5](../../../java/testing/hamcrest/hamcrestmatchertojunit5)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5
-displayName: Migrate Hamcrest assertions to JUnit Jupiter
-description: |
-  Migrate Hamcrest `assertThat(..)` to JUnit Jupiter `Assertions`.
-tags:
-  - testing
-  - assertj
-  - hamcrest
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.java.testing.hamcrest.ConsistentHamcrestMatcherImports
-  - org.openrewrite.java.ReorderMethodArguments:
-      methodPattern: org.hamcrest.MatcherAssert assertThat(java.lang.String, boolean)
-      newParameterNames:
-        - assertion
-        - reason
-      oldParameterNames:
-        - reason
-        - assertion
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.hamcrest.MatcherAssert assertThat(boolean, String)
-      newMethodName: assertTrue
-  - org.openrewrite.java.ChangeMethodTargetToStatic:
-      methodPattern: org.hamcrest.MatcherAssert assertTrue(boolean, String)
-      fullyQualifiedTargetTypeName: org.junit.jupiter.api.Assertions
-  - org.openrewrite.java.testing.hamcrest.HamcrestInstanceOfToJUnit5
-  - org.openrewrite.java.testing.hamcrest.HamcrestMatcherToJUnit5
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [JUnit Jupiter best practices](/user-documentation/recipes/recipe-catalog/java/testing/junit/jupiterbestpractices.md)
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport static org.hamcrest.MatcherAssert.assertThat;\nimport static org.hamcrest.Matchers.equalTo;\nimport static org.hamcrest.Matchers.is;\nimport static org.hamcrest.Matchers.not;\n\nclass ATest {\n    @Test\n    void testEquals() {\n        String str1 = \"Hello world!\";\n        String str2 = \"Hello world!\";\n        assertThat(str1, is(equalTo(str2)));\n        assertThat(str1, is(not(equalTo(str2 + \"!\"))));\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nclass ATest {\n    @Test\n    void testEquals() {\n        String str1 = \"Hello world!\";\n        String str2 = \"Hello world!\";\n        assertEquals(str1, str2);\n        assertNotEquals(str1, str2 + \"!\");\n    }\n}\n","diff":"@@ -2,4 +2,2 @@\nimport org.junit.jupiter.api.Test;\n-import static org.hamcrest.MatcherAssert.assertThat;\n-import static org.hamcrest.Matchers.equalTo;\n-import static org.hamcrest.Matchers.is;\n-import static org.hamcrest.Matchers.not;\n+import static org.junit.jupiter.api.Assertions.assertEquals;\n+import static org.junit.jupiter.api.Assertions.assertNotEquals;\n\n@@ -12,2 +10,2 @@\n        String str1 = \"Hello world!\";\n        String str2 = \"Hello world!\";\n-       assertThat(str1, is(equalTo(str2)));\n-       assertThat(str1, is(not(equalTo(str2 + \"!\"))));\n+       assertEquals(str1, str2);\n+       assertNotEquals(str1, str2 + \"!\");\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport static org.hamcrest.MatcherAssert.assertThat;\nimport static org.hamcrest.Matchers.equalTo;\nimport static org.hamcrest.Matchers.is;\nimport static org.hamcrest.Matchers.not;\n\nclass ATest {\n    @Test\n    void testEquals() {\n        String str1 = \"Hello world!\";\n        String str2 = \"Hello world!\";\n        assertThat(str1, is(equalTo(str2)));\n        assertThat(str1, is(not(equalTo(str2 + \"!\"))));\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nclass ATest {\n    @Test\n    void testEquals() {\n        String str1 = \"Hello world!\";\n        String str2 = \"Hello world!\";\n        assertEquals(str1, str2);\n        assertNotEquals(str1, str2 + \"!\");\n    }\n}\n","diff":"@@ -2,4 +2,2 @@\nimport org.junit.jupiter.api.Test;\n-import static org.hamcrest.MatcherAssert.assertThat;\n-import static org.hamcrest.Matchers.equalTo;\n-import static org.hamcrest.Matchers.is;\n-import static org.hamcrest.Matchers.not;\n+import static org.junit.jupiter.api.Assertions.assertEquals;\n+import static org.junit.jupiter.api.Assertions.assertNotEquals;\n\n@@ -12,2 +10,2 @@\n        String str1 = \"Hello world!\";\n        String str2 = \"Hello world!\";\n-       assertThat(str1, is(equalTo(str2)));\n-       assertThat(str1, is(not(equalTo(str2 + \"!\"))));\n+       assertEquals(str1, str2);\n+       assertNotEquals(str1, str2 + \"!\");\n    }\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`MigrateHamcrestToJUnitTest#equalToString`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.junit.jupiter.api.Test;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-
-class ATest {
-    @Test
-    void testEquals() {
-        String str1 = "Hello world!";
-        String str2 = "Hello world!";
-        assertThat(str1, is(equalTo(str2)));
-        assertThat(str1, is(not(equalTo(str2 + "!"))));
-    }
-}
-```
-
-###### After
-```java
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
-class ATest {
-    @Test
-    void testEquals() {
-        String str1 = "Hello world!";
-        String str2 = "Hello world!";
-        assertEquals(str1, str2);
-        assertNotEquals(str1, str2 + "!");
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,4 +2,2 @@
-import org.junit.jupiter.api.Test;
--import static org.hamcrest.MatcherAssert.assertThat;
--import static org.hamcrest.Matchers.equalTo;
--import static org.hamcrest.Matchers.is;
--import static org.hamcrest.Matchers.not;
-+import static org.junit.jupiter.api.Assertions.assertEquals;
-+import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
-@@ -12,2 +10,2 @@
-        String str1 = "Hello world!";
-        String str2 = "Hello world!";
--       assertThat(str1, is(equalTo(str2)));
--       assertThat(str1, is(not(equalTo(str2 + "!"))));
-+       assertEquals(str1, str2);
-+       assertNotEquals(str1, str2 + "!");
-    }
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`MigrateHamcrestToJUnitTest#equalToString`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.junit.jupiter.api.Test;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-
-class ATest {
-    @Test
-    void testEquals() {
-        String str1 = "Hello world!";
-        String str2 = "Hello world!";
-        assertThat(str1, is(equalTo(str2)));
-        assertThat(str1, is(not(equalTo(str2 + "!"))));
-    }
-}
-```
-
-###### After
-```java
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
-class ATest {
-    @Test
-    void testEquals() {
-        String str1 = "Hello world!";
-        String str2 = "Hello world!";
-        assertEquals(str1, str2);
-        assertNotEquals(str1, str2 + "!");
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,4 +2,2 @@
-import org.junit.jupiter.api.Test;
--import static org.hamcrest.MatcherAssert.assertThat;
--import static org.hamcrest.Matchers.equalTo;
--import static org.hamcrest.Matchers.is;
--import static org.hamcrest.Matchers.not;
-+import static org.junit.jupiter.api.Assertions.assertEquals;
-+import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
-@@ -12,2 +10,2 @@
-        String str1 = "Hello world!";
-        String str2 = "Hello world!";
--       assertThat(str1, is(equalTo(str2)));
--       assertThat(str1, is(not(equalTo(str2 + "!"))));
-+       assertEquals(str1, str2);
-+       assertNotEquals(str1, str2 + "!");
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5","displayName":"Migrate Hamcrest assertions to JUnit Jupiter","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5"
-  displayName="Migrate Hamcrest assertions to JUnit Jupiter"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-testing-frameworks"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

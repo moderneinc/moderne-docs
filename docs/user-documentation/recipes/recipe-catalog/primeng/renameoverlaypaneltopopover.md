@@ -1,37 +1,42 @@
 ---
 title: "Rename `OverlayPanel` to `Popover`"
 sidebar_label: "Rename `OverlayPanel` to `Popover`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Rename `OverlayPanel` to `Popover`
+<RecipeMeta
+  displayName={"Rename `OverlayPanel` to `Popover`"}
+  description={"Renames `OverlayPanel` and `OverlayPanelModule` imports from `primeng/overlaypanel` to `Popover` and `PopoverModule` from `primeng/popover`, and updates all identifier usages. The old names are deprecated in PrimeNG 18."}
+  fqName={"org.openrewrite.primeng.RenameOverlayPanelToPopover"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.primeng.RenameOverlayPanelToPopover**
+<RecipeHeader
+  displayName={"Rename `OverlayPanel` to `Popover`"}
+  description={"Renames `OverlayPanel` and `OverlayPanelModule` imports from `primeng/overlaypanel` to `Popover` and `PopoverModule` from `primeng/popover`, and updates all identifier usages. The old names are deprecated in PrimeNG 18."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.primeng.RenameOverlayPanelToPopover"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.RenameOverlayPanelToPopover"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/renameoverlaypaneltopopover.md"}
+  moderneOnly
+/>
 
-_Renames `OverlayPanel` and `OverlayPanelModule` imports from `primeng/overlaypanel` to `Popover` and `PopoverModule` from `primeng/popover`, and updates all identifier usages. The old names are deprecated in PrimeNG 18._
+<RecipeList recipes={[{"name":"Rename `OverlayPanel` identifiers to `Popover`","href":""},{"name":"Change import","href":"javascript/change-import"},{"name":"Change import","href":"javascript/change-import"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade PrimeNG components to 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/primeng/upgradecomponentsto18)
-
+<UsageList usage={{"recipeName":"org.openrewrite.primeng.RenameOverlayPanelToPopover","displayName":"Rename `OverlayPanel` to `Popover`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.primeng.RenameOverlayPanelToPopover"
-  displayName="Rename `OverlayPanel` to `Popover`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

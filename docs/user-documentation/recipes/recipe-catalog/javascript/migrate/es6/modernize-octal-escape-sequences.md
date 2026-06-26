@@ -1,37 +1,42 @@
 ---
 title: "Modernize octal escape sequences"
 sidebar_label: "Modernize octal escape sequences"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Modernize octal escape sequences
+<RecipeMeta
+  displayName={"Modernize octal escape sequences"}
+  description={"Convert old-style octal escape sequences (e.g., `\\0`, `\\123`) to modern hex escape sequences (e.g., `\\x00`, `\\x53`) or Unicode escape sequences (e.g., `\\u0000`, `\\u0053`)."}
+  fqName={"org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences"}
+  languages={["JavaScript"]}
+  license={"Moderne Source Available License"}
+/>
 
-**org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences**
+<RecipeHeader
+  displayName={"Modernize octal escape sequences"}
+  description={"Convert old-style octal escape sequences (e.g., `\\0`, `\\123`) to modern hex escape sequences (e.g., `\\x00`, `\\x53`) or Unicode escape sequences (e.g., `\\u0000`, `\\u0053`)."}
+  type={"Single recipe"}
+  languages={["JavaScript"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences"}
+  artifact={"org.openrewrite:rewrite-javascript"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-escape-sequences.md"}
+  moderneOnly
+/>
 
-_Convert old-style octal escape sequences (e.g., `\0`, `\123`) to modern hex escape sequences (e.g., `\x00`, `\x53`) or Unicode escape sequences (e.g., `\u0000`, `\u0053`)._
-
-## Recipe source
-
-[GitHub: rewrite+org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences](https://github.com/search?type=code&q=repo:openrewrite/rewrite+org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-javascript/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+<OptionsTable options={[{"type":"String","name":"useUnicodeEscapes","required":false,"description":"Use Unicode escape sequences (`\\uXXXX`) instead of hex escape sequences (`\\xXX`). Default is `false`.","example":"true"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `null` | useUnicodeEscapes | *Optional*. Use Unicode escape sequences (`\uXXXX`) instead of hex escape sequences (`\xXX`). Default is `false`. | `true` |
+</OptionsTable>
 
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences","displayName":"Modernize octal escape sequences","npmPackage":"@openrewrite/rewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences"
-  displayName="Modernize octal escape sequences"
-  npmPackage="@openrewrite/rewrite"
-/>
+</UsageList>
+

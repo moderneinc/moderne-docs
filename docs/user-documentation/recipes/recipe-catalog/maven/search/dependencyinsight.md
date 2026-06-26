@@ -1,6 +1,7 @@
 ---
 title: "Maven dependency insight"
 sidebar_label: "Maven dependency insight"
+hide_title: true
 ---
 
 
@@ -8,260 +9,51 @@ sidebar_label: "Maven dependency insight"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/search/dependencyinsight" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Maven dependency insight
+<RecipeMeta
+  displayName={"Maven dependency insight"}
+  description={"Find direct and transitive dependencies matching a group, artifact, and scope. Results include dependencies that either directly match or transitively include a matching dependency."}
+  fqName={"org.openrewrite.maven.search.DependencyInsight"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/openrewrite/rewrite/blob/main/rewrite-maven/src/main/java/org/openrewrite/maven/search/DependencyInsight.java"}
+/>
 
-**org.openrewrite.maven.search.DependencyInsight**
+<RecipeHeader
+  displayName={"Maven dependency insight"}
+  description={"Find direct and transitive dependencies matching a group, artifact, and scope. Results include dependencies that either directly match or transitively include a matching dependency."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.maven.search.DependencyInsight"}
+  artifact={"org.openrewrite:rewrite-maven"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.search.DependencyInsight"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/search/dependencyinsight.md"}
+/>
 
-_Find direct and transitive dependencies matching a group, artifact, and scope. Results include dependencies that either directly match or transitively include a matching dependency._
-
-## Recipe source
-
-[GitHub: DependencyInsight.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-maven/src/main/java/org/openrewrite/maven/search/DependencyInsight.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-maven/)
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+<OptionsTable options={[{"type":"String","name":"groupIdPattern","required":true,"description":"Group glob pattern used to match dependencies.","example":"com.fasterxml.jackson.module"},{"type":"String","name":"artifactIdPattern","required":true,"description":"Artifact glob pattern used to match dependencies.","example":"jackson-module-*"},{"type":"String","name":"scope","required":false,"description":"Match dependencies with the specified scope. All scopes are searched by default.","example":"compile"},{"type":"String","name":"version","required":false,"description":"Match only dependencies with the specified version. Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used.All versions are searched by default.","example":"1.x"},{"type":"Boolean","name":"onlyDirect","required":false,"description":"If enabled, transitive dependencies will not be considered. All dependencies are searched by default.","example":"true"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | groupIdPattern | Group glob pattern used to match dependencies. | `com.fasterxml.jackson.module` |
-| `String` | artifactIdPattern | Artifact glob pattern used to match dependencies. | `jackson-module-*` |
-| `String` | scope | *Optional*. Match dependencies with the specified scope. All scopes are searched by default. Valid options: `compile`, `test`, `runtime`, `provided`, `system` | `compile` |
-| `String` | version | *Optional*. Match only dependencies with the specified version. Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used.All versions are searched by default. | `1.x` |
-| `Boolean` | onlyDirect | *Optional*. If enabled, transitive dependencies will not be considered. All dependencies are searched by default. | `true` |
+</OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"groupIdPattern","value":"*guava*"},{"parameter":"artifactIdPattern","value":"*"},{"parameter":"scope","value":"compile"},{"parameter":"version","value":"null"},{"parameter":"onlyDirect","value":"null"}],"variants":[{"language":"xml","before":"<project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <dependencies>\n    <dependency>\n        <groupId>com.google.guava</groupId>\n        <artifactId>guava</artifactId>\n        <version>29.0-jre</version>\n    </dependency>\n  </dependencies>\n</project>\n","after":"<project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <dependencies>\n    <!--~~(com.google.guava:failureaccess:1.0.1,com.google.guava:guava:29.0-jre,com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava)~~>--><dependency>\n        <groupId>com.google.guava</groupId>\n        <artifactId>guava</artifactId>\n        <version>29.0-jre</version>\n    </dependency>\n  </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,1 +6,1 @@\n  <version>1</version>\n  <dependencies>\n-   <dependency>\n+   <!--~~(com.google.guava:failureaccess:1.0.1,com.google.guava:guava:29.0-jre,com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava)~~>--><dependency>\n        <groupId>com.google.guava</groupId>\n","newFile":false}]}]}>
 
-## Used by
+## Examples
 
-This recipe is used as part of the following composite recipes:
+</ExampleList>
 
-* [Find Spring Web dependency](/user-documentation/recipes/recipe-catalog/java/spring/http/springwebdependency.md)
-
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|groupIdPattern|`*guava*`|
-|artifactIdPattern|`*`|
-|scope|`compile`|
-|version|`null`|
-|onlyDirect|`null`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-  <groupId>com.mycompany.app</groupId>
-  <artifactId>my-app</artifactId>
-  <version>1</version>
-  <dependencies>
-    <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>29.0-jre</version>
-    </dependency>
-  </dependencies>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-  <groupId>com.mycompany.app</groupId>
-  <artifactId>my-app</artifactId>
-  <version>1</version>
-  <dependencies>
-    <!--~~(com.google.guava:failureaccess:1.0.1,com.google.guava:guava:29.0-jre,com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava)~~>--><dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>29.0-jre</version>
-    </dependency>
-  </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -6,1 +6,1 @@
-  <version>1</version>
-  <dependencies>
--   <dependency>
-+   <!--~~(com.google.guava:failureaccess:1.0.1,com.google.guava:guava:29.0-jre,com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava)~~>--><dependency>
-        <groupId>com.google.guava</groupId>
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.maven.search.DependencyInsight","displayName":"Maven dependency insight","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupIdPattern=com.fasterxml.jackson.module\" --recipe-option \"artifactIdPattern=jackson-module-*\" --recipe-option \"scope=compile\" --recipe-option \"version=1.x\" --recipe-option \"onlyDirect=true\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.DependencyInsightExample
-displayName: Maven dependency insight example
-recipeList:
-  - org.openrewrite.maven.search.DependencyInsight:
-      groupIdPattern: com.fasterxml.jackson.module
-      artifactIdPattern: jackson-module-*
-      scope: compile
-      version: 1.x
-      onlyDirect: true
-```
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.DependenciesInUse","displayName":"Dependencies in use","description":"Direct and transitive dependencies in use.","columns":[{"name":"Project name","description":"The name of the project that contains the dependency."},{"name":"Source set","description":"The source set that contains the dependency."},{"name":"Group","description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`."},{"name":"Artifact","description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`."},{"name":"Version","description":"The resolved version."},{"name":"Dated snapshot version","description":"The resolved dated snapshot version or `null` if this dependency is not a snapshot."},{"name":"Scope","description":"Dependency scope. This will be `compile` if the dependency is direct and a scope is not explicitly specified in the POM."},{"name":"Count","description":"How many times does this dependency appear."}]},{"name":"org.openrewrite.maven.table.ExplainDependenciesInUse","displayName":"Explain dependencies in use","description":"A dependency graph explainer similar to that shown by `gradle dependencyInsight` for each matching dependency. This table will contain a row per matching dependency per configuration per (sub)project.","columns":[{"name":"Project name","description":"The name of the project that contains the dependency."},{"name":"Source set","description":"The source set that contains the dependency."},{"name":"Group","description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`."},{"name":"Artifact","description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`."},{"name":"Version","description":"The resolved version."},{"name":"Dated snapshot version","description":"The resolved dated snapshot version or `null` if this dependency is not a snapshot."},{"name":"Scope","description":"Dependency scope. This will be `compile` if the dependency is direct and a scope is not explicitly specified in the POM."},{"name":"Count","description":"How many times does this dependency appear."},{"name":"Dependency graph","description":"The dependency paths that requested the dependency."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.maven.search.DependencyInsight"
-  displayName="Maven dependency insight"
-  groupId="org.openrewrite"
-  artifactId="rewrite-maven"
-  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_MAVEN"
-  isCoreLibrary
-  requiresConfiguration
-  cliOptions={' --recipe-option "groupIdPattern=com.fasterxml.jackson.module" --recipe-option "artifactIdPattern=jackson-module-*" --recipe-option "scope=compile" --recipe-option "version=1.x" --recipe-option "onlyDirect=true"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.maven.search.DependencyInsight" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.DependenciesInUse" label="DependenciesInUse">
-
-### Dependencies in use
-**org.openrewrite.maven.table.DependenciesInUse**
-
-_Direct and transitive dependencies in use._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Project name | The name of the project that contains the dependency. |
-| Source set | The source set that contains the dependency. |
-| Group | The first part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Artifact | The second part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Version | The resolved version. |
-| Dated snapshot version | The resolved dated snapshot version or `null` if this dependency is not a snapshot. |
-| Scope | Dependency scope. This will be `compile` if the dependency is direct and a scope is not explicitly specified in the POM. |
-| Count | How many times does this dependency appear. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.maven.table.ExplainDependenciesInUse" label="ExplainDependenciesInUse">
-
-### Explain dependencies in use
-**org.openrewrite.maven.table.ExplainDependenciesInUse**
-
-_A dependency graph explainer similar to that shown by `gradle dependencyInsight` for each matching dependency. This table will contain a row per matching dependency per configuration per (sub)project._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Project name | The name of the project that contains the dependency. |
-| Source set | The source set that contains the dependency. |
-| Group | The first part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Artifact | The second part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Version | The resolved version. |
-| Dated snapshot version | The resolved dated snapshot version or `null` if this dependency is not a snapshot. |
-| Scope | Dependency scope. This will be `compile` if the dependency is direct and a scope is not explicitly specified in the POM. |
-| Count | How many times does this dependency appear. |
-| Dependency graph | The dependency paths that requested the dependency. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

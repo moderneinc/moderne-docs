@@ -1,36 +1,36 @@
 ---
 title: "Simplify redundant logical expressions"
 sidebar_label: "Simplify redundant logical expressions"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Simplify redundant logical expressions
+<RecipeMeta
+  displayName={"Simplify redundant logical expressions"}
+  description={"Replace `x and x` with `x` and `x or x` with `x`. Identical operands in a logical expression are redundant and often indicate a copy-paste mistake."}
+  fqName={"org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression**
+<RecipeHeader
+  displayName={"Simplify redundant logical expressions"}
+  description={"Replace `x and x` with `x` and `x or x` with `x`. Identical operands in a logical expression are redundant and often indicate a copy-paste mistake."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={["python","code-quality","RSPEC-S1764"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression"}
+  artifact={"org.openrewrite.recipe:rewrite-migrate-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/codequality/simplifyredundantlogicalexpression.md"}
+  moderneOnly
+/>
 
-_Replace `x and x` with `x` and `x or x` with `x`. Identical operands in a logical expression are redundant and often indicate a copy-paste mistake._
-
-### Tags
-
-* [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-* [RSPEC-S1764](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S1764&open=java%3AS1764)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression","displayName":"Simplify redundant logical expressions","pipPackage":"openrewrite-migrate-python"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression"
-  displayName="Simplify redundant logical expressions"
-  pipPackage="openrewrite-migrate-python"
-/>
+</UsageList>
+

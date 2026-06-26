@@ -1,6 +1,7 @@
 ---
 title: "Use IOUtils method that include  their charset encoding"
 sidebar_label: "Use IOUtils method that include  their charset encoding"
+hide_title: true
 ---
 
 
@@ -8,282 +9,51 @@ sidebar_label: "Use IOUtils method that include  their charset encoding"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/io/apacheioutilsuseexplicitcharset" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use IOUtils method that include  their charset encoding
+<RecipeMeta
+  displayName={"Use IOUtils method that include  their charset encoding"}
+  description={"Use `IOUtils` method invocations that include the charset encoding instead of using the deprecated versions that do not include a charset encoding. (e.g. converts `IOUtils.readLines(inputStream)` to `IOUtils.readLines(inputStream, StandardCharsets.UTF_8)`."}
+  fqName={"org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-apache/blob/main/src/main/java/org/openrewrite/apache/commons/io/ApacheIOUtilsUseExplicitCharset.java"}
+/>
 
-**org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset**
+<RecipeHeader
+  displayName={"Use IOUtils method that include  their charset encoding"}
+  description={"Use `IOUtils` method invocations that include the charset encoding instead of using the deprecated versions that do not include a charset encoding. (e.g. converts `IOUtils.readLines(inputStream)` to `IOUtils.readLines(inputStream, StandardCharsets.UTF_8)`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["apache","commons"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset"}
+  artifact={"org.openrewrite.recipe:rewrite-apache"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/io/apacheioutilsuseexplicitcharset.md"}
+/>
 
-_Use `IOUtils` method invocations that include the charset encoding instead of using the deprecated versions that do not include a charset encoding. (e.g. converts `IOUtils.readLines(inputStream)` to `IOUtils.readLines(inputStream, StandardCharsets.UTF_8)`._
-
-### Tags
-
-* [apache](/user-documentation/recipes/lists/recipes-by-tag#apache)
-* [commons](/user-documentation/recipes/lists/recipes-by-tag#commons)
-
-## Recipe source
-
-[GitHub: ApacheIOUtilsUseExplicitCharset.java](https://github.com/openrewrite/rewrite-apache/blob/main/src/main/java/org/openrewrite/apache/commons/io/ApacheIOUtilsUseExplicitCharset.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-apache/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-apache/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+<OptionsTable options={[{"type":"String","name":"encoding","required":false,"description":"The default encoding to use, must be a standard charset.","example":"UTF_8"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | encoding | *Optional*. The default encoding to use, must be a standard charset. | `UTF_8` |
+</OptionsTable>
 
-## Example
+<ExampleList examples={[{"parameters":[{"parameter":"encoding","value":"null"}],"variants":[{"language":"java","before":"import org.apache.commons.io.IOUtils;\nimport java.io.InputStream;\nimport java.io.OutputStream;\nimport java.io.Reader;\nimport java.io.Writer;\nimport java.net.URI;\nimport java.net.URL;\n\nclass T {\n    InputStream inputStream;\n    OutputStream outputStream;\n    Reader reader;\n    Writer writer;\n    CharSequence charSequence;\n    String someString;\n    byte[] bytes;\n    URI uri;\n    URL url;\n    char[] chars;\n    StringBuffer stringBuffer;\n\n    void flex() {\n        IOUtils.copy(inputStream, writer);\n        IOUtils.copy(reader, outputStream);\n        IOUtils.readLines(inputStream);\n        IOUtils.toByteArray(someString);\n        IOUtils.toByteArray(reader);\n        IOUtils.toCharArray(inputStream);\n        IOUtils.toInputStream(charSequence);\n        IOUtils.toInputStream(\"Test\");\n        IOUtils.toString(\"Test\".getBytes());\n        IOUtils.toString(inputStream);\n        IOUtils.toString(uri);\n        IOUtils.toString(url);\n        IOUtils.write(bytes, writer);\n        IOUtils.write(chars, outputStream);\n        IOUtils.write(charSequence, outputStream);\n        IOUtils.write(someString, outputStream);\n        IOUtils.write(stringBuffer, outputStream);\n    }\n}\n","after":"import org.apache.commons.io.IOUtils;\nimport java.io.InputStream;\nimport java.io.OutputStream;\nimport java.io.Reader;\nimport java.io.Writer;\nimport java.net.URI;\nimport java.net.URL;\nimport java.nio.charset.StandardCharsets;\n\nclass T {\n    InputStream inputStream;\n    OutputStream outputStream;\n    Reader reader;\n    Writer writer;\n    CharSequence charSequence;\n    String someString;\n    byte[] bytes;\n    URI uri;\n    URL url;\n    char[] chars;\n    StringBuffer stringBuffer;\n\n    void flex() {\n        IOUtils.copy(inputStream, writer, StandardCharsets.UTF_8);\n        IOUtils.copy(reader, outputStream, StandardCharsets.UTF_8);\n        IOUtils.readLines(inputStream, StandardCharsets.UTF_8);\n        someString.getBytes(StandardCharsets.UTF_8);\n        IOUtils.toByteArray(reader, StandardCharsets.UTF_8);\n        IOUtils.toCharArray(inputStream, StandardCharsets.UTF_8);\n        IOUtils.toInputStream(charSequence, StandardCharsets.UTF_8);\n        IOUtils.toInputStream(\"Test\", StandardCharsets.UTF_8);\n        IOUtils.toString(\"Test\".getBytes(), StandardCharsets.UTF_8);\n        IOUtils.toString(inputStream, StandardCharsets.UTF_8);\n        IOUtils.toString(uri, StandardCharsets.UTF_8);\n        IOUtils.toString(url, StandardCharsets.UTF_8);\n        IOUtils.write(bytes, writer, StandardCharsets.UTF_8);\n        IOUtils.write(chars, outputStream, StandardCharsets.UTF_8);\n        IOUtils.write(charSequence, outputStream, StandardCharsets.UTF_8);\n        IOUtils.write(someString, outputStream, StandardCharsets.UTF_8);\n        IOUtils.write(stringBuffer, outputStream, StandardCharsets.UTF_8);\n    }\n}\n","diff":"@@ -8,0 +8,1 @@\nimport java.net.URI;\nimport java.net.URL;\n+import java.nio.charset.StandardCharsets;\n\n@@ -23,17 +24,17 @@\n\n    void flex() {\n-       IOUtils.copy(inputStream, writer);\n-       IOUtils.copy(reader, outputStream);\n-       IOUtils.readLines(inputStream);\n-       IOUtils.toByteArray(someString);\n-       IOUtils.toByteArray(reader);\n-       IOUtils.toCharArray(inputStream);\n-       IOUtils.toInputStream(charSequence);\n-       IOUtils.toInputStream(\"Test\");\n-       IOUtils.toString(\"Test\".getBytes());\n-       IOUtils.toString(inputStream);\n-       IOUtils.toString(uri);\n-       IOUtils.toString(url);\n-       IOUtils.write(bytes, writer);\n-       IOUtils.write(chars, outputStream);\n-       IOUtils.write(charSequence, outputStream);\n-       IOUtils.write(someString, outputStream);\n-       IOUtils.write(stringBuffer, outputStream);\n+       IOUtils.copy(inputStream, writer, StandardCharsets.UTF_8);\n+       IOUtils.copy(reader, outputStream, StandardCharsets.UTF_8);\n+       IOUtils.readLines(inputStream, StandardCharsets.UTF_8);\n+       someString.getBytes(StandardCharsets.UTF_8);\n+       IOUtils.toByteArray(reader, StandardCharsets.UTF_8);\n+       IOUtils.toCharArray(inputStream, StandardCharsets.UTF_8);\n+       IOUtils.toInputStream(charSequence, StandardCharsets.UTF_8);\n+       IOUtils.toInputStream(\"Test\", StandardCharsets.UTF_8);\n+       IOUtils.toString(\"Test\".getBytes(), StandardCharsets.UTF_8);\n+       IOUtils.toString(inputStream, StandardCharsets.UTF_8);\n+       IOUtils.toString(uri, StandardCharsets.UTF_8);\n+       IOUtils.toString(url, StandardCharsets.UTF_8);\n+       IOUtils.write(bytes, writer, StandardCharsets.UTF_8);\n+       IOUtils.write(chars, outputStream, StandardCharsets.UTF_8);\n+       IOUtils.write(charSequence, outputStream, StandardCharsets.UTF_8);\n+       IOUtils.write(someString, outputStream, StandardCharsets.UTF_8);\n+       IOUtils.write(stringBuffer, outputStream, StandardCharsets.UTF_8);\n    }\n","newFile":false}]}]}>
 
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|encoding|`null`|
+## Examples
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.apache.commons.io.IOUtils;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
-import java.net.URI;
-import java.net.URL;
-
-class T {
-    InputStream inputStream;
-    OutputStream outputStream;
-    Reader reader;
-    Writer writer;
-    CharSequence charSequence;
-    String someString;
-    byte[] bytes;
-    URI uri;
-    URL url;
-    char[] chars;
-    StringBuffer stringBuffer;
-
-    void flex() {
-        IOUtils.copy(inputStream, writer);
-        IOUtils.copy(reader, outputStream);
-        IOUtils.readLines(inputStream);
-        IOUtils.toByteArray(someString);
-        IOUtils.toByteArray(reader);
-        IOUtils.toCharArray(inputStream);
-        IOUtils.toInputStream(charSequence);
-        IOUtils.toInputStream("Test");
-        IOUtils.toString("Test".getBytes());
-        IOUtils.toString(inputStream);
-        IOUtils.toString(uri);
-        IOUtils.toString(url);
-        IOUtils.write(bytes, writer);
-        IOUtils.write(chars, outputStream);
-        IOUtils.write(charSequence, outputStream);
-        IOUtils.write(someString, outputStream);
-        IOUtils.write(stringBuffer, outputStream);
-    }
-}
-```
-
-###### After
-```java
-import org.apache.commons.io.IOUtils;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
-import java.net.URI;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-
-class T {
-    InputStream inputStream;
-    OutputStream outputStream;
-    Reader reader;
-    Writer writer;
-    CharSequence charSequence;
-    String someString;
-    byte[] bytes;
-    URI uri;
-    URL url;
-    char[] chars;
-    StringBuffer stringBuffer;
-
-    void flex() {
-        IOUtils.copy(inputStream, writer, StandardCharsets.UTF_8);
-        IOUtils.copy(reader, outputStream, StandardCharsets.UTF_8);
-        IOUtils.readLines(inputStream, StandardCharsets.UTF_8);
-        someString.getBytes(StandardCharsets.UTF_8);
-        IOUtils.toByteArray(reader, StandardCharsets.UTF_8);
-        IOUtils.toCharArray(inputStream, StandardCharsets.UTF_8);
-        IOUtils.toInputStream(charSequence, StandardCharsets.UTF_8);
-        IOUtils.toInputStream("Test", StandardCharsets.UTF_8);
-        IOUtils.toString("Test".getBytes(), StandardCharsets.UTF_8);
-        IOUtils.toString(inputStream, StandardCharsets.UTF_8);
-        IOUtils.toString(uri, StandardCharsets.UTF_8);
-        IOUtils.toString(url, StandardCharsets.UTF_8);
-        IOUtils.write(bytes, writer, StandardCharsets.UTF_8);
-        IOUtils.write(chars, outputStream, StandardCharsets.UTF_8);
-        IOUtils.write(charSequence, outputStream, StandardCharsets.UTF_8);
-        IOUtils.write(someString, outputStream, StandardCharsets.UTF_8);
-        IOUtils.write(stringBuffer, outputStream, StandardCharsets.UTF_8);
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -8,0 +8,1 @@
-import java.net.URI;
-import java.net.URL;
-+import java.nio.charset.StandardCharsets;
-
-@@ -23,17 +24,17 @@
-
-    void flex() {
--       IOUtils.copy(inputStream, writer);
--       IOUtils.copy(reader, outputStream);
--       IOUtils.readLines(inputStream);
--       IOUtils.toByteArray(someString);
--       IOUtils.toByteArray(reader);
--       IOUtils.toCharArray(inputStream);
--       IOUtils.toInputStream(charSequence);
--       IOUtils.toInputStream("Test");
--       IOUtils.toString("Test".getBytes());
--       IOUtils.toString(inputStream);
--       IOUtils.toString(uri);
--       IOUtils.toString(url);
--       IOUtils.write(bytes, writer);
--       IOUtils.write(chars, outputStream);
--       IOUtils.write(charSequence, outputStream);
--       IOUtils.write(someString, outputStream);
--       IOUtils.write(stringBuffer, outputStream);
-+       IOUtils.copy(inputStream, writer, StandardCharsets.UTF_8);
-+       IOUtils.copy(reader, outputStream, StandardCharsets.UTF_8);
-+       IOUtils.readLines(inputStream, StandardCharsets.UTF_8);
-+       someString.getBytes(StandardCharsets.UTF_8);
-+       IOUtils.toByteArray(reader, StandardCharsets.UTF_8);
-+       IOUtils.toCharArray(inputStream, StandardCharsets.UTF_8);
-+       IOUtils.toInputStream(charSequence, StandardCharsets.UTF_8);
-+       IOUtils.toInputStream("Test", StandardCharsets.UTF_8);
-+       IOUtils.toString("Test".getBytes(), StandardCharsets.UTF_8);
-+       IOUtils.toString(inputStream, StandardCharsets.UTF_8);
-+       IOUtils.toString(uri, StandardCharsets.UTF_8);
-+       IOUtils.toString(url, StandardCharsets.UTF_8);
-+       IOUtils.write(bytes, writer, StandardCharsets.UTF_8);
-+       IOUtils.write(chars, outputStream, StandardCharsets.UTF_8);
-+       IOUtils.write(charSequence, outputStream, StandardCharsets.UTF_8);
-+       IOUtils.write(someString, outputStream, StandardCharsets.UTF_8);
-+       IOUtils.write(stringBuffer, outputStream, StandardCharsets.UTF_8);
-    }
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset","displayName":"Use IOUtils method that include  their charset encoding","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset"
-  displayName="Use IOUtils method that include  their charset encoding"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-apache"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

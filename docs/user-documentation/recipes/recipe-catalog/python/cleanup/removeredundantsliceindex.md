@@ -1,30 +1,36 @@
 ---
 title: "Drop default-value slice boundaries"
 sidebar_label: "Drop default-value slice boundaries"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Drop default-value slice boundaries
+<RecipeMeta
+  displayName={"Drop default-value slice boundaries"}
+  description={"Omit slice start/stop when they equal ``0`` and ``len(seq)`` respectively, e.g. ``data[0:len(data)]`` becomes ``data[:]``."}
+  fqName={"org.openrewrite.python.cleanup.RemoveRedundantSliceIndex"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.RemoveRedundantSliceIndex**
+<RecipeHeader
+  displayName={"Drop default-value slice boundaries"}
+  description={"Omit slice start/stop when they equal ``0`` and ``len(seq)`` respectively, e.g. ``data[0:len(data)]`` becomes ``data[:]``."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.RemoveRedundantSliceIndex"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveRedundantSliceIndex"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantsliceindex.md"}
+  moderneOnly
+/>
 
-_Omit slice start/stop when they equal ``0`` and ``len(seq)`` respectively, e.g. ``data[0:len(data)]`` becomes ``data[:]``._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveRedundantSliceIndex","displayName":"Drop default-value slice boundaries","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.RemoveRedundantSliceIndex"
-  displayName="Drop default-value slice boundaries"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

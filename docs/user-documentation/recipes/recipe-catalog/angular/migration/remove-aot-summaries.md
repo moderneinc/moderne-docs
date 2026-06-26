@@ -1,37 +1,36 @@
 ---
 title: "Remove `aotSummaries` from TestBed"
 sidebar_label: "Remove `aotSummaries` from TestBed"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove `aotSummaries` from TestBed
+<RecipeMeta
+  displayName={"Remove `aotSummaries` from TestBed"}
+  description={"Removes the `aotSummaries` property from `TestBed.configureTestingModule()` and `TestBed.initTestEnvironment()` calls. The `aotSummaries` parameter was removed in Angular 14 as it was only needed for the View Engine compiler."}
+  fqName={"org.openrewrite.angular.migration.remove-aot-summaries"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.remove-aot-summaries**
+<RecipeHeader
+  displayName={"Remove `aotSummaries` from TestBed"}
+  description={"Removes the `aotSummaries` property from `TestBed.configureTestingModule()` and `TestBed.initTestEnvironment()` calls. The `aotSummaries` parameter was removed in Angular 14 as it was only needed for the View Engine compiler."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.remove-aot-summaries"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-aot-summaries"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-aot-summaries.md"}
+  moderneOnly
+/>
 
-_Removes the `aotSummaries` property from `TestBed.configureTestingModule()` and `TestBed.initTestEnvironment()` calls. The `aotSummaries` parameter was removed in Angular 14 as it was only needed for the View Engine compiler._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 14](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular14)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-aot-summaries","displayName":"Remove `aotSummaries` from TestBed","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.remove-aot-summaries"
-  displayName="Remove `aotSummaries` from TestBed"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

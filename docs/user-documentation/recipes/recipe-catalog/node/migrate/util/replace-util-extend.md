@@ -1,41 +1,36 @@
 ---
 title: "Replace deprecated `util._extend()` with `Object.assign()`"
 sidebar_label: "Replace deprecated `util._extend()` with `Object.assign()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace deprecated `util._extend()` with `Object.assign()`
+<RecipeMeta
+  displayName={"Replace deprecated `util._extend()` with `Object.assign()`"}
+  description={"Replace deprecated `util._extend(target, source)` calls with `Object.assign(target, source)` which preserves the mutation behavior."}
+  fqName={"org.openrewrite.node.migrate.util.replace-util-extend"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.node.migrate.util.replace-util-extend**
+<RecipeHeader
+  displayName={"Replace deprecated `util._extend()` with `Object.assign()`"}
+  description={"Replace deprecated `util._extend(target, source)` calls with `Object.assign(target, source)` which preserves the mutation behavior."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["DEP0060"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.node.migrate.util.replace-util-extend"}
+  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.util.replace-util-extend"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-extend.md"}
+  moderneOnly
+/>
 
-_Replace deprecated `util._extend(target, source)` calls with `Object.assign(target, source)` which preserves the mutation behavior._
-
-### Tags
-
-* [DEP0060](/user-documentation/recipes/lists/recipes-by-tag#dep0060)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Node.js 22](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-22)
-
+<UsageList usage={{"recipeName":"org.openrewrite.node.migrate.util.replace-util-extend","displayName":"Replace deprecated `util._extend()` with `Object.assign()`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.node.migrate.util.replace-util-extend"
-  displayName="Replace deprecated `util._extend()` with `Object.assign()`"
-  npmPackage="@openrewrite/recipes-nodejs"
-/>
+</UsageList>
+

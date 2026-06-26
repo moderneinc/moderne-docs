@@ -1,40 +1,36 @@
 ---
 title: "Compare string to `&quot;&quot;` instead of checking `len()`"
 sidebar_label: "Compare string to `&quot;&quot;` instead of checking `len()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Compare string to `&quot;&quot;` instead of checking `len()`
+<RecipeMeta
+  displayName={"Compare string to `\"\"` instead of checking `len()`"}
+  description={"Replace ``len(text) == 0`` with ``text == \"\"`` and ``len(text) > 0`` / ``len(text) != 0`` with ``text != \"\"``, comparing the string directly rather than measuring its length."}
+  fqName={"org.openrewrite.python.cleanup.SimplifyStrLenComparison"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.SimplifyStrLenComparison**
+<RecipeHeader
+  displayName={"Compare string to `\"\"` instead of checking `len()`"}
+  description={"Replace ``len(text) == 0`` with ``text == \"\"`` and ``len(text) > 0`` / ``len(text) != 0`` with ``text != \"\"``, comparing the string directly rather than measuring its length."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.SimplifyStrLenComparison"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyStrLenComparison"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifystrlencomparison.md"}
+  moderneOnly
+/>
 
-```
-Replace ``len(text) == 0`` with ``text == ""`` and ``len(text) > 0`` / ``len(text) != 0`` with ``text != ""``, comparing the string directly rather than measuring its length.
-```
-
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyStrLenComparison","displayName":"Compare string to `\"\"` instead of checking `len()`","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.SimplifyStrLenComparison"
-  displayName="Compare string to `&quot;&quot;` instead of checking `len()`"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

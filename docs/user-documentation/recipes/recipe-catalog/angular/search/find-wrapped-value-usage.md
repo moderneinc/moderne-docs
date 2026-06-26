@@ -1,37 +1,36 @@
 ---
 title: "Find deprecated `WrappedValue` usage"
 sidebar_label: "Find deprecated `WrappedValue` usage"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find deprecated `WrappedValue` usage
+<RecipeMeta
+  displayName={"Find deprecated `WrappedValue` usage"}
+  description={"Finds usages of the deprecated `WrappedValue` from `@angular/core`. `WrappedValue` was deprecated in Angular 11 and removed in Angular 13."}
+  fqName={"org.openrewrite.angular.search.find-wrapped-value-usage"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.search.find-wrapped-value-usage**
+<RecipeHeader
+  displayName={"Find deprecated `WrappedValue` usage"}
+  description={"Finds usages of the deprecated `WrappedValue` from `@angular/core`. `WrappedValue` was deprecated in Angular 11 and removed in Angular 13."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.search.find-wrapped-value-usage"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-wrapped-value-usage"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-wrapped-value-usage.md"}
+  moderneOnly
+/>
 
-_Finds usages of the deprecated `WrappedValue` from `@angular/core`. `WrappedValue` was deprecated in Angular 11 and removed in Angular 13._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 11](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular11)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-wrapped-value-usage","displayName":"Find deprecated `WrappedValue` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.search.find-wrapped-value-usage"
-  displayName="Find deprecated `WrappedValue` usage"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

@@ -1,304 +1,48 @@
 ---
 title: "Find code smells"
 sidebar_label: "Find code smells"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find code smells
+<RecipeMeta
+  displayName={"Find code smells"}
+  description={"Detect code smells including God Class, Feature Envy, and Data Class using composite metric thresholds with severity ratings."}
+  fqName={"io.moderne.prethink.quality.FindCodeSmells"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**io.moderne.prethink.quality.FindCodeSmells**
+<RecipeHeader
+  displayName={"Find code smells"}
+  description={"Detect code smells including God Class, Feature Envy, and Data Class using composite metric thresholds with severity ratings."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"io.moderne.prethink.quality.FindCodeSmells"}
+  artifact={"io.moderne.recipe:rewrite-prethink"}
+  appLink={"https://app.moderne.io/recipes/io.moderne.prethink.quality.FindCodeSmells"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/quality/findcodesmells.md"}
+  moderneOnly
+/>
 
-_Detect code smells including God Class, Feature Envy, and Data Class using composite metric thresholds with severity ratings._
+<ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\n/**\n * Intentionally bloated class to trigger God Class detection.\n * WMC >= 47 (each method has if/else = CC 2, 24 methods = WMC 48).\n * TCC < 0.33 (each method accesses a different field).\n * ATFD > 5 (methods directly access public fields of Other).\n */\npublic class BigService {\n    private int f1;\n    private int f2;\n    private int f3;\n    private int f4;\n    private int f5;\n    private int f6;\n    private int f7;\n    private int f8;\n    private int f9;\n    private int f10;\n    private int f11;\n    private int f12;\n    private int f13;\n    private int f14;\n    private int f15;\n    private int f16;\n    private int f17;\n    private int f18;\n    private int f19;\n    private int f20;\n    private int f21;\n    private int f22;\n    private int f23;\n    private int f24;\n\n    public int method1(Other ext) {\n        if (ext.x > 0) { return ext.y; }\n        return f1;\n    }\n    public int method2(Other ext) {\n        if (ext.y > 0) { return ext.z; }\n        return f2;\n    }\n    public int method3(Other ext) {\n        if (ext.z > 0) { return ext.w; }\n        return f3;\n    }\n    public int method4(Other ext) {\n        if (ext.w > 0) { return ext.v; }\n        return f4;\n    }\n    public int method5(Other ext) {\n        if (ext.v > 0) { return ext.u; }\n        return f5;\n    }\n    public int method6(Other ext) {\n        if (ext.u > 0) { return ext.t; }\n        return f6;\n    }\n    public int method7(Other ext) {\n        if (ext.x > 0) { return ext.y; }\n        return f7;\n    }\n    public int method8(Other ext) {\n        if (ext.y > 0) { return ext.z; }\n        return f8;\n    }\n    public int method9(Other ext) {\n        if (ext.z > 0) { return ext.w; }\n        return f9;\n    }\n    public int method10(Other ext) {\n        if (ext.w > 0) { return ext.v; }\n        return f10;\n    }\n    public int method11(Other ext) {\n        if (ext.v > 0) { return ext.u; }\n        return f11;\n    }\n    public int method12(Other ext) {\n        if (ext.u > 0) { return ext.t; }\n        return f12;\n    }\n    public int method13(Other ext) {\n        if (ext.x > 0) { return ext.y; }\n        return f13;\n    }\n    public int method14(Other ext) {\n        if (ext.y > 0) { return ext.z; }\n        return f14;\n    }\n    public int method15(Other ext) {\n        if (ext.z > 0) { return ext.w; }\n        return f15;\n    }\n    public int method16(Other ext) {\n        if (ext.w > 0) { return ext.v; }\n        return f16;\n    }\n    public int method17(Other ext) {\n        if (ext.v > 0) { return ext.u; }\n        return f17;\n    }\n    public int method18(Other ext) {\n        if (ext.u > 0) { return ext.t; }\n        return f18;\n    }\n    public int method19(Other ext) {\n        if (ext.x > 0) { return ext.y; }\n        return f19;\n    }\n    public int method20(Other ext) {\n        if (ext.y > 0) { return ext.z; }\n        return f20;\n    }\n    public int method21(Other ext) {\n        if (ext.z > 0) { return ext.w; }\n        return f21;\n    }\n    public int method22(Other ext) {\n        if (ext.w > 0) { return ext.v; }\n        return f22;\n    }\n    public int method23(Other ext) {\n        if (ext.v > 0) { return ext.u; }\n        return f23;\n    }\n    public int method24(Other ext) {\n        if (ext.u > 0) { return ext.t; }\n        return f24;\n    }\n}\n"},"variants":[]}]}>
 
-## Recipe source
+## Examples
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</ExampleList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
-* [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
-
-## Example
-
-
-###### Unchanged
-```java
-package com.example;
-
-/**
- * Intentionally bloated class to trigger God Class detection.
- * WMC >= 47 (each method has if/else = CC 2, 24 methods = WMC 48).
- * TCC < 0.33 (each method accesses a different field).
- * ATFD > 5 (methods directly access public fields of Other).
- */
-public class BigService {
-    private int f1;
-    private int f2;
-    private int f3;
-    private int f4;
-    private int f5;
-    private int f6;
-    private int f7;
-    private int f8;
-    private int f9;
-    private int f10;
-    private int f11;
-    private int f12;
-    private int f13;
-    private int f14;
-    private int f15;
-    private int f16;
-    private int f17;
-    private int f18;
-    private int f19;
-    private int f20;
-    private int f21;
-    private int f22;
-    private int f23;
-    private int f24;
-
-    public int method1(Other ext) {
-        if (ext.x > 0) { return ext.y; }
-        return f1;
-    }
-    public int method2(Other ext) {
-        if (ext.y > 0) { return ext.z; }
-        return f2;
-    }
-    public int method3(Other ext) {
-        if (ext.z > 0) { return ext.w; }
-        return f3;
-    }
-    public int method4(Other ext) {
-        if (ext.w > 0) { return ext.v; }
-        return f4;
-    }
-    public int method5(Other ext) {
-        if (ext.v > 0) { return ext.u; }
-        return f5;
-    }
-    public int method6(Other ext) {
-        if (ext.u > 0) { return ext.t; }
-        return f6;
-    }
-    public int method7(Other ext) {
-        if (ext.x > 0) { return ext.y; }
-        return f7;
-    }
-    public int method8(Other ext) {
-        if (ext.y > 0) { return ext.z; }
-        return f8;
-    }
-    public int method9(Other ext) {
-        if (ext.z > 0) { return ext.w; }
-        return f9;
-    }
-    public int method10(Other ext) {
-        if (ext.w > 0) { return ext.v; }
-        return f10;
-    }
-    public int method11(Other ext) {
-        if (ext.v > 0) { return ext.u; }
-        return f11;
-    }
-    public int method12(Other ext) {
-        if (ext.u > 0) { return ext.t; }
-        return f12;
-    }
-    public int method13(Other ext) {
-        if (ext.x > 0) { return ext.y; }
-        return f13;
-    }
-    public int method14(Other ext) {
-        if (ext.y > 0) { return ext.z; }
-        return f14;
-    }
-    public int method15(Other ext) {
-        if (ext.z > 0) { return ext.w; }
-        return f15;
-    }
-    public int method16(Other ext) {
-        if (ext.w > 0) { return ext.v; }
-        return f16;
-    }
-    public int method17(Other ext) {
-        if (ext.v > 0) { return ext.u; }
-        return f17;
-    }
-    public int method18(Other ext) {
-        if (ext.u > 0) { return ext.t; }
-        return f18;
-    }
-    public int method19(Other ext) {
-        if (ext.x > 0) { return ext.y; }
-        return f19;
-    }
-    public int method20(Other ext) {
-        if (ext.y > 0) { return ext.z; }
-        return f20;
-    }
-    public int method21(Other ext) {
-        if (ext.z > 0) { return ext.w; }
-        return f21;
-    }
-    public int method22(Other ext) {
-        if (ext.w > 0) { return ext.v; }
-        return f22;
-    }
-    public int method23(Other ext) {
-        if (ext.v > 0) { return ext.u; }
-        return f23;
-    }
-    public int method24(Other ext) {
-        if (ext.u > 0) { return ext.t; }
-        return f24;
-    }
-}
-```
-
-###### Unchanged
-```java
-package com.example;
-
-public class Other {
-    public int x;
-    public int y;
-    public int z;
-    public int w;
-    public int v;
-    public int u;
-    public int t;
-
-    public int compute(int a, int b) { return a + b; }
-}
-```
-
-###### Unchanged
-```mavenProject
-test-project
-```
-
+<UsageList usage={{"recipeName":"io.moderne.prethink.quality.FindCodeSmells","displayName":"Find code smells","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="io.moderne.prethink.quality.FindCodeSmells"
-  displayName="Find code smells"
-  groupId="io.moderne.recipe"
-  artifactId="rewrite-prethink"
-  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"io.moderne.prethink.table.CodeSmells","displayName":"Code smells","description":"Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.","columns":[{"name":"Source path","description":"The path to the source file containing the smell."},{"name":"Class name","description":"The fully qualified name of the class."},{"name":"Method name","description":"The method name, if the smell is method-level (e.g., Feature Envy). Null for class-level smells."},{"name":"Smell type","description":"The type of code smell: GOD_CLASS, FEATURE_ENVY, or DATA_CLASS."},{"name":"Severity","description":"Severity based on how far metrics exceed thresholds: LOW, MEDIUM, HIGH, or CRITICAL."},{"name":"Evidence","description":"The metric values that triggered detection, e.g., 'WMC=52, TCC=0.21, ATFD=8'."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.quality.FindCodeSmells" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="io.moderne.prethink.table.CodeSmells" label="CodeSmells">
-
-### Code smells
-**io.moderne.prethink.table.CodeSmells**
-
-_Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The path to the source file containing the smell. |
-| Class name | The fully qualified name of the class. |
-| Method name | The method name, if the smell is method-level (e.g., Feature Envy). Null for class-level smells. |
-| Smell type | The type of code smell: GOD_CLASS, FEATURE_ENVY, or DATA_CLASS. |
-| Severity | Severity based on how far metrics exceed thresholds: LOW, MEDIUM, HIGH, or CRITICAL. |
-| Evidence | The metric values that triggered detection, e.g., 'WMC=52, TCC=0.21, ATFD=8'. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

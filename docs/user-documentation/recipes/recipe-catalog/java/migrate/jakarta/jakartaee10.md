@@ -1,6 +1,7 @@
 ---
 title: "Migrate to Jakarta EE 10"
 sidebar_label: "Migrate to Jakarta EE 10"
+hide_title: true
 ---
 
 
@@ -8,391 +9,51 @@ sidebar_label: "Migrate to Jakarta EE 10"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/jakartaee10" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate to Jakarta EE 10
+<RecipeMeta
+  displayName={"Migrate to Jakarta EE 10"}
+  description={"These recipes help with the Migration to Jakarta EE 10, flagging and updating deprecated methods."}
+  fqName={"org.openrewrite.java.migrate.jakarta.JakartaEE10"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/jakarta-ee-10.yml"}
+/>
 
-**org.openrewrite.java.migrate.jakarta.JakartaEE10**
+<RecipeHeader
+  displayName={"Migrate to Jakarta EE 10"}
+  description={"These recipes help with the Migration to Jakarta EE 10, flagging and updating deprecated methods."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["jakarta"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.migrate.jakarta.JakartaEE10"}
+  artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.JakartaEE10"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10.md"}
+/>
 
-_These recipes help with the Migration to Jakarta EE 10, flagging and updating deprecated methods._
-
-### Tags
-
-* [jakarta](/user-documentation/recipes/lists/recipes-by-tag#jakarta)
-
-## Recipe source
-
-[GitHub: jakarta-ee-10.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/jakarta-ee-10.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Migrate to Jakarta EE 9","href":"java/migrate/jakarta/javaxmigrationtojakarta"},{"name":"Migrate Jakarta EE 9 api dependencies to Jakarta EE 10 versions","href":"java/migrate/jakarta/migrationtojakarta10apis"},{"name":"Update Plugins for Jakarta EE 10","href":"java/migrate/jakarta/migratepluginsforjakarta10"},{"name":"Update Jetty EE9 to Jetty EE10","href":"java/migrate/jakarta/jettyupgradeee10"},{"name":"Upgrade to Jakarta Faces 4.x","href":"java/migrate/jakarta/faces3xmigrationtofaces4x"},{"name":"Use `isParametersProvided()`","href":"java/migrate/jakarta/removedisparmetersprovidedmethod"},{"name":"Use `jakarta.xml.soap.SOAPFactory` to create `SOAPElements`","href":"java/migrate/jakarta/removedsoapelementfactory"},{"name":"Replace `doUpgrade(..)` with `ServerContainer.upgradeHttpToWebSocket(..)`","href":"java/migrate/jakarta/wswsocservercontainerdeprecation"},{"name":"Remove `getComment` and `getVersion` methods","href":"java/migrate/jakarta/servletcookiebehaviorchangerfc6265"},{"name":"Replace  deprecated Jakarta Servlet methods and classes","href":"java/migrate/jakarta/removalsservletjakarta10"},{"name":"Remove deprecated API's not supported in CDI4.0","href":"java/migrate/jakarta/deprecatedcdiapisremoved40"},{"name":"Behavior change to bean discovery in modules with `beans.xml` file with no version specified","href":"java/migrate/beandiscovery"},{"name":"Update annotation attributes using `javax` to `jakarta`","href":"java/migrate/jakarta/updateannotationattributejavaxtojakarta"},{"name":"Update annotation attributes using `javax` to `jakarta`","href":"java/migrate/jakarta/updateannotationattributejavaxtojakarta"},{"name":"Update annotation attributes using `javax` to `jakarta`","href":"java/migrate/jakarta/updateannotationattributejavaxtojakarta"},{"name":"Migrate xmlns entries in `beans.xml` files","href":"java/migrate/jakarta/javaxbeansxmltojakartabeansxml"},{"name":"Migrate xmlns entries and javax. packages in `ejb-jar.xml` files","href":"java/migrate/jakarta/javaxejbjarxmltojakartaejbjarxml"},{"name":"Migrate xmlns entries and javax. packages in `validation.xml` files","href":"java/migrate/jakarta/javaxbeanvalidationxmltojakartabeanvalidationxml"},{"name":"Rename CDI Extension to Jakarta","href":"java/migrate/jakarta/javaxtojakartacdiextensions"},{"name":"Update Jakarta EE Platform Dependencies to 10.0.0","href":"java/migrate/jakarta/updatejakartaplatform10"},{"name":"Update GlassFish Jersey Dependencies to 3.1.x","href":"java/migrate/jakarta/updatejerseydependencies"},{"name":"Update Apache Commons Email to Email2 for Jakarta","href":"java/migrate/jakarta/updateapachecommonsemaildependencies"},{"name":"Update Apache Shiro Dependencies to 2.0.x","href":"java/migrate/jakarta/updateapacheshirodependencies"},{"name":"Update EclipseLink Dependencies to 4.x","href":"java/migrate/jakarta/updateeclipselinkdependencies"},{"name":"Update Apache Commons FileUpload2 package for EE10","href":"java/migrate/jakarta/updatefileupload2dependencies"},{"name":"Update Eclipse Yasson Dependencies to 3.0.x","href":"java/migrate/jakarta/updateyassondependencies"},{"name":"Update Fastjson for Jakarta EE 10","href":"java/migrate/jakarta/migratefastjsonforjakarta10"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../../core/singleton)
-
-**Recipes**
-
-* [Migrate to Jakarta EE 9](../../../java/migrate/jakarta/javaxmigrationtojakarta)
-* [Migrate Jakarta EE 9 api dependencies to Jakarta EE 10 versions](../../../java/migrate/jakarta/migrationtojakarta10apis)
-* [Update Plugins for Jakarta EE 10](../../../java/migrate/jakarta/migratepluginsforjakarta10)
-* [Update Jetty EE9 to Jetty EE10](../../../java/migrate/jakarta/jettyupgradeee10)
-* [Upgrade to Jakarta Faces 4.x](../../../java/migrate/jakarta/faces3xmigrationtofaces4x)
-* [Use `isParametersProvided()`](../../../java/migrate/jakarta/removedisparmetersprovidedmethod)
-* [Use `jakarta.xml.soap.SOAPFactory` to create `SOAPElements`](../../../java/migrate/jakarta/removedsoapelementfactory)
-* [Replace `doUpgrade(..)` with `ServerContainer.upgradeHttpToWebSocket(..)`](../../../java/migrate/jakarta/wswsocservercontainerdeprecation)
-* [Remove `getComment` and `getVersion` methods](../../../java/migrate/jakarta/servletcookiebehaviorchangerfc6265)
-* [Replace  deprecated Jakarta Servlet methods and classes](../../../java/migrate/jakarta/removalsservletjakarta10)
-* [Remove deprecated API's not supported in CDI4.0](../../../java/migrate/jakarta/deprecatedcdiapisremoved40)
-* [Behavior change to bean discovery in modules with `beans.xml` file with no version specified](../../../java/migrate/beandiscovery)
-* [Update annotation attributes using `javax` to `jakarta`](../../../java/migrate/jakarta/updateannotationattributejavaxtojakarta)
-  * signature: `@jakarta.ejb..*`
-* [Update annotation attributes using `javax` to `jakarta`](../../../java/migrate/jakarta/updateannotationattributejavaxtojakarta)
-  * signature: `@jakarta.jms..*`
-* [Update annotation attributes using `javax` to `jakarta`](../../../java/migrate/jakarta/updateannotationattributejavaxtojakarta)
-  * signature: `@jakarta.validation.constraints..*`
-* [Migrate xmlns entries in `beans.xml` files](../../../java/migrate/jakarta/javaxbeansxmltojakartabeansxml)
-* [Migrate xmlns entries and javax. packages in `ejb-jar.xml` files](../../../java/migrate/jakarta/javaxejbjarxmltojakartaejbjarxml)
-* [Migrate xmlns entries and javax. packages in `validation.xml` files](../../../java/migrate/jakarta/javaxbeanvalidationxmltojakartabeanvalidationxml)
-* [Rename CDI Extension to Jakarta](../../../java/migrate/jakarta/javaxtojakartacdiextensions)
-* [Update Jakarta EE Platform Dependencies to 10.0.0](../../../java/migrate/jakarta/updatejakartaplatform10)
-* [Update GlassFish Jersey Dependencies to 3.1.x](../../../java/migrate/jakarta/updatejerseydependencies)
-* [Update Apache Commons Email to Email2 for Jakarta](../../../java/migrate/jakarta/updateapachecommonsemaildependencies)
-* [Update Apache Shiro Dependencies to 2.0.x](../../../java/migrate/jakarta/updateapacheshirodependencies)
-* [Update EclipseLink Dependencies to 4.x](../../../java/migrate/jakarta/updateeclipselinkdependencies)
-* [Update Apache Commons FileUpload2 package for EE10](../../../java/migrate/jakarta/updatefileupload2dependencies)
-* [Update Eclipse Yasson Dependencies to 3.0.x](../../../java/migrate/jakarta/updateyassondependencies)
-* [Update Fastjson for Jakarta EE 10](../../../java/migrate/jakarta/migratefastjsonforjakarta10)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.migrate.jakarta.JakartaEE10
-displayName: Migrate to Jakarta EE 10
-description: |
-  These recipes help with the Migration to Jakarta EE 10, flagging and updating deprecated methods.
-tags:
-  - jakarta
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta
-  - org.openrewrite.java.migrate.jakarta.MigrationToJakarta10Apis
-  - org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta10
-  - org.openrewrite.java.migrate.jakarta.JettyUpgradeEE10
-  - org.openrewrite.java.migrate.jakarta.Faces3xMigrationToFaces4x
-  - org.openrewrite.java.migrate.jakarta.RemovedIsParmetersProvidedMethod
-  - org.openrewrite.java.migrate.jakarta.RemovedSOAPElementFactory
-  - org.openrewrite.java.migrate.jakarta.WsWsocServerContainerDeprecation
-  - org.openrewrite.java.migrate.jakarta.ServletCookieBehaviorChangeRFC6265
-  - org.openrewrite.java.migrate.jakarta.RemovalsServletJakarta10
-  - org.openrewrite.java.migrate.jakarta.DeprecatedCDIAPIsRemoved40
-  - org.openrewrite.java.migrate.BeanDiscovery
-  - org.openrewrite.java.migrate.jakarta.UpdateAnnotationAttributeJavaxToJakarta:
-      signature: @jakarta.ejb..*
-  - org.openrewrite.java.migrate.jakarta.UpdateAnnotationAttributeJavaxToJakarta:
-      signature: @jakarta.jms..*
-  - org.openrewrite.java.migrate.jakarta.UpdateAnnotationAttributeJavaxToJakarta:
-      signature: @jakarta.validation.constraints..*
-  - org.openrewrite.java.migrate.jakarta.JavaxBeansXmlToJakartaBeansXml
-  - org.openrewrite.java.migrate.jakarta.JavaxEjbJarXmlToJakartaEjbJarXml
-  - org.openrewrite.java.migrate.jakarta.JavaxBeanValidationXmlToJakartaBeanValidationXml
-  - org.openrewrite.java.migrate.jakarta.JavaxToJakartaCdiExtensions
-  - org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform10
-  - org.openrewrite.java.migrate.jakarta.UpdateJerseyDependencies
-  - org.openrewrite.java.migrate.jakarta.UpdateApacheCommonsEmailDependencies
-  - org.openrewrite.java.migrate.jakarta.UpdateApacheShiroDependencies
-  - org.openrewrite.java.migrate.jakarta.UpdateEclipseLinkDependencies
-  - org.openrewrite.java.migrate.jakarta.UpdateFileupload2Dependencies
-  - org.openrewrite.java.migrate.jakarta.UpdateYassonDependencies
-  - org.openrewrite.java.migrate.jakarta.MigrateFastjsonForJakarta10
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Dropwizard 5.0.x from 4.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5)
-* [Migrate to Jakarta EE 11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee11.md)
-* [Migrate to Spring Framework 6.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition.md)
-* [Migrate to Struts 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7)
+<ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.eclipse.jetty.websocket</groupId>\n            <artifactId>websocket-server</artifactId>\n            <version>9.4.58.v20250814</version>\n        </dependency>\n    </dependencies>\n</project>\n"},"variants":[]},{"variants":[{"language":"java","before":"import javax.jms.*;\n\n@JMSDestinationDefinition(name = \"Testing\",\n            interfaceName = \"javax.jms.Topic\",\n            destinationName = \"Testing\")\nclass Test {\n}\n","after":"import jakarta.jms.*;\n\n@JMSDestinationDefinition(name = \"Testing\",\n            interfaceName = \"jakarta.jms.Topic\",\n            destinationName = \"Testing\")\nclass Test {\n}\n","diff":"@@ -1,1 +1,1 @@\n-import javax.jms.*;\n+import jakarta.jms.*;\n\n@@ -4,1 +4,1 @@\n\n@JMSDestinationDefinition(name = \"Testing\",\n-           interfaceName = \"javax.jms.Topic\",\n+           interfaceName = \"jakarta.jms.Topic\",\n            destinationName = \"Testing\")\n","newFile":false}]},{"unchanged":{"language":"xml","code":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.eclipse.jetty.websocket</groupId>\n            <artifactId>websocket-server</artifactId>\n            <version>9.4.58.v20250814</version>\n        </dependency>\n    </dependencies>\n</project>\n"},"variants":[]},{"variants":[{"language":"java","before":"import javax.jms.*;\n\n@JMSDestinationDefinition(name = \"Testing\",\n            interfaceName = \"javax.jms.Topic\",\n            destinationName = \"Testing\")\nclass Test {\n}\n","after":"import jakarta.jms.*;\n\n@JMSDestinationDefinition(name = \"Testing\",\n            interfaceName = \"jakarta.jms.Topic\",\n            destinationName = \"Testing\")\nclass Test {\n}\n","diff":"@@ -1,1 +1,1 @@\n-import javax.jms.*;\n+import jakarta.jms.*;\n\n@@ -4,1 +4,1 @@\n\n@JMSDestinationDefinition(name = \"Testing\",\n-           interfaceName = \"javax.jms.Topic\",\n+           interfaceName = \"jakarta.jms.Topic\",\n            destinationName = \"Testing\")\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`JakartaEE10Test#chainedJettyUpgradeEE10`
 
+</ExampleList>
 
-###### Unchanged
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.eclipse.jetty.websocket</groupId>
-            <artifactId>websocket-server</artifactId>
-            <version>9.4.58.v20250814</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
----
-
-##### Example 2
-`UpdateAnnotationAttributeJavaxToJakartaTest#replaceInterfaceName`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import javax.jms.*;
-
-@JMSDestinationDefinition(name = "Testing",
-            interfaceName = "javax.jms.Topic",
-            destinationName = "Testing")
-class Test {
-}
-```
-
-###### After
-```java
-import jakarta.jms.*;
-
-@JMSDestinationDefinition(name = "Testing",
-            interfaceName = "jakarta.jms.Topic",
-            destinationName = "Testing")
-class Test {
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,1 +1,1 @@
--import javax.jms.*;
-+import jakarta.jms.*;
-
-@@ -4,1 +4,1 @@
-
-@JMSDestinationDefinition(name = "Testing",
--           interfaceName = "javax.jms.Topic",
-+           interfaceName = "jakarta.jms.Topic",
-            destinationName = "Testing")
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 3
-`JakartaEE10Test#chainedJettyUpgradeEE10`
-
-
-###### Unchanged
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.eclipse.jetty.websocket</groupId>
-            <artifactId>websocket-server</artifactId>
-            <version>9.4.58.v20250814</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
----
-
-##### Example 4
-`UpdateAnnotationAttributeJavaxToJakartaTest#replaceInterfaceName`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import javax.jms.*;
-
-@JMSDestinationDefinition(name = "Testing",
-            interfaceName = "javax.jms.Topic",
-            destinationName = "Testing")
-class Test {
-}
-```
-
-###### After
-```java
-import jakarta.jms.*;
-
-@JMSDestinationDefinition(name = "Testing",
-            interfaceName = "jakarta.jms.Topic",
-            destinationName = "Testing")
-class Test {
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,1 +1,1 @@
--import javax.jms.*;
-+import jakarta.jms.*;
-
-@@ -4,1 +4,1 @@
-
-@JMSDestinationDefinition(name = "Testing",
--           interfaceName = "javax.jms.Topic",
-+           interfaceName = "jakarta.jms.Topic",
-            destinationName = "Testing")
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JakartaEE10","displayName":"Migrate to Jakarta EE 10","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.migrate.jakarta.JakartaEE10"
-  displayName="Migrate to Jakarta EE 10"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-migrate-java"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.JakartaEE10" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

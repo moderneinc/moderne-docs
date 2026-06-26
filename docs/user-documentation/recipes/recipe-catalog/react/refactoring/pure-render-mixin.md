@@ -1,30 +1,36 @@
 ---
 title: "Remove `PureRenderMixin`"
 sidebar_label: "Remove `PureRenderMixin`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove `PureRenderMixin`
+<RecipeMeta
+  displayName={"Remove `PureRenderMixin`"}
+  description={"Removes `PureRenderMixin` from `React.createClass` mixins and adds an explicit `shouldComponentUpdate` method."}
+  fqName={"org.openrewrite.react.refactoring.pure-render-mixin"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.refactoring.pure-render-mixin**
+<RecipeHeader
+  displayName={"Remove `PureRenderMixin`"}
+  description={"Removes `PureRenderMixin` from `React.createClass` mixins and adds an explicit `shouldComponentUpdate` method."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.refactoring.pure-render-mixin"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.refactoring.pure-render-mixin"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/refactoring/pure-render-mixin.md"}
+  moderneOnly
+/>
 
-_Removes `PureRenderMixin` from `React.createClass` mixins and adds an explicit `shouldComponentUpdate` method._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.refactoring.pure-render-mixin","displayName":"Remove `PureRenderMixin`","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.refactoring.pure-render-mixin"
-  displayName="Remove `PureRenderMixin`"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

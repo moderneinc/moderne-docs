@@ -1,43 +1,36 @@
 ---
 title: "Optimize LINQ Where().FirstOrDefault()"
 sidebar_label: "Optimize LINQ Where().FirstOrDefault()"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Optimize LINQ Where().FirstOrDefault()
+<RecipeMeta
+  displayName={"Optimize LINQ Where().FirstOrDefault()"}
+  description={"Replace `items.Where(predicate).FirstOrDefault()` with `items.FirstOrDefault(predicate)`."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereFirstOrDefault"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereFirstOrDefault**
+<RecipeHeader
+  displayName={"Optimize LINQ Where().FirstOrDefault()"}
+  description={"Replace `items.Where(predicate).FirstOrDefault()` with `items.FirstOrDefault(predicate)`."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","linq","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereFirstOrDefault"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereFirstOrDefault"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/optimizelinqwherefirstordefault.md"}
+  moderneOnly
+/>
 
-_Replace `items.Where(predicate).FirstOrDefault()` with `items.FirstOrDefault(predicate)`._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [linq](/user-documentation/recipes/lists/recipes-by-tag#linq)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [LINQ code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/linqcodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereFirstOrDefault","displayName":"Optimize LINQ Where().FirstOrDefault()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereFirstOrDefault"
-  displayName="Optimize LINQ Where().FirstOrDefault()"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

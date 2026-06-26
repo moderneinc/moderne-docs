@@ -1,6 +1,7 @@
 ---
 title: "Modernize `BufferedWriter` creation &amp; prevent file descriptor leaks"
 sidebar_label: "Modernize `BufferedWriter` creation &amp; prevent file descriptor leaks"
+hide_title: true
 ---
 
 
@@ -8,220 +9,51 @@ sidebar_label: "Modernize `BufferedWriter` creation &amp; prevent file descripto
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/bufferedwritercreationrecipes" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Modernize `BufferedWriter` creation &amp; prevent file descriptor leaks
+<RecipeMeta
+  displayName={"Modernize `BufferedWriter` creation & prevent file descriptor leaks"}
+  description={"The code `new BufferedWriter(new FileWriter(f))` creates a `BufferedWriter` that does not close the underlying `FileWriter` when it is closed. This can lead to file descriptor leaks as per [CWE-755](https://cwe.mitre.org/data/definitions/755.html). Use `Files.newBufferedWriter` to create a `BufferedWriter` that closes the underlying file descriptor when it is closed."}
+  fqName={"org.openrewrite.staticanalysis.BufferedWriterCreationRecipes"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-static-analysis/blob/main/src/main/java/org/openrewrite/staticanalysis/BufferedWriterCreation.java"}
+/>
 
-**org.openrewrite.staticanalysis.BufferedWriterCreationRecipes**
+<RecipeHeader
+  displayName={"Modernize `BufferedWriter` creation & prevent file descriptor leaks"}
+  description={"The code `new BufferedWriter(new FileWriter(f))` creates a `BufferedWriter` that does not close the underlying `FileWriter` when it is closed. This can lead to file descriptor leaks as per [CWE-755](https://cwe.mitre.org/data/definitions/755.html). Use `Files.newBufferedWriter` to create a `BufferedWriter` that closes the underlying file descriptor when it is closed."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.staticanalysis.BufferedWriterCreationRecipes"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.BufferedWriterCreationRecipes"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/bufferedwritercreationrecipes.md"}
+/>
 
-_The code `new BufferedWriter(new FileWriter(f))` creates a `BufferedWriter` that does not close the underlying `FileWriter` when it is closed. This can lead to file descriptor leaks as per [CWE-755](https://cwe.mitre.org/data/definitions/755.html). Use `Files.newBufferedWriter` to create a `BufferedWriter` that closes the underlying file descriptor when it is closed._
-
-## Recipe source
-
-[GitHub: BufferedWriterCreation.java](https://github.com/openrewrite/rewrite-static-analysis/blob/main/src/main/java/org/openrewrite/staticanalysis/BufferedWriterCreation.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-static-analysis/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-static-analysis/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Convert `new BufferedWriter(new FileWriter(File))` to `Files.newBufferedWriter(Path)`","href":"staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithfileargumentrecipe"},{"name":"Convert `new BufferedWriter(new FileWriter(String))` to `Files.newBufferedWriter(Path)`","href":"staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithstringargumentrecipe"},{"name":"Convert `new BufferedWriter(new FileWriter(File, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`","href":"staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithfileandbooleanargumentsrecipe"},{"name":"Convert `new BufferedWriter(new FileWriter(String, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`","href":"staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithstringandbooleanargumentsrecipe"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Convert `new BufferedWriter(new FileWriter(File))` to `Files.newBufferedWriter(Path)`](../staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithfileargumentrecipe)
-* [Convert `new BufferedWriter(new FileWriter(String))` to `Files.newBufferedWriter(Path)`](../staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithstringargumentrecipe)
-* [Convert `new BufferedWriter(new FileWriter(File, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`](../staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithfileandbooleanargumentsrecipe)
-* [Convert `new BufferedWriter(new FileWriter(String, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`](../staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithstringandbooleanargumentsrecipe)
+</RecipeList>
 
-</TabItem>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.BufferedWriter;\nimport java.io.FileWriter;\nimport java.io.File;\nimport java.io.IOException;\n\npublic class BufferedWriterCreationTest {\n    public void createBufferedWriter(File f) throws IOException {\n        try (BufferedWriter writer = new BufferedWriter(new FileWriter(f))) {\n\n        }\n    }\n}\n","after":"import java.io.BufferedWriter;\nimport java.io.File;\nimport java.io.IOException;\nimport java.nio.file.Files;\n\npublic class BufferedWriterCreationTest {\n    public void createBufferedWriter(File f) throws IOException {\n        try (BufferedWriter writer = Files.newBufferedWriter(f.toPath())) {\n\n        }\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport java.io.BufferedWriter;\n-import java.io.FileWriter;\nimport java.io.File;\n@@ -5,0 +4,1 @@\nimport java.io.File;\nimport java.io.IOException;\n+import java.nio.file.Files;\n\n@@ -8,1 +8,1 @@\npublic class BufferedWriterCreationTest {\n    public void createBufferedWriter(File f) throws IOException {\n-       try (BufferedWriter writer = new BufferedWriter(new FileWriter(f))) {\n+       try (BufferedWriter writer = Files.newBufferedWriter(f.toPath())) {\n\n","newFile":false}]}]}>
 
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
+## Examples
 
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.staticanalysis.BufferedWriterCreationRecipes
-displayName: Modernize `BufferedWriter` creation &amp; prevent file descriptor leaks
-description: |
-  The code `new BufferedWriter(new FileWriter(f))` creates a `BufferedWriter` that does not close the underlying `FileWriter` when it is closed. This can lead to file descriptor leaks as per [CWE-755](https://cwe.mitre.org/data/definitions/755.html). Use `Files.newBufferedWriter` to create a `BufferedWriter` that closes the underlying file descriptor when it is closed.
-recipeList:
-  - org.openrewrite.staticanalysis.BufferedWriterCreationRecipes$BufferedWriterFromNewFileWriterWithFileArgumentRecipe
-  - org.openrewrite.staticanalysis.BufferedWriterCreationRecipes$BufferedWriterFromNewFileWriterWithStringArgumentRecipe
-  - org.openrewrite.staticanalysis.BufferedWriterCreationRecipes$BufferedWriterFromNewFileWriterWithFileAndBooleanArgumentsRecipe
-  - org.openrewrite.staticanalysis.BufferedWriterCreationRecipes$BufferedWriterFromNewFileWriterWithStringAndBooleanArgumentsRecipe
+</ExampleList>
 
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Java security best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices)
-
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.File;
-import java.io.IOException;
-
-public class BufferedWriterCreationTest {
-    public void createBufferedWriter(File f) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(f))) {
-
-        }
-    }
-}
-```
-
-###### After
-```java
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-
-public class BufferedWriterCreationTest {
-    public void createBufferedWriter(File f) throws IOException {
-        try (BufferedWriter writer = Files.newBufferedWriter(f.toPath())) {
-
-        }
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,1 +2,0 @@
-import java.io.BufferedWriter;
--import java.io.FileWriter;
-import java.io.File;
-@@ -5,0 +4,1 @@
-import java.io.File;
-import java.io.IOException;
-+import java.nio.file.Files;
-
-@@ -8,1 +8,1 @@
-public class BufferedWriterCreationTest {
-    public void createBufferedWriter(File f) throws IOException {
--       try (BufferedWriter writer = new BufferedWriter(new FileWriter(f))) {
-+       try (BufferedWriter writer = Files.newBufferedWriter(f.toPath())) {
-
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.BufferedWriterCreationRecipes","displayName":"Modernize `BufferedWriter` creation & prevent file descriptor leaks","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.staticanalysis.BufferedWriterCreationRecipes"
-  displayName="Modernize `BufferedWriter` creation &amp; prevent file descriptor leaks"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-static-analysis"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.staticanalysis.BufferedWriterCreationRecipes" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

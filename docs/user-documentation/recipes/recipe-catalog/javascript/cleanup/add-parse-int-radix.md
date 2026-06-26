@@ -1,31 +1,36 @@
 ---
 title: "Add radix to `parseInt`"
 sidebar_label: "Add radix to `parseInt`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Add radix to `parseInt`
+<RecipeMeta
+  displayName={"Add radix to `parseInt`"}
+  description={"Adds the radix parameter (base 10) to `parseInt()` calls that are missing it, preventing potential parsing issues."}
+  fqName={"org.openrewrite.javascript.cleanup.add-parse-int-radix"}
+  languages={["JavaScript"]}
+  license={"Moderne Source Available License"}
+/>
 
-**org.openrewrite.javascript.cleanup.add-parse-int-radix**
+<RecipeHeader
+  displayName={"Add radix to `parseInt`"}
+  description={"Adds the radix parameter (base 10) to `parseInt()` calls that are missing it, preventing potential parsing issues."}
+  type={"Single recipe"}
+  languages={["JavaScript"]}
+  tags={[]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.javascript.cleanup.add-parse-int-radix"}
+  artifact={"org.openrewrite:rewrite-javascript"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.add-parse-int-radix"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/add-parse-int-radix.md"}
+  moderneOnly
+/>
 
-_Adds the radix parameter (base 10) to `parseInt()` calls that are missing it, preventing potential parsing issues._
-
-## Recipe source
-
-[GitHub: rewrite+org.openrewrite.javascript.cleanup.add-parse-int-radix](https://github.com/search?type=code&q=repo:openrewrite/rewrite+org.openrewrite.javascript.cleanup.add-parse-int-radix),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-javascript/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.cleanup.add-parse-int-radix","displayName":"Add radix to `parseInt`","npmPackage":"@openrewrite/rewrite"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.javascript.cleanup.add-parse-int-radix"
-  displayName="Add radix to `parseInt`"
-  npmPackage="@openrewrite/rewrite"
-/>
+</UsageList>
+

@@ -1,43 +1,36 @@
 ---
 title: "Find raw string with implicit end of line"
 sidebar_label: "Find raw string with implicit end of line"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find raw string with implicit end of line
+<RecipeMeta
+  displayName={"Find raw string with implicit end of line"}
+  description={"Detect raw string literals (`\"\"\"...\"\"\"`) that contain implicit end-of-line characters which may behave differently across platforms."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindRawStringImplicitEndOfLine"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindRawStringImplicitEndOfLine**
+<RecipeHeader
+  displayName={"Find raw string with implicit end of line"}
+  description={"Detect raw string literals (`\"\"\"...\"\"\"`) that contain implicit end-of-line characters which may behave differently across platforms."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","style","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindRawStringImplicitEndOfLine"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindRawStringImplicitEndOfLine"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findrawstringimplicitendofline.md"}
+  moderneOnly
+/>
 
-_Detect raw string literals (`"""..."""`) that contain implicit end-of-line characters which may behave differently across platforms._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [style](/user-documentation/recipes/lists/recipes-by-tag#style)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindRawStringImplicitEndOfLine","displayName":"Find raw string with implicit end of line","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindRawStringImplicitEndOfLine"
-  displayName="Find raw string with implicit end of line"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

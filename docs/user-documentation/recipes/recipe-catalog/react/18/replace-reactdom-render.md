@@ -1,37 +1,36 @@
 ---
 title: "Replace `ReactDOM.render` with `createRoot`"
 sidebar_label: "Replace `ReactDOM.render` with `createRoot`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace `ReactDOM.render` with `createRoot`
+<RecipeMeta
+  displayName={"Replace `ReactDOM.render` with `createRoot`"}
+  description={"Migrates from the legacy `ReactDOM.render()` API to the `createRoot()` API from `react-dom/client` introduced in React 18."}
+  fqName={"org.openrewrite.react.18.replace-reactdom-render"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.18.replace-reactdom-render**
+<RecipeHeader
+  displayName={"Replace `ReactDOM.render` with `createRoot`"}
+  description={"Migrates from the legacy `ReactDOM.render()` API to the `createRoot()` API from `react-dom/client` introduced in React 18."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.18.replace-reactdom-render"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.18.replace-reactdom-render"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/18/replace-reactdom-render.md"}
+  moderneOnly
+/>
 
-_Migrates from the legacy `ReactDOM.render()` API to the `createRoot()` API from `react-dom/client` introduced in React 18._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to React 18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-18)
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.18.replace-reactdom-render","displayName":"Replace `ReactDOM.render` with `createRoot`","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.18.replace-reactdom-render"
-  displayName="Replace `ReactDOM.render` with `createRoot`"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

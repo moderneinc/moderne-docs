@@ -1,43 +1,36 @@
 ---
 title: "Find class with Equals(T) but no IEquatable&lt;T&gt;"
 sidebar_label: "Find class with Equals(T) but no IEquatable&lt;T&gt;"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find class with Equals(T) but no IEquatable&lt;T&gt;
+<RecipeMeta
+  displayName={"Find class with Equals(T) but no IEquatable<T>"}
+  description={"Detect classes that define `Equals(T)` but do not implement `IEquatable<T>`. Implementing the interface ensures consistency and enables value-based equality."}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindClassWithEqualsButNoIEquatable"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindClassWithEqualsButNoIEquatable**
+<RecipeHeader
+  displayName={"Find class with Equals(T) but no IEquatable<T>"}
+  description={"Detect classes that define `Equals(T)` but do not implement `IEquatable<T>`. Implementing the interface ensures consistency and enables value-based equality."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","style","code-quality"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindClassWithEqualsButNoIEquatable"}
+  artifact={"io.moderne.recipe:recipes-code-quality"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindClassWithEqualsButNoIEquatable"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findclasswithequalsbutnoiequatable.md"}
+  moderneOnly
+/>
 
-_Detect classes that define `Equals(T)` but do not implement `IEquatable<T>`. Implementing the interface ensures consistency and enables value-based equality._
-
-### Tags
-
-* [csharp](/user-documentation/recipes/lists/recipes-by-tag#csharp)
-* [style](/user-documentation/recipes/lists/recipes-by-tag#style)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Style code quality](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality)
-
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindClassWithEqualsButNoIEquatable","displayName":"Find class with Equals(T) but no IEquatable<T>","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindClassWithEqualsButNoIEquatable"
-  displayName="Find class with Equals(T) but no IEquatable&lt;T&gt;"
-  nugetPackage="OpenRewrite.Recipes.CSharp.CodeQuality"
-/>
+</UsageList>
+

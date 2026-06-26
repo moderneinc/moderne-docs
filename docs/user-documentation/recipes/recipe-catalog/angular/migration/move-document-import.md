@@ -1,38 +1,42 @@
 ---
 title: "Move `DOCUMENT` import to `@angular/core`"
 sidebar_label: "Move `DOCUMENT` import to `@angular/core`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Move `DOCUMENT` import to `@angular/core`
+<RecipeMeta
+  displayName={"Move `DOCUMENT` import to `@angular/core`"}
+  description={"Moves the `DOCUMENT` import from older Angular modules to `@angular/core`."}
+  fqName={"org.openrewrite.angular.migration.move-document-import"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.move-document-import**
+<RecipeHeader
+  displayName={"Move `DOCUMENT` import to `@angular/core`"}
+  description={"Moves the `DOCUMENT` import from older Angular modules to `@angular/core`."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.move-document-import"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.move-document-import"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/move-document-import.md"}
+  moderneOnly
+/>
 
-_Moves the `DOCUMENT` import from older Angular modules to `@angular/core`._
+<RecipeList recipes={[{"name":"Change import","href":"javascript/change-import"},{"name":"Change import","href":"javascript/change-import"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 20](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular20)
-* [Upgrade to Angular 8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular8)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.move-document-import","displayName":"Move `DOCUMENT` import to `@angular/core`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.move-document-import"
-  displayName="Move `DOCUMENT` import to `@angular/core`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

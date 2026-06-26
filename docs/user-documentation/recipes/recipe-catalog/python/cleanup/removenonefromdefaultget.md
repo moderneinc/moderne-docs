@@ -1,37 +1,36 @@
 ---
 title: "Remove redundant `None` default from `dict.get()`"
 sidebar_label: "Remove redundant `None` default from `dict.get()`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove redundant `None` default from `dict.get()`
+<RecipeMeta
+  displayName={"Remove redundant `None` default from `dict.get()`"}
+  description={"Remove redundant `None` default argument from `dict.get()` calls since `None` is already the default return value."}
+  fqName={"org.openrewrite.python.cleanup.RemoveNoneFromDefaultGet"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.RemoveNoneFromDefaultGet**
+<RecipeHeader
+  displayName={"Remove redundant `None` default from `dict.get()`"}
+  description={"Remove redundant `None` default argument from `dict.get()` calls since `None` is already the default return value."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.RemoveNoneFromDefaultGet"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveNoneFromDefaultGet"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removenonefromdefaultget.md"}
+  moderneOnly
+/>
 
-_Remove redundant `None` default argument from `dict.get()` calls since `None` is already the default return value._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveNoneFromDefaultGet","displayName":"Remove redundant `None` default from `dict.get()`","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.RemoveNoneFromDefaultGet"
-  displayName="Remove redundant `None` default from `dict.get()`"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

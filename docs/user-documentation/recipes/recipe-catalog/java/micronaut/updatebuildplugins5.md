@@ -1,6 +1,7 @@
 ---
 title: "Update Micronaut Gradle build plugins to 5.x"
 sidebar_label: "Update Micronaut Gradle build plugins to 5.x"
+hide_title: true
 ---
 
 
@@ -8,247 +9,45 @@ sidebar_label: "Update Micronaut Gradle build plugins to 5.x"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/updatebuildplugins5" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Update Micronaut Gradle build plugins to 5.x
+<RecipeMeta
+  displayName={"Update Micronaut Gradle build plugins to 5.x"}
+  description={"This recipe will update the Micronaut Gradle build plugins to 5.x and migrate the Shadow plugin from `com.github.johnrengelman.shadow` to `com.gradleup.shadow` 9.x."}
+  fqName={"org.openrewrite.java.micronaut.UpdateBuildPlugins5"}
+  languages={["Java"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-micronaut/blob/main/src/main/resources/META-INF/rewrite/micronaut4-to-5.yml"}
+/>
 
-**org.openrewrite.java.micronaut.UpdateBuildPlugins5**
+<RecipeHeader
+  displayName={"Update Micronaut Gradle build plugins to 5.x"}
+  description={"This recipe will update the Micronaut Gradle build plugins to 5.x and migrate the Shadow plugin from `com.github.johnrengelman.shadow` to `com.gradleup.shadow` 9.x."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.java.micronaut.UpdateBuildPlugins5"}
+  artifact={"org.openrewrite.recipe:rewrite-micronaut"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.UpdateBuildPlugins5"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/updatebuildplugins5.md"}
+/>
 
-_This recipe will update the Micronaut Gradle build plugins to 5.x and migrate the Shadow plugin from `com.github.johnrengelman.shadow` to `com.gradleup.shadow` 9.x._
-
-## Recipe source
-
-[GitHub: micronaut4-to-5.yml](https://github.com/openrewrite/rewrite-micronaut/blob/main/src/main/resources/META-INF/rewrite/micronaut4-to-5.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-micronaut/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-micronaut/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
+<RecipeList recipes={[{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `com.gradleup.shadow`
-  * newVersion: `9.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.aot`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.application`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.component`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.crac`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.docker`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.graalvm`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.library`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.minimal.application`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.minimal.library`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.openapi`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.test-resources`
-  * newVersion: `5.x`
-* [Update a Gradle plugin by id](../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `io.micronaut.test-resources-consumer`
-  * newVersion: `5.x`
+</RecipeList>
 
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.micronaut.UpdateBuildPlugins5
-displayName: Update Micronaut Gradle build plugins to 5.x
-description: |
-  This recipe will update the Micronaut Gradle build plugins to 5.x and migrate the Shadow plugin from `com.github.johnrengelman.shadow` to `com.gradleup.shadow` 9.x.
-recipeList:
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: com.gradleup.shadow
-      newVersion: 9.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.aot
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.application
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.component
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.crac
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.docker
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.graalvm
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.library
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.minimal.application
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.minimal.library
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.openapi
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.test-resources
-      newVersion: 5.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: io.micronaut.test-resources-consumer
-      newVersion: 5.x
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate from Micronaut 4.x to 5.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut4to5migration.md)
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.micronaut.UpdateBuildPlugins5","displayName":"Update Micronaut Gradle build plugins to 5.x","groupId":"org.openrewrite.recipe","artifactId":"rewrite-micronaut","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.micronaut.UpdateBuildPlugins5"
-  displayName="Update Micronaut Gradle build plugins to 5.x"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-micronaut"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.micronaut.UpdateBuildPlugins5" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

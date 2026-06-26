@@ -1,37 +1,36 @@
 ---
 title: "Find deprecated `RenderComponentType` usage"
 sidebar_label: "Find deprecated `RenderComponentType` usage"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Find deprecated `RenderComponentType` usage
+<RecipeMeta
+  displayName={"Find deprecated `RenderComponentType` usage"}
+  description={"Finds imports of the deprecated `RenderComponentType` from `@angular/core`. `RenderComponentType` was part of the View Engine API, deprecated in Angular 4, and removed in Angular 9."}
+  fqName={"org.openrewrite.angular.search.find-render-component-type-usage"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.search.find-render-component-type-usage**
+<RecipeHeader
+  displayName={"Find deprecated `RenderComponentType` usage"}
+  description={"Finds imports of the deprecated `RenderComponentType` from `@angular/core`. `RenderComponentType` was part of the View Engine API, deprecated in Angular 4, and removed in Angular 9."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.search.find-render-component-type-usage"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-render-component-type-usage"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-render-component-type-usage.md"}
+  moderneOnly
+/>
 
-_Finds imports of the deprecated `RenderComponentType` from `@angular/core`. `RenderComponentType` was part of the View Engine API, deprecated in Angular 4, and removed in Angular 9._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular9)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-render-component-type-usage","displayName":"Find deprecated `RenderComponentType` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.search.find-render-component-type-usage"
-  displayName="Find deprecated `RenderComponentType` usage"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

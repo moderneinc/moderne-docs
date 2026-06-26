@@ -1,36 +1,36 @@
 ---
 title: "Simplify boolean literal comparisons"
 sidebar_label: "Simplify boolean literal comparisons"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Simplify boolean literal comparisons
+<RecipeMeta
+  displayName={"Simplify boolean literal comparisons"}
+  description={"Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression."}
+  fqName={"org.openrewrite.python.codequality.SimplifyBooleanLiteral"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.codequality.SimplifyBooleanLiteral**
+<RecipeHeader
+  displayName={"Simplify boolean literal comparisons"}
+  description={"Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={["python","code-quality","RSPEC-S1125"]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.codequality.SimplifyBooleanLiteral"}
+  artifact={"org.openrewrite.recipe:rewrite-migrate-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.codequality.SimplifyBooleanLiteral"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/codequality/simplifybooleanliteral.md"}
+  moderneOnly
+/>
 
-_Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression._
-
-### Tags
-
-* [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [code-quality](/user-documentation/recipes/lists/recipes-by-tag#code)
-* [RSPEC-S1125](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S1125&open=java%3AS1125)
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.codequality.SimplifyBooleanLiteral","displayName":"Simplify boolean literal comparisons","pipPackage":"openrewrite-migrate-python"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.codequality.SimplifyBooleanLiteral"
-  displayName="Simplify boolean literal comparisons"
-  pipPackage="openrewrite-migrate-python"
-/>
+</UsageList>
+

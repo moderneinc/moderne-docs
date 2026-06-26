@@ -1,44 +1,42 @@
 ---
 title: "Increase Node.js engine version"
 sidebar_label: "Increase Node.js engine version"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Increase Node.js engine version
+<RecipeMeta
+  displayName={"Increase Node.js engine version"}
+  description={"Increases the upper bound of the `engines.node` version range in package.json to allow the specified Node.js version."}
+  fqName={"org.openrewrite.node.migrate.increase-node-engine-version"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.node.migrate.increase-node-engine-version**
+<RecipeHeader
+  displayName={"Increase Node.js engine version"}
+  description={"Increases the upper bound of the `engines.node` version range in package.json to allow the specified Node.js version."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.node.migrate.increase-node-engine-version"}
+  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.increase-node-engine-version"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version.md"}
+  moderneOnly
+/>
 
-_Increases the upper bound of the `engines.node` version range in package.json to allow the specified Node.js version._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+<OptionsTable options={[{"type":"String","name":"version","required":true,"description":"The Node.js major version to allow, e.g. 20 or 22.","example":"22"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `null` | version | The Node.js major version to allow, e.g. 20 or 22. | `22` |
+</OptionsTable>
 
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Node.js 22](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-22)
-* [Upgrade to Node.js 24](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24)
-
+<UsageList usage={{"recipeName":"org.openrewrite.node.migrate.increase-node-engine-version","displayName":"Increase Node.js engine version","npmPackage":"@openrewrite/recipes-nodejs"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.node.migrate.increase-node-engine-version"
-  displayName="Increase Node.js engine version"
-  npmPackage="@openrewrite/recipes-nodejs"
-/>
+</UsageList>
+

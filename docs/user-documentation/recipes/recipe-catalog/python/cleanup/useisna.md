@@ -1,37 +1,36 @@
 ---
 title: "Use `.isna()` instead of `== np.nan` comparisons"
 sidebar_label: "Use `.isna()` instead of `== np.nan` comparisons"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Use `.isna()` instead of `== np.nan` comparisons
+<RecipeMeta
+  displayName={"Use `.isna()` instead of `== np.nan` comparisons"}
+  description={"Rewrite `== np.nan` and `== numpy.nan` equality tests as `.isna()` calls, since direct NaN comparison always evaluates to False."}
+  fqName={"org.openrewrite.python.cleanup.UseIsna"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.UseIsna**
+<RecipeHeader
+  displayName={"Use `.isna()` instead of `== np.nan` comparisons"}
+  description={"Rewrite `== np.nan` and `== numpy.nan` equality tests as `.isna()` calls, since direct NaN comparison always evaluates to False."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.UseIsna"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UseIsna"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/useisna.md"}
+  moderneOnly
+/>
 
-_Rewrite `== np.nan` and `== numpy.nan` equality tests as `.isna()` calls, since direct NaN comparison always evaluates to False._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UseIsna","displayName":"Use `.isna()` instead of `== np.nan` comparisons","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.UseIsna"
-  displayName="Use `.isna()` instead of `== np.nan` comparisons"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

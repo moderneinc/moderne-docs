@@ -1,6 +1,7 @@
 ---
 title: "Unfold YAML properties"
 sidebar_label: "Unfold YAML properties"
+hide_title: true
 ---
 
 
@@ -8,223 +9,51 @@ sidebar_label: "Unfold YAML properties"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/yaml/unfoldproperties" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Unfold YAML properties
+<RecipeMeta
+  displayName={"Unfold YAML properties"}
+  description={"Transforms dot-separated property keys in YAML files into nested map hierarchies to enhance clarity and readability, or for compatibility with tools expecting structured YAML."}
+  fqName={"org.openrewrite.yaml.UnfoldProperties"}
+  languages={["YAML"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/main/java/org/openrewrite/yaml/UnfoldProperties.java"}
+/>
 
-**org.openrewrite.yaml.UnfoldProperties**
+<RecipeHeader
+  displayName={"Unfold YAML properties"}
+  description={"Transforms dot-separated property keys in YAML files into nested map hierarchies to enhance clarity and readability, or for compatibility with tools expecting structured YAML."}
+  type={"Single recipe"}
+  languages={["YAML"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.yaml.UnfoldProperties"}
+  artifact={"org.openrewrite:rewrite-yaml"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.UnfoldProperties"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/unfoldproperties.md"}
+/>
 
-_Transforms dot-separated property keys in YAML files into nested map hierarchies to enhance clarity and readability, or for compatibility with tools expecting structured YAML._
-
-## Recipe source
-
-[GitHub: UnfoldProperties.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/main/java/org/openrewrite/yaml/UnfoldProperties.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-yaml/)
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+<OptionsTable options={[{"type":"List","name":"exclusions","required":true,"description":"An optional list of [JsonPath Plus](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expressions to specify keys that should not be unfolded.","example":"$..[org.springframework.security]"},{"type":"List","name":"applyTo","required":true,"description":"An optional list of [JsonPath Plus](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expressions that specify which keys the recipe should target only. Only the properties matching these expressions will be unfolded.","example":"$..[org.springframework.security]"}]}>
 
 ## Options
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `List` | exclusions | An optional list of [JsonPath Plus](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expressions to specify keys that should not be unfolded. | `$..[org.springframework.security]` |
-| `List` | applyTo | An optional list of [JsonPath Plus](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expressions that specify which keys the recipe should target only. Only the properties matching these expressions will be unfolded. | `$..[org.springframework.security]` |
+</OptionsTable>
 
-## Example
+<ExampleList examples={[{"parameters":[{"parameter":"exclusions","value":"List.of(\"$..[logging.level][?(@property.match(/.*/))]\", \"$..[enable.process.files]\")"},{"parameter":"applyTo","value":"null"}],"variants":[{"language":"yaml","before":"spring.application.name: my-app\nlogging.level:\n  root: INFO\n  org.springframework.web: DEBUG\nmanagement:\n  metrics.enable.process.files: true\n  endpoint.health:\n    show-components: always\n    show-details: always\n","after":"spring:\n  application:\n    name: my-app\nlogging:\n  level:\n    root: INFO\n    org.springframework.web: DEBUG\nmanagement:\n  metrics:\n    enable.process.files: true\n  endpoint:\n    health:\n      show-components: always\n      show-details: always\n","diff":"@@ -1,4 +1,7 @@\n-spring.application.name: my-app\n-logging.level:\n- root: INFO\n- org.springframework.web: DEBUG\n+spring:\n+ application:\n+   name: my-app\n+logging:\n+ level:\n+   root: INFO\n+   org.springframework.web: DEBUG\nmanagement:\n@@ -6,4 +9,6 @@\n  org.springframework.web: DEBUG\nmanagement:\n- metrics.enable.process.files: true\n- endpoint.health:\n-   show-components: always\n-   show-details: always\n+ metrics:\n+   enable.process.files: true\n+ endpoint:\n+   health:\n+     show-components: always\n+     show-details: always\n\n","newFile":false}]}]}>
 
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|exclusions|`List.of("$..[logging.level][?(@property.match(/.*/))]", "$..[enable.process.files]")`|
-|applyTo|`null`|
+## Examples
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="yaml" label="yaml">
-
-
-###### Before
-```yaml
-spring.application.name: my-app
-logging.level:
-  root: INFO
-  org.springframework.web: DEBUG
-management:
-  metrics.enable.process.files: true
-  endpoint.health:
-    show-components: always
-    show-details: always
-```
-
-###### After
-```yaml
-spring:
-  application:
-    name: my-app
-logging:
-  level:
-    root: INFO
-    org.springframework.web: DEBUG
-management:
-  metrics:
-    enable.process.files: true
-  endpoint:
-    health:
-      show-components: always
-      show-details: always
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,4 +1,7 @@
--spring.application.name: my-app
--logging.level:
-- root: INFO
-- org.springframework.web: DEBUG
-+spring:
-+ application:
-+   name: my-app
-+logging:
-+ level:
-+   root: INFO
-+   org.springframework.web: DEBUG
-management:
-@@ -6,4 +9,6 @@
-  org.springframework.web: DEBUG
-management:
-- metrics.enable.process.files: true
-- endpoint.health:
--   show-components: always
--   show-details: always
-+ metrics:
-+   enable.process.files: true
-+ endpoint:
-+   health:
-+     show-components: always
-+     show-details: always
-
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.UnfoldProperties","displayName":"Unfold YAML properties","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"exclusions=$..[org.springframework.security]\" --recipe-option \"applyTo=$..[org.springframework.security]\""}}>
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+</UsageList>
 
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.UnfoldPropertiesExample
-displayName: Unfold YAML properties example
-recipeList:
-  - org.openrewrite.yaml.UnfoldProperties:
-      exclusions:
-        - $..[org.springframework.security]
-      applyTo:
-        - $..[org.springframework.security]
-```
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-<RunRecipe
-  recipeName="org.openrewrite.yaml.UnfoldProperties"
-  displayName="Unfold YAML properties"
-  groupId="org.openrewrite"
-  artifactId="rewrite-yaml"
-  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_YAML"
-  isCoreLibrary
-  requiresConfiguration
-  cliOptions={' --recipe-option "exclusions=$..[org.springframework.security]" --recipe-option "applyTo=$..[org.springframework.security]"'}
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+## Data tables
 
-## See how this recipe works across multiple open-source repositories
+</DataTableList>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
-
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.yaml.UnfoldProperties" />
-
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

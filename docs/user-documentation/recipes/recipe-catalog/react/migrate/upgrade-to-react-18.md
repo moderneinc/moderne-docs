@@ -1,37 +1,42 @@
 ---
 title: "Upgrade to React 18"
 sidebar_label: "Upgrade to React 18"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Upgrade to React 18
+<RecipeMeta
+  displayName={"Upgrade to React 18"}
+  description={"Migrate deprecated APIs for React 18 compatibility. Includes all React 16 and 17 migrations plus the createRoot API migration, removal of unstable_batchedUpdates, unmountComponentAtNode replacement, and render callback removal."}
+  fqName={"org.openrewrite.react.migrate.upgrade-to-react-18"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.react.migrate.upgrade-to-react-18**
+<RecipeHeader
+  displayName={"Upgrade to React 18"}
+  description={"Migrate deprecated APIs for React 18 compatibility. Includes all React 16 and 17 migrations plus the createRoot API migration, removal of unstable_batchedUpdates, unmountComponentAtNode replacement, and render callback removal."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.react.migrate.upgrade-to-react-18"}
+  artifact={"io.moderne.recipe:rewrite-react"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.react.migrate.upgrade-to-react-18"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-18.md"}
+  moderneOnly
+/>
 
-_Migrate deprecated APIs for React 18 compatibility. Includes all React 16 and 17 migrations plus the createRoot API migration, removal of unstable_batchedUpdates, unmountComponentAtNode replacement, and render callback removal._
+<RecipeList recipes={[{"name":"Upgrade to React 17","href":"react/migrate/upgrade-to-react-17"},{"name":"Replace `ReactDOM.render` with `createRoot`","href":"react/18/replace-reactdom-render"},{"name":"Remove `unstable_batchedUpdates`","href":"react/18/remove-unstable-batched-updates"},{"name":"Replace `unmountComponentAtNode` with `createRoot().unmount()`","href":"react/18/replace-unmount-component-at-node"},{"name":"Remove `ReactDOM.render` callback argument","href":"react/18/replace-render-callback"}]}>
 
-## Recipe source
+## Definition
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+</RecipeList>
 
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to React 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-19)
-
+<UsageList usage={{"recipeName":"org.openrewrite.react.migrate.upgrade-to-react-18","displayName":"Upgrade to React 18","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.react.migrate.upgrade-to-react-18"
-  displayName="Upgrade to React 18"
-  npmPackage="@openrewrite/recipes-react"
-/>
+</UsageList>
+

@@ -1,30 +1,36 @@
 ---
 title: "Drop ``pass``-only ``if`` body by inverting the guard"
 sidebar_label: "Drop ``pass``-only ``if`` body by inverting the guard"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Drop ``pass``-only ``if`` body by inverting the guard
+<RecipeMeta
+  displayName={"Drop ``pass``-only ``if`` body by inverting the guard"}
+  description={"When an ``if`` body contains only ``pass`` and is followed by an ``else``, flip the condition and use the else body directly."}
+  fqName={"org.openrewrite.python.cleanup.RemovePassBody"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.RemovePassBody**
+<RecipeHeader
+  displayName={"Drop ``pass``-only ``if`` body by inverting the guard"}
+  description={"When an ``if`` body contains only ``pass`` and is followed by an ``else``, flip the condition and use the else body directly."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.RemovePassBody"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemovePassBody"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removepassbody.md"}
+  moderneOnly
+/>
 
-_When an ``if`` body contains only ``pass`` and is followed by an ``else``, flip the condition and use the else body directly._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemovePassBody","displayName":"Drop ``pass``-only ``if`` body by inverting the guard","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.RemovePassBody"
-  displayName="Drop ``pass``-only ``if`` body by inverting the guard"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

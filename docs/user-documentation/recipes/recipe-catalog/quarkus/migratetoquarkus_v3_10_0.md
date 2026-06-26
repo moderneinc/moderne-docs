@@ -1,6 +1,7 @@
 ---
 title: "Quarkus Updates Aggregate 3.10.0"
 sidebar_label: "Quarkus Updates Aggregate 3.10.0"
+hide_title: true
 ---
 
 
@@ -8,209 +9,45 @@ sidebar_label: "Quarkus Updates Aggregate 3.10.0"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/migratetoquarkus_v3_10_0" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Quarkus Updates Aggregate 3.10.0
+<RecipeMeta
+  displayName={"Quarkus Updates Aggregate 3.10.0"}
+  description={"Quarkus update recipes to upgrade your application to 3.10.0."}
+  fqName={"org.openrewrite.quarkus.MigrateToQuarkus_v3_10_0"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/search?type=code&q=org.openrewrite.quarkus.MigrateToQuarkus_v3_10_0"}
+/>
 
-**org.openrewrite.quarkus.MigrateToQuarkus\_v3\_10\_0**
+<RecipeHeader
+  displayName={"Quarkus Updates Aggregate 3.10.0"}
+  description={"Quarkus update recipes to upgrade your application to 3.10.0."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.openrewrite.quarkus.MigrateToQuarkus_v3_10_0"}
+  artifact={"org.openrewrite.recipe:rewrite-third-party"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.MigrateToQuarkus_v3_10_0"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_10_0.md"}
+/>
 
-_Quarkus update recipes to upgrade your application to 3.10.0._
-
-## Recipe source
-
-[GitHub: search?type=code&q=org.openrewrite.quarkus.MigrateToQuarkus_v3_10_0](https://github.com/search?type=code&q=org.openrewrite.quarkus.MigrateToQuarkus_v3_10_0),
-[Issue Tracker](https://github.com/openrewrite/rewrite-third-party/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-third-party/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
+<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.9.0","href":"quarkus/migratetoquarkus_v3_9_0"},{"name":"io.quarkus.updates.core.quarkus310.SyncHibernateJpaModelgenVersionWithBOM","href":"quarkus/updates/core/quarkus310/synchibernatejpamodelgenversionwithbom"},{"name":"io.quarkus.updates.core.quarkus310.UpdateConfigPackagePom","href":"quarkus/updates/core/quarkus310/updateconfigpackagepom"},{"name":"io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeJar","href":"quarkus/updates/core/quarkus310/updateconfigpackagetypejar"},{"name":"io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeFastJar","href":"quarkus/updates/core/quarkus310/updateconfigpackagetypefastjar"},{"name":"io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeUberJar","href":"quarkus/updates/core/quarkus310/updateconfigpackagetypeuberjar"},{"name":"io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeMutableJar","href":"quarkus/updates/core/quarkus310/updateconfigpackagetypemutablejar"},{"name":"io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeNative","href":"quarkus/updates/core/quarkus310/updateconfigpackagetypenative"},{"name":"io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeNativeSources","href":"quarkus/updates/core/quarkus310/updateconfigpackagetypenativesources"},{"name":"io.quarkus.updates.core.quarkus310.UpdateConfigPackageSimpleProperties","href":"quarkus/updates/core/quarkus310/updateconfigpackagesimpleproperties"},{"name":"io.quarkus.updates.core.quarkus310.FlywayPostgreSQL","href":"quarkus/updates/core/quarkus310/flywaypostgresql"},{"name":"io.quarkus.updates.core.quarkus310.FlywayDb2","href":"quarkus/updates/core/quarkus310/flywaydb2"},{"name":"io.quarkus.updates.core.quarkus310.FlywayDerby","href":"quarkus/updates/core/quarkus310/flywayderby"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Module has dependency](../java/dependencies/search/modulehasdependency)
-  * groupIdPattern: `io.quarkus`
-  * artifactIdPattern: `quarkus-core`
-  * version: `(,3.10.0)`
-
-**Recipes**
-
-* [Quarkus Updates Aggregate 3.9.0](../quarkus/migratetoquarkus_v3_9_0)
-* [io.quarkus.updates.core.quarkus310.SyncHibernateJpaModelgenVersionWithBOM](../quarkus/updates/core/quarkus310/synchibernatejpamodelgenversionwithbom)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackagePom](../quarkus/updates/core/quarkus310/updateconfigpackagepom)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeJar](../quarkus/updates/core/quarkus310/updateconfigpackagetypejar)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeFastJar](../quarkus/updates/core/quarkus310/updateconfigpackagetypefastjar)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeUberJar](../quarkus/updates/core/quarkus310/updateconfigpackagetypeuberjar)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeMutableJar](../quarkus/updates/core/quarkus310/updateconfigpackagetypemutablejar)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeNative](../quarkus/updates/core/quarkus310/updateconfigpackagetypenative)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeNativeSources](../quarkus/updates/core/quarkus310/updateconfigpackagetypenativesources)
-* [io.quarkus.updates.core.quarkus310.UpdateConfigPackageSimpleProperties](../quarkus/updates/core/quarkus310/updateconfigpackagesimpleproperties)
-* [io.quarkus.updates.core.quarkus310.FlywayPostgreSQL](../quarkus/updates/core/quarkus310/flywaypostgresql)
-* [io.quarkus.updates.core.quarkus310.FlywayDb2](../quarkus/updates/core/quarkus310/flywaydb2)
-* [io.quarkus.updates.core.quarkus310.FlywayDerby](../quarkus/updates/core/quarkus310/flywayderby)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.quarkus.MigrateToQuarkus_v3_10_0
-displayName: Quarkus Updates Aggregate 3.10.0
-description: |
-  Quarkus update recipes to upgrade your application to 3.10.0.
-preconditions:
-  - org.openrewrite.java.dependencies.search.ModuleHasDependency:
-      groupIdPattern: io.quarkus
-      artifactIdPattern: quarkus-core
-      version: (,3.10.0)
-recipeList:
-  - org.openrewrite.quarkus.MigrateToQuarkus_v3_9_0
-  - io.quarkus.updates.core.quarkus310.SyncHibernateJpaModelgenVersionWithBOM
-  - io.quarkus.updates.core.quarkus310.UpdateConfigPackagePom
-  - io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeJar
-  - io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeFastJar
-  - io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeUberJar
-  - io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeMutableJar
-  - io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeNative
-  - io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeNativeSources
-  - io.quarkus.updates.core.quarkus310.UpdateConfigPackageSimpleProperties
-  - io.quarkus.updates.core.quarkus310.FlywayPostgreSQL
-  - io.quarkus.updates.core.quarkus310.FlywayDb2
-  - io.quarkus.updates.core.quarkus310.FlywayDerby
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Quarkus Updates Aggregate 3.11.0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_11_0.md)
-
+<UsageList usage={{"recipeName":"org.openrewrite.quarkus.MigrateToQuarkus_v3_10_0","displayName":"Quarkus Updates Aggregate 3.10.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.quarkus.MigrateToQuarkus_v3_10_0"
-  displayName="Quarkus Updates Aggregate 3.10.0"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-third-party"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.quarkus.MigrateToQuarkus_v3_10_0" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

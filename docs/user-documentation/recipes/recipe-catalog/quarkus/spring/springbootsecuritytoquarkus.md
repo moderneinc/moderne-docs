@@ -1,6 +1,7 @@
 ---
 title: "Replace Spring Boot Security with Quarkus Security"
 sidebar_label: "Replace Spring Boot Security with Quarkus Security"
+hide_title: true
 ---
 
 
@@ -8,186 +9,45 @@ sidebar_label: "Replace Spring Boot Security with Quarkus Security"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/springbootsecuritytoquarkus" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Replace Spring Boot Security with Quarkus Security
+<RecipeMeta
+  displayName={"Replace Spring Boot Security with Quarkus Security"}
+  description={"Migrates `spring-boot-starter-security` to `quarkus-security`."}
+  fqName={"org.openrewrite.quarkus.spring.SpringBootSecurityToQuarkus"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-spring-to-quarkus/blob/main/src/main/resources/META-INF/rewrite/boot-starters.yml"}
+/>
 
-**org.openrewrite.quarkus.spring.SpringBootSecurityToQuarkus**
+<RecipeHeader
+  displayName={"Replace Spring Boot Security with Quarkus Security"}
+  description={"Migrates `spring-boot-starter-security` to `quarkus-security`."}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={["spring","security","quarkus"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.quarkus.spring.SpringBootSecurityToQuarkus"}
+  artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.SpringBootSecurityToQuarkus"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootsecuritytoquarkus.md"}
+/>
 
-_Migrates `spring-boot-starter-security` to `quarkus-security`._
-
-### Tags
-
-* [spring](/user-documentation/recipes/lists/recipes-by-tag#spring)
-* [security](/user-documentation/recipes/lists/recipes-by-tag#security)
-* [quarkus](/user-documentation/recipes/lists/recipes-by-tag#quarkus)
-
-## Recipe source
-
-[GitHub: boot-starters.yml](https://github.com/openrewrite/rewrite-spring-to-quarkus/blob/main/src/main/resources/META-INF/rewrite/boot-starters.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-spring-to-quarkus/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-spring-to-quarkus/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Dependency insight for Gradle and Maven](../../java/dependencies/dependencyinsight)
-  * groupIdPattern: `org.springframework.boot`
-  * artifactIdPattern: `spring-boot-starter-security`
-
-**Recipes**
-
-* [Remove a Gradle or Maven dependency](../../java/dependencies/removedependency)
-  * groupId: `org.springframework.boot`
-  * artifactId: `spring-boot-starter-security`
-* [Add Gradle or Maven dependency](../../java/dependencies/adddependency)
-  * groupId: `io.quarkus`
-  * artifactId: `quarkus-security`
-  * version: `x`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.quarkus.spring.SpringBootSecurityToQuarkus
-displayName: Replace Spring Boot Security with Quarkus Security
-description: |
-  Migrates `spring-boot-starter-security` to `quarkus-security`.
-tags:
-  - spring
-  - security
-  - quarkus
-preconditions:
-  - org.openrewrite.java.dependencies.DependencyInsight:
-      groupIdPattern: org.springframework.boot
-      artifactIdPattern: spring-boot-starter-security
-recipeList:
-  - org.openrewrite.java.dependencies.RemoveDependency:
-      groupId: org.springframework.boot
-      artifactId: spring-boot-starter-security
-  - org.openrewrite.java.dependencies.AddDependency:
-      groupId: io.quarkus
-      artifactId: quarkus-security
-      version: x
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Replace Spring Boot starter dependencies with Quarkus equivalents](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratebootstarters.md)
-
+<UsageList usage={{"recipeName":"org.openrewrite.quarkus.spring.SpringBootSecurityToQuarkus","displayName":"Replace Spring Boot Security with Quarkus Security","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring-to-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING_TO_QUARKUS","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.quarkus.spring.SpringBootSecurityToQuarkus"
-  displayName="Replace Spring Boot Security with Quarkus Security"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-spring-to-quarkus"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING_TO_QUARKUS"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.SpringBootSecurityToQuarkus" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

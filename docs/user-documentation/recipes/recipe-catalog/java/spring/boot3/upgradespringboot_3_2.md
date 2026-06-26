@@ -1,6 +1,7 @@
 ---
 title: "Migrate to Spring Boot 3.2"
 sidebar_label: "Migrate to Spring Boot 3.2"
+hide_title: true
 ---
 
 
@@ -8,309 +9,45 @@ sidebar_label: "Migrate to Spring Boot 3.2"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_2" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate to Spring Boot 3.2
+<RecipeMeta
+  displayName={"Migrate to Spring Boot 3.2"}
+  description={"Migrate applications to the latest Spring Boot 3.2 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.1."}
+  fqName={"org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/spring-boot-32.yml"}
+/>
 
-**org.openrewrite.java.spring.boot3.UpgradeSpringBoot\_3\_2**
+<RecipeHeader
+  displayName={"Migrate to Spring Boot 3.2"}
+  description={"Migrate applications to the latest Spring Boot 3.2 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.1."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["spring","boot"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2"}
+  artifact={"org.openrewrite.recipe:rewrite-spring"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_2.md"}
+/>
 
-_Migrate applications to the latest Spring Boot 3.2 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.1._
-
-### Tags
-
-* [spring](/user-documentation/recipes/lists/recipes-by-tag#spring)
-* [boot](/user-documentation/recipes/lists/recipes-by-tag#boot)
-
-## Recipe source
-
-[GitHub: spring-boot-32.yml](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/spring-boot-32.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-spring/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-spring/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.1","href":"java/spring/boot3/upgradespringboot_3_1"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Maven parent project version","href":"maven/upgradeparentversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Migrate to Spring Security 6.2","href":"java/spring/security6/upgradespringsecurity_6_2"},{"name":"Migrate Spring Boot properties to 3.2","href":"java/spring/boot3/springbootproperties_3_2"},{"name":"Migrate to Spring Framework 6.1","href":"java/spring/framework/upgradespringframework_6_1"},{"name":"Migrate to Spring Cloud 2023","href":"java/spring/cloud2023/upgradespringcloud_2023"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate to Hibernate 6.4.x","href":"hibernate/migratetohibernate64"},{"name":"Use `spring.reactor.context-propagation` property","href":"java/spring/boot3/migratehookstoreactorcontextproperty"},{"name":"Relocate Launcher Classes","href":"java/spring/boot3/relocatelauncherclasses"},{"name":"Upgrade MyBatis to Spring Boot 3.2","href":"java/spring/boot3/upgrademybatistospringboot_3_2"},{"name":"Upgrade to SpringDoc 2.5","href":"java/springdoc/upgradespringdoc_2_5"},{"name":"Remove Maven project property","href":"maven/removeproperty"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../../core/singleton)
-
-**Recipes**
-
-* [Migrate to Spring Boot 3.1](../../../java/spring/boot3/upgradespringboot_3_1)
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `org.springframework.boot`
-  * artifactId: `*`
-  * newVersion: `3.2.x`
-  * overrideManagedVersion: `false`
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `org.springframework.boot`
-  * artifactId: `spring-boot-dependencies`
-  * newVersion: `3.2.x`
-  * overrideManagedVersion: `true`
-* [Upgrade Maven plugin version](../../../maven/upgradepluginversion)
-  * groupId: `org.springframework.boot`
-  * artifactId: `spring-boot-maven-plugin`
-  * newVersion: `3.2.x`
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `org.springframework`
-  * artifactId: `*`
-  * newVersion: `6.1.x`
-* [Upgrade Maven parent project version](../../../maven/upgradeparentversion)
-  * groupId: `org.springframework.boot`
-  * artifactId: `spring-boot-starter-parent`
-  * newVersion: `3.2.x`
-* [Update a Gradle plugin by id](../../../gradle/plugins/upgradepluginversion)
-  * pluginIdPattern: `org.springframework.boot`
-  * newVersion: `3.2.x`
-* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
-  * groupId: `commons-codec`
-  * artifactId: `commons-codec`
-  * version: `1.7.x`
-  * onlyIfUsing: `org.apache.commons.codec..*`
-  * acceptTransitive: `true`
-* [Migrate to Spring Security 6.2](../../../java/spring/security6/upgradespringsecurity_6_2)
-* [Migrate Spring Boot properties to 3.2](../../../java/spring/boot3/springbootproperties_3_2)
-* [Migrate to Spring Framework 6.1](../../../java/spring/framework/upgradespringframework_6_1)
-* [Migrate to Spring Cloud 2023](../../../java/spring/cloud2023/upgradespringcloud_2023)
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springframework.boot.task.TaskSchedulerBuilder`
-  * newFullyQualifiedTypeName: `org.springframework.boot.task.ThreadPoolTaskExecutorBuilder`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springframework.boot.task.TaskSchedulerCustomizer`
-  * newFullyQualifiedTypeName: `org.springframework.boot.task.ThreadPoolTaskSchedulerCustomizer`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springframework.boot.task.TaskExecutorBuilder`
-  * newFullyQualifiedTypeName: `org.springframework.boot.task.ThreadPoolTaskExecutorBuilder`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springframework.boot.task.TaskExecutorCustomizer`
-  * newFullyQualifiedTypeName: `org.springframework.boot.task.ThreadPoolTaskExecutorCustomizer`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springframework.boot.autoconfigure.transaction.PlatformTransactionManagerCustomizer`
-  * newFullyQualifiedTypeName: `org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizer`
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `org.springdoc`
-  * artifactId: `*`
-  * newVersion: `2.5.x`
-* [Migrate to Hibernate 6.4.x](../../../hibernate/migratetohibernate64)
-* [Use `spring.reactor.context-propagation` property](../../../java/spring/boot3/migratehookstoreactorcontextproperty)
-* [Relocate Launcher Classes](../../../java/spring/boot3/relocatelauncherclasses)
-* [Upgrade MyBatis to Spring Boot 3.2](../../../java/spring/boot3/upgrademybatistospringboot_3_2)
-* [Upgrade to SpringDoc 2.5](../../../java/springdoc/upgradespringdoc_2_5)
-* [Remove Maven project property](../../../maven/removeproperty)
-  * propertyName: `jakarta-servlet.version`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2
-displayName: Migrate to Spring Boot 3.2
-description: |
-  Migrate applications to the latest Spring Boot 3.2 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.1.
-tags:
-  - spring
-  - boot
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: org.springframework.boot
-      artifactId: "*"
-      newVersion: 3.2.x
-      overrideManagedVersion: false
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: org.springframework.boot
-      artifactId: spring-boot-dependencies
-      newVersion: 3.2.x
-      overrideManagedVersion: true
-  - org.openrewrite.maven.UpgradePluginVersion:
-      groupId: org.springframework.boot
-      artifactId: spring-boot-maven-plugin
-      newVersion: 3.2.x
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: org.springframework
-      artifactId: "*"
-      newVersion: 6.1.x
-  - org.openrewrite.maven.UpgradeParentVersion:
-      groupId: org.springframework.boot
-      artifactId: spring-boot-starter-parent
-      newVersion: 3.2.x
-  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
-      pluginIdPattern: org.springframework.boot
-      newVersion: 3.2.x
-  - org.openrewrite.java.dependencies.AddDependency:
-      groupId: commons-codec
-      artifactId: commons-codec
-      version: 1.7.x
-      onlyIfUsing: org.apache.commons.codec..*
-      acceptTransitive: true
-  - org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_2
-  - org.openrewrite.java.spring.boot3.SpringBootProperties_3_2
-  - org.openrewrite.java.spring.framework.UpgradeSpringFramework_6_1
-  - org.openrewrite.java.spring.cloud2023.UpgradeSpringCloud_2023
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springframework.boot.task.TaskSchedulerBuilder
-      newFullyQualifiedTypeName: org.springframework.boot.task.ThreadPoolTaskExecutorBuilder
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springframework.boot.task.TaskSchedulerCustomizer
-      newFullyQualifiedTypeName: org.springframework.boot.task.ThreadPoolTaskSchedulerCustomizer
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springframework.boot.task.TaskExecutorBuilder
-      newFullyQualifiedTypeName: org.springframework.boot.task.ThreadPoolTaskExecutorBuilder
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springframework.boot.task.TaskExecutorCustomizer
-      newFullyQualifiedTypeName: org.springframework.boot.task.ThreadPoolTaskExecutorCustomizer
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springframework.boot.autoconfigure.transaction.PlatformTransactionManagerCustomizer
-      newFullyQualifiedTypeName: org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizer
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: org.springdoc
-      artifactId: "*"
-      newVersion: 2.5.x
-  - org.openrewrite.hibernate.MigrateToHibernate64
-  - org.openrewrite.java.spring.boot3.MigrateHooksToReactorContextProperty
-  - org.openrewrite.java.spring.boot3.RelocateLauncherClasses
-  - org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_2
-  - org.openrewrite.java.springdoc.UpgradeSpringDoc_2_5
-  - org.openrewrite.maven.RemoveProperty:
-      propertyName: jakarta-servlet.version
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Spring Boot 3.3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_3.md)
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2","displayName":"Migrate to Spring Boot 3.2","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2"
-  displayName="Migrate to Spring Boot 3.2"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-spring"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

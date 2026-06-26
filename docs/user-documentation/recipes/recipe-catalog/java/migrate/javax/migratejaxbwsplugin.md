@@ -1,6 +1,7 @@
 ---
 title: "Migrate JAXB-WS Plugin"
 sidebar_label: "Migrate JAXB-WS Plugin"
+hide_title: true
 ---
 
 
@@ -8,492 +9,51 @@ sidebar_label: "Migrate JAXB-WS Plugin"
   <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/migratejaxbwsplugin" />
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Migrate JAXB-WS Plugin
+<RecipeMeta
+  displayName={"Migrate JAXB-WS Plugin"}
+  description={"Upgrade the JAXB-WS Maven plugin to be compatible with Java 11."}
+  fqName={"org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/jaxb-plugins.yml"}
+/>
 
-**org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin**
+<RecipeHeader
+  displayName={"Migrate JAXB-WS Plugin"}
+  description={"Upgrade the JAXB-WS Maven plugin to be compatible with Java 11."}
+  type={"Composite recipe"}
+  languages={["Java"]}
+  tags={["java11"]}
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin"}
+  artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratejaxbwsplugin.md"}
+/>
 
-_Upgrade the JAXB-WS Maven plugin to be compatible with Java 11._
-
-### Tags
-
-* [java11](/user-documentation/recipes/lists/recipes-by-tag#java11)
-
-## Recipe source
-
-[GitHub: jaxb-plugins.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/jaxb-plugins.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
+<RecipeList recipes={[{"name":"Change Maven plugin group and artifact ID","href":"maven/changeplugingroupidandartifactid"},{"name":"Add or update child tag","href":"xml/addorupdatechildtag"},{"name":"Change XML tag name","href":"xml/changetagname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
 
 ## Definition
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
+</RecipeList>
 
-* [Singleton](../../../core/singleton)
-
-**Recipes**
-
-* [Change Maven plugin group and artifact ID](../../../maven/changeplugingroupidandartifactid)
-  * oldGroupId: `org.jvnet.jax-ws-commons`
-  * oldArtifactId: `jaxws-maven-plugin`
-  * newGroupId: `com.sun.xml.ws`
-  * newVersion: `2.3.7`
-* [Add or update child tag](../../../xml/addorupdatechildtag)
-  * parentXPath: `//plugin[artifactId='jaxws-maven-plugin']/executions/execution`
-  * newChildTag: `<phase>generate-sources</phase>`
-* [Change XML tag name](../../../xml/changetagname)
-  * elementName: `//plugin[artifactId='jaxws-maven-plugin']/executions/execution/configuration/nocompile`
-  * newName: `xnocompile`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin
-displayName: Migrate JAXB-WS Plugin
-description: |
-  Upgrade the JAXB-WS Maven plugin to be compatible with Java 11.
-tags:
-  - java11
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.maven.ChangePluginGroupIdAndArtifactId:
-      oldGroupId: org.jvnet.jax-ws-commons
-      oldArtifactId: jaxws-maven-plugin
-      newGroupId: com.sun.xml.ws
-      newVersion: 2.3.7
-  - org.openrewrite.xml.AddOrUpdateChildTag:
-      parentXPath: //plugin[artifactId='jaxws-maven-plugin']/executions/execution
-      newChildTag: <phase>generate-sources</phase>
-  - org.openrewrite.xml.ChangeTagName:
-      elementName: //plugin[artifactId='jaxws-maven-plugin']/executions/execution/configuration/nocompile
-      newName: xnocompile
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Java 11](/user-documentation/recipes/recipe-catalog/java/migrate/java8tojava11.md)
+<ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>jaxws-service</artifactId>\n    <version>1.0.0</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.jvnet.jax-ws-commons</groupId>\n                <artifactId>jaxws-maven-plugin</artifactId>\n                <version>2.1</version>\n                <executions>\n                    <execution>\n                        <id>wsimport-from-jdk</id>\n                        <goals>\n                            <goal>wsimport</goal>\n                        </goals>\n                        <configuration>\n                            <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>\n                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>\n                            <wsdlFiles>\n                                <wsdlFile>STSSAPPrimingService.wsdl</wsdlFile>\n                            </wsdlFiles>\n                            <packageName>org.example.generated</packageName>\n                            <keep>true</keep>\n                            <nocompile>true</nocompile>\n                            <verbose>true</verbose>\n                        </configuration>\n                    </execution>\n                </executions>\n            </plugin>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-compiler-plugin</artifactId>\n                <version>3.14.1</version>\n                <executions>\n                    <execution>\n                        <configuration>\n                            <nocompile>true</nocompile>\n                        </configuration>\n                    </execution>\n                </executions>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>jaxws-service</artifactId>\n    <version>1.0.0</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>com.sun.xml.ws</groupId>\n                <artifactId>jaxws-maven-plugin</artifactId>\n                <version>2.3.7</version>\n                <executions>\n                    <execution>\n                        <id>wsimport-from-jdk</id>\n                        <goals>\n                            <goal>wsimport</goal>\n                        </goals>\n                        <configuration>\n                            <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>\n                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>\n                            <wsdlFiles>\n                                <wsdlFile>STSSAPPrimingService.wsdl</wsdlFile>\n                            </wsdlFiles>\n                            <packageName>org.example.generated</packageName>\n                            <keep>true</keep>\n                            <xnocompile>true</xnocompile>\n                            <verbose>true</verbose>\n                        </configuration>\n                        <phase>generate-sources</phase>\n                    </execution>\n                </executions>\n            </plugin>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-compiler-plugin</artifactId>\n                <version>3.14.1</version>\n                <executions>\n                    <execution>\n                        <configuration>\n                            <nocompile>true</nocompile>\n                        </configuration>\n                    </execution>\n                </executions>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -9,1 +9,1 @@\n        <plugins>\n            <plugin>\n-               <groupId>org.jvnet.jax-ws-commons</groupId>\n+               <groupId>com.sun.xml.ws</groupId>\n                <artifactId>jaxws-maven-plugin</artifactId>\n@@ -11,1 +11,1 @@\n                <groupId>org.jvnet.jax-ws-commons</groupId>\n                <artifactId>jaxws-maven-plugin</artifactId>\n-               <version>2.1</version>\n+               <version>2.3.7</version>\n                <executions>\n@@ -26,1 +26,1 @@\n                            <packageName>org.example.generated</packageName>\n                            <keep>true</keep>\n-                           <nocompile>true</nocompile>\n+                           <xnocompile>true</xnocompile>\n                            <verbose>true</verbose>\n@@ -29,0 +29,1 @@\n                            <verbose>true</verbose>\n                        </configuration>\n+                       <phase>generate-sources</phase>\n                    </execution>\n","newFile":false}]},{"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>jaxws-service</artifactId>\n    <version>1.0.0</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.jvnet.jax-ws-commons</groupId>\n                <artifactId>jaxws-maven-plugin</artifactId>\n                <version>2.1</version>\n                <executions>\n                    <execution>\n                        <id>wsimport-from-jdk</id>\n                        <goals>\n                            <goal>wsimport</goal>\n                        </goals>\n                        <configuration>\n                            <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>\n                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>\n                            <wsdlFiles>\n                                <wsdlFile>STSSAPPrimingService.wsdl</wsdlFile>\n                            </wsdlFiles>\n                            <packageName>org.example.generated</packageName>\n                            <keep>true</keep>\n                            <nocompile>true</nocompile>\n                            <verbose>true</verbose>\n                        </configuration>\n                    </execution>\n                </executions>\n            </plugin>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-compiler-plugin</artifactId>\n                <version>3.14.1</version>\n                <executions>\n                    <execution>\n                        <configuration>\n                            <nocompile>true</nocompile>\n                        </configuration>\n                    </execution>\n                </executions>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>jaxws-service</artifactId>\n    <version>1.0.0</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>com.sun.xml.ws</groupId>\n                <artifactId>jaxws-maven-plugin</artifactId>\n                <version>2.3.7</version>\n                <executions>\n                    <execution>\n                        <id>wsimport-from-jdk</id>\n                        <goals>\n                            <goal>wsimport</goal>\n                        </goals>\n                        <configuration>\n                            <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>\n                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>\n                            <wsdlFiles>\n                                <wsdlFile>STSSAPPrimingService.wsdl</wsdlFile>\n                            </wsdlFiles>\n                            <packageName>org.example.generated</packageName>\n                            <keep>true</keep>\n                            <xnocompile>true</xnocompile>\n                            <verbose>true</verbose>\n                        </configuration>\n                        <phase>generate-sources</phase>\n                    </execution>\n                </executions>\n            </plugin>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-compiler-plugin</artifactId>\n                <version>3.14.1</version>\n                <executions>\n                    <execution>\n                        <configuration>\n                            <nocompile>true</nocompile>\n                        </configuration>\n                    </execution>\n                </executions>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -9,1 +9,1 @@\n        <plugins>\n            <plugin>\n-               <groupId>org.jvnet.jax-ws-commons</groupId>\n+               <groupId>com.sun.xml.ws</groupId>\n                <artifactId>jaxws-maven-plugin</artifactId>\n@@ -11,1 +11,1 @@\n                <groupId>org.jvnet.jax-ws-commons</groupId>\n                <artifactId>jaxws-maven-plugin</artifactId>\n-               <version>2.1</version>\n+               <version>2.3.7</version>\n                <executions>\n@@ -26,1 +26,1 @@\n                            <packageName>org.example.generated</packageName>\n                            <keep>true</keep>\n-                           <nocompile>true</nocompile>\n+                           <xnocompile>true</xnocompile>\n                            <verbose>true</verbose>\n@@ -29,0 +29,1 @@\n                            <verbose>true</verbose>\n                        </configuration>\n+                       <phase>generate-sources</phase>\n                    </execution>\n","newFile":false}]}]}>
 
 ## Examples
-##### Example 1
-`MigrateJaxwsMavenPluginTest#migrateJaxwsPluginFromJvnetToSunXmlWs`
 
+</ExampleList>
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>jaxws-service</artifactId>
-    <version>1.0.0</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.jvnet.jax-ws-commons</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.1</version>
-                <executions>
-                    <execution>
-                        <id>wsimport-from-jdk</id>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>
-                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
-                            <wsdlFiles>
-                                <wsdlFile>STSSAPPrimingService.wsdl</wsdlFile>
-                            </wsdlFiles>
-                            <packageName>org.example.generated</packageName>
-                            <keep>true</keep>
-                            <nocompile>true</nocompile>
-                            <verbose>true</verbose>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.1</version>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <nocompile>true</nocompile>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>jaxws-service</artifactId>
-    <version>1.0.0</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.sun.xml.ws</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.3.7</version>
-                <executions>
-                    <execution>
-                        <id>wsimport-from-jdk</id>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>
-                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
-                            <wsdlFiles>
-                                <wsdlFile>STSSAPPrimingService.wsdl</wsdlFile>
-                            </wsdlFiles>
-                            <packageName>org.example.generated</packageName>
-                            <keep>true</keep>
-                            <xnocompile>true</xnocompile>
-                            <verbose>true</verbose>
-                        </configuration>
-                        <phase>generate-sources</phase>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.1</version>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <nocompile>true</nocompile>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -9,1 +9,1 @@
-        <plugins>
-            <plugin>
--               <groupId>org.jvnet.jax-ws-commons</groupId>
-+               <groupId>com.sun.xml.ws</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-@@ -11,1 +11,1 @@
-                <groupId>org.jvnet.jax-ws-commons</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
--               <version>2.1</version>
-+               <version>2.3.7</version>
-                <executions>
-@@ -26,1 +26,1 @@
-                            <packageName>org.example.generated</packageName>
-                            <keep>true</keep>
--                           <nocompile>true</nocompile>
-+                           <xnocompile>true</xnocompile>
-                            <verbose>true</verbose>
-@@ -29,0 +29,1 @@
-                            <verbose>true</verbose>
-                        </configuration>
-+                       <phase>generate-sources</phase>
-                    </execution>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`MigrateJaxwsMavenPluginTest#migrateJaxwsPluginFromJvnetToSunXmlWs`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>jaxws-service</artifactId>
-    <version>1.0.0</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.jvnet.jax-ws-commons</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.1</version>
-                <executions>
-                    <execution>
-                        <id>wsimport-from-jdk</id>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>
-                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
-                            <wsdlFiles>
-                                <wsdlFile>STSSAPPrimingService.wsdl</wsdlFile>
-                            </wsdlFiles>
-                            <packageName>org.example.generated</packageName>
-                            <keep>true</keep>
-                            <nocompile>true</nocompile>
-                            <verbose>true</verbose>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.1</version>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <nocompile>true</nocompile>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>jaxws-service</artifactId>
-    <version>1.0.0</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.sun.xml.ws</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.3.7</version>
-                <executions>
-                    <execution>
-                        <id>wsimport-from-jdk</id>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>
-                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
-                            <wsdlFiles>
-                                <wsdlFile>STSSAPPrimingService.wsdl</wsdlFile>
-                            </wsdlFiles>
-                            <packageName>org.example.generated</packageName>
-                            <keep>true</keep>
-                            <xnocompile>true</xnocompile>
-                            <verbose>true</verbose>
-                        </configuration>
-                        <phase>generate-sources</phase>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.1</version>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <nocompile>true</nocompile>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -9,1 +9,1 @@
-        <plugins>
-            <plugin>
--               <groupId>org.jvnet.jax-ws-commons</groupId>
-+               <groupId>com.sun.xml.ws</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-@@ -11,1 +11,1 @@
-                <groupId>org.jvnet.jax-ws-commons</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
--               <version>2.1</version>
-+               <version>2.3.7</version>
-                <executions>
-@@ -26,1 +26,1 @@
-                            <packageName>org.example.generated</packageName>
-                            <keep>true</keep>
--                           <nocompile>true</nocompile>
-+                           <xnocompile>true</xnocompile>
-                            <verbose>true</verbose>
-@@ -29,0 +29,1 @@
-                            <verbose>true</verbose>
-                        </configuration>
-+                       <phase>generate-sources</phase>
-                    </execution>
-```
-</TabItem>
-</Tabs>
-
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin","displayName":"Migrate JAXB-WS Plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin"
-  displayName="Migrate JAXB-WS Plugin"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-migrate-java"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
-  showGradle={false}
-  showMaven={false}
-  hasDataTables
-/>
+</UsageList>
 
-## See how this recipe works across multiple open-source repositories
+<DataTableList tables={[{"name":"org.openrewrite.maven.table.MavenMetadataFailures","displayName":"Maven metadata failures","description":"Attempts to resolve maven metadata that failed.","columns":[{"name":"Group id","description":"The groupId of the artifact for which the metadata download failed."},{"name":"Artifact id","description":"The artifactId of the artifact for which the metadata download failed."},{"name":"Version","description":"The version of the artifact for which the metadata download failed."},{"name":"Maven repository","description":"The URL of the Maven repository that the metadata download failed on."},{"name":"Snapshots","description":"Does the repository support snapshots."},{"name":"Releases","description":"Does the repository support releases."},{"name":"Failure","description":"The reason the metadata download failed."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
 
-import RecipeCallout from '@site/src/components/ModerneLink';
+## Data tables
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin" />
+</DataTableList>
 
-The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
-
-Please [contact Moderne](https://moderne.io/product) for more information about safely running the recipes on your own codebase in a private SaaS.
-## Data Tables
-
-<Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
-
-### Source files that had results
-**org.openrewrite.table.SourcesFileResults**
-
-_Source files that were modified by the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path before the run | The source path of the file before the run. `null` when a source file was created during the run. |
-| Source path after the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Parent of the recipe that made changes | In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Estimated time saving | An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds. |
-| Cycle | The recipe cycle in which the change was made. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SearchResults" label="SearchResults">
-
-### Source files that had search results
-**org.openrewrite.table.SearchResults**
-
-_Search results that were found during the recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path of search result before the run | The source path of the file with the search result markers present. |
-| Source path of search result after run the run | A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run. |
-| Result | The trimmed printed tree of the LST element that the marker is attached to. |
-| Description | The content of the description of the marker. |
-| Recipe that added the search marker | The specific recipe that added the Search marker. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.SourcesFileErrors" label="SourcesFileErrors">
-
-### Source files that errored on a recipe
-**org.openrewrite.table.SourcesFileErrors**
-
-_The details of all errors produced by a recipe run._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The file that failed to parse. |
-| Recipe that made changes | The specific recipe that made a change. |
-| Stack trace | The stack trace of the failure. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.RecipeRunStats" label="RecipeRunStats">
-
-### Recipe performance
-**org.openrewrite.table.RecipeRunStats**
-
-_Statistics used in analyzing the performance of recipes._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| The recipe | The recipe whose stats are being measured both individually and cumulatively. |
-| Source file count | The number of source files the recipe ran over. |
-| Source file changed count | The number of source files which were changed in the recipe run. Includes files created, deleted, and edited. |
-| Cumulative scanning time (ns) | The total time spent across the scanning phase of this recipe. |
-| Max scanning time (ns) | The max time scanning any one source file. |
-| Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
-| Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-</Tabs>

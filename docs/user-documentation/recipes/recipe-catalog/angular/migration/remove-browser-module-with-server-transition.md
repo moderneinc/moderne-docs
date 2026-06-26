@@ -1,37 +1,36 @@
 ---
 title: "Remove `BrowserModule.withServerTransition`"
 sidebar_label: "Remove `BrowserModule.withServerTransition`"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Remove `BrowserModule.withServerTransition`
+<RecipeMeta
+  displayName={"Remove `BrowserModule.withServerTransition`"}
+  description={"Replaces `BrowserModule.withServerTransition({ appId: '...' })` with `BrowserModule` and adds `{ provide: APP_ID, useValue: '...' }` to the NgModule providers. The `withServerTransition` method was removed in Angular 19."}
+  fqName={"org.openrewrite.angular.migration.remove-browser-module-with-server-transition"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.angular.migration.remove-browser-module-with-server-transition**
+<RecipeHeader
+  displayName={"Remove `BrowserModule.withServerTransition`"}
+  description={"Replaces `BrowserModule.withServerTransition({ appId: '...' })` with `BrowserModule` and adds `{ provide: APP_ID, useValue: '...' }` to the NgModule providers. The `withServerTransition` method was removed in Angular 19."}
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.angular.migration.remove-browser-module-with-server-transition"}
+  artifact={"io.moderne.recipe:rewrite-angular"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-browser-module-with-server-transition"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-browser-module-with-server-transition.md"}
+  moderneOnly
+/>
 
-_Replaces `BrowserModule.withServerTransition({ appId: '...' })` with `BrowserModule` and adds `{ provide: APP_ID, useValue: '...' }` to the NgModule providers. The `withServerTransition` method was removed in Angular 19._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Upgrade to Angular 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular19)
-
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-browser-module-with-server-transition","displayName":"Remove `BrowserModule.withServerTransition`","npmPackage":"@openrewrite/recipes-angular"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.angular.migration.remove-browser-module-with-server-transition"
-  displayName="Remove `BrowserModule.withServerTransition`"
-  npmPackage="@openrewrite/recipes-angular"
-/>
+</UsageList>
+

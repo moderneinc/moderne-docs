@@ -1,37 +1,36 @@
 ---
 title: "Fold same-literal `==`/`!=` comparisons to boolean constants"
 sidebar_label: "Fold same-literal `==`/`!=` comparisons to boolean constants"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Fold same-literal `==`/`!=` comparisons to boolean constants
+<RecipeMeta
+  displayName={"Fold same-literal `==`/`!=` comparisons to boolean constants"}
+  description={"When both sides of `==` or `!=` are the same literal, replace the expression with `True` or `False` respectively."}
+  fqName={"org.openrewrite.python.cleanup.EqualityIdentity"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.EqualityIdentity**
+<RecipeHeader
+  displayName={"Fold same-literal `==`/`!=` comparisons to boolean constants"}
+  description={"When both sides of `==` or `!=` are the same literal, replace the expression with `True` or `False` respectively."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.EqualityIdentity"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.EqualityIdentity"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/equalityidentity.md"}
+  moderneOnly
+/>
 
-_When both sides of `==` or `!=` are the same literal, replace the expression with `True` or `False` respectively._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.EqualityIdentity","displayName":"Fold same-literal `==`/`!=` comparisons to boolean constants","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.EqualityIdentity"
-  displayName="Fold same-literal `==`/`!=` comparisons to boolean constants"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+

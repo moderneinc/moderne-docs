@@ -1,37 +1,36 @@
 ---
 title: "Swap `not all()`/`not any()` by negating the comparison"
 sidebar_label: "Swap `not all()`/`not any()` by negating the comparison"
+hide_title: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import RunRecipe from '@site/src/components/RunRecipe';
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
-# Swap `not all()`/`not any()` by negating the comparison
+<RecipeMeta
+  displayName={"Swap `not all()`/`not any()` by negating the comparison"}
+  description={"Apply De Morgan's law to replace `not all(cond ...)` with `any(negated_cond ...)` or `not any(cond ...)` with `all(negated_cond ...)`."}
+  fqName={"org.openrewrite.python.cleanup.InvertAnyAll"}
+  languages={["Python"]}
+  license={"Moderne Proprietary License"}
+/>
 
-**org.openrewrite.python.cleanup.InvertAnyAll**
+<RecipeHeader
+  displayName={"Swap `not all()`/`not any()` by negating the comparison"}
+  description={"Apply De Morgan's law to replace `not all(cond ...)` with `any(negated_cond ...)` or `not any(cond ...)` with `all(negated_cond ...)`."}
+  type={"Single recipe"}
+  languages={["Python"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.python.cleanup.InvertAnyAll"}
+  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.InvertAnyAll"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/invertanyall.md"}
+  moderneOnly
+/>
 
-_Apply De Morgan's law to replace `not all(cond ...)` with `any(negated_cond ...)` or `not any(cond ...)` with `all(negated_cond ...)`._
-
-## Recipe source
-
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
-
-
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Python cleanup suite](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices)
-
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.InvertAnyAll","displayName":"Swap `not all()`/`not any()` by negating the comparison","pipPackage":"openrewrite-static-analysis"}}>
 
 ## Usage
 
-<RunRecipe
-  recipeName="org.openrewrite.python.cleanup.InvertAnyAll"
-  displayName="Swap `not all()`/`not any()` by negating the comparison"
-  pipPackage="openrewrite-static-analysis"
-/>
+</UsageList>
+
