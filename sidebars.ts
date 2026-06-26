@@ -815,6 +815,21 @@ const recipes = {
             'user-documentation/recipes/authoring-recipes/advanced-authoring/estimated-time-saved',
           ],
         },
+        {
+          type: 'category' as const,
+          label: 'Testing & best practices',
+          link: {
+            type: 'generated-index' as const,
+            title: 'Testing & best practices',
+            description: 'How to test recipes and write reliable, scalable ones.',
+            slug: '/user-documentation/recipes/authoring-recipes/testing-and-best-practices',
+            keywords: ['recipes', 'authoring', 'testing'],
+          },
+          items: [
+            'user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-testing',
+            'user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-conventions-and-best-practices',
+          ],
+        },
       ],
     },
     {
