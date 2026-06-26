@@ -12,7 +12,7 @@ import ReactPlayer from 'react-player';
 
 # Traits
 
-In OpenRewrite, traits are high-level abstractions that simplify accessing and modifying [LST elements](./lst-examples.md). They can greatly simplify recipe development by offering methods to retrieve values or match elements without needing to fully understand the underlying types or code structure.
+In OpenRewrite, traits are high-level abstractions that simplify accessing and modifying [LST elements](./lst-examples/java.md). They can greatly simplify recipe development by offering methods to retrieve values or match elements without needing to fully understand the underlying types or code structure.
 
 In this doc, we'll explain how traits came to be, provide some examples, and then show you recipes that use them. By the end, you should have a good idea how to work with traits.
 
@@ -28,7 +28,7 @@ To address this problem, we decided to implement the [trait pattern](https://en.
 
 ## The trait interface
 
-A trait is, in essence, an interface that has a [cursor](./visitors.md#cursoring) and, inside of the cursor, there is a [tree element](./lst-examples.md).
+A trait is, in essence, an interface that has a [cursor](./visitors.md#cursoring) and, inside of the cursor, there is a [tree element](./lst-examples/java.md).
 
 Below you can find the code for the trait interface. As you can see, it's fairly simplistic in nature. The interesting part comes from how/why it's implemented and used – which we'll explain next.
 

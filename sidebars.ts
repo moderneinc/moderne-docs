@@ -734,6 +734,22 @@ const recipes = {
           items: [
             'user-documentation/recipes/authoring-recipes/concepts/recipes',
             'user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees',
+            {
+              type: 'category' as const,
+              label: 'LST examples',
+              link: {
+                type: 'generated-index' as const,
+                title: 'LST examples',
+                description: 'See how Java, YAML, and JavaScript code maps to OpenRewrite LST elements.',
+                slug: '/user-documentation/recipes/authoring-recipes/concepts/lst-examples',
+                keywords: ['lst', 'examples', 'concepts'],
+              },
+              items: [
+                'user-documentation/recipes/authoring-recipes/concepts/lst-examples/java',
+                'user-documentation/recipes/authoring-recipes/concepts/lst-examples/yaml',
+                'user-documentation/recipes/authoring-recipes/concepts/lst-examples/javascript',
+              ],
+            },
             'user-documentation/recipes/authoring-recipes/concepts/type-attribution',
             'user-documentation/recipes/authoring-recipes/concepts/visitors',
             'user-documentation/recipes/authoring-recipes/concepts/cursors',

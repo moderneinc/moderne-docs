@@ -36,7 +36,7 @@ Moderne's build plugins allow for LSTs to be serialized to disk. This makes the 
 Once we have a serialized LST for a particular source file, and since it also contains type information, it can be refactored/searched completely independently of other source files in the same source package or repository. This makes mass search and refactoring an approximately linearly scalable operation.
 
 :::info
-If you want to see specific examples of Java LSTs, please read the [Java LST examples doc](./lst-examples.md).
+If you want to see specific examples of Java LSTs, please read the [Java LST examples doc](./lst-examples/java.md).
 :::
 
 :::info
