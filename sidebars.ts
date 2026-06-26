@@ -794,6 +794,27 @@ const recipes = {
             'user-documentation/recipes/authoring-recipes/writing-recipes/refaster-recipes',
           ],
         },
+        {
+          type: 'category' as const,
+          label: 'Advanced techniques',
+          link: {
+            type: 'generated-index' as const,
+            title: 'Advanced techniques',
+            description: 'Advanced recipe authoring techniques.',
+            slug: '/user-documentation/recipes/authoring-recipes/advanced-authoring',
+            keywords: ['recipes', 'authoring', 'advanced'],
+          },
+          items: [
+            'user-documentation/recipes/authoring-recipes/advanced-authoring/data-tables',
+            'user-documentation/recipes/authoring-recipes/advanced-authoring/multiple-visitors',
+            'user-documentation/recipes/authoring-recipes/advanced-authoring/writing-recipes-over-multiple-source-file-types',
+            'user-documentation/recipes/authoring-recipes/advanced-authoring/multiple-versions',
+            'user-documentation/recipes/authoring-recipes/advanced-authoring/automate-breaking-changes',
+            'user-documentation/recipes/authoring-recipes/advanced-authoring/modifying-methods-with-javatemplate',
+            'user-documentation/recipes/authoring-recipes/advanced-authoring/recipe-with-npm-dependency',
+            'user-documentation/recipes/authoring-recipes/advanced-authoring/estimated-time-saved',
+          ],
+        },
       ],
     },
     {
