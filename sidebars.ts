@@ -830,6 +830,25 @@ const recipes = {
             'user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-conventions-and-best-practices',
           ],
         },
+        {
+          type: 'category' as const,
+          label: 'Reference',
+          link: {
+            type: 'generated-index' as const,
+            title: 'Reference',
+            description: 'Reference material for writing OpenRewrite recipes.',
+            slug: '/user-documentation/recipes/authoring-recipes/reference',
+            keywords: ['recipes', 'authoring', 'reference'],
+          },
+          items: [
+            'user-documentation/recipes/authoring-recipes/reference/yaml-format-reference',
+            'user-documentation/recipes/authoring-recipes/reference/method-patterns',
+            'user-documentation/recipes/authoring-recipes/reference/jsonpath-and-jsonpathmatcher-reference',
+            'user-documentation/recipes/authoring-recipes/reference/dependency-version-selectors',
+            'user-documentation/recipes/authoring-recipes/reference/framework-provided-markers',
+            'user-documentation/recipes/authoring-recipes/reference/type-attribution',
+          ],
+        },
       ],
     },
     {
