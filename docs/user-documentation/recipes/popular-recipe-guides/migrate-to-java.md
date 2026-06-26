@@ -1,5 +1,5 @@
 ---
-sidebar_label: Migrate to Java
+sidebar_label: Migrate to a newer version of Java
 description: How to upgrade Java codebases to the latest LTS or an intermediate version with the Moderne Platform or CLI.
 ---
 

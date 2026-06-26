@@ -1,5 +1,5 @@
 ---
-sidebar_label: Migrate to Spring Boot
+sidebar_label: Migrate to a newer version of Spring Boot
 description: How to upgrade Spring Boot codebases to the latest version with the Moderne Platform or CLI.
 ---
 
