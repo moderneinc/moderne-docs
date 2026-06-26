@@ -127,5 +127,5 @@ Each language's parser extracts whatever type information is available from that
 
 ## Further reading
 
-* For technical details on working with type attribution, see our [type attribution for recipe authors doc](../reference/type-attribution.md)
+* For technical details on working with type attribution, see our [type attribution for recipe authors doc](../references/type-attribution.md)
 * To understand what a Lossless Semantic Tree is, see our [LST reference doc](./lossless-semantic-trees.md)

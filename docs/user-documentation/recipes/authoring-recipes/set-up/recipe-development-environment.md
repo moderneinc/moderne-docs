@@ -328,7 +328,7 @@ Having configured the project per these recommendations, you're now able to begi
 
 * `src/main/java` - Recipe implementations
 * `src/test/java` - Recipe tests
-* (optional) `src/main/resources/META-INF/rewrite` - YAML files for defining [declarative OpenRewrite Recipes](../reference/yaml-format-reference.md)
+* (optional) `src/main/resources/META-INF/rewrite` - YAML files for defining [declarative OpenRewrite Recipes](../references/yaml-format-reference.md)
 
 With all of that done, your project setup is complete! You are now ready to [create a Recipe](../writing-recipes/writing-a-java-refactoring-recipe.md).
 

@@ -25,7 +25,7 @@ Let's walk through everything you need to know to do this.
 
 ## Developing styles
 
-There are two ways you can create a style: via a [declarative YAML file](../reference/yaml-format-reference.md) (**recommended**) or programmatically in Java.
+There are two ways you can create a style: via a [declarative YAML file](../references/yaml-format-reference.md) (**recommended**) or programmatically in Java.
 
 ### Declarative styles
 
