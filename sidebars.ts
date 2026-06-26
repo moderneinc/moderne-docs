@@ -683,7 +683,8 @@ const recipes = {
   customProps: {
     gemIcon: 'yellow-block',
     megaMenu: true,
-    homepageHref: '/user-documentation/recipes/how-to-guides',
+    featured: true,
+    homepageHref: '/user-documentation/recipes',
   },
   link: {
     type: 'generated-index' as const,
