@@ -717,7 +717,7 @@ const recipes = {
       link: {
         type: 'generated-index' as const,
         title: 'Recipe development',
-        description: 'Concepts, guides, and reference for writing your own OpenRewrite recipes.',
+        description: 'Concepts, guides, and references for writing your own OpenRewrite recipes.',
         slug: '/user-documentation/recipes/authoring-recipes',
         keywords: ['recipes', 'authoring', 'concepts'],
       },
