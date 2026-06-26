@@ -712,10 +712,10 @@ const recipes = {
     },
     {
       type: 'category' as const,
-      label: 'Authoring recipes',
+      label: 'Recipe development',
       link: {
         type: 'generated-index' as const,
-        title: 'Authoring recipes',
+        title: 'Recipe development',
         description: 'Concepts, guides, and reference for writing your own OpenRewrite recipes.',
         slug: '/user-documentation/recipes/authoring-recipes',
         keywords: ['recipes', 'authoring', 'concepts'],
@@ -787,7 +787,11 @@ const recipes = {
             keywords: ['recipes', 'authoring'],
           },
           items: [
+            'user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes',
+            'user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-java-refactoring-recipe',
+            'user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-javascript-refactoring-recipe',
             'user-documentation/recipes/authoring-recipes/writing-recipes/writing-python-recipes',
+            'user-documentation/recipes/authoring-recipes/writing-recipes/refaster-recipes',
           ],
         },
       ],
