@@ -1,4 +1,5 @@
 ---
+title: "Find unsafe `as` casts"
 sidebar_label: "Find unsafe `as` casts"
 ---
 

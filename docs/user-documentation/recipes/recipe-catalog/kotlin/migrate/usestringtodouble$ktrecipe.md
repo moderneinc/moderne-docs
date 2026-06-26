@@ -1,4 +1,5 @@
 ---
+title: "Use `String.toDouble()` instead of `java.lang.Double.parseDouble(s)`"
 sidebar_label: "Use `String.toDouble()` instead of `java.lang.Double.parseDouble(s)`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Externalize hardcoded timeouts"
 sidebar_label: "Externalize hardcoded timeouts"
 ---
 

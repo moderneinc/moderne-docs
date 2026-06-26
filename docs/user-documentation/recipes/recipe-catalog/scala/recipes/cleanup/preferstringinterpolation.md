@@ -1,4 +1,5 @@
 ---
+title: "Prefer string interpolation over concatenation"
 sidebar_label: "Prefer string interpolation over concatenation"
 ---
 

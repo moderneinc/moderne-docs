@@ -1,4 +1,5 @@
 ---
+title: "Find `when (x) { … }` used as a statement"
 sidebar_label: "Find `when (x) { … }` used as a statement"
 ---
 

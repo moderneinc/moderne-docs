@@ -1,4 +1,5 @@
 ---
+title: "Find Node.js test coverage"
 sidebar_label: "Find Node.js test coverage"
 ---
 

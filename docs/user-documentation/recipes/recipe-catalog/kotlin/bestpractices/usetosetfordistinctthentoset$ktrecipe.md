@@ -1,4 +1,5 @@
 ---
+title: "Use `toSet()` instead of `distinct().toSet()`"
 sidebar_label: "Use `toSet()` instead of `distinct().toSet()`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Ensure VPC subnets do not assign public IP by default"
 sidebar_label: "Ensure VPC subnets do not assign public IP by default"
 ---
 

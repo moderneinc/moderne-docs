@@ -1,4 +1,5 @@
 ---
+title: "Remove Tapestry 4 base classes"
 sidebar_label: "Remove Tapestry 4 base classes"
 ---
 

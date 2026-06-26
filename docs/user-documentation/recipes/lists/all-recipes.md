@@ -6,17 +6,18 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc indexes per-module recipe lists. Click a groupId to see its recipes._
 
-Total recipes: 7009
+Total recipes: 7391
 
 
 ## io.moderne.recipe
 
+* [recipes-code-quality](all-recipes-io-moderne-recipe.md#recipes-code-quality)
 * [recipes-kotlin](all-recipes-io-moderne-recipe.md#recipes-kotlin)
-* [recipes-migrate-dotnet](all-recipes-io-moderne-recipe.md#recipes-migrate-dotnet)
 * [recipes-scala](all-recipes-io-moderne-recipe.md#recipes-scala)
 * [rewrite-ai](all-recipes-io-moderne-recipe.md#rewrite-ai)
 * [rewrite-angular](all-recipes-io-moderne-recipe.md#rewrite-angular)
 * [rewrite-cryptography](all-recipes-io-moderne-recipe.md#rewrite-cryptography)
+* [rewrite-cve-2026-22732](all-recipes-io-moderne-recipe.md#rewrite-cve-2026-22732)
 * [rewrite-devcenter](all-recipes-io-moderne-recipe.md#rewrite-devcenter)
 * [rewrite-dropwizard](all-recipes-io-moderne-recipe.md#rewrite-dropwizard)
 * [rewrite-elastic](all-recipes-io-moderne-recipe.md#rewrite-elastic)
@@ -24,6 +25,7 @@ Total recipes: 7009
 * [rewrite-jasperreports](all-recipes-io-moderne-recipe.md#rewrite-jasperreports)
 * [rewrite-java-application-server](all-recipes-io-moderne-recipe.md#rewrite-java-application-server)
 * [rewrite-kafka](all-recipes-io-moderne-recipe.md#rewrite-kafka)
+* [rewrite-nullability](all-recipes-io-moderne-recipe.md#rewrite-nullability)
 * [rewrite-prethink](all-recipes-io-moderne-recipe.md#rewrite-prethink)
 * [rewrite-program-analysis](all-recipes-io-moderne-recipe.md#rewrite-program-analysis)
 * [rewrite-react](all-recipes-io-moderne-recipe.md#rewrite-react)
@@ -57,7 +59,6 @@ Total recipes: 7009
 
 ## org.openrewrite.recipe
 
-* [rewrite-ai-search](all-recipes-org-openrewrite-recipe.md#rewrite-ai-search)
 * [rewrite-all](all-recipes-org-openrewrite-recipe.md#rewrite-all)
 * [rewrite-android](all-recipes-org-openrewrite-recipe.md#rewrite-android)
 * [rewrite-apache](all-recipes-org-openrewrite-recipe.md#rewrite-apache)

@@ -1,4 +1,5 @@
 ---
+title: "Ensure Azure key vault is recoverable"
 sidebar_label: "Ensure Azure key vault is recoverable"
 ---
 

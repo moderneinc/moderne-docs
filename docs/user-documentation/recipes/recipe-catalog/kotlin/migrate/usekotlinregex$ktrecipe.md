@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.text.Regex` instead of `java.util.regex.Pattern`"
 sidebar_label: "Use `kotlin.text.Regex` instead of `java.util.regex.Pattern`"
 ---
 

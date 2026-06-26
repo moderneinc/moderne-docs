@@ -1,4 +1,5 @@
 ---
+title: "Use VulnCheck Exploit Intelligence to fix vulnerabilities"
 sidebar_label: "Use VulnCheck Exploit Intelligence to fix vulnerabilities"
 ---
 

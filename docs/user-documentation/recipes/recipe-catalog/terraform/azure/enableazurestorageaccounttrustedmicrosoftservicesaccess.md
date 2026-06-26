@@ -1,4 +1,5 @@
 ---
+title: "Enable Azure Storage Account Trusted Microsoft Services access"
 sidebar_label: "Enable Azure Storage Account Trusted Microsoft Services access"
 ---
 

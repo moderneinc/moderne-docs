@@ -1,4 +1,5 @@
 ---
+title: "Find insecure Spring Security RememberMe configuration"
 sidebar_label: "Find insecure Spring Security RememberMe configuration"
 ---
 

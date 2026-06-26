@@ -1,4 +1,5 @@
 ---
+title: "Find `when (x)` expressions without an `else` branch"
 sidebar_label: "Find `when (x)` expressions without an `else` branch"
 ---
 

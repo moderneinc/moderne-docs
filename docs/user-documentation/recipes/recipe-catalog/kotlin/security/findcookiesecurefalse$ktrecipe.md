@@ -1,4 +1,5 @@
 ---
+title: "Find `Cookie.setSecure(false)` calls"
 sidebar_label: "Find `Cookie.setSecure(false)` calls"
 ---
 

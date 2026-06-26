@@ -1,4 +1,5 @@
 ---
+title: "Find public-API and binary-stability surface"
 sidebar_label: "Find public-API and binary-stability surface"
 ---
 

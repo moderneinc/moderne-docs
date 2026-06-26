@@ -1,4 +1,5 @@
 ---
+title: "Find `runCatching { }.onFailure { log… }` chains with no further handling"
 sidebar_label: "Find `runCatching { }.onFailure { log… }` chains with no further handling"
 ---
 

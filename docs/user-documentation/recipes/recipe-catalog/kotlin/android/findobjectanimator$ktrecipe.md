@@ -1,4 +1,5 @@
 ---
+title: "Find `ObjectAnimator.ofInt/ofFloat(...)` calls"
 sidebar_label: "Find `ObjectAnimator.ofInt/ofFloat(...)` calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find process control vulnerabilities"
 sidebar_label: "Find process control vulnerabilities"
 ---
 

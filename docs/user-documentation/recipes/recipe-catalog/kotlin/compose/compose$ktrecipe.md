@@ -1,4 +1,5 @@
 ---
+title: "Find Compose stability and recomposition issues"
 sidebar_label: "Find Compose stability and recomposition issues"
 ---
 

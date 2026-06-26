@@ -1,4 +1,5 @@
 ---
+title: "Spring Boot 4.0 best practices"
 sidebar_label: "Spring Boot 4.0 best practices"
 ---
 

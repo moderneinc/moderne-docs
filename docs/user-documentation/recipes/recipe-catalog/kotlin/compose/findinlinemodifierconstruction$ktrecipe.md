@@ -1,4 +1,5 @@
 ---
+title: "Find `Modifier.xxx()` allocations inside a `@Composable` body"
 sidebar_label: "Find `Modifier.xxx()` allocations inside a `@Composable` body"
 ---
 

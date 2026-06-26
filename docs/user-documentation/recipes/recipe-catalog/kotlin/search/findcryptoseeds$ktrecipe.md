@@ -1,4 +1,5 @@
 ---
+title: "Find cryptographic primitive entries (`KeyGenerator.generateKey`, `Cipher.getInstance`, etc.)"
 sidebar_label: "Find cryptographic primitive entries (`KeyGenerator.generateKey`, `Cipher.getInstance`, etc.)"
 ---
 

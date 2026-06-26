@@ -1,4 +1,5 @@
 ---
+title: "Apply Kotlin string shorthands"
 sidebar_label: "Apply Kotlin string shorthands"
 ---
 

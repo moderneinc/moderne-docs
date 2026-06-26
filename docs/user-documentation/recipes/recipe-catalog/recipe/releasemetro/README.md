@@ -1,8 +1,10 @@
 ---
-description: Releasemetro OpenRewrite recipes.
+description: Release Metro Map OpenRewrite recipes.
 ---
 
-# Releasemetro
+# Release Metro Map
+
+_Recipes that analyze multi-repository release trains and inter-project dependency relationships to build a Moderne Release Metro Map._
 
 ## Composite Recipes
 

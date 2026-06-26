@@ -1,4 +1,5 @@
 ---
+title: "Simplify boolean literal comparisons"
 sidebar_label: "Simplify boolean literal comparisons"
 ---
 

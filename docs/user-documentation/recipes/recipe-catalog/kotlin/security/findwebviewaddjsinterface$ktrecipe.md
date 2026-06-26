@@ -1,4 +1,5 @@
 ---
+title: "Find `WebView.addJavascriptInterface(...)` calls"
 sidebar_label: "Find `WebView.addJavascriptInterface(...)` calls"
 ---
 

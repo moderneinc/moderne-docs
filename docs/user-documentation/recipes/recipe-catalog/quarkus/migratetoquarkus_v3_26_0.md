@@ -1,4 +1,5 @@
 ---
+title: "Quarkus Updates Aggregate 3.26.0"
 sidebar_label: "Quarkus Updates Aggregate 3.26.0"
 ---
 
@@ -44,8 +45,8 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 **Recipes**
 
 * [Quarkus Updates Aggregate 3.25.0](../quarkus/migratetoquarkus_v3_25_0)
-* [io.quarkus.updates.core.quarkus326.EnableEnabledConfigChanges](../io/quarkus/updates/core/quarkus326/enableenabledconfigchanges)
-* [Migrates `camel 4.13` application to `camel 4.14`](../io/quarkus/updates/camel/camel414/camelquarkusmigrationrecipe)
+* [io.quarkus.updates.core.quarkus326.EnableEnabledConfigChanges](../quarkus/updates/core/quarkus326/enableenabledconfigchanges)
+* [Migrates `camel 4.13` application to `camel 4.14`](../quarkus/updates/camel/camel414/camelquarkusmigrationrecipe)
 
 </TabItem>
 

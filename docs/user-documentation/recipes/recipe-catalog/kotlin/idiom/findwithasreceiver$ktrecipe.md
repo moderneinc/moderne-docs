@@ -1,4 +1,5 @@
 ---
+title: "Find `with(x) { ... }` used as an expression"
 sidebar_label: "Find `with(x) { ... }` used as an expression"
 ---
 

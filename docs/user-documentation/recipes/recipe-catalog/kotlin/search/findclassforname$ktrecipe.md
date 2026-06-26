@@ -1,4 +1,5 @@
 ---
+title: "Find `Class.forName(...)` calls"
 sidebar_label: "Find `Class.forName(...)` calls"
 ---
 

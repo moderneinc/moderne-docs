@@ -1,4 +1,5 @@
 ---
+title: "Encrypt Azure VM data disk with ADE/CMK"
 sidebar_label: "Encrypt Azure VM data disk with ADE/CMK"
 ---
 

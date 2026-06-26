@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.MAX_VALUE` instead of `java.lang.Integer.MAX_VALUE`"
 sidebar_label: "Use `Int.MAX_VALUE` instead of `java.lang.Integer.MAX_VALUE`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to `kotlinx-coroutines` 1.10"
 sidebar_label: "Upgrade to `kotlinx-coroutines` 1.10"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Move to JUnit 6"
 sidebar_label: "Move to JUnit 6"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to Angular 9"
 sidebar_label: "Upgrade to Angular 9"
 ---
 

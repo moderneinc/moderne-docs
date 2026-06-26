@@ -1,4 +1,5 @@
 ---
+title: "Find `ModuleWithProviders` without generic type"
 sidebar_label: "Find `ModuleWithProviders` without generic type"
 ---
 

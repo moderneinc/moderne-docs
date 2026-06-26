@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Java 17"
 sidebar_label: "Migrate to Java 17"
 ---
 
@@ -55,8 +56,6 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Use text blocks](../../java/migrate/lang/usetextblocks)
   * convertStringsWithoutNewlines: `false`
   * avoidLineContinuations: `false`
-* [Prefer `String.formatted(Object...)`](../../java/migrate/lang/stringformatted)
-  * addParentheses: `false`
 * [Use `java.security.cert` instead of `javax.security.cert`](../../java/migrate/deprecatedjavaxsecuritycert)
 * [Adopt `setLongThreadID` in `java.util.logging.LogRecord`](../../java/migrate/deprecatedlogrecordthreadid)
 * [Use `SunJSSE` instead of `com.sun.net.ssl.internal.ssl.Provider`](../../java/migrate/removedlegacysunjsseprovidername)
@@ -118,8 +117,6 @@ recipeList:
   - org.openrewrite.java.migrate.lang.UseTextBlocks:
       convertStringsWithoutNewlines: false
       avoidLineContinuations: false
-  - org.openrewrite.java.migrate.lang.StringFormatted:
-      addParentheses: false
   - org.openrewrite.java.migrate.DeprecatedJavaxSecurityCert
   - org.openrewrite.java.migrate.DeprecatedLogRecordThreadID
   - org.openrewrite.java.migrate.RemovedLegacySunJSSEProviderName
@@ -164,20 +161,16 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Dropwizard 5.0.x from 4.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5)
 * [Migrate to Java 21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava21.md)
-* [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
+* [Migrate to Spring Boot 3.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
 * [Migrate to Struts 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7)
-* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/org/apache/wicket/migratetowicket10.md)
+* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/apache/wicket/migratetowicket10.md)
 
 ## Examples
 ##### Example 1
 `UpgradeToJava17Test#upgradeFromJava8ToJava17`
 
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
+###### Unchanged
 ```java
 class A {
    public String test() {
@@ -185,29 +178,6 @@ class A {
    }
 }
 ```
-
-###### After
-```java
-class A {
-   public String test() {
-       return "Hello %s".formatted("world");
-   }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -3,1 +3,1 @@
-class A {
-   public String test() {
--      return String.format("Hello %s", "world");
-+      return "Hello %s".formatted("world");
-   }
-```
-</TabItem>
-</Tabs>
 
 ###### Unchanged
 ```mavenProject
@@ -274,11 +244,7 @@ project
 `UpgradeToJava17Test#upgradeFromJava8ToJava17`
 
 
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
+###### Unchanged
 ```java
 class A {
    public String test() {
@@ -286,29 +252,6 @@ class A {
    }
 }
 ```
-
-###### After
-```java
-class A {
-   public String test() {
-       return "Hello %s".formatted("world");
-   }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -3,1 +3,1 @@
-class A {
-   public String test() {
--      return String.format("Hello %s", "world");
-+      return "Hello %s".formatted("world");
-   }
-```
-</TabItem>
-</Tabs>
 
 ###### Unchanged
 ```mavenProject

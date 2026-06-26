@@ -1,4 +1,5 @@
 ---
+title: "Find `@Composable` functions with `MutableList`/`MutableMap`/`MutableSet` parameters"
 sidebar_label: "Find `@Composable` functions with `MutableList`/`MutableMap`/`MutableSet` parameters"
 ---
 

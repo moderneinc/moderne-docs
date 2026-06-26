@@ -1,4 +1,5 @@
 ---
+title: "Drop ``exists()`` check before ``is_dir()``/``is_file()``"
 sidebar_label: "Drop ``exists()`` check before ``is_dir()``/``is_file()``"
 ---
 

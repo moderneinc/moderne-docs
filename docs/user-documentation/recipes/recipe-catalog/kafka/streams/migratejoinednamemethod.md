@@ -1,4 +1,5 @@
 ---
+title: "Migrate `Joined.named()` to `Joined.as()`"
 sidebar_label: "Migrate `Joined.named()` to `Joined.as()`"
 ---
 

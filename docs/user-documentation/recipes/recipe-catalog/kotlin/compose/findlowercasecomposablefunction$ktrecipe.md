@@ -1,4 +1,5 @@
 ---
+title: "Find `@Composable` functions whose name starts with a lowercase letter"
 sidebar_label: "Find `@Composable` functions whose name starts with a lowercase letter"
 ---
 

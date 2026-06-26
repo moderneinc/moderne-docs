@@ -1,4 +1,5 @@
 ---
+title: "Find `coroutineScope { launch { ... } }` with a single child"
 sidebar_label: "Find `coroutineScope { launch { ... } }` with a single child"
 ---
 

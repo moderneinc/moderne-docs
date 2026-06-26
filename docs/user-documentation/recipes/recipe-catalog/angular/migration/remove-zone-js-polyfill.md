@@ -1,4 +1,5 @@
 ---
+title: "Remove zone.js polyfill from angular.json"
 sidebar_label: "Remove zone.js polyfill from angular.json"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `mailcap` module usage"
 sidebar_label: "Find deprecated `mailcap` module usage"
 ---
 

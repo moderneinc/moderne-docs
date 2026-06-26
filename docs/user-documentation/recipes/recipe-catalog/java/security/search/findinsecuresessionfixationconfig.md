@@ -1,4 +1,5 @@
 ---
+title: "Find Spring Security configurations that disable session fixation protection"
 sidebar_label: "Find Spring Security configurations that disable session fixation protection"
 ---
 

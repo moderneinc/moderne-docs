@@ -1,4 +1,5 @@
 ---
+title: "Find `kotlinx.android.synthetic.*` imports"
 sidebar_label: "Find `kotlinx.android.synthetic.*` imports"
 ---
 

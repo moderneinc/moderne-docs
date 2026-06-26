@@ -1,4 +1,5 @@
 ---
+title: "Find `JwtBuilder.signWith(SignatureAlgorithm.NONE, ...)` patterns"
 sidebar_label: "Find `JwtBuilder.signWith(SignatureAlgorithm.NONE, ...)` patterns"
 ---
 

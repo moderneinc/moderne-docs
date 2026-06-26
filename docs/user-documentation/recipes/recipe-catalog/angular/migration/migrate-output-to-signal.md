@@ -1,4 +1,5 @@
 ---
+title: "Migrate `@Output()` to signal-based `output()`"
 sidebar_label: "Migrate `@Output()` to signal-based `output()`"
 ---
 

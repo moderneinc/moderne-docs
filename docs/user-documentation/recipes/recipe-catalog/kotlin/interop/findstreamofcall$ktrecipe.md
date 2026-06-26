@@ -1,4 +1,5 @@
 ---
+title: "Find `Stream.of(...)` calls"
 sidebar_label: "Find `Stream.of(...)` calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Mark deprecated PrimeNG components with TODO comments"
 sidebar_label: "Mark deprecated PrimeNG components with TODO comments"
 ---
 

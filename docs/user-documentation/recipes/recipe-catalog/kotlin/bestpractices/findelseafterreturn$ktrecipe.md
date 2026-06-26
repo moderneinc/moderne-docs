@@ -1,4 +1,5 @@
 ---
+title: "Find `if (x) { return … } else { … }` patterns"
 sidebar_label: "Find `if (x) { return … } else { … }` patterns"
 ---
 

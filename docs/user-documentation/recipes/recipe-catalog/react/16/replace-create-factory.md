@@ -1,4 +1,5 @@
 ---
+title: "Replace `React.createFactory` with `React.createElement`"
 sidebar_label: "Replace `React.createFactory` with `React.createElement`"
 ---
 

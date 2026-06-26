@@ -1,4 +1,5 @@
 ---
+title: "Find lambda parameters on `@Composable` functions"
 sidebar_label: "Find lambda parameters on `@Composable` functions"
 ---
 

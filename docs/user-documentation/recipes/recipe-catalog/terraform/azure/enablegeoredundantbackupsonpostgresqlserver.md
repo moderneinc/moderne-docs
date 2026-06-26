@@ -1,4 +1,5 @@
 ---
+title: "Enable geo-redundant backups on PostgreSQL server"
 sidebar_label: "Enable geo-redundant backups on PostgreSQL server"
 ---
 

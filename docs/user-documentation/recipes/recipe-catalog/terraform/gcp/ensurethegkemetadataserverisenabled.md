@@ -1,4 +1,5 @@
 ---
+title: "Ensure the GKE metadata server is enabled"
 sidebar_label: "Ensure the GKE metadata server is enabled"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find long `?.` safe-call chains"
 sidebar_label: "Find long `?.` safe-call chains"
 ---
 

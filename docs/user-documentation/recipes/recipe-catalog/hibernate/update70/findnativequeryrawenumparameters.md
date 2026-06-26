@@ -1,4 +1,5 @@
 ---
+title: "Find native queries with enum parameters requiring SpEL conversion"
 sidebar_label: "Find native queries with enum parameters requiring SpEL conversion"
 ---
 

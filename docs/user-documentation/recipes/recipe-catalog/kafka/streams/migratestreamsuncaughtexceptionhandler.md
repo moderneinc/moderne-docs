@@ -1,4 +1,5 @@
 ---
+title: "Migrate to StreamsUncaughtExceptionHandler API"
 sidebar_label: "Migrate to StreamsUncaughtExceptionHandler API"
 ---
 

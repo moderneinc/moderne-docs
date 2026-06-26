@@ -1,4 +1,5 @@
 ---
+title: "Simplify object pattern properties"
 sidebar_label: "Simplify object pattern properties"
 ---
 

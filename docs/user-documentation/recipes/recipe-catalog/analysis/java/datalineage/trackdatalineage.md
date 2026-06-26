@@ -1,4 +1,5 @@
 ---
+title: "Track data lineage"
 sidebar_label: "Track data lineage"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate `@asyncio.coroutine` to `async def`"
 sidebar_label: "Migrate `@asyncio.coroutine` to `async def`"
 ---
 

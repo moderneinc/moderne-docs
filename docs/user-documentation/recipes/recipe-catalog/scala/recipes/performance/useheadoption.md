@@ -1,4 +1,5 @@
 ---
+title: "Replace `.head` with `.headOption`"
 sidebar_label: "Replace `.head` with `.headOption`"
 ---
 

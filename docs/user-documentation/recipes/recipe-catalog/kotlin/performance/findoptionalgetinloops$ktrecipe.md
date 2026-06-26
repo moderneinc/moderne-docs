@@ -1,4 +1,5 @@
 ---
+title: "Find `Optional.get()` calls inside loops"
 sidebar_label: "Find `Optional.get()` calls inside loops"
 ---
 

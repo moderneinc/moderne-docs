@@ -1,4 +1,5 @@
 ---
+title: "Find functions with explicit `: Unit` return type"
 sidebar_label: "Find functions with explicit `: Unit` return type"
 ---
 

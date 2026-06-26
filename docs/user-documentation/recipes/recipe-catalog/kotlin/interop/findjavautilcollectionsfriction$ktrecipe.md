@@ -1,4 +1,5 @@
 ---
+title: "Find `java.util.Collections` / `Arrays` factory usage inside Kotlin"
 sidebar_label: "Find `java.util.Collections` / `Arrays` factory usage inside Kotlin"
 ---
 

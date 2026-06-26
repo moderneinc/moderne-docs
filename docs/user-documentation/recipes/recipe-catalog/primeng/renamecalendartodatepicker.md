@@ -1,4 +1,5 @@
 ---
+title: "Rename `Calendar` to `DatePicker`"
 sidebar_label: "Rename `Calendar` to `DatePicker`"
 ---
 

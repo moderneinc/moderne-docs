@@ -1,4 +1,5 @@
 ---
+title: "Find `SpringApplication.run(MyApp::class.java, ...)` calls"
 sidebar_label: "Find `SpringApplication.run(MyApp::class.java, ...)` calls"
 ---
 

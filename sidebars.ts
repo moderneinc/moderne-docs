@@ -219,6 +219,7 @@ const platform = {
           'administrator-documentation/moderne-platform/references/how-moderne-applies-changes',
           'administrator-documentation/moderne-platform/references/routing-requests-to-agents',
           'administrator-documentation/moderne-platform/references/how-lst-artifacts-are-produced',
+          'administrator-documentation/moderne-platform/references/mass-ingest-vs-ci',
           'administrator-documentation/moderne-platform/references/supported-scms',
           'administrator-documentation/moderne-platform/references/standard-vs-enterprise-edition',
           'administrator-documentation/moderne-platform/references/lossless-semantic-trees',
@@ -631,15 +632,25 @@ const agentTools = {
       link: {
         type: 'generated-index' as const,
         title: 'Moderne MCP',
-        description: 'Give AI coding agents tools for semantic code search, navigation, and refactoring with the Moderne MCP server.',
+        description: 'Give AI coding agents Moderne\'s tools through the Model Context Protocol. The local server runs on your workstation for semantic code search, navigation, and refactoring; the remote server, hosted on the Moderne Platform, runs recipes across an entire organization.',
         slug: '/user-documentation/agent-tools/mcp',
-        keywords: ['mcp', 'model context protocol', 'security', 'architecture'],
+        keywords: ['mcp', 'model context protocol', 'security', 'architecture', 'remote', 'local'],
       },
       items: [
-        'user-documentation/agent-tools/mcp/overview',
-        'user-documentation/agent-tools/mcp/getting-started',
-        'user-documentation/agent-tools/mcp/tool-browser',
-        'user-documentation/agent-tools/mcp/security',
+        {
+          type: 'category' as const,
+          label: 'Local server (CLI)',
+          link: {
+            type: 'doc' as const,
+            id: 'user-documentation/agent-tools/mcp/overview',
+          },
+          items: [
+            'user-documentation/agent-tools/mcp/getting-started',
+            'user-documentation/agent-tools/mcp/tool-browser',
+            'user-documentation/agent-tools/mcp/security',
+          ],
+        },
+        'user-documentation/agent-tools/mcp/remote-server',
       ],
     },
   ],
@@ -699,6 +710,20 @@ const recipes = {
     },
     {
       type: 'category' as const,
+      label: 'Recipe authoring',
+      link: {
+        type: 'generated-index' as const,
+        title: 'Recipe authoring',
+        description: 'Guides for writing your own OpenRewrite recipes.',
+        slug: '/user-documentation/recipes/recipe-authoring',
+        keywords: ['guides', 'recipes', 'authoring'],
+      },
+      items: [
+        'user-documentation/recipes/recipe-authoring/writing-python-recipes',
+      ],
+    },
+    {
+      type: 'category' as const,
       label: 'Popular recipe guides',
       link: {
         type: 'generated-index' as const,
@@ -711,6 +736,7 @@ const recipes = {
         'user-documentation/recipes/popular-recipe-guides/migrate-to-java-17',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-java-21',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-java-25',
+        'user-documentation/recipes/popular-recipe-guides/migrate-to-jakarta-ee-10',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-spring-boot-3',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-spring-boot-4',
       ],

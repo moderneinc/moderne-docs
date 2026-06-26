@@ -1,4 +1,5 @@
 ---
+title: "Find Compose navigation / coroutine misuse"
 sidebar_label: "Find Compose navigation / coroutine misuse"
 ---
 

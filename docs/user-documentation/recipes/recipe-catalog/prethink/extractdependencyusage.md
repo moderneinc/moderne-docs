@@ -1,4 +1,5 @@
 ---
+title: "Extract dependency usage patterns"
 sidebar_label: "Extract dependency usage patterns"
 ---
 

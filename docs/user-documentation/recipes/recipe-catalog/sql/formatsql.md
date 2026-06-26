@@ -1,4 +1,5 @@
 ---
+title: "Format SQL in string text blocks"
 sidebar_label: "Format SQL in string text blocks"
 ---
 

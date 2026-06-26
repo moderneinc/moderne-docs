@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `util._extend()` with `Object.assign()`"
 sidebar_label: "Replace deprecated `util._extend()` with `Object.assign()`"
 ---
 

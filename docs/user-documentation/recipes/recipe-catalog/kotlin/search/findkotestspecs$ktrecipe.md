@@ -1,4 +1,5 @@
 ---
+title: "Find Kotest spec classes"
 sidebar_label: "Find Kotest spec classes"
 ---
 

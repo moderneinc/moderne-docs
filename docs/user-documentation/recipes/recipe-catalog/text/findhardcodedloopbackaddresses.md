@@ -1,4 +1,5 @@
 ---
+title: "Find hard-coded loopback IPv4 addresses"
 sidebar_label: "Find hard-coded loopback IPv4 addresses"
 ---
 

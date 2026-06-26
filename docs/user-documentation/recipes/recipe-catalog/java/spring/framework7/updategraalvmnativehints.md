@@ -1,4 +1,5 @@
 ---
+title: "Update GraalVM native reflection hints for Spring Framework 7.0"
 sidebar_label: "Update GraalVM native reflection hints for Spring Framework 7.0"
 ---
 

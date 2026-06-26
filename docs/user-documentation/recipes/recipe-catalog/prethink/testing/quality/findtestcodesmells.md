@@ -1,4 +1,5 @@
 ---
+title: "Find test code smells"
 sidebar_label: "Find test code smells"
 ---
 

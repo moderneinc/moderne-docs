@@ -1,4 +1,5 @@
 ---
+title: "Plan JBoss migration"
 sidebar_label: "Plan JBoss migration"
 ---
 

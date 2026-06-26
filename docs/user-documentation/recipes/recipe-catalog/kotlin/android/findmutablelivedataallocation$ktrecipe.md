@@ -1,4 +1,5 @@
 ---
+title: "Find `MutableLiveData` allocations"
 sidebar_label: "Find `MutableLiveData` allocations"
 ---
 

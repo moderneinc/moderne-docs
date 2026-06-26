@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded literals and error-handling smells"
 sidebar_label: "Find hardcoded literals and error-handling smells"
 ---
 

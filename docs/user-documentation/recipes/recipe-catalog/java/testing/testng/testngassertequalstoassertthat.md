@@ -1,4 +1,5 @@
 ---
+title: "TestNG `assertEquals` to AssertJ"
 sidebar_label: "TestNG `assertEquals` to AssertJ"
 ---
 
@@ -15,7 +16,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.java.testing.testng.TestNgAssertEqualsToAssertThat**
 
-_Convert TestNG-style `assertEquals()` to AssertJ's `assertThat().isEqualTo()`._
+_Convert TestNG-style `assertEquals()` to AssertJ's `assertThat().isEqualTo()`, using element-wise assertions (`containsExactly`/`containsExactlyElementsOf`) for arrays and collections._
 
 ## Recipe source
 

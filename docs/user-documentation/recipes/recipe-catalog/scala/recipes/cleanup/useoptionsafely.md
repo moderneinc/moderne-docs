@@ -1,4 +1,5 @@
 ---
+title: "Use `Option` safely"
 sidebar_label: "Use `Option` safely"
 ---
 

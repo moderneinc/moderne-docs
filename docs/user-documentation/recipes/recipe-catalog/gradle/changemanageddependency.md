@@ -1,4 +1,5 @@
 ---
+title: "Change Gradle managed dependency"
 sidebar_label: "Change Gradle managed dependency"
 ---
 

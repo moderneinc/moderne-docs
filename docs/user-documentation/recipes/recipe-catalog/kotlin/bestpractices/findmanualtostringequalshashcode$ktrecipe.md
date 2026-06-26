@@ -1,4 +1,5 @@
 ---
+title: "Find classes with manual `toString`/`equals`/`hashCode` overrides"
 sidebar_label: "Find classes with manual `toString`/`equals`/`hashCode` overrides"
 ---
 

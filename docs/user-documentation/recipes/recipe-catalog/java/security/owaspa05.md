@@ -1,4 +1,5 @@
 ---
+title: "Remediate OWASP A05:2021 Security misconfiguration"
 sidebar_label: "Remediate OWASP A05:2021 Security misconfiguration"
 ---
 

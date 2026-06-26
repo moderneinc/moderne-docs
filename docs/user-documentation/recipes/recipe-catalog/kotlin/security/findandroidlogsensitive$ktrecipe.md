@@ -1,4 +1,5 @@
 ---
+title: "Find `android.util.Log.{d,i,v,w,e}` calls with sensitive content"
 sidebar_label: "Find `android.util.Log.{d,i,v,w,e}` calls with sensitive content"
 ---
 

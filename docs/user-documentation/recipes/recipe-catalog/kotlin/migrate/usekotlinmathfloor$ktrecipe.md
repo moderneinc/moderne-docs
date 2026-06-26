@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.floor` instead of `java.lang.Math.floor`"
 sidebar_label: "Use `kotlin.math.floor` instead of `java.lang.Math.floor`"
 ---
 

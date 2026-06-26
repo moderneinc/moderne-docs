@@ -1,4 +1,5 @@
 ---
+title: "Find loggers declared as instance fields (one per object)"
 sidebar_label: "Find loggers declared as instance fields (one per object)"
 ---
 

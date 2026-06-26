@@ -1,4 +1,5 @@
 ---
+title: "Remove `relativeLinkResolution`"
 sidebar_label: "Remove `relativeLinkResolution`"
 ---
 

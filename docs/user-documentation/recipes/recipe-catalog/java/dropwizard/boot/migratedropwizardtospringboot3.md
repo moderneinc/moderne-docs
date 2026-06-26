@@ -1,4 +1,5 @@
 ---
+title: "Migrate Dropwizard to Spring Boot 3"
 sidebar_label: "Migrate Dropwizard to Spring Boot 3"
 ---
 

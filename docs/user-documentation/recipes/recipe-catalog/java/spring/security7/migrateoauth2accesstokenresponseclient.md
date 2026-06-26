@@ -1,4 +1,5 @@
 ---
+title: "Migrate `OAuth2AccessTokenResponseClient` from `RestOperations` to `RestClient` based implementations"
 sidebar_label: "Migrate `OAuth2AccessTokenResponseClient` from `RestOperations` to `RestClient` based implementations"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `b == true` / `b == false` comparisons"
 sidebar_label: "Find `b == true` / `b == false` comparisons"
 ---
 

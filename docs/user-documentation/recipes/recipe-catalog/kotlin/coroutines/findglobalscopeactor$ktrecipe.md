@@ -1,4 +1,5 @@
 ---
+title: "Find `GlobalScope.actor` calls"
 sidebar_label: "Find `GlobalScope.actor` calls"
 ---
 

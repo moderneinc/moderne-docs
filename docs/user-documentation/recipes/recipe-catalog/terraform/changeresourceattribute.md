@@ -1,4 +1,5 @@
 ---
+title: "Change Terraform resource attribute"
 sidebar_label: "Change Terraform resource attribute"
 ---
 

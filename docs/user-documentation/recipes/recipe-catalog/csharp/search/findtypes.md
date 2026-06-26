@@ -1,4 +1,5 @@
 ---
+title: "Find types"
 sidebar_label: "Find types"
 ---
 
@@ -42,8 +43,8 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Find deprecated `PathMatcher` usage](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage)
-* [Report types deprecated or removed in WebLogic version 14.1.2](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/reportdeprecatedorremoved1412.md)
-* [Report types deprecated or removed in WebLogic version 15.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/reportdeprecatedorremoved1511.md)
+* [Report types deprecated or removed in WebLogic version 14.1.2](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/reportdeprecatedorremoved1412.md)
+* [Report types deprecated or removed in WebLogic version 15.1.1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/reportdeprecatedorremoved1511.md)
 
 ## Example
 

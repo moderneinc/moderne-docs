@@ -1,4 +1,5 @@
 ---
+title: "Find `BigInteger(&quot;...&quot;)` allocations inside loops"
 sidebar_label: "Find `BigInteger(&quot;...&quot;)` allocations inside loops"
 ---
 

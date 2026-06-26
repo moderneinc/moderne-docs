@@ -1,4 +1,5 @@
 ---
+title: "Ensure standard pricing tier is selected"
 sidebar_label: "Ensure standard pricing tier is selected"
 ---
 

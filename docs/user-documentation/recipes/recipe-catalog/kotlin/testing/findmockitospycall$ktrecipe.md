@@ -1,4 +1,5 @@
 ---
+title: "Find `Mockito.spy(...)` / `spy(...)` calls"
 sidebar_label: "Find `Mockito.spy(...)` / `spy(...)` calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate JSF variable-resolver to el-resolver"
 sidebar_label: "Migrate JSF variable-resolver to el-resolver"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `Cipher.getInstance(&quot;Blowfish&quot;)` calls"
 sidebar_label: "Find `Cipher.getInstance(&quot;Blowfish&quot;)` calls"
 ---
 

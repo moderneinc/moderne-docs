@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `Context.getColor`/`getDrawable`/`getColorStateList` calls"
 sidebar_label: "Find deprecated `Context.getColor`/`getDrawable`/`getColorStateList` calls"
 ---
 

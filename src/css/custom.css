@@ -63,7 +63,10 @@
   --ifm-navbar-item-padding-horizontal: 1.4rem;
   --ifm-navbar-height: 37px;
   --ifm-secondary-nav-height: 48px;
-  --ifm-announcement-bar-height: 30px;
+  /* Defaults to 0 (no bar). The `html:has([role="banner"])` rule below bumps it
+     to the bar's height only when an announcement bar is actually rendered, so
+     the layout offsets don't reserve phantom space when no bar is configured. */
+  --ifm-announcement-bar-height: 0px;
 
   /* Neo-Design: Typography family and weights */
   --ifm-font-family-base: var(--neo-font-family-body), sans-serif;
@@ -105,7 +108,15 @@
   --ifm-hover-overlay: rgba(0, 0, 0, 0.05);
 }
 
-/* Zero out announcement bar height when dismissed */
+/* Reserve the announcement bar's height only when one is actually rendered.
+   role="banner" is unique to the announcement bar (AnnouncementBar/index.tsx),
+   which only mounts when active — so this matches "bar present" and nothing else. */
+html:has([role="banner"]) {
+  --ifm-announcement-bar-height: 30px;
+}
+
+/* Zero it again when the bar is dismissed. Must follow the :has rule above so it
+   wins for the SSR flash where the bar is rendered-but-hidden before hydration. */
 html[data-announcement-bar-initially-dismissed='true'] {
   --ifm-announcement-bar-height: 0px;
 }
@@ -382,7 +393,9 @@ html {
 }
 
 
-/* Fix sidebar border to not extend behind navbar */
+/* Sidebar divider line. The container now starts exactly at the header's bottom
+   edge (the announcement-bar offset is presence-aware above), so the line reaches
+   the header with a plain top: 0 — no clip-path or occlusion tricks needed. */
 @media (min-width: 997px) {
   .theme-doc-sidebar-container {
     border-right: none !important;
@@ -525,7 +538,9 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
   }
 
   .theme-doc-sidebar-container {
-    --ifm-toc-border-color: var(--ifm-section-divider-color);
+    /* Match the secondary-nav divider (#D4D3E4) and the sidebar's internal
+       section separators, so the line and the header divider meet as one color. */
+    --ifm-toc-border-color: var(--brand-dark-lavender);
   }
 }
 

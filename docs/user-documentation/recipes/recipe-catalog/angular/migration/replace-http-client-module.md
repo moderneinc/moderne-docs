@@ -1,4 +1,5 @@
 ---
+title: "Replace `HttpClientModule` with `provideHttpClient()`"
 sidebar_label: "Replace `HttpClientModule` with `provideHttpClient()`"
 ---
 

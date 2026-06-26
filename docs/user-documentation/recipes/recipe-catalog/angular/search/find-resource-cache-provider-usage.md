@@ -1,4 +1,5 @@
 ---
+title: "Find `RESOURCE_CACHE_PROVIDER` usage"
 sidebar_label: "Find `RESOURCE_CACHE_PROVIDER` usage"
 ---
 

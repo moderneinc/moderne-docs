@@ -1,4 +1,5 @@
 ---
+title: "Fold constants and flatten nested f-strings"
 sidebar_label: "Fold constants and flatten nested f-strings"
 ---
 

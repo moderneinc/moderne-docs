@@ -1,4 +1,5 @@
 ---
+title: "Use `?` instead of `_` for wildcard types (Scala 3)"
 sidebar_label: "Use `?` instead of `_` for wildcard types (Scala 3)"
 ---
 

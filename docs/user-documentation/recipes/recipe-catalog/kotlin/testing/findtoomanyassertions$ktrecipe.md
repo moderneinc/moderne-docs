@@ -1,4 +1,5 @@
 ---
+title: "Find `@Test` methods with many assertions"
 sidebar_label: "Find `@Test` methods with many assertions"
 ---
 

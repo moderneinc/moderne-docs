@@ -1,4 +1,5 @@
 ---
+title: "Replace `CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` with `getCurrentComponent()` and `getCurrentCompositeComponent()`"
 sidebar_label: "Replace `CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` with `getCurrentComponent()` and `getCurrentCompositeComponent()`"
 ---
 
@@ -77,7 +78,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [JSF 2.x to Jakarta Faces 3.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces2xmigrationtojakartafaces3x.md)
-* [JSF 2.x to Jakarta Server Faces 3.x](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/faces2xmigrationtojakartafaces3x.md)
+* [JSF 2.x to Jakarta Server Faces 3.x](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/faces2xmigrationtojakartafaces3x.md)
 
 ## Examples
 ##### Example 1

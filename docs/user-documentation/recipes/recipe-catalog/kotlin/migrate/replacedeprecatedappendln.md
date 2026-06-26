@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `appendln` with `appendLine`"
 sidebar_label: "Replace deprecated `appendln` with `appendLine`"
 ---
 

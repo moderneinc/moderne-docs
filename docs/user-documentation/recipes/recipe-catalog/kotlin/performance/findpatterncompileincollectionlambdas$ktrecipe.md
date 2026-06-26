@@ -1,4 +1,5 @@
 ---
+title: "Find `Pattern.compile` calls inside collection lambdas"
 sidebar_label: "Find `Pattern.compile` calls inside collection lambdas"
 ---
 

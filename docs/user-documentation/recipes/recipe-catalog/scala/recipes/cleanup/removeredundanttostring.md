@@ -1,4 +1,5 @@
 ---
+title: "Remove redundant `toString` on `String`"
 sidebar_label: "Remove redundant `toString` on `String`"
 ---
 

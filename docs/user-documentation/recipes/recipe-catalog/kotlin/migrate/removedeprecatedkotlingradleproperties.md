@@ -1,4 +1,5 @@
 ---
+title: "Remove deprecated Kotlin Gradle properties"
 sidebar_label: "Remove deprecated Kotlin Gradle properties"
 ---
 

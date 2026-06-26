@@ -1,4 +1,5 @@
 ---
+title: "Inject `WSClient` instead of using deprecated `WS`"
 sidebar_label: "Inject `WSClient` instead of using deprecated `WS`"
 ---
 

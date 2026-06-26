@@ -1,4 +1,5 @@
 ---
+title: "Use `Array.contentDeepToString()` instead of `Arrays.deepToString(arr)`"
 sidebar_label: "Use `Array.contentDeepToString()` instead of `Arrays.deepToString(arr)`"
 ---
 

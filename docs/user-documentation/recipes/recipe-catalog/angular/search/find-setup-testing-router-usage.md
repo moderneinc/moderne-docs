@@ -1,4 +1,5 @@
 ---
+title: "Find `setupTestingRouter` usage"
 sidebar_label: "Find `setupTestingRouter` usage"
 ---
 

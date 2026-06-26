@@ -1,4 +1,5 @@
 ---
+title: "Find `renderApplication` usage"
 sidebar_label: "Find `renderApplication` usage"
 ---
 

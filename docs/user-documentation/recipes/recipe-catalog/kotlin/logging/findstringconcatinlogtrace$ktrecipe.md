@@ -1,4 +1,5 @@
 ---
+title: "Find string concatenation in `log.trace(...)`"
 sidebar_label: "Find string concatenation in `log.trace(...)`"
 ---
 

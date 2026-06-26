@@ -1,4 +1,5 @@
 ---
+title: "Find Kotlin classes implementing `java.io.Serializable`"
 sidebar_label: "Find Kotlin classes implementing `java.io.Serializable`"
 ---
 

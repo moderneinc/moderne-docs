@@ -1,4 +1,5 @@
 ---
+title: "Use `uppercase()` instead of `toUpperCase()`"
 sidebar_label: "Use `uppercase()` instead of `toUpperCase()`"
 ---
 

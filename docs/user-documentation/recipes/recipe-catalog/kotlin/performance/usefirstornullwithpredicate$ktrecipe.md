@@ -1,4 +1,5 @@
 ---
+title: "Use `firstOrNull { predicate }` instead of `filter { predicate }.firstOrNull()`"
 sidebar_label: "Use `firstOrNull { predicate }` instead of `filter { predicate }.firstOrNull()`"
 ---
 

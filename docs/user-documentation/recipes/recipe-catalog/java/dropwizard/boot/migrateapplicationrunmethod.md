@@ -1,4 +1,5 @@
 ---
+title: "Migrate Dropwizard Application.run() to SpringApplication.run()"
 sidebar_label: "Migrate Dropwizard Application.run() to SpringApplication.run()"
 ---
 

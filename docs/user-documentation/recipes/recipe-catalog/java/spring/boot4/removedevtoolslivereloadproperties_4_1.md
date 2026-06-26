@@ -1,4 +1,5 @@
 ---
+title: "Comment out deprecated DevTools LiveReload properties"
 sidebar_label: "Comment out deprecated DevTools LiveReload properties"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `renderModuleFactory` usage"
 sidebar_label: "Find `renderModuleFactory` usage"
 ---
 

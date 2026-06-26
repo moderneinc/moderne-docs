@@ -1,4 +1,5 @@
 ---
+title: "Migrate `RestTemplate` to `RestClient`"
 sidebar_label: "Migrate `RestTemplate` to `RestClient`"
 ---
 

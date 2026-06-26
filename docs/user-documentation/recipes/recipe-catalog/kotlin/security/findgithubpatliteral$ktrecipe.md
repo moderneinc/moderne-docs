@@ -1,4 +1,5 @@
 ---
+title: "Find GitHub PAT literals (`ghp_…`)"
 sidebar_label: "Find GitHub PAT literals (`ghp_…`)"
 ---
 

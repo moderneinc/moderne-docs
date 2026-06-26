@@ -1,4 +1,5 @@
 ---
+title: "Convert SQL Server functions to PostgreSQL"
 sidebar_label: "Convert SQL Server functions to PostgreSQL"
 ---
 

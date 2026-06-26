@@ -1,4 +1,5 @@
 ---
+title: "Replace `@MockitoBean` and `@MockitoSpyBean` with `@Bean` methods in `@Configuration` classes"
 sidebar_label: "Replace `@MockitoBean` and `@MockitoSpyBean` with `@Bean` methods in `@Configuration` classes"
 ---
 

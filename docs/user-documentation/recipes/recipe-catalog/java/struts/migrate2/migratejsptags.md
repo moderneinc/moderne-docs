@@ -1,4 +1,5 @@
 ---
+title: "Migrate Struts 1 JSP tags to Struts 2"
 sidebar_label: "Migrate Struts 1 JSP tags to Struts 2"
 ---
 

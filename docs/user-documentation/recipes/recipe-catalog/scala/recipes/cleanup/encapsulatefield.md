@@ -1,4 +1,5 @@
 ---
+title: "Encapsulate public mutable fields"
 sidebar_label: "Encapsulate public mutable fields"
 ---
 

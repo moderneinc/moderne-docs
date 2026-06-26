@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.acos` instead of `java.lang.Math.acos`"
 sidebar_label: "Use `kotlin.math.acos` instead of `java.lang.Math.acos`"
 ---
 

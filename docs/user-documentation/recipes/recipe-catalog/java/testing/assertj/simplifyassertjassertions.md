@@ -1,4 +1,5 @@
 ---
+title: "Shorten AssertJ assertions"
 sidebar_label: "Shorten AssertJ assertions"
 ---
 
@@ -79,7 +80,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * assertToReplace: `hasSize`
   * literalArgument: `0`
   * dedicatedAssertion: `isEmpty`
-  * requiredType: `java.util.Collection`
+  * requiredType: `java.lang.Iterable`
 * [Simplify AssertJ assertions with literal arguments](../../../java/testing/assertj/simplifyassertjassertion)
   * assertToReplace: `hasSize`
   * literalArgument: `0`
@@ -137,7 +138,7 @@ recipeList:
       assertToReplace: hasSize
       literalArgument: 0
       dedicatedAssertion: isEmpty
-      requiredType: java.util.Collection
+      requiredType: java.lang.Iterable
   - org.openrewrite.java.testing.assertj.SimplifyAssertJAssertion:
       assertToReplace: hasSize
       literalArgument: 0

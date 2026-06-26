@@ -1,4 +1,5 @@
 ---
+title: "Find `map { it.await() }` over `List&lt;Deferred&lt;T&gt;&gt;`"
 sidebar_label: "Find `map { it.await() }` over `List&lt;Deferred&lt;T&gt;&gt;`"
 ---
 

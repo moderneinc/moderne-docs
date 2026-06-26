@@ -1,4 +1,5 @@
 ---
+title: "Find `map { it.toString() }` / `map { x -&gt; x.toString() }` patterns"
 sidebar_label: "Find `map { it.toString() }` / `map { x -&gt; x.toString() }` patterns"
 ---
 

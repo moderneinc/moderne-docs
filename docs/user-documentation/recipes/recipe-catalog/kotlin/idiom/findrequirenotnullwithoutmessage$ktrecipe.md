@@ -1,4 +1,5 @@
 ---
+title: "Find `requireNotNull(x)` without an explanatory message"
 sidebar_label: "Find `requireNotNull(x)` without an explanatory message"
 ---
 

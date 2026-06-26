@@ -1,4 +1,5 @@
 ---
+title: "Find `java.util.stream.Stream` friction inside Kotlin"
 sidebar_label: "Find `java.util.stream.Stream` friction inside Kotlin"
 ---
 

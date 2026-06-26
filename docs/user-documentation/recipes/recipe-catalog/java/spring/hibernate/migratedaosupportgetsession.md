@@ -1,4 +1,5 @@
 ---
+title: "Migrate `HibernateDaoSupport#getSession()` usage"
 sidebar_label: "Migrate `HibernateDaoSupport#getSession()` usage"
 ---
 

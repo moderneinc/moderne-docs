@@ -1,4 +1,5 @@
 ---
+title: "Use `maxBy { selector }` instead of `sortedBy { selector }.last()`"
 sidebar_label: "Use `maxBy { selector }` instead of `sortedBy { selector }.last()`"
 ---
 

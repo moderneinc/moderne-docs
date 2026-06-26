@@ -1,4 +1,5 @@
 ---
+title: "Class cohesion DevCenter"
 sidebar_label: "Class cohesion DevCenter"
 ---
 

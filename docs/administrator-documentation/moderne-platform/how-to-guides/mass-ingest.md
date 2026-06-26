@@ -14,6 +14,8 @@ One of the first steps of integrating your code with Moderne is setting up a pip
 
 To do this, we recommend that you set up a Docker image to pull the CLI, configure it, build the LSTs, and publish said artifacts. You would then run this image on a schedule (typically once per day) so that Moderne can have the latest LST artifacts available.
 
+To understand why we recommend this over building LSTs in CI, see [mass ingest vs CI-integrated LST builds](../references/mass-ingest-vs-ci.md).
+
 For detailed instructions on how to set up ingestion, please follow the directions in the [Moderne mass ingest example repository](https://github.com/moderneinc/mass-ingest-example/blob/main/README.md). You may also find it useful to check out our [documentation on creating a repos.csv file](../../../user-documentation/moderne-cli/references/repos-csv.md).
 
 ## Choosing a deployment approach

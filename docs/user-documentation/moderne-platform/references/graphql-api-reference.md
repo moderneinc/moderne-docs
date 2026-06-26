@@ -248,7 +248,7 @@ clearOrganizationPrompt(organizationId: ID!): Boolean!
 
 **Returns:** Boolean!
 
-Clear the organization-level prompt override, falling back to universal.
+Clear the organization-level prompt override, falling back to universal. Admin-only — an organization prompt steers Moddy for every member of that org.
 
 #### `clearUserPrompt`
 
@@ -447,6 +447,11 @@ Reset poll cursors so the next poll cycle re-fetches and re-enriches
 changelog entries from the given timestamp forward. Use this to backfill
 data after deploying enrichment improvements.
 
+Admin-only: that re-fetch and re-enrichment is expensive and its
+enrichment calls hit SCM REST APIs (pull-request and build-state
+lookups), so this must not be reachable by unauthenticated or non-admin
+callers.
+
 #### `revokeAccessToken`
 
 ```graphql
@@ -540,12 +545,12 @@ setOrganizationPrompt(organizationId: ID!, content: Markdown!): Prompt!
 
 **Returns:** [Prompt](#prompt)!
 
-Set the system prompt for a specific organization (overrides universal).
+Set the system prompt for a specific organization (overrides universal). Admin-only — an organization prompt steers Moddy for every member of that org.
 
 #### `setProfiling`
 
 ```graphql
-setProfiling(enabled: Boolean!, event: ProfilingEvent = CPU): Boolean!
+setProfiling(enabled: Boolean!, event: ProfilingEvent = WALL): Boolean!
 ```
 
 **Returns:** Boolean!
@@ -553,7 +558,7 @@ setProfiling(enabled: Boolean!, event: ProfilingEvent = CPU): Boolean!
 Turn continuous profiling on or off for this tenant. When enabled,
 Pyroscope profiles for every service start landing in the Pyroscope UI
 within seconds. The primary event the agent samples on is selected by
-`event` (defaults to CPU); calling the mutation again with a different
+`event` (defaults to WALL); calling the mutation again with a different
 event while profiling is already on rotates the agent to the new event.
 Fails when the profiling capability is not enabled for the tenant.
 Admin role required.
@@ -566,7 +571,7 @@ setUniversalPrompt(content: Markdown!): Prompt!
 
 **Returns:** [Prompt](#prompt)!
 
-Set the universal (default) system prompt.
+Set the universal (default) system prompt. Admin-only — the universal prompt steers Moddy tenant-wide.
 
 #### `setUserPrompt`
 
@@ -581,13 +586,14 @@ Set the system prompt for the current user (overrides organization and universal
 #### `uninstallRecipesFromCurrentUser`
 
 ```graphql
-uninstallRecipesFromCurrentUser(packageName: String!): RecipeUninstallation!
+uninstallRecipesFromCurrentUser(by: RecipeUninstallSelector!): RecipeUninstallation!
 ```
 
 **Returns:** [RecipeUninstallation](#recipeuninstallation)!
 
-Uninstall a recipe bundle from the current user's personal marketplace.
-Returns the number of recipes that were removed.
+Uninstall a bundle from the current user's personal marketplace, identified by
+package name or by a recipe id it provides (see `RecipeUninstallSelector`).
+Returns the number of recipes removed (0 if nothing matched).
 
 #### `uninstallRecipesFromOrganization`
 
@@ -1587,6 +1593,15 @@ Fork commit completed successfully.
 |-------|------|-------------|
 | `clientId` | String! |  |
 
+##### `GoConfiguration`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+
 ##### `GoRecipeBundle`
 
 **Implements:** [RecipeBundle](#recipebundle)
@@ -2070,27 +2085,6 @@ The installation lives in a specific organization's marketplace.
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
 
-##### `OrganizationRecipeRunSynced`
-
-**Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
-| `user` | [User](#user)! |  |
-| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
-| `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
-
 ##### `OrganizationRecipeRunSyncing`
 
 **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
@@ -2352,6 +2346,7 @@ Pull request commit completed successfully.
 | `bundle` | [RecipeBundle](#recipebundle)! |  |
 | `options` | [[Option](#option)!]! |  |
 | `dataTables` | [[DataTableDescriptor](#datatabledescriptor)!]! |  |
+| `sourceUrl` | String | URL to the recipe's source file on GitHub, used to power the "Go to sources" link. Currently only OpenRewrite (org.openrewrite) recipes have a source URL; null for all other recipes. |
 | `detail` | [RecipeDetail](#recipedetail)! | Expensive recipe detail fields that require resolving the full recipe bundle. Returns a state machine: query once to trigger resolution, poll until Finished. |
 | `devCenterCards` | [[DevCenterCardDescriptor](#devcentercarddescriptor)!] | DevCenter card descriptors for this recipe, or null if not a DevCenter recipe. |
 
@@ -2636,7 +2631,7 @@ Resolved by the changeset reader using a batch check against the authorization s
 | Field | Type | Description |
 |-------|------|-------------|
 | `origin` | String! | The VCS origin (e.g., github.com). |
-| `isAuthorized` | Boolean! | Whether the user has read access to this specific repository (per-repo SCM check, not just a token for the origin). When false, surface "you don't have access" rather than empty results. |
+| `access` | [RepoAccess](#repoaccess)! | The current viewer's read access to this specific repository. Drives whether the UI renders content (ALLOWED), a "you don't have access" message (DENIED), or an authorize prompt (UNAUTHENTICATED). |
 
 ##### `RepositoryBatchChange`
 
@@ -3495,6 +3490,7 @@ Discriminator for filtering by entry type.
 * `PYPI`
 * `NPM`
 * `NUGET`
+* `GO`
 * `HTTP_TOOL`
 * `ORGANIZATION`
 * `LLM`
@@ -3626,7 +3622,6 @@ Execution state of a DevCenter run.
 
 * `QUEUED`
 * `SYNCING`
-* `SYNCED`
 * `RUNNING`
 * `FINISHED`
 * `CANCELED`
@@ -3726,6 +3721,15 @@ LOW priority runs target large organizations (>100 repositories).
 
 * `HIGH`
 * `LOW`
+
+##### `RepoAccess`
+
+The current viewer's read access to a specific repository (per-repo SCM check, not just a
+token for the origin).
+
+* `ALLOWED`
+* `DENIED`
+* `UNAUTHENTICATED`
 
 ##### `RepositoryChangesetOrderByField`
 
@@ -4050,8 +4054,8 @@ Input for creating a commit from a changeset.
 | `message` | String! | Commit message. |
 | `extendedMessage` | [Base64](#base64) | Extended commit message (Base64 encoded). |
 | `gpgKey` | [GpgInput](#gpginput) | GPG key for signing commits. |
-| `email` | String | Email to author commit with. Verified against your emails (public and private) that are verified in your SCM provider. If left blank, your first email will be used. |
-| `scmAccessTokens` | [[ScmAccessToken](#scmaccesstoken)!] | Optional SCM access tokens keyed by origin. When provided, these are used instead of stored OAuth tokens for the matching origin. |
+| `email` | String | Git-author email to attribute the commit to (display only). This value is never used to select SCM credentials — tokens are resolved from your authenticated identity (or a token you supply explicitly via scmAccessTokens), never from this field. If left blank, your first email will be used. |
+| `scmAccessTokens` | [[ScmAccessToken](#scmaccesstoken)!] | Optional SCM access tokens you already hold, keyed by origin. When provided, these are used instead of looking up your stored OAuth token for the matching origin. These are your own tokens; they do not select another user's credentials. |
 | `strategy` | [CommitStrategyInput](#commitstrategyinput)! | How to deliver the commit. Choose one strategy. |
 
 ##### `CommitStrategyInput`
@@ -4206,6 +4210,7 @@ Direct commit to origin. No additional options required.
 |-------|------|-------------|
 | `authorizationId` | ID! | The authorization ID returned from initiateAuthorization or from NeedsAuthorization. |
 | `code` | String! | Authorization code from the OAuth callback. |
+| `state` | String! | The state value returned in the OAuth callback (the `state` parameter for OAuth 2.0, or `oauth_token` for Bitbucket OAuth 1.0a). Validated against the server-issued state to prevent CSRF / authorization-code injection. |
 | `redirectUri` | String! | The redirect URI used in the authorization request. Note: This field is deprecated - the server uses the stored redirect URI from the authorization to ensure an exact match. |
 
 ##### `FileChangeOrderByInput`
@@ -4222,6 +4227,7 @@ Filter for file changes.
 | Field | Type | Description |
 |-------|------|-------------|
 | `path` | [PathFilter](#pathfilter) | Filter by file path using glob patterns. |
+| `errorsOnly` | Boolean | Only return files that contain at least one ERROR-level marker. Note: this field is evaluated at the top level only. Placing it inside _and / _or / _not is silently ignored. |
 | `_and` | [[FileChangeWhereInput](#filechangewhereinput)!] | Logical AND - all conditions must match. |
 | `_or` | [[FileChangeWhereInput](#filechangewhereinput)!] | Logical OR - at least one condition must match. |
 | `_not` | [FileChangeWhereInput](#filechangewhereinput) | Logical NOT - negates the condition. |
@@ -4636,6 +4642,15 @@ Filter input for RecipeCategory queries.
 | `field` | [RecipeOrderByField](#recipeorderbyfield)! |  |
 | `direction` | [SortOrder](#sortorder)! |  |
 
+##### `RecipeUninstallSelector`
+
+Identifies the installed bundle to uninstall — exactly one field must be set.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String | The bundle's package name, as listed on a non-YAML `RecipeBundle`. |
+| `recipeId` | String | A recipe id provided by the bundle to uninstall, resolved to the bundle's package name server-side. Removes the ENTIRE bundle that provides this recipe — every recipe that bundle installed, not just this one. For a single-recipe bundle (such as a Builder recipe) that is exactly the one recipe; for a multi-recipe bundle it removes all of them. |
+
 ##### `RecipeWhereInput`
 
 Filter input for Recipe queries.
@@ -4860,7 +4875,7 @@ these tokens are preferred over stored OAuth tokens.
 
 ##### `ConnectorTool`
 
-= [GithubConfiguration](#githubconfiguration) | [GitLabConfiguration](#gitlabconfiguration) | [BitbucketConfiguration](#bitbucketconfiguration) | [BitbucketCloudConfiguration](#bitbucketcloudconfiguration) | [AzureDevOpsConfiguration](#azuredevopsconfiguration) | [ArtifactoryConfiguration](#artifactoryconfiguration) | [MavenConfiguration](#mavenconfiguration) | [PypiConfiguration](#pypiconfiguration) | [NpmConfiguration](#npmconfiguration) | [NugetConfiguration](#nugetconfiguration) | [GenericHttpToolConfiguration](#generichttptoolconfiguration) | [OrganizationConfiguration](#organizationconfiguration) | [LlmConfiguration](#llmconfiguration) | [S3Configuration](#s3configuration)
+= [GithubConfiguration](#githubconfiguration) | [GitLabConfiguration](#gitlabconfiguration) | [BitbucketConfiguration](#bitbucketconfiguration) | [BitbucketCloudConfiguration](#bitbucketcloudconfiguration) | [AzureDevOpsConfiguration](#azuredevopsconfiguration) | [ArtifactoryConfiguration](#artifactoryconfiguration) | [MavenConfiguration](#mavenconfiguration) | [PypiConfiguration](#pypiconfiguration) | [NpmConfiguration](#npmconfiguration) | [NugetConfiguration](#nugetconfiguration) | [GoConfiguration](#goconfiguration) | [GenericHttpToolConfiguration](#generichttptoolconfiguration) | [OrganizationConfiguration](#organizationconfiguration) | [LlmConfiguration](#llmconfiguration) | [S3Configuration](#s3configuration)
 
 ##### `RecipeInstallationScope`
 

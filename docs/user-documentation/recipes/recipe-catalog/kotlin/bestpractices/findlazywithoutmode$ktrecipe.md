@@ -1,4 +1,5 @@
 ---
+title: "Find `lazy { }` calls without an explicit `LazyThreadSafetyMode`"
 sidebar_label: "Find `lazy { }` calls without an explicit `LazyThreadSafetyMode`"
 ---
 

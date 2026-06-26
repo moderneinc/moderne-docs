@@ -1,4 +1,5 @@
 ---
+title: "Comment on `@MockitoSpyBean` and `@MockitoBean` in `@Configuration`"
 sidebar_label: "Comment on `@MockitoSpyBean` and `@MockitoBean` in `@Configuration`"
 ---
 

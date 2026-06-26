@@ -1,4 +1,5 @@
 ---
+title: "Find `Calendar.getInstance()` calls inside loops"
 sidebar_label: "Find `Calendar.getInstance()` calls inside loops"
 ---
 

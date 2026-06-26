@@ -1,4 +1,5 @@
 ---
+title: "Add or update child tag"
 sidebar_label: "Add or update child tag"
 ---
 
@@ -39,11 +40,11 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Add Quarkus Maven plugin](/user-documentation/recipes/recipe-catalog/quarkus/spring/addquarkusmavenplugin.md)
-* [Add `prefer-application-packages` for JPA in `weblogic.xml`](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesjpa.md)
-* [Add `prefer-application-packages` for SLF4J in `weblogic.xml`](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesslf4j.md)
-* [Change cacheManager to use the SimpleCacheManager](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/spring/changecachemanagertosimplecachemanager.md)
+* [Add `prefer-application-packages` for JPA in `weblogic.xml`](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesjpa.md)
+* [Add `prefer-application-packages` for SLF4J in `weblogic.xml`](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesslf4j.md)
+* [Change cacheManager to use the SimpleCacheManager](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/spring/changecachemanagertosimplecachemanager.md)
 * [Migrate JAXB-WS Plugin](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratejaxbwsplugin.md)
-* [Update Default Servlet Handler for Spring Framework if empty](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/defaultservlethandler.md)
+* [Update Default Servlet Handler for Spring Framework if empty](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/defaultservlethandler.md)
 
 
 ## Usage

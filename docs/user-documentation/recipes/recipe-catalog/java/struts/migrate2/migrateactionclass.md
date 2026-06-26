@@ -1,4 +1,5 @@
 ---
+title: "Migrate Struts 1 Action to Struts 2 ActionSupport"
 sidebar_label: "Migrate Struts 1 Action to Struts 2 ActionSupport"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `DoubleArray.contentToString()` instead of `Arrays.toString(arr)`"
 sidebar_label: "Use `DoubleArray.contentToString()` instead of `Arrays.toString(arr)`"
 ---
 

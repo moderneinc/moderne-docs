@@ -1,4 +1,5 @@
 ---
+title: "Add Gradle or Maven dependency"
 sidebar_label: "Add Gradle or Maven dependency"
 ---
 
@@ -49,13 +50,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Add AWS SDK for Java v2 S3 Event Notification dependency if needed](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/adds3eventnotificationdependency.md)
-* [Add AWS SDK for Java v2 S3 Transfer Manager dependency if needed](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/addtransfermanagerdependency.md)
+* [Add AWS SDK for Java v2 S3 Event Notification dependency if needed](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/adds3eventnotificationdependency.md)
+* [Add AWS SDK for Java v2 S3 Transfer Manager dependency if needed](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/addtransfermanagerdependency.md)
 * [Add Flyway starters](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/addflywaystarters)
-* [Add Hibernate ORM Core if has dependencies](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/addhibernateormcore61.md)
+* [Add Hibernate ORM Core if has dependencies](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/addhibernateormcore61.md)
 * [Add JBoss LogManager's SLF4J provider](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/addjbosslogmanagerslf4jproviderdependency.md)
 * [Add Jackson2 for Jersey using JSON](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/addjackson2forjerseyjson)
-* [Add Jakarta EE 9 Servlet Dependency](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/addjakartaee9servletdependencyifusingservletcontext.md)
+* [Add Jakarta EE 9 Servlet Dependency](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/addjakartaee9servletdependencyifusingservletcontext.md)
 * [Add Liquibase starters](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/addliquibasestarters)
 * [Add Quarkus 2 dependencies](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2dependencies.md)
 * [Add Spring Boot 4.0 modular starters](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstarters)
@@ -76,7 +77,7 @@ This recipe is used as part of the following composite recipes:
 * [Add missing Flyway module for SQL Server](/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymodulesqlserver.md)
 * [Add missing Jackson dataformat dependencies](/user-documentation/recipes/recipe-catalog/java/jackson/addmissingjacksondependencies.md)
 * [Adopt Jackson 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/adoptjackson3)
-* [Change v1 Maven/Gradle dependencies to v2](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/upgradesdkdependencies.md)
+* [Change v1 Maven/Gradle dependencies to v2](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/upgradesdkdependencies.md)
 * [Complete migration to OpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratetoopentelemetry.md)
 * [Cucumber to JUnit test `@Suite`](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumbertojunitplatformsuite.md)
 * [JUnit Jupiter migration from JUnit 4.x](/user-documentation/recipes/recipe-catalog/java/testing/junit5/junit4to5migration.md)
@@ -104,6 +105,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate Spring Cloud Config Client to Quarkus Config](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudconfig.md)
 * [Migrate Spring Cloud Service Discovery to Quarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudservicediscovery.md)
 * [Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing.md)
+* [Migrate Spring Retry to Spring Resilience](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretry)
 * [Migrate Spring Validation to Quarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringvalidation.md)
 * [Migrate TestNG assertions to AssertJ](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngtoassertj.md)
 * [Migrate `@EnableXyz` annotations to Quarkus extensions](/user-documentation/recipes/recipe-catalog/quarkus/spring/enableannotationstoquarkusdependencies.md)
@@ -159,8 +161,9 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 4.0 modular starters (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-community-edition.md)
 * [Migrate to Spring Boot 4.1 modular starters](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters_4_1)
 * [Migrate to Spring Data 2.3](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_3.md)
+* [Migrate to Spring Framework 5.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_0-moderne-edition)
 * [Migrate to Struts 2.x from Struts 1.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratestruts2)
-* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/org/apache/wicket/migratetowicket10.md)
+* [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/apache/wicket/migratetowicket10.md)
 * [Prefer the Java standard library instead of Joda-Time](/user-documentation/recipes/recipe-catalog/java/joda/time/nojodatime.md)
 * [Rename the package name from `com.nimbusds.jose.shaded.json` to `net.minidev.json`](/user-documentation/recipes/recipe-catalog/java/spring/security5/renamenimbusdsjsonobjectpackagename.md)
 * [Replace Derby test driver with Quarkus JDBC Derby (test scope)](/user-documentation/recipes/recipe-catalog/quarkus/spring/derbytestdrivertoquarkus.md)
@@ -202,6 +205,7 @@ This recipe is used as part of the following composite recipes:
 * [Update the Micronaut Websocket support](/user-documentation/recipes/recipe-catalog/java/micronaut/addmicronautwebsocketdependencyifneeded.md)
 * [Update to Micronaut Validation 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautvalidation.md)
 * [Use Mockito JUnit Jupiter extension](/user-documentation/recipes/recipe-catalog/java/testing/junit5/usemockitoextension.md)
+* [Use OkHttp 3 MockWebServer for JUnit 5](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradeokhttpmockwebserver.md)
 * [Use Vert.x JUnit 5 Extension](/user-documentation/recipes/recipe-catalog/java/testing/junit5/vertxunittovertxjunit5.md)
 * [Use `org.springframework.boot.web.server.LocalServerPort`](/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratelocalserverportannotation.md)
 

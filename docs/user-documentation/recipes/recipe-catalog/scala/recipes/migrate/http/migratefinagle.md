@@ -1,4 +1,5 @@
 ---
+title: "Migrate Finagle to http4s, tapir, or pekko-http"
 sidebar_label: "Migrate Finagle to http4s, tapir, or pekko-http"
 ---
 

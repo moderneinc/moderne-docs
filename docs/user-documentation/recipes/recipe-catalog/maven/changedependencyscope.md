@@ -1,4 +1,5 @@
 ---
+title: "Change Maven dependency scope"
 sidebar_label: "Change Maven dependency scope"
 ---
 
@@ -39,9 +40,9 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Add explicit Common Annotations dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addcommonannotationsdependencies.md)
-* [Change the jakarta.inject-api dependency to scope provided when jakartaee-api 9.x is provided.](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/changejakartainjectapidependencyscope.md)
-* [Change the jakarta.ws.rs-api dependency to scope provided when jakartaee-api 9.x is provided.](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/changejakartawebservicersapidependencyscope.md)
-* [Change the jakarta.xml.bind-api dependency to scope provided when jakartaee-api 9.x is provided.](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/changejaxbbindapidependencyscope.md)
+* [Change the jakarta.inject-api dependency to scope provided when jakartaee-api 9.x is provided.](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/changejakartainjectapidependencyscope.md)
+* [Change the jakarta.ws.rs-api dependency to scope provided when jakartaee-api 9.x is provided.](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/changejakartawebservicersapidependencyscope.md)
+* [Change the jakarta.xml.bind-api dependency to scope provided when jakartaee-api 9.x is provided.](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/changejaxbbindapidependencyscope.md)
 * [Do not package `java.xml.bind` and `java.activation` modules in WebSphere Liberty applications](/user-documentation/recipes/recipe-catalog/java/migrate/removedjaxbmoduleprovided.md)
 * [Do not package `java.xml.ws` module in WebSphere Liberty applications](/user-documentation/recipes/recipe-catalog/java/migrate/removedjavaxmlwsmoduleprovided.md)
 * [Lombok Best Practices](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokbestpractices.md)

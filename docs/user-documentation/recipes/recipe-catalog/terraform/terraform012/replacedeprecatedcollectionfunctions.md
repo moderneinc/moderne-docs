@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `list()` and `map()` functions"
 sidebar_label: "Replace deprecated `list()` and `map()` functions"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `Surface { OneChild() }` patterns"
 sidebar_label: "Find `Surface { OneChild() }` patterns"
 ---
 

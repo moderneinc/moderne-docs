@@ -1,4 +1,5 @@
 ---
+title: "Ensure compute instances launch with shielded VM enabled"
 sidebar_label: "Ensure compute instances launch with shielded VM enabled"
 ---
 

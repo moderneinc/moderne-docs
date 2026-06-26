@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `sunau` module usage"
 sidebar_label: "Find deprecated `sunau` module usage"
 ---
 

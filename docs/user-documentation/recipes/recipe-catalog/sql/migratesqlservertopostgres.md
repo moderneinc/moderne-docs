@@ -1,4 +1,5 @@
 ---
+title: "Migrate SQL Server to PostgreSQL"
 sidebar_label: "Migrate SQL Server to PostgreSQL"
 ---
 

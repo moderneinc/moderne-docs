@@ -1,4 +1,5 @@
 ---
+title: "Delete `if` blocks whose body is only `pass`"
 sidebar_label: "Delete `if` blocks whose body is only `pass`"
 ---
 

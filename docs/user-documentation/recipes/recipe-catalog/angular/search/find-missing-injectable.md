@@ -1,4 +1,5 @@
 ---
+title: "Find classes with DI dependencies but missing `@Injectable()`"
 sidebar_label: "Find classes with DI dependencies but missing `@Injectable()`"
 ---
 

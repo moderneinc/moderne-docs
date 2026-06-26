@@ -1,4 +1,5 @@
 ---
+title: "Add generic type to `ModuleWithProviders`"
 sidebar_label: "Add generic type to `ModuleWithProviders`"
 ---
 

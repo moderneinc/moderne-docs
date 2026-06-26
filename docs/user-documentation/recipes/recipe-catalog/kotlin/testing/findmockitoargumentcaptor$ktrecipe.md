@@ -1,4 +1,5 @@
 ---
+title: "Find `ArgumentCaptor.forClass(X::class.java)` allocations"
 sidebar_label: "Find `ArgumentCaptor.forClass(X::class.java)` allocations"
 ---
 

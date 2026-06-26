@@ -1,4 +1,5 @@
 ---
+title: "Find Java-style `iterable.forEach(Consumer)` calls"
 sidebar_label: "Find Java-style `iterable.forEach(Consumer)` calls"
 ---
 

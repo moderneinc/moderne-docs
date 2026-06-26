@@ -1,4 +1,5 @@
 ---
+title: "Find `catch` blocks with empty bodies"
 sidebar_label: "Find `catch` blocks with empty bodies"
 ---
 

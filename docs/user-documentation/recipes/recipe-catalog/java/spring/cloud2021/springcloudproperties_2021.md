@@ -1,4 +1,5 @@
 ---
+title: "Migrate Spring Cloud properties to 2021"
 sidebar_label: "Migrate Spring Cloud properties to 2021"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `min()` instead of `sorted().first()`"
 sidebar_label: "Use `min()` instead of `sorted().first()`"
 ---
 

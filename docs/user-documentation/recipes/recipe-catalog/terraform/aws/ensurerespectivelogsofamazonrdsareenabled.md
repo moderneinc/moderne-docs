@@ -1,4 +1,5 @@
 ---
+title: "Ensure respective logs of Amazon RDS are enabled"
 sidebar_label: "Ensure respective logs of Amazon RDS are enabled"
 ---
 

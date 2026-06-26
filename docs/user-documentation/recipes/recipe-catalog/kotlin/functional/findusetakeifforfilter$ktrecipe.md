@@ -1,4 +1,5 @@
 ---
+title: "Find `if (predicate(x)) x else null` patterns"
 sidebar_label: "Find `if (predicate(x)) x else null` patterns"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace `InjectFlags` with options object"
 sidebar_label: "Replace `InjectFlags` with options object"
 ---
 

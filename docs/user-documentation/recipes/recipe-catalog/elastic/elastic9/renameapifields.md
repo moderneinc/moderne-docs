@@ -1,4 +1,5 @@
 ---
+title: "Rename API fields for Elasticsearch 9"
 sidebar_label: "Rename API fields for Elasticsearch 9"
 ---
 

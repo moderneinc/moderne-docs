@@ -1,4 +1,5 @@
 ---
+title: "Replace `EmitterProcessor.create()` with `Sinks.many().multicast().onBackpressureBuffer()`"
 sidebar_label: "Replace `EmitterProcessor.create()` with `Sinks.many().multicast().onBackpressureBuffer()`"
 ---
 

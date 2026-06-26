@@ -1,4 +1,5 @@
 ---
+title: "Migrate Struts 2.0 interceptors to action &quot;aware&quot; interfaces"
 sidebar_label: "Migrate Struts 2.0 interceptors to action &quot;aware&quot; interfaces"
 ---
 

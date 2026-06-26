@@ -1,4 +1,5 @@
 ---
+title: "Ensure a security contact phone number is present"
 sidebar_label: "Ensure a security contact phone number is present"
 ---
 

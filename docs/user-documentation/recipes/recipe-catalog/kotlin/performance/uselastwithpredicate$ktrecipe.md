@@ -1,4 +1,5 @@
 ---
+title: "Use `last { predicate }` instead of `filter { predicate }.last()`"
 sidebar_label: "Use `last { predicate }` instead of `filter { predicate }.last()`"
 ---
 

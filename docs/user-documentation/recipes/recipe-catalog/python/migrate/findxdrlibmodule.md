@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `xdrlib` module usage"
 sidebar_label: "Find deprecated `xdrlib` module usage"
 ---
 

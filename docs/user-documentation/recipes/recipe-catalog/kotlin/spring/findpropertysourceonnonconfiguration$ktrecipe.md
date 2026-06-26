@@ -1,4 +1,5 @@
 ---
+title: "Find `@PropertySource` on classes that lack `@Configuration`"
 sidebar_label: "Find `@PropertySource` on classes that lack `@Configuration`"
 ---
 

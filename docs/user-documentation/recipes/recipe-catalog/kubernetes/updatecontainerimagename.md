@@ -1,4 +1,5 @@
 ---
+title: "Update image name"
 sidebar_label: "Update image name"
 ---
 

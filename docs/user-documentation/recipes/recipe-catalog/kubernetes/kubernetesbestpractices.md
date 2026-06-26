@@ -1,4 +1,5 @@
 ---
+title: "Kubernetes best practices"
 sidebar_label: "Kubernetes best practices"
 ---
 

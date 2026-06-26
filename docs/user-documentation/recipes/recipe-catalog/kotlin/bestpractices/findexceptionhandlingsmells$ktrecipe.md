@@ -1,4 +1,5 @@
 ---
+title: "Find exception-handling smells"
 sidebar_label: "Find exception-handling smells"
 ---
 

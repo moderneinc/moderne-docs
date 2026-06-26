@@ -1,4 +1,5 @@
 ---
+title: "Fix CWE-338 with `SecureRandom`"
 sidebar_label: "Fix CWE-338 with `SecureRandom`"
 ---
 

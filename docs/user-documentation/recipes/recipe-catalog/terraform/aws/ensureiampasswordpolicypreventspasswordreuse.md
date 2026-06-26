@@ -1,4 +1,5 @@
 ---
+title: "Ensure IAM password policy prevents password reuse"
 sidebar_label: "Ensure IAM password policy prevents password reuse"
 ---
 

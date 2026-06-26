@@ -1,4 +1,5 @@
 ---
+title: "Find SSH secrets"
 sidebar_label: "Find SSH secrets"
 ---
 

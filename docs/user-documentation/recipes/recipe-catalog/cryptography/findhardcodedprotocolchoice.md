@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded SSL/TLS protocol choices"
 sidebar_label: "Find hardcoded SSL/TLS protocol choices"
 ---
 

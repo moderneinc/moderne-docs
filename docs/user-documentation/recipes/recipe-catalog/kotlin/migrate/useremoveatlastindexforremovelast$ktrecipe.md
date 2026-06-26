@@ -1,4 +1,5 @@
 ---
+title: "Use `removeAt(lastIndex)` instead of `removeLast()`"
 sidebar_label: "Use `removeAt(lastIndex)` instead of `removeLast()`"
 ---
 

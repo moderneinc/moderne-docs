@@ -17,9 +17,11 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
+* [Find Apache Commons BeanUtils property assignments](./findbeanpropertyassignment.md)
 * [Find Jackson default type mapping enablement](./findjacksondefaulttypemapping.md)
 * [Find OS command injection vectors](./findcommandinjection.md)
 * [Find RSA encryption without OAEP padding](./findrsawithoutoaep.md)
+* [Find Spring MVC handlers missing authorization](./findmissingspringauthorization.md)
 * [Find Spring Security configurations that disable session fixation protection](./findinsecuresessionfixationconfig.md)
 * [Find `User.withDefaultPasswordEncoder()` usage](./finduserwithdefaultpasswordencoder.md)
 * [Find hardcoded authentication credentials](./findhardcodedauthenticationcredentials.md)
@@ -39,5 +41,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find weak message digests used inside custom `PasswordEncoder` implementations](./findweakdigestinpasswordencoder.md)
 * [Find weak password encoder strength](./findweakpasswordencoderstrength.md)
 * [Find weak password hashing](./findweakpasswordhashing.md)
+* [Find writes to static fields from instance methods](./findinstancemethodstaticfieldwrite.md)
 
 

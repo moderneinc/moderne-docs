@@ -1,4 +1,5 @@
 ---
+title: "Migrate DTD to a specific Struts version"
 sidebar_label: "Migrate DTD to a specific Struts version"
 ---
 

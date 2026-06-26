@@ -1,4 +1,5 @@
 ---
+title: "Merge YAML snippet"
 sidebar_label: "Merge YAML snippet"
 ---
 
@@ -54,7 +55,6 @@ This recipe is used as part of the following composite recipes:
 * [Add manual workflow trigger](/user-documentation/recipes/recipe-catalog/github/addmanualtrigger.md)
 * [Add retry configuration](/user-documentation/recipes/recipe-catalog/gitlab/addretry.md)
 * [Add workflow rules](/user-documentation/recipes/recipe-catalog/gitlab/addworkflowrules.md)
-* [Migrate from tibdex/github-app-token to actions/create-github-app-token](/user-documentation/recipes/recipe-catalog/github/migratetibdexgithubapptokentoactions.md)
 
 ## Example
 

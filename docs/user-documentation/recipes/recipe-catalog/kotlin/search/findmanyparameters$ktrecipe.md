@@ -1,4 +1,5 @@
 ---
+title: "Find functions with more than 5 parameters"
 sidebar_label: "Find functions with more than 5 parameters"
 ---
 

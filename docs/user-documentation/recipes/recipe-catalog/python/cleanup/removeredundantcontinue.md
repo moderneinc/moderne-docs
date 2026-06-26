@@ -1,4 +1,5 @@
 ---
+title: "Strip trailing ``continue`` from loop body"
 sidebar_label: "Strip trailing ``continue`` from loop body"
 ---
 

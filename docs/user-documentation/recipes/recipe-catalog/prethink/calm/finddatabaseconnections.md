@@ -1,4 +1,5 @@
 ---
+title: "Find database connections"
 sidebar_label: "Find database connections"
 ---
 

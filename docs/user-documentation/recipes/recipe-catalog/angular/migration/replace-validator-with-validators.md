@@ -1,4 +1,5 @@
 ---
+title: "Replace `validator`/`asyncValidator` with plural forms"
 sidebar_label: "Replace `validator`/`asyncValidator` with plural forms"
 ---
 

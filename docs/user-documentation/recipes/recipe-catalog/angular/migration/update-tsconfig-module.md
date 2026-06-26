@@ -1,4 +1,5 @@
 ---
+title: "Update `tsconfig.json` module settings for Ivy"
 sidebar_label: "Update `tsconfig.json` module settings for Ivy"
 ---
 

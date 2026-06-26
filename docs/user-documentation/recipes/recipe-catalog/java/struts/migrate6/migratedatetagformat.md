@@ -1,4 +1,5 @@
 ---
+title: "Migrate Struts date tag format patterns"
 sidebar_label: "Migrate Struts date tag format patterns"
 ---
 

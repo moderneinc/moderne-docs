@@ -10,6 +10,225 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## June 23, 2026
+
+#### rewrite-migrate-python - v0.9.1
+
+* Gate UpgradeToPython module/import recipes on uses_import for perf
+
+#### rewrite-program-analysis - v0.13.0
+
+* Regenerate recipes.csv
+* Add ParameterizeRawCollection recipe
+* Collapse path-sensitive facts by base fact to avoid 2^k explosion
+
+## June 18, 2026
+
+#### rewrite-nullability - 0.1.0
+
+* Extend rewrite-nullability for NullAway/JSpecify adoption (validated 606→7 on moderne-saas)
+* Recipe quality fixes: type-use @Nullable, program-analysis null-guard, attributed annotations, static-import requireNonNull
+* Add GitHub Actions
+
+## June 17, 2026
+
+#### rewrite-ai - 0.4.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-ai-search - 0.35.0
+
+* Add missing static Mockito imports in SpellCheckCommentsInFrenchTest
+
+#### rewrite-android - 0.18.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-angular - 1.4.0
+
+* Print out logs in CI in case of failure
+* OpenRewrite 8.84.1
+* MSG_MINIMAL in Slack notifications
+* Bump @openrewrite/rewrite from 8.84.1 to 8.84.9 in /recipes-angular[bot]
+* Migrate npm publishing to Trusted Publishing (OIDC)
+
+#### rewrite-circleci - 3.12.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-cobol - 2.19.0
+
+* Recognize .dcl (DCLGEN) files as copybooks for EXEC SQL INCLUDE
+* Increase default Cobol parser timeout to 10 minutes
+
+#### rewrite-codemods - 0.26.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-codemods-ng - 0.21.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-compiled-analysis - 0.14.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-concourse - 3.11.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-cryptography - 0.14.3
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-cryptography - 0.14.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-devcenter - 1.26.0
+
+* Target Spring Boot 4.1 in starter DevCenter
+
+#### rewrite-dotnet - 0.16.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-dropwizard - 0.5.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-dropwizard - 0.5.0
+
+* Add MigrateMultiPartBundle recipe
+
+#### rewrite-elastic - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-hibernate - 0.25.0
+
+* Fix NPE in ReplaceSessionLockRequest on implicit lambda parameters
+
+#### rewrite-jasperreports - 0.6.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-java-application-server - 0.7.3
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-java-security - 3.33.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-java-security - 3.33.0
+
+* Reduce overreporting of vulnerabilities.
+* Add FixXssVulnerability composite — Java + JSP + Thymeleaf (CWE-79)
+* Support kotlin in FindMissingSpringAuthorization
+* Drop stale workarounds fixed upstream; re-enable lambda tests
+* Align path-traversal recipes with renamed `path-injection` sink kind
+* Extend FindPredictableSalt: variable tracking, length check, RSPEC-S2053 tag
+* Add FindInstanceMethodStaticFieldWrite (Sonar S2696)
+* Extend FindHardcodedIv: variable tracking + RSPEC-S3329 tag
+* Extend FindInadequateKeySize, add UpgradeInadequateKeySize, tag RSPEC-S4426
+* Add FindBeanPropertyAssignment (Sonar S4512)
+* Unpin nimbus-jose-jwt dependency
+
+#### rewrite-kafka - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-kubernetes - 3.17.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-migrate-kotlin - 0.6.0
+
+* Modernize the kotlinOptions Gradle DSL block to compilerOptions
+
+#### rewrite-migrate-python - 0.9.0
+
+* Add Pydantic migration recipes; make type-aware recipes precise via type_utils
+* Remove unused typing import when migrating Optional/Union to PEP 604
+* Expand Pydantic migration recipes to cover 2.10–2.14
+
+#### rewrite-nodejs - 0.46.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-prethink - 0.7.3
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-prethink - 0.7.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-program-analysis - 0.12.9
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-react - 0.3.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-reactive-streams - 0.20.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-release-metromap - 0.4.0
+
+* Fix recipe catalog category metadata for Release Metro Map
+
+#### rewrite-spring - 0.35.0
+
+* Rename Jackson2ObjectMapperBuilder.mixIn to addMixIn in SB4 relocations
+* Tighten UpgradeSpringBoot_4_1 test assertion now that 4.1.0 GA shipped
+* Update tests for Spring Cloud 2025.1.2 release
+* Pin UpgradeAwspringCloud_4_0 dependency bump to 4.0.0
+* fix(boot4): preserve spring-retry when migrating to Spring Boot 4
+* Fix incorrect catch-all ChangePackage for actuate.autoconfigure.endpoint.web
+* Drop NullableSpringWebParameters from default Spring Boot 4 pipeline
+* Fix Spring Boot 4.0 TestEntityManager relocation and add spring-boot-webtestclient dependency
+* Point TaskExecutorJobLauncher at TaskExecutorJobOperator (Spring Batch 6)
+* Use constructor injection for `DaoAuthenticationProvider` in Spring Security 7
+* Rename Jackson2ExecutionContextStringSerializer for Spring Batch 6
+
+#### rewrite-sql - 2.12.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-struts - 0.26.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-tapestry - 0.4.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-terraform - 3.14.3
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-vulncheck - 0.7.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-vulncheck - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+## June 15, 2026
+
+#### rewrite-prethink - 0.7.1
+
+* Detect CORS when the Express app is typed as express.Application
+* Install matching openrewrite pip version for Python tests
+* FindExpressEndpoints: match both express.* and express-serve-static-core.* receiver types
+* Detect Python BDD step definitions (behave, pytest-bdd, lettuce)
+* Upgrade to langchain4j:1.16.3
+
 ## June 5, 2026
 
 #### rewrite-nodejs - 0.46.1
@@ -3974,93 +4193,4 @@ Republishing to update dependencies
 * rename aggregation -&gt; summarizing in javadoc
 * refactor: org.openrewrite.mavencentral
 * Pin organizations-format to be able to build & release for a CLI patch release
-
-## June 25, 2025
-
-#### rewrite-codemods - 0.14.1
-
-* Updated repository to use OpenRewrite version v8.56.0
-
-#### rewrite-codemods-ng - 0.10.1
-
-* Updated repository to use OpenRewrite version v8.56.0
-
-#### rewrite-cryptography - 0.3.0
-
-* Apply best practices to stop unrelated PR feedback
-
-#### rewrite-devcenter - 1.4.2
-
-* Updated repository to use OpenRewrite version v8.56.0
-
-#### rewrite-hibernate - 0.6.0
-
-* Add basic hibernate 7 migration
-
-#### rewrite-java-security - 3.13.0
-
-* Fix CVE marker
-* Parameter has been removed in class
-* Gradle plugins that add vulnerable dependencies do not get fixed
-* Remove Markers from DependencyVulnerabilityCheck
-* CI batch was still pointing to public repo
-* Check if vulnerability affects any of the accepted fixed vulnerabilities in version range
-* Don't omit entries from the report just because fixes are not yet available
-* Reuable fixture for testing DependencyVulnerabilityCheck with static data
-* DataTable for `org.openrewrite.text.FindHardcodedPrivateIPAddresses`
-* Same tree if nothing to fix
-
-#### rewrite-spring - 0.8.0
-
-* Add support for Spring Cloud Property migrations
-* Add property migration generator for boot
-* Add property generation to workflow
-* Added migration from `spring-cloud-starter-gateway` to `spring-cloud-starter-gateway-server-webflux`
-* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-06-19T2137
-
-#### rewrite-sql - 2.4.1
-
-* Updated repository to use OpenRewrite version v8.56.0
-
-#### rewrite-struts - 0.17.0
-
-* Add `MigrateStruts6Constants` to the `MigrateStruts6` umbrella recipe
-
-#### rewrite-vulncheck - 0.3.0
-
-* Update build.gradle.kts
-
-## June 24, 2025
-
-#### rewrite-devcenter - 1.4.1
-
-* Use univocity-parsers for CSV parsing
-* Use FQN check instead of instanceof to avoid parent classloading of `UpgradeMigrationCard` and `ReportAsSecurityIssues`
-
-## June 18, 2025
-
-#### rewrite-cryptography - v0.2.2
-
-* pin dependency versions to align with 0.2.0
-
-## June 17, 2025
-
-#### rewrite-cryptography - v0.2.1
-
-- Fix recipe name
-
-## June 15, 2025
-
-#### rewrite-devcenter - 1.4.0
-
-* Aggregate DevCenter by organization from data table output
-
-## June 9, 2025
-
-#### rewrite-java-security - v3.12.0
-
-* Expose method for overriding baseline vulnerabilities
-* netty 4.1.122 in doNotAddEmptyConstraintsBlockForTransitiveDependenci…
-* Marker for CVE fixes
-* Fix signature of class constructor
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `if (x == null) throw ...` patterns"
 sidebar_label: "Find `if (x == null) throw ...` patterns"
 ---
 

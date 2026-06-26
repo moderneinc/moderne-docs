@@ -1,4 +1,5 @@
 ---
+title: "Find `effect()` usage affected by Angular 19 timing changes"
 sidebar_label: "Find `effect()` usage affected by Angular 19 timing changes"
 ---
 

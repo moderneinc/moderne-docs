@@ -1,4 +1,5 @@
 ---
+title: "Find .NET test code smells"
 sidebar_label: "Find .NET test code smells"
 ---
 

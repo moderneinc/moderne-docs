@@ -1,4 +1,5 @@
 ---
+title: "Migrate Phantom DSL to Datastax driver or quill-cassandra"
 sidebar_label: "Migrate Phantom DSL to Datastax driver or quill-cassandra"
 ---
 

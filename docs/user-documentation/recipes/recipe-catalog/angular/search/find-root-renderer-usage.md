@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `RootRenderer` usage"
 sidebar_label: "Find deprecated `RootRenderer` usage"
 ---
 

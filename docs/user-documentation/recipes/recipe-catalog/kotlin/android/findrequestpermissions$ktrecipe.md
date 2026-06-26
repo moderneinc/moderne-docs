@@ -1,4 +1,5 @@
 ---
+title: "Find direct `requestPermissions(...)` calls"
 sidebar_label: "Find direct `requestPermissions(...)` calls"
 ---
 

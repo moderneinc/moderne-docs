@@ -1,4 +1,5 @@
 ---
+title: "Use `emptySet&lt;T&gt;()` instead of `setOf&lt;T&gt;()`"
 sidebar_label: "Use `emptySet&lt;T&gt;()` instead of `setOf&lt;T&gt;()`"
 ---
 

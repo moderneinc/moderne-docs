@@ -12,6 +12,7 @@ _Recipes for upgrading and patching [Quarkus](https://quarkus.io/) applications.
 * [Quarkus 2.x](/user-documentation/recipes/recipe-catalog/quarkus/quarkus2)
 * [Search](/user-documentation/recipes/recipe-catalog/quarkus/search)
 * [Spring to Quarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring)
+* [Updates](/user-documentation/recipes/recipe-catalog/quarkus/updates)
 
 ## Composite Recipes
 
@@ -41,6 +42,8 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Quarkus Updates Aggregate 3.30.0](./migratetoquarkus_v3_30_0.md)
 * [Quarkus Updates Aggregate 3.31.0](./migratetoquarkus_v3_31_0.md)
 * [Quarkus Updates Aggregate 3.32.0](./migratetoquarkus_v3_32_0.md)
+* [Quarkus Updates Aggregate 3.33.0](./migratetoquarkus_v3_33_0.md)
+* [Quarkus Updates Aggregate 3.37.0](./migratetoquarkus_v3_37_0.md)
 * [Quarkus Updates Aggregate 3.5.0](./migratetoquarkus_v3_5_0.md)
 * [Quarkus Updates Aggregate 3.6.0](./migratetoquarkus_v3_6_0.md)
 * [Quarkus Updates Aggregate 3.7.0](./migratetoquarkus_v3_7_0.md)

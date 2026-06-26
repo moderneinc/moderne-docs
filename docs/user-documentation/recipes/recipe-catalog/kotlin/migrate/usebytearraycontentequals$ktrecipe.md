@@ -1,4 +1,5 @@
 ---
+title: "Use `ByteArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 sidebar_label: "Use `ByteArray.contentEquals()` instead of `Arrays.equals(a, b)`"
 ---
 

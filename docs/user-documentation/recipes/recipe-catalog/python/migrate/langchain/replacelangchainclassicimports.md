@@ -1,4 +1,5 @@
 ---
+title: "Replace `langchain` legacy imports with `langchain_classic`"
 sidebar_label: "Replace `langchain` legacy imports with `langchain_classic`"
 ---
 

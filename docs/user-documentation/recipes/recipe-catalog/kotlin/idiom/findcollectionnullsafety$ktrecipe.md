@@ -1,4 +1,5 @@
 ---
+title: "Find collection null-safety idioms"
 sidebar_label: "Find collection null-safety idioms"
 ---
 

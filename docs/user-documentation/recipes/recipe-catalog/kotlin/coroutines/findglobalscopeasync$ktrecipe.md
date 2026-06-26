@@ -1,4 +1,5 @@
 ---
+title: "Find `GlobalScope.async` calls"
 sidebar_label: "Find `GlobalScope.async` calls"
 ---
 

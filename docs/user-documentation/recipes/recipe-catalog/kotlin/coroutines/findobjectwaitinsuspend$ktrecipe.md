@@ -1,4 +1,5 @@
 ---
+title: "Find `Object.wait` calls inside `suspend` functions"
 sidebar_label: "Find `Object.wait` calls inside `suspend` functions"
 ---
 

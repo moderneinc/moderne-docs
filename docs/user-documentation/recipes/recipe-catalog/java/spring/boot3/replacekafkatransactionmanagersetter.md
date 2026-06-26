@@ -1,4 +1,5 @@
 ---
+title: "Use `kafkaAwareTransactionManager` setter"
 sidebar_label: "Use `kafkaAwareTransactionManager` setter"
 ---
 

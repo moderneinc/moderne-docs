@@ -1,4 +1,5 @@
 ---
+title: "Find `KeyPairGenerator.getInstance(&quot;RSA&quot;)` callers — verify 2048+ key size"
 sidebar_label: "Find `KeyPairGenerator.getInstance(&quot;RSA&quot;)` callers — verify 2048+ key size"
 ---
 

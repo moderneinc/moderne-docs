@@ -1,4 +1,5 @@
 ---
+title: "Find `android.preference.PreferenceManager` imports"
 sidebar_label: "Find `android.preference.PreferenceManager` imports"
 ---
 

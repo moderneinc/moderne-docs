@@ -1,4 +1,5 @@
 ---
+title: "Use `listOf(x)` instead of `Collections.singletonList(x)`"
 sidebar_label: "Use `listOf(x)` instead of `Collections.singletonList(x)`"
 ---
 

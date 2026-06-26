@@ -1,4 +1,5 @@
 ---
+title: "Find Stripe API key literals (`sk_live_…` / `sk_test_…`)"
 sidebar_label: "Find Stripe API key literals (`sk_live_…` / `sk_test_…`)"
 ---
 

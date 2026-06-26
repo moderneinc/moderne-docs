@@ -1,4 +1,5 @@
 ---
+title: "Remove Spring Boot 3.5 deprecated conditions"
 sidebar_label: "Remove Spring Boot 3.5 deprecated conditions"
 ---
 

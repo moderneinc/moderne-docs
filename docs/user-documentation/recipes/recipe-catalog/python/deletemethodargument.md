@@ -1,4 +1,5 @@
 ---
+title: "Delete method argument"
 sidebar_label: "Delete method argument"
 ---
 
@@ -44,15 +45,17 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Delete method argument](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/deletemethodargument)
 * [Migrate Apache HttpCore Nio Input Buffer classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_nioinputbuffers.md)
 * [Migrate Apache HttpCore Nio Output Buffer classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_niooutputbuffers.md)
+* [Migrate removed `LocalStackContainer` members to Testcontainers 2.x](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2localstack.md)
 * [Migrate to ApacheHttpClient 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5.md)
 * [Migrate to Hibernate 7.2.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate72)
 * [Migrate to Kafka 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka40)
 * [Mockito 3.x migration from 1.x](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
 * [Remove `SslBundles` parameter from `KafkaProperties` build methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/removekafkapropertiessslbundlesparameter)
 * [Replace  deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removalsservletjakarta10.md)
-* [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
+* [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
 
 ## Example
 

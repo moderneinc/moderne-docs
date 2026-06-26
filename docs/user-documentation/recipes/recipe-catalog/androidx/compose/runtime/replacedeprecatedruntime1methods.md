@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `runtime` methods"
 sidebar_label: "Replace deprecated `runtime` methods"
 ---
 

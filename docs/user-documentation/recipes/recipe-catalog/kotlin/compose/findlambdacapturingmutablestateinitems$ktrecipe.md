@@ -1,4 +1,5 @@
 ---
+title: "Find lazy-list `items(...) { … }` content lambdas that read a `MutableState` from the enclosing scope"
 sidebar_label: "Find lazy-list `items(...) { … }` content lambdas that read a `MutableState` from the enclosing scope"
 ---
 

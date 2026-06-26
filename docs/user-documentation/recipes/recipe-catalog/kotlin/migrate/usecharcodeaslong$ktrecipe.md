@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.code.toLong()` instead of `Char.toLong()`"
 sidebar_label: "Use `Char.code.toLong()` instead of `Char.toLong()`"
 ---
 

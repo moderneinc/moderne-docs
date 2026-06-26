@@ -1,4 +1,5 @@
 ---
+title: "Add `@SpringExtensionConfig` for nested tests"
 sidebar_label: "Add `@SpringExtensionConfig` for nested tests"
 ---
 

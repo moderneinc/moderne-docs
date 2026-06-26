@@ -1,4 +1,5 @@
 ---
+title: "Remove explicit `return` statements"
 sidebar_label: "Remove explicit `return` statements"
 ---
 

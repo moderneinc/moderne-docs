@@ -1,4 +1,5 @@
 ---
+title: "Standardize instance method first parameter to `self`"
 sidebar_label: "Standardize instance method first parameter to `self`"
 ---
 

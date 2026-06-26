@@ -1,4 +1,5 @@
 ---
+title: "Prefer `java.util.concurrent` over `synchronized`"
 sidebar_label: "Prefer `java.util.concurrent` over `synchronized`"
 ---
 

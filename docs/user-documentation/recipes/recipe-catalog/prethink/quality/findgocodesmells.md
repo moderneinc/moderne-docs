@@ -1,4 +1,5 @@
 ---
+title: "Find Go code smells"
 sidebar_label: "Find Go code smells"
 ---
 

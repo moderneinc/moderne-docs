@@ -1,4 +1,5 @@
 ---
+title: "Quarkus Updates Aggregate 3.8.3"
 sidebar_label: "Quarkus Updates Aggregate 3.8.3"
 ---
 
@@ -44,7 +45,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 **Recipes**
 
 * [Quarkus Updates Aggregate 3.8.0](../quarkus/migratetoquarkus_v3_8_0)
-* [io.quarkus.updates.core.quarkus383.GraalSDK](../io/quarkus/updates/core/quarkus383/graalsdk)
+* [io.quarkus.updates.core.quarkus383.GraalSDK](../quarkus/updates/core/quarkus383/graalsdk)
 
 </TabItem>
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `android.util.Log.v/d/i/w/e(...)` calls"
 sidebar_label: "Find `android.util.Log.v/d/i/w/e(...)` calls"
 ---
 

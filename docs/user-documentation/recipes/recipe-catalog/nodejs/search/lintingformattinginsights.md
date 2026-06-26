@@ -1,4 +1,5 @@
 ---
+title: "Javascript linting &amp; formatting library insights"
 sidebar_label: "Javascript linting &amp; formatting library insights"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated urllib.parse split functions"
 sidebar_label: "Find deprecated urllib.parse split functions"
 ---
 

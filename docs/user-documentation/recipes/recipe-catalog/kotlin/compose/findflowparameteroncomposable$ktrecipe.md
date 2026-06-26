@@ -1,4 +1,5 @@
 ---
+title: "Find `Flow&lt;T&gt;` / `StateFlow&lt;T&gt;` parameters on `@Composable` functions"
 sidebar_label: "Find `Flow&lt;T&gt;` / `StateFlow&lt;T&gt;` parameters on `@Composable` functions"
 ---
 

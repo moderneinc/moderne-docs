@@ -1,4 +1,5 @@
 ---
+title: "Secure the use of Jackson default typing"
 sidebar_label: "Secure the use of Jackson default typing"
 ---
 

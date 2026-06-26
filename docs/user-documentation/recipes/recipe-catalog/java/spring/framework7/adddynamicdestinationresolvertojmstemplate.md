@@ -1,4 +1,5 @@
 ---
+title: "Explicitly set DynamicDestinationResolver on JmsTemplate"
 sidebar_label: "Explicitly set DynamicDestinationResolver on JmsTemplate"
 ---
 

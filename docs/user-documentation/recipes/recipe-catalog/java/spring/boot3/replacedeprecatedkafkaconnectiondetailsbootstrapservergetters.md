@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `KafkaConnectionDetails` bootstrap server methods"
 sidebar_label: "Replace deprecated `KafkaConnectionDetails` bootstrap server methods"
 ---
 

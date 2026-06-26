@@ -1,4 +1,5 @@
 ---
+title: "Remove potentially unused imports (heuristic)"
 sidebar_label: "Remove potentially unused imports (heuristic)"
 ---
 

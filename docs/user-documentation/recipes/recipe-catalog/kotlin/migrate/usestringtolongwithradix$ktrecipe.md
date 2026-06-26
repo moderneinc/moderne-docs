@@ -1,4 +1,5 @@
 ---
+title: "Use `String.toLong(radix)` instead of `Long.parseLong(s, radix)`"
 sidebar_label: "Use `String.toLong(radix)` instead of `Long.parseLong(s, radix)`"
 ---
 

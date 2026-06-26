@@ -1,4 +1,5 @@
 ---
+title: "Migrate `xwork-validator` DTD to 1.0.4"
 sidebar_label: "Migrate `xwork-validator` DTD to 1.0.4"
 ---
 

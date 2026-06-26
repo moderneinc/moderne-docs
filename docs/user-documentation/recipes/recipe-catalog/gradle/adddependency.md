@@ -1,4 +1,5 @@
 ---
+title: "Add Gradle dependency"
 sidebar_label: "Add Gradle dependency"
 ---
 
@@ -48,6 +49,7 @@ This recipe is used as part of the following composite recipes:
 * [Add JUnit Platform Launcher](/user-documentation/recipes/recipe-catalog/gradle/addjunitplatformlauncher.md)
 * [Add `lombok-mapstruct-binding` when both MapStruct and Lombok are used](/user-documentation/recipes/recipe-catalog/java/migrate/addlombokmapstructbinding.md)
 * [Enable Lombok annotation processor](/user-documentation/recipes/recipe-catalog/java/migrate/enablelombokannotationprocessor.md)
+* [JUnit 6 migration from JUnit 5.x](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
 * [Update to Micronaut Validation 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautvalidation.md)
 
 

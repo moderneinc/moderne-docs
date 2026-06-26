@@ -1,4 +1,5 @@
 ---
+title: "Add mockito-junit-jupiter dependency"
 sidebar_label: "Add mockito-junit-jupiter dependency"
 ---
 
@@ -24,13 +25,6 @@ _Adds `org.mockito:mockito-junit-jupiter` dependency if `@ExtendWith(MockitoExte
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-testing-frameworks/)
 
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Mockito 3.x migration from 1.x](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
 
 
 ## Usage

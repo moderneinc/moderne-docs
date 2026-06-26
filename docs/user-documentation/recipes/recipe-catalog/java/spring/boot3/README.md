@@ -21,7 +21,8 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate Spring Boot properties to 3.5](./springbootproperties_3_5.md)
 * [Migrate dropWizard dependencies to Spring Boot 3.x](./migratedropwizarddependencies.md)
 * [Migrate thymeleaf dependencies to Spring Boot 3.x](./migratethymeleafdependencies.md)
-* [Migrate to Spring Boot 3.0](./upgradespringboot_3_0.md)
+* [Migrate to Spring Boot 3.0 (Moderne Edition)](./upgradespringboot_3_0-moderne-edition.md)
+* [Migrate to Spring Boot 3.0 (Community Edition)](./upgradespringboot_3_0-community-edition.md)
 * [Migrate to Spring Boot 3.1](./upgradespringboot_3_1.md)
 * [Migrate to Spring Boot 3.2](./upgradespringboot_3_2.md)
 * [Migrate to Spring Boot 3.3](./upgradespringboot_3_3.md)
@@ -48,6 +49,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Upgrade MyBatis to Spring Boot 3.2](./upgrademybatistospringboot_3_2.md)
 * [Upgrade MyBatis to Spring Boot 3.4](./upgrademybatistospringboot_3_4.md)
 * [Upgrade MyBatis to Spring Boot 3.5](./upgrademybatistospringboot_3_5.md)
+* [Use `Rfc6265CookieProcessor` instead of `LegacyCookieProcessor`](./userfc6265cookieprocessor.md)
 * [Use bean name `applicationTaskExecutor` instead of `taskExecutor`](./replacetaskexecutornamebyapplicationtaskexecutorname.md)
 
 ## Recipes

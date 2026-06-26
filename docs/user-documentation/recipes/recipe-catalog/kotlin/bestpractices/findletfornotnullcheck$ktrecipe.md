@@ -1,4 +1,5 @@
 ---
+title: "Find `if (x != null) x.foo()` patterns"
 sidebar_label: "Find `if (x != null) x.foo()` patterns"
 ---
 

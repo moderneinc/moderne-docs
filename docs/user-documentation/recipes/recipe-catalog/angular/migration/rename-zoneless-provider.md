@@ -1,4 +1,5 @@
 ---
+title: "Rename `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection`"
 sidebar_label: "Rename `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection`"
 ---
 

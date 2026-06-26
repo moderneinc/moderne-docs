@@ -1,4 +1,5 @@
 ---
+title: "Migrate `@Input()` to signal-based `input()`"
 sidebar_label: "Migrate `@Input()` to signal-based `input()`"
 ---
 

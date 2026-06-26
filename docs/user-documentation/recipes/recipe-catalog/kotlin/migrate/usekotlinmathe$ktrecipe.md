@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.E` instead of `java.lang.Math.E`"
 sidebar_label: "Use `kotlin.math.E` instead of `java.lang.Math.E`"
 ---
 

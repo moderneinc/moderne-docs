@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded algorithm choices"
 sidebar_label: "Find hardcoded algorithm choices"
 ---
 

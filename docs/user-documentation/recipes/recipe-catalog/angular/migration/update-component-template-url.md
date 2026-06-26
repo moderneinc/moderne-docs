@@ -1,4 +1,5 @@
 ---
+title: "Update component `templateUrl`"
 sidebar_label: "Update component `templateUrl`"
 ---
 

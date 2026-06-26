@@ -1,4 +1,5 @@
 ---
+title: "Enable CSRF attack prevention"
 sidebar_label: "Enable CSRF attack prevention"
 ---
 

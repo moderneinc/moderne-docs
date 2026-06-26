@@ -1,4 +1,5 @@
 ---
+title: "Find AI agents configuration files"
 sidebar_label: "Find AI agents configuration files"
 ---
 

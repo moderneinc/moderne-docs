@@ -1,4 +1,5 @@
 ---
+title: "Remove deprecated Freemarker `?html` built-in"
 sidebar_label: "Remove deprecated Freemarker `?html` built-in"
 ---
 

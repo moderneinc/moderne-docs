@@ -1,4 +1,5 @@
 ---
+title: "Find functions returning `java.util.stream.Stream&lt;T&gt;`"
 sidebar_label: "Find functions returning `java.util.stream.Stream&lt;T&gt;`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace `dirent.path` with `dirent.parentPath`"
 sidebar_label: "Replace `dirent.path` with `dirent.parentPath`"
 ---
 

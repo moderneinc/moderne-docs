@@ -1,4 +1,5 @@
 ---
+title: "Migrate to `org.scalatest.matchers.should.Matchers`"
 sidebar_label: "Migrate to `org.scalatest.matchers.should.Matchers`"
 ---
 

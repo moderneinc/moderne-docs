@@ -1,4 +1,5 @@
 ---
+title: "Use `ByteArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"
 sidebar_label: "Use `ByteArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"
 ---
 

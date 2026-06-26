@@ -1,4 +1,5 @@
 ---
+title: "Find RxJS 5-style imports requiring `rxjs-compat`"
 sidebar_label: "Find RxJS 5-style imports requiring `rxjs-compat`"
 ---
 

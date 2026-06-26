@@ -1,4 +1,5 @@
 ---
+title: "JUnit 6 migration from JUnit 5.x"
 sidebar_label: "JUnit 6 migration from JUnit 5.x"
 ---
 
@@ -72,6 +73,13 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `org.junit.jupiter`
   * artifactId: `junit-jupiter*`
   * newVersion: `6.x`
+* [Add Gradle dependency](../../../gradle/adddependency)
+  * groupId: `org.junit.platform`
+  * artifactId: `junit-platform-launcher`
+  * version: `6.x`
+  * configuration: `testRuntimeOnly`
+  * onlyIfUsing: `org.junit.jupiter.api.*`
+  * acceptTransitive: `true`
 * [Upgrade Maven plugin version](../../../maven/upgradepluginversion)
   * groupId: `org.apache.maven.plugins`
   * artifactId: `maven-failsafe-plugin`
@@ -151,6 +159,13 @@ recipeList:
       groupId: org.junit.jupiter
       artifactId: junit-jupiter*
       newVersion: 6.x
+  - org.openrewrite.gradle.AddDependency:
+      groupId: org.junit.platform
+      artifactId: junit-platform-launcher
+      version: 6.x
+      configuration: testRuntimeOnly
+      onlyIfUsing: org.junit.jupiter.api.*
+      acceptTransitive: true
   - org.openrewrite.maven.UpgradePluginVersion:
       groupId: org.apache.maven.plugins
       artifactId: maven-failsafe-plugin

@@ -1,4 +1,5 @@
 ---
+title: "Find `@Composable fun … (): X` functions returning a non-`Unit` value"
 sidebar_label: "Find `@Composable fun … (): X` functions returning a non-`Unit` value"
 ---
 

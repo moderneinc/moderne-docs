@@ -1,4 +1,5 @@
 ---
+title: "Replace `typing.Union[X, Y]` with `X | Y`"
 sidebar_label: "Replace `typing.Union[X, Y]` with `X | Y`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Change key"
 sidebar_label: "Change key"
 ---
 
@@ -39,7 +40,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate from tibdex/github-app-token to actions/create-github-app-token](/user-documentation/recipes/recipe-catalog/github/migratetibdexgithubapptokentoactions.md)
 * [Migrate to Spring Boot 2.7](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_7.md)
-* [Yaml DSL bearer from rest/securityDefinitions is renamed to bearerToken](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel412/yamldslbearer.md)
+* [Yaml DSL bearer from rest/securityDefinitions is renamed to bearerToken](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel412/yamldslbearer.md)
 
 ## Example
 

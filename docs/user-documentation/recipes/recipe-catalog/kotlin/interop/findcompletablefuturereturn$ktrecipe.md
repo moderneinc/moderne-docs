@@ -1,4 +1,5 @@
 ---
+title: "Find functions returning `CompletableFuture&lt;T&gt;`"
 sidebar_label: "Find functions returning `CompletableFuture&lt;T&gt;`"
 ---
 

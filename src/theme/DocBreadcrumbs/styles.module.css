@@ -1,3 +1,11 @@
+/* Breadcrumbs (left) share a row with the copy-page button (right). */
+.breadcrumbsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--neo-spacing_2);
+}
+
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;

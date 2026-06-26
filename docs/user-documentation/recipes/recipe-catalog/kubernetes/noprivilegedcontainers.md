@@ -1,4 +1,5 @@
 ---
+title: "No privileged containers"
 sidebar_label: "No privileged containers"
 ---
 

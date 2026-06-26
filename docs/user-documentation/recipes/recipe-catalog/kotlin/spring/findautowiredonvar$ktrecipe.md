@@ -1,4 +1,5 @@
 ---
+title: "Find `@Autowired var` properties (not `lateinit`)"
 sidebar_label: "Find `@Autowired var` properties (not `lateinit`)"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate `HttpStatus` enum values to RFC 9110 names"
 sidebar_label: "Migrate `HttpStatus` enum values to RFC 9110 names"
 ---
 

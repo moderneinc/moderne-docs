@@ -1,4 +1,5 @@
 ---
+title: "Enable VPC flow logs and intranode visibility"
 sidebar_label: "Enable VPC flow logs and intranode visibility"
 ---
 

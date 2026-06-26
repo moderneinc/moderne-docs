@@ -1,4 +1,5 @@
 ---
+title: "No privilege escalation"
 sidebar_label: "No privilege escalation"
 ---
 

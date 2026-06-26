@@ -1,4 +1,5 @@
 ---
+title: "Find `@Entity data class` declarations (verify `kotlin-jpa` plugin)"
 sidebar_label: "Find `@Entity data class` declarations (verify `kotlin-jpa` plugin)"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate `exactly_once` to `exactly_once_beta`"
 sidebar_label: "Migrate `exactly_once` to `exactly_once_beta`"
 ---
 

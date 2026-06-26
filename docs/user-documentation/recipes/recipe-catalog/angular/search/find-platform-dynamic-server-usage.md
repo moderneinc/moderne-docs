@@ -1,4 +1,5 @@
 ---
+title: "Find `platformDynamicServer` usage"
 sidebar_label: "Find `platformDynamicServer` usage"
 ---
 

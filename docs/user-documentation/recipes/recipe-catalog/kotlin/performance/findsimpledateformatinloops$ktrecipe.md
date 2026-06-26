@@ -1,4 +1,5 @@
 ---
+title: "Find `SimpleDateFormat` allocations inside loops"
 sidebar_label: "Find `SimpleDateFormat` allocations inside loops"
 ---
 

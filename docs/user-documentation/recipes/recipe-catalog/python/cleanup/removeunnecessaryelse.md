@@ -1,4 +1,5 @@
 ---
+title: "Drop ``else`` after early-exit ``if`` branch"
 sidebar_label: "Drop ``else`` after early-exit ``if`` branch"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find disallowed image tags"
 sidebar_label: "Find disallowed image tags"
 ---
 

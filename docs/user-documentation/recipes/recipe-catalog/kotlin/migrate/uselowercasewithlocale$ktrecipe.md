@@ -1,4 +1,5 @@
 ---
+title: "Use `lowercase(locale)` instead of `toLowerCase(locale)`"
 sidebar_label: "Use `lowercase(locale)` instead of `toLowerCase(locale)`"
 ---
 

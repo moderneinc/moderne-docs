@@ -1,4 +1,5 @@
 ---
+title: "Replace `threading.currentThread()` with `threading.current_thread()`"
 sidebar_label: "Replace `threading.currentThread()` with `threading.current_thread()`"
 ---
 

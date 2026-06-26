@@ -1,4 +1,5 @@
 ---
+title: "Find `println(&quot;... password ...&quot;)` patterns"
 sidebar_label: "Find `println(&quot;... password ...&quot;)` patterns"
 ---
 

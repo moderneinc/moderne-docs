@@ -1,4 +1,5 @@
 ---
+title: "Find `Flux.flatMap { x -&gt; Mono.just(f(x)) }` patterns"
 sidebar_label: "Find `Flux.flatMap { x -&gt; Mono.just(f(x)) }` patterns"
 ---
 

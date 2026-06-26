@@ -1,4 +1,5 @@
 ---
+title: "Avoid throwing in finally blocks"
 sidebar_label: "Avoid throwing in finally blocks"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `@RestController` methods returning `ResponseEntity&lt;T&gt;`"
 sidebar_label: "Find `@RestController` methods returning `ResponseEntity&lt;T&gt;`"
 ---
 

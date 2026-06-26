@@ -1,0 +1,206 @@
+/* Shared recipe primitives: chips, tables, inline code, scroll wrapper, and the
+   `.recipe` page scope (Neo segmented tabs + table-chrome resets). Light + dark. */
+
+.chip {
+padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
+  border-radius: var(--neo-border-radius-full);
+  background-color: var(--neo-status-neutral-light);
+  color: var(--neo-status-neutral-dark);
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-medium);
+}
+
+.chipLink {
+text-decoration: none;
+  cursor: pointer;
+}
+
+.chipLink:hover {
+text-decoration: underline;
+}
+
+.table {
+width: 100%;
+  display: table;
+  border-collapse: collapse;
+}
+
+.tableScroll {
+overflow-x: auto;
+  max-width: 100%;
+}
+
+.th {
+text-align: left;
+  /* Modern table header: sentence-case, full-size, bold — not a tiny uppercase
+     eyebrow — with one faint rule under the header row. */
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-input-default);
+  background-color: transparent;
+  /* Reset Infima's four-sided cell border, then keep only the header rule. */
+  border: none;
+  border-bottom: 1px solid var(--neo-border-card);
+}
+
+.td {
+padding: var(--neo-spacing_2) var(--neo-spacing_1_1_2);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+  vertical-align: top;
+  /* Reset Infima's four-sided cell border; the row divider below adds just a top. */
+  border: none;
+}
+
+tbody tr + tr .td {
+border-top: 1px solid var(--neo-border-secondary);
+}
+
+.recipe :global(table thead),
+.recipe :global(table tr),
+.recipe :global(table tr:nth-child(2n)) {
+background-color: transparent;
+}
+
+.recipe :global(table thead tr),
+.recipe :global(table tr) {
+border: none;
+}
+
+.inlineCode {
+font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--neo-font-size-code);
+  background-color: var(--neo-surfaces-card-header);
+  color: var(--neo-typography-code-primary);
+  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+}
+
+.recipe :global(.tabs) {
+display: inline-flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: var(--neo-spacing_2);
+  border: 1px solid var(--neo-border-input);
+  border-radius: var(--neo-border-radius-button);
+  overflow: hidden;
+  background: var(--neo-surfaces-white);
+}
+
+.recipe :global(.tabs__item) {
+margin: 0;
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_2);
+  border: none;
+  border-right: 1px solid var(--neo-border-input);
+  border-radius: 0;
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  line-height: 1.4;
+  color: var(--neo-typography-tab-inactive);
+  background: transparent;
+}
+
+.recipe :global(.tabs__item:last-child) {
+border-right: none;
+}
+
+.recipe :global(.tabs__item:hover) {
+background: var(--neo-surfaces-list-hover);
+  color: var(--neo-typography-input-default);
+}
+
+.recipe :global(.tabs__item--active),
+.recipe :global(.tabs__item--active:hover) {
+color: var(--neo-typography-tab-active);
+  background: var(--neo-surfaces-card);
+}
+
+/* A recipe section: a heading row stacked above the section body. All spacing is owned by flex gap
+   here (the parent), so no child component sets an outer margin. Spacing to the previous section is
+   the page's job. Shared by Accordion (Examples/Usage/Data tables), RecipeList, and OptionsTable. */
+.section {
+display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_2);
+}
+
+/* Heading row: the markdown `## ` heading on the left, optional meta/toggle on the right. */
+.sectionHeader {
+display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--neo-spacing_2);
+}
+
+/* The heading arrives as a bare markdown `## ` <h2> (it can't carry a class), so it's matched as a
+   descendant — the one element selector we accept, kept tightly scoped under .sectionHeader. */
+.sectionHeader h2 {
+margin: 0;
+  font-size: var(--neo-font-size-h2);
+  font-weight: var(--neo-font-weight-semi-bold);
+  letter-spacing: -0.01em;
+  color: var(--neo-typography-input-default);
+}
+
+/* The global `[docMainContainer] h2` rule (src/css/custom.css) underlines every doc h2. In the flex
+   section header the heading shrinks to its text width, so that rule would underline only the word,
+   not the section. Match the doc container and double the class to outrank `(0,2,1)` and drop it. */
+:global([class^='docMainContainer_']) .sectionHeader.sectionHeader h2 {
+border-bottom: none;
+  padding-bottom: 0;
+}
+
+html[data-theme='dark'] {
+.inlineCode {
+background-color: var(--neo-grey-900);
+    color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.sectionHeader h2 {
+color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.th,
+.td {
+border-bottom-color: var(--neo-grey-700);
+}
+
+tbody tr + tr .td {
+border-top-color: var(--neo-grey-800);
+}
+
+.th,
+.td {
+color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+.chip {
+background-color: var(--neo-grey-800);
+    color: var(--neo-grey-300);
+}
+}
+
+html[data-theme='dark'] .recipe :global(.tabs) {
+background: var(--neo-grey-900);
+  border-color: var(--neo-grey-700);
+}
+
+html[data-theme='dark'] .recipe :global(.tabs__item) {
+color: var(--neo-grey-400);
+  border-right-color: var(--neo-grey-700);
+}
+
+html[data-theme='dark'] .recipe :global(.tabs__item:hover) {
+background: var(--neo-grey-800);
+  color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+html[data-theme='dark'] .recipe :global(.tabs__item--active), html[data-theme='dark'] .recipe :global(.tabs__item--active:hover) {
+background: var(--neo-grey-800);
+  color: var(--neo-digital-green-300);
+}

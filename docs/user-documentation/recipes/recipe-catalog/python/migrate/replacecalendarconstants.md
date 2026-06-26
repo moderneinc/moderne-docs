@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated calendar constants with uppercase"
 sidebar_label: "Replace deprecated calendar constants with uppercase"
 ---
 

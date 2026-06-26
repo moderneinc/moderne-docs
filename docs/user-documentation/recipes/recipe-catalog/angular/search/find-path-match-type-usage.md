@@ -1,4 +1,5 @@
 ---
+title: "Find `pathMatch` route properties that may need type narrowing"
 sidebar_label: "Find `pathMatch` route properties that may need type narrowing"
 ---
 

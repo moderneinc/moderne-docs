@@ -1,4 +1,5 @@
 ---
+title: "Find `GlobalScope.produce` calls"
 sidebar_label: "Find `GlobalScope.produce` calls"
 ---
 

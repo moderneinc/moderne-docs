@@ -1,4 +1,5 @@
 ---
+title: "Encrypt EBS snapshots"
 sidebar_label: "Encrypt EBS snapshots"
 ---
 

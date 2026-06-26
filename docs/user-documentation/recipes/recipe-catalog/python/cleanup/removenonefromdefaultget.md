@@ -1,4 +1,5 @@
 ---
+title: "Remove redundant `None` default from `dict.get()`"
 sidebar_label: "Remove redundant `None` default from `dict.get()`"
 ---
 

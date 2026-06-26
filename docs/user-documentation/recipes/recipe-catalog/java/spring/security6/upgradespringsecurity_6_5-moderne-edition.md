@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Spring Security 6.5 (Moderne Edition)"
 sidebar_label: "Migrate to Spring Security 6.5 (Moderne Edition)"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `CharArray.concatToString()` instead of `String(charArray)`"
 sidebar_label: "Use `CharArray.concatToString()` instead of `String(charArray)`"
 ---
 

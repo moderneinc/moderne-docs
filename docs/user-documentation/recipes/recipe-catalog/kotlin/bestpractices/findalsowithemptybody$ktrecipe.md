@@ -1,4 +1,5 @@
 ---
+title: "Find `x.also { }` calls with an empty body"
 sidebar_label: "Find `x.also { }` calls with an empty body"
 ---
 

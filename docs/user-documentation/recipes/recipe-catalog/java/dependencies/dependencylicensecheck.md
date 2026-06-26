@@ -1,4 +1,5 @@
 ---
+title: "Find licenses in use in third-party dependencies"
 sidebar_label: "Find licenses in use in third-party dependencies"
 ---
 

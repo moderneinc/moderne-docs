@@ -1,4 +1,5 @@
 ---
+title: "Improper privilege management"
 sidebar_label: "Improper privilege management"
 ---
 

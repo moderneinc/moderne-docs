@@ -1,4 +1,5 @@
 ---
+title: "Quarkus Updates Aggregate 3.21.0"
 sidebar_label: "Quarkus Updates Aggregate 3.21.0"
 ---
 
@@ -44,7 +45,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 **Recipes**
 
 * [Quarkus Updates Aggregate 3.20.1](../quarkus/migratetoquarkus_v3_20_1)
-* [io.quarkus.updates.core.quarkus321.TlsRegistrySplitPackagesFix](../io/quarkus/updates/core/quarkus321/tlsregistrysplitpackagesfix)
+* [io.quarkus.updates.core.quarkus321.TlsRegistrySplitPackagesFix](../quarkus/updates/core/quarkus321/tlsregistrysplitpackagesfix)
 
 </TabItem>
 

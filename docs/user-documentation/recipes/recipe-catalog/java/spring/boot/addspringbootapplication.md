@@ -1,4 +1,5 @@
 ---
+title: "Add `@SpringBootApplication` class"
 sidebar_label: "Add `@SpringBootApplication` class"
 ---
 

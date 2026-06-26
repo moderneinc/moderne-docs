@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `ThreadPoolTaskSchedulerBuilder` constructor"
 sidebar_label: "Replace deprecated `ThreadPoolTaskSchedulerBuilder` constructor"
 ---
 

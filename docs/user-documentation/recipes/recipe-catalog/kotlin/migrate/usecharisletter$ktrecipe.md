@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.isLetter()` instead of `Character.isLetter(c)`"
 sidebar_label: "Use `Char.isLetter()` instead of `Character.isLetter(c)`"
 ---
 

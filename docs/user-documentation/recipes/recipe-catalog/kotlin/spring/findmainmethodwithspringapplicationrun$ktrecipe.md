@@ -1,4 +1,5 @@
 ---
+title: "Find top-level `main` functions wrapping `SpringApplication.run`"
 sidebar_label: "Find top-level `main` functions wrapping `SpringApplication.run`"
 ---
 

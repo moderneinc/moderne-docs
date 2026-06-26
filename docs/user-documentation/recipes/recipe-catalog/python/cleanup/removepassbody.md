@@ -1,4 +1,5 @@
 ---
+title: "Drop ``pass``-only ``if`` body by inverting the guard"
 sidebar_label: "Drop ``pass``-only ``if`` body by inverting the guard"
 ---
 

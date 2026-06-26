@@ -1,4 +1,5 @@
 ---
+title: "Convert Oracle data types to PostgreSQL"
 sidebar_label: "Convert Oracle data types to PostgreSQL"
 ---
 

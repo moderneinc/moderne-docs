@@ -1,4 +1,5 @@
 ---
+title: "Migrate RichFaces 3.x to 4.5"
 sidebar_label: "Migrate RichFaces 3.x to 4.5"
 ---
 

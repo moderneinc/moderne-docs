@@ -1,4 +1,5 @@
 ---
+title: "Find `@GetMapping`/`@PostMapping`/... methods returning `Mono&lt;T&gt;`"
 sidebar_label: "Find `@GetMapping`/`@PostMapping`/... methods returning `Mono&lt;T&gt;`"
 ---
 

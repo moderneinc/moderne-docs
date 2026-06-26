@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `node:_tls_common` and `node:_tls_wrap` with `node:tls`"
 sidebar_label: "Replace deprecated `node:_tls_common` and `node:_tls_wrap` with `node:tls`"
 ---
 

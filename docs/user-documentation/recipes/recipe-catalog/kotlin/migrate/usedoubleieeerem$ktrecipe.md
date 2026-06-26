@@ -1,4 +1,5 @@
 ---
+title: "Use `Double.IEEErem` instead of `java.lang.Math.IEEEremainder`"
 sidebar_label: "Use `Double.IEEErem` instead of `java.lang.Math.IEEEremainder`"
 ---
 

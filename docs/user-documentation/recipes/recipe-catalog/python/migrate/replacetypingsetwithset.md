@@ -1,4 +1,5 @@
 ---
+title: "Replace `typing.Set` with `set`"
 sidebar_label: "Replace `typing.Set` with `set`"
 ---
 

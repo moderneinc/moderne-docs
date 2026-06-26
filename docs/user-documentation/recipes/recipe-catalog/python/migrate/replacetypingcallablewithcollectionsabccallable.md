@@ -1,4 +1,5 @@
 ---
+title: "Replace `typing.Callable` with `collections.abc.Callable`"
 sidebar_label: "Replace `typing.Callable` with `collections.abc.Callable`"
 ---
 

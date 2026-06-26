@@ -1,4 +1,5 @@
 ---
+title: "Use `Long.floorDiv` instead of `java.lang.Math.floorDiv`"
 sidebar_label: "Use `Long.floorDiv` instead of `java.lang.Math.floorDiv`"
 ---
 

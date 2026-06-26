@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Spring Framework 5.3 (Moderne Edition)"
 sidebar_label: "Migrate to Spring Framework 5.3 (Moderne Edition)"
 ---
 
@@ -25,7 +26,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 3.4 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-moderne-edition)
-* [Migrate to Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/upgradespringframework_7_0)
+* [Migrate to Spring Framework 6.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-moderne-edition)
 
 
 ## Usage

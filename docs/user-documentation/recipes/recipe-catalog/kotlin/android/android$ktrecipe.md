@@ -1,4 +1,5 @@
 ---
+title: "Find Android smells"
 sidebar_label: "Find Android smells"
 ---
 

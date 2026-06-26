@@ -1,4 +1,5 @@
 ---
+title: "Find `when` with two or more branches having identical bodies"
 sidebar_label: "Find `when` with two or more branches having identical bodies"
 ---
 

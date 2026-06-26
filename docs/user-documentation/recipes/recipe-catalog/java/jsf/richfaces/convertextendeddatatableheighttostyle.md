@@ -1,4 +1,5 @@
 ---
+title: "Convert height/width attributes to `extendedDataTable` style"
 sidebar_label: "Convert height/width attributes to `extendedDataTable` style"
 ---
 

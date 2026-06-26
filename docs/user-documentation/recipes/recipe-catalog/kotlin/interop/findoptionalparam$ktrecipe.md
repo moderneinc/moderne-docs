@@ -1,4 +1,5 @@
 ---
+title: "Find function parameters typed `Optional&lt;T&gt;`"
 sidebar_label: "Find function parameters typed `Optional&lt;T&gt;`"
 ---
 

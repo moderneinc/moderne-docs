@@ -1,4 +1,5 @@
 ---
+title: "Update CircleCI image"
 sidebar_label: "Update CircleCI image"
 ---
 

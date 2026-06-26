@@ -1,4 +1,5 @@
 ---
+title: "Find log injection vulnerabilities"
 sidebar_label: "Find log injection vulnerabilities"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find JNDI injection vulnerabilities"
 sidebar_label: "Find JNDI injection vulnerabilities"
 ---
 

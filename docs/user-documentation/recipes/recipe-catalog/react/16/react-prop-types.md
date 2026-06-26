@@ -1,4 +1,5 @@
 ---
+title: "Move `React.PropTypes` to `prop-types` package"
 sidebar_label: "Move `React.PropTypes` to `prop-types` package"
 ---
 

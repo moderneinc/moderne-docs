@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded IP addresses"
 sidebar_label: "Find hardcoded IP addresses"
 ---
 

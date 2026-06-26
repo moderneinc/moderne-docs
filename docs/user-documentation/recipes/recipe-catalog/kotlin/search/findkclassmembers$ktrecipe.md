@@ -1,4 +1,5 @@
 ---
+title: "Find `KClass.members` / `memberFunctions` / `memberProperties` access"
 sidebar_label: "Find `KClass.members` / `memberFunctions` / `memberProperties` access"
 ---
 

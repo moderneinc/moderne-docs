@@ -1,4 +1,5 @@
 ---
+title: "Remove `static: false` from view queries"
 sidebar_label: "Remove `static: false` from view queries"
 ---
 

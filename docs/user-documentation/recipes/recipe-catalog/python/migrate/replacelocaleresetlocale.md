@@ -1,4 +1,5 @@
 ---
+title: "Replace `locale.resetlocale()` with `locale.setlocale(LC_ALL, '')`"
 sidebar_label: "Replace `locale.resetlocale()` with `locale.setlocale(LC_ALL, '')`"
 ---
 

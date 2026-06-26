@@ -1,4 +1,5 @@
 ---
+title: "Find TypeORM entities"
 sidebar_label: "Find TypeORM entities"
 ---
 

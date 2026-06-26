@@ -1,4 +1,5 @@
 ---
+title: "Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`"
 sidebar_label: "Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`"
 ---
 
@@ -31,7 +32,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 This recipe is used as part of the following composite recipes:
 
 * [Replace  deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removalsservletjakarta10.md)
-* [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
+* [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
 
 ## Example
 

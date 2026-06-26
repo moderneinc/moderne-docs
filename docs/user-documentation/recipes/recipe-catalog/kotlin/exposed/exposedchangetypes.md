@@ -1,4 +1,5 @@
 ---
+title: "Migrate Exposed type references to 1.0 packages"
 sidebar_label: "Migrate Exposed type references to 1.0 packages"
 ---
 

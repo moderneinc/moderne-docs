@@ -1,4 +1,5 @@
 ---
+title: "Ensure AWS S3 object versioning is enabled"
 sidebar_label: "Ensure AWS S3 object versioning is enabled"
 ---
 

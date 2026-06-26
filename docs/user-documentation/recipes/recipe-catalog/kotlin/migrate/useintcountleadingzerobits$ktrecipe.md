@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.countLeadingZeroBits()` instead of `Integer.numberOfLeadingZeros`"
 sidebar_label: "Use `Int.countLeadingZeroBits()` instead of `Integer.numberOfLeadingZeros`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Modernize Kotlin coroutines code"
 sidebar_label: "Modernize Kotlin coroutines code"
 ---
 

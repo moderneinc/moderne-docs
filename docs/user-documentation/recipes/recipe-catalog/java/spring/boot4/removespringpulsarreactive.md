@@ -1,4 +1,5 @@
 ---
+title: "Remove Spring Pulsar Reactive support"
 sidebar_label: "Remove Spring Pulsar Reactive support"
 ---
 

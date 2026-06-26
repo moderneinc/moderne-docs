@@ -1,4 +1,5 @@
 ---
+title: "Find `if (x != null) f(x) else null` patterns"
 sidebar_label: "Find `if (x != null) f(x) else null` patterns"
 ---
 

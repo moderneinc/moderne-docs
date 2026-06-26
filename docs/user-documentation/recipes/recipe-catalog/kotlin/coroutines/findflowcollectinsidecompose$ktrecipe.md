@@ -1,4 +1,5 @@
 ---
+title: "Find `Flow.collect` calls inside a `@Composable`"
 sidebar_label: "Find `Flow.collect` calls inside a `@Composable`"
 ---
 

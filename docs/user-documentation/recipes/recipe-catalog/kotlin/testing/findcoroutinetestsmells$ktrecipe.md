@@ -1,4 +1,5 @@
 ---
+title: "Find coroutine-test patterns"
 sidebar_label: "Find coroutine-test patterns"
 ---
 

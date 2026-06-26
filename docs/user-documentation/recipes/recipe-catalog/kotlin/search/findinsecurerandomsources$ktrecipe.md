@@ -1,4 +1,5 @@
 ---
+title: "Find non-cryptographic random sources (`Math.random`, `kotlin.random.Random`, `java.util.Random`)"
 sidebar_label: "Find non-cryptographic random sources (`Math.random`, `kotlin.random.Random`, `java.util.Random`)"
 ---
 

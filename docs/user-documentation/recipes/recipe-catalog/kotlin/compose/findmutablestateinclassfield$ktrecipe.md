@@ -1,4 +1,5 @@
 ---
+title: "Find `mutableStateOf(...)` stored in a class field"
 sidebar_label: "Find `mutableStateOf(...)` stored in a class field"
 ---
 

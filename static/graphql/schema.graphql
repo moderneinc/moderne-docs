@@ -1,10 +1,13 @@
 schema
   @link(url: "https://specs.apollo.dev/link/v1.0")
   @link(url: "https://specs.apollo.dev/join/v0.5", for: EXECUTION)
+  @link(url: "https://specs.apollo.dev/inaccessible/v0.2", import: ["@inaccessible"], for: SECURITY)
 {
   query: Query
   mutation: Mutation
 }
+
+directive @inaccessible on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUMENT_DEFINITION | SCALAR | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
 
 directive @join__directive(graphs: [join__Graph!], name: String!, args: join__DirectiveArguments) repeatable on SCHEMA | OBJECT | INTERFACE | FIELD_DEFINITION
 
@@ -1008,14 +1011,17 @@ input CommitInput
   gpgKey: GpgInput
 
   """
-  Email to author commit with. Verified against your emails (public and private)
-  that are verified in your SCM provider. If left blank, your first email will be used.
+  Git-author email to attribute the commit to (display only). This value is never
+  used to select SCM credentials — tokens are resolved from your authenticated
+  identity (or a token you supply explicitly via scmAccessTokens), never from this
+  field. If left blank, your first email will be used.
   """
   email: String
 
   """
-  Optional SCM access tokens keyed by origin. When provided, these are used
-  instead of stored OAuth tokens for the matching origin.
+  Optional SCM access tokens you already hold, keyed by origin. When provided,
+  these are used instead of looking up your stored OAuth token for the matching
+  origin. These are your own tokens; they do not select another user's credentials.
   """
   scmAccessTokens: [ScmAccessToken!]
 
@@ -1109,11 +1115,12 @@ union ConnectorTool
   @join__unionMember(graph: CAPABILITIES, member: "PypiConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "NpmConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "NugetConfiguration")
+  @join__unionMember(graph: CAPABILITIES, member: "GoConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "GenericHttpToolConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "OrganizationConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "LlmConfiguration")
   @join__unionMember(graph: CAPABILITIES, member: "S3Configuration")
- = GithubConfiguration | GitLabConfiguration | BitbucketConfiguration | BitbucketCloudConfiguration | AzureDevOpsConfiguration | ArtifactoryConfiguration | MavenConfiguration | PypiConfiguration | NpmConfiguration | NugetConfiguration | GenericHttpToolConfiguration | OrganizationConfiguration | LlmConfiguration | S3Configuration
+ = GithubConfiguration | GitLabConfiguration | BitbucketConfiguration | BitbucketCloudConfiguration | AzureDevOpsConfiguration | ArtifactoryConfiguration | MavenConfiguration | PypiConfiguration | NpmConfiguration | NugetConfiguration | GoConfiguration | GenericHttpToolConfiguration | OrganizationConfiguration | LlmConfiguration | S3Configuration
 
 enum ConnectorToolType
   @join__type(graph: CAPABILITIES)
@@ -1128,6 +1135,7 @@ enum ConnectorToolType
   PYPI @join__enumValue(graph: CAPABILITIES)
   NPM @join__enumValue(graph: CAPABILITIES)
   NUGET @join__enumValue(graph: CAPABILITIES)
+  GO @join__enumValue(graph: CAPABILITIES)
   HTTP_TOOL @join__enumValue(graph: CAPABILITIES)
   ORGANIZATION @join__enumValue(graph: CAPABILITIES)
   LLM @join__enumValue(graph: CAPABILITIES)
@@ -1916,6 +1924,13 @@ input ExchangeAuthorizationCodeInput
   code: String!
 
   """
+  The state value returned in the OAuth callback (the `state` parameter for OAuth 2.0,
+  or `oauth_token` for Bitbucket OAuth 1.0a). Validated against the server-issued state
+  to prevent CSRF / authorization-code injection.
+  """
+  state: String!
+
+  """
   The redirect URI used in the authorization request.
   Note: This field is deprecated - the server uses the stored redirect URI
   from the authorization to ensure an exact match.
@@ -2020,6 +2035,13 @@ input FileChangeWhereInput
 {
   """Filter by file path using glob patterns."""
   path: PathFilter
+
+  """
+  Only return files that contain at least one ERROR-level marker.
+  Note: this field is evaluated at the top level only. Placing it inside
+  _and / _or / _not is silently ignored.
+  """
+  errorsOnly: Boolean
 
   """Logical AND - all conditions must match."""
   _and: [FileChangeWhereInput!]
@@ -2213,6 +2235,15 @@ type GitLabOauth
   @join__type(graph: CAPABILITIES)
 {
   clientId: String!
+}
+
+type GoConfiguration
+  @join__type(graph: CAPABILITIES)
+{
+  resourceId: String!
+  skipSsl: Boolean!
+  skipValidateConnectivity: Boolean!
+  connectivity: HttpToolConnectivity!
 }
 
 type GoRecipeBundle implements RecipeBundle
@@ -2729,12 +2760,12 @@ type Mutation
   Turn continuous profiling on or off for this tenant. When enabled,
   Pyroscope profiles for every service start landing in the Pyroscope UI
   within seconds. The primary event the agent samples on is selected by
-  `event` (defaults to CPU); calling the mutation again with a different
+  `event` (defaults to WALL); calling the mutation again with a different
   event while profiling is already on rotates the agent to the new event.
   Fails when the profiling capability is not enabled for the tenant.
   Admin role required.
   """
-  setProfiling(enabled: Boolean!, event: ProfilingEvent = CPU): Boolean! @join__field(graph: CAPABILITIES)
+  setProfiling(enabled: Boolean!, event: ProfilingEvent = WALL): Boolean! @join__field(graph: CAPABILITIES)
 
   """Approve pull requests in bulk. Returns the queued action for polling."""
   approvePullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): BulkPullRequestActionQueued! @join__field(graph: CHANGELOGREADER)
@@ -2759,6 +2790,11 @@ type Mutation
   Reset poll cursors so the next poll cycle re-fetches and re-enriches
   changelog entries from the given timestamp forward. Use this to backfill
   data after deploying enrichment improvements.
+  
+  Admin-only: that re-fetch and re-enrichment is expensive and its
+  enrichment calls hit SCM REST APIs (pull-request and build-state
+  lookups), so this must not be reachable by unauthenticated or non-admin
+  callers.
   """
   reindexChangelog(
     """
@@ -2792,11 +2828,13 @@ type Mutation
   """
   runVisualization(organizationId: ID!, visualizationId: ID!, options: [VisualizationOptionInput!]): Visualization! @join__field(graph: CHANGESETVISUALIZER)
 
-  """Set the universal (default) system prompt."""
+  """
+  Set the universal (default) system prompt. Admin-only — the universal prompt steers Moddy tenant-wide.
+  """
   setUniversalPrompt(content: Markdown!): Prompt! @join__field(graph: MODDY)
 
   """
-  Set the system prompt for a specific organization (overrides universal).
+  Set the system prompt for a specific organization (overrides universal). Admin-only — an organization prompt steers Moddy for every member of that org.
   """
   setOrganizationPrompt(organizationId: ID!, content: Markdown!): Prompt! @join__field(graph: MODDY)
 
@@ -2806,7 +2844,7 @@ type Mutation
   setUserPrompt(content: Markdown!): Prompt! @join__field(graph: MODDY)
 
   """
-  Clear the organization-level prompt override, falling back to universal.
+  Clear the organization-level prompt override, falling back to universal. Admin-only — an organization prompt steers Moddy for every member of that org.
   """
   clearOrganizationPrompt(organizationId: ID!): Boolean! @join__field(graph: MODDY)
 
@@ -2885,10 +2923,11 @@ type Mutation
   installRecipesUniversal(bundle: RecipeBundleInput!): RecipeInstallation! @join__field(graph: RECIPEMARKETPLACE)
 
   """
-  Uninstall a recipe bundle from the current user's personal marketplace.
-  Returns the number of recipes that were removed.
+  Uninstall a bundle from the current user's personal marketplace, identified by
+  package name or by a recipe id it provides (see `RecipeUninstallSelector`).
+  Returns the number of recipes removed (0 if nothing matched).
   """
-  uninstallRecipesFromCurrentUser(packageName: String!): RecipeUninstallation! @join__field(graph: RECIPEMARKETPLACE)
+  uninstallRecipesFromCurrentUser(by: RecipeUninstallSelector!): RecipeUninstallation! @join__field(graph: RECIPEMARKETPLACE)
 
   """
   Uninstall a recipe bundle from a specific organization's marketplace.
@@ -3776,7 +3815,6 @@ enum OrganizationRecipeRunState
 {
   QUEUED @join__enumValue(graph: CHANGESETREADER)
   SYNCING @join__enumValue(graph: CHANGESETREADER)
-  SYNCED @join__enumValue(graph: CHANGESETREADER)
   RUNNING @join__enumValue(graph: CHANGESETREADER)
   FINISHED @join__enumValue(graph: CHANGESETREADER)
   CANCELED @join__enumValue(graph: CHANGESETREADER)
@@ -3790,52 +3828,6 @@ input OrganizationRecipeRunStateFilter
   _neq: OrganizationRecipeRunState
   _in: [OrganizationRecipeRunState!]
   _nin: [OrganizationRecipeRunState!]
-}
-
-type OrganizationRecipeRunSynced implements OrganizationChangeset & OrganizationRecipeRun
-  @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangeset")
-  @join__implements(graph: CHANGESETREADER, interface: "OrganizationRecipeRun")
-  @join__type(graph: CHANGESETREADER, key: "id")
-{
-  id: ID!
-  recipe: RecipeDescriptor
-  user: User!
-  options: [RecipeOptionValue!]!
-  createdAt: DateTime!
-
-  """
-  Monotonic high-water mark advanced by every state writer (sync monitor,
-  run monitor, processor). Treat as a content version: poll a tiny query
-  selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-  heavy `repositories`/`totals` selections when this value changes.
-  """
-  lastUpdatedAt: DateTime!
-  priority: RecipeRunPriority!
-  parent: OrganizationChangeset
-  startedAt: DateTime!
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
-
-  """
-  Data tables produced by this recipe run.
-  Each data table starts as Available and transitions to Processing/Finished/Error
-  when downloadDataTable mutation is called.
-  """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
-
-  """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
-
-  """
-  Bulk pull request actions (approve, merge, close) initiated against pull
-  requests that belong to this changeset.
-  
-  Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
-  last so polling clients still see in-flight actions.
-  """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
-
-  """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
 }
 
 type OrganizationRecipeRunSyncing implements OrganizationChangeset & OrganizationRecipeRun
@@ -4610,6 +4602,13 @@ type RecipeDescriptor
   dataTables: [DataTableDescriptor!]! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEMARKETPLACE)
 
   """
+  URL to the recipe's source file on GitHub, used to power the "Go to sources"
+  link. Currently only OpenRewrite (org.openrewrite) recipes have a source URL;
+  null for all other recipes.
+  """
+  sourceUrl: String @join__field(graph: RECIPEMARKETPLACE)
+
+  """
   Expensive recipe detail fields that require resolving the full recipe bundle.
   Returns a state machine: query once to trigger resolution, poll until Finished.
   """
@@ -5103,6 +5102,26 @@ type RecipeUninstallation
 }
 
 """
+Identifies the installed bundle to uninstall — exactly one field must be set.
+"""
+input RecipeUninstallSelector
+  @join__type(graph: RECIPEMARKETPLACE)
+{
+  """The bundle's package name, as listed on a non-YAML `RecipeBundle`."""
+  packageName: String
+
+  """
+  A recipe id provided by the bundle to uninstall, resolved to the bundle's package
+  name server-side.
+  
+  Removes the ENTIRE bundle that provides this recipe — every recipe that bundle
+  installed, not just this one. For a single-recipe bundle (such as a Builder recipe)
+  that is exactly the one recipe; for a multi-recipe bundle it removes all of them.
+  """
+  recipeId: String
+}
+
+"""
 Filter input for Recipe queries.
 Use `query` for semantic search, or use field filters for exact matching.
 """
@@ -5132,6 +5151,32 @@ type ReindexResult
 
   """The timestamp cursors were rewound to."""
   since: DateTime!
+}
+
+"""
+The current viewer's read access to a specific repository (per-repo SCM check, not just a
+token for the origin).
+"""
+enum RepoAccess
+  @join__type(graph: CHANGESETREADER)
+  @join__type(graph: CHANGESETVISUALIZER)
+  @join__type(graph: CODESEARCH)
+  @join__type(graph: RECIPEWORKER)
+{
+  """
+  The viewer has a token for the origin and read access to the repository.
+  """
+  ALLOWED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+
+  """
+  The viewer can't read this repository — either access is explicitly denied, or auth:z failed closed on a transient SCM/resolution error or invalid input (see RepoAccess in core). Surface a "you don't have access" message rather than empty results.
+  """
+  DENIED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+
+  """
+  The viewer has no SCM token for the origin, so access can't be evaluated. Surface an authorize prompt.
+  """
+  UNAUTHENTICATED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
 }
 
 type Repository
@@ -5164,10 +5209,11 @@ type RepositoryAuthorization
   origin: String!
 
   """
-  Whether the user has read access to this specific repository (per-repo SCM check, not just
-  a token for the origin). When false, surface "you don't have access" rather than empty results.
+  The current viewer's read access to this specific repository. Drives whether the UI
+  renders content (ALLOWED), a "you don't have access" message (DENIED), or an authorize
+  prompt (UNAUTHENTICATED).
   """
-  isAuthorized: Boolean!
+  access: RepoAccess!
 }
 
 type RepositoryBatchChange implements RepositoryChangeset
@@ -5983,23 +6029,27 @@ input UpdateUserOrganizationInput
 }
 
 type User
-  @join__type(graph: ARTIFACTSMAVEN, key: "email", resolvable: false)
-  @join__type(graph: AUDITREADER, key: "email", resolvable: false)
-  @join__type(graph: AUTHZ, key: "email", resolvable: false)
-  @join__type(graph: AUTHZ, key: "email", extension: true, resolvable: true)
-  @join__type(graph: CAPABILITIES, key: "email", resolvable: false)
-  @join__type(graph: CHANGELOGREADER, key: "email", resolvable: false)
-  @join__type(graph: CHANGELOGWRITER, key: "email", resolvable: false)
-  @join__type(graph: CHANGESETCOMMITTER, key: "email", resolvable: false)
-  @join__type(graph: CHANGESETREADER, key: "email", resolvable: false)
-  @join__type(graph: CHANGESETVISUALIZER, key: "email", resolvable: false)
-  @join__type(graph: CODESEARCH, key: "email", resolvable: false)
-  @join__type(graph: MODDY, key: "email", resolvable: false)
-  @join__type(graph: MODDY, key: "email", extension: true)
-  @join__type(graph: ORGANIZATION, key: "email", resolvable: false)
-  @join__type(graph: RECIPEMARKETPLACE, key: "email", resolvable: false)
-  @join__type(graph: RECIPEWORKER, key: "email", resolvable: false)
+  @join__type(graph: ARTIFACTSMAVEN, key: "id", resolvable: false)
+  @join__type(graph: AUDITREADER, key: "id", resolvable: false)
+  @join__type(graph: AUTHZ, key: "id", resolvable: false)
+  @join__type(graph: AUTHZ, key: "id", extension: true, resolvable: true)
+  @join__type(graph: CAPABILITIES, key: "id", resolvable: false)
+  @join__type(graph: CHANGELOGREADER, key: "id", resolvable: false)
+  @join__type(graph: CHANGELOGWRITER, key: "id", resolvable: false)
+  @join__type(graph: CHANGESETCOMMITTER, key: "id", resolvable: false)
+  @join__type(graph: CHANGESETREADER, key: "id", resolvable: false)
+  @join__type(graph: CHANGESETVISUALIZER, key: "id", resolvable: false)
+  @join__type(graph: CODESEARCH, key: "id", resolvable: false)
+  @join__type(graph: MODDY, key: "id", resolvable: false)
+  @join__type(graph: MODDY, key: "id", extension: true)
+  @join__type(graph: ORGANIZATION, key: "id", resolvable: false)
+  @join__type(graph: RECIPEMARKETPLACE, key: "id", resolvable: false)
+  @join__type(graph: RECIPEWORKER, key: "id", resolvable: false)
 {
+  """
+  Internal federation join key (the user's email). Not exposed in the public API.
+  """
+  id: ID! @inaccessible
   email: String!
   username: String @join__field(graph: AUTHZ)
   role: UserRole @join__field(graph: AUTHZ)

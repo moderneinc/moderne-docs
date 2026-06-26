@@ -1,4 +1,5 @@
 ---
+title: "Find `Class.forName(...)` calls with non-literal arguments"
 sidebar_label: "Find `Class.forName(...)` calls with non-literal arguments"
 ---
 

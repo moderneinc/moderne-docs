@@ -1,4 +1,5 @@
 ---
+title: "Find non-`@Composable` functions calling `@Composable`-only APIs"
 sidebar_label: "Find non-`@Composable` functions calling `@Composable`-only APIs"
 ---
 

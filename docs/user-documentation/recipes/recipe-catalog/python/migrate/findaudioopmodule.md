@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `audioop` module usage"
 sidebar_label: "Find deprecated `audioop` module usage"
 ---
 

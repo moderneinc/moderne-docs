@@ -1,4 +1,5 @@
 ---
+title: "Rename `lintOptions` to `lint`"
 sidebar_label: "Rename `lintOptions` to `lint`"
 ---
 

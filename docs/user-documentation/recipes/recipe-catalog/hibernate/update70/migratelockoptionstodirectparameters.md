@@ -1,4 +1,5 @@
 ---
+title: "Migrate LockOptions to direct parameters"
 sidebar_label: "Migrate LockOptions to direct parameters"
 ---
 

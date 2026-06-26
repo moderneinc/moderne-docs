@@ -1,4 +1,5 @@
 ---
+title: "Find Spring Boot bootstrapping smells"
 sidebar_label: "Find Spring Boot bootstrapping smells"
 ---
 

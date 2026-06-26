@@ -1,4 +1,5 @@
 ---
+title: "Migrate `beans.xml` to Spring Framework configuration class"
 sidebar_label: "Migrate `beans.xml` to Spring Framework configuration class"
 ---
 

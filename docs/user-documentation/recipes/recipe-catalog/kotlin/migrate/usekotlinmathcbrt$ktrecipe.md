@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.cbrt` instead of `java.lang.Math.cbrt`"
 sidebar_label: "Use `kotlin.math.cbrt` instead of `java.lang.Math.cbrt`"
 ---
 

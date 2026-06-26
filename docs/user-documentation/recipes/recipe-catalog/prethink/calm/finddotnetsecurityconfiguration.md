@@ -1,4 +1,5 @@
 ---
+title: "Find .NET security configuration"
 sidebar_label: "Find .NET security configuration"
 ---
 

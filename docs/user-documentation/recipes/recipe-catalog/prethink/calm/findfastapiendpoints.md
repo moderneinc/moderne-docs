@@ -1,4 +1,5 @@
 ---
+title: "Find FastAPI endpoints"
 sidebar_label: "Find FastAPI endpoints"
 ---
 

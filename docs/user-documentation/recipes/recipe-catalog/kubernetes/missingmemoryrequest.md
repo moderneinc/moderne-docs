@@ -1,4 +1,5 @@
 ---
+title: "Ensure memory request is set"
 sidebar_label: "Ensure memory request is set"
 ---
 

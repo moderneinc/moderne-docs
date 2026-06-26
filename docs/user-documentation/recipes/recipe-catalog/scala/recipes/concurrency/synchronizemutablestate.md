@@ -1,4 +1,5 @@
 ---
+title: "Synchronize mutable shared state"
 sidebar_label: "Synchronize mutable shared state"
 ---
 

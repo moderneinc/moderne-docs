@@ -1,4 +1,5 @@
 ---
+title: "Ensure PostgreSQL server enables Threat Detection policy"
 sidebar_label: "Ensure PostgreSQL server enables Threat Detection policy"
 ---
 

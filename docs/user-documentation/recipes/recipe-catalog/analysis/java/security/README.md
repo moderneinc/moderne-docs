@@ -27,6 +27,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find process control vulnerabilities](./findprocesscontrolinjection.md)
 * [Find unencrypted PII storage](./findunencryptedpiistorage.md)
 * [Find unsafe reflection vulnerabilities](./findunsafereflectioninjection.md)
+* [Fix XSS vulnerabilities in Java sources](./fixxssvulnerabilityjava.md)
 * [Sanitize log injection vulnerabilities](./sanitizeloginjection.md)
 
 

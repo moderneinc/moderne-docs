@@ -1,4 +1,5 @@
 ---
+title: "Find `Regex` allocations inside loops"
 sidebar_label: "Find `Regex` allocations inside loops"
 ---
 

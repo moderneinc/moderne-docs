@@ -1,4 +1,5 @@
 ---
+title: "Use `ShortArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"
 sidebar_label: "Use `ShortArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"
 ---
 

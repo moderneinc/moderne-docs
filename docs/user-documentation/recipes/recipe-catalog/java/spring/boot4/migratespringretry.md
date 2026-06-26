@@ -1,4 +1,5 @@
 ---
+title: "Migrate Spring Retry to Spring Resilience"
 sidebar_label: "Migrate Spring Retry to Spring Resilience"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Prefer functional error handling over `throw` expressions"
 sidebar_label: "Prefer functional error handling over `throw` expressions"
 ---
 

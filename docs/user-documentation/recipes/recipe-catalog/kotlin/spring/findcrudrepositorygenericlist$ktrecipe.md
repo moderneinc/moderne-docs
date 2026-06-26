@@ -1,4 +1,5 @@
 ---
+title: "Find repository interfaces extending `CrudRepository` instead of `JpaRepository`"
 sidebar_label: "Find repository interfaces extending `CrudRepository` instead of `JpaRepository`"
 ---
 

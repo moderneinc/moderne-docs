@@ -1,4 +1,5 @@
 ---
+title: "Find Node.js error patterns"
 sidebar_label: "Find Node.js error patterns"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `@Cacheable` on `private` functions"
 sidebar_label: "Find `@Cacheable` on `private` functions"
 ---
 

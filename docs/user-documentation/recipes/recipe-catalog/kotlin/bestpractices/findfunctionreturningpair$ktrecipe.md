@@ -1,4 +1,5 @@
 ---
+title: "Find functions returning `Pair&lt;A, B&gt;`"
 sidebar_label: "Find functions returning `Pair&lt;A, B&gt;`"
 ---
 

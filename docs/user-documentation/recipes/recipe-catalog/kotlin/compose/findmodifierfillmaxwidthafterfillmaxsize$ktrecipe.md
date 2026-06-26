@@ -1,4 +1,5 @@
 ---
+title: "Find `Modifier.fillMaxSize().fillMaxWidth()` chains"
 sidebar_label: "Find `Modifier.fillMaxSize().fillMaxWidth()` chains"
 ---
 

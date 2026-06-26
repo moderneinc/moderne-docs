@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `tempfile.mktemp()` usage"
 sidebar_label: "Find deprecated `tempfile.mktemp()` usage"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Ensure AWS EFS with encryption for data at rest is enabled"
 sidebar_label: "Ensure AWS EFS with encryption for data at rest is enabled"
 ---
 

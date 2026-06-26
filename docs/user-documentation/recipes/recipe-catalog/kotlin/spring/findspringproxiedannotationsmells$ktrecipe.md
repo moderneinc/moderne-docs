@@ -1,4 +1,5 @@
 ---
+title: "Find Spring proxied-annotation smells"
 sidebar_label: "Find Spring proxied-annotation smells"
 ---
 

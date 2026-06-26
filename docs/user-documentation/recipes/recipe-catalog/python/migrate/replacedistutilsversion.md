@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated distutils.version usage"
 sidebar_label: "Replace deprecated distutils.version usage"
 ---
 

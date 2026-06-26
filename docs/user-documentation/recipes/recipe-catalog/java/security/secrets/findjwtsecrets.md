@@ -1,4 +1,5 @@
 ---
+title: "Find JWT secrets"
 sidebar_label: "Find JWT secrets"
 ---
 

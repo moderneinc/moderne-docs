@@ -1,4 +1,5 @@
 ---
+title: "Find `stream.collect(Collectors.toList())` calls"
 sidebar_label: "Find `stream.collect(Collectors.toList())` calls"
 ---
 

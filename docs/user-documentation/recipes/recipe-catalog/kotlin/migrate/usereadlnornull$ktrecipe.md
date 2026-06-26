@@ -1,4 +1,5 @@
 ---
+title: "Use `readlnOrNull()` instead of `readLine()`"
 sidebar_label: "Use `readlnOrNull()` instead of `readLine()`"
 ---
 

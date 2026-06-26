@@ -1,4 +1,5 @@
 ---
+title: "Delete no-op `assert True` statements"
 sidebar_label: "Delete no-op `assert True` statements"
 ---
 

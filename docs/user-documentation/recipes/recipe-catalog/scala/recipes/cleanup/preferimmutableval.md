@@ -1,4 +1,5 @@
 ---
+title: "Prefer `val` over `var`"
 sidebar_label: "Prefer `val` over `var`"
 ---
 

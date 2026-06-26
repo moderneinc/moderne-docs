@@ -1,4 +1,5 @@
 ---
+title: "Add landing page controller for welcome file configuration"
 sidebar_label: "Add landing page controller for welcome file configuration"
 ---
 

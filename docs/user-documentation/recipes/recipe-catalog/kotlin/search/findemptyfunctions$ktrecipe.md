@@ -1,4 +1,5 @@
 ---
+title: "Find functions with empty bodies"
 sidebar_label: "Find functions with empty bodies"
 ---
 

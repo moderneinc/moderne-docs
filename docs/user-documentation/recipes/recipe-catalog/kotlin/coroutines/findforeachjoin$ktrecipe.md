@@ -1,4 +1,5 @@
 ---
+title: "Find `forEach { it.join() }` over `List&lt;Job&gt;`"
 sidebar_label: "Find `forEach { it.join() }` over `List&lt;Job&gt;`"
 ---
 

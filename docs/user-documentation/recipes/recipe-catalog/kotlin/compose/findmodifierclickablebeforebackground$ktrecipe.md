@@ -1,4 +1,5 @@
 ---
+title: "Find `Modifier.clickable { }.background(...)` chains"
 sidebar_label: "Find `Modifier.clickable { }.background(...)` chains"
 ---
 

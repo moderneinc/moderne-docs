@@ -1,4 +1,5 @@
 ---
+title: "Collapse nested ``if`` into a single ``and`` condition"
 sidebar_label: "Collapse nested ``if`` into a single ``and`` condition"
 ---
 

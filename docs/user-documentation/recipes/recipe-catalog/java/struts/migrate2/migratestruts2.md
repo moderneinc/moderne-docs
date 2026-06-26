@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Struts 2.x from Struts 1.x"
 sidebar_label: "Migrate to Struts 2.x from Struts 1.x"
 ---
 

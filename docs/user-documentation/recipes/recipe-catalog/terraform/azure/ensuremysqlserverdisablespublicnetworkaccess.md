@@ -1,4 +1,5 @@
 ---
+title: "Ensure MySQL server disables public network access"
 sidebar_label: "Ensure MySQL server disables public network access"
 ---
 

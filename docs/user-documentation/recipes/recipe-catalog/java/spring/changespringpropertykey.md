@@ -1,4 +1,5 @@
 ---
+title: "Change the key of a Spring application property"
 sidebar_label: "Change the key of a Spring application property"
 ---
 
@@ -69,7 +70,9 @@ This recipe is used as part of the following composite recipes:
 * [Rename `server.max-http-header-size` to `server.max-http-request-header-size`](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratemaxhttpheadersize.md)
 * [Update OpenTelemetry resource attributes](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/updateopentelemetryresourceattributes)
 
-## Example
+## Examples
+##### Example 1
+`ChangeSpringPropertyKeyTest#changeLastKey`
 
 ###### Parameters
 | Parameter | Value |
@@ -136,6 +139,45 @@ server:
 server:
 - servlet-path: /tmp/my-server-path
 + servlet.path: /tmp/my-server-path
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`MarkAdditionalSpringConfigFilesTest#enablesChangeSpringPropertyKeyOnFileOutsideSourceSet`
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|oldPropertyKey|`server.servlet-path`|
+|newPropertyKey|`server.servlet.path`|
+|except|`null`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="properties" label="properties">
+
+
+###### Before
+```properties
+server.servlet-path=/tmp/my-server-path
+```
+
+###### After
+```properties
+server.servlet.path=/tmp/my-server-path
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-server.servlet-path=/tmp/my-server-path
++server.servlet.path=/tmp/my-server-path
 
 ```
 </TabItem>

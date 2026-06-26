@@ -1,4 +1,5 @@
 ---
+title: "Ensure AWS Elasticsearch has node-to-node encryption enabled"
 sidebar_label: "Ensure AWS Elasticsearch has node-to-node encryption enabled"
 ---
 

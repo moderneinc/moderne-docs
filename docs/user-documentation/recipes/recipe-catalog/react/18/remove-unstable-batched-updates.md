@@ -1,4 +1,5 @@
 ---
+title: "Remove `unstable_batchedUpdates`"
 sidebar_label: "Remove `unstable_batchedUpdates`"
 ---
 

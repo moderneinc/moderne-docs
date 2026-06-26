@@ -1,4 +1,5 @@
 ---
+title: "Find WebSocket endpoints"
 sidebar_label: "Find WebSocket endpoints"
 ---
 

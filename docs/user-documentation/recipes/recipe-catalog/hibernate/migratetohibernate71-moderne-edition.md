@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Hibernate 7.1.x (Moderne Edition)"
 sidebar_label: "Migrate to Hibernate 7.1.x (Moderne Edition)"
 ---
 
@@ -25,6 +26,51 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Hibernate 7.2.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate72)
+
+## Examples
+##### Example 1
+`MigrateToHibernate71Test#migrateHypersistenceUtilsFrom70To71`
+
+
+###### Unchanged
+```xml title="pom.xml"
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>io.hypersistence</groupId>
+            <artifactId>hypersistence-utils-hibernate-70</artifactId>
+            <version>3.15.0</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+---
+
+##### Example 2
+`MigrateToHibernate71Test#migrateHypersistenceUtilsFrom70To71`
+
+
+###### Unchanged
+```xml title="pom.xml"
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>io.hypersistence</groupId>
+            <artifactId>hypersistence-utils-hibernate-70</artifactId>
+            <version>3.15.0</version>
+        </dependency>
+    </dependencies>
+</project>
+```
 
 
 ## Usage

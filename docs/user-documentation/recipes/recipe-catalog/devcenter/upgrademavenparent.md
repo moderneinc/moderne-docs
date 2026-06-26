@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Apache Maven Parent"
 sidebar_label: "Upgrade Apache Maven Parent"
 ---
 

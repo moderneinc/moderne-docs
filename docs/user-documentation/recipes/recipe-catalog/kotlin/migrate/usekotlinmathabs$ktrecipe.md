@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.abs` instead of `java.lang.Math.abs`"
 sidebar_label: "Use `kotlin.math.abs` instead of `java.lang.Math.abs`"
 ---
 

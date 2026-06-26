@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `util.types.isWebAssemblyCompiledModule()`"
 sidebar_label: "Replace deprecated `util.types.isWebAssemblyCompiledModule()`"
 ---
 

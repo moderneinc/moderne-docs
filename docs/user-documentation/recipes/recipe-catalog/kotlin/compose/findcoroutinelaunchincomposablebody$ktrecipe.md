@@ -1,4 +1,5 @@
 ---
+title: "Find `scope.launch { … }` calls inside a `@Composable` body"
 sidebar_label: "Find `scope.launch { … }` calls inside a `@Composable` body"
 ---
 

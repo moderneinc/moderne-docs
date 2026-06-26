@@ -1,4 +1,5 @@
 ---
+title: "Find Go silent test failures"
 sidebar_label: "Find Go silent test failures"
 ---
 

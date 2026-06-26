@@ -1,4 +1,5 @@
 ---
+title: "Find Google secrets"
 sidebar_label: "Find Google secrets"
 ---
 

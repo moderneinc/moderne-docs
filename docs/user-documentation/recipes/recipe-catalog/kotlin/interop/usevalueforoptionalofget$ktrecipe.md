@@ -1,4 +1,5 @@
 ---
+title: "Use `x` instead of `Optional.of(x).get()`"
 sidebar_label: "Use `x` instead of `Optional.of(x).get()`"
 ---
 

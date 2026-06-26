@@ -1,4 +1,5 @@
 ---
+title: "Find unreachable code"
 sidebar_label: "Find unreachable code"
 ---
 

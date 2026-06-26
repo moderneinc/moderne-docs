@@ -1,4 +1,5 @@
 ---
+title: "Remove Python dependency"
 sidebar_label: "Remove Python dependency"
 ---
 

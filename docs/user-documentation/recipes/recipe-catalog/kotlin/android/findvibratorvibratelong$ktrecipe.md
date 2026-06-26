@@ -1,4 +1,5 @@
 ---
+title: "Find `Vibrator.vibrate(long)` (one-arg) calls"
 sidebar_label: "Find `Vibrator.vibrate(long)` (one-arg) calls"
 ---
 

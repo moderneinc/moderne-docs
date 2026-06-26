@@ -1,4 +1,5 @@
 ---
+title: "Remove `es5BrowserSupport` from `angular.json`"
 sidebar_label: "Remove `es5BrowserSupport` from `angular.json`"
 ---
 

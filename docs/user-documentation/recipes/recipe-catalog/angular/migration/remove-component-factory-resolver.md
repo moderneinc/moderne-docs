@@ -1,4 +1,5 @@
 ---
+title: "Remove `ComponentFactoryResolver`"
 sidebar_label: "Remove `ComponentFactoryResolver`"
 ---
 

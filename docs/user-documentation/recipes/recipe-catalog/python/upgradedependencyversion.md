@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Python dependency version"
 sidebar_label: "Upgrade Python dependency version"
 ---
 

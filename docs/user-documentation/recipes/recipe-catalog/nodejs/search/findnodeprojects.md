@@ -1,4 +1,5 @@
 ---
+title: "Find Node.js projects"
 sidebar_label: "Find Node.js projects"
 ---
 

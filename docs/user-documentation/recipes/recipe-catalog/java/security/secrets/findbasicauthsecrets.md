@@ -1,4 +1,5 @@
 ---
+title: "Find HTTP Basic authentication secrets"
 sidebar_label: "Find HTTP Basic authentication secrets"
 ---
 

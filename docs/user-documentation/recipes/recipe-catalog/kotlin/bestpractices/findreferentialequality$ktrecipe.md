@@ -1,4 +1,5 @@
 ---
+title: "Find `===` / `!==` referential-equality comparisons"
 sidebar_label: "Find `===` / `!==` referential-equality comparisons"
 ---
 

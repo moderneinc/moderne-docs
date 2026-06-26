@@ -1,4 +1,5 @@
 ---
+title: "Find insecure cookie / session configuration"
 sidebar_label: "Find insecure cookie / session configuration"
 ---
 

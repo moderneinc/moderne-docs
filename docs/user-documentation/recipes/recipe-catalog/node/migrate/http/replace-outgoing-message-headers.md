@@ -1,4 +1,5 @@
 ---
+title: "Replace `OutgoingMessage._headers` and `._headerNames` with public methods"
 sidebar_label: "Replace `OutgoingMessage._headers` and `._headerNames` with public methods"
 ---
 

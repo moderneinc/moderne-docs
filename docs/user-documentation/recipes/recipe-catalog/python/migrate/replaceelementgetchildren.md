@@ -1,4 +1,5 @@
 ---
+title: "Replace `Element.getchildren()` with `list(element)`"
 sidebar_label: "Replace `Element.getchildren()` with `list(element)`"
 ---
 

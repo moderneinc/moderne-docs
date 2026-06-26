@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.toString(radix)` instead of `Integer.toString(i, radix)`"
 sidebar_label: "Use `Int.toString(radix)` instead of `Integer.toString(i, radix)`"
 ---
 

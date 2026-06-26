@@ -1,4 +1,5 @@
 ---
+title: "DevCenter for Quarkus"
 sidebar_label: "DevCenter for Quarkus"
 ---
 
@@ -134,6 +135,24 @@ _The text of matching method invocations._
 | Class name | The class name of the method call. |
 | Method name | The method name of the method call. |
 | Argument types | The argument types of the method call. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.java.security.table.MissingAuthorization" label="MissingAuthorization">
+
+### Missing authorization
+**org.openrewrite.java.security.table.MissingAuthorization**
+
+_Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source path | The path to the source file containing the handler method. |
+| Controller class | The fully qualified name of the controller class. |
+| Handler method | The name of the handler method. |
+| HTTP method | The HTTP method served by the handler. |
+| URL pattern | The combined class- and method-level request mapping pattern. |
+| Reason | Why the handler is considered to be missing authorization. |
 
 </TabItem>
 

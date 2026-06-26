@@ -1,4 +1,5 @@
 ---
+title: "Find non-injected clock / I/O calls (testability)"
 sidebar_label: "Find non-injected clock / I/O calls (testability)"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `!!` passed as a function argument"
 sidebar_label: "Find `!!` passed as a function argument"
 ---
 

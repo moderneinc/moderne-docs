@@ -1,4 +1,5 @@
 ---
+title: "Find `File.writeText(...)` calls"
 sidebar_label: "Find `File.writeText(...)` calls"
 ---
 

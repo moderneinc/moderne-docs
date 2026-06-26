@@ -1,4 +1,5 @@
 ---
+title: "Replace `TestBed.get()` with `TestBed.inject()`"
 sidebar_label: "Replace `TestBed.get()` with `TestBed.inject()`"
 ---
 

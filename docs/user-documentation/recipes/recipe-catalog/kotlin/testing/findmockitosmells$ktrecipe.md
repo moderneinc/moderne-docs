@@ -1,4 +1,5 @@
 ---
+title: "Find mockito-kotlin / Mockito patterns"
 sidebar_label: "Find mockito-kotlin / Mockito patterns"
 ---
 

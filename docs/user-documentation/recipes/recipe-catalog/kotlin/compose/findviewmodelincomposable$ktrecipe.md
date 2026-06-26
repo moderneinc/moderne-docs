@@ -1,4 +1,5 @@
 ---
+title: "Find `viewModel&lt;X&gt;()` calls inside `@Composable`"
 sidebar_label: "Find `viewModel&lt;X&gt;()` calls inside `@Composable`"
 ---
 

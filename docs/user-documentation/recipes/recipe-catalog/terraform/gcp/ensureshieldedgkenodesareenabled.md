@@ -1,4 +1,5 @@
 ---
+title: "Ensure shielded GKE nodes are enabled"
 sidebar_label: "Ensure shielded GKE nodes are enabled"
 ---
 

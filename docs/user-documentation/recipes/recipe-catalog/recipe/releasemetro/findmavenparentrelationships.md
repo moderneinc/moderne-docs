@@ -1,4 +1,5 @@
 ---
+title: "Find Maven parent relationships"
 sidebar_label: "Find Maven parent relationships"
 ---
 

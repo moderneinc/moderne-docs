@@ -1,4 +1,5 @@
 ---
+title: "Find `findViewById` inside `onDraw` / `onMeasure` / `onLayout`"
 sidebar_label: "Find `findViewById` inside `onDraw` / `onMeasure` / `onLayout`"
 ---
 

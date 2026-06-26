@@ -1,4 +1,5 @@
 ---
+title: "Use `appendLine(cs)` instead of `appendln(cs)` (CharSequence)"
 sidebar_label: "Use `appendLine(cs)` instead of `appendln(cs)` (CharSequence)"
 ---
 

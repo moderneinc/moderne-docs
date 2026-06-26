@@ -1,4 +1,5 @@
 ---
+title: "Use `distinct()` instead of `toHashSet().toList()`"
 sidebar_label: "Use `distinct()` instead of `toHashSet().toList()`"
 ---
 

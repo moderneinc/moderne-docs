@@ -1,4 +1,5 @@
 ---
+title: "Prefer Vector or prepend for append-heavy workloads"
 sidebar_label: "Prefer Vector or prepend for append-heavy workloads"
 ---
 

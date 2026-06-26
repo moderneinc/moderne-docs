@@ -1,4 +1,5 @@
 ---
+title: "Find `viewModel.uiState.collectAsState()` calls — confirm lifecycle-aware collection"
 sidebar_label: "Find `viewModel.uiState.collectAsState()` calls — confirm lifecycle-aware collection"
 ---
 

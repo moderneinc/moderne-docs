@@ -1,4 +1,5 @@
 ---
+title: "Find `map { ... }.filterNotNull()` chains"
 sidebar_label: "Find `map { ... }.filterNotNull()` chains"
 ---
 

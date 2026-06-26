@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to `kotlinx-serialization` 1.8"
 sidebar_label: "Upgrade to `kotlinx-serialization` 1.8"
 ---
 

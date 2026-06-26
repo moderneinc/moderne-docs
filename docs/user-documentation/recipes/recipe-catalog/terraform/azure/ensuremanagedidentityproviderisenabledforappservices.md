@@ -1,4 +1,5 @@
 ---
+title: "Ensure managed identity provider is enabled for app services"
 sidebar_label: "Ensure managed identity provider is enabled for app services"
 ---
 

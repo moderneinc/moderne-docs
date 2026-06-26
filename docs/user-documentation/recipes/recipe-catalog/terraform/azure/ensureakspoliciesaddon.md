@@ -1,4 +1,5 @@
 ---
+title: "Ensure AKS policies add-on"
 sidebar_label: "Ensure AKS policies add-on"
 ---
 

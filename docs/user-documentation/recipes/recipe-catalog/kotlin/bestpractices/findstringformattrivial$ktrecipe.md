@@ -1,4 +1,5 @@
 ---
+title: "Find trivial `String.format(&quot;%s&quot;, x)` calls"
 sidebar_label: "Find trivial `String.format(&quot;%s&quot;, x)` calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Spring Cloud AWS to Spring Boot 3.4 compatible version"
 sidebar_label: "Upgrade Spring Cloud AWS to Spring Boot 3.4 compatible version"
 ---
 

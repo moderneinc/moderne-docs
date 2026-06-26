@@ -1,4 +1,5 @@
 ---
+title: "Ensure EC2 is EBS optimized"
 sidebar_label: "Ensure EC2 is EBS optimized"
 ---
 

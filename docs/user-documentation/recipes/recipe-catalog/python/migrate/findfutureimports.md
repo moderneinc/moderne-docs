@@ -1,4 +1,5 @@
 ---
+title: "Find `__future__` imports"
 sidebar_label: "Find `__future__` imports"
 ---
 

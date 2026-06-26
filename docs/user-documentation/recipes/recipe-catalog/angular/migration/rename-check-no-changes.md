@@ -1,4 +1,5 @@
 ---
+title: "Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`"
 sidebar_label: "Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`"
 ---
 

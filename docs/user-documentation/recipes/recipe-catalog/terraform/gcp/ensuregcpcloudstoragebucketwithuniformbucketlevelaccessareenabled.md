@@ -1,4 +1,5 @@
 ---
+title: "Ensure GCP cloud storage bucket with uniform bucket-level access are enabled"
 sidebar_label: "Ensure GCP cloud storage bucket with uniform bucket-level access are enabled"
 ---
 

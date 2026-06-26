@@ -1,4 +1,5 @@
 ---
+title: "Migrate DenseVectorProperty.elementType from String to DenseVectorElementType enum"
 sidebar_label: "Migrate DenseVectorProperty.elementType from String to DenseVectorElementType enum"
 ---
 

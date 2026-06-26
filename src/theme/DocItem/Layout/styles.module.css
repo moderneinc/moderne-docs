@@ -1,0 +1,10 @@
+/* Overlay the button at the top-right without consuming its own row of vertical space (a full-height
+   flex row pushed the whole article down). With height:0 the button drops onto the breadcrumb row,
+   right-aligned, so breadcrumbs (left) and the button (right) share the same line. */
+.copyPageRow {
+  display: flex;
+  justify-content: flex-end;
+  height: 0;
+  position: relative;
+  z-index: 2;
+}

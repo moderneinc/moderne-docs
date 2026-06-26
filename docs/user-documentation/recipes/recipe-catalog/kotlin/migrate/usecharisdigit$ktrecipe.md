@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.isDigit()` instead of `Character.isDigit(c)`"
 sidebar_label: "Use `Char.isDigit()` instead of `Character.isDigit(c)`"
 ---
 

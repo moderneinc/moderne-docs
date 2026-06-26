@@ -1,4 +1,5 @@
 ---
+title: "Find functions with more than 30 statements"
 sidebar_label: "Find functions with more than 30 statements"
 ---
 

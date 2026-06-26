@@ -1,4 +1,5 @@
 ---
+title: "Find `e.printStackTrace()` calls inside a catch block"
 sidebar_label: "Find `e.printStackTrace()` calls inside a catch block"
 ---
 

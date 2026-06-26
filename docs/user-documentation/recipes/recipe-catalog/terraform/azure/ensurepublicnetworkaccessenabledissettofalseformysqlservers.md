@@ -1,4 +1,5 @@
 ---
+title: "Ensure public network access enabled is set to False for mySQL servers"
 sidebar_label: "Ensure public network access enabled is set to False for mySQL servers"
 ---
 

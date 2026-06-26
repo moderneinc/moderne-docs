@@ -1,4 +1,5 @@
 ---
+title: "Replace various `Processor.cache` calls with their `Sinks` equivalent"
 sidebar_label: "Replace various `Processor.cache` calls with their `Sinks` equivalent"
 ---
 

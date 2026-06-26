@@ -1,4 +1,5 @@
 ---
+title: "Encrypt DAX storage at rest"
 sidebar_label: "Encrypt DAX storage at rest"
 ---
 

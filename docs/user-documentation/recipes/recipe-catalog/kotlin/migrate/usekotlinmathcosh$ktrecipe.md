@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.cosh` instead of `java.lang.Math.cosh`"
 sidebar_label: "Use `kotlin.math.cosh` instead of `java.lang.Math.cosh`"
 ---
 

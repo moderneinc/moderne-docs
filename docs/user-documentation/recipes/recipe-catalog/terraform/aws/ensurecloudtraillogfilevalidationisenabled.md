@@ -1,4 +1,5 @@
 ---
+title: "Ensure CloudTrail log file validation is enabled"
 sidebar_label: "Ensure CloudTrail log file validation is enabled"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "DevCenter Kotlin"
 sidebar_label: "DevCenter Kotlin"
 ---
 
@@ -131,6 +132,24 @@ _The text of matching method invocations._
 
 </TabItem>
 
+<TabItem value="org.openrewrite.java.security.table.MissingAuthorization" label="MissingAuthorization">
+
+### Missing authorization
+**org.openrewrite.java.security.table.MissingAuthorization**
+
+_Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source path | The path to the source file containing the handler method. |
+| Controller class | The fully qualified name of the controller class. |
+| Handler method | The name of the handler method. |
+| HTTP method | The HTTP method served by the handler. |
+| URL pattern | The combined class- and method-level request mapping pattern. |
+| Reason | Why the handler is considered to be missing authorization. |
+
+</TabItem>
+
 <TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
 
 ### Security issues
@@ -169,7 +188,7 @@ _The distinct set of committers per repository._
 | ----------- | ----------- |
 | Name | The name of the committer. |
 | Email | The email of the committer. |
-| Last commit | The date of this committer's last commit. |
+| Last commit | The date of this committer's last commit. Null when only committer identities were collected, without per-day commit detail. |
 | Number of commits | The number of commits made by this committer. |
 
 </TabItem>

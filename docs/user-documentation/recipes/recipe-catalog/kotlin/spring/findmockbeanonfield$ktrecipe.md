@@ -1,4 +1,5 @@
 ---
+title: "Find `@MockBean` on `lateinit var` fields"
 sidebar_label: "Find `@MockBean` on `lateinit var` fields"
 ---
 

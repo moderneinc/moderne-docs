@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.isLetterOrDigit()` instead of `Character.isLetterOrDigit(c)`"
 sidebar_label: "Use `Char.isLetterOrDigit()` instead of `Character.isLetterOrDigit(c)`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate deprecated APIs removed in Spring Framework 7.0"
 sidebar_label: "Migrate deprecated APIs removed in Spring Framework 7.0"
 ---
 

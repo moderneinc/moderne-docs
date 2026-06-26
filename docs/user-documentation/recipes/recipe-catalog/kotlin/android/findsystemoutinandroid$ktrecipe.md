@@ -1,4 +1,5 @@
 ---
+title: "Find `System.out.println(...)` calls"
 sidebar_label: "Find `System.out.println(...)` calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Change supertype"
 sidebar_label: "Change supertype"
 ---
 

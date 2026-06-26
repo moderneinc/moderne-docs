@@ -1,4 +1,5 @@
 ---
+title: "Migrate @Query to @NativeQuery for unsupported JPQL"
 sidebar_label: "Migrate @Query to @NativeQuery for unsupported JPQL"
 ---
 

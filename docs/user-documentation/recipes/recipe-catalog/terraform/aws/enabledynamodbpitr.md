@@ -1,4 +1,5 @@
 ---
+title: "Enable point-in-time recovery for DynamoDB"
 sidebar_label: "Enable point-in-time recovery for DynamoDB"
 ---
 

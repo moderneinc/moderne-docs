@@ -1,4 +1,5 @@
 ---
+title: "Remove `moduleId`"
 sidebar_label: "Remove `moduleId`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `FloatArray.sort()` instead of `Arrays.sort(arr)`"
 sidebar_label: "Use `FloatArray.sort()` instead of `Arrays.sort(arr)`"
 ---
 

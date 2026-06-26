@@ -1,4 +1,5 @@
 ---
+title: "Find public `const val` declarations"
 sidebar_label: "Find public `const val` declarations"
 ---
 

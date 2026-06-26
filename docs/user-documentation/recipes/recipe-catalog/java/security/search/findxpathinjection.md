@@ -1,4 +1,5 @@
 ---
+title: "Find XPath injection vectors"
 sidebar_label: "Find XPath injection vectors"
 ---
 

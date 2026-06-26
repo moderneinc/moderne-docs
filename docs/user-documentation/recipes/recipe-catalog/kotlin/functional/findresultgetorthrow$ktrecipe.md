@@ -1,4 +1,5 @@
 ---
+title: "Find `.getOrThrow()` calls on a `Result&lt;T&gt;`"
 sidebar_label: "Find `.getOrThrow()` calls on a `Result&lt;T&gt;`"
 ---
 

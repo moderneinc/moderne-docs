@@ -1,4 +1,5 @@
 ---
+title: "Encrypt DocumentDB storage"
 sidebar_label: "Encrypt DocumentDB storage"
 ---
 

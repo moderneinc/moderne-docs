@@ -1,4 +1,5 @@
 ---
+title: "Ensure GCP VM instances have block project-wide SSH keys feature enabled"
 sidebar_label: "Ensure GCP VM instances have block project-wide SSH keys feature enabled"
 ---
 

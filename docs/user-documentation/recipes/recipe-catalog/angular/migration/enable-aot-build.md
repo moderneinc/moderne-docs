@@ -1,4 +1,5 @@
 ---
+title: "Enable AOT compilation in `angular.json`"
 sidebar_label: "Enable AOT compilation in `angular.json`"
 ---
 

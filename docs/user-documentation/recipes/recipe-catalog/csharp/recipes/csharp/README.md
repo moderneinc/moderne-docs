@@ -6,6 +6,6 @@ description: Csharp OpenRewrite recipes.
 
 ## Categories
 
-* [Migration](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration)
+* [Codequality](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality)
 
 

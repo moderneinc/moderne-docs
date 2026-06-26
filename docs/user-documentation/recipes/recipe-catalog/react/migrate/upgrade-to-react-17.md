@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to React 17"
 sidebar_label: "Upgrade to React 17"
 ---
 

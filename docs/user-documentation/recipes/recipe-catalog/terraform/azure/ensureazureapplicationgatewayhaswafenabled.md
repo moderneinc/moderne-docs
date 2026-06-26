@@ -1,4 +1,5 @@
 ---
+title: "Ensure Azure application gateway has WAF enabled"
 sidebar_label: "Ensure Azure application gateway has WAF enabled"
 ---
 

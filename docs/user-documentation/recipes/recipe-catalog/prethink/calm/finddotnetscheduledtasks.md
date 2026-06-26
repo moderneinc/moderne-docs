@@ -1,4 +1,5 @@
 ---
+title: "Find .NET scheduled tasks"
 sidebar_label: "Find .NET scheduled tasks"
 ---
 

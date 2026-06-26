@@ -1,4 +1,5 @@
 ---
+title: "Find service endpoints"
 sidebar_label: "Find service endpoints"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Module has monolithic Spring Boot starter"
 sidebar_label: "Module has monolithic Spring Boot starter"
 ---
 

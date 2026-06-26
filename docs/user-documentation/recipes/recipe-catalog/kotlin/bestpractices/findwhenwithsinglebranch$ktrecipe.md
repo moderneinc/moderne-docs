@@ -1,4 +1,5 @@
 ---
+title: "Find `when (x) { A -&gt; … }` with a single branch"
 sidebar_label: "Find `when (x) { A -&gt; … }` with a single branch"
 ---
 

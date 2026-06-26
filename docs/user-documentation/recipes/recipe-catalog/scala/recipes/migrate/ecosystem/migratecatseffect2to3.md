@@ -1,4 +1,5 @@
 ---
+title: "Migrate Cats Effect 2 to Cats Effect 3"
 sidebar_label: "Migrate Cats Effect 2 to Cats Effect 3"
 ---
 

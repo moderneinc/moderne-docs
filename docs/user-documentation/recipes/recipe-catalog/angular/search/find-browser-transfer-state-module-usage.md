@@ -1,4 +1,5 @@
 ---
+title: "Find `BrowserTransferStateModule` usage"
 sidebar_label: "Find `BrowserTransferStateModule` usage"
 ---
 

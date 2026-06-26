@@ -1,4 +1,5 @@
 ---
+title: "Replace `UnicastProcessor.create(Queue)` with `Sinks.many().unicast().onBackpressureBuffer(Queue)`"
 sidebar_label: "Replace `UnicastProcessor.create(Queue)` with `Sinks.many().unicast().onBackpressureBuffer(Queue)`"
 ---
 

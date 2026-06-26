@@ -1,4 +1,5 @@
 ---
+title: "Find anonymous `object : Interface { override fun … }` with a single override"
 sidebar_label: "Find anonymous `object : Interface { override fun … }` with a single override"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate specs2 to ScalaTest or MUnit"
 sidebar_label: "Migrate specs2 to ScalaTest or MUnit"
 ---
 

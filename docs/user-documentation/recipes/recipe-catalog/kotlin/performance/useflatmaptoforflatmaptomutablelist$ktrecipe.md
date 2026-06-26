@@ -1,4 +1,5 @@
 ---
+title: "Use `flatMapTo(mutableListOf(), f)` instead of `flatMap(f).toMutableList()`"
 sidebar_label: "Use `flatMapTo(mutableListOf(), f)` instead of `flatMap(f).toMutableList()`"
 ---
 

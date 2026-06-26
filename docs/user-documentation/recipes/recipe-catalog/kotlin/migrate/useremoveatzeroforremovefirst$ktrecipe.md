@@ -1,4 +1,5 @@
 ---
+title: "Use `removeAt(0)` instead of `removeFirst()`"
 sidebar_label: "Use `removeAt(0)` instead of `removeFirst()`"
 ---
 

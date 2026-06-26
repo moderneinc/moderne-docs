@@ -1,4 +1,5 @@
 ---
+title: "DevCenter for Apache Maven"
 sidebar_label: "DevCenter for Apache Maven"
 ---
 

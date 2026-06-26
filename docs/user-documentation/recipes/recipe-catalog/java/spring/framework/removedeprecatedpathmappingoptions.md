@@ -1,4 +1,5 @@
 ---
+title: "Migrate deprecated path mapping options"
 sidebar_label: "Migrate deprecated path mapping options"
 ---
 

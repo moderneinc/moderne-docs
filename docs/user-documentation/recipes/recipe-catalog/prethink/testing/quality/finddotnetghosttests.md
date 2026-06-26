@@ -1,4 +1,5 @@
 ---
+title: "Find .NET ghost tests"
 sidebar_label: "Find .NET ghost tests"
 ---
 

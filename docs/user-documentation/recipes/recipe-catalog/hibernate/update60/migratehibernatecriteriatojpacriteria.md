@@ -1,4 +1,5 @@
 ---
+title: "Migrate Hibernate Criteria API to JPA Criteria API"
 sidebar_label: "Migrate Hibernate Criteria API to JPA Criteria API"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find Compose API design issues"
 sidebar_label: "Find Compose API design issues"
 ---
 

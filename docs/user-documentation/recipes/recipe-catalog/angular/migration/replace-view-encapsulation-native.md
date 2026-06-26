@@ -1,4 +1,5 @@
 ---
+title: "Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`"
 sidebar_label: "Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`"
 ---
 

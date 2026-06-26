@@ -1,4 +1,5 @@
 ---
+title: "Update Gradle project Java compatibility"
 sidebar_label: "Update Gradle project Java compatibility"
 ---
 
@@ -40,8 +41,8 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade Java version](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus37/upgradejavaversion.md)
 * [Upgrade Java version](/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion.md)
+* [Upgrade Java version](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/upgradejavaversion.md)
 
 ## Example
 

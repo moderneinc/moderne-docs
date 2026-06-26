@@ -1,4 +1,5 @@
 ---
+title: "Use static import"
 sidebar_label: "Use static import"
 ---
 
@@ -36,6 +37,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Migrate TestNG assertions to AssertJ](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngtoassertj.md)
 * [OpenRewrite recipe best practices](/user-documentation/recipes/recipe-catalog/recipes/rewrite/openrewriterecipebestpractices.md)
 * [Recipe testing best practices](/user-documentation/recipes/recipe-catalog/java/recipes/recipetestingbestpractices.md)
 * [Statically import AssertJ's `assertThat`](/user-documentation/recipes/recipe-catalog/java/testing/assertj/staticimports.md)

@@ -1,4 +1,5 @@
 ---
+title: "Find Node.js security configuration"
 sidebar_label: "Find Node.js security configuration"
 ---
 

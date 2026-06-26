@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to PrimeNG 18"
 sidebar_label: "Upgrade to PrimeNG 18"
 ---
 

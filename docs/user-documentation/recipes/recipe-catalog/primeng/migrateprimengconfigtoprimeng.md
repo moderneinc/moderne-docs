@@ -1,4 +1,5 @@
 ---
+title: "Migrate `PrimeNGConfig` to `PrimeNG`"
 sidebar_label: "Migrate `PrimeNGConfig` to `PrimeNG`"
 ---
 

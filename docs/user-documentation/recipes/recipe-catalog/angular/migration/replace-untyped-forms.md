@@ -1,4 +1,5 @@
 ---
+title: "Replace form classes with untyped variants"
 sidebar_label: "Replace form classes with untyped variants"
 ---
 

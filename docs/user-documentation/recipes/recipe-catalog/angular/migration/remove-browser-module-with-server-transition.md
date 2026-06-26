@@ -1,4 +1,5 @@
 ---
+title: "Remove `BrowserModule.withServerTransition`"
 sidebar_label: "Remove `BrowserModule.withServerTransition`"
 ---
 

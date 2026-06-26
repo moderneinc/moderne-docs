@@ -1,4 +1,5 @@
 ---
+title: "Find `x.compareTo(y) &lt;op&gt; 0` patterns"
 sidebar_label: "Find `x.compareTo(y) &lt;op&gt; 0` patterns"
 ---
 

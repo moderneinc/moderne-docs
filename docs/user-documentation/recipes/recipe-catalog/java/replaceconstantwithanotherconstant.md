@@ -1,4 +1,5 @@
 ---
+title: "Replace constant with another constant"
 sidebar_label: "Replace constant with another constant"
 ---
 
@@ -55,17 +56,21 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Kafka 3.0](/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_3_0.md)
 * [Migrates from Jackson 2.x to Jackson 3.x](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3.md)
 * [Migrates to Apache POI 3.17](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_3_17.md)
+* [Modernize legacy `jackson-core` feature constants](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_modernizejacksoncorefeatures.md)
 * [Prefer `java.nio.charset.StandardCharsets`](/user-documentation/recipes/recipe-catalog/apache/commons/io/usestandardcharsets.md)
 * [Rename MemberCategory field constants for Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamemembercategoryconstants)
 * [Rename `RequestContext.jstPresent` to `JSTL_PRESENT`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamerequestcontextjstlpresent)
-* [Renamed classes for API](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel49/renamedapis.md)
-* [Renamed constants in camel-smb](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel410/camelsmb.md)
+* [Renamed classes for API](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/renamedapis.md)
+* [Renamed constants in camel-smb](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410/camelsmb.md)
 * [Replace `CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` with `getCurrentComponent()` and `getCurrentCompositeComponent()`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removeduicomponentconstant.md)
 * [Replace `RMIConnectorServer.CREDENTIAL_TYPES` constant](/user-documentation/recipes/recipe-catalog/java/migrate/removedrmiconnectorservercredentialtypesconstant.md)
 * [Replace deprecated `PropertyNamingStrategy` inner classes and constants](/user-documentation/recipes/recipe-catalog/java/jackson/replacepropertynamingstrategyconstants.md)
-* [The header name for the List metadata has changed](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel43/kafkametadata.md)
+* [The header name for the List metadata has changed](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel43/kafkametadata.md)
 * [Upgrade to JUnit 5.13](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit513.md)
-* [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmVariousRemovedIn7](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/migratefromhibernateormvariousremovedin7.md)
+* [Use non-deprecated environment constants](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/environmentmigrationrecipe.md)
+* [Use non-deprecated related sorting fields and methods](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/sortingmigrationrecipe.md)
+* [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmQueryHints](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus324/migratefromhibernateormqueryhints.md)
+* [io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmVariousRemovedIn7](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus324/migratefromhibernateormvariousremovedin7.md)
 
 ## Example
 

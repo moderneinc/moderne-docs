@@ -1,4 +1,5 @@
 ---
+title: "Find path traversal vulnerabilities"
 sidebar_label: "Find path traversal vulnerabilities"
 ---
 

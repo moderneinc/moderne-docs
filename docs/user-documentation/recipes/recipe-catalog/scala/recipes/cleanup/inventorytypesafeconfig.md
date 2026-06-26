@@ -1,4 +1,5 @@
 ---
+title: "Inventory Typesafe Config usage"
 sidebar_label: "Inventory Typesafe Config usage"
 ---
 

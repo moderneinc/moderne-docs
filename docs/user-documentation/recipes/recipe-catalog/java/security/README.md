@@ -13,6 +13,7 @@ _Recipes that find and eliminate vulnerable patterns in Java code._
 * [Secrets](/user-documentation/recipes/recipe-catalog/java/security/secrets)
 * [Servlet](/user-documentation/recipes/recipe-catalog/java/security/servlet)
 * [Spring](/user-documentation/recipes/recipe-catalog/java/security/spring)
+* [Xss](/user-documentation/recipes/recipe-catalog/java/security/xss)
 
 ## Composite Recipes
 
@@ -35,14 +36,19 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Find text-direction changes](./findtextdirectionchanges.md)
 * [Fix CWE-338 with `SecureRandom`](./fixcwe338.md)
+* [Fix permissive `HostnameVerifier` implementations](./fixpermissivehostnameverifier.md)
+* [Fix permissive `X509TrustManager` implementations](./fixpermissivetrustmanager.md)
 * [Improper privilege management](./improperprivilegemanagement.md)
 * [Partial path traversal vulnerability](./partialpathtraversalvulnerability.md)
 * [Regular Expression Denial of Service (ReDOS)](./regularexpressiondenialofservice.md)
 * [Remediate OWASP A05:2021 Security misconfiguration](./owaspa05.md)
 * [Remediate OWASP A06:2021 Vulnerable and outdated components](./owaspa06.md)
 * [Remediate server-side request forgery (SSRF)](./fixcwe918.md)
+* [Replace `Runtime.exec(String)` with `Runtime.exec(String[])`](./fixcommandinjectionliteral.md)
+* [Replace SQL string concatenation with a `PreparedStatement`](./fixsqlinjectionconcat.md)
 * [Secure random](./securerandom.md)
 * [SecureRandom seeds are not constant or predictable](./securerandomprefersdefaultseed.md)
+* [Upgrade inadequate cryptographic key sizes](./upgradeinadequatekeysize.md)
 * [Use `Files#createTempDirectory`](./usefilescreatetempdirectory.md)
 * [Use secure temporary file creation](./securetempfilecreation.md)
 * [XML parser XXE vulnerability](./xmlparserxxevulnerability.md)

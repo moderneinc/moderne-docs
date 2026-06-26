@@ -1,4 +1,5 @@
 ---
+title: "Find `java.util.logging.Logger.getLogger(...)` calls"
 sidebar_label: "Find `java.util.logging.Logger.getLogger(...)` calls"
 ---
 

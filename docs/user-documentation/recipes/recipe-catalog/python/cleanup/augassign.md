@@ -1,4 +1,5 @@
 ---
+title: "Shorten assignment to compound operator form"
 sidebar_label: "Shorten assignment to compound operator form"
 ---
 

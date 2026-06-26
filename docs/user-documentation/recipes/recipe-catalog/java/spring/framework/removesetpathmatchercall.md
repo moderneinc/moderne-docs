@@ -1,4 +1,5 @@
 ---
+title: "Remove deprecated `setPathMatcher()` calls"
 sidebar_label: "Remove deprecated `setPathMatcher()` calls"
 ---
 

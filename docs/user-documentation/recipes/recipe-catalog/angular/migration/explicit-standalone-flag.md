@@ -1,4 +1,5 @@
 ---
+title: "Make standalone flag explicit"
 sidebar_label: "Make standalone flag explicit"
 ---
 

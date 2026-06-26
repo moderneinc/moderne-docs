@@ -1,4 +1,5 @@
 ---
+title: "Find `@Bean` methods without `@Scope`"
 sidebar_label: "Find `@Bean` methods without `@Scope`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `NgClass` usage"
 sidebar_label: "Find `NgClass` usage"
 ---
 

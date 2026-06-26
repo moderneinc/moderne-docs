@@ -1,4 +1,5 @@
 ---
+title: "Use `MutableList.shuffle()` instead of `Collections.shuffle(list)`"
 sidebar_label: "Use `MutableList.shuffle()` instead of `Collections.shuffle(list)`"
 ---
 

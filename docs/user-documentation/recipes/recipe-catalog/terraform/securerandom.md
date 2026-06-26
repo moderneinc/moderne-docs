@@ -1,4 +1,5 @@
 ---
+title: "Use a long enough byte length for `random` resources"
 sidebar_label: "Use a long enough byte length for `random` resources"
 ---
 

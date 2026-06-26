@@ -1,4 +1,5 @@
 ---
+title: "Find `@Composable` calls inside non-`@Composable` lambda parameters"
 sidebar_label: "Find `@Composable` calls inside non-`@Composable` lambda parameters"
 ---
 

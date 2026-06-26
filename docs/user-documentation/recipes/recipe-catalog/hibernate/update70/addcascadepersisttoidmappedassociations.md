@@ -1,4 +1,5 @@
 ---
+title: "Migrate implicit cascade=PERSIST for @Id and @MapsId associations"
 sidebar_label: "Migrate implicit cascade=PERSIST for @Id and @MapsId associations"
 ---
 

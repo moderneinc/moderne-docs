@@ -1,4 +1,5 @@
 ---
+title: "Find `DisposableEffect { … }` blocks missing an `onDispose { }`"
 sidebar_label: "Find `DisposableEffect { … }` blocks missing an `onDispose { }`"
 ---
 

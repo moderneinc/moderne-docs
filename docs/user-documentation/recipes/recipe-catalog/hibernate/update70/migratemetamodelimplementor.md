@@ -1,4 +1,5 @@
 ---
+title: "Migrate `MetamodelImplementor` to Hibernate 7.0"
 sidebar_label: "Migrate `MetamodelImplementor` to Hibernate 7.0"
 ---
 

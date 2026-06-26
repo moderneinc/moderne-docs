@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to Android SDK 34"
 sidebar_label: "Upgrade to Android SDK 34"
 ---
 

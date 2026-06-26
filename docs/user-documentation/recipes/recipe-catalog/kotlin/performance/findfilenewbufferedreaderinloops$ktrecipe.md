@@ -1,4 +1,5 @@
 ---
+title: "Find `File(...).bufferedReader()` calls inside loops"
 sidebar_label: "Find `File(...).bufferedReader()` calls inside loops"
 ---
 

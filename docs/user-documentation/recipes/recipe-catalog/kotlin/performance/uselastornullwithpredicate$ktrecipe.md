@@ -1,4 +1,5 @@
 ---
+title: "Use `lastOrNull { predicate }` instead of `filter { predicate }.lastOrNull()`"
 sidebar_label: "Use `lastOrNull { predicate }` instead of `filter { predicate }.lastOrNull()`"
 ---
 

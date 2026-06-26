@@ -1,4 +1,5 @@
 ---
+title: "Add Terraform configuration"
 sidebar_label: "Add Terraform configuration"
 ---
 

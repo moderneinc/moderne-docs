@@ -1,4 +1,5 @@
 ---
+title: "Annotate methods which may return `null` with `@Nullable`"
 sidebar_label: "Annotate methods which may return `null` with `@Nullable`"
 ---
 
@@ -36,6 +37,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
+* [Compose JSpecify best practices (intra-body nullability inference)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nullability/infer/composejspecifybestpractices)
 * [JSpecify best practices](/user-documentation/recipes/recipe-catalog/java/jspecify/jspecifybestpractices.md)
 * [Recipe nullability best practices](/user-documentation/recipes/recipe-catalog/java/recipes/recipenullabilitybestpractices.md)
 

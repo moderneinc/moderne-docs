@@ -1,4 +1,5 @@
 ---
+title: "Find `LoggerFactory.getLogger(this::class.java)` calls"
 sidebar_label: "Find `LoggerFactory.getLogger(this::class.java)` calls"
 ---
 

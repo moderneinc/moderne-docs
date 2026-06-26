@@ -1,4 +1,5 @@
 ---
+title: "Add Spring Boot 4.0 modular starters"
 sidebar_label: "Add Spring Boot 4.0 modular starters"
 ---
 

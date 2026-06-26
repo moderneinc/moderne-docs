@@ -1,4 +1,5 @@
 ---
+title: "Find `by remember { … }` delegations whose body isn't a `mutableStateOf`"
 sidebar_label: "Find `by remember { … }` delegations whose body isn't a `mutableStateOf`"
 ---
 

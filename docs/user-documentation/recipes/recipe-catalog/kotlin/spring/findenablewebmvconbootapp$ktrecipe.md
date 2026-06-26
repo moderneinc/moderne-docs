@@ -1,4 +1,5 @@
 ---
+title: "Find `@EnableWebMvc` on a Spring Boot application"
 sidebar_label: "Find `@EnableWebMvc` on a Spring Boot application"
 ---
 

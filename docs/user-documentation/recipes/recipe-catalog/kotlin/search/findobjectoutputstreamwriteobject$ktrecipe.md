@@ -1,4 +1,5 @@
 ---
+title: "Find `ObjectOutputStream.writeObject(...)` calls"
 sidebar_label: "Find `ObjectOutputStream.writeObject(...)` calls"
 ---
 

@@ -19,6 +19,8 @@ _Recipes for upgrading and patching [Spring](https://spring.io/) applications._
 * [Framework7](/user-documentation/recipes/recipe-catalog/java/spring/framework7)
 * [Hibernate](/user-documentation/recipes/recipe-catalog/java/spring/hibernate)
 * [Http](/user-documentation/recipes/recipe-catalog/java/spring/http)
+* [Integration](/user-documentation/recipes/recipe-catalog/java/spring/integration)
+* [Kotlin](/user-documentation/recipes/recipe-catalog/java/spring/kotlin)
 * [Mvc](/user-documentation/recipes/recipe-catalog/java/spring/mvc)
 * [Opentelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry)
 * [Orm](/user-documentation/recipes/recipe-catalog/java/spring/orm)

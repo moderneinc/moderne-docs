@@ -1,4 +1,5 @@
 ---
+title: "Find `ObjectInputStream(...)` constructions"
 sidebar_label: "Find `ObjectInputStream(...)` constructions"
 ---
 

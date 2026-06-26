@@ -1,4 +1,5 @@
 ---
+title: "Ensure private cluster is enabled when creating Kubernetes clusters"
 sidebar_label: "Ensure private cluster is enabled when creating Kubernetes clusters"
 ---
 

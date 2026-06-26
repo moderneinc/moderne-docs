@@ -1,4 +1,5 @@
 ---
+title: "Find `AtomicReference`/`AtomicInteger`/`AtomicLong`/`AtomicBoolean` allocations"
 sidebar_label: "Find `AtomicReference`/`AtomicInteger`/`AtomicLong`/`AtomicBoolean` allocations"
 ---
 

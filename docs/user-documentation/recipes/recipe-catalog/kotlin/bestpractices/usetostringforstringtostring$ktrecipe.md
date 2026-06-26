@@ -1,4 +1,5 @@
 ---
+title: "Drop redundant `String.toString()`"
 sidebar_label: "Drop redundant `String.toString()`"
 ---
 

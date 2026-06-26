@@ -1,4 +1,5 @@
 ---
+title: "Javascript database interaction library insights"
 sidebar_label: "Javascript database interaction library insights"
 ---
 

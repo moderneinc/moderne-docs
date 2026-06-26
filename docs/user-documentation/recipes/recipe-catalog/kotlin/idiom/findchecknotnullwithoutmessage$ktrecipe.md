@@ -1,4 +1,5 @@
 ---
+title: "Find `checkNotNull(x)` without an explanatory message"
 sidebar_label: "Find `checkNotNull(x)` without an explanatory message"
 ---
 

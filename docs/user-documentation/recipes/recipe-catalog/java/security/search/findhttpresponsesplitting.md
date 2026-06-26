@@ -1,4 +1,5 @@
 ---
+title: "Find HTTP response splitting vectors"
 sidebar_label: "Find HTTP response splitting vectors"
 ---
 

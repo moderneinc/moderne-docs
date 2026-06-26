@@ -1,4 +1,5 @@
 ---
+title: "Migrate RichFaces tags in `xhtml` files"
 sidebar_label: "Migrate RichFaces tags in `xhtml` files"
 ---
 

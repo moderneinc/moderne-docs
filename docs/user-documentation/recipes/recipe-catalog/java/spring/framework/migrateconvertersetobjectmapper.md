@@ -1,4 +1,5 @@
 ---
+title: "Replace `setObjectMapper` with constructor injection"
 sidebar_label: "Replace `setObjectMapper` with constructor injection"
 ---
 

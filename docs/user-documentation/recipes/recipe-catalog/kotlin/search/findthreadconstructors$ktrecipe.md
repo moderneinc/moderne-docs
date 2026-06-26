@@ -1,4 +1,5 @@
 ---
+title: "Find `Thread(...)` constructor calls"
 sidebar_label: "Find `Thread(...)` constructor calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `EntityManager.createQuery(...)` calls"
 sidebar_label: "Find `EntityManager.createQuery(...)` calls"
 ---
 

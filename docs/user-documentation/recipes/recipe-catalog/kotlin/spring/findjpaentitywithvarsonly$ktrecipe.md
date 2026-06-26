@@ -1,4 +1,5 @@
 ---
+title: "Find `@Entity` classes with `var` properties only"
 sidebar_label: "Find `@Entity` classes with `var` properties only"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `sb.length` instead of `sb.toString().length`"
 sidebar_label: "Use `sb.length` instead of `sb.toString().length`"
 ---
 

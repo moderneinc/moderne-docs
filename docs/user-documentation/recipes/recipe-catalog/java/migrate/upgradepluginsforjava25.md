@@ -1,4 +1,5 @@
 ---
+title: "Upgrade plugins to Java 25 compatible versions"
 sidebar_label: "Upgrade plugins to Java 25 compatible versions"
 ---
 
@@ -62,6 +63,10 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `org.apache.maven.plugins`
   * artifactId: `maven-failsafe-plugin`
   * newVersion: `3.5.x`
+* [Upgrade Maven plugin version](../../maven/upgradepluginversion)
+  * groupId: `org.apache.maven.plugins`
+  * artifactId: `maven-pmd-plugin`
+  * newVersion: `3.28.x`
 * [Upgrade Gradle or Maven dependency versions](../../java/dependencies/upgradedependencyversion)
   * groupId: `net.bytebuddy`
   * artifactId: `byte-buddy*`
@@ -70,7 +75,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `org.mockito`
   * artifactId: `mockito-*`
   * newVersion: `5.17.x`
-* [Add surefire `--add-opens` for Mockito/ByteBuddy](../../java/migrate/addsurefirefailsafearglineformockito)
+* [Add Mockito Java Agent to Maven Surefire Plugin](../../java/migrate/addmockitojavaagenttomavensurefireplugin)
 
 </TabItem>
 
@@ -106,6 +111,10 @@ recipeList:
       groupId: org.apache.maven.plugins
       artifactId: maven-failsafe-plugin
       newVersion: 3.5.x
+  - org.openrewrite.maven.UpgradePluginVersion:
+      groupId: org.apache.maven.plugins
+      artifactId: maven-pmd-plugin
+      newVersion: 3.28.x
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: net.bytebuddy
       artifactId: byte-buddy*
@@ -114,7 +123,7 @@ recipeList:
       groupId: org.mockito
       artifactId: mockito-*
       newVersion: 5.17.x
-  - org.openrewrite.java.migrate.AddSurefireFailsafeArgLineForMockito
+  - org.openrewrite.java.migrate.AddMockitoJavaAgentToMavenSurefirePlugin
 
 ```
 </TabItem>

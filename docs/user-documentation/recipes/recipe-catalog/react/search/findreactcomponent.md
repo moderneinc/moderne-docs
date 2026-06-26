@@ -1,4 +1,5 @@
 ---
+title: "Find React component"
 sidebar_label: "Find React component"
 ---
 

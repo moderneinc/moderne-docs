@@ -1,4 +1,5 @@
 ---
+title: "Use `@JvmInline value class` instead of `inline class`"
 sidebar_label: "Use `@JvmInline value class` instead of `inline class`"
 ---
 

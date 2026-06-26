@@ -1,4 +1,5 @@
 ---
+title: "Replace `typing.Tuple` with `tuple`"
 sidebar_label: "Replace `typing.Tuple` with `tuple`"
 ---
 

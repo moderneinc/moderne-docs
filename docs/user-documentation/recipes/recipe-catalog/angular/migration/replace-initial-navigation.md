@@ -1,4 +1,5 @@
 ---
+title: "Replace `initialNavigation` option values"
 sidebar_label: "Replace `initialNavigation` option values"
 ---
 

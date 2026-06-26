@@ -1,4 +1,5 @@
 ---
+title: "Configure Gradle `jar` task for fat JAR"
 sidebar_label: "Configure Gradle `jar` task for fat JAR"
 ---
 

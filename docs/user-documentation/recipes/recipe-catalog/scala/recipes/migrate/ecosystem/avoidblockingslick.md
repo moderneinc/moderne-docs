@@ -1,4 +1,5 @@
 ---
+title: "Avoid blocking Slick database calls"
 sidebar_label: "Avoid blocking Slick database calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` invocations"
 sidebar_label: "Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` invocations"
 ---
 

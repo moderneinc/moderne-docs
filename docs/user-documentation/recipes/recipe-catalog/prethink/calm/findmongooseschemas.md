@@ -1,4 +1,5 @@
 ---
+title: "Find Mongoose schemas"
 sidebar_label: "Find Mongoose schemas"
 ---
 

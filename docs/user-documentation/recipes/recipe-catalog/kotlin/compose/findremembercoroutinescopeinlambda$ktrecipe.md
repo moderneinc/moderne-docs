@@ -1,4 +1,5 @@
 ---
+title: "Find `rememberCoroutineScope()` calls inside a lambda"
 sidebar_label: "Find `rememberCoroutineScope()` calls inside a lambda"
 ---
 

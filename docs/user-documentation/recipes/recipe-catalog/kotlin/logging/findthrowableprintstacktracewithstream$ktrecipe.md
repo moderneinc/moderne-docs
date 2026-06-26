@@ -1,4 +1,5 @@
 ---
+title: "Find `e.printStackTrace(out)` calls"
 sidebar_label: "Find `e.printStackTrace(out)` calls"
 ---
 

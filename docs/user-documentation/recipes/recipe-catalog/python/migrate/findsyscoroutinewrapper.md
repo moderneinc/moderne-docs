@@ -1,4 +1,5 @@
 ---
+title: "Find removed `sys.set_coroutine_wrapper()` / `sys.get_coroutine_wrapper()`"
 sidebar_label: "Find removed `sys.set_coroutine_wrapper()` / `sys.get_coroutine_wrapper()`"
 ---
 

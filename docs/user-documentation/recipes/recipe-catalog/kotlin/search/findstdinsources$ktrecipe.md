@@ -1,4 +1,5 @@
 ---
+title: "Find `readLine()` / `Scanner.next*()` calls"
 sidebar_label: "Find `readLine()` / `Scanner.next*()` calls"
 ---
 

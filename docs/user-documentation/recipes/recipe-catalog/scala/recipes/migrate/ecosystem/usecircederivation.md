@@ -1,4 +1,5 @@
 ---
+title: "Use circe `derives` for Scala 3"
 sidebar_label: "Use circe `derives` for Scala 3"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Remove XML tag"
 sidebar_label: "Remove XML tag"
 ---
 
@@ -37,13 +38,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Change cacheManager to use the SimpleCacheManager](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/spring/changecachemanagertosimplecachemanager.md)
+* [Change cacheManager to use the SimpleCacheManager](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/spring/changecachemanagertosimplecachemanager.md)
 * [Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references](/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/apachedefaultprovider.md)
 * [Migrate JSF variable-resolver to el-resolver](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig)
 * [Migrate RichFaces tags in `xhtml` files](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags)
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 * [Remove withJansi Logback configuration](/user-documentation/recipes/recipe-catalog/java/micronaut/removewithjansilogbackconfiguration.md)
-* [Update Default Servlet Handler for Spring Framework if empty](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/defaultservlethandler.md)
+* [Update Default Servlet Handler for Spring Framework if empty](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/defaultservlethandler.md)
 * [Update the Micronaut Data library](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautdata.md)
 
 ## Example

@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `Buffer.slice()` with `Buffer.subarray()`"
 sidebar_label: "Replace deprecated `Buffer.slice()` with `Buffer.subarray()`"
 ---
 

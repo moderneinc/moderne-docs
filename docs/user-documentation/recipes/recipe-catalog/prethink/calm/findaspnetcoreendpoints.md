@@ -1,4 +1,5 @@
 ---
+title: "Find ASP.NET Core endpoints"
 sidebar_label: "Find ASP.NET Core endpoints"
 ---
 

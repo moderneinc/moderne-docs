@@ -1,4 +1,5 @@
 ---
+title: "Remove unnecessary cast to `Session` for `SessionFactory.createEntityManager()`"
 sidebar_label: "Remove unnecessary cast to `Session` for `SessionFactory.createEntityManager()`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Remove annotation"
 sidebar_label: "Remove annotation"
 ---
 

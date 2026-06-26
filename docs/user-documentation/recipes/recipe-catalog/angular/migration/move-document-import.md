@@ -1,4 +1,5 @@
 ---
+title: "Move `DOCUMENT` import to `@angular/core`"
 sidebar_label: "Move `DOCUMENT` import to `@angular/core`"
 ---
 

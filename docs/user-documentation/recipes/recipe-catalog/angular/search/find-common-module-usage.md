@@ -1,4 +1,5 @@
 ---
+title: "Find `CommonModule` usage"
 sidebar_label: "Find `CommonModule` usage"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `abstract class` declarations without abstract members"
 sidebar_label: "Find `abstract class` declarations without abstract members"
 ---
 

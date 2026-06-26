@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `RenderComponentType` usage"
 sidebar_label: "Find deprecated `RenderComponentType` usage"
 ---
 

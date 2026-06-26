@@ -1,4 +1,5 @@
 ---
+title: "Align Struts XML constants for Struts 7"
 sidebar_label: "Align Struts XML constants for Struts 7"
 ---
 

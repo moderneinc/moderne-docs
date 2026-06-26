@@ -1,4 +1,5 @@
 ---
+title: "Find PayPal secrets"
 sidebar_label: "Find PayPal secrets"
 ---
 

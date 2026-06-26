@@ -1,4 +1,5 @@
 ---
+title: "Change Maven dependency"
 sidebar_label: "Change Maven dependency"
 ---
 
@@ -43,12 +44,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Change Maven dependency example](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel413/furydependency.md)
-* [Migrate camel-groovy-xml to camel-groovy](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/migrategroovyxml.md)
+* [Change Maven dependency example](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel413/furydependency.md)
+* [Migrate all Maven and Gradle groupIds and artifactIds from OptaPlanner to Timefold](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/fork/timefoldchangedependencies.md)
+* [Migrate camel-groovy-xml to camel-groovy](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/migrategroovyxml.md)
 * [Migrates from Netty 3.2.x to Netty 4.1.x](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_3_2_to_4_1.md)
-* [Renamed dependencies](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel46/renameddependencies.md)
+* [Renamed dependencies](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/renameddependencies.md)
 * [Update the Micronaut Session support](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautsession.md)
-* [Upgrade to Axonframework 4.x Jakarta](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_jakarta.md)
+* [Upgrade to Axonframework 4.x Jakarta](/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradeaxonframework_4_jakarta.md)
 
 ## Example
 

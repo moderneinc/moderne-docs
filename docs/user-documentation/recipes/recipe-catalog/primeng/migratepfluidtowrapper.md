@@ -1,4 +1,5 @@
 ---
+title: "Migrate `.p-fluid` to `&lt;p-fluid&gt;` wrapper"
 sidebar_label: "Migrate `.p-fluid` to `&lt;p-fluid&gt;` wrapper"
 ---
 

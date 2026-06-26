@@ -1,4 +1,5 @@
 ---
+title: "Find iteration-shape smells"
 sidebar_label: "Find iteration-shape smells"
 ---
 

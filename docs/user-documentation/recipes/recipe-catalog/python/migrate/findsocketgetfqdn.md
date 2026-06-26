@@ -1,4 +1,5 @@
 ---
+title: "Find `socket.getfqdn()` usage"
 sidebar_label: "Find `socket.getfqdn()` usage"
 ---
 

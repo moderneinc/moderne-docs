@@ -1,4 +1,5 @@
 ---
+title: "Find `io.reactivex.Observable`/`Flowable`/`Single`/`Maybe` usage in Kotlin"
 sidebar_label: "Find `io.reactivex.Observable`/`Flowable`/`Single`/`Maybe` usage in Kotlin"
 ---
 

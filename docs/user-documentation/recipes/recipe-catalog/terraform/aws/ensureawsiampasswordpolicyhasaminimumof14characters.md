@@ -1,4 +1,5 @@
 ---
+title: "Ensure AWS IAM password policy has a minimum of 14 characters"
 sidebar_label: "Ensure AWS IAM password policy has a minimum of 14 characters"
 ---
 

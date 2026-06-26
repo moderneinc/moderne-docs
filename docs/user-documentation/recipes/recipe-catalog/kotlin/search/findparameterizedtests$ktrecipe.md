@@ -1,4 +1,5 @@
 ---
+title: "Find `@ParameterizedTest` annotations"
 sidebar_label: "Find `@ParameterizedTest` annotations"
 ---
 

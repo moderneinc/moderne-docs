@@ -1,4 +1,5 @@
 ---
+title: "Migrate constructor injection to `inject()`"
 sidebar_label: "Migrate constructor injection to `inject()`"
 ---
 

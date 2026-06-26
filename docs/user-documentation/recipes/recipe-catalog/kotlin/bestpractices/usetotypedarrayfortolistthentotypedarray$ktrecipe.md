@@ -1,4 +1,5 @@
 ---
+title: "Use `toTypedArray()` instead of `toList().toTypedArray()`"
 sidebar_label: "Use `toTypedArray()` instead of `toList().toTypedArray()`"
 ---
 

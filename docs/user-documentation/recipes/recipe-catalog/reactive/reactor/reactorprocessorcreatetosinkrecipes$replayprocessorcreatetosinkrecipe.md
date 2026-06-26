@@ -1,4 +1,5 @@
 ---
+title: "Replace `ReplayProcessor.create()` with `Sinks.many().replay().all()`"
 sidebar_label: "Replace `ReplayProcessor.create()` with `Sinks.many().replay().all()`"
 ---
 

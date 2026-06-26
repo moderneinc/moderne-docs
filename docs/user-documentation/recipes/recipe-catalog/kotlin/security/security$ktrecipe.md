@@ -1,4 +1,5 @@
 ---
+title: "Find security smells in Kotlin code"
 sidebar_label: "Find security smells in Kotlin code"
 ---
 

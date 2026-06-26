@@ -1,4 +1,5 @@
 ---
+title: "Add `providePrimeNG` with a detected theme preset to the root NgModule"
 sidebar_label: "Add `providePrimeNG` with a detected theme preset to the root NgModule"
 ---
 

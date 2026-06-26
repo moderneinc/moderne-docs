@@ -1,4 +1,5 @@
 ---
+title: "Find `@Async` methods on classes that aren't `open`"
 sidebar_label: "Find `@Async` methods on classes that aren't `open`"
 ---
 

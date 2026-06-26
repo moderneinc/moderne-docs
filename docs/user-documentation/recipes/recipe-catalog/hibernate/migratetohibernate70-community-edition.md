@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Hibernate 7.0.x (Community Edition)"
 sidebar_label: "Migrate to Hibernate 7.0.x (Community Edition)"
 ---
 
@@ -41,6 +42,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 **Recipes**
 
 * [Migrate to Hibernate 6.6.x (Community Edition)](../hibernate/migratetohibernate66-community-edition)
+* [Migrate Hibernate Types to Hypersistence Utils for Hibernate 7.0](../hibernate/migratetohypersistenceutilshibernate70)
 * [Upgrade Gradle or Maven dependency versions](../java/dependencies/upgradedependencyversion)
   * groupId: `org.hibernate.orm`
   * artifactId: `*`
@@ -101,6 +103,7 @@ preconditions:
   - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.hibernate.MigrateToHibernate66
+  - org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate70
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: org.hibernate.orm
       artifactId: "*"

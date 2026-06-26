@@ -1,4 +1,5 @@
 ---
+title: "Use ScalaTest matchers instead of `assert(x == y)`"
 sidebar_label: "Use ScalaTest matchers instead of `assert(x == y)`"
 ---
 

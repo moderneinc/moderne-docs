@@ -1,4 +1,5 @@
 ---
+title: "Find SendGrid secrets"
 sidebar_label: "Find SendGrid secrets"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find permissive CORS configuration"
 sidebar_label: "Find permissive CORS configuration"
 ---
 

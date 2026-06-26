@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded algorithm-specific parameters"
 sidebar_label: "Find hardcoded algorithm-specific parameters"
 ---
 

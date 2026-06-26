@@ -1,4 +1,5 @@
 ---
+title: "Find security configuration"
 sidebar_label: "Find security configuration"
 ---
 

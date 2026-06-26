@@ -1,4 +1,5 @@
 ---
+title: "Find `isPlatformWorkerUi` and `isPlatformWorkerApp` usage"
 sidebar_label: "Find `isPlatformWorkerUi` and `isPlatformWorkerApp` usage"
 ---
 

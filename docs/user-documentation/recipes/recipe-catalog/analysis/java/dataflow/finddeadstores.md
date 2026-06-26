@@ -1,4 +1,5 @@
 ---
+title: "Find dead stores"
 sidebar_label: "Find dead stores"
 ---
 

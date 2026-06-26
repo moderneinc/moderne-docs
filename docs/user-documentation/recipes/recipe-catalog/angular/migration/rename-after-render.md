@@ -1,4 +1,5 @@
 ---
+title: "Rename `afterRender` to `afterEveryRender`"
 sidebar_label: "Rename `afterRender` to `afterEveryRender`"
 ---
 

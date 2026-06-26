@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Java to 17+ for Kafka broker/tools"
 sidebar_label: "Upgrade Java to 17+ for Kafka broker/tools"
 ---
 

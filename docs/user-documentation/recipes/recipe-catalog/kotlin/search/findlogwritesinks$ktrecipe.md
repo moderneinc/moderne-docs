@@ -1,4 +1,5 @@
 ---
+title: "Find logger write calls (`info`/`warn`/`error`/`debug`)"
 sidebar_label: "Find logger write calls (`info`/`warn`/`error`/`debug`)"
 ---
 

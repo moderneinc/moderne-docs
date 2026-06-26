@@ -1,4 +1,5 @@
 ---
+title: "Add `defaultConfiguration` to build targets"
 sidebar_label: "Add `defaultConfiguration` to build targets"
 ---
 

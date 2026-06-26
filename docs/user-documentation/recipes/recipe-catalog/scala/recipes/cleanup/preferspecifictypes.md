@@ -1,4 +1,5 @@
 ---
+title: "Prefer specific types over `Any`"
 sidebar_label: "Prefer specific types over `Any`"
 ---
 

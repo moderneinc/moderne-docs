@@ -1,4 +1,5 @@
 ---
+title: "Find equality / comparison smells"
 sidebar_label: "Find equality / comparison smells"
 ---
 

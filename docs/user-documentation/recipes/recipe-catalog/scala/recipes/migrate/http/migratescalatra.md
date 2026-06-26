@@ -1,4 +1,5 @@
 ---
+title: "Migrate Scalatra to http4s, tapir, or Play"
 sidebar_label: "Migrate Scalatra to http4s, tapir, or Play"
 ---
 

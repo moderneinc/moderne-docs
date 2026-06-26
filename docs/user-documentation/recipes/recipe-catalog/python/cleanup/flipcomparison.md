@@ -1,4 +1,5 @@
 ---
+title: "Reorder comparisons to put literals on the right"
 sidebar_label: "Reorder comparisons to put literals on the right"
 ---
 

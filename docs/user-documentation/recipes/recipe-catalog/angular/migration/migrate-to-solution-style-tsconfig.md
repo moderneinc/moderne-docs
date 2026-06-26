@@ -1,4 +1,5 @@
 ---
+title: "Migrate to solution-style tsconfig"
 sidebar_label: "Migrate to solution-style tsconfig"
 ---
 

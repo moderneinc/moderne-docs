@@ -1,4 +1,5 @@
 ---
+title: "Best practices for AWS"
 sidebar_label: "Best practices for AWS"
 ---
 

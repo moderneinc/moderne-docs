@@ -1,4 +1,5 @@
 ---
+title: "Remove duplicate conditions in if/elif chains"
 sidebar_label: "Remove duplicate conditions in if/elif chains"
 ---
 

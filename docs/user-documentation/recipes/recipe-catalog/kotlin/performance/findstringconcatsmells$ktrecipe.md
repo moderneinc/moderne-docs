@@ -1,4 +1,5 @@
 ---
+title: "Find string-allocation smells"
 sidebar_label: "Find string-allocation smells"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find method complexity"
 sidebar_label: "Find method complexity"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Remove empty `ngOnInit` lifecycle hooks"
 sidebar_label: "Remove empty `ngOnInit` lifecycle hooks"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `@Controller` classes whose methods all return data (consider `@RestController`)"
 sidebar_label: "Find `@Controller` classes whose methods all return data (consider `@RestController`)"
 ---
 

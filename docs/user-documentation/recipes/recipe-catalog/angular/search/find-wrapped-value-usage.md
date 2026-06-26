@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `WrappedValue` usage"
 sidebar_label: "Find deprecated `WrappedValue` usage"
 ---
 

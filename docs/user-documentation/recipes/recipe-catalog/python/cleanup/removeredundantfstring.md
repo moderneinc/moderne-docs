@@ -1,4 +1,5 @@
 ---
+title: "Drop ``f`` prefix from strings without placeholders"
 sidebar_label: "Drop ``f`` prefix from strings without placeholders"
 ---
 

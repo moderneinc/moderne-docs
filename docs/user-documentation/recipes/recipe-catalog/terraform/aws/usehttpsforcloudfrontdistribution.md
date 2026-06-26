@@ -1,4 +1,5 @@
 ---
+title: "Use HTTPS for Cloudfront distribution"
 sidebar_label: "Use HTTPS for Cloudfront distribution"
 ---
 

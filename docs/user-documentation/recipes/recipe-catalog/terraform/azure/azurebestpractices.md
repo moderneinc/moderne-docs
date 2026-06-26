@@ -1,4 +1,5 @@
 ---
+title: "Best practices for Azure"
 sidebar_label: "Best practices for Azure"
 ---
 

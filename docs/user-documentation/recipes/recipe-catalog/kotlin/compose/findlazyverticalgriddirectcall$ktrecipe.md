@@ -1,4 +1,5 @@
 ---
+title: "Find `LazyVerticalGrid { … }` calls — verify items use stable keys"
 sidebar_label: "Find `LazyVerticalGrid { … }` calls — verify items use stable keys"
 ---
 

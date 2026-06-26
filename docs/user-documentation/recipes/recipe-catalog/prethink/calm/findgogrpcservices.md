@@ -1,4 +1,5 @@
 ---
+title: "Find Go gRPC services"
 sidebar_label: "Find Go gRPC services"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Java security best practices"
 sidebar_label: "Java security best practices"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `IntArray.sort()` instead of `Arrays.sort(arr)`"
 sidebar_label: "Use `IntArray.sort()` instead of `Arrays.sort(arr)`"
 ---
 

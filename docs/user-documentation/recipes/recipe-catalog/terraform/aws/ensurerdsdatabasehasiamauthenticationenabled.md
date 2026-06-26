@@ -1,4 +1,5 @@
 ---
+title: "Ensure RDS database has IAM authentication enabled"
 sidebar_label: "Ensure RDS database has IAM authentication enabled"
 ---
 

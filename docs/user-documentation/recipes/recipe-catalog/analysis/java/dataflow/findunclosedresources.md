@@ -1,4 +1,5 @@
 ---
+title: "Find unclosed resources (S2095)"
 sidebar_label: "Find unclosed resources (S2095)"
 ---
 

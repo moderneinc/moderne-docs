@@ -1,4 +1,5 @@
 ---
+title: "Use `take(n)` instead of `substring(0, n)` on a `String`"
 sidebar_label: "Use `take(n)` instead of `substring(0, n)` on a `String`"
 ---
 

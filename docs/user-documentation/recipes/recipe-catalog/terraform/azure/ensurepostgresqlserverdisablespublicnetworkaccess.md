@@ -1,4 +1,5 @@
 ---
+title: "Ensure PostgreSQL server disables public network access"
 sidebar_label: "Ensure PostgreSQL server disables public network access"
 ---
 

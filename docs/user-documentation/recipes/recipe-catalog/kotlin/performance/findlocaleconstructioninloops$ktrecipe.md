@@ -1,4 +1,5 @@
 ---
+title: "Find `Locale(...)` allocations inside loops"
 sidebar_label: "Find `Locale(...)` allocations inside loops"
 ---
 

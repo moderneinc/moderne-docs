@@ -1,4 +1,5 @@
 ---
+title: "Find legacy logger-library usage"
 sidebar_label: "Find legacy logger-library usage"
 ---
 

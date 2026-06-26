@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `providedIn` values"
 sidebar_label: "Find deprecated `providedIn` values"
 ---
 

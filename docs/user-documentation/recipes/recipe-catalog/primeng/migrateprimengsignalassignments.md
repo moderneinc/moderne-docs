@@ -1,4 +1,5 @@
 ---
+title: "Migrate `PrimeNG` config field assignments to `.set()`"
 sidebar_label: "Migrate `PrimeNG` config field assignments to `.set()`"
 ---
 

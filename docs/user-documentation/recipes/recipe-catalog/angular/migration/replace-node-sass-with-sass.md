@@ -1,4 +1,5 @@
 ---
+title: "Replace `node-sass` with `sass`"
 sidebar_label: "Replace `node-sass` with `sass`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace `async` with `waitForAsync`"
 sidebar_label: "Replace `async` with `waitForAsync`"
 ---
 

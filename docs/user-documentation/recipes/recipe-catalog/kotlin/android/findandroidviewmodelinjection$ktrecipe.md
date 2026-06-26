@@ -1,4 +1,5 @@
 ---
+title: "Find `ViewModelProvider(...)` direct constructions"
 sidebar_label: "Find `ViewModelProvider(...)` direct constructions"
 ---
 

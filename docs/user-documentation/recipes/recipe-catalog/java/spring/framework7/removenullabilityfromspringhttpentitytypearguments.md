@@ -1,4 +1,5 @@
 ---
+title: "Remove Kotlin nullability from Spring HTTP entity type arguments"
 sidebar_label: "Remove Kotlin nullability from Spring HTTP entity type arguments"
 ---
 

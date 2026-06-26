@@ -1,4 +1,5 @@
 ---
+title: "Find removed APIs in Spring Framework 7.0"
 sidebar_label: "Find removed APIs in Spring Framework 7.0"
 ---
 

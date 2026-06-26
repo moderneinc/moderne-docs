@@ -1,4 +1,5 @@
 ---
+title: "Add a nested block to a Terraform resource"
 sidebar_label: "Add a nested block to a Terraform resource"
 ---
 

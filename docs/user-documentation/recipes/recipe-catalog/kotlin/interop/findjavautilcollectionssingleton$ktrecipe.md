@@ -1,4 +1,5 @@
 ---
+title: "Find `Collections.singletonList/Set/Map(...)` calls"
 sidebar_label: "Find `Collections.singletonList/Set/Map(...)` calls"
 ---
 

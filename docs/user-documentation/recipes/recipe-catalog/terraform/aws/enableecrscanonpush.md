@@ -1,4 +1,5 @@
 ---
+title: "Scan images pushed to ECR"
 sidebar_label: "Scan images pushed to ECR"
 ---
 

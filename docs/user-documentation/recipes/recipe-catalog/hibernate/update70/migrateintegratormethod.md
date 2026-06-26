@@ -1,4 +1,5 @@
 ---
+title: "Migrate Hibernate `Integrator#integrate` method"
 sidebar_label: "Migrate Hibernate `Integrator#integrate` method"
 ---
 

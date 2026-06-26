@@ -1,4 +1,5 @@
 ---
+title: "Find `Array&lt;T&gt;` parameters on `@Composable` functions"
 sidebar_label: "Find `Array&lt;T&gt;` parameters on `@Composable` functions"
 ---
 

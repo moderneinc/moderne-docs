@@ -1,4 +1,5 @@
 ---
+title: "Find .NET flaky test patterns"
 sidebar_label: "Find .NET flaky test patterns"
 ---
 

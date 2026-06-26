@@ -1,4 +1,5 @@
 ---
+title: "Find `DateTimeFormatter.ofPattern` allocations inside loops"
 sidebar_label: "Find `DateTimeFormatter.ofPattern` allocations inside loops"
 ---
 

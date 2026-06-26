@@ -1,4 +1,5 @@
 ---
+title: "Find Compose layout hierarchy smells"
 sidebar_label: "Find Compose layout hierarchy smells"
 ---
 

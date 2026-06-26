@@ -1,4 +1,5 @@
 ---
+title: "Avoid empty catch blocks"
 sidebar_label: "Avoid empty catch blocks"
 ---
 

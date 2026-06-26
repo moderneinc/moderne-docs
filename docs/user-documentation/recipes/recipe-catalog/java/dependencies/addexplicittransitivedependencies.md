@@ -1,4 +1,5 @@
 ---
+title: "Add explicit transitive dependencies"
 sidebar_label: "Add explicit transitive dependencies"
 ---
 

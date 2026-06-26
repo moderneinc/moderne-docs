@@ -1,4 +1,5 @@
 ---
+title: "Find `Statement.executeQuery(&quot;... &quot; + x)` calls"
 sidebar_label: "Find `Statement.executeQuery(&quot;... &quot; + x)` calls"
 ---
 

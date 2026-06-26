@@ -1,4 +1,5 @@
 ---
+title: "Migrate JRPrintServiceExporterParameter to SimplePrintServiceExporterConfiguration"
 sidebar_label: "Migrate JRPrintServiceExporterParameter to SimplePrintServiceExporterConfiguration"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Prefer pattern matching over `isInstanceOf`/`asInstanceOf` chains"
 sidebar_label: "Prefer pattern matching over `isInstanceOf`/`asInstanceOf` chains"
 ---
 

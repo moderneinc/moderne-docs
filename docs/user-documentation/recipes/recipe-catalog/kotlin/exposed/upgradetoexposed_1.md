@@ -1,4 +1,5 @@
 ---
+title: "Migrate to JetBrains Exposed 1.0"
 sidebar_label: "Migrate to JetBrains Exposed 1.0"
 ---
 

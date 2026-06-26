@@ -1,4 +1,5 @@
 ---
+title: "Find `Throwable.printStackTrace()` calls"
 sidebar_label: "Find `Throwable.printStackTrace()` calls"
 ---
 

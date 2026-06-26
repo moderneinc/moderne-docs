@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.toString()` instead of `Integer.toString(i)`"
 sidebar_label: "Use `Int.toString()` instead of `Integer.toString(i)`"
 ---
 

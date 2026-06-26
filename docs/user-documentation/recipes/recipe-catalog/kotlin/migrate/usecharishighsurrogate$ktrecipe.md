@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.isHighSurrogate()` instead of `Character.isHighSurrogate(c)`"
 sidebar_label: "Use `Char.isHighSurrogate()` instead of `Character.isHighSurrogate(c)`"
 ---
 

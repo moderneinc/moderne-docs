@@ -1,4 +1,5 @@
 ---
+title: "Replace string-based `loadChildren` with dynamic `import()`"
 sidebar_label: "Replace string-based `loadChildren` with dynamic `import()`"
 ---
 

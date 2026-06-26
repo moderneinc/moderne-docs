@@ -1,4 +1,5 @@
 ---
+title: "Find `WebView.settings.mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW` settings"
 sidebar_label: "Find `WebView.settings.mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW` settings"
 ---
 

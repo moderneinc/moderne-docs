@@ -1,4 +1,5 @@
 ---
+title: "Replace `fs.truncate()` with file descriptor to `fs.ftruncate()`"
 sidebar_label: "Replace `fs.truncate()` with file descriptor to `fs.ftruncate()`"
 ---
 

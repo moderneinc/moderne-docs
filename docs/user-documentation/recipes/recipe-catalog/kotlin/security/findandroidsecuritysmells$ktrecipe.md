@@ -1,4 +1,5 @@
 ---
+title: "Find Android-specific security smells"
 sidebar_label: "Find Android-specific security smells"
 ---
 

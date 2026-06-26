@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Gradle 8 to 8.4+ for Spring Boot 3.4"
 sidebar_label: "Upgrade Gradle 8 to 8.4+ for Spring Boot 3.4"
 ---
 

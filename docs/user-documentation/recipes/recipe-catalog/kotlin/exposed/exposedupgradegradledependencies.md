@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Exposed Gradle dependencies to 1.0"
 sidebar_label: "Upgrade Exposed Gradle dependencies to 1.0"
 ---
 

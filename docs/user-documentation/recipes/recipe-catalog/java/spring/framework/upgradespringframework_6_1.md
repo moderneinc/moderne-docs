@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Spring Framework 6.1"
 sidebar_label: "Migrate to Spring Framework 6.1"
 ---
 
@@ -40,7 +41,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 **Recipes**
 
-* [Migrate to Spring Framework 6.0](../../../java/spring/framework/upgradespringframework_6_0)
+* [Migrate to Spring Framework 6.0 (Community Edition)](../../../java/spring/framework/upgradespringframework_6_0-community-edition)
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `org.springframework`
   * artifactId: `*`
@@ -79,7 +80,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 3.2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_2.md)
-* [Migrate to Spring Framework 6.2 for WebLogic 15.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
+* [Migrate to Spring Framework 6.2 for WebLogic 15.1.1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
 * [Migrate to Spring Framework 6.2](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_2.md)
 
 

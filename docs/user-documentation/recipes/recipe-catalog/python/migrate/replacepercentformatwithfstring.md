@@ -1,4 +1,5 @@
 ---
+title: "Replace `%` formatting with f-string"
 sidebar_label: "Replace `%` formatting with f-string"
 ---
 

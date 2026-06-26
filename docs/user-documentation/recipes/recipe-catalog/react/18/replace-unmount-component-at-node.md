@@ -1,4 +1,5 @@
 ---
+title: "Replace `unmountComponentAtNode` with `createRoot().unmount()`"
 sidebar_label: "Replace `unmountComponentAtNode` with `createRoot().unmount()`"
 ---
 

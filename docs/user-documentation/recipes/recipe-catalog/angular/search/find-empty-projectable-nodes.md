@@ -1,4 +1,5 @@
 ---
+title: "Find `createComponent` calls with empty `projectableNodes`"
 sidebar_label: "Find `createComponent` calls with empty `projectableNodes`"
 ---
 

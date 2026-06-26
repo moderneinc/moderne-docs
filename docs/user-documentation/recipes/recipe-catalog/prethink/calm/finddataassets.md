@@ -1,4 +1,5 @@
 ---
+title: "Find data assets"
 sidebar_label: "Find data assets"
 ---
 

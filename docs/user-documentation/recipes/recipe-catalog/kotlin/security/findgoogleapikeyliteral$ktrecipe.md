@@ -1,4 +1,5 @@
 ---
+title: "Find Google API key literals (`AIza…`)"
 sidebar_label: "Find Google API key literals (`AIza…`)"
 ---
 

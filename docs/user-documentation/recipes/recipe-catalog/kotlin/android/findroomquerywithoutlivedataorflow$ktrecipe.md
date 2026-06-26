@@ -1,4 +1,5 @@
 ---
+title: "Find `@Query` DAO methods returning a synchronous result"
 sidebar_label: "Find `@Query` DAO methods returning a synchronous result"
 ---
 

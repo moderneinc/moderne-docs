@@ -1,4 +1,5 @@
 ---
+title: "Replace `langchain_community` imports with provider packages"
 sidebar_label: "Replace `langchain_community` imports with provider packages"
 ---
 

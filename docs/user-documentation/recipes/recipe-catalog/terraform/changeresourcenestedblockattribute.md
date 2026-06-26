@@ -1,4 +1,5 @@
 ---
+title: "Change a single attribute inside a Terraform resource's nested block"
 sidebar_label: "Change a single attribute inside a Terraform resource's nested block"
 ---
 

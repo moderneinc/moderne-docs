@@ -1,4 +1,5 @@
 ---
+title: "Find `seq.toList().map { ... }` patterns"
 sidebar_label: "Find `seq.toList().map { ... }` patterns"
 ---
 

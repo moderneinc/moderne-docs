@@ -1,4 +1,5 @@
 ---
+title: "Apply Kotlin standard-library idioms"
 sidebar_label: "Apply Kotlin standard-library idioms"
 ---
 

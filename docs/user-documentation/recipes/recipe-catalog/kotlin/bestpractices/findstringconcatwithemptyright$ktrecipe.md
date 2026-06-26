@@ -1,4 +1,5 @@
 ---
+title: "Find `x + &quot;&quot;` patterns"
 sidebar_label: "Find `x + &quot;&quot;` patterns"
 ---
 

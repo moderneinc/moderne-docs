@@ -1,4 +1,5 @@
 ---
+title: "Convert Dropwizard test rule calls to RestTemplate"
 sidebar_label: "Convert Dropwizard test rule calls to RestTemplate"
 ---
 

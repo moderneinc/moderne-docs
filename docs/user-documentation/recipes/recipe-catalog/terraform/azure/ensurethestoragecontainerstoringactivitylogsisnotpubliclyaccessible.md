@@ -1,4 +1,5 @@
 ---
+title: "Ensure the storage container storing activity logs is not publicly accessible"
 sidebar_label: "Ensure the storage container storing activity logs is not publicly accessible"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `@ConfigurationProperties` classes that aren't `data class`"
 sidebar_label: "Find `@ConfigurationProperties` classes that aren't `data class`"
 ---
 

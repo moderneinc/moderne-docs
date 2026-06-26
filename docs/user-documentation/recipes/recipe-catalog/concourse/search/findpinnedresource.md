@@ -1,4 +1,5 @@
 ---
+title: "Find pinned resources by type"
 sidebar_label: "Find pinned resources by type"
 ---
 

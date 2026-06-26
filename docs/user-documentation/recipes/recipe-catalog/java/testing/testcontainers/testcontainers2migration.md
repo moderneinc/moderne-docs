@@ -1,4 +1,5 @@
 ---
+title: "Migrate to testcontainers-java 2.x"
 sidebar_label: "Migrate to testcontainers-java 2.x"
 ---
 
@@ -47,6 +48,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * oldFullyQualifiedTypeName: `org.testcontainers.containers.DockerComposeContainer`
   * newFullyQualifiedTypeName: `org.testcontainers.containers.ComposeContainer`
 * [Rename Testcontainers dependencies](../../../java/testing/testcontainers/testcontainers2dependencies)
+* [Migrate removed `LocalStackContainer` members to Testcontainers 2.x](../../../java/testing/testcontainers/testcontainers2localstack)
 * [Testcontainers 2 container classes](../../../java/testing/testcontainers/testcontainers2containerclasses)
 
 </TabItem>
@@ -70,6 +72,7 @@ recipeList:
       oldFullyQualifiedTypeName: org.testcontainers.containers.DockerComposeContainer
       newFullyQualifiedTypeName: org.testcontainers.containers.ComposeContainer
   - org.openrewrite.java.testing.testcontainers.Testcontainers2Dependencies
+  - org.openrewrite.java.testing.testcontainers.Testcontainers2LocalStack
   - org.openrewrite.java.testing.testcontainers.Testcontainers2ContainerClasses
 
 ```

@@ -1,4 +1,5 @@
 ---
+title: "Migrate deprecated procedure syntax"
 sidebar_label: "Migrate deprecated procedure syntax"
 ---
 

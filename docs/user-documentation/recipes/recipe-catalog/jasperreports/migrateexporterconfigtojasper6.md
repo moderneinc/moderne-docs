@@ -1,4 +1,5 @@
 ---
+title: "Update JasperReports exporter configuration"
 sidebar_label: "Update JasperReports exporter configuration"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Rename `ExperimentalPendingTasks` to `PendingTasks`"
 sidebar_label: "Rename `ExperimentalPendingTasks` to `PendingTasks`"
 ---
 

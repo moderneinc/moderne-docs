@@ -1,4 +1,5 @@
 ---
+title: "Find two-argument `Cipher.init(opmode, key)` calls"
 sidebar_label: "Find two-argument `Cipher.init(opmode, key)` calls"
 ---
 

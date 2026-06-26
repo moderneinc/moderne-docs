@@ -1,4 +1,5 @@
 ---
+title: "Find redundant logger level-check guards"
 sidebar_label: "Find redundant logger level-check guards"
 ---
 

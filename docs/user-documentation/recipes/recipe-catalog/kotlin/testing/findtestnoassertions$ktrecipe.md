@@ -1,4 +1,5 @@
 ---
+title: "Find `@Test` methods with no recognized assertion calls"
 sidebar_label: "Find `@Test` methods with no recognized assertion calls"
 ---
 

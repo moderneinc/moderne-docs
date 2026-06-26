@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Java version"
 sidebar_label: "Upgrade Java version"
 ---
 
@@ -48,6 +49,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Update SDKMan Java version](../../java/migrate/updatesdkman)
   * newVersion: `null`
 * [Upgrade Docker image Java version](../../java/migrate/upgradedockerimageversion)
+* [Upgrade Kotlin `jvmTarget` to match the Java version](../../java/migrate/upgradekotlinjvmtargetversion)
 
 </TabItem>
 
@@ -70,6 +72,7 @@ recipeList:
   - org.openrewrite.java.migrate.UpdateSdkMan:
       newVersion: null
   - org.openrewrite.java.migrate.UpgradeDockerImageVersion
+  - org.openrewrite.java.migrate.UpgradeKotlinJvmTargetVersion
 
 ```
 </TabItem>
@@ -84,10 +87,11 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Java 8](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava8.md)
 * [Upgrade Java to 11+ for Kafka clients](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/upgradejavaforkafkaclients)
 * [Upgrade Java to 17+ for Kafka broker/tools](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/upgradejavaforkafkabroker)
+* [Upgrade Kotlin to 2.3 for Java 25 compatibility](/user-documentation/recipes/recipe-catalog/java/migrate/upgradekotlinforjava25.md)
 * [Upgrade build to Java 11](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava11.md)
 * [Upgrade build to Java 17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava17.md)
 * [Upgrade build to Java 21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava21.md)
-* [Upgrade build to Java 24 for Kotlin pre-2.3](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava24.md)
+* [Upgrade build to Java 24 for Kotlin 1.x](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava24forkotlin1x.md)
 * [Upgrade build to Java 25 (non-Kotlin)](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava25.md)
 * [Upgrade build to Java 25 for Kotlin 2.3+](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava25forkotlin.md)
 

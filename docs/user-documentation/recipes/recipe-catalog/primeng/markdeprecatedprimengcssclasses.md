@@ -1,4 +1,5 @@
 ---
+title: "Mark deprecated PrimeNG CSS classes with TODO comments"
 sidebar_label: "Mark deprecated PrimeNG CSS classes with TODO comments"
 ---
 

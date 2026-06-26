@@ -1,4 +1,5 @@
 ---
+title: "Find `open class` declarations without overridable members"
 sidebar_label: "Find `open class` declarations without overridable members"
 ---
 

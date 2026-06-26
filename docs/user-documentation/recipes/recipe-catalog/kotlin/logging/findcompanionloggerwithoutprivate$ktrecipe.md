@@ -1,4 +1,5 @@
 ---
+title: "Find companion-object loggers missing `private`"
 sidebar_label: "Find companion-object loggers missing `private`"
 ---
 

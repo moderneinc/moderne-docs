@@ -1,4 +1,5 @@
 ---
+title: "Find `let { }` ergonomics"
 sidebar_label: "Find `let { }` ergonomics"
 ---
 

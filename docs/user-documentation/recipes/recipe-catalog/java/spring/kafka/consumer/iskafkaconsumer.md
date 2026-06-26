@@ -1,4 +1,5 @@
 ---
+title: "Is likely a Kafka consumer module"
 sidebar_label: "Is likely a Kafka consumer module"
 ---
 

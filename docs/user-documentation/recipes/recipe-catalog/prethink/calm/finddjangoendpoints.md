@@ -1,4 +1,5 @@
 ---
+title: "Find Django endpoints"
 sidebar_label: "Find Django endpoints"
 ---
 

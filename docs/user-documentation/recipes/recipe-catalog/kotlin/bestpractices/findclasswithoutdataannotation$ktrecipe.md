@@ -1,4 +1,5 @@
 ---
+title: "Find classes that could be `data class`"
 sidebar_label: "Find classes that could be `data class`"
 ---
 

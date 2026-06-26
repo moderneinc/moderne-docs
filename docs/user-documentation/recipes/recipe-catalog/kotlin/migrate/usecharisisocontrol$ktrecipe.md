@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.isISOControl()` instead of `Character.isISOControl(c)`"
 sidebar_label: "Use `Char.isISOControl()` instead of `Character.isISOControl(c)`"
 ---
 

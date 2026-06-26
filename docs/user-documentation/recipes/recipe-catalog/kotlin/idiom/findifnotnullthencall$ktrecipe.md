@@ -1,4 +1,5 @@
 ---
+title: "Find `if (x != null) x.foo()` that could use `?.`"
 sidebar_label: "Find `if (x != null) x.foo()` that could use `?.`"
 ---
 

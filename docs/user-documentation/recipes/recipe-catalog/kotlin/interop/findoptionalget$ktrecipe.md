@@ -1,4 +1,5 @@
 ---
+title: "Find `Optional.get()` / `orElseThrow()` calls"
 sidebar_label: "Find `Optional.get()` / `orElseThrow()` calls"
 ---
 

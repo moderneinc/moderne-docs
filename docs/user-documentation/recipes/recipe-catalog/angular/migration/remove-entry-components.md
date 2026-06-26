@@ -1,4 +1,5 @@
 ---
+title: "Remove `entryComponents`"
 sidebar_label: "Remove `entryComponents`"
 ---
 

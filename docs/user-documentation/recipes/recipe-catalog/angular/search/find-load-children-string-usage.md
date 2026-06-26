@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated string-based `loadChildren` usage"
 sidebar_label: "Find deprecated string-based `loadChildren` usage"
 ---
 

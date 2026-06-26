@@ -1,4 +1,5 @@
 ---
+title: "Migrate Spring Framework to Spring Boot"
 sidebar_label: "Migrate Spring Framework to Spring Boot"
 ---
 

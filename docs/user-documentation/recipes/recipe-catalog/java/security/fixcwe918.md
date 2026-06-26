@@ -1,4 +1,5 @@
 ---
+title: "Remediate server-side request forgery (SSRF)"
 sidebar_label: "Remediate server-side request forgery (SSRF)"
 ---
 
@@ -10,7 +11,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.java.security.FixCwe918**
 
-_Inserts a guard that validates URLs constructed from user-controlled input do not target internal network addresses, blocking server-side request forgery (SSRF) attacks._
+_Inserts a guard that validates URLs constructed from user-controlled input do not resolve to internal, reserved, or otherwise unsafe network addresses, blocking server-side request forgery (SSRF) attacks. The block list covers IPv4 and IPv6, including IPv4-mapped IPv6 (`::ffff:0:0/96`), IPv6 ULA (`fc00::/7`), NAT64 (`64:ff9b::/96`), 6to4 (`2002::/16`), and Teredo (`2001::/32`) — all of which embed or translate to addresses that would otherwise bypass a naïve `isSiteLocalAddress` / `isLoopbackAddress` check.  The guard does not by itself prevent DNS rebinding. `URL.openConnection()` re-resolves the host at connect time, so a rapidly shifting authoritative DNS response can answer with a public IP during validation and an internal IP at connect time. Closing this time-of-check / time-of-use window requires binding the TCP connection to the validated IP literal — typically via a hardened HTTP client with a custom DNS resolver (`HttpClient.Builder`, Apache HttpClient's `DnsResolver`, OkHttp's `Dns`, etc.) — and is HTTP-client-specific, so it is out of scope for this recipe.  The block list reflects IANA special-use registries at the time of this recipe's release and is not, and cannot be, permanently complete. New special-use ranges are assigned periodically — `3fff::/20` was added as IPv6 documentation space in 2024 (RFC 9637), for example — so the list will need ongoing maintenance to keep pace with the IANA IPv4 and IPv6 Special-Purpose Address Registries._
 
 ### Tags
 
@@ -57,23 +58,77 @@ class Test {
 ```java
 import javax.servlet.http.HttpServletRequest;
 
-import java.net.InetAddress;
 import java.net.URL;
-import java.net.UnknownHostException;
 
 class Test {
     void handleRequest(HttpServletRequest request) throws Exception {
         String target = request.getParameter("url");
         URL url = new URL(target);
+        ssrfGuardValidateUrl(url);
+        url.openConnection();
+    }
+
+    private static void ssrfGuardValidateUrl(java.net.URL url) {
+        String[] blockedCidrs = {
+                "0.0.0.0/8",
+                "10.0.0.0/8",
+                "100.64.0.0/10",
+                "127.0.0.0/8",
+                "169.254.0.0/16",
+                "172.16.0.0/12",
+                "192.0.0.0/24",
+                "192.0.2.0/24",
+                "192.168.0.0/16",
+                "198.18.0.0/15",
+                "198.51.100.0/24",
+                "203.0.113.0/24",
+                "224.0.0.0/3",
+                "::/128",
+                "::1/128",
+                "::ffff:0:0/96",
+                "64:ff9b::/96",
+                "100::/64",
+                "2001::/32",
+                "2001:10::/28",
+                "2001:db8::/32",
+                "2002::/16",
+                "fc00::/7",
+                "fe80::/10",
+                "fec0::/10",
+                "ff00::/8"
+        };
         try {
-            InetAddress ssrfAddr = InetAddress.getByName(url.getHost());
-            if (ssrfAddr.isLoopbackAddress() || ssrfAddr.isSiteLocalAddress() || ssrfAddr.isLinkLocalAddress()) {
-                throw new SecurityException("Blocked request to internal address");
+            for (java.net.InetAddress addr : java.net.InetAddress.getAllByName(url.getHost())) {
+                byte[] addrBytes = addr.getAddress();
+                for (String cidr : blockedCidrs) {
+                    int slash = cidr.indexOf('/');
+                    byte[] prefixBytes = java.net.InetAddress.getByName(cidr.substring(0, slash)).getAddress();
+                    if (prefixBytes.length != addrBytes.length) {
+                        continue;
+                    }
+                    int prefixLen = Integer.parseInt(cidr.substring(slash + 1));
+                    int fullBytes = prefixLen >>> 3;
+                    int remainingBits = prefixLen & 7;
+                    boolean match = true;
+                    for (int i = 0; i < fullBytes && match; i++) {
+                        if (addrBytes[i] != prefixBytes[i]) {
+                            match = false;
+                        }
+                    }
+                    if (match && remainingBits > 0) {
+                        int mask = 0xFF << (8 - remainingBits);
+                        if ((addrBytes[fullBytes] & mask) != (prefixBytes[fullBytes] & mask)) {
+                            match = false;
+                        }
+                    }
+                    if (match) {
+                        throw new SecurityException("Blocked request to internal address");
+                    }
+                }
             }
-        } catch (UnknownHostException e) {
+        } catch (java.net.UnknownHostException e) {
             throw new SecurityException("Unable to resolve host", e);
         }
-        url.openConnection();
     }
 }
 ```
@@ -82,28 +137,78 @@ class Test {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -3,0 +3,1 @@
-import javax.servlet.http.HttpServletRequest;
-
-+import java.net.InetAddress;
-import java.net.URL;
-@@ -4,0 +5,1 @@
-
-import java.net.URL;
-+import java.net.UnknownHostException;
-
-@@ -9,0 +11,8 @@
+@@ -9,0 +9,1 @@
         String target = request.getParameter("url");
         URL url = new URL(target);
++       ssrfGuardValidateUrl(url);
+        url.openConnection();
+@@ -11,0 +12,63 @@
+        url.openConnection();
+    }
++
++   private static void ssrfGuardValidateUrl(java.net.URL url) {
++       String[] blockedCidrs = {
++               "0.0.0.0/8",
++               "10.0.0.0/8",
++               "100.64.0.0/10",
++               "127.0.0.0/8",
++               "169.254.0.0/16",
++               "172.16.0.0/12",
++               "192.0.0.0/24",
++               "192.0.2.0/24",
++               "192.168.0.0/16",
++               "198.18.0.0/15",
++               "198.51.100.0/24",
++               "203.0.113.0/24",
++               "224.0.0.0/3",
++               "::/128",
++               "::1/128",
++               "::ffff:0:0/96",
++               "64:ff9b::/96",
++               "100::/64",
++               "2001::/32",
++               "2001:10::/28",
++               "2001:db8::/32",
++               "2002::/16",
++               "fc00::/7",
++               "fe80::/10",
++               "fec0::/10",
++               "ff00::/8"
++       };
 +       try {
-+           InetAddress ssrfAddr = InetAddress.getByName(url.getHost());
-+           if (ssrfAddr.isLoopbackAddress() || ssrfAddr.isSiteLocalAddress() || ssrfAddr.isLinkLocalAddress()) {
-+               throw new SecurityException("Blocked request to internal address");
++           for (java.net.InetAddress addr : java.net.InetAddress.getAllByName(url.getHost())) {
++               byte[] addrBytes = addr.getAddress();
++               for (String cidr : blockedCidrs) {
++                   int slash = cidr.indexOf('/');
++                   byte[] prefixBytes = java.net.InetAddress.getByName(cidr.substring(0, slash)).getAddress();
++                   if (prefixBytes.length != addrBytes.length) {
++                       continue;
++                   }
++                   int prefixLen = Integer.parseInt(cidr.substring(slash + 1));
++                   int fullBytes = prefixLen >>> 3;
++                   int remainingBits = prefixLen & 7;
++                   boolean match = true;
++                   for (int i = 0; i < fullBytes && match; i++) {
++                       if (addrBytes[i] != prefixBytes[i]) {
++                           match = false;
++                       }
++                   }
++                   if (match && remainingBits > 0) {
++                       int mask = 0xFF << (8 - remainingBits);
++                       if ((addrBytes[fullBytes] & mask) != (prefixBytes[fullBytes] & mask)) {
++                           match = false;
++                       }
++                   }
++                   if (match) {
++                       throw new SecurityException("Blocked request to internal address");
++                   }
++               }
 +           }
-+       } catch (UnknownHostException e) {
++       } catch (java.net.UnknownHostException e) {
 +           throw new SecurityException("Unable to resolve host", e);
 +       }
-        url.openConnection();
++   }
+}
 ```
 </TabItem>
 </Tabs>

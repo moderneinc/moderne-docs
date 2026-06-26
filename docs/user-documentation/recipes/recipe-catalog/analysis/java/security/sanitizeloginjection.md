@@ -1,4 +1,5 @@
 ---
+title: "Sanitize log injection vulnerabilities"
 sidebar_label: "Sanitize log injection vulnerabilities"
 ---
 

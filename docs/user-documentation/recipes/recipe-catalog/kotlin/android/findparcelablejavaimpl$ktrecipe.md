@@ -1,4 +1,5 @@
 ---
+title: "Find Kotlin classes implementing `Parcelable` without `@Parcelize`"
 sidebar_label: "Find Kotlin classes implementing `Parcelable` without `@Parcelize`"
 ---
 

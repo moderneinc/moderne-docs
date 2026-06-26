@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.toString()` instead of `Character.toString(c)`"
 sidebar_label: "Use `Char.toString()` instead of `Character.toString(c)`"
 ---
 

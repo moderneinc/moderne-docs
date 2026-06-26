@@ -1,4 +1,5 @@
 ---
+title: "Encrypt Redshift storage at rest"
 sidebar_label: "Encrypt Redshift storage at rest"
 ---
 

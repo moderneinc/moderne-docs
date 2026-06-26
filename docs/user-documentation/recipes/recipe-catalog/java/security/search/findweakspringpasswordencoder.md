@@ -1,4 +1,5 @@
 ---
+title: "Find weak Spring Security password encoders"
 sidebar_label: "Find weak Spring Security password encoders"
 ---
 

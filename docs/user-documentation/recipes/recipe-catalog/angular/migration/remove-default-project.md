@@ -1,4 +1,5 @@
 ---
+title: "Remove `defaultProject` from `angular.json`"
 sidebar_label: "Remove `defaultProject` from `angular.json`"
 ---
 

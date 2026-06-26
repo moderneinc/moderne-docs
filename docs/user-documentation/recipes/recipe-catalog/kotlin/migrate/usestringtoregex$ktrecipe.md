@@ -1,4 +1,5 @@
 ---
+title: "Use `String.toRegex()` instead of `Pattern.compile(s)`"
 sidebar_label: "Use `String.toRegex()` instead of `Pattern.compile(s)`"
 ---
 

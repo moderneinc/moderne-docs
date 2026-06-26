@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.compareTo` instead of `java.lang.Character.compare`"
 sidebar_label: "Use `Char.compareTo` instead of `java.lang.Character.compare`"
 ---
 

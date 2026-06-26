@@ -1,4 +1,5 @@
 ---
+title: "Move to a later Groovy version"
 sidebar_label: "Move to a later Groovy version"
 ---
 
@@ -25,7 +26,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
 | `int` | majorVersion | The major version of Groovy to upgrade to. | `4` |
-| `String` | upgradeRecipe | *Optional*. The recipe to use to upgrade. |  |
+| `String` | upgradeRecipe | *Optional*. The recipe to use to upgrade. | `TODO Provide a usage example for the docs` |
 
 
 ## Usage
@@ -42,6 +43,7 @@ displayName: Move to a later Groovy version example
 recipeList:
   - io.moderne.devcenter.GroovyVersionUpgrade:
       majorVersion: 4
+      upgradeRecipe: TODO Provide a usage example for the docs
 ```
 
 <RunRecipe
@@ -51,7 +53,7 @@ recipeList:
   artifactId="rewrite-devcenter"
   versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER"
   requiresConfiguration
-  cliOptions={' --recipe-option "majorVersion=4"'}
+  cliOptions={' --recipe-option "majorVersion=4" --recipe-option "upgradeRecipe=TODO Provide a usage example for the docs"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

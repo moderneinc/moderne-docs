@@ -1,4 +1,5 @@
 ---
+title: "Find `!x.isBlank()` calls"
 sidebar_label: "Find `!x.isBlank()` calls"
 ---
 

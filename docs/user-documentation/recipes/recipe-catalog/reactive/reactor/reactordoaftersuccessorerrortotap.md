@@ -1,4 +1,5 @@
 ---
+title: "Replace `doAfterSuccessOrError` calls with `tap` operator"
 sidebar_label: "Replace `doAfterSuccessOrError` calls with `tap` operator"
 ---
 

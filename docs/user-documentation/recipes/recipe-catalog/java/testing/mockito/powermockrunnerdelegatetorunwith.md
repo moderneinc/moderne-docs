@@ -1,4 +1,5 @@
 ---
+title: "Replace PowerMock runner with JUnit `@RunWith`"
 sidebar_label: "Replace PowerMock runner with JUnit `@RunWith`"
 ---
 
@@ -15,7 +16,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.java.testing.mockito.PowerMockRunnerDelegateToRunWith**
 
-_Replaces `@RunWith(PowerMockRunner.class)`. If `@PowerMockRunnerDelegate(X.class)` is present, promotes the delegate runner to `@RunWith(X.class)`. Otherwise, removes the `@RunWith(PowerMockRunner.class)` annotation entirely._
+_Replaces `@RunWith(PowerMockRunner.class)`. If `@PowerMockRunnerDelegate(X.class)` is present, promotes the delegate runner to `@RunWith(X.class)`. Otherwise, replaces it with `@RunWith(MockitoJUnitRunner.class)` when the class uses Mockito annotations like `@Mock`, or removes the `@RunWith(PowerMockRunner.class)` annotation entirely._
 
 ## Recipe source
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace `ast.Ellipsis` with `ast.Constant`"
 sidebar_label: "Replace `ast.Ellipsis` with `ast.Constant`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Ensure GCP Kubernetes cluster node auto-repair configuration is enabled"
 sidebar_label: "Ensure GCP Kubernetes cluster node auto-repair configuration is enabled"
 ---
 

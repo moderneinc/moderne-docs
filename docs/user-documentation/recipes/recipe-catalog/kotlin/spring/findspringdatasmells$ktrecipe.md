@@ -1,4 +1,5 @@
 ---
+title: "Find Spring Data smells"
 sidebar_label: "Find Spring Data smells"
 ---
 

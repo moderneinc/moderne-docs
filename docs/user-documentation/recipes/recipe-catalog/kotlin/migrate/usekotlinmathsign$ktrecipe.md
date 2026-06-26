@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.sign` instead of `java.lang.Math.signum`"
 sidebar_label: "Use `kotlin.math.sign` instead of `java.lang.Math.signum`"
 ---
 

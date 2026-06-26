@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated ReactDOM APIs"
 sidebar_label: "Find deprecated ReactDOM APIs"
 ---
 

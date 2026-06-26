@@ -1,4 +1,5 @@
 ---
+title: "Find `LoggerFactory.getLogger(&quot;some-name&quot;)` calls"
 sidebar_label: "Find `LoggerFactory.getLogger(&quot;some-name&quot;)` calls"
 ---
 

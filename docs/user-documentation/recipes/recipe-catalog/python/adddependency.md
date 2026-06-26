@@ -1,4 +1,5 @@
 ---
+title: "Add Python dependency"
 sidebar_label: "Add Python dependency"
 ---
 

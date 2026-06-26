@@ -1,4 +1,5 @@
 ---
+title: "Find `n.dp` allocations inside a `@Composable` body"
 sidebar_label: "Find `n.dp` allocations inside a `@Composable` body"
 ---
 

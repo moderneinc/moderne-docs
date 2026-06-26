@@ -1,4 +1,5 @@
 ---
+title: "Find inner `class Builder` classes — default-args candidate"
 sidebar_label: "Find inner `class Builder` classes — default-args candidate"
 ---
 

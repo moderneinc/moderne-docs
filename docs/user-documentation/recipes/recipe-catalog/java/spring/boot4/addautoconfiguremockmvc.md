@@ -1,4 +1,5 @@
 ---
+title: "Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`"
 sidebar_label: "Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`"
 ---
 

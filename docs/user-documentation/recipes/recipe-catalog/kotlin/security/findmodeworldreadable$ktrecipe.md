@@ -1,4 +1,5 @@
 ---
+title: "Find `MODE_WORLD_READABLE` references"
 sidebar_label: "Find `MODE_WORLD_READABLE` references"
 ---
 

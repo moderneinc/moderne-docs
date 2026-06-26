@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded color literals inside `@Composable`"
 sidebar_label: "Find hardcoded color literals inside `@Composable`"
 ---
 

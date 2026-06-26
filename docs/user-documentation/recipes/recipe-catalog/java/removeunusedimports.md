@@ -1,4 +1,5 @@
 ---
+title: "Remove unused imports"
 sidebar_label: "Remove unused imports"
 ---
 
@@ -37,7 +38,7 @@ This recipe is used as part of the following composite recipes:
 * [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
 * [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 * [OpenRewrite recipe best practices](/user-documentation/recipes/recipe-catalog/recipes/rewrite/openrewriterecipebestpractices.md)
-* [Upgrade to the latest Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
+* [Upgrade to the latest Timefold Solver](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/tolatest.md)
 
 ## Example
 

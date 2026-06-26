@@ -1,4 +1,5 @@
 ---
+title: "Find Angular decorators"
 sidebar_label: "Find Angular decorators"
 ---
 

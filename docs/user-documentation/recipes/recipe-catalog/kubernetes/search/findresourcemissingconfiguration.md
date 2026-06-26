@@ -1,4 +1,5 @@
 ---
+title: "Find missing configuration"
 sidebar_label: "Find missing configuration"
 ---
 

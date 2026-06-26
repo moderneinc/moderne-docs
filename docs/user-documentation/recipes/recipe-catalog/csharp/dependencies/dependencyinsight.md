@@ -1,4 +1,5 @@
 ---
+title: "Dependency insight for C#"
 sidebar_label: "Dependency insight for C#"
 ---
 

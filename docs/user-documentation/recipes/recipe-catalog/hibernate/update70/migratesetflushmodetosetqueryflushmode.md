@@ -1,4 +1,5 @@
 ---
+title: "Migrate `setFlushMode()` to `setQueryFlushMode()`"
 sidebar_label: "Migrate `setFlushMode()` to `setQueryFlushMode()`"
 ---
 

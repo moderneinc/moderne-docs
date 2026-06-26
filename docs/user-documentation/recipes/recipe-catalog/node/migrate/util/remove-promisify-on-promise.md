@@ -1,4 +1,5 @@
 ---
+title: "Remove unnecessary `util.promisify()` on Promise-returning functions"
 sidebar_label: "Remove unnecessary `util.promisify()` on Promise-returning functions"
 ---
 

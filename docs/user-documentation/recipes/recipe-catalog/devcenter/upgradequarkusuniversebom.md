@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Quarkus Universe BOM"
 sidebar_label: "Upgrade Quarkus Universe BOM"
 ---
 

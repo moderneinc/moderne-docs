@@ -1,4 +1,5 @@
 ---
+title: "Use `mutableDoubleStateOf` instead of `mutableStateOf&lt;Double&gt;` in Compose"
 sidebar_label: "Use `mutableDoubleStateOf` instead of `mutableStateOf&lt;Double&gt;` in Compose"
 ---
 

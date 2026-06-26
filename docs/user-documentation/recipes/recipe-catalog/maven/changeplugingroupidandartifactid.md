@@ -1,4 +1,5 @@
 ---
+title: "Change Maven plugin group and artifact ID"
 sidebar_label: "Change Maven plugin group and artifact ID"
 ---
 
@@ -42,7 +43,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Add Micronaut build plugins to 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/updatebuildplugins.md)
 * [Migrate JAXB-WS Plugin](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratejaxbwsplugin.md)
-* [io.quarkus.updates.core.quarkus30.AdditionalChanges](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus30/additionalchanges.md)
+* [io.quarkus.updates.core.quarkus30.AdditionalChanges](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/additionalchanges.md)
 
 ## Example
 

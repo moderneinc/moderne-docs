@@ -1,4 +1,5 @@
 ---
+title: "Find nullability idiom opportunities"
 sidebar_label: "Find nullability idiom opportunities"
 ---
 

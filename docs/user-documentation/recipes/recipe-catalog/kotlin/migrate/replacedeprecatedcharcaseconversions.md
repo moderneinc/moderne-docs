@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated Char case conversions"
 sidebar_label: "Replace deprecated Char case conversions"
 ---
 

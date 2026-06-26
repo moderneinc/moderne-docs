@@ -1,4 +1,5 @@
 ---
+title: "Find `MatcherAssert.assertThat(...)` (Hamcrest) calls"
 sidebar_label: "Find `MatcherAssert.assertThat(...)` (Hamcrest) calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `Double.roundToLong()` instead of `java.lang.Math.round`"
 sidebar_label: "Use `Double.roundToLong()` instead of `java.lang.Math.round`"
 ---
 

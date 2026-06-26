@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.ln1p` instead of `java.lang.Math.log1p`"
 sidebar_label: "Use `kotlin.math.ln1p` instead of `java.lang.Math.log1p`"
 ---
 

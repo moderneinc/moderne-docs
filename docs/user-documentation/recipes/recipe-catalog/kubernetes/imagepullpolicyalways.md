@@ -1,4 +1,5 @@
 ---
+title: "Ensure image pull policy is `Always`"
 sidebar_label: "Ensure image pull policy is `Always`"
 ---
 

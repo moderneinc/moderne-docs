@@ -1,4 +1,5 @@
 ---
+title: "Ensure AWS Lambda functions have tracing enabled"
 sidebar_label: "Ensure AWS Lambda functions have tracing enabled"
 ---
 

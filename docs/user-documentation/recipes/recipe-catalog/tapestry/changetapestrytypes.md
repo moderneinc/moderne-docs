@@ -1,4 +1,5 @@
 ---
+title: "Change Tapestry 4 types to Tapestry 5 equivalents"
 sidebar_label: "Change Tapestry 4 types to Tapestry 5 equivalents"
 ---
 

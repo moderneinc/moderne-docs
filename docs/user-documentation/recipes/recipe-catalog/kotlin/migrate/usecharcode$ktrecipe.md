@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.code` instead of `Char.toInt()`"
 sidebar_label: "Use `Char.code` instead of `Char.toInt()`"
 ---
 

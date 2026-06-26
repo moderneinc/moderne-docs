@@ -1,4 +1,5 @@
 ---
+title: "Replace a method invocation with a reference to an annotated field"
 sidebar_label: "Replace a method invocation with a reference to an annotated field"
 ---
 

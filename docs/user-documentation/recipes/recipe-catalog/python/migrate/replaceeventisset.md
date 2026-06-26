@@ -1,4 +1,5 @@
 ---
+title: "Replace `Event.isSet()` with `Event.is_set()`"
 sidebar_label: "Replace `Event.isSet()` with `Event.is_set()`"
 ---
 

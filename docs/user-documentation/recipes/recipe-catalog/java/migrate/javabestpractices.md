@@ -1,4 +1,5 @@
 ---
+title: "Java best practices"
 sidebar_label: "Java best practices"
 ---
 
@@ -46,9 +47,13 @@ This recipe is available under the [Moderne Source Available License](https://do
 **Recipes**
 
 * [Migrate to Java 25](../../java/migrate/upgradetojava25)
+* [Migrate `public static void main(String[] args)` to instance `void main()`](../../java/migrate/lang/migratemainmethodtoinstancemain)
+* [Extract complex `super(..)` and `this(..)` arguments into local variables](../../java/migrate/lang/extractexplicitconstructorinvocationarguments)
 * [Use text blocks](../../java/migrate/lang/usetextblocks)
   * convertStringsWithoutNewlines: `true`
   * avoidLineContinuations: `false`
+* [Prefer `String.formatted(Object...)`](../../java/migrate/lang/stringformatted)
+  * addParentheses: `true`
 * [Prefer the Java standard library instead of Guava](../../java/migrate/guava/noguava)
 * [Prefer the Java standard library instead of Joda-Time](../../java/joda/time/nojodatime)
 * [JSpecify best practices](../../java/jspecify/jspecifybestpractices)
@@ -104,9 +109,13 @@ preconditions:
   - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.migrate.UpgradeToJava25
+  - org.openrewrite.java.migrate.lang.MigrateMainMethodToInstanceMain
+  - org.openrewrite.java.migrate.lang.ExtractExplicitConstructorInvocationArguments
   - org.openrewrite.java.migrate.lang.UseTextBlocks:
       convertStringsWithoutNewlines: true
       avoidLineContinuations: false
+  - org.openrewrite.java.migrate.lang.StringFormatted:
+      addParentheses: true
   - org.openrewrite.java.migrate.guava.NoGuava
   - org.openrewrite.java.joda.time.NoJodaTime
   - org.openrewrite.java.jspecify.JSpecifyBestPractices

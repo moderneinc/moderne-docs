@@ -1,4 +1,5 @@
 ---
+title: "Add `@MockitoSettings(strictness = Strictness.LENIENT)` for `@MockitoBean` tests"
 sidebar_label: "Add `@MockitoSettings(strictness = Strictness.LENIENT)` for `@MockitoBean` tests"
 ---
 

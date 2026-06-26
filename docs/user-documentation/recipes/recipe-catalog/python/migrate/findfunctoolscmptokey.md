@@ -1,4 +1,5 @@
 ---
+title: "Find `functools.cmp_to_key()` usage"
 sidebar_label: "Find `functools.cmp_to_key()` usage"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `runBlocking` calls inside `suspend` functions"
 sidebar_label: "Find `runBlocking` calls inside `suspend` functions"
 ---
 

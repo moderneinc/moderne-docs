@@ -1,4 +1,5 @@
 ---
+title: "Remove explicit True/False comparisons"
 sidebar_label: "Remove explicit True/False comparisons"
 ---
 

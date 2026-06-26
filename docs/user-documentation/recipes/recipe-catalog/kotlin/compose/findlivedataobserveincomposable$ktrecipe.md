@@ -1,4 +1,5 @@
 ---
+title: "Find `LiveData.observe(...)` calls inside `@Composable`"
 sidebar_label: "Find `LiveData.observe(...)` calls inside `@Composable`"
 ---
 

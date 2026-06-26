@@ -1,4 +1,5 @@
 ---
+title: "Find sensitive API endpoints"
 sidebar_label: "Find sensitive API endpoints"
 ---
 

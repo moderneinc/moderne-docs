@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `imghdr` module usage"
 sidebar_label: "Find deprecated `imghdr` module usage"
 ---
 

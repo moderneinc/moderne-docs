@@ -1,4 +1,5 @@
 ---
+title: "Remove unnecessary `@Override` annotations"
 sidebar_label: "Remove unnecessary `@Override` annotations"
 ---
 

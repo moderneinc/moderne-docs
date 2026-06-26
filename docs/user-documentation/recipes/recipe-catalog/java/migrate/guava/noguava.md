@@ -1,4 +1,5 @@
 ---
+title: "Prefer the Java standard library instead of Guava"
 sidebar_label: "Prefer the Java standard library instead of Guava"
 ---
 
@@ -44,7 +45,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 **Recipes**
 
-* [Inline `guava` methods annotated with `@InlineMe`](../../../com/google/guava/inlineguavamethods)
+* [Inline `guava` methods annotated with `@InlineMe`](../../../google/guava/inlineguavamethods)
 * [Prefer the Java 11 standard library instead of Guava](../../../java/migrate/guava/noguavajava11)
 * [Prefer the Java 21 standard library instead of Guava](../../../java/migrate/guava/noguavajava21)
 * [Prefer `Files#createTempDirectory()`](../../../java/migrate/guava/noguavacreatetempdir)
@@ -94,7 +95,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Prefer `Math#subtractExact`](../../../java/migrate/guava/prefermathsubtractexact)
 * [Prefer `Math#multiplyExact`](../../../java/migrate/guava/prefermathmultiplyexact)
 * [Prefer `new AtomicReference&lt;&gt;()`](../../../java/migrate/guava/noguavaatomicsnewreference)
-* [`InputStreamRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/inputstreamrulesrecipes)
+* [`InputStreamRules` Refaster recipes](../../../picnic/errorprone/refasterrules/inputstreamrulesrecipes)
 
 </TabItem>
 

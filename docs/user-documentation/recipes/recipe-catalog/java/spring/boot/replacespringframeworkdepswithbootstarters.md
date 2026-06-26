@@ -1,4 +1,5 @@
 ---
+title: "Replace Spring Framework dependencies with Spring Boot starters"
 sidebar_label: "Replace Spring Framework dependencies with Spring Boot starters"
 ---
 

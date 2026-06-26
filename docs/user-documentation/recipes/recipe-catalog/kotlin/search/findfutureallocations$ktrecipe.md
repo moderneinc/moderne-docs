@@ -1,4 +1,5 @@
 ---
+title: "Find `CompletableFuture` / `FutureTask` allocations"
 sidebar_label: "Find `CompletableFuture` / `FutureTask` allocations"
 ---
 

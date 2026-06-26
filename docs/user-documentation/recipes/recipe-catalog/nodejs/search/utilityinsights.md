@@ -1,4 +1,5 @@
 ---
+title: "Javascript utility library insights"
 sidebar_label: "Javascript utility library insights"
 ---
 

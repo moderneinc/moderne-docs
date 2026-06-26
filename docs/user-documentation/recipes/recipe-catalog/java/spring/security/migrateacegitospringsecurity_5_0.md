@@ -1,4 +1,5 @@
 ---
+title: "Migrate from Acegi Security 1.0.x to Spring Security 5.0"
 sidebar_label: "Migrate from Acegi Security 1.0.x to Spring Security 5.0"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find predictable cryptographic salts"
 sidebar_label: "Find predictable cryptographic salts"
 ---
 
@@ -10,10 +11,11 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.java.security.search.FindPredictableSalt**
 
-_Finds `PBEParameterSpec` and `PBEKeySpec` constructed with hardcoded salt byte arrays. A predictable salt undermines the purpose of salting, making rainbow table and precomputation attacks feasible. Salts should be generated randomly using `SecureRandom`._
+_Finds `PBEParameterSpec` and `PBEKeySpec` constructed with hardcoded or too-short salt byte arrays. A predictable salt undermines the purpose of salting, making rainbow table and precomputation attacks feasible; a salt shorter than 16 bytes is below the minimum strength recommended by NIST SP 800-132. Salts should be generated randomly using `SecureRandom` and at least 16 bytes long._
 
 ### Tags
 
+* [RSPEC-S2053](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S2053&open=java%3AS2053)
 * [CWE-760](/user-documentation/recipes/lists/recipes-by-tag#cwe)
 
 ## Recipe source

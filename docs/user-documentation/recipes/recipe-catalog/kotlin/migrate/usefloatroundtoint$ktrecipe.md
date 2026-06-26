@@ -1,4 +1,5 @@
 ---
+title: "Use `Float.roundToInt()` instead of `java.lang.Math.round`"
 sidebar_label: "Use `Float.roundToInt()` instead of `java.lang.Math.round`"
 ---
 

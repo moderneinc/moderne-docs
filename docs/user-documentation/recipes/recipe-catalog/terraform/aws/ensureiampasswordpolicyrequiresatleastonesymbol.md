@@ -1,4 +1,5 @@
 ---
+title: "Ensure IAM password policy requires at least one symbol"
 sidebar_label: "Ensure IAM password policy requires at least one symbol"
 ---
 

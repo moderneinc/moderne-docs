@@ -1,4 +1,5 @@
 ---
+title: "Migrate `Configurable.configure()` to use `GeneratorCreationContext`"
 sidebar_label: "Migrate `Configurable.configure()` to use `GeneratorCreationContext`"
 ---
 

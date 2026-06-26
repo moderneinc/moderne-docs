@@ -1,4 +1,5 @@
 ---
+title: "Replace unnecessary intermediate collection before `.toSet`"
 sidebar_label: "Replace unnecessary intermediate collection before `.toSet`"
 ---
 

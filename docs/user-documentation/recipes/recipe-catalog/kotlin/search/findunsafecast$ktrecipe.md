@@ -1,4 +1,5 @@
 ---
+title: "Find bare `as` casts (unsafe)"
 sidebar_label: "Find bare `as` casts (unsafe)"
 ---
 

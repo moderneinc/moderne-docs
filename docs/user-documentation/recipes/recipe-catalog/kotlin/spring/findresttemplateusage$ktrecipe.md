@@ -1,4 +1,5 @@
 ---
+title: "Find `RestTemplate` allocations"
 sidebar_label: "Find `RestTemplate` allocations"
 ---
 

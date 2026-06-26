@@ -1,4 +1,5 @@
 ---
+title: "Find `Paths.get(&quot;...&quot; + input)` calls"
 sidebar_label: "Find `Paths.get(&quot;...&quot; + input)` calls"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Improve performance of Kotlin code"
 sidebar_label: "Improve performance of Kotlin code"
 ---
 

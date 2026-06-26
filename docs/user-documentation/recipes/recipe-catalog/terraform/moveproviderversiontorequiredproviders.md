@@ -1,4 +1,5 @@
 ---
+title: "Move provider version to `required_providers`"
 sidebar_label: "Move provider version to `required_providers`"
 ---
 

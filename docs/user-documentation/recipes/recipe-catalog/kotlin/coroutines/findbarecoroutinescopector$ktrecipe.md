@@ -1,4 +1,5 @@
 ---
+title: "Find raw `CoroutineScope(...)` constructions"
 sidebar_label: "Find raw `CoroutineScope(...)` constructions"
 ---
 

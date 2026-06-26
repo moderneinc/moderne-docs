@@ -1,4 +1,5 @@
 ---
+title: "Replace `cgi.parse_qsl()` with `urllib.parse.parse_qsl()`"
 sidebar_label: "Replace `cgi.parse_qsl()` with `urllib.parse.parse_qsl()`"
 ---
 

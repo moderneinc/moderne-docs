@@ -1,4 +1,5 @@
 ---
+title: "Find removed `@angular/platform-webworker` usage"
 sidebar_label: "Find removed `@angular/platform-webworker` usage"
 ---
 

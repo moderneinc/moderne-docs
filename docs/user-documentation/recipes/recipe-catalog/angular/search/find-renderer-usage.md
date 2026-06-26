@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `Renderer` usage"
 sidebar_label: "Find deprecated `Renderer` usage"
 ---
 

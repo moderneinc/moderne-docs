@@ -1,4 +1,5 @@
 ---
+title: "Find `KClass.declaredFunctions` / `declaredMemberFunctions` access"
 sidebar_label: "Find `KClass.declaredFunctions` / `declaredMemberFunctions` access"
 ---
 

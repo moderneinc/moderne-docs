@@ -1,4 +1,5 @@
 ---
+title: "Replace `pkgutil.find_loader()` with `importlib.util.find_spec()`"
 sidebar_label: "Replace `pkgutil.find_loader()` with `importlib.util.find_spec()`"
 ---
 

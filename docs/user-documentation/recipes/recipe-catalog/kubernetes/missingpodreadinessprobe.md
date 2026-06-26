@@ -1,4 +1,5 @@
 ---
+title: "Ensure readiness probe is configured"
 sidebar_label: "Ensure readiness probe is configured"
 ---
 

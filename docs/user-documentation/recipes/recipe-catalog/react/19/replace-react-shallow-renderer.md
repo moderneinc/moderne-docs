@@ -1,4 +1,5 @@
 ---
+title: "Replace `react-test-renderer/shallow` import"
 sidebar_label: "Replace `react-test-renderer/shallow` import"
 ---
 

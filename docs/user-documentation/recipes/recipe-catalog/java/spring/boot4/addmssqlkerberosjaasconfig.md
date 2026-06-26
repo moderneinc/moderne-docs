@@ -1,4 +1,5 @@
 ---
+title: "Add `useDefaultJaasConfig=true` to MSSQL Kerberos JDBC URLs"
 sidebar_label: "Add `useDefaultJaasConfig=true` to MSSQL Kerberos JDBC URLs"
 ---
 

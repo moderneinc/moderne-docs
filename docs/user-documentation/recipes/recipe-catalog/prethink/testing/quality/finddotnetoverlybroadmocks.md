@@ -1,4 +1,5 @@
 ---
+title: "Find overly broad mocks in .NET tests"
 sidebar_label: "Find overly broad mocks in .NET tests"
 ---
 

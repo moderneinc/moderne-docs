@@ -1,4 +1,5 @@
 ---
+title: "Find lifecycle-naive flow / LiveData collection in Composables"
 sidebar_label: "Find lifecycle-naive flow / LiveData collection in Composables"
 ---
 

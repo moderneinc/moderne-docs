@@ -1,4 +1,5 @@
 ---
+title: "Find Mailgun secrets"
 sidebar_label: "Find Mailgun secrets"
 ---
 

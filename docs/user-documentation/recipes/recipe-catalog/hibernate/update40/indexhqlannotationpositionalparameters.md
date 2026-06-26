@@ -1,4 +1,5 @@
 ---
+title: "Index HQL/JPQL positional parameters in annotations"
 sidebar_label: "Index HQL/JPQL positional parameters in annotations"
 ---
 

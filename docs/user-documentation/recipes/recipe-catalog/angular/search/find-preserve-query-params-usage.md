@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `preserveQueryParams` usage"
 sidebar_label: "Find deprecated `preserveQueryParams` usage"
 ---
 

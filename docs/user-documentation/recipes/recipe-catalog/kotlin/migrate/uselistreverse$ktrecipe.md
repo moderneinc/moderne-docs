@@ -1,4 +1,5 @@
 ---
+title: "Use `MutableList.reverse()` instead of `Collections.reverse(list)`"
 sidebar_label: "Use `MutableList.reverse()` instead of `Collections.reverse(list)`"
 ---
 

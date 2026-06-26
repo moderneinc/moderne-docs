@@ -1,4 +1,5 @@
 ---
+title: "Prefer immutable collections"
 sidebar_label: "Prefer immutable collections"
 ---
 

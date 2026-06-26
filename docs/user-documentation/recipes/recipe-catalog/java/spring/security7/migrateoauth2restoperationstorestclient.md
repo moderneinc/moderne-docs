@@ -1,4 +1,5 @@
 ---
+title: "Migrate OAuth2 token response client from `RestOperations` to `RestClient`"
 sidebar_label: "Migrate OAuth2 token response client from `RestOperations` to `RestClient`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.code.toShort()` instead of `Char.toShort()`"
 sidebar_label: "Use `Char.code.toShort()` instead of `Char.toShort()`"
 ---
 

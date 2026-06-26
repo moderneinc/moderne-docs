@@ -1,4 +1,5 @@
 ---
+title: "Update Tapestry dependencies"
 sidebar_label: "Update Tapestry dependencies"
 ---
 

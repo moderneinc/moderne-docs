@@ -1,4 +1,5 @@
 ---
+title: "Find `sharedPrefs.edit()` calls"
 sidebar_label: "Find `sharedPrefs.edit()` calls"
 ---
 

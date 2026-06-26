@@ -1,4 +1,5 @@
 ---
+title: "Find `x.takeIf { p }?.let { ... }` patterns"
 sidebar_label: "Find `x.takeIf { p }?.let { ... }` patterns"
 ---
 

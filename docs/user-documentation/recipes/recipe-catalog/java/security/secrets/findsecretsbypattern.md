@@ -1,4 +1,5 @@
 ---
+title: "Find secrets with regular expressions"
 sidebar_label: "Find secrets with regular expressions"
 ---
 

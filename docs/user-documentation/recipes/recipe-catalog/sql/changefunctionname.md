@@ -1,4 +1,5 @@
 ---
+title: "Change a SQL function name"
 sidebar_label: "Change a SQL function name"
 ---
 

@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.2.13           |
+| CLI version | 4.3.6           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,348 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.6 (2026-06-23)
+
+#### What's Changed
+* Incremental `mod build` for Bazel: git-diff target differ + in-place LST reuse
+* Index constructor calls so call: and UsesMethod preconditions match them
+* Lock the build slot for in-place incremental builds
+* Stop probing non-existent files during recipe runs over large monorepos
+* Remove redundant per-repo stat calls in data-table enumeration
+* Skip the unused per-repo isDirectory stat during org-structure read
+
+### CLI / DX v4.3.5 (2026-06-22)
+
+#### What's Changed
+* Live Prethink context refresh in mod mcp
+* Synthesize V3 build LST node ids on read instead of persisting them
+* Fall back to install-from-index when the bundled Python engine offline-install fails
+* Unify MCP tool descriptions on the compact form; replace workflow skills with per-tool flow skills
+* Make Bazel per-target mini-build JVMs cheap and quiet to start
+* Incrementally update the mcp LST for any covered language, not just Java
+* Suggest running the first installed recipe after yaml install
+* Emit AndroidProject LST marker during mod build
+* Favor configured gradleVersion over the Gradle wrapper
+* Auto-detect (and provision) the Android SDK for Gradle builds
+* Improve handling of concurrent ecosystem engine extraction
+* Fix modw wrapper exit 1 when Java is resolved from PATH
+* Reorder RunTrace stage columns to follow Sync, Build, Run
+* Handle empty plugin configuration in Maven prebuild serialization
+
+### CLI / DX v4.3.4 (2026-06-19)
+
+#### What's Changed
+* Fix v3 roster root store
+* Upgrade Jackson from 2.21.1 to 2.21.4
+* Install the vendored Python engine offline instead of via a server-wide pip env
+* tolerate lost staging race when unpacking the bundled Python wheels
+
+### CLI / DX v4.3.3 (2026-06-19)
+
+#### What's Changed
+* Match type-FQN search filters by simple name and AspectJ glob
+* Warn when YAML-installed recipes reference recipes missing from the marketplace
+* Don't persist negative POM cache results to disk
+* Delete .github/workflows/ci-4-2-x.yml
+* Auto-convert V2 LSTs to V3 in mod search
+* Move recipe pip install into the Python RPC server
+* Evaluate scanning and editing preconditions per phase
+* Vendor the npm/pip/nuget RPC recipe engines into the fat jar
+* Detect Git worktrees as repositories in `OrganizationWalkingCommand`
+* Bazel: scale LST builds + search to whole monorepos (partition analysis, fix finalize, fast aggregate search)
+
+### CLI / DX v4.3.2 (2026-06-17)
+
+#### What's Changed
+* Publish repos.csv and repos-lock.csv to a Maven coordinate on Maven artifact stores
+* Detect additional locations where copilot may be in use
+* Preserve J.Literal value's boxed type across v3 LST round-trip
+* Register cross-ecosystem resolvers for npm/pip recipe installs
+
+### CLI / DX v4.3.1 (2026-06-16)
+
+#### What's Changed
+* Add mainframe build step with configurable Cobol parse timeout
+* Fall back to GraphQL when /api/recipes returns HTTP 400 on SaaS v1
+* BuildOutput.upToDate: O(1) HashSet membership instead of List.contains
+* Reset PlainProgressBar on setMax so non-TTY progress no longer pins at 100% during the edit phase
+* Discover versioned, pyenv, and uv Python interpreters
+
+### CLI / DX v4.3.0 (2026-06-15)
+
+#### What's Changed
+* Support `${os}` and `${arch}` placeholders in wrapper jdkUrl
+* Key the H2 POM cache by repository credentials
+* Add prebuild/build separation for V3 LST format
+* Inline moderne-ast-write into core/serialization
+* Exclude sync failures from build success stats in trace builds analyze
+* Add create-build-partitions skill for monorepo moderne.yml generation
+* Fix CI test failures from moderne-ast-write inline
+* Remove modgradle/modmaven; V2 LSTs flow through new build step
+* Restore missing Definalize buildSrc helper to fix main CI
+* Rename GradleBuildStep2/MavenBuildStep2 in tests to fix main CI
+* Fix V2 prebuild gate, partition inclusion, partial gradle metadata
+* Decouple RunIntegTest data-table assertion from prethink table names
+* Gate snapshot publishing on ci success
+* RunIntegTest: assert any data table reads back non-empty
+* PythonBuildStep: recognize Pipenv projects via Pipfile
+* Log: suggest `mod trace ... analyze` as a next step after `mod log`
+* Log effective pom.xml to it's own file to avoid `build.log` bloat
+* Skip uploading `repos-lock.csv` if no LSTs were published via `mod publish` and improve upload failure error messaging
+* Rename `mod{maven,gradle}-metadata` → `prebuild-{maven,gradle}`
+* Fix `mod run` bug not finding LST artifact after prebuild feature was integrated
+* Fix terminal escape leak by disabling JLine grapheme cluster probe
+* Add ci-4-2-x.yml for 4.2.x maintenance branch CI
+* cli: add 'mod config run polyglot-parallel' to cap rewrite-rpc concurrency
+* mod run: shut down Python and Go rewrite-rpc per repo
+* Stop closing cached recipe classloaders on resolver close
+* Fail the build when a prebuild step fails
+* Fix TrayClient HTTP connection leak that exhausts ephemeral ports
+* agent-tools bench v1: corpus mode + mcp warm-start + 12 portable tasks
+* Add actionable error messages to wrapper version resolution
+* Defer npx/python/dotnet probes until corresponding RPC starts
+* Restore @Builder.Default values in V3 binary POJO read path
+* mod run: share the polyglot-parallel Semaphore across RunTasks
+* Fix BuildIntegTest.gradleArgsOnOneRepoButNotAnother broken by #3812
+* DevCenter: add Hide N/A toggle to Change campaigns section
+* Register Claude Code MCP server directly without bash -c wrapper
+* Quote JVM system property values in `JvmArgsResolver` output
+* Fix MCP recipes failing silently on stale-snapshot recipe bundles
+* MCP: edit_code/analyze_code split + auto-installed skill bridge
+* Fix race condition in RepositoryGitTask#updateBranchChangeset
+* mod run: exclude filter-mismatched repos from the progress bar
+* V3: partition-backed LST format
+* Unbundle `rewrite-devcenter` from CLI fat jar; consume DevCenter via JSON
+* Remove unused moderne-recipe-loading-commons dependency
+* Drop McpToolsAuditTest to unblock CI on main
+* Drop dead `moderne-recipe-loading-commons` dep and unauth Artifactory access
+* Fix DevCenter spec loading for declarative parent recipes
+* mod run: write Canceled trace.csv rows for partitions that did not complete
+* Add `${extension}` placeholder to wrapper distributionUrl template
+* Detect uninitialized remote repos during bulk clone
+* mod build: don't NPE when GitProvenance is unavailable
+* Surface "Repository not found" specifically on clone failure
+* Show total applicable projects per DevCenter upgrade card
+* Add `mod log execs` to aggregate exec logs
+* Fix `NullPointerException` in `mod git clone csv`
+* Underline OSC 8 hyperlinks in CLI output
+* Upgrade to `actions/checkout@v6`
+* Move JDK selection logging out of JavaRuntime into JvmExternalBuildTool
+* Preserve full recipe chain in changes.json
+* Surface MCP LST build failures instead of silently going READY
+* Require .NET SDK 10+ for building .NET LSTs and running C# recipes
+* Add PowerShell completion to `mod generate-completion`
+* Add `mod clean repos` to remove broken or orphaned repository directories
+* Handle git-worktree `.git` files in GitInfoExclude
+* Add `mod config recipes csv sync` and use it from `moderne sync`
+* Keep DevCenterSpec record from being obfuscated
+* Print expiration date when generating a license key
+* mod clean builds: also delete prebuild.json manifests
+* LST download: tighten corrupt-download handling and lock cache safety with tests
+* Preserve retired type schemas across V3 codegen runs
+* DevCenter: stretch Change campaigns cards to full row width and equal height
+* Fix LST staleness from JDK partition miss; add compact MCP tool descriptions
+* Wire V3 LST precondition fast-path into `mod run`
+* Amend CliRecipeClassLoader to have NestHost-aware routing of class lo…
+* Fix gitignore staleness; tighten LST incremental update consistency
+* Extract and build go RPC from sources
+* Trigrep: V3 integration, .tri size reduction, symbol search, and trigram-indexed symbols
+* Wrapper: pass argv to JVM without `eval exec`
+* Trigrep: stitch postings during merge instead of re-extracting
+* Preserve leading slash on absolute paths in mod config show
+* Fix OOM during V2→V3 LST conversion on large repositories
+* Build .NET Framework (packages.config) projects on non-Windows via NuGet CLI
+* Fix V3 silently dropping marker fields (TrailingComma whitespace + 5 others)
+* Reduce modw.cmd Windows startup overhead by ~2.5s
+* Fix V3 silently dropping J.Case caseLabels after-spaces
+* Use G1 unconditionally in modw to stop AOT cache thrash
+* Fix V3 prebuild OOM when expanding flat dependency table into trees
+* mod search: fix select:symbol.`<kind>` folding; drop requote heuristics
+* mod search: support the select:file projection
+* mod search: don't render filename matches as "L1: `<path>`"
+* Pipeline the trigram search engine with a lazy stage-1/stage-2 split
+* Apply clone timeout to checkout step in `mod git sync csv`
+* Remove bench/ — moved to moderneinc/agent-tools-bench
+* Drop Claude-specific path from skill version check
+* Apply lsts.artifacts auth when fetching remote repos.csv
+* JvmArgsResolver: stop wrapping -D values in literal quotes (post-#3900 fixup)
+* Stop the modw wrappers from rebuilding the AOT cache on every run
+* Upgrade `mod trace builds analyze` for 50k+ repo datasets
+* Wrapper: fall back to installed CLI jar on 403/404 download failure
+* Fix query-parser, symbol-search, and mod search bugs
+* mod search: rank-order the index; add `count:all` exhaustive search
+* `mod config recipes artifacts show`: drop `default-repositories` suggestion, use new `add` subcommand
+* mod mcp: trigrep_search reads a single, live LST-derived index
+* feat: honor Maven `toolchains.xml` for JDK discovery and pass to subprocess
+* Fix `mod config moderne login` retrying against the same description
+* mod search: give field and enum-constant symbols a real declaration section
+* extract generic RepositoriesProperty`<T>` base class
+* MCP: surface zero-match diagnostics + wildcard hint in pattern_replace
+* Fix ExportContext empty CSVs: wire inputStreamFactory in RunTask CsvDataTableStore
+* MCP: gate pattern_replace diagnostics correctly + add partial-match follow-up
+* Fix V3 type-table write-time late-add producing out-of-range refs (#3954)
+* Fix 10 correctness bugs in mod search and the MCP server
+* New way of installing go recipes
+* Add Azure Blob Storage as LST artifact source
+* Answer V3 lazy SourceFile markers from the file index
+* Add prometheus false-positive suppression, drop expired/resolved plexus-utils entry
+* Intern equal-by-value Maven dep-graph POJOs during LST deserialization
+* MCP: defer LST state=READY until startup incremental flush completes
+* Don't fail Java-only recipe runs on polyglot repos without Node/Python
+* Don't auto-add Maven snapshots repo when configuring Artifactory
+* V3 LST: global markers, per-group meta.bin sections, and verbatim fragment merge
+* Fix two V3 LST serialization regressions found by mod build sweep
+* Fix classpath when utilizing snapshot versions on Windows
+* MCP: type-blind LST detection + directive search→edit descriptions + repo-relative grep paths
+* Move file-size filtering into FileInclusion, delete BuildFilter
+* MCP: scope type-blind detection + structured nextStep on edit_code/learn_recipe
+* Install edit-code and analyze-code skills via mod agent-tools
+* Lower Python runtime floor to 2.7 for LST building
+* Filter `config recipes artifacts {artifactory,maven} show` by type
+* Fix formatting of description
+* Fix PythonInstallationTest after lowering minimum version to 2.7
+* fix bare mdx expression
+* Add --jdk-url option to mod wrapper
+* Fix GitInfoExclude to write to the shared info/exclude in git worktrees
+* Push CLI telemetry traces to the tenant gateway
+* Skip hidden subcommands in PowerShell completion script
+* Register resolvers for Go for recipe runs
+* Don't mistake folders named "BUILD" as being bazel BUILD files
+* Force Netty 4.2.14.Final to patch CVE-2026-4257x cluster
+* Fix modw.cmd using stale CLI_VERSION when MODERNE_JAR is set
+* Fix docs automation bug with branch names
+* Suppress azure-* CVE-2026-33117 and azure-identity CVE-2023-36415/-2024-35255 false positives
+* Adapt to Go split of java/golang packages
+* V3 partition-memory redesign: type/marker/tree formats, build-step ports, trigrep rewire
+* V3 trigrep: merged .zoekt shard search engine (replaces per-file .tri)
+* Restore lang:/file: stage-1 search filters dropped in #4021
+* Disable main CI build
+* Guard null JavaType.Class.getKind() in V3 TypeTableWriter
+* Fix V2 cross-fragment/cross-parser dedup CI failures
+* Flush manifest.csv after each write batch so later build steps read whole lines
+* Clean up mod build prebuild/build console + log output
+* V3 codegen: cast int to char for char-typed AST node fields
+* pattern_replace: migrate from Refaster to Kotlin recipe DSL
+* Fix V3 build-pipeline integration regressions (resource/manifest/path)
+* V3 marker codec: identity-stable intern, plus two codegen bug fixes
+* Provision yarn/pnpm via corepack when not on the PATH
+* V3 marker codec: slim RecipesThatMadeChanges payload
+* V3 marker codec: fix RecipesThatMadeChanges serialization (override serializeWithType)
+* V2→V3 LST converter + deserializable V2 builds
+* Recommend 'mod build' after 'git sync csv --with-sources'
+* MCP incremental build: handle deleted source files
+* MCP: enable immediateExecution so parallel tool calls don't crash the session
+* Re-enable main CI build (revert #4035)
+* MCP: K2 langver pin and trigrep query auto-escape
+* Fix V2 run path dropping all recipe edits (finalizeCycle over-deletion)
+* MCP incremental build: handle recipe-driven file renames
+* V3 type tables: block-compress entry bodies + read-once sections (~2x smaller)
+* modw self-update: write wrapper to bin/, not dist/
+* Propagate a valid `user.home` and `HOME` to build subprocess JVMs
+* Fix V3 tree codegen NPE on @Nullable boxed-primitive fields
+* mod study: right-align orgN columns to max depth in CSV merger
+* Serialize modw cache population behind the install lock
+* V3 codegen: stabilize wire tags/field ids via a committed tag registry
+* Relax global.json when installed SDK can't satisfy the pin (.NET build)
+* Route LST extraction through the NVMe cache via a version-keyed slot + symlink
+* V3 search: align symbol-kind names with the query vocabulary
+* Restore prebuild-based Gradle subproject discovery
+* Suppress false-positive OpenTelemetry CVEs on Prometheus simpleclient shim
+* Report LST serialization failures as build failures instead of silent success
+* Fix V3 types.bin NPE on null JavaType identifier names
+* Enable `-XX:+UseCompactObjectHeaders` in `modw` and `modw.cmd`
+* Restore SNAPSHOT content-hashing in V3 dependency type table filenames
+* Bundle LTS JDK type tables and tolerate jmods-less runtimes
+* Fix V3 edit-overlay directory collision that dropped most recipe changes
+* Capture and re-apply auto-detected styles in V3 LSTs
+* V2 LSTs: type-attribute Groovy/Kotlin/Scala via DefaultJavaTypeFactory
+* Tighten `mod build` per-repo output to a start + outcome line
+* Speed up devFatJar packaging and make the build configuration-cache compatible
+* mod search: union AND line matches; fix progress-bar wrap mangling
+* Sync V3 tree registry with rewrite-csharp pragma directive fields
+* Fix trigrep symbol-search: NoOp crash, filter regex, and parameterized-type hierarchy walks
+* Restore `moderne.cli.buildstep` metrics
+* Fix double-including some files
+* Wire the root source set's edit-overlay extern resolver
+* Show exact matching-file totals instead of `N+` when search results are capped
+* fix: follow build/`<id>` symlink when enumerating LST fragments
+* fix: re-map stale marker-table mmap segment when markers.bin is rewritten
+* Skip collecting git committers on code paths where that information is irrelevant and potentially expensive to collect.
+* Fix stale-LST after applyRecipeResults; improve recipe discovery
+* Add /run-dev-cli and /sync-organization skills; remove cross-repo-dev
+* Fix Windows CI: mark POSIX-only marker-table re-map test @DisabledOnOs(WINDOWS)
+* mod build: assemble per-source-set search shards into one repo-level index
+* Use `GitProvenance.CommitHistory.none()` in place of the removed `includeCommitters` boolean
+* Fix duplicate symbol matches and leaked highlight markers in search
+* mod build: sort prebuild tree depth-first so prefix-colliding modules aren't dropped to PlainText
+* mod mcp: emit per-call trace.csv for tool calls into the telemetry queue
+* mcp: seed from newest usable build dir + keep partially type-blind LSTs READY
+* mod build: isolate nested Gradle builds, skip frontend Node download, type JS/Python by default
+* Fix red main CI: make McpTraceRecorder non-git fallback test hermetic
+* mod build: resolve `${java.version}` to the POM, tolerate strict-CEN jars, soften engines.node
+* Replace H2 MVStore Maven POM cache with SQLite (WAL mode)
+* Add `mod config recipes artifacts {npm,pip,nuget,go}` commands
+* Fix double frontmatter and weak descriptions in installed agent skills
+* Recipe `pip`/`npm`/`nuget`/`go` install honors configured artifact repos
+* Fold accumulated incremental search deltas per source set
+* Windows: don't hold an mmap of markers.bin across flushTables rewrites
+* mod build: publish sibling SNAPSHOTs so standalone Gradle roots build
+* mod mcp: nudge agents off lst_status polling deadlock toward trigrep_search
+* Parse leftover JVM sources as real (untyped) compilation units
+* Upgrade to JUnit 6.1 + global @TempDir retrying deletion strategy
+* Run: shut down the metrics aggregator in onComplete()
+* Document the V3 LST format and reconcile its docs with the code
+* Require Python 3.12+ for the rewrite-python parser interpreter
+* Adding CommonMarkers, incl. LstProvenance in LST V3 too
+* Add `config build python timeout` and `config build node timeout` subcommands
+* mod mcp: bench-driven nudges + close the LST staleness gap on agent native-tool writes
+* Fix NumberFormatException when re-aggregating manifest.csv
+* Install uv into a CLI-managed location and expose it via the launcher PATH
+* Propagate JVM warning-suppression flags to forked build JVMs
+* Provision Python dependencies so ty resolves third-party supertypes
+* Stop resolving third-party snapshots from Sonatype
+* Distinguish recipe-run timeouts from user cancellations
+* Fix progress bar wrap artifacts when a status line exceeds terminal width
+* Move and decompose the run command into a dedicated run package
+* Test for LST v3 serialization of all source files
+* Cap DuckDB memory so query_datatable can't consume ~80% of system RAM
+* Reclaim memory-mapped type/marker tables once their readers are unreachable
+* Add `mod run --sync-csv` to sync LSTs from a repos.csv before running
+* Do not reuse the relaxed project-listing JDK for the Gradle LST build
+* mod mcp: don't write recipe results for files that errored while visiting
+* Fix V3 matchOverrides under-matching; chain-aware run-path type resolution
+* Pool PostingTable heavy buffers across shard builders
+* Fix empty Maven-recipe results from older LSTs failing to deserialize
+* Share the run read path's full type chain with the V3 edit-overlay predicate
+* Intern ChainResolvers on their chain's first reader instead of a static map
+* Rebuild Go RPC binary after recipes upgrade
+* Guard against null HEAD when recording sync changeset
+* Infer mod study output format from --output-file extension
+* Deprioritize the CLI's bundled JRE during JDK selection
+* Fingerprint the JDK binary in the AOT cache staleness check
+* Drive the V3 edit type-overlay to zero for search recipes + sibling type-table dedup
+* Shrink V3 type tables and remove string transcoding from the read path
+* Remove the V3 type-table structural-dedup pass
+* Guard repository-path split when the path has no organization
+* Cap mod mcp heap at min(25% RAM, 4 GB) by default
+* Multipart upload and download across HTTP, S3, and Azure
+* Accept an installation directory for config `<lang>` installation edit
+* V3 Bazel monorepo support: recursive per-target build + pure-copy union
+* Add `mod config dotnet version` command to match Java, Python, and Node
+* Store per-symbol relationship arrays sparsely in the zoekt shard
+* Store the repo-index assembly manifest as streaming CSV
+
+### CLI / DX v4.2.14 (2026-06-10)
+
+#### What's Changed
+* [4.2.x] Backport #4067 + #4070: modw wrapper path + mod study CSV merger
+* [4.2.x] Add config build python timeout and config build node timeout subcommands
+* [4.2.x] Regenerate DevCenter template to include backported Hide N/A toggle
+* [4.2.x] Fix progress bar wrap artifacts when a status line exceeds terminal width (#4137)
+* [4.2.x] Distinguish recipe-run timeouts from user cancellations (#4138) 
+* [4.2.x] Fix double-including some files
+* [4.2.x] Do not reuse the relaxed project-listing JDK for the Gradle LST build
 
 ### CLI / DX v4.2.13 (2026-06-04)
 
@@ -34,9 +376,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 #### What's Changed
 * [4.2.x] cli: add 'mod config run polyglot-parallel' to cap rewrite-rpc concurrency
 
+## May 2026
+
 ### CLI / DX 4.2.10 (2026-05-29)
 
-## What's Changed
+#### What's Changed
 * `mod config recipes artifacts show`: now suggests `add` subcommand
 * Honor Maven `toolchains.xml` for JDK discovery
 * `mod generate-completion --shell powershell` now generates a tab-completion script for PowerShell. Dot-source the output from your `$PROFILE` to enable subcommand and option completion for mod and modw.

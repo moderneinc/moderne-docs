@@ -1,4 +1,5 @@
 ---
+title: "Find flaky test patterns"
 sidebar_label: "Find flaky test patterns"
 ---
 

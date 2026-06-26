@@ -1,4 +1,5 @@
 ---
+title: "Find `val isX` Boolean properties missing `@get:JvmName`"
 sidebar_label: "Find `val isX` Boolean properties missing `@get:JvmName`"
 ---
 

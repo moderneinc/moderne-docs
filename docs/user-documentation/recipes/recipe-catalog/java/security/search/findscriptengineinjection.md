@@ -1,4 +1,5 @@
 ---
+title: "Find script engine code injection vectors"
 sidebar_label: "Find script engine code injection vectors"
 ---
 

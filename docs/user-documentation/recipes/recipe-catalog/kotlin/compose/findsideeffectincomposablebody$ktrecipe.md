@@ -1,4 +1,5 @@
 ---
+title: "Find logging calls in `@Composable` bodies"
 sidebar_label: "Find logging calls in `@Composable` bodies"
 ---
 

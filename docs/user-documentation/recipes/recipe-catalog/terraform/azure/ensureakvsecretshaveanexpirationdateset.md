@@ -1,4 +1,5 @@
 ---
+title: "Ensure AKV secrets have an expiration date set"
 sidebar_label: "Ensure AKV secrets have an expiration date set"
 ---
 

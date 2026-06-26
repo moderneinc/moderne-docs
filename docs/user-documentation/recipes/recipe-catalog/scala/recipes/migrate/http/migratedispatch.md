@@ -1,4 +1,5 @@
 ---
+title: "Migrate Dispatch to sttp or http4s-client"
 sidebar_label: "Migrate Dispatch to sttp or http4s-client"
 ---
 

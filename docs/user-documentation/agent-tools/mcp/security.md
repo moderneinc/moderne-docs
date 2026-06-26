@@ -7,6 +7,10 @@ description: Understand the security architecture, network behavior, and data fl
 
 This page describes the security architecture of the Moderne MCP server (`mod mcp`) for IT, security, and compliance reviewers evaluating whether to permit it in their environment.
 
+:::info
+This page covers the **local** MCP server that runs on developer workstations. The [remote MCP server](./remote-server.md) is a separate, hosted service on the Moderne Platform with the same security posture as the [Moderne API](../../moderne-platform/how-to-guides/accessing-the-moderne-api.md).
+:::
+
 ## Summary for security reviewers
 
 | Question                                               | Answer                                                                                                                                                                                                    |
@@ -116,7 +120,7 @@ The MCP server exposes two read-only status resources:
 
 * All repository source code (read for indexing and analysis; never transmitted)
 * The LST (written to `.moderne/mcp/lst/` inside the repository)
-* The trigram search index (written to `.moderne/mcp/search/` inside the repository)
+* The trigram search index (`.zoekt` shards under `.moderne/build/{buildId}/sources/` and the assembled repo-level index under `.moderne/build/{buildId}/index/` inside the repository, produced inline by `mod build`)
 * Recipe run output and DataTables (written to `.moderne/mcp/run/` inside the repository; auto-deleted after one hour)
 * The tool-observations CSV (written to `~/.moderne/mcp/tool-observations.csv`)
 * All MCP protocol messages (carried over stdin/stdout; never over a network)
@@ -173,8 +177,9 @@ In a future release, the Moderne CLI will provide an opt-in feature to connect t
 | Repository working tree                                   | Source files read to build the LST, trigram search index, and execute recipe transformations.                                                                  |
 | `{repo}/.git/`                                            | Git metadata for detecting the repository root and worktree configurations.                                                                                    |
 | `{repo}/.moderne/recipes-v5.csv`                          | Per-repository recipe marketplace override, if present.                                                                                                        |
-| `{repo}/.moderne/mcp/search/*.zoekt`                      | Trigram search index shard files (read back after being written by the indexer).                                                                               |
-| `{repo}/.moderne/mcp/lst/`                                | Cached LST files from prior builds.                                                                                                                            |
+| `{repo}/.moderne/build/{buildId}/sources/**/*.zoekt`      | Per-source-set trigram index shards produced by `mod build`, read by `mod search` and the MCP search tools when no assembled index is present.                 |
+| `{repo}/.moderne/build/{buildId}/index/merged-*.zoekt`    | Repo-level assembled trigram index shards, plus `assembly.csv` (per-part digests) and a `.complete` sentinel. Preferred read source once `.complete` exists.   |
+| `{repo}/.moderne/mcp/lst/`                                | Cached LST files from prior `mod mcp` builds.                                                                                                                  |
 | `~/.moderne/cli/recipes-v5.csv`                           | Global recipe marketplace catalog.                                                                                                                             |
 | `~/.moderne/tray/server.port`                             | Port number of the tray app's HTTP server (macOS/tray feature only).                                                                                           |
 | `~/.moderne/tray/server.lock`                             | Lock file for detecting whether the tray app is running (macOS/tray feature only).                                                                             |
@@ -185,8 +190,9 @@ In a future release, the Moderne CLI will provide an opt-in feature to connect t
 | Location                                              | Purpose                                                                           |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `{repo}/**` (arbitrary paths)                         | Source files modified, added, or deleted by refactoring recipes.                  |
-| `{repo}/.moderne/mcp/lst/`                            | Serialized LST files after each build.                                            |
-| `{repo}/.moderne/mcp/search/*.zoekt`                  | Trigram index shard files.                                                        |
+| `{repo}/.moderne/mcp/lst/`                            | Serialized LST files after each `mod mcp` build.                                  |
+| `{repo}/.moderne/build/{buildId}/sources/**/*.zoekt`  | Per-source-set trigram index shards produced inline by `mod build`.               |
+| `{repo}/.moderne/build/{buildId}/index/merged-*.zoekt`| Repo-level assembled trigram shards (`assembly.csv` + `.complete` sentinel).      |
 | `{repo}/.moderne/mcp/run/{runId}/datatables/*.csv.gz` | DataTable files produced by recipe runs. Auto-deleted after one hour.             |
 | `{repo}/.moderne/mcp/lst/recipe.log`                  | Log of Maven artifact resolution activity during recipe preparation.              |
 | `{repo}/.moderne/mcp/lst/parsing-events.json`         | Cached parsing events, replayed to the tray app on restart.                       |

@@ -1,4 +1,5 @@
 ---
+title: "Find long `List` pipelines that should use `Sequence`"
 sidebar_label: "Find long `List` pipelines that should use `Sequence`"
 ---
 

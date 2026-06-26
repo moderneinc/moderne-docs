@@ -1,4 +1,5 @@
 ---
+title: "Find Python types"
 sidebar_label: "Find Python types"
 ---
 

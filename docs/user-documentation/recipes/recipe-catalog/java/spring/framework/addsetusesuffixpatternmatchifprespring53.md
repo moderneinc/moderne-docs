@@ -1,4 +1,5 @@
 ---
+title: "Add `setUseSuffixPatternMatch(true)` for pre-Spring Framework 5.3 projects"
 sidebar_label: "Add `setUseSuffixPatternMatch(true)` for pre-Spring Framework 5.3 projects"
 ---
 

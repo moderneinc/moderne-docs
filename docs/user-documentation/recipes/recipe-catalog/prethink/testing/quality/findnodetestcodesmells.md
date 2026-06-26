@@ -1,4 +1,5 @@
 ---
+title: "Find Node.js test code smells"
 sidebar_label: "Find Node.js test code smells"
 ---
 

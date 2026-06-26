@@ -1,4 +1,5 @@
 ---
+title: "Flag deprecated suffix pattern matching usage for manual review"
 sidebar_label: "Flag deprecated suffix pattern matching usage for manual review"
 ---
 

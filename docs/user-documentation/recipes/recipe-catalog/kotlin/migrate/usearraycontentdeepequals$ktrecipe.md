@@ -1,4 +1,5 @@
 ---
+title: "Use `Array.contentDeepEquals()` instead of `Arrays.deepEquals(a, b)`"
 sidebar_label: "Use `Array.contentDeepEquals()` instead of `Arrays.deepEquals(a, b)`"
 ---
 

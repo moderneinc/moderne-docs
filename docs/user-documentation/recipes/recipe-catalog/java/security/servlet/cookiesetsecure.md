@@ -1,4 +1,5 @@
 ---
+title: "Insecure cookies"
 sidebar_label: "Insecure cookies"
 ---
 

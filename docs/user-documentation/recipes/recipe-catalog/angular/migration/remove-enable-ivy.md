@@ -1,4 +1,5 @@
 ---
+title: "Remove `enableIvy` compiler option"
 sidebar_label: "Remove `enableIvy` compiler option"
 ---
 

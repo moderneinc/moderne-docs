@@ -1,4 +1,5 @@
 ---
+title: "Find undecorated classes with Angular features"
 sidebar_label: "Find undecorated classes with Angular features"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `filterTo(mutableListOf(), p)` instead of `filter(p).toMutableList()`"
 sidebar_label: "Use `filterTo(mutableListOf(), p)` instead of `filter(p).toMutableList()`"
 ---
 

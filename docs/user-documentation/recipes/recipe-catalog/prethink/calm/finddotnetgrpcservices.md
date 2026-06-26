@@ -1,4 +1,5 @@
 ---
+title: "Find .NET gRPC services"
 sidebar_label: "Find .NET gRPC services"
 ---
 

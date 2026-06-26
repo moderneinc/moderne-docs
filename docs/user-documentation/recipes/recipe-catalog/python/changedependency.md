@@ -1,4 +1,5 @@
 ---
+title: "Change Python dependency"
 sidebar_label: "Change Python dependency"
 ---
 

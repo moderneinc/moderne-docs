@@ -1,4 +1,5 @@
 ---
+title: "Use `Action.async` with `Future` instead of blocking"
 sidebar_label: "Use `Action.async` with `Future` instead of blocking"
 ---
 

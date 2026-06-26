@@ -1,4 +1,5 @@
 ---
+title: "Replace `act` import from react-dom/test-utils"
 sidebar_label: "Replace `act` import from react-dom/test-utils"
 ---
 

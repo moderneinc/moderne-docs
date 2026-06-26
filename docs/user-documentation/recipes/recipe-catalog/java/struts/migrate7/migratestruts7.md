@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Struts 7.0"
 sidebar_label: "Migrate to Struts 7.0"
 ---
 

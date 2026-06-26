@@ -1,4 +1,5 @@
 ---
+title: "Encrypt EBS volume launch configurations"
 sidebar_label: "Encrypt EBS volume launch configurations"
 ---
 

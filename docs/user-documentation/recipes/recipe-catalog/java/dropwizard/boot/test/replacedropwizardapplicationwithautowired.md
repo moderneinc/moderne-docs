@@ -1,4 +1,5 @@
 ---
+title: "Replace `DropwizardAppExtension.getApplication()` with `@Autowired` application field"
 sidebar_label: "Replace `DropwizardAppExtension.getApplication()` with `@Autowired` application field"
 ---
 

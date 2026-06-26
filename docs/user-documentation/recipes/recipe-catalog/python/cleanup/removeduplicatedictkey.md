@@ -1,4 +1,5 @@
 ---
+title: "Deduplicate repeated keys in dict literals"
 sidebar_label: "Deduplicate repeated keys in dict literals"
 ---
 

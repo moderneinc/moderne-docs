@@ -1,4 +1,5 @@
 ---
+title: "Find `MessageDigest.getInstance(&quot;MD5&quot;)` calls"
 sidebar_label: "Find `MessageDigest.getInstance(&quot;MD5&quot;)` calls"
 ---
 

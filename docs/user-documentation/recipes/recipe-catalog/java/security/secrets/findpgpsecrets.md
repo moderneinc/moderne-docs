@@ -1,4 +1,5 @@
 ---
+title: "Find PGP secrets"
 sidebar_label: "Find PGP secrets"
 ---
 

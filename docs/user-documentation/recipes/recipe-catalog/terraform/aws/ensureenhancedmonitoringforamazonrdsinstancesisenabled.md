@@ -1,4 +1,5 @@
 ---
+title: "Ensure enhanced monitoring for Amazon RDS instances is enabled"
 sidebar_label: "Ensure enhanced monitoring for Amazon RDS instances is enabled"
 ---
 

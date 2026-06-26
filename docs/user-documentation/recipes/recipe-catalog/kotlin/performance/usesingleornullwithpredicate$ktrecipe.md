@@ -1,4 +1,5 @@
 ---
+title: "Use `singleOrNull { predicate }` instead of `filter { predicate }.singleOrNull()`"
 sidebar_label: "Use `singleOrNull { predicate }` instead of `filter { predicate }.singleOrNull()`"
 ---
 

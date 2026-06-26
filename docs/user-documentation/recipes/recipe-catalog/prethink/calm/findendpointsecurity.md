@@ -1,4 +1,5 @@
 ---
+title: "Find endpoint security"
 sidebar_label: "Find endpoint security"
 ---
 
@@ -26,6 +27,24 @@ This recipe is used as part of the following composite recipes:
 
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
+
+## Example
+
+
+###### Unchanged
+```java
+package com.example;
+
+import org.springframework.web.bind.annotation.*;
+import jakarta.annotation.security.PermitAll;
+
+@RestController
+public class C {
+    @GetMapping("/p")
+    @PermitAll
+    public String p() { return ""; }
+}
+```
 
 
 ## Usage

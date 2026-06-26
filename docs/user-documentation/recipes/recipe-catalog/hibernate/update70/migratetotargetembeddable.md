@@ -1,4 +1,5 @@
 ---
+title: "Migrate to @TargetEmbeddable"
 sidebar_label: "Migrate to @TargetEmbeddable"
 ---
 

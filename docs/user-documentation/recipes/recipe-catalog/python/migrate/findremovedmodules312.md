@@ -1,4 +1,5 @@
 ---
+title: "Find modules removed in Python 3.12"
 sidebar_label: "Find modules removed in Python 3.12"
 ---
 

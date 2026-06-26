@@ -1,4 +1,5 @@
 ---
+title: "Find `java.util.Random()` allocations"
 sidebar_label: "Find `java.util.Random()` allocations"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `any { predicate }` instead of `filter { predicate }.isNotEmpty()`"
 sidebar_label: "Use `any { predicate }` instead of `filter { predicate }.isNotEmpty()`"
 ---
 

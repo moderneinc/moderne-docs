@@ -1,4 +1,5 @@
 ---
+title: "Migrate deprecated retry configuration to task timeout"
 sidebar_label: "Migrate deprecated retry configuration to task timeout"
 ---
 

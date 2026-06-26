@@ -1,4 +1,5 @@
 ---
+title: "Pass iterable directly to `any()`/`all()` instead of identity generator"
 sidebar_label: "Pass iterable directly to `any()`/`all()` instead of identity generator"
 ---
 

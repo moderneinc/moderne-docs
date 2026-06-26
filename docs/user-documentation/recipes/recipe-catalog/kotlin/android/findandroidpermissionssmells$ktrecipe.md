@@ -1,4 +1,5 @@
 ---
+title: "Find Android permissions / security smells"
 sidebar_label: "Find Android permissions / security smells"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "DevCenter for Gradle and Maven"
 sidebar_label: "DevCenter for Gradle and Maven"
 ---
 

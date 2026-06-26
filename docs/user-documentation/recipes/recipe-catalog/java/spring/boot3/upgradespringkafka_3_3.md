@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Spring Kafka 3.3"
 sidebar_label: "Migrate to Spring Kafka 3.3"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `catch (e: Exception) { throw OtherException(...) }` without `e` as cause"
 sidebar_label: "Find `catch (e: Exception) { throw OtherException(...) }` without `e` as cause"
 ---
 

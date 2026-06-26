@@ -1,4 +1,5 @@
 ---
+title: "Find `GlobalScope.launch` calls"
 sidebar_label: "Find `GlobalScope.launch` calls"
 ---
 

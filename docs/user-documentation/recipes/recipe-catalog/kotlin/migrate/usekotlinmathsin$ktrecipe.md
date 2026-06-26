@@ -1,4 +1,5 @@
 ---
+title: "Use `kotlin.math.sin` instead of `java.lang.Math.sin`"
 sidebar_label: "Use `kotlin.math.sin` instead of `java.lang.Math.sin`"
 ---
 

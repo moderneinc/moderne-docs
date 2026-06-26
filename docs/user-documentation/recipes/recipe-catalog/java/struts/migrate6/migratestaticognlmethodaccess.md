@@ -1,4 +1,5 @@
 ---
+title: "Migrate static OGNL method access to action wrapper methods"
 sidebar_label: "Migrate static OGNL method access to action wrapper methods"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Remove a Gradle or Maven dependency"
 sidebar_label: "Remove a Gradle or Maven dependency"
 ---
 
@@ -75,11 +76,13 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 4.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 * [Migrate to Spring Boot 4.0 modular starters (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition)
+* [Migrate to Spring Framework 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_4_0)
 * [Migrate to Spring Framework 5.3 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-community-edition.md)
 * [Migrate to Spring Framework 5.3 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-moderne-edition)
 * [Migrate to Struts 2.x from Struts 1.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratestruts2)
 * [Migrates to Apache POI 5.x](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_5.md)
 * [Modernize a Jenkins plugin to the latest recommended versions](/user-documentation/recipes/recipe-catalog/jenkins/modernizeplugin.md)
+* [Remove JUnit Jupiter migrationsupport](/user-documentation/recipes/recipe-catalog/java/testing/junit/removejupitermigrationsupport.md)
 * [Remove JavaEE dependencies](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/removejavaeedependencies.md)
 * [Remove Spring Boot DevTools](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringbootdevtools.md)
 * [Remove Spring Pulsar Reactive support](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/removespringpulsarreactive)
@@ -125,7 +128,7 @@ This recipe is used as part of the following composite recipes:
 * [Update to Micronaut Validation 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautvalidation.md)
 * [Upgrade Struts 6.0 dependencies](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/upgradestruts6dependencies)
 * [Upgrade to SpringDoc 2.1](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2.md)
-* [io.quarkus.updates.core.quarkus31.RemoveMockitoInline](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus31/removemockitoinline.md)
+* [io.quarkus.updates.core.quarkus31.RemoveMockitoInline](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus31/removemockitoinline.md)
 
 ## Example
 

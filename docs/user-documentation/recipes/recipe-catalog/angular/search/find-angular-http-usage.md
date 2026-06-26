@@ -1,4 +1,5 @@
 ---
+title: "Find removed `@angular/http` usage"
 sidebar_label: "Find removed `@angular/http` usage"
 ---
 

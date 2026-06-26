@@ -1,4 +1,5 @@
 ---
+title: "Ensure Azure Network Watcher NSG flow logs retention is greater than 90 days"
 sidebar_label: "Ensure Azure Network Watcher NSG flow logs retention is greater than 90 days"
 ---
 

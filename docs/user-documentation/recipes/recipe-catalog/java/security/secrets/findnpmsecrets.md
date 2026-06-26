@@ -1,4 +1,5 @@
 ---
+title: "Find NPM secrets"
 sidebar_label: "Find NPM secrets"
 ---
 

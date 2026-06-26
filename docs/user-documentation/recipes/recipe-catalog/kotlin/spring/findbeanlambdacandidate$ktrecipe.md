@@ -1,4 +1,5 @@
 ---
+title: "Find `@Bean fun foo(): X = X()` candidates for the `beans { }` DSL"
 sidebar_label: "Find `@Bean fun foo(): X = X()` candidates for the `beans { }` DSL"
 ---
 

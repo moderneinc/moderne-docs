@@ -1,4 +1,5 @@
 ---
+title: "Fold same-literal `==`/`!=` comparisons to boolean constants"
 sidebar_label: "Fold same-literal `==`/`!=` comparisons to boolean constants"
 ---
 

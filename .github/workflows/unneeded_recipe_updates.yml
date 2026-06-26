@@ -13,7 +13,7 @@ jobs:
     steps:
       # Checkout the base repository (not the fork) to avoid running untrusted code
       - name: Checkout base repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.base.ref }}
 

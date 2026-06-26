@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `org.springframework.boot.autoconfigure.mongo` API"
 sidebar_label: "Replace deprecated `org.springframework.boot.autoconfigure.mongo` API"
 ---
 

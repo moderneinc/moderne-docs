@@ -1,4 +1,5 @@
 ---
+title: "Find Go service endpoints"
 sidebar_label: "Find Go service endpoints"
 ---
 

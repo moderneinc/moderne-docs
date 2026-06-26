@@ -1,4 +1,5 @@
 ---
+title: "Prefer explicit imports over wildcards"
 sidebar_label: "Prefer explicit imports over wildcards"
 ---
 

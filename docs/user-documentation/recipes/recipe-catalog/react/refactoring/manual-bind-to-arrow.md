@@ -1,4 +1,5 @@
 ---
+title: "Convert manual `.bind(this)` to arrow functions"
 sidebar_label: "Convert manual `.bind(this)` to arrow functions"
 ---
 

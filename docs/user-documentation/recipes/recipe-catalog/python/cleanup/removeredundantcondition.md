@@ -1,4 +1,5 @@
 ---
+title: "Remove redundant ternary condition"
 sidebar_label: "Remove redundant ternary condition"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace ConditionOutcome.inverse() with constructor"
 sidebar_label: "Replace ConditionOutcome.inverse() with constructor"
 ---
 

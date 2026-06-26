@@ -1,4 +1,5 @@
 ---
+title: "Find .NET project metadata"
 sidebar_label: "Find .NET project metadata"
 ---
 

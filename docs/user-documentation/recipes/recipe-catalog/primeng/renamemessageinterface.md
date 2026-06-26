@@ -1,4 +1,5 @@
 ---
+title: "Rename `Message` interface to `ToastMessageOptions`"
 sidebar_label: "Rename `Message` interface to `ToastMessageOptions`"
 ---
 

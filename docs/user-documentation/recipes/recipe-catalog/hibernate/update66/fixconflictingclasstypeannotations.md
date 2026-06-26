@@ -1,4 +1,5 @@
 ---
+title: "Fix conflicting class type annotation Hibernate 6.6"
 sidebar_label: "Fix conflicting class type annotation Hibernate 6.6"
 ---
 

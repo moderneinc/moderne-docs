@@ -1,4 +1,5 @@
 ---
+title: "Comment on Kotlin usages of `SecurityContext.getAuthentication()`"
 sidebar_label: "Comment on Kotlin usages of `SecurityContext.getAuthentication()`"
 ---
 

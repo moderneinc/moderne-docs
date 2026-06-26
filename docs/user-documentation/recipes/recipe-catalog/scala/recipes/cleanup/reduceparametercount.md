@@ -1,4 +1,5 @@
 ---
+title: "Reduce parameter count (max 5 parameters)"
 sidebar_label: "Reduce parameter count (max 5 parameters)"
 ---
 

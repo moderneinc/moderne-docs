@@ -1,4 +1,5 @@
 ---
+title: "Find resource injection vectors"
 sidebar_label: "Find resource injection vectors"
 ---
 

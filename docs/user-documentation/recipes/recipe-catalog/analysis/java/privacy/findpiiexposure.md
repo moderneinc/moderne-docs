@@ -1,4 +1,5 @@
 ---
+title: "Find PII exposure in logs and external APIs"
 sidebar_label: "Find PII exposure in logs and external APIs"
 ---
 

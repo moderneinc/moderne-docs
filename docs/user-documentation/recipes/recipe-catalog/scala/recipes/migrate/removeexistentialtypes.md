@@ -1,4 +1,5 @@
 ---
+title: "Remove existential types (removed in Scala 3)"
 sidebar_label: "Remove existential types (removed in Scala 3)"
 ---
 

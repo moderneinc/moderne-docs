@@ -1,4 +1,5 @@
 ---
+title: "Find `object` declarations with `var` properties"
 sidebar_label: "Find `object` declarations with `var` properties"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Add Kubernetes configuration"
 sidebar_label: "Add Kubernetes configuration"
 ---
 

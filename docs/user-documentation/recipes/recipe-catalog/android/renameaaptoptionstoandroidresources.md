@@ -1,4 +1,5 @@
 ---
+title: "Rename `aaptOptions` to `androidResources`"
 sidebar_label: "Rename `aaptOptions` to `androidResources`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `setOf(x)` instead of `Collections.singleton(x)`"
 sidebar_label: "Use `setOf(x)` instead of `Collections.singleton(x)`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find Go test coverage"
 sidebar_label: "Find Go test coverage"
 ---
 

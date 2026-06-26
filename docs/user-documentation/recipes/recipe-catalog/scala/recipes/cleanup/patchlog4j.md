@@ -1,4 +1,5 @@
 ---
+title: "Ensure Log4j is patched against CVE-2021-44228"
 sidebar_label: "Ensure Log4j is patched against CVE-2021-44228"
 ---
 

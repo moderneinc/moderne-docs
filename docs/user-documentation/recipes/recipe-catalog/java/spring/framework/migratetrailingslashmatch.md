@@ -1,4 +1,5 @@
 ---
+title: "Migrate trailing slash matching to explicit routes"
 sidebar_label: "Migrate trailing slash matching to explicit routes"
 ---
 

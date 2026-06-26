@@ -1,4 +1,5 @@
 ---
+title: "Find `LoggerFactory.getLogger` migration candidates"
 sidebar_label: "Find `LoggerFactory.getLogger` migration candidates"
 ---
 

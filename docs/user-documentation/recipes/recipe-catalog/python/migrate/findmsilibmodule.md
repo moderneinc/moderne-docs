@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `msilib` module usage"
 sidebar_label: "Find deprecated `msilib` module usage"
 ---
 

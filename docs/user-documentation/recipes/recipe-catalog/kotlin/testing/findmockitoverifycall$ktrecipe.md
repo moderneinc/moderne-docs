@@ -1,4 +1,5 @@
 ---
+title: "Find Mockito `verify(mock).method(...)` calls"
 sidebar_label: "Find Mockito `verify(mock).method(...)` calls"
 ---
 

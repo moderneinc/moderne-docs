@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `capitalize` and `decapitalize`"
 sidebar_label: "Replace deprecated `capitalize` and `decapitalize`"
 ---
 

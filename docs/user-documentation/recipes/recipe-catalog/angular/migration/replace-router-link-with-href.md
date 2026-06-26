@@ -1,4 +1,5 @@
 ---
+title: "Replace `RouterLinkWithHref` with `RouterLink`"
 sidebar_label: "Replace `RouterLinkWithHref` with `RouterLink`"
 ---
 

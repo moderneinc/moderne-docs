@@ -1,4 +1,5 @@
 ---
+title: "Find Go messaging connections"
 sidebar_label: "Find Go messaging connections"
 ---
 

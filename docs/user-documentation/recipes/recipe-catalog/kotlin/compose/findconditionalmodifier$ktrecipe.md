@@ -1,4 +1,5 @@
 ---
+title: "Find `if (x) Modifier.foo() else Modifier` patterns"
 sidebar_label: "Find `if (x) Modifier.foo() else Modifier` patterns"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated `fs.Stats` constructor with object literal"
 sidebar_label: "Replace deprecated `fs.Stats` constructor with object literal"
 ---
 

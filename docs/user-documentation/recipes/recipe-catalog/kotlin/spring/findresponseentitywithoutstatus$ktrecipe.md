@@ -1,4 +1,5 @@
 ---
+title: "Find `ResponseEntity(body, HttpStatus.OK)` constructor calls"
 sidebar_label: "Find `ResponseEntity(body, HttpStatus.OK)` constructor calls"
 ---
 

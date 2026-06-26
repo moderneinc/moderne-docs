@@ -1,4 +1,5 @@
 ---
+title: "Change resource version"
 sidebar_label: "Change resource version"
 ---
 

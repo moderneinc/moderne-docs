@@ -1,4 +1,5 @@
 ---
+title: "Upgrade transitive Python dependency version"
 sidebar_label: "Upgrade transitive Python dependency version"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Use `Int.countTrailingZeroBits()` instead of `Integer.numberOfTrailingZeros`"
 sidebar_label: "Use `Int.countTrailingZeroBits()` instead of `Integer.numberOfTrailingZeros`"
 ---
 

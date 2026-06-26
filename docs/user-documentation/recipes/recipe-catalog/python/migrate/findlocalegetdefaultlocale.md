@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `locale.getdefaultlocale()` usage"
 sidebar_label: "Find deprecated `locale.getdefaultlocale()` usage"
 ---
 

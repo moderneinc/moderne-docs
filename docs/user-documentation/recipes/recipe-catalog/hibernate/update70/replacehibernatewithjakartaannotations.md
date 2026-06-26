@@ -1,4 +1,5 @@
 ---
+title: "Replace hibernate annotations with Jakarta variants"
 sidebar_label: "Replace hibernate annotations with Jakarta variants"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find non-`private` `MutableStateFlow` properties"
 sidebar_label: "Find non-`private` `MutableStateFlow` properties"
 ---
 

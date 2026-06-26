@@ -1,4 +1,5 @@
 ---
+title: "Find Compose effect handler issues"
 sidebar_label: "Find Compose effect handler issues"
 ---
 

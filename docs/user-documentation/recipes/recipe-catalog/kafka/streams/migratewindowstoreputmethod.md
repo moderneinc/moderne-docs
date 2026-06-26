@@ -1,4 +1,5 @@
 ---
+title: "Migrate `WindowStore.put()` to include timestamp"
 sidebar_label: "Migrate `WindowStore.put()` to include timestamp"
 ---
 

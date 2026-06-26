@@ -1,4 +1,5 @@
 ---
+title: "Split `React` DOM methods to `ReactDOM`"
 sidebar_label: "Split `React` DOM methods to `ReactDOM`"
 ---
 

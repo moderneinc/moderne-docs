@@ -1,4 +1,5 @@
 ---
+title: "Find `.also { println(it) }` debug patterns"
 sidebar_label: "Find `.also { println(it) }` debug patterns"
 ---
 

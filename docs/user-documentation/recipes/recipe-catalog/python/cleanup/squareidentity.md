@@ -1,4 +1,5 @@
 ---
+title: "Rewrite self-multiplication as `** 2`"
 sidebar_label: "Rewrite self-multiplication as `** 2`"
 ---
 

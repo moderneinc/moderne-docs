@@ -1,4 +1,5 @@
 ---
+title: "Comment deprecated methods in Spring 3.4"
 sidebar_label: "Comment deprecated methods in Spring 3.4"
 ---
 

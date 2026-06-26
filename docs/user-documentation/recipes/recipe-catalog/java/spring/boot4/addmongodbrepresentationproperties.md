@@ -1,4 +1,5 @@
 ---
+title: "Add MongoDB representation properties for UUID and BigDecimal"
 sidebar_label: "Add MongoDB representation properties for UUID and BigDecimal"
 ---
 

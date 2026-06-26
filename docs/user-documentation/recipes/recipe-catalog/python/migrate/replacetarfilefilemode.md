@@ -1,4 +1,5 @@
 ---
+title: "Replace `tarfile.filemode` with `stat.filemode`"
 sidebar_label: "Replace `tarfile.filemode` with `stat.filemode`"
 ---
 

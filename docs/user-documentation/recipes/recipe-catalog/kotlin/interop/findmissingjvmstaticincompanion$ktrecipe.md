@@ -1,4 +1,5 @@
 ---
+title: "Find `companion object` functions missing `@JvmStatic`"
 sidebar_label: "Find `companion object` functions missing `@JvmStatic`"
 ---
 

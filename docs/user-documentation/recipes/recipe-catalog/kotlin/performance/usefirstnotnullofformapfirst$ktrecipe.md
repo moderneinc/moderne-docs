@@ -1,4 +1,5 @@
 ---
+title: "Use `firstNotNullOf { f }` instead of `mapNotNull { f }.first()`"
 sidebar_label: "Use `firstNotNullOf { f }` instead of `mapNotNull { f }.first()`"
 ---
 

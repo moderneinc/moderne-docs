@@ -1,4 +1,5 @@
 ---
+title: "Find NestJS endpoints"
 sidebar_label: "Find NestJS endpoints"
 ---
 

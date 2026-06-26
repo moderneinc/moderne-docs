@@ -1,4 +1,5 @@
 ---
+title: "Strip ``str()`` from f-string placeholders"
 sidebar_label: "Strip ``str()`` from f-string placeholders"
 ---
 

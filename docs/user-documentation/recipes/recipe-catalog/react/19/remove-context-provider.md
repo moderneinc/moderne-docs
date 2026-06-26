@@ -1,4 +1,5 @@
 ---
+title: "Remove `Context.Provider` wrapper"
 sidebar_label: "Remove `Context.Provider` wrapper"
 ---
 

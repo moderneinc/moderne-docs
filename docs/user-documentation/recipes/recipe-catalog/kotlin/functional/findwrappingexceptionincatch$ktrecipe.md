@@ -1,4 +1,5 @@
 ---
+title: "Find `throw RuntimeException(e)` inside a catch block"
 sidebar_label: "Find `throw RuntimeException(e)` inside a catch block"
 ---
 

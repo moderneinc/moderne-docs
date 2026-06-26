@@ -1,4 +1,5 @@
 ---
+title: "Find `Sequence`/`List` pipeline shape smells"
 sidebar_label: "Find `Sequence`/`List` pipeline shape smells"
 ---
 

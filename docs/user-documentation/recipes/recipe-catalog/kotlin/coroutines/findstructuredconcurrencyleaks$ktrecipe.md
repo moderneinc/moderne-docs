@@ -1,4 +1,5 @@
 ---
+title: "Find structured-concurrency leaks"
 sidebar_label: "Find structured-concurrency leaks"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `Flow.map { } .map { }` chains"
 sidebar_label: "Find `Flow.map { } .map { }` chains"
 ---
 

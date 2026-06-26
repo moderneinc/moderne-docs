@@ -1,4 +1,5 @@
 ---
+title: "Migrate web.xml from Struts 1 to Struts 2"
 sidebar_label: "Migrate web.xml from Struts 1 to Struts 2"
 ---
 

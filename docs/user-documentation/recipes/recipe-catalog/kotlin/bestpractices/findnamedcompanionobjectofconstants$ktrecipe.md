@@ -1,4 +1,5 @@
 ---
+title: "Find named `companion object Constants` patterns"
 sidebar_label: "Find named `companion object Constants` patterns"
 ---
 

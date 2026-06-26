@@ -1,4 +1,5 @@
 ---
+title: "Use `String.toInt(radix)` instead of `Integer.parseInt(s, radix)`"
 sidebar_label: "Use `String.toInt(radix)` instead of `Integer.parseInt(s, radix)`"
 ---
 

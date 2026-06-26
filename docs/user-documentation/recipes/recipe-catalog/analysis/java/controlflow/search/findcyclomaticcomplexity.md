@@ -1,4 +1,5 @@
 ---
+title: "Find cyclomatic complexity"
 sidebar_label: "Find cyclomatic complexity"
 ---
 

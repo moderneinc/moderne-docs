@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `cgi` module usage"
 sidebar_label: "Find deprecated `cgi` module usage"
 ---
 

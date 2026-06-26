@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Spring Boot 4.0 modular starters (Moderne Edition)"
 sidebar_label: "Migrate to Spring Boot 4.0 modular starters (Moderne Edition)"
 ---
 
@@ -110,11 +111,20 @@ test
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-ldap</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-ldap-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -131,22 +141,25 @@ test
         <dependency>
             <groupId>org.springframework.boot</groupId>
 -           <artifactId>spring-boot-starter-classic</artifactId>
-+           <artifactId>spring-boot-starter-ldap</artifactId>
++           <artifactId>spring-boot-starter</artifactId>
         </dependency>
-@@ -19,1 +19,1 @@
+@@ -19,1 +19,5 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
 -           <artifactId>spring-boot-starter-test-classic</artifactId>
++           <artifactId>spring-boot-starter-ldap</artifactId>
++       </dependency>
++       <dependency>
++           <groupId>org.springframework.boot</groupId>
 +           <artifactId>spring-boot-starter-ldap-test</artifactId>
             <scope>test</scope>
-@@ -22,4 +22,0 @@
-            <scope>test</scope>
-        </dependency>
--       <dependency>
--           <groupId>org.springframework.boot</groupId>
+@@ -24,1 +28,2 @@
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
 -           <artifactId>spring-boot-autoconfigure</artifactId>
--       </dependency>
-    </dependencies>
++           <artifactId>spring-boot-starter-test</artifactId>
++           <scope>test</scope>
+        </dependency>
 ```
 </TabItem>
 </Tabs>
@@ -231,11 +244,20 @@ test
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-ldap</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-ldap-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -252,22 +274,25 @@ test
         <dependency>
             <groupId>org.springframework.boot</groupId>
 -           <artifactId>spring-boot-starter-classic</artifactId>
-+           <artifactId>spring-boot-starter-ldap</artifactId>
++           <artifactId>spring-boot-starter</artifactId>
         </dependency>
-@@ -19,1 +19,1 @@
+@@ -19,1 +19,5 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
 -           <artifactId>spring-boot-starter-test-classic</artifactId>
++           <artifactId>spring-boot-starter-ldap</artifactId>
++       </dependency>
++       <dependency>
++           <groupId>org.springframework.boot</groupId>
 +           <artifactId>spring-boot-starter-ldap-test</artifactId>
             <scope>test</scope>
-@@ -22,4 +22,0 @@
-            <scope>test</scope>
-        </dependency>
--       <dependency>
--           <groupId>org.springframework.boot</groupId>
+@@ -24,1 +28,2 @@
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
 -           <artifactId>spring-boot-autoconfigure</artifactId>
--       </dependency>
-    </dependencies>
++           <artifactId>spring-boot-starter-test</artifactId>
++           <scope>test</scope>
+        </dependency>
 ```
 </TabItem>
 </Tabs>

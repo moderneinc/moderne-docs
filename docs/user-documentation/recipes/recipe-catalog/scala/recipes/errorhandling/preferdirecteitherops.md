@@ -1,4 +1,5 @@
 ---
+title: "Prefer direct `Either` operations over projections"
 sidebar_label: "Prefer direct `Either` operations over projections"
 ---
 

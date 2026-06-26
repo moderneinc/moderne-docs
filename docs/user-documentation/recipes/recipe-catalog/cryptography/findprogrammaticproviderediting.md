@@ -1,4 +1,5 @@
 ---
+title: "Find programmatic security provider editing"
 sidebar_label: "Find programmatic security provider editing"
 ---
 

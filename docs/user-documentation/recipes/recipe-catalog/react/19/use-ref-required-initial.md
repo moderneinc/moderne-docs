@@ -1,4 +1,5 @@
 ---
+title: "Add initial value to `useRef()` calls"
 sidebar_label: "Add initial value to `useRef()` calls"
 ---
 

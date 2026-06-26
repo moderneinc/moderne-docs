@@ -1,4 +1,5 @@
 ---
+title: "Limit root capabilities in a container"
 sidebar_label: "Limit root capabilities in a container"
 ---
 

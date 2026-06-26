@@ -1,4 +1,5 @@
 ---
+title: "Remove `extractCss` from `angular.json`"
 sidebar_label: "Remove `extractCss` from `angular.json`"
 ---
 

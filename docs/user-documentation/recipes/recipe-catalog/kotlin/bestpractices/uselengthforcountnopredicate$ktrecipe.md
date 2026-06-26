@@ -1,4 +1,5 @@
 ---
+title: "Use `length` instead of `String.count()`"
 sidebar_label: "Use `length` instead of `String.count()`"
 ---
 

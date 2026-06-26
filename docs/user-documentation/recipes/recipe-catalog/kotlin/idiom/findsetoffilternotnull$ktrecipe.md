@@ -1,4 +1,5 @@
 ---
+title: "Find `setOf(a, b, c).filterNotNull()` patterns"
 sidebar_label: "Find `setOf(a, b, c).filterNotNull()` patterns"
 ---
 

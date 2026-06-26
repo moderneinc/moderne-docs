@@ -1,4 +1,5 @@
 ---
+title: "Find `listOf(...)` calls inside loops"
 sidebar_label: "Find `listOf(...)` calls inside loops"
 ---
 

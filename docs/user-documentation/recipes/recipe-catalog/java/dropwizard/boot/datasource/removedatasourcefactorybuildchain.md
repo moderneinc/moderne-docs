@@ -1,4 +1,5 @@
 ---
+title: "Replace DataSourceFactory build chain with @Autowired DataSource"
 sidebar_label: "Replace DataSourceFactory build chain with @Autowired DataSource"
 ---
 

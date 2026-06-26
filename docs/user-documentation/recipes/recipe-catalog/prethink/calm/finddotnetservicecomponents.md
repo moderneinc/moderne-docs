@@ -1,4 +1,5 @@
 ---
+title: "Find .NET service components"
 sidebar_label: "Find .NET service components"
 ---
 

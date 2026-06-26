@@ -1,4 +1,5 @@
 ---
+title: "Use `Char.isDefined()` instead of `Character.isDefined(c)`"
 sidebar_label: "Use `Char.isDefined()` instead of `Character.isDefined(c)`"
 ---
 

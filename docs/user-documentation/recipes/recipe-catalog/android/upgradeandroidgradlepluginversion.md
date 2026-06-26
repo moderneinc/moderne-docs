@@ -1,4 +1,5 @@
 ---
+title: "Upgrade Android Gradle Plugin (AGP) version"
 sidebar_label: "Upgrade Android Gradle Plugin (AGP) version"
 ---
 

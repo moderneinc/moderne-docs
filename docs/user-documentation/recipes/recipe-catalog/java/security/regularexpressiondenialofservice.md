@@ -1,4 +1,5 @@
 ---
+title: "Regular Expression Denial of Service (ReDOS)"
 sidebar_label: "Regular Expression Denial of Service (ReDOS)"
 ---
 

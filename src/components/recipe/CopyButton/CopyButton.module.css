@@ -1,0 +1,30 @@
+/* CopyButton styles (light + dark). */
+
+.copyId {
+display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: var(--neo-spacing_1_2);
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+  background-color: transparent;
+  color: var(--neo-typography-body-secondary);
+  cursor: pointer;
+}
+
+.copyId:hover {
+background-color: var(--neo-surfaces-card);
+  color: var(--neo-typography-link-primary);
+}
+
+html[data-theme='dark'] {
+.copyId {
+color: var(--neo-grey-400);
+}
+
+.copyId:hover {
+background-color: var(--neo-grey-800);
+    color: var(--neo-digital-green-300);
+}
+}

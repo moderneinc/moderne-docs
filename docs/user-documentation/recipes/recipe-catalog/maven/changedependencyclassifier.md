@@ -1,4 +1,5 @@
 ---
+title: "Change Maven dependency classifier"
 sidebar_label: "Change Maven dependency classifier"
 ---
 
@@ -41,9 +42,9 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate Ehcache from javax to jakarta namespace](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/ehcachejavaxtojakarta.md)
 * [Update Apache Shiro Dependencies to 2.0.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateapacheshirodependencies.md)
-* [Upgrade Faces open source libraries](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/upgradefacesopensourcelibraries3.md)
 * [Upgrade Faces open source libraries](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces3opensourcelibraries.md)
 * [Upgrade Faces open source libraries](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces4opensourcelibraries.md)
+* [Upgrade Faces open source libraries](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgradefacesopensourcelibraries3.md)
 
 ## Example
 

@@ -1,4 +1,5 @@
 ---
+title: "Replace `kotlinOptions` with `compilerOptions` in Gradle build files"
 sidebar_label: "Replace `kotlinOptions` with `compilerOptions` in Gradle build files"
 ---
 
@@ -10,7 +11,12 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.kotlin.migrate.ReplaceKotlinOptionsWithCompilerOptions**
 
-_Rename the deprecated `kotlinOptions` DSL block to `compilerOptions` in Gradle build files. The `kotlinOptions` DSL was deprecated in Kotlin 2.0 and removed in Kotlin 2.2._
+_Migrate the deprecated `kotlinOptions` DSL block to `compilerOptions` in Gradle build files (Groovy and Kotlin DSL). Renames the block and, in the Kotlin DSL, modernizes the assignments inside it to the Provider-style setters (`jvmTarget.set(JvmTarget.JVM_X)`, `freeCompilerArgs.addAll(...)`) so the result compiles against the `compilerOptions` DSL. The `kotlinOptions` DSL was deprecated in Kotlin 2.0 and removed in Kotlin 2.2._
+
+### Tags
+
+* [gradle](/user-documentation/recipes/lists/recipes-by-tag#gradle)
+* [kotlin](/user-documentation/recipes/lists/recipes-by-tag#kotlin)
 
 ## Recipe source
 
@@ -26,33 +32,39 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Kotlin 2](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradetokotlin2)
 
-## Example
+## Examples
+##### Example 1
+`ReplaceKotlinOptionsWithCompilerOptionsTest#modernizeKotlinDslBlock`
 
 
 <Tabs groupId="beforeAfter">
-<TabItem value="build.gradle" label="build.gradle">
+<TabItem value="build.gradle.kts" label="build.gradle.kts">
 
 
 ###### Before
-```groovy title="build.gradle"
+```kotlin title="build.gradle.kts"
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.9.24"
+    kotlin("jvm") version "1.9.24"
 }
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {
-        jvmTarget = "1.8"
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+        jvmTarget = "11"
     }
 }
 ```
 
 ###### After
-```groovy title="build.gradle"
+```kotlin title="build.gradle.kts"
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.9.24"
+    kotlin("jvm") version "1.9.24"
 }
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     compilerOptions {
-        jvmTarget = "1.8"
+        freeCompilerArgs.addAll("-Xjsr305=strict")
+        jvmTarget.set(JvmTarget.JVM_11)
     }
 }
 ```
@@ -61,14 +73,84 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 <TabItem value="diff" label="Diff" >
 
 ```diff
---- build.gradle
-+++ build.gradle
-@@ -5,1 +5,1 @@
+--- build.gradle.kts
++++ build.gradle.kts
+@@ -1,0 +1,2 @@
++import org.jetbrains.kotlin.gradle.dsl.JvmTarget
++
+plugins {
+@@ -5,3 +7,3 @@
 }
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 -   kotlinOptions {
+-       freeCompilerArgs = listOf("-Xjsr305=strict")
+-       jvmTarget = "11"
 +   compilerOptions {
-        jvmTarget = "1.8"
++       freeCompilerArgs.addAll("-Xjsr305=strict")
++       jvmTarget.set(JvmTarget.JVM_11)
+    }
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`ReplaceKotlinOptionsWithCompilerOptionsTest#modernizeKotlinDslBlock`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="build.gradle.kts" label="build.gradle.kts">
+
+
+###### Before
+```kotlin title="build.gradle.kts"
+plugins {
+    kotlin("jvm") version "1.9.24"
+}
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+        jvmTarget = "11"
+    }
+}
+```
+
+###### After
+```kotlin title="build.gradle.kts"
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+plugins {
+    kotlin("jvm") version "1.9.24"
+}
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict")
+        jvmTarget.set(JvmTarget.JVM_11)
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- build.gradle.kts
++++ build.gradle.kts
+@@ -1,0 +1,2 @@
++import org.jetbrains.kotlin.gradle.dsl.JvmTarget
++
+plugins {
+@@ -5,3 +7,3 @@
+}
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+-   kotlinOptions {
+-       freeCompilerArgs = listOf("-Xjsr305=strict")
+-       jvmTarget = "11"
++   compilerOptions {
++       freeCompilerArgs.addAll("-Xjsr305=strict")
++       jvmTarget.set(JvmTarget.JVM_11)
+    }
 ```
 </TabItem>
 </Tabs>

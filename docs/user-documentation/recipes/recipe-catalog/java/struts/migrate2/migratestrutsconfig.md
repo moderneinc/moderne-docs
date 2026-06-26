@@ -1,4 +1,5 @@
 ---
+title: "Migrate `struts-config.xml` to `struts.xml`"
 sidebar_label: "Migrate `struts-config.xml` to `struts.xml`"
 ---
 

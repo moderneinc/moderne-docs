@@ -1,4 +1,5 @@
 ---
+title: "Use `NonFatal` matcher for broad catch patterns"
 sidebar_label: "Use `NonFatal` matcher for broad catch patterns"
 ---
 

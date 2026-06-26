@@ -1,4 +1,5 @@
 ---
+title: "Use `[]` literal instead of `list()` constructor"
 sidebar_label: "Use `[]` literal instead of `list()` constructor"
 ---
 

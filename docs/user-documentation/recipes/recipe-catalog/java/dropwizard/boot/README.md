@@ -7,6 +7,7 @@ description: Boot OpenRewrite recipes.
 ## Categories
 
 * [Annotation](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/annotation)
+* [Bundle](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/bundle)
 * [Datasource](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/datasource)
 * [General](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/general)
 * [Health](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/health)

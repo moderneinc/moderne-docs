@@ -1,4 +1,5 @@
 ---
+title: "Find Stripe secrets"
 sidebar_label: "Find Stripe secrets"
 ---
 

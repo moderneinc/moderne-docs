@@ -1,4 +1,5 @@
 ---
+title: "Find `Dagger*Component.builder().build()` patterns"
 sidebar_label: "Find `Dagger*Component.builder().build()` patterns"
 ---
 

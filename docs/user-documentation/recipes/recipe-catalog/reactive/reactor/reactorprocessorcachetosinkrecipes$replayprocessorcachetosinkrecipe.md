@@ -1,4 +1,5 @@
 ---
+title: "Replace `ReplayProcessor.cacheLast()` with `Sinks.many().replay().latest()`"
 sidebar_label: "Replace `ReplayProcessor.cacheLast()` with `Sinks.many().replay().latest()`"
 ---
 

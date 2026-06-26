@@ -1,4 +1,5 @@
 ---
+title: "Ensure MySQL is using the latest version of TLS encryption"
 sidebar_label: "Ensure MySQL is using the latest version of TLS encryption"
 ---
 

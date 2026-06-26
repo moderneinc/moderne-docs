@@ -321,3 +321,36 @@ cat ~/.moderne/cli/dist/moderne-wrapper.properties
 ```
 
 If this file contains `version=RELEASE`, auto-updates are enabled. A specific version like `version=4.x.x` means you're pinned. If this file doesn't exist, you're likely running the CLI JAR directly without the wrapper.
+
+## Troubleshooting
+
+### CLI commands fail after an upgrade (stale wrapper)
+
+After a CLI version bump, `mod` subcommands start failing even though `mod --version` prints the version you expect. The failures cluster on commands that reach a Moderne or Git endpoint — `mod config moderne login`, `mod git sync`, `mod config recipes moderne sync` — and usually surface as TLS/PKIX or connection errors rather than a clear error from the CLI itself.
+
+This happens when the wrapper script on your `PATH` is out of date. As shown in the [directory layout](#directory-layout), `mod` is a symlink to the `modw` wrapper at `~/.moderne/cli/bin/modw`. When the CLI updates its distribution, it refreshes a copy of the wrapper under `~/.moderne/cli/dist/`, but on older wrappers the copy on your `PATH` (`~/.moderne/cli/bin/modw`) was left untouched.
+
+The wrapper does work at startup that the JAR depends on — most importantly, it reads SSL/trust-store, key-store, and HTTP proxy settings from `moderne.yml` and passes them to the JVM as `-D` flags before any application code runs (see [what breaks without the wrapper](#what-breaks-without-the-wrapper)). A stale `bin/modw` that predates this behavior won't apply that configuration, so on a machine that depends on a corporate proxy or a custom CA bundle, HTTPS calls go out with the default trust store and no proxy and fail.
+
+To confirm a newer wrapper is sitting unused:
+
+```bash
+ls ~/.moderne/cli/dist/modw                              # if present, a newer wrapper is waiting
+ls -lt ~/.moderne/cli/bin/modw ~/.moderne/cli/dist/modw  # newest first; the top line is the more recent wrapper
+```
+
+Promote the refreshed wrapper over the stale one:
+
+```bash
+mv ~/.moderne/cli/dist/modw ~/.moderne/cli/bin/modw
+```
+
+`bin/mod` is a symlink to `modw`, so it picks up the change automatically.
+
+If that doesn't resolve it, reinstall the wrapper from scratch:
+
+```bash
+curl https://app.moderne.io/cli | bash
+```
+
+For air-gapped setups where `curl | bash` isn't an option, replace `~/.moderne/cli/bin/modw` with the `modw` bundled in the CLI distribution. See [air-gapped or restricted environments](#air-gapped-or-restricted-environments) for how the distribution is sourced.

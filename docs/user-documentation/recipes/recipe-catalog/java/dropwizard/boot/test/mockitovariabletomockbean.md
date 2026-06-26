@@ -1,4 +1,5 @@
 ---
+title: "Convert Mockito mock() to @MockBean"
 sidebar_label: "Convert Mockito mock() to @MockBean"
 ---
 

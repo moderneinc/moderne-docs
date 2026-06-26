@@ -1,4 +1,5 @@
 ---
+title: "Flatten negated logic via De Morgan's identities"
 sidebar_label: "Flatten negated logic via De Morgan's identities"
 ---
 

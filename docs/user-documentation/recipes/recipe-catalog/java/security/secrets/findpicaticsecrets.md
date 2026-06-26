@@ -1,4 +1,5 @@
 ---
+title: "Find Picatic secrets"
 sidebar_label: "Find Picatic secrets"
 ---
 

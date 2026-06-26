@@ -1,4 +1,5 @@
 ---
+title: "Migrate deprecated `sendOffsetsToTransaction` to use `ConsumerGroupMetadata`"
 sidebar_label: "Migrate deprecated `sendOffsetsToTransaction` to use `ConsumerGroupMetadata`"
 ---
 

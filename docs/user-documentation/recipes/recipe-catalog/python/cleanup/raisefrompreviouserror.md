@@ -1,4 +1,5 @@
 ---
+title: "Chain exceptions with `raise ... from` in except blocks"
 sidebar_label: "Chain exceptions with `raise ... from` in except blocks"
 ---
 

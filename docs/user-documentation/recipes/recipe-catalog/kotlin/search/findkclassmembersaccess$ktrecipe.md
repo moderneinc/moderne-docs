@@ -1,4 +1,5 @@
 ---
+title: "Find Kotlin reflection (`KClass.memberFunctions`, `KClass.members`, etc.)"
 sidebar_label: "Find Kotlin reflection (`KClass.memberFunctions`, `KClass.members`, etc.)"
 ---
 

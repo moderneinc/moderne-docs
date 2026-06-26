@@ -1,4 +1,5 @@
 ---
+title: "Find functions returning `Triple&lt;A, B, C&gt;`"
 sidebar_label: "Find functions returning `Triple&lt;A, B, C&gt;`"
 ---
 

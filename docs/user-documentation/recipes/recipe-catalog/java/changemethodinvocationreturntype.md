@@ -1,4 +1,5 @@
 ---
+title: "Change method invocation return type"
 sidebar_label: "Change method invocation return type"
 ---
 
@@ -37,13 +38,14 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Adopt `setLongThreadID` in `java.util.logging.LogRecord`](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus37/deprecatedlogrecordthreadid.md)
 * [Adopt `setLongThreadID` in `java.util.logging.LogRecord`](/user-documentation/recipes/recipe-catalog/java/migrate/deprecatedlogrecordthreadid.md)
-* [Change S3 types to v2.](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/s3typestov2.md)
-* [Change S3EventNotification methods to v2.](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/s3eventnotificationmethodstov2.md)
-* [Change SDK TransferManager types from v1 to v2](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/changetransfermanagertypes.md)
+* [Adopt `setLongThreadID` in `java.util.logging.LogRecord`](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/deprecatedlogrecordthreadid.md)
+* [Change S3 types to v2.](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/s3typestov2.md)
+* [Change S3EventNotification methods to v2.](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/s3eventnotificationmethodstov2.md)
+* [Change SDK TransferManager types from v1 to v2](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changetransfermanagertypes.md)
 * [Change method invocation return type](/user-documentation/recipes/recipe-catalog/java/migrate/changemethodinvocationreturntype.md)
 * [Migrate to Apache HttpCore Nio Classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_nioclassmapping.md)
+* [Migrate to Spring Framework 6.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition.md)
 * [Migrates to Apache POI 3.17](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_3_17.md)
 * [OkHttp `MockWebServer` `MockResponse` to 5.x `MockWebServer3` `MockResponse`](/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebservermockresponse.md)
 

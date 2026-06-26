@@ -1,4 +1,5 @@
 ---
+title: "Remove IE11 polyfills"
 sidebar_label: "Remove IE11 polyfills"
 ---
 

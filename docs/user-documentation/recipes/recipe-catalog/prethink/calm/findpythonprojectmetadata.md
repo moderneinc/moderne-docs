@@ -1,4 +1,5 @@
 ---
+title: "Find Python project metadata"
 sidebar_label: "Find Python project metadata"
 ---
 

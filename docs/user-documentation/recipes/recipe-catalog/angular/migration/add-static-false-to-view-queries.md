@@ -1,4 +1,5 @@
 ---
+title: "Add `static: false` to view queries"
 sidebar_label: "Add `static: false` to view queries"
 ---
 

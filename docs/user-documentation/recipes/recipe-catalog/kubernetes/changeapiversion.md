@@ -1,4 +1,5 @@
 ---
+title: "Change Kubernetes API version"
 sidebar_label: "Change Kubernetes API version"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `MessageDigest.getInstance(&quot;SHA-1&quot;)` calls"
 sidebar_label: "Find `MessageDigest.getInstance(&quot;SHA-1&quot;)` calls"
 ---
 

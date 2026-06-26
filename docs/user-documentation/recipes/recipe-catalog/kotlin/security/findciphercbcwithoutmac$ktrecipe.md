@@ -1,4 +1,5 @@
 ---
+title: "Find `Cipher.getInstance(&quot;AES/CBC/...&quot;)` calls — verify integrity"
 sidebar_label: "Find `Cipher.getInstance(&quot;AES/CBC/...&quot;)` calls — verify integrity"
 ---
 

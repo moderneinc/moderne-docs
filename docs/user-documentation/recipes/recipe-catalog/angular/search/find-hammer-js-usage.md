@@ -1,4 +1,5 @@
 ---
+title: "Find HammerJS usage"
 sidebar_label: "Find HammerJS usage"
 ---
 

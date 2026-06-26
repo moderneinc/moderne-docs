@@ -1,4 +1,5 @@
 ---
+title: "Use Kotlin number extensions instead of `java.lang.Integer`/`Long`/`Double`/`Float`/`Boolean`"
 sidebar_label: "Use Kotlin number extensions instead of `java.lang.Integer`/`Long`/`Double`/`Float`/`Boolean`"
 ---
 

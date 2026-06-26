@@ -1,4 +1,5 @@
 ---
+title: "Find `NullCipher()` allocations"
 sidebar_label: "Find `NullCipher()` allocations"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Remove redundant `standalone: true`"
 sidebar_label: "Remove redundant `standalone: true`"
 ---
 

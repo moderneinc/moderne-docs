@@ -1,4 +1,5 @@
 ---
+title: "Find top-level/companion logger fields named `log`"
 sidebar_label: "Find top-level/companion logger fields named `log`"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find potentially unused dependencies"
 sidebar_label: "Find potentially unused dependencies"
 ---
 

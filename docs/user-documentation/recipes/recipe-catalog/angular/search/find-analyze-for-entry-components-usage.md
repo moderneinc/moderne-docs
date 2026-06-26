@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `ANALYZE_FOR_ENTRY_COMPONENTS` usage"
 sidebar_label: "Find deprecated `ANALYZE_FOR_ENTRY_COMPONENTS` usage"
 ---
 

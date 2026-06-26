@@ -1,4 +1,5 @@
 ---
+title: "Find SLF4J log calls with sensitive field names in the format string"
 sidebar_label: "Find SLF4J log calls with sensitive field names in the format string"
 ---
 

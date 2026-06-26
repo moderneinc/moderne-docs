@@ -1,4 +1,5 @@
 ---
+title: "Find AssertJ `assertThat(...)` assertion chains"
 sidebar_label: "Find AssertJ `assertThat(...)` assertion chains"
 ---
 

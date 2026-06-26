@@ -1,4 +1,5 @@
 ---
+title: "Migrate to Reactor 3.5"
 sidebar_label: "Migrate to Reactor 3.5"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find silent test failures"
 sidebar_label: "Find silent test failures"
 ---
 

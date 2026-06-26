@@ -1,4 +1,5 @@
 ---
+title: "Find `@Transactional` on `private` functions"
 sidebar_label: "Find `@Transactional` on `private` functions"
 ---
 

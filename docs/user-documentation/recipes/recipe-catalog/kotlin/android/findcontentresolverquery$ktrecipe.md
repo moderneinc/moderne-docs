@@ -1,4 +1,5 @@
 ---
+title: "Find `ContentResolver.query(...)` calls"
 sidebar_label: "Find `ContentResolver.query(...)` calls"
 ---
 

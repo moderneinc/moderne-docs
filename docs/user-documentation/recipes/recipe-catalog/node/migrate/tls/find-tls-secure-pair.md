@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated `tls.SecurePair` and `tls.createSecurePair()` usage"
 sidebar_label: "Find deprecated `tls.SecurePair` and `tls.createSecurePair()` usage"
 ---
 

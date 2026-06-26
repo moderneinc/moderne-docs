@@ -1,4 +1,5 @@
 ---
+title: "Find server-side rendering API usage"
 sidebar_label: "Find server-side rendering API usage"
 ---
 

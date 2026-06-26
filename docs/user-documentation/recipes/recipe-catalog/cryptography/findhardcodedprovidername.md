@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded cryptographic provider names"
 sidebar_label: "Find hardcoded cryptographic provider names"
 ---
 

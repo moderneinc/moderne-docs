@@ -1,4 +1,5 @@
 ---
+title: "Migrate deprecated `KafkaStreams#store` method"
 sidebar_label: "Migrate deprecated `KafkaStreams#store` method"
 ---
 

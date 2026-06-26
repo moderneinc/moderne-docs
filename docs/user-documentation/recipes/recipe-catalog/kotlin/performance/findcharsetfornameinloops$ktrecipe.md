@@ -1,4 +1,5 @@
 ---
+title: "Find `Charset.forName(...)` calls inside loops"
 sidebar_label: "Find `Charset.forName(...)` calls inside loops"
 ---
 

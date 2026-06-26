@@ -1,4 +1,5 @@
 ---
+title: "Find test fixture / setup smells"
 sidebar_label: "Find test fixture / setup smells"
 ---
 

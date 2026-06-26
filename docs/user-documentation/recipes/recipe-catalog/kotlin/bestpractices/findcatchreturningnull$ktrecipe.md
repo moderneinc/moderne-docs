@@ -1,4 +1,5 @@
 ---
+title: "Find `try { … } catch (e: Exception) { null }` patterns"
 sidebar_label: "Find `try { … } catch (e: Exception) { null }` patterns"
 ---
 

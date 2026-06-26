@@ -1,4 +1,5 @@
 ---
+title: "Use `distinct().toMutableList()` instead of `toSet().toMutableList()`"
 sidebar_label: "Use `distinct().toMutableList()` instead of `toSet().toMutableList()`"
 ---
 

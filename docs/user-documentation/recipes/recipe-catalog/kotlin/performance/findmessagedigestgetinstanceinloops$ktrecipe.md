@@ -1,4 +1,5 @@
 ---
+title: "Find `MessageDigest.getInstance` calls inside loops"
 sidebar_label: "Find `MessageDigest.getInstance` calls inside loops"
 ---
 

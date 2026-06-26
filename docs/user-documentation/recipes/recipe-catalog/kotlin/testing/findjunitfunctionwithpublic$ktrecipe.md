@@ -1,4 +1,5 @@
 ---
+title: "Find `public` modifier on JUnit 5 test functions"
 sidebar_label: "Find `public` modifier on JUnit 5 test functions"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "AssertJ best practices"
 sidebar_label: "AssertJ best practices"
 ---
 
@@ -61,39 +62,45 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Migrate TestNG assertions to AssertJ](../../../java/testing/testng/testngtoassertj)
 * [Adopt AssertJ Duration assertions](../../../java/testing/assertj/adoptassertjdurationassertions)
 * [Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`](../../../java/testing/assertj/isequaltoignoringmillistoisclosetorecipe)
+* [Decompose `assertThat` on conjunctions into separate assertions](../../../java/testing/assertj/decomposeconjunctionassertion)
 * [Simplify AssertJ chained assertions](../../../java/testing/assertj/simplifychainedassertjassertions)
 * [Shorten AssertJ assertions](../../../java/testing/assertj/simplifyassertjassertions)
+* [Simplify AssertJ assertions on `instanceof` expressions](../../../java/testing/assertj/simplifyassertjinstanceofassertion)
+* [Simplify AssertJ assertions on `null` reference comparisons](../../../java/testing/assertj/simplifyassertjnullrelatedassertion)
 * [Simplify AssertJ assertions with `hasSize` argument](../../../java/testing/assertj/simplifyhassizeassertion)
+* [Simplify literal-first AssertJ size assertions to `hasSize`](../../../java/testing/assertj/simplifyhassizefromisequaltoassertion)
+* [Simplify AssertJ assertions on an array's `length`](../../../java/testing/assertj/simplifyarraylengthassertion)
 * [Simplify AssertJ assertions on SequencedCollection](../../../java/testing/assertj/simplifysequencedcollectionassertions)
 * [Simplify `assertThat(collection.stream().map(...))` to `assertThat(collection).extracting(...)`](../../../java/testing/assertj/simplifystreammaptoextracting)
-* [Refaster rules related to AssertJ assertions over `BigDecimal`s](../../../tech/picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes)
+* [Refaster rules related to AssertJ assertions over `BigDecimal`s](../../../picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes)
 * [Adopt AssertJ BigInteger Assertions](../../../java/testing/assertj/assertjbigintegerrulesrecipes)
-* [`AssertJBooleanRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjbooleanrulesrecipes)
+* [`AssertJBooleanRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjbooleanrulesrecipes)
 * [Adopt AssertJ Byte Assertions](../../../java/testing/assertj/assertjbyterulesrecipes)
-* [`AssertJCharSequenceRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes)
-* [`AssertJComparableRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes)
+* [`AssertJCharSequenceRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes)
+* [`AssertJComparableRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjcomparablerulesrecipes)
 * [Adopt AssertJ Double Assertions](../../../java/testing/assertj/assertjdoublerulesrecipes)
-* [`AssertJEnumerableRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes)
-* [Refaster rules related to AssertJ assertions over `Duration`s](../../../tech/picnic/errorprone/refasterrules/assertjdurationrulesrecipes)
+* [`AssertJEnumerableRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjenumerablerulesrecipes)
+* [Refaster rules related to AssertJ assertions over `Duration`s](../../../picnic/errorprone/refasterrules/assertjdurationrulesrecipes)
 * [Adopt AssertJ Float Assertions](../../../java/testing/assertj/assertjfloatrulesrecipes)
-* [Refaster rules related to AssertJ assertions over `Instant`s](../../../tech/picnic/errorprone/refasterrules/assertjinstantrulesrecipes)
+* [Refaster rules related to AssertJ assertions over `Instant`s](../../../picnic/errorprone/refasterrules/assertjinstantrulesrecipes)
 * [Adopt AssertJ Integer Assertions](../../../java/testing/assertj/assertjintegerrulesrecipes)
-* [`AssertJIterableRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjiterablerulesrecipes)
-* [`AssertJIteratorRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjiteratorrulesrecipes)
+* [`AssertJIterableRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjiterablerulesrecipes)
+* [`AssertJIteratorRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjiteratorrulesrecipes)
 * [Adopt AssertJ Long Assertions](../../../java/testing/assertj/assertjlongrulesrecipes)
-* [`AssertJMapRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjmaprulesrecipes)
-* [`AssertJNumberRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjnumberrulesrecipes)
-* [`AssertJObjectRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjobjectrulesrecipes)
-* [`AssertJOptionalRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes)
-* [Refaster rules related to AssertJ assertions over `Path`s](../../../tech/picnic/errorprone/refasterrules/assertjpathrulesrecipes)
-* [`AssertJPrimitiveRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes)
-* [`AssertJRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjrulesrecipes)
+* [`AssertJMapRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjmaprulesrecipes)
+* [`AssertJNumberRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjnumberrulesrecipes)
+* [`AssertJObjectRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjobjectrulesrecipes)
+* [`AssertJOptionalRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjoptionalrulesrecipes)
+* [Refaster rules related to AssertJ assertions over `Path`s](../../../picnic/errorprone/refasterrules/assertjpathrulesrecipes)
 * [Adopt AssertJ Short Assertions](../../../java/testing/assertj/assertjshortrulesrecipes)
-* [`AssertJStringRules` Refaster recipes](../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes)
-* [Refaster rules related to AssertJ assertions over expressions that may throw a `Throwable` subtype](../../../tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes)
+* [`AssertJPrimitiveRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjprimitiverulesrecipes)
+* [`AssertJRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjrulesrecipes)
+* [`AssertJStringRules` Refaster recipes](../../../picnic/errorprone/refasterrules/assertjstringrulesrecipes)
+* [Refaster rules related to AssertJ assertions over expressions that may throw a `Throwable` subtype](../../../picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes)
 * [Collapse consecutive `assertThat` statements](../../../java/testing/assertj/collapseconsecutiveassertthatstatements)
 * [Collapse `assertThat` followed by `return` into single statement](../../../java/testing/assertj/returnactual)
 * [Simplify redundant AssertJ assertion chains](../../../java/testing/assertj/simplifyredundantassertjchains)
+* [Migrate `AssertionsForClassTypes` and `AssertionsForInterfaceTypes` to `Assertions`](../../../java/testing/assertj/migrateassertionsforclassandinterfacetypes)
 * [Statically import AssertJ's `assertThat`](../../../java/testing/assertj/staticimports)
 
 </TabItem>
@@ -129,9 +136,14 @@ recipeList:
   - org.openrewrite.java.testing.testng.TestNgToAssertj
   - org.openrewrite.java.testing.assertj.AdoptAssertJDurationAssertions
   - org.openrewrite.java.testing.assertj.IsEqualToIgnoringMillisToIsCloseToRecipe
+  - org.openrewrite.java.testing.assertj.DecomposeConjunctionAssertion
   - org.openrewrite.java.testing.assertj.SimplifyChainedAssertJAssertions
   - org.openrewrite.java.testing.assertj.SimplifyAssertJAssertions
+  - org.openrewrite.java.testing.assertj.SimplifyAssertJInstanceOfAssertion
+  - org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion
   - org.openrewrite.java.testing.assertj.SimplifyHasSizeAssertion
+  - org.openrewrite.java.testing.assertj.SimplifyHasSizeFromIsEqualToAssertion
+  - org.openrewrite.java.testing.assertj.SimplifyArrayLengthAssertion
   - org.openrewrite.java.testing.assertj.SimplifySequencedCollectionAssertions
   - org.openrewrite.java.testing.assertj.SimplifyStreamMapToExtracting
   - tech.picnic.errorprone.refasterrules.AssertJBigDecimalRulesRecipes
@@ -154,14 +166,15 @@ recipeList:
   - tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes
   - tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes
   - tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes
+  - org.openrewrite.java.testing.assertj.AssertJShortRulesRecipes
   - tech.picnic.errorprone.refasterrules.AssertJPrimitiveRulesRecipes
   - tech.picnic.errorprone.refasterrules.AssertJRulesRecipes
-  - org.openrewrite.java.testing.assertj.AssertJShortRulesRecipes
   - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes
   - tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes
   - org.openrewrite.java.testing.assertj.CollapseConsecutiveAssertThatStatements
   - org.openrewrite.java.testing.assertj.ReturnActual
   - org.openrewrite.java.testing.assertj.SimplifyRedundantAssertJChains
+  - org.openrewrite.java.testing.assertj.MigrateAssertionsForClassAndInterfaceTypes
   - org.openrewrite.java.testing.assertj.StaticImports
 
 ```

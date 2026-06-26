@@ -1,4 +1,5 @@
 ---
+title: "Find non-constant-time comparison of cryptographic digests"
 sidebar_label: "Find non-constant-time comparison of cryptographic digests"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `if (log.isInfoEnabled) ...` guards"
 sidebar_label: "Find `if (log.isInfoEnabled) ...` guards"
 ---
 

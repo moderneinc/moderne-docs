@@ -1,4 +1,5 @@
 ---
+title: "Find weak cryptographic algorithms"
 sidebar_label: "Find weak cryptographic algorithms"
 ---
 

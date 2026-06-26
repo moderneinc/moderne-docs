@@ -1,4 +1,5 @@
 ---
+title: "Find `Gson()` allocations inside loops"
 sidebar_label: "Find `Gson()` allocations inside loops"
 ---
 

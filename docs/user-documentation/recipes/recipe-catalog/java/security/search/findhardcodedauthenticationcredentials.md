@@ -1,4 +1,5 @@
 ---
+title: "Find hardcoded authentication credentials"
 sidebar_label: "Find hardcoded authentication credentials"
 ---
 

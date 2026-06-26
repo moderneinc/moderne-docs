@@ -1,4 +1,5 @@
 ---
+title: "Mark imports of removed PrimeNG modules with TODO stubs"
 sidebar_label: "Mark imports of removed PrimeNG modules with TODO stubs"
 ---
 

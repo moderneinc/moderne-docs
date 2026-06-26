@@ -1,4 +1,5 @@
 ---
+title: "Find `Cipher.getInstance(&quot;AES&quot;)` calls without a mode"
 sidebar_label: "Find `Cipher.getInstance(&quot;AES&quot;)` calls without a mode"
 ---
 

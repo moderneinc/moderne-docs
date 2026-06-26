@@ -1,4 +1,5 @@
 ---
+title: "Find deprecated Android APIs"
 sidebar_label: "Find deprecated Android APIs"
 ---
 

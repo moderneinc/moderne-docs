@@ -1,4 +1,5 @@
 ---
+title: "Simplify null checks on `Optional` `@ConfigurationProperties` parameters"
 sidebar_label: "Simplify null checks on `Optional` `@ConfigurationProperties` parameters"
 ---
 

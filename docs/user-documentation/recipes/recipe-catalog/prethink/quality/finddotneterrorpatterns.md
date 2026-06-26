@@ -1,4 +1,5 @@
 ---
+title: "Find .NET error patterns"
 sidebar_label: "Find .NET error patterns"
 ---
 

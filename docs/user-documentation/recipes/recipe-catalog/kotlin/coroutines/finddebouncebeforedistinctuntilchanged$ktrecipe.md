@@ -1,4 +1,5 @@
 ---
+title: "Find `debounce(...).distinctUntilChanged()` patterns"
 sidebar_label: "Find `debounce(...).distinctUntilChanged()` patterns"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Is likely a Spring Boot project"
 sidebar_label: "Is likely a Spring Boot project"
 ---
 

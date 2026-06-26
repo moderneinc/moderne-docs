@@ -1,4 +1,5 @@
 ---
+title: "Migrate query decorators to signal-based functions"
 sidebar_label: "Migrate query decorators to signal-based functions"
 ---
 

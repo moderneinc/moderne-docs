@@ -1,4 +1,5 @@
 ---
+title: "Find manual null-check idioms"
 sidebar_label: "Find manual null-check idioms"
 ---
 

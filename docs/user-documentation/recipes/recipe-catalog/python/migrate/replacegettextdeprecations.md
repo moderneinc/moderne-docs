@@ -1,4 +1,5 @@
 ---
+title: "Replace deprecated gettext l*gettext() functions"
 sidebar_label: "Replace deprecated gettext l*gettext() functions"
 ---
 

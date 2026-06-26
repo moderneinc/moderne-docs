@@ -1,4 +1,5 @@
 ---
+title: "Find `@Stable` classes holding mutable-collection properties"
 sidebar_label: "Find `@Stable` classes holding mutable-collection properties"
 ---
 

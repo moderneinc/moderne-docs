@@ -1,4 +1,5 @@
 ---
+title: "Find `@Immutable` on classes with `var` properties"
 sidebar_label: "Find `@Immutable` on classes with `var` properties"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Encrypt ElastiCache Redis in transit"
 sidebar_label: "Encrypt ElastiCache Redis in transit"
 ---
 

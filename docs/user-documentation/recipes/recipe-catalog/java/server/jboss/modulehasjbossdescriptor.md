@@ -1,4 +1,5 @@
 ---
+title: "Module has JBoss descriptor"
 sidebar_label: "Module has JBoss descriptor"
 ---
 

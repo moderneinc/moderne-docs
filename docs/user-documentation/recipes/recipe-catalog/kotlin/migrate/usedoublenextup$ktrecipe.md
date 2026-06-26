@@ -1,4 +1,5 @@
 ---
+title: "Use `Double.nextUp()` instead of `java.lang.Math.nextUp`"
 sidebar_label: "Use `Double.nextUp()` instead of `java.lang.Math.nextUp`"
 ---
 

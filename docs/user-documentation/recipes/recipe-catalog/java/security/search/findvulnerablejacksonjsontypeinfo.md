@@ -1,4 +1,5 @@
 ---
+title: "Find vulnerable uses of Jackson `@JsonTypeInfo`"
 sidebar_label: "Find vulnerable uses of Jackson `@JsonTypeInfo`"
 ---
 

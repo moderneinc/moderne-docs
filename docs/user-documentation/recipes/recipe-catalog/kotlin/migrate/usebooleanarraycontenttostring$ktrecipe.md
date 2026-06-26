@@ -1,4 +1,5 @@
 ---
+title: "Use `BooleanArray.contentToString()` instead of `Arrays.toString(arr)`"
 sidebar_label: "Use `BooleanArray.contentToString()` instead of `Arrays.toString(arr)`"
 ---
 

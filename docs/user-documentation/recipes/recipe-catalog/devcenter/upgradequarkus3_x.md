@@ -1,4 +1,5 @@
 ---
+title: "Upgrade to Quarkus 3.26"
 sidebar_label: "Upgrade to Quarkus 3.26"
 ---
 

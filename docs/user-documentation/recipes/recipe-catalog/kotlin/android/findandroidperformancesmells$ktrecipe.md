@@ -1,4 +1,5 @@
 ---
+title: "Find Android-specific performance smells"
 sidebar_label: "Find Android-specific performance smells"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Find `LocalBroadcastManager.getInstance(...)` usage"
 sidebar_label: "Find `LocalBroadcastManager.getInstance(...)` usage"
 ---
 

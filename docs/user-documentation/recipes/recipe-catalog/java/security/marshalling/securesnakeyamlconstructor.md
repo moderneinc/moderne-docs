@@ -1,4 +1,5 @@
 ---
+title: "Secure the use of SnakeYAML's constructor"
 sidebar_label: "Secure the use of SnakeYAML's constructor"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Migrate Oracle SQL to PostgreSQL"
 sidebar_label: "Migrate Oracle SQL to PostgreSQL"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Encrypt EBS volumes"
 sidebar_label: "Encrypt EBS volumes"
 ---
 

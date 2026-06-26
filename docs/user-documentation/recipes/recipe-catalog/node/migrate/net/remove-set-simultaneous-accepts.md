@@ -1,4 +1,5 @@
 ---
+title: "Remove deprecated `net._setSimultaneousAccepts()`"
 sidebar_label: "Remove deprecated `net._setSimultaneousAccepts()`"
 ---
 

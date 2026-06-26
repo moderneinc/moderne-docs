@@ -1,4 +1,5 @@
 ---
+title: "Prefer `emptyList()` / `emptySet()` / `emptyMap()` over zero-arg builders"
 sidebar_label: "Prefer `emptyList()` / `emptySet()` / `emptyMap()` over zero-arg builders"
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Extract magic numbers to named constants"
 sidebar_label: "Extract magic numbers to named constants"
 ---
 

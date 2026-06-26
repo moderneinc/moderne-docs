@@ -1,4 +1,5 @@
 ---
+title: "Replace `Enum.values()` with `Enum.entries`"
 sidebar_label: "Replace `Enum.values()` with `Enum.entries`"
 ---
 

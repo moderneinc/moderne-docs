@@ -1,4 +1,5 @@
 ---
+title: "Migrate packages to modular starters"
 sidebar_label: "Migrate packages to modular starters"
 ---
 
@@ -262,6 +263,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Change type](../../../java/changetype)
   * oldFullyQualifiedTypeName: `org.springframework.boot.actuate.health.AdditionalHealthEndpointPath`
   * newFullyQualifiedTypeName: `org.springframework.boot.health.actuate.endpoint.AdditionalHealthEndpointPath`
+* [Change type](../../../java/changetype)
+  * oldFullyQualifiedTypeName: `org.springframework.boot.actuate.health.CompositeHealth`
+  * newFullyQualifiedTypeName: `org.springframework.boot.health.actuate.endpoint.CompositeHealthDescriptor`
+* [Change type](../../../java/changetype)
+  * oldFullyQualifiedTypeName: `org.springframework.boot.actuate.health.HealthComponent`
+  * newFullyQualifiedTypeName: `org.springframework.boot.health.actuate.endpoint.HealthDescriptor`
 * [Change type](../../../java/changetype)
   * oldFullyQualifiedTypeName: `org.springframework.boot.actuate.health.HealthEndpoint`
   * newFullyQualifiedTypeName: `org.springframework.boot.health.actuate.endpoint.HealthEndpoint`
@@ -556,6 +563,12 @@ recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.springframework.boot.actuate.health.AdditionalHealthEndpointPath
       newFullyQualifiedTypeName: org.springframework.boot.health.actuate.endpoint.AdditionalHealthEndpointPath
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: org.springframework.boot.actuate.health.CompositeHealth
+      newFullyQualifiedTypeName: org.springframework.boot.health.actuate.endpoint.CompositeHealthDescriptor
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: org.springframework.boot.actuate.health.HealthComponent
+      newFullyQualifiedTypeName: org.springframework.boot.health.actuate.endpoint.HealthDescriptor
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.springframework.boot.actuate.health.HealthEndpoint
       newFullyQualifiedTypeName: org.springframework.boot.health.actuate.endpoint.HealthEndpoint

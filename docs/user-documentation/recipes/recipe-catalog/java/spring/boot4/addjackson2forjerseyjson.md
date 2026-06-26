@@ -1,4 +1,5 @@
 ---
+title: "Add Jackson2 for Jersey using JSON"
 sidebar_label: "Add Jackson2 for Jersey using JSON"
 ---
 

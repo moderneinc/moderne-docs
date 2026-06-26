@@ -1,4 +1,5 @@
 ---
+title: "Ensure Web App uses the latest version of TLS encryption"
 sidebar_label: "Ensure Web App uses the latest version of TLS encryption"
 ---
 
