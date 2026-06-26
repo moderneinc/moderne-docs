@@ -1,6 +1,7 @@
 ---
 sidebar_label: Coordinating migrations with parent POMs
 description: How to coordinate migrations across repositories that share a common parent POM.
+keywords: [parent pom migration, maven parent pom, coordinated migrations, multi-repository migration]
 ---
 
 # Coordinating migrations with parent POMs

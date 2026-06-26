@@ -1,6 +1,7 @@
 ---
 sidebar_label: Migrate to a newer version of Java
 description: How to upgrade Java codebases to the latest LTS or an intermediate version with the Moderne Platform or CLI.
+keywords: [migrate to java, upgrade java version, java 25, java 21, java 17, java 11, java 8, java migration]
 ---
 
 import Tabs from '@theme/Tabs';

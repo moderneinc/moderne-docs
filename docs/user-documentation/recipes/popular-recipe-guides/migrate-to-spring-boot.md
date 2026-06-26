@@ -1,6 +1,7 @@
 ---
 sidebar_label: Migrate to a newer version of Spring Boot
 description: How to upgrade Spring Boot codebases to the latest version with the Moderne Platform or CLI.
+keywords: [migrate spring boot, upgrade spring boot, spring boot 4, spring boot 3, spring boot 2 to 3, spring boot migration]
 ---
 
 import Tabs from '@theme/Tabs';
