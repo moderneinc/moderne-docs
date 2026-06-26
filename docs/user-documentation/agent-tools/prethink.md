@@ -9,7 +9,7 @@ import ReactPlayer from '@site/src/components/VideoPlayer';
 
 Moderne Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. Instead of forcing AI agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
 
-<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FuOaGA7JYTc' controls="true" />
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=BFXrZ8JfbVU' controls="true" />
 
 ## Why use Prethink
 
