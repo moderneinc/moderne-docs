@@ -763,6 +763,21 @@ const recipes = {
         },
         {
           type: 'category' as const,
+          label: 'Set up your environment',
+          link: {
+            type: 'generated-index' as const,
+            title: 'Set up your environment',
+            description: 'Set up your local environment for writing OpenRewrite recipes.',
+            slug: '/user-documentation/recipes/authoring-recipes/set-up',
+            keywords: ['recipes', 'authoring', 'setup'],
+          },
+          items: [
+            'user-documentation/recipes/authoring-recipes/set-up/recipe-development-environment',
+            'user-documentation/recipes/authoring-recipes/set-up/javascript-recipe-development-environment',
+          ],
+        },
+        {
+          type: 'category' as const,
           label: 'Writing recipes',
           link: {
             type: 'generated-index' as const,
