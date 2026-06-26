@@ -740,6 +740,9 @@ const recipes = {
             'user-documentation/recipes/authoring-recipes/concepts/markers',
             'user-documentation/recipes/authoring-recipes/concepts/traits',
             'user-documentation/recipes/authoring-recipes/concepts/styles',
+            'user-documentation/recipes/authoring-recipes/concepts/javatemplate',
+            'user-documentation/recipes/authoring-recipes/concepts/tree-visiting-printer',
+            'user-documentation/recipes/authoring-recipes/concepts/quarks',
           ],
         },
         {
