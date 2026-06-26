@@ -259,4 +259,4 @@ We'd recommend **creating a separate library** to contain the recipes rather tha
 
 The last thing you'll need to do is run your recipe in the appropriate places. To activate/run a recipe inside of a repository, check out our [quickstart guide on setting up a project and running recipes](https://docs.openrewrite.org/running-recipes/getting-started).
 
-Or, if you think you'll need to do this on a large scale, consider using the Moderne Platform, which can run recipes against thousands of repositories at once without having to manually configure or change anything.
+Or, if you think you'll need to do this on a large scale, consider using Moderne, which can run recipes against thousands of repositories at once without having to manually configure or change anything.

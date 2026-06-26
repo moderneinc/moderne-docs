@@ -368,6 +368,6 @@ OpenRewrite recipes only run on a single repository at a time. Likewise, a data 
 
 For instance, if you had 1000 repositories you wanted to check, you'd have to configure _each repository_, run the recipe, and build up your own CSV that concatenates all 1000 results together. That would take a considerable amount of time and effort for only a single recipe. If you wanted to run multiple recipes that produced multiple data tables - it spirals out of control even more quickly.
 
-Fortunately, the Moderne Platform can help with this. Data tables can be produced for any types of repositories (whether they're built with Maven or not) without any configuration changes. The Moderne Platform can also run recipes against all of your repositories at once in a significantly shorter period of time.
+Fortunately, Moderne can help with this. Data tables can be produced for any types of repositories (whether they're built with Maven or not) without any configuration changes. Moderne can also run recipes against all of your repositories at once in a significantly shorter period of time.
 
 For more information about data tables in Moderne, check out our [getting started with data tables guide](../../../moderne-platform/getting-started/data-tables.md). 
